@@ -1,29 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PickFlame : MonoBehaviour
 {
-    public float fireDamage = 10;
+    public float energy = 10;
 
     void Start()
     {
-        fireDamage = Random.Range(7f, 15f);
+        energy = Random.Range(7f, 15f);
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<PlayerHealth>().TakeDamage((int)fireDamage);
+            other.GetComponent<PlayerHealth>().TakeDamage((int)energy);
             Destroy(gameObject);
             // add particle effect
         }
         if (other.CompareTag("Flame"))
         {
-            if (other.GetComponent<PickFlame>().fireDamage>fireDamage)
+            if (other.GetComponent<PickFlame>().energy>energy)
             {
-                Debug.Log("flame on flame");
                 Destroy(gameObject);
             }
         }

@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 846535088814142961}
   - component: {fileID: 846535088814142962}
   - component: {fileID: -1258511795110198064}
+  - component: {fileID: -1930452274212337034}
   m_Layer: 0
   m_Name: WaterDrop
-  m_TagString: Untagged
+  m_TagString: Waterdrop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 635e3b69f5da4429ea8d4ed5caf5077d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waterValue: 10
+  energy: 10
 --- !u!50 &-1258511795110198064
 Rigidbody2D:
   serializedVersion: 4
@@ -148,3 +149,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-1930452274212337034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846535088814142963}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2d493437a1584dc6b9af88112de6031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingPosition: {x: 0, y: 0, z: 0}
+  finalPosition: {x: 0, y: 0, z: 0}
+  timer: 2
+  startingScale: {x: 0, y: 0, z: 0}
+  finalScale: {x: 0, y: 0, z: 0}

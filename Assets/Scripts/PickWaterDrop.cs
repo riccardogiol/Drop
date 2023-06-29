@@ -1,16 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PickWaterDrop : MonoBehaviour
+public class PickWaterdrop : MonoBehaviour
 {
-    public int waterValue = 10;
+    public float energy = 10;
+
+    void Start()
+    {
+        energy = Random.Range(10f, 17f);
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<PlayerHealth>().FillReservoir(waterValue);
+            other.GetComponent<PlayerHealth>().FillReservoir((int)energy);
             Destroy(gameObject);
             // add particle effect
         }
@@ -18,6 +21,13 @@ public class PickWaterDrop : MonoBehaviour
         {
             // check energy difference
             Destroy(other.gameObject);
+        }
+        if (other.CompareTag("Waterdrop"))
+        {
+            if (other.GetComponent<PickWaterdrop>().energy > energy)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
