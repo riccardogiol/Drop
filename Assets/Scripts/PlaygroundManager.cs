@@ -60,6 +60,20 @@ public class PlaygroundManager : MonoBehaviour
         return WaterCell(cell);
     }
 
+    public void WaterCollision(Vector3 position, Vector2 velocity)
+    {
+        Vector3Int cell = wallTilemap.WorldToCell(position);
+        if (wallTilemap.GetTile(cell) != null)
+        {
+            WaterCell(cell);
+        }
+        else
+        {
+            Vector3Int nextCell = wallTilemap.WorldToCell(position + (Vector3)velocity.normalized);
+            WaterCell(nextCell);
+        }
+    }
+
     public int WaterCell(Vector3Int cell)
     {
         int waterDamage = walkTilemap.GetComponent<TileStateManager>().WaterTile(cell);

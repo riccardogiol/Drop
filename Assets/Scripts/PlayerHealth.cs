@@ -15,15 +15,6 @@ public class PlayerHealth : MonoBehaviour
         healthBar.SetHealth(currentHealth);
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TakeDamage(20);
-        }
-        
-    }
-
     public void TakeDamage(int damage)
     {
         currentHealth = Math.Max( currentHealth - damage, 0);
