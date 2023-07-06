@@ -14,11 +14,8 @@ public class PlaygroundManager : MonoBehaviour
     public GameObject flamePrefab;
     public GameObject waterdropPrefab;
 
-    private int[,] tileStates;
-
     void Start()
     {
-        tileStates = new int[10,10];
     }
 
     void Update()
@@ -28,7 +25,6 @@ public class PlaygroundManager : MonoBehaviour
 
     public void AddFlame(Vector3Int cell)
     {
-        Debug.Log("New flame in cell " + cell);
         Vector3 cellCenter = walkTilemap.GetCellCenterWorld(cell);
         GameObject newFlame = Instantiate(flamePrefab, cellCenter, Quaternion.identity);
         newFlame.transform.parent = flameParent.transform;
@@ -50,7 +46,7 @@ public class PlaygroundManager : MonoBehaviour
     public void BurnCell(Vector3Int cell)
     {
         walkTilemap.GetComponent<TileStateManager>().BurnTile(cell);
-        wallTilemap.GetComponent<TileStateManager>().BurnTile(cell);
+        wallTilemap.GetComponent<RuleTileStateManager>().BurnTile(cell);
 
     }
 
@@ -60,8 +56,9 @@ public class PlaygroundManager : MonoBehaviour
         return WaterCell(cell);
     }
 
-    public void WaterCollision(Vector3 position, Vector2 velocity)
+    public void WaterCollision(Vector3 position)
     {
+        /*
         Vector3Int cell = wallTilemap.WorldToCell(position);
         if (wallTilemap.GetTile(cell) != null)
         {
@@ -72,12 +69,13 @@ public class PlaygroundManager : MonoBehaviour
             Vector3Int nextCell = wallTilemap.WorldToCell(position + (Vector3)velocity.normalized);
             WaterCell(nextCell);
         }
+            */
     }
 
     public int WaterCell(Vector3Int cell)
     {
         int waterDamage = walkTilemap.GetComponent<TileStateManager>().WaterTile(cell);
-        waterDamage += wallTilemap.GetComponent<TileStateManager>().WaterTile(cell);
+        waterDamage += wallTilemap.GetComponent<RuleTileStateManager>().WaterTile(cell);
         return waterDamage;
     }
 }

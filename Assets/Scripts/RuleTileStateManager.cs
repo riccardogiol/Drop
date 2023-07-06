@@ -1,10 +1,10 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class TileStateManager : MonoBehaviour
+public class RuleTileStateManager : MonoBehaviour
 {
-    public Tile burntGrassTile;
-    public Tile grassTile;
+    public RuleTile burntTile;
+    public RuleTile cleanTile;
     private Tilemap tilemap;
 
     public int burntTileDamage;
@@ -17,21 +17,21 @@ public class TileStateManager : MonoBehaviour
 
     public void BurnTile(Vector3Int cell)
     {
-        Tile currentTile = tilemap.GetTile<Tile>(cell);
+        RuleTile currentTile = tilemap.GetTile<RuleTile>(cell);
         if (currentTile)
         {
-            tilemap.SetTile(cell, burntGrassTile);
+            tilemap.SetTile(cell, burntTile);
             // show fire animation
         }
     }
 
     public int WaterTile(Vector3Int cell)
     {
-        Tile currentTile = tilemap.GetTile<Tile>(cell);
-        if (currentTile == burntGrassTile)
+        RuleTile currentTile = tilemap.GetTile<RuleTile>(cell);
+        if (currentTile == burntTile)
         {
-            tilemap.SetTile(cell, grassTile);
-            // show fire animation
+            tilemap.SetTile(cell, cleanTile);
+            // show watering animation
             return burntTileDamage;
         }
         return 0;
