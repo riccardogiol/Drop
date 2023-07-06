@@ -7,6 +7,7 @@ public class PickWaterdrop : MonoBehaviour
     void Start()
     {
         energy = Random.Range(10f, 17f);
+        // regulate size in function of the energy
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -20,12 +21,14 @@ public class PickWaterdrop : MonoBehaviour
         if (other.CompareTag("Flame"))
         {
             // check energy difference
+            // update size on one or othe rside
             Destroy(other.gameObject);
         }
         if (other.CompareTag("Waterdrop"))
         {
             if (other.GetComponent<PickWaterdrop>().energy > energy)
             {
+                // regulate size on other side
                 Destroy(gameObject);
             }
         }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -14,15 +12,6 @@ public class PlaygroundManager : MonoBehaviour
     public GameObject flamePrefab;
     public GameObject waterdropPrefab;
 
-    void Start()
-    {
-    }
-
-    void Update()
-    {
-        
-    }
-
     public void AddFlame(Vector3Int cell)
     {
         Vector3 cellCenter = walkTilemap.GetCellCenterWorld(cell);
@@ -36,10 +25,11 @@ public class PlaygroundManager : MonoBehaviour
     {
         for (int x = cell.x - 1; x <= cell.x + 1; x++)
         {
-            for (int y = cell.y - 1; y <= cell.y + 1; y++)
-            {
-                BurnCell(new Vector3Int(x, y, 0));
-            }
+            BurnCell(new Vector3Int(x, cell.y, 0));
+        }
+        for (int y = cell.y - 1; y <= cell.y + 1; y++)
+        {
+            BurnCell(new Vector3Int(cell.x, y, 0));
         }
     }
 
@@ -47,29 +37,12 @@ public class PlaygroundManager : MonoBehaviour
     {
         walkTilemap.GetComponent<TileStateManager>().BurnTile(cell);
         wallTilemap.GetComponent<RuleTileStateManager>().BurnTile(cell);
-
     }
 
     public int WaterOnPosition(Vector3 position)
     {
         Vector3Int cell = walkTilemap.WorldToCell(position);
         return WaterCell(cell);
-    }
-
-    public void WaterCollision(Vector3 position)
-    {
-        /*
-        Vector3Int cell = wallTilemap.WorldToCell(position);
-        if (wallTilemap.GetTile(cell) != null)
-        {
-            WaterCell(cell);
-        }
-        else
-        {
-            Vector3Int nextCell = wallTilemap.WorldToCell(position + (Vector3)velocity.normalized);
-            WaterCell(nextCell);
-        }
-            */
     }
 
     public int WaterCell(Vector3Int cell)

@@ -24,5 +24,6 @@ public class PickFlame : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+        // add simmetry as for waterdrop if we want flames to be thrown
     }
 }

@@ -44,6 +44,7 @@ public class Sparkler : MonoBehaviour
     void SpawnPrefab(Vector3 movement)
     {
         GameObject goRef = Instantiate(prefab, transform.position + movement/4, Quaternion.identity);
+        goRef.transform.localScale = new Vector3(0, 0, 0);
         goRef.transform.parent = parent.transform;
         LinearMovement compRef = goRef.GetComponent<LinearMovement>();
         compRef.enabled = true;
