@@ -14,6 +14,7 @@ public class TemporaryPlaceFlames : MonoBehaviour
         {
             Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3Int cell = tilemap.WorldToCell(worldPosition);
+            Debug.Log(cell);
             playground.GetComponent<PlaygroundManager>().AddFlame(cell);
         }
         

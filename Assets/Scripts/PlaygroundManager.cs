@@ -12,6 +12,11 @@ public class PlaygroundManager : MonoBehaviour
     public GameObject flamePrefab;
     public GameObject waterdropPrefab;
 
+    void Start()
+    {
+        walkTilemap.GetComponent<RuleTileStateManager>().EvaluateTilesState();
+    }
+
     public void AddFlame(Vector3Int cell)
     {
         Vector3 cellCenter = walkTilemap.GetCellCenterWorld(cell);
@@ -31,11 +36,18 @@ public class PlaygroundManager : MonoBehaviour
         {
             BurnCell(new Vector3Int(cell.x, y, 0));
         }
+        EvaluateCleanSurface();
+    }
+
+    public void FireOnPosition(Vector3 position)
+    {
+        Vector3Int cell = walkTilemap.WorldToCell(position);
+        BurnCell(cell);
     }
 
     public void BurnCell(Vector3Int cell)
     {
-        walkTilemap.GetComponent<TileStateManager>().BurnTile(cell);
+        walkTilemap.GetComponent<RuleTileStateManager>().BurnTile(cell);
         wallTilemap.GetComponent<RuleTileStateManager>().BurnTile(cell);
     }
 
@@ -47,8 +59,17 @@ public class PlaygroundManager : MonoBehaviour
 
     public int WaterCell(Vector3Int cell)
     {
-        int waterDamage = walkTilemap.GetComponent<TileStateManager>().WaterTile(cell);
-        waterDamage += wallTilemap.GetComponent<RuleTileStateManager>().WaterTile(cell);
+        int waterDamage = walkTilemap.GetComponent<RuleTileStateManager>().WaterTile(cell);
+        if (waterDamage > 0)
+        {
+            waterDamage += wallTilemap.GetComponent<RuleTileStateManager>().WaterTile(cell);
+            EvaluateCleanSurface();
+        }
         return waterDamage;
+    }
+
+    void EvaluateCleanSurface()
+    {
+        Debug.Log(walkTilemap.GetComponent<RuleTileStateManager>().numberBurntTiles());
     }
 }

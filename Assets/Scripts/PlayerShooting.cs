@@ -30,6 +30,8 @@ public class PlayerShooting : MonoBehaviour
     {
         GameObject bullet = Instantiate(bulletPrefab, transform.position + playerMovement.lastDirection, Quaternion.LookRotation(Vector3.forward, playerMovement.lastDirection));
         bullet.GetComponent<PickWaterdrop>().energy = bulletEnergy;
+        bullet.GetComponent<PickWaterdrop>().maxEnergy = bulletEnergy;
+        bullet.transform.localScale = new Vector3(0.5f, 0.5f, 1);
         bullet.GetComponent<Bullet>().playgroundManager = playgroundManager;
         bullet.GetComponent<Rigidbody2D>().velocity = playerMovement.lastDirection * bulletSpeed;
     }

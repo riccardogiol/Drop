@@ -3,10 +3,17 @@ using UnityEngine;
 public class PickFlame : MonoBehaviour
 {
     public float energy = 10;
+    public float maxEnergy = 15f;
 
-    void Start()
+    void Awake()
     {
-        energy = Random.Range(7f, 15f);
+        energy = Random.Range(7f, maxEnergy);
+        ScaleOnEnergy();   
+    }
+
+    public void ScaleOnEnergy()
+    {
+        transform.localScale = new Vector3(energy/maxEnergy, energy/maxEnergy, 1);
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -14,6 +21,12 @@ public class PickFlame : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             other.GetComponent<PlayerHealth>().TakeDamage((int)energy);
+            Destroy(gameObject);
+            // add particle effect
+        }
+        if (other.CompareTag("Enemy"))
+        {
+            other.GetComponent<EnemyHealth>().FillReservoir((int)energy);
             Destroy(gameObject);
             // add particle effect
         }
