@@ -16,7 +16,8 @@ public class EnemyHealth : MonoBehaviour
 
     public void ScaleOnHealth()
     {
-        transform.localScale = new Vector3((float)currentHealth/maxHealth, (float)currentHealth/maxHealth, 1);
+        float scale = Math.Max((float)currentHealth/maxHealth, 0.4f);
+        transform.localScale = new Vector3(scale, scale, 1);
     }
 
     public void TakeDamage(int damage)

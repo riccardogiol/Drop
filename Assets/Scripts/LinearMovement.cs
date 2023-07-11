@@ -8,6 +8,7 @@ public class LinearMovement : MonoBehaviour
     private float elapsedTime;
     private bool isMoving = false;
 
+    public bool scale = false;
     public Vector3 startingScale;
     public Vector3 finalScale;
 
@@ -34,12 +35,14 @@ public class LinearMovement : MonoBehaviour
             {
                 isMoving = false;
                 transform.position = finalPosition;
-                transform.localScale = finalScale;
+                if (scale)
+                    transform.localScale = finalScale;
                 this.enabled = false;
                 return;
             }
             transform.position = Vector3.Lerp(startingPosition, finalPosition, elapsedTime/timer);
-            transform.localScale = Vector3.Lerp(startingScale, finalScale, elapsedTime/timer);
+            if (scale)
+                transform.localScale = Vector3.Lerp(startingScale, finalScale, elapsedTime/timer);
         }
 
     }
