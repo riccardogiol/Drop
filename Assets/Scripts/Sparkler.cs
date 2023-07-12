@@ -47,7 +47,6 @@ public class Sparkler : MonoBehaviour
         goRef.transform.localScale = new Vector3(0, 0, 0);
         goRef.transform.parent = parent.transform;
         LinearMovement compRef = goRef.GetComponent<LinearMovement>();
-        compRef.enabled = true;
         compRef.startingScale = new Vector3(0, 0, 0);
         compRef.MoveTo(transform.position + movement, 0.5f);
     }

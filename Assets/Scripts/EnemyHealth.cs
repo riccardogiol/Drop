@@ -6,6 +6,8 @@ public class EnemyHealth : MonoBehaviour
     public int maxHealth = 50;
     public int currentHealth;
 
+    public Transform enemyGFX;
+
     //add/show? public HealthBar healthBar;
 
     void Start()
@@ -17,7 +19,7 @@ public class EnemyHealth : MonoBehaviour
     public void ScaleOnHealth()
     {
         float scale = Math.Max((float)currentHealth/maxHealth, 0.4f);
-        transform.localScale = new Vector3(scale, scale, 1);
+        enemyGFX.localScale = new Vector3(scale, scale, 1);
     }
 
     public void TakeDamage(int damage)

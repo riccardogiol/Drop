@@ -19,6 +19,7 @@ public class LinearMovement : MonoBehaviour
 
     public void MoveTo(Vector3 finalPos, float time)
     {
+        this.enabled = true;
         startingPosition = transform.position;
         finalPosition = finalPos;
         timer = time;

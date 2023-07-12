@@ -18,8 +18,7 @@ public class RuleTileStateManager : MonoBehaviour
 
     public int burntTileDamage;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         tilemap = GetComponent<Tilemap>();
     }

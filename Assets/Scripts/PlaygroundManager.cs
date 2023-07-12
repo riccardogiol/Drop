@@ -17,6 +17,12 @@ public class PlaygroundManager : MonoBehaviour
         walkTilemap.GetComponent<RuleTileStateManager>().EvaluateTilesState();
     }
 
+    public void FlameOnPosition(Vector3 position)
+    {
+        Vector3Int cell = walkTilemap.WorldToCell(position);
+        AddFlame(cell);
+    }
+
     public void AddFlame(Vector3Int cell)
     {
         Vector3 cellCenter = walkTilemap.GetCellCenterWorld(cell);
@@ -70,6 +76,7 @@ public class PlaygroundManager : MonoBehaviour
 
     void EvaluateCleanSurface()
     {
-        Debug.Log(walkTilemap.GetComponent<RuleTileStateManager>().numberBurntTiles());
+        //Debug.Log(walkTilemap.GetComponent<RuleTileStateManager>().numberBurntTiles());
+        // make game win once it is 0
     }
 }
