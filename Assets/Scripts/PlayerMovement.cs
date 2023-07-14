@@ -4,6 +4,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public Rigidbody2D player;
+    public SpriteFacing spriteFacing;
 
     Vector2 movement;
     public Vector3 lastDirection;
@@ -11,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         lastDirection = new Vector3(1, 0, 0);
+        spriteFacing.changeSide(lastDirection);
     }
 
     // Update is called once per frame
@@ -22,12 +24,18 @@ public class PlayerMovement : MonoBehaviour
         if (movement.magnitude > 0)
         {
             //update direction
+            Vector3 newDirection;
             if (movement.x != 0)
             {
-                lastDirection = new Vector3(movement.x, 0, 0);
+                newDirection = new Vector3(movement.x, 0, 0);
             } else {
-                lastDirection = new Vector3(0, movement.y, 0);
+                newDirection = new Vector3(0, movement.y, 0);
             }
+            if (lastDirection != newDirection)
+            {
+                spriteFacing.changeSide(newDirection);
+            }
+            lastDirection = newDirection;
 
             //react with tilemap
             gameObject.GetComponent<PlayerGroundInteraction>().NewPosition();

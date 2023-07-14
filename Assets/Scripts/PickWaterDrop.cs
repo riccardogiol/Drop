@@ -4,6 +4,8 @@ public class PickWaterdrop : MonoBehaviour
 {
     public float energy = 10;
     public float maxEnergy = 20f;
+    public Transform waterdropGFX;
+
 
     void Awake()
     {
@@ -13,7 +15,8 @@ public class PickWaterdrop : MonoBehaviour
 
     public void ScaleOnEnergy()
     {
-        transform.localScale = new Vector3(energy/maxEnergy, energy/maxEnergy, 1);
+        //gradient and different images
+        waterdropGFX.localScale = new Vector3(energy/maxEnergy, energy/maxEnergy, 1);
     }
 
     void OnTriggerEnter2D(Collider2D other)
