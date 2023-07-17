@@ -15,13 +15,13 @@ public class SpriteFacing : MonoBehaviour
         back.enabled = false;
         left.enabled = false;
         right.enabled = false;
-        if (facing == new Vector3(0, -1, 0))
+        if (facing.y < -0.1)
             front.enabled = true;
-        else if (facing == new Vector3(0, 1, 0))
+        else if (facing.y > 0.1)
             back.enabled = true;
-        else if (facing == new Vector3(-1, 0, 0))
+        else if (facing.x < -0.1)
             left.enabled = true;
-        else if (facing == new Vector3(1, 0, 0))
+        else
             right.enabled = true;
     }
 }

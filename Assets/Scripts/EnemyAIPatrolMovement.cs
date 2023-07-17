@@ -18,6 +18,7 @@ public class EnemyAIPatrolMovement : MonoBehaviour
 
     Seeker seeker;
     LinearMovement lm;
+    SpriteFacing spriteFacing;
 
     bool wasDisabled = false;
 
@@ -25,6 +26,9 @@ public class EnemyAIPatrolMovement : MonoBehaviour
     {
         seeker = GetComponent<Seeker>();
         lm = GetComponent<LinearMovement>();
+        spriteFacing = GetComponent<SpriteFacing>();
+
+        spriteFacing.changeSide(new Vector3(0, -1, 0));
 
         currentTarget = targets[currentTargetIndex];
         InvokeRepeating("UpdatePath", 0f, 2f);
@@ -71,6 +75,10 @@ public class EnemyAIPatrolMovement : MonoBehaviour
                 float distance = Vector2.Distance(transform.position, path.vectorPath[currentWaypoint]);
                 if (distance < nextWaypointDistance)
                     currentWaypoint = Math.Min(currentWaypoint + 1, path.vectorPath.Count - 1);
+                
+                Vector3 nextDirection = (path.vectorPath[currentWaypoint] - transform.position).normalized;
+                if(nextDirection.magnitude != 0)
+                    spriteFacing.changeSide(nextDirection);
                 lm.MoveTo(path.vectorPath[currentWaypoint], jumpSpeed);
 
                 if (Vector2.Distance(transform.position, currentTarget) < nextWaypointDistance)

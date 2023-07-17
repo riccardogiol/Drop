@@ -4,14 +4,15 @@ public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public Rigidbody2D player;
-    public SpriteFacing spriteFacing;
-
+    
+    SpriteFacing spriteFacing;
     Vector2 movement;
     public Vector3 lastDirection;
 
     void Start()
     {
         lastDirection = new Vector3(1, 0, 0);
+        spriteFacing = GetComponent<SpriteFacing>();
         spriteFacing.changeSide(lastDirection);
     }
 
