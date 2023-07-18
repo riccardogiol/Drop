@@ -5,8 +5,11 @@ public class PlayerShooting : MonoBehaviour
     public GameObject bulletPrefab;
     public float bulletSpeed = 10f;
     public float bulletEnergy = 5f;
+    public float bulletDamage = 15f;
 
     public Transform shootingPoint;
+    public float cooldown = 1.5f;
+    float timer;
 
     public PlaygroundManager playgroundManager;
     
@@ -17,23 +20,30 @@ public class PlayerShooting : MonoBehaviour
     {
         playerMovement = GetComponent<PlayerMovement>();
         playerHealth = GetComponent<PlayerHealth>();
+        timer = 0;
     }
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (timer > 0)
+            timer -= Time.deltaTime;
+        else if(Input.GetKeyDown(KeyCode.Space))
         {
-            playerHealth.TakeDamage((int)bulletEnergy);
-            Shoot();
+            if (playerHealth.currentHealth > bulletEnergy)
+            { 
+                playerHealth.TakeDamage((int)bulletEnergy);
+                Shoot();
+                timer = cooldown;
+            }
+            // else sound finished ammos
         }
     }
 
     void Shoot()
     {
-        GameObject bullet = Instantiate(bulletPrefab, shootingPoint.position + playerMovement.lastDirection, Quaternion.LookRotation(Vector3.forward, playerMovement.lastDirection));
-        bullet.GetComponent<PickWaterdrop>().energy = bulletEnergy;
-        bullet.GetComponent<PickWaterdrop>().maxEnergy = bulletEnergy;
-        bullet.transform.localScale = new Vector3(0.5f, 0.5f, 1);
+        GameObject bullet = Instantiate(bulletPrefab, shootingPoint.position + (playerMovement.lastDirection * 0.2f), Quaternion.LookRotation(Vector3.forward, playerMovement.lastDirection));
+        bullet.GetComponent<Bullet>().energy = bulletEnergy;
+        bullet.GetComponent<Bullet>().damage = bulletDamage;
         bullet.GetComponent<Bullet>().playgroundManager = playgroundManager;
         bullet.GetComponent<Rigidbody2D>().velocity = playerMovement.lastDirection * bulletSpeed;
     }
