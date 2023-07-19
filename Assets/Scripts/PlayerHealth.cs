@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public StageManager stageManager;
+
     public int maxHealth = 100;
     public int currentHealth;
 
@@ -19,7 +21,11 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth = Math.Max( currentHealth - damage, 0);
         healthBar.SetHealth(currentHealth);
-        // condition it dies!
+        if(currentHealth == 0)
+        {
+            //add some effect
+            stageManager.GameOver();
+        }
     }
     
 

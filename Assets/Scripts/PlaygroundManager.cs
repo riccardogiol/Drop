@@ -3,6 +3,8 @@ using UnityEngine.Tilemaps;
 
 public class PlaygroundManager : MonoBehaviour
 {
+    public StageManager stageManager;
+
     public Tilemap walkTilemap;
     public Tilemap wallTilemap;
 
@@ -76,7 +78,7 @@ public class PlaygroundManager : MonoBehaviour
 
     void EvaluateCleanSurface()
     {
-        //Debug.Log(walkTilemap.GetComponent<RuleTileStateManager>().numberBurntTiles());
-        // make game win once it is 0
+        if (walkTilemap.GetComponent<RuleTileStateManager>().numberBurntTiles() == 0)
+            stageManager.WinGame();
     }
 }

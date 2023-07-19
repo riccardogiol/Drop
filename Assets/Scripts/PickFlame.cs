@@ -8,7 +8,7 @@ public class PickFlame : MonoBehaviour
 
     void Awake()
     {
-        energy = Random.Range(7f, maxEnergy);
+        energy = Random.Range(energy, maxEnergy);
         ScaleOnEnergy();   
     }
 

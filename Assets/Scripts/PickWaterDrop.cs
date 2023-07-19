@@ -9,7 +9,7 @@ public class PickWaterdrop : MonoBehaviour
 
     void Awake()
     {
-        energy = Random.Range(10f, maxEnergy);
+        energy = Random.Range(energy, maxEnergy);
         ScaleOnEnergy();
     }
 
