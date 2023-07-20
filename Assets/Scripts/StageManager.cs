@@ -6,17 +6,14 @@ public class StageManager : MonoBehaviour
     public string nextSceneName = "WorldMap";
 
     public bool finalStage = false;
-    public string[] LevelsUnlocked;
+    public string LevelCleaned = "Lvl1";
     
     public void WinGame()
     {
         if (finalStage)
         {
             // popup menu saying you won (press enter in that menu?)
-            for (int i = 0; i < LevelsUnlocked.Length; i++)
-            {
-                PlayerPrefs.SetInt(LevelsUnlocked[i], 1);
-            }
+            PlayerPrefs.SetInt(LevelCleaned, 1);
             SceneManager.LoadScene("WorldMap");
         } else {
             // popup menu saying you cleared the stage
