@@ -5,25 +5,39 @@ public class StageManager : MonoBehaviour
 {
     public string nextSceneName = "WorldMap";
 
+    public string currentLvl = "1";
+    public string currentStage = "1";
+
     public bool finalStage = false;
     public string LevelCleaned = "Lvl1";
+
+    public MenusManager menusManager;
     
     public void WinGame()
     {
         if (finalStage)
         {
-            // popup menu saying you won (press enter in that menu?)
             PlayerPrefs.SetInt(LevelCleaned, 1);
-            SceneManager.LoadScene("WorldMap");
+            menusManager.LevelCleared();
         } else {
-            // popup menu saying you cleared the stage
-            SceneManager.LoadScene(nextSceneName);
+            menusManager.StageCleared();
         }
     }
 
     public void GameOver()
     {
-         // popup menu saying you evaporated (press enter in that menu?)
+         menusManager.GameOver();
+    }
+
+    public void GoNextStage()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(nextSceneName);
+    }
+
+    public void GoWorldMap()
+    {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("WorldMap");
     }
 }
