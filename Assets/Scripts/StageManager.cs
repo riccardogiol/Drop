@@ -3,21 +3,20 @@ using UnityEngine.SceneManagement;
 
 public class StageManager : MonoBehaviour
 {
-    public string nextSceneName = "WorldMap";
-
-    public string currentLvl = "1";
-    public string currentStage = "1";
+    public int currentLvl = 1;
+    public int currentStage = 1;
 
     public bool finalStage = false;
-    public string LevelCleaned = "Lvl1";
 
     public MenusManager menusManager;
+
+    //Start procedure functions
     
     public void WinGame()
     {
         if (finalStage)
         {
-            PlayerPrefs.SetInt(LevelCleaned, 1);
+            PlayerPrefs.SetInt("Lvl" + currentLvl, 1);
             menusManager.LevelCleared();
         } else {
             menusManager.StageCleared();
@@ -29,15 +28,20 @@ public class StageManager : MonoBehaviour
          menusManager.GameOver();
     }
 
+    //Close stage functions
+
     public void GoNextStage()
     {
         Time.timeScale = 1f;
+        MenusManager.isPaused = false;
+        string nextSceneName = "Stage" + currentLvl + "-" + (currentStage + 1);
         SceneManager.LoadScene(nextSceneName);
     }
 
     public void GoWorldMap()
     {
         Time.timeScale = 1f;
+        MenusManager.isPaused = false;
         SceneManager.LoadScene("WorldMap");
     }
 }

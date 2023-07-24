@@ -16,30 +16,32 @@ public class PlayerMovement : MonoBehaviour
         spriteFacing.changeSide(lastDirection);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        // handle input here
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-        if (movement.magnitude > 0)
+        if(!MenusManager.isPaused)
         {
-            //update direction
-            Vector3 newDirection;
-            if (movement.x != 0)
+            // handle input here
+            movement.x = Input.GetAxisRaw("Horizontal");
+            movement.y = Input.GetAxisRaw("Vertical");
+            if (movement.magnitude > 0)
             {
-                newDirection = new Vector3(movement.x, 0, 0);
-            } else {
-                newDirection = new Vector3(0, movement.y, 0);
-            }
-            if (lastDirection != newDirection)
-            {
-                spriteFacing.changeSide(newDirection);
-            }
-            lastDirection = newDirection;
+                //update direction
+                Vector3 newDirection;
+                if (movement.x != 0)
+                {
+                    newDirection = new Vector3(movement.x, 0, 0);
+                } else {
+                    newDirection = new Vector3(0, movement.y, 0);
+                }
+                if (lastDirection != newDirection)
+                {
+                    spriteFacing.changeSide(newDirection);
+                }
+                lastDirection = newDirection;
 
-            //react with tilemap
-            gameObject.GetComponent<PlayerGroundInteraction>().NewPosition();
+                //react with tilemap
+                gameObject.GetComponent<PlayerGroundInteraction>().NewPosition();
+            }
         }
         
     }

@@ -46,10 +46,4 @@ public class LevelButtonManager : MonoBehaviour
         } else
             lockedImage.enabled = true;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

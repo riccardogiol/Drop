@@ -9,11 +9,12 @@ public class MenusManager : MonoBehaviour
     GameObject stageClearedMenu;
     GameObject levelClearedMenu;
     GameObject shader;
+    
+    public GameObject openMessage;
 
     public StageManager stageManager;
-    public PlayerMovement playerMovement;
 
-    public bool isPaused = false;
+    public static bool isPaused = false;
     public bool messageOnScreen = false;
 
     
@@ -50,6 +51,19 @@ public class MenusManager : MonoBehaviour
         levelClearedMenu.SetActive(false);
         messageOnScreen = false;
 
+        if (openMessage != null)
+        {
+            messageOnScreen = true;
+            Time.timeScale = 0f;
+            openMessage.SetActive(true);
+            shader.SetActive(true);
+            isPaused = true;
+            auxTrans = openMessage.transform.Find("ContinueButton");
+            if (auxTrans == null)
+                return;
+            auxTrans.GetComponent<Button>().Select();
+        }
+
     }
 
     void Update()
@@ -71,7 +85,6 @@ public class MenusManager : MonoBehaviour
         Time.timeScale = 0f;
         pauseMenu.SetActive(true);
         shader.SetActive(true);
-        playerMovement.enabled = false;
         isPaused = true;
         Transform auxTrans = pauseMenu.transform.Find("ResumeButton");
         if (auxTrans == null)
@@ -89,7 +102,6 @@ public class MenusManager : MonoBehaviour
         Time.timeScale = 0f;
         stageClearedMenu.SetActive(true);
         shader.SetActive(true);
-        playerMovement.enabled = false;
         isPaused = true;
         Transform auxTrans = stageClearedMenu.transform.Find("NextStageButton");
         if (auxTrans == null)
@@ -107,7 +119,6 @@ public class MenusManager : MonoBehaviour
         Time.timeScale = 0f;
         gameOverMenu.SetActive(true);
         shader.SetActive(true);
-        playerMovement.enabled = false;
         isPaused = true;
         Transform auxTrans = gameOverMenu.transform.Find("WorldMapButton");
         if (auxTrans == null)
@@ -125,7 +136,6 @@ public class MenusManager : MonoBehaviour
         Time.timeScale = 0f;
         levelClearedMenu.SetActive(true);
         shader.SetActive(true);
-        playerMovement.enabled = false;
         isPaused = true;
         Transform auxTrans = levelClearedMenu.transform.Find("WorldMapButton");
         if (auxTrans == null)
@@ -141,8 +151,10 @@ public class MenusManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         pauseMenu.SetActive(false);
+        if (openMessage != null)
+            openMessage.SetActive(false);
         shader.SetActive(false);
-        playerMovement.enabled = true;
         isPaused = false;
+        messageOnScreen = false;
     }
 }
