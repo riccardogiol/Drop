@@ -31,7 +31,7 @@ public class EnemyAIPatrolMovement : MonoBehaviour
         spriteFacing.changeSide(new Vector3(0, -1, 0));
 
         currentTarget = targets[currentTargetIndex];
-        InvokeRepeating("UpdatePath", 0f, 2f);
+        InvokeRepeating("UpdatePath", 0f, jumpInterval);
         
         StartCoroutine(NextStep());
     }

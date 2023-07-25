@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class MenusManager : MonoBehaviour
 {
@@ -93,7 +92,7 @@ public class MenusManager : MonoBehaviour
         auxTrans = pauseMenu.transform.Find("LevelText");
         if (auxTrans == null)
             return;
-        auxTrans.GetComponent<TextMeshProUGUI>().text = "Level " + stageManager.currentLvl + " - Stage " + stageManager.currentStage;
+        auxTrans.GetComponent<Text>().text = "Level " + stageManager.currentLvl + " - Stage " + stageManager.currentStage;
     }
 
     public void StageCleared()
@@ -110,7 +109,7 @@ public class MenusManager : MonoBehaviour
         auxTrans = stageClearedMenu.transform.Find("LevelText");
         if (auxTrans == null)
             return;
-        auxTrans.GetComponent<TextMeshProUGUI>().text = "Level " + stageManager.currentLvl + " - Stage " + stageManager.currentStage;
+        auxTrans.GetComponent<Text>().text = "Level " + stageManager.currentLvl + " - Stage " + stageManager.currentStage;
     }
 
     public void GameOver()
@@ -127,7 +126,7 @@ public class MenusManager : MonoBehaviour
         auxTrans = gameOverMenu.transform.Find("LevelText");
         if (auxTrans == null)
             return;
-        auxTrans.GetComponent<TextMeshProUGUI>().text = "Level " + stageManager.currentLvl + " - Stage " + stageManager.currentStage;
+        auxTrans.GetComponent<Text>().text = "Level " + stageManager.currentLvl + " - Stage " + stageManager.currentStage;
     }
 
     public void LevelCleared()
@@ -144,7 +143,7 @@ public class MenusManager : MonoBehaviour
         auxTrans = levelClearedMenu.transform.Find("LevelText");
         if (auxTrans == null)
             return;
-        auxTrans.GetComponent<TextMeshProUGUI>().text = "Level " + stageManager.currentLvl + " - Stage " + stageManager.currentStage;
+        auxTrans.GetComponent<Text>().text = "Level " + stageManager.currentLvl + " - Stage " + stageManager.currentStage;
     }
 
     public void Resume()

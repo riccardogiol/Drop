@@ -17,6 +17,7 @@ public class PlaygroundManager : MonoBehaviour
     void Start()
     {
         walkTilemap.GetComponent<RuleTileStateManager>().EvaluateTilesState();
+        wallTilemap.GetComponent<RuleTileStateManager>().EvaluateTilesState();
     }
 
     public void FlameOnPosition(Vector3 position)
@@ -76,7 +77,9 @@ public class PlaygroundManager : MonoBehaviour
 
     void EvaluateCleanSurface()
     {
-        if (walkTilemap.GetComponent<RuleTileStateManager>().numberBurntTiles() == 0)
+        int burntTiles = walkTilemap.GetComponent<RuleTileStateManager>().numberBurntTiles();
+        burntTiles += wallTilemap.GetComponent<RuleTileStateManager>().numberBurntTiles();
+        if (burntTiles == 0)
             stageManager.WinGame();
     }
 }

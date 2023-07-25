@@ -8,7 +8,7 @@ public class LevelSelector : MonoBehaviour
 
     void Start()
     {
-        PlayerPrefs.SetInt("Level1", 1);
+        PlayerPrefs.SetInt("Lvl0", 1);
         for (int i = 0; i < LevelButton.Length; i++)
         {
             if (PlayerPrefs.GetInt(LevelButton[i].name, 0) == 1)
@@ -22,5 +22,10 @@ public class LevelSelector : MonoBehaviour
     public void OpenLevel(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+    }
+
+    public void GoMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

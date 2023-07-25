@@ -27,7 +27,7 @@ public class EnemyAIChasingMovement : MonoBehaviour
 
         spriteFacing.changeSide(new Vector3(0, -1, 0));
         
-        InvokeRepeating("UpdatePath", 0f, 2f);
+        InvokeRepeating("UpdatePath", 0f, jumpInterval);
         
         StartCoroutine(NextStep());
     }

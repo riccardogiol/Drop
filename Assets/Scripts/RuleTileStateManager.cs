@@ -7,16 +7,16 @@ public class RuleTileStateManager : MonoBehaviour
     public RuleTile cleanTile;
 
     public int minXCell = 0;
-    public int maxXCell = 0;
+    public int maxXCell = 40;
     public int minYCell = 0;
-    public int maxYCell = 0;
+    public int maxYCell = 40;
 
     private Tilemap tilemap;
 
     private int tileNumber;
     private int burntTileNumber;
 
-    public int burntTileDamage;
+    public int burntTileDamage = 3;
 
     void Awake()
     {

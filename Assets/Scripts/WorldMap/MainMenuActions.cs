@@ -17,6 +17,7 @@ public class MainMenuActions : MonoBehaviour
     {
         // add disclaimer in the case the game is already started
         PlayerPrefs.DeleteAll();
+        PlayerPrefs.SetInt("Lvl0", 1);
         SceneManager.LoadScene("WorldMap");
     }
 
