@@ -2079,7 +2079,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d66b788dec5d410684f6008a48b2fb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: Stage1-2
   currentLvl: 1
   currentStage: 1
   finalStage: 0
@@ -2231,6 +2230,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2098056895}
+    - target: {fileID: 1715595832030293733, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoWorldMap
+      objectReference: {fileID: 0}
     - target: {fileID: 1715595832168650442, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_IsActive
