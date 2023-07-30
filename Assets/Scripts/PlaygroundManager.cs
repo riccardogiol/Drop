@@ -32,6 +32,7 @@ public class PlaygroundManager : MonoBehaviour
         GameObject newFlame = Instantiate(flamePrefab, cellCenter, Quaternion.identity);
         newFlame.transform.parent = flameParent.transform;
 
+        FindObjectOfType<AudioManager>().Play("FireBurst");
         BurnCellsAround(cell);
     }
 

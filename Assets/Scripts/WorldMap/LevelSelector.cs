@@ -16,16 +16,21 @@ public class LevelSelector : MonoBehaviour
                 LevelButton[i].interactable = true;
             }
         }
+        
+        FindObjectOfType<AudioManager>().Play("OpeningMusic");
+        FindObjectOfType<AudioManager>().Stop("BackgroundMusic");
 
     }
 
     public void OpenLevel(string sceneName)
     {
+        FindObjectOfType<AudioManager>().Play("SelectSound");
         SceneManager.LoadScene(sceneName);
     }
 
     public void GoMainMenu()
     {
+        FindObjectOfType<AudioManager>().Play("SelectSound");
         SceneManager.LoadScene("MainMenu");
     }
 }

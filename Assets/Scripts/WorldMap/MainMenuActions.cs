@@ -11,6 +11,8 @@ public class MainMenuActions : MonoBehaviour
             continueButton.interactable = true;
         else
             continueButton.interactable = false;
+        FindObjectOfType<AudioManager>().Play("OpeningMusic");
+
     }
 
     public void NewGame()
@@ -18,16 +20,19 @@ public class MainMenuActions : MonoBehaviour
         // add disclaimer in the case the game is already started
         PlayerPrefs.DeleteAll();
         PlayerPrefs.SetInt("Lvl0", 1);
+        FindObjectOfType<AudioManager>().Play("SelectSound");
         SceneManager.LoadScene("WorldMap");
     }
 
     public void ContinueGame()
     {
+        FindObjectOfType<AudioManager>().Play("SelectSound");
         SceneManager.LoadScene("WorldMap");
     }
 
     public void QuitGame()
     {
+        FindObjectOfType<AudioManager>().Play("SelectSound");
         Application.Quit();
     }
 }

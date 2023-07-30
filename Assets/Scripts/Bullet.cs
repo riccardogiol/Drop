@@ -24,6 +24,7 @@ public class Bullet : MonoBehaviour
                 other.GetComponent<PickFlame>().ScaleOnEnergy();
             }
         }
+        FindObjectOfType<AudioManager>().Play("BulletExplosion");
         Destroy(gameObject);
     }
 }

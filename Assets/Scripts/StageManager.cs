@@ -10,6 +10,12 @@ public class StageManager : MonoBehaviour
 
     public MenusManager menusManager;
 
+    void Start()
+    {
+        FindObjectOfType<AudioManager>().Stop("OpeningMusic");
+        FindObjectOfType<AudioManager>().Play("BackgroundMusic");
+    }
+
     //Start procedure functions
     
     public void WinGame()

@@ -24,6 +24,7 @@ public class PickWaterdrop : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             other.GetComponent<PlayerHealth>().FillReservoir((int)energy);
+            FindObjectOfType<AudioManager>().Play("PickWater");
             Destroy(gameObject);
             // add particle effect
         }
