@@ -10,7 +10,7 @@ public class Singleton : MonoBehaviour
             instance = this;
         else
         {
-            Destroy(gameObject);
+            DestroyImmediate(gameObject);
             return;
         }
         DontDestroyOnLoad(gameObject);

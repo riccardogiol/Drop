@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -14,10 +15,15 @@ public class PlaygroundManager : MonoBehaviour
     public GameObject flamePrefab;
     public GameObject waterdropPrefab;
 
+    private int totalTiles = 0;
+
     void Start()
     {
         walkTilemap.GetComponent<RuleTileStateManager>().EvaluateTilesState();
         wallTilemap.GetComponent<RuleTileStateManager>().EvaluateTilesState();
+        totalTiles = walkTilemap.GetComponent<RuleTileStateManager>().numberTiles();
+        totalTiles += wallTilemap.GetComponent<RuleTileStateManager>().numberTiles();
+        Debug.Log(totalTiles);
     }
 
     public void FlameOnPosition(Vector3 position)
@@ -61,6 +67,24 @@ public class PlaygroundManager : MonoBehaviour
         wallTilemap.GetComponent<RuleTileStateManager>().BurnTile(cell);
     }
 
+    public void WaveOnPosition(Vector3 position)
+    {
+        Vector3Int cell = walkTilemap.WorldToCell(position);
+        WaterCellsAround(cell);
+    }
+    
+    public void WaterCellsAround(Vector3Int cell)
+    {
+        for (int x = cell.x - 1; x <= cell.x + 1; x++)
+        {
+            for (int y = cell.y - 1; y <= cell.y + 1; y++)
+            {
+                WaterCell(new Vector3Int(x, y, 0));
+            }
+        }
+        EvaluateCleanSurface();
+    }
+
     public int WaterOnPosition(Vector3 position)
     {
         Vector3Int cell = walkTilemap.WorldToCell(position);
@@ -80,7 +104,8 @@ public class PlaygroundManager : MonoBehaviour
     {
         int burntTiles = walkTilemap.GetComponent<RuleTileStateManager>().numberBurntTiles();
         burntTiles += wallTilemap.GetComponent<RuleTileStateManager>().numberBurntTiles();
-        if (burntTiles == 0)
+        Debug.Log(burntTiles);
+        if ((float)burntTiles/totalTiles <= 0.02)
             stageManager.WinGame();
     }
 }

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 782273169436171611}
   - component: {fileID: 782273169436171610}
   - component: {fileID: 782273169436171605}
+  - component: {fileID: 2792556921469393297}
   - component: {fileID: 782273169436171607}
   m_Layer: 0
   m_Name: Player
@@ -107,6 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca504422e4bf64631bf8ed4984a0734a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stageManager: {fileID: 0}
   maxHealth: 100
   currentHealth: 0
   healthBar: {fileID: 0}
@@ -141,6 +143,24 @@ MonoBehaviour:
   bulletEnergy: 5
   bulletDamage: 15
   shootingPoint: {fileID: 782273170797731220}
+  cooldown: 1.5
+  playgroundManager: {fileID: 0}
+--- !u!114 &2792556921469393297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782273169436171426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed5d76ca048e4ba482454a2207f4fd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wavePrefab: {fileID: 1746407697583636748, guid: 2b3f941eba6ba498ea8d05bfcbc0f04f,
+    type: 3}
+  waveEnergy: 5
+  waveDamage: 5
   cooldown: 1.5
   playgroundManager: {fileID: 0}
 --- !u!114 &782273169436171607

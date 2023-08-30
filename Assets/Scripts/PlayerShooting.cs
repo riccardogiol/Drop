@@ -12,6 +12,8 @@ public class PlayerShooting : MonoBehaviour
     float timer;
 
     public PlaygroundManager playgroundManager;
+
+    public ButtonFiller buttonFiller;
     
     PlayerMovement playerMovement;
     PlayerHealth playerHealth;
@@ -21,12 +23,17 @@ public class PlayerShooting : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         playerHealth = GetComponent<PlayerHealth>();
         timer = 0;
+        buttonFiller.SetMaxValue(cooldown);
+        buttonFiller.SetValue(0);
     }
 
     void Update()
     {
         if (timer > 0)
+        {
             timer -= Time.deltaTime;
+            buttonFiller.SetValue(timer);
+        }
         else if(Input.GetKeyDown(KeyCode.Space))
         {
             if (playerHealth.currentHealth > bulletEnergy)

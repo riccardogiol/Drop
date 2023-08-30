@@ -47,6 +47,11 @@ public class RuleTileStateManager : MonoBehaviour
         return burntTileNumber;
     }
 
+    public int numberTiles()
+    {
+        return tileNumber;
+    }
+
     public void BurnTile(Vector3Int cell)
     {
         RuleTile currentTile = tilemap.GetTile<RuleTile>(cell);
