@@ -19,25 +19,35 @@ public class PickFlame : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        switch (other.tag)
         {
-            other.GetComponent<PlayerHealth>().TakeDamage((int)energy);
-            Destroy(gameObject);
-            // add particle effect
+            case "Player":
+                other.GetComponent<PlayerHealth>().TakeDamage((int)energy);
+                DestroyFlame();
+                break;
+            case "Enemy":
+                float enemyHealthDiff = other.GetComponent<EnemyHealth>().maxHealth - other.GetComponent<EnemyHealth>().currentHealth;
+                other.GetComponent<EnemyHealth>().FillReservoir((int)energy);
+                if (enemyHealthDiff > energy)
+                {
+                    DestroyFlame();
+                } else {
+                    energy -= enemyHealthDiff;
+                    ScaleOnEnergy();
+                }
+                break;
+            case "Flame":
+                if (other.GetComponent<PickFlame>().energy>energy)
+                    DestroyFlame();
+                break;
         }
-        if (other.CompareTag("Enemy"))
-        {
-            other.GetComponent<EnemyHealth>().FillReservoir((int)energy);
-            Destroy(gameObject);
-            // add particle effect
-        }
-        if (other.CompareTag("Flame"))
-        {
-            if (other.GetComponent<PickFlame>().energy>energy)
-            {
-                Destroy(gameObject);
-            }
-        }
-        // add simmetry as for waterdrop if we want flames to be thrown
+    }
+
+    public void DestroyFlame()
+    {
+        PlaygroundManager pgRef = FindObjectOfType<PlaygroundManager>();
+        if (pgRef != null)
+            pgRef.FlameEstinguished();
+        Destroy(gameObject);
     }
 }

@@ -11,7 +11,6 @@ public class Wave : MonoBehaviour
 
     void Start()
     {
-        playgroundManager.WaveOnPosition(transform.position);
         float minX=0, maxX=1, minY=0, maxY=1;
         int sector = 0;
         for (int i = 0; i < 12; i++)
@@ -47,13 +46,15 @@ public class Wave : MonoBehaviour
             return;
         if (other.CompareTag("Wall"))
             playgroundManager.WaterOnPosition(other.transform.position);
+        if (other.CompareTag("Grass"))
+            playgroundManager.WaterOnPosition(other.transform.position);
         if (other.CompareTag("Enemy"))
             other.GetComponent<EnemyHealth>().TakeDamage((int)damage);
         if (other.CompareTag("Flame"))
         {
             float otherEnergy = other.GetComponent<PickFlame>().energy;
             if (otherEnergy < damage)
-                Destroy(other.gameObject);
+                other.GetComponent<PickFlame>().DestroyFlame();
             else {
                 other.GetComponent<PickFlame>().energy -= damage;
                 other.GetComponent<PickFlame>().ScaleOnEnergy();

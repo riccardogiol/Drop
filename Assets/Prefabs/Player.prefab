@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 782273169436171605}
   - component: {fileID: 2792556921469393297}
   - component: {fileID: 782273169436171607}
+  - component: {fileID: 4035631993216704086}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -145,6 +146,7 @@ MonoBehaviour:
   shootingPoint: {fileID: 782273170797731220}
   cooldown: 1.5
   playgroundManager: {fileID: 0}
+  buttonFiller: {fileID: 0}
 --- !u!114 &2792556921469393297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,6 +165,7 @@ MonoBehaviour:
   waveDamage: 5
   cooldown: 1.5
   playgroundManager: {fileID: 0}
+  buttonFiller: {fileID: 0}
 --- !u!114 &782273169436171607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,6 +182,22 @@ MonoBehaviour:
   back: {fileID: 782273170275899322}
   left: {fileID: 782273170689419463}
   right: {fileID: 782273169818127887}
+--- !u!58 &4035631993216704086
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782273169436171426}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.15}
+  serializedVersion: 2
+  m_Radius: 0.2
 --- !u!1 &782273169818127885
 GameObject:
   m_ObjectHideFlags: 0

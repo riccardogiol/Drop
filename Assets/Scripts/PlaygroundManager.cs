@@ -16,6 +16,10 @@ public class PlaygroundManager : MonoBehaviour
     public GameObject waterdropPrefab;
 
     private int totalTiles = 0;
+    private int burntTiles = 0;
+    private float fireValue = 0;
+    private float progressionPerc = 0;
+    public ButtonFiller progressionBar;
 
     void Start()
     {
@@ -23,6 +27,7 @@ public class PlaygroundManager : MonoBehaviour
         wallTilemap.GetComponent<RuleTileStateManager>().EvaluateTilesState();
         totalTiles = walkTilemap.GetComponent<RuleTileStateManager>().numberTiles();
         totalTiles += wallTilemap.GetComponent<RuleTileStateManager>().numberTiles();
+        fireValue = flameParent.GetComponent<FireCounter>().FireValue();
         Debug.Log(totalTiles);
     }
 
@@ -37,6 +42,8 @@ public class PlaygroundManager : MonoBehaviour
         Vector3 cellCenter = walkTilemap.GetCellCenterWorld(cell);
         GameObject newFlame = Instantiate(flamePrefab, cellCenter, Quaternion.identity);
         newFlame.transform.parent = flameParent.transform;
+        flameParent.GetComponent<FireCounter>().flameCounter++;
+        fireValue = flameParent.GetComponent<FireCounter>().FireValue();
 
         FindObjectOfType<AudioManager>().Play("FireBurst");
         BurnCellsAround(cell);
@@ -52,7 +59,6 @@ public class PlaygroundManager : MonoBehaviour
         {
             BurnCell(new Vector3Int(cell.x, y, 0));
         }
-        EvaluateCleanSurface();
     }
 
     public void FireOnPosition(Vector3 position)
@@ -65,23 +71,6 @@ public class PlaygroundManager : MonoBehaviour
     {
         walkTilemap.GetComponent<RuleTileStateManager>().BurnTile(cell);
         wallTilemap.GetComponent<RuleTileStateManager>().BurnTile(cell);
-    }
-
-    public void WaveOnPosition(Vector3 position)
-    {
-        Vector3Int cell = walkTilemap.WorldToCell(position);
-        WaterCellsAround(cell);
-    }
-    
-    public void WaterCellsAround(Vector3Int cell)
-    {
-        for (int x = cell.x - 1; x <= cell.x + 1; x++)
-        {
-            for (int y = cell.y - 1; y <= cell.y + 1; y++)
-            {
-                WaterCell(new Vector3Int(x, y, 0));
-            }
-        }
         EvaluateCleanSurface();
     }
 
@@ -100,12 +89,36 @@ public class PlaygroundManager : MonoBehaviour
         return waterDamage;
     }
 
+    public void FlameEstinguished()
+    {
+        flameParent.GetComponent<FireCounter>().flameCounter--;
+        fireValue = flameParent.GetComponent<FireCounter>().FireValue();
+        Debug.Log("Fire value: " + fireValue);
+        EvaluateLevelProgression();
+    }
+
+    public void WildfireEstinguished()
+    {
+        flameParent.GetComponent<FireCounter>().wildfireCounter--;
+        fireValue = flameParent.GetComponent<FireCounter>().FireValue();
+        Debug.Log("Fire value: " + fireValue);
+        EvaluateLevelProgression();
+    }
+
     void EvaluateCleanSurface()
     {
-        int burntTiles = walkTilemap.GetComponent<RuleTileStateManager>().numberBurntTiles();
+        burntTiles = walkTilemap.GetComponent<RuleTileStateManager>().numberBurntTiles();
         burntTiles += wallTilemap.GetComponent<RuleTileStateManager>().numberBurntTiles();
         Debug.Log(burntTiles);
-        if ((float)burntTiles/totalTiles <= 0.02)
+        EvaluateLevelProgression();
+    }
+
+    void EvaluateLevelProgression()
+    {
+        progressionPerc = 1 - (fireValue + burntTiles)/totalTiles;
+        Debug.Log("Progression perc: " + progressionPerc);
+        progressionBar.SetValue(progressionPerc);
+        if (progressionPerc >= 0.98)
             stageManager.WinGame();
     }
 }

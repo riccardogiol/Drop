@@ -22,10 +22,6 @@ public class EnemyGroundInteraction : MonoBehaviour
     {
         while(true)
         {
-            //take damage?
-            playground.FireOnPosition(transform.position);
-            //GetComponent<PlayerHealth>().TakeDamage(damage);
-
             if ((transform.position - oldPosition).magnitude > 0.9f)
             {
                 if (Random.value > 0.5)
@@ -34,8 +30,15 @@ public class EnemyGroundInteraction : MonoBehaviour
                 }
                 oldPosition = transform.position;
             }
-
             yield return new WaitForSeconds(checkingInterval);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Grass"))
+        {
+            playground.FireOnPosition(other.transform.position);
         }
     }
 }

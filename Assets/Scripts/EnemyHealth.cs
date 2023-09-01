@@ -28,6 +28,9 @@ public class EnemyHealth : MonoBehaviour
         ScaleOnHealth();
         if (currentHealth <= 0)
         {
+            PlaygroundManager pgRef = FindObjectOfType<PlaygroundManager>();
+            if (pgRef != null)
+                pgRef.WildfireEstinguished();
             Destroy(gameObject);
         }
     }

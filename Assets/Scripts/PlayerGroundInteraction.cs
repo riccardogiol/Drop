@@ -1,12 +1,16 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerGroundInteraction : MonoBehaviour
 {
     public PlaygroundManager playground;
-    
-    public void NewPosition()
+
+    void OnTriggerEnter2D(Collider2D other)
     {
-        int damage = playground.WaterOnPosition(transform.position);
-        GetComponent<PlayerHealth>().TakeDamage(damage);
+        if (other.CompareTag("Grass"))
+        {
+            int damage = playground.WaterOnPosition(other.transform.position);
+            GetComponent<PlayerHealth>().TakeDamage(damage);
+        }
     }
 }

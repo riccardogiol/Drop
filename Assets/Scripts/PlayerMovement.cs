@@ -38,9 +38,6 @@ public class PlayerMovement : MonoBehaviour
                     spriteFacing.changeSide(newDirection);
                 }
                 lastDirection = newDirection;
-
-                //react with tilemap
-                gameObject.GetComponent<PlayerGroundInteraction>().NewPosition();
             }
         }
         

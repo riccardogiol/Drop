@@ -8,21 +8,28 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
-            return;
-        if (other.CompareTag("Wall"))
-            playgroundManager.WaterOnPosition(other.transform.position);
-        if (other.CompareTag("Enemy"))
-            other.GetComponent<EnemyHealth>().TakeDamage((int)damage);
-        if (other.CompareTag("Flame"))
+        switch (other.tag)
         {
-            float otherEnergy = other.GetComponent<PickFlame>().energy;
-            if (otherEnergy < damage)
-                Destroy(other.gameObject);
-            else {
-                other.GetComponent<PickFlame>().energy -= damage;
-                other.GetComponent<PickFlame>().ScaleOnEnergy();
-            }
+            case "Enemy":
+                other.GetComponent<EnemyHealth>().TakeDamage((int)damage);
+                break;
+            case "Grass":
+                playgroundManager.WaterOnPosition(other.transform.position);
+                return;
+            case "Player":
+                return;
+            case "Wall":
+                playgroundManager.WaterOnPosition(other.transform.position);
+                break;
+            case "Flame":
+                float otherEnergy = other.GetComponent<PickFlame>().energy;
+                if (otherEnergy < damage)
+                    other.GetComponent<PickFlame>().DestroyFlame();
+                else {
+                    other.GetComponent<PickFlame>().energy -= damage;
+                    other.GetComponent<PickFlame>().ScaleOnEnergy();
+                }
+                break;
         }
         FindObjectOfType<AudioManager>().Play("BulletExplosion");
         Destroy(gameObject);

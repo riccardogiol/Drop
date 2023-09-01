@@ -21,44 +21,39 @@ public class PickWaterdrop : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        switch (other.tag)
         {
+        case "Player":
             other.GetComponent<PlayerHealth>().FillReservoir((int)energy);
             FindObjectOfType<AudioManager>().Play("PickWater");
             Destroy(gameObject);
-            // add particle effect
-        }
-        if (other.CompareTag("Enemy"))
-        {
+            break;
+        case "Enemy":
             other.GetComponent<EnemyHealth>().TakeDamage((int)energy);
             Destroy(gameObject);
-            // add particle effect
-        }
-        if (other.CompareTag("Flame"))
-        {
-            // check energy difference
+            break ;
+        case "Flame":
             float otherEnergy = other.GetComponent<PickFlame>().energy;
             if (otherEnergy < energy)
             {
                 energy -= otherEnergy;
                 ScaleOnEnergy();
-                Destroy(other.gameObject);
-                // show particle effect
+                other.GetComponent<PickFlame>().DestroyFlame();
             } else {
                 other.GetComponent<PickFlame>().energy -= energy;
                 other.GetComponent<PickFlame>().ScaleOnEnergy();
                 Destroy(gameObject);
-                // show particle effect
             }
-            // update size on one or othe rside
-        }
-        if (other.CompareTag("Waterdrop"))
-        {
+            break;
+        case "Waterdrop":
             if (other.GetComponent<PickWaterdrop>().energy > energy)
             {
-                // regulate size on other side
                 Destroy(gameObject);
             }
+            break;
+        case "Grass":
+            FindObjectOfType<PlaygroundManager>().WaterOnPosition(transform.position);
+            break;
         }
     }
 }
