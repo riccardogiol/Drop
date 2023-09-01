@@ -5,7 +5,7 @@ public class PlayerShooting : MonoBehaviour
     public GameObject bulletPrefab;
     public float bulletSpeed = 10f;
     public float bulletEnergy = 5f;
-    public float bulletDamage = 15f;
+    public float bulletDamage = 10f;
 
     public Transform shootingPoint;
     public float cooldown = 1.5f;

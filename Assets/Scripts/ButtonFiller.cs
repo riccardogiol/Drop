@@ -10,6 +10,11 @@ public class ButtonFiller : MonoBehaviour
         slider.maxValue = value;
     }
 
+    public void SetMinValue(float value)
+    {
+        slider.minValue = value;
+    }
+
     public void SetValue(float currentValue)
     {
         slider.value = currentValue;

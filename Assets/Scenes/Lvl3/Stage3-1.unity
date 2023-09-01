@@ -3844,6 +3844,9 @@ MonoBehaviour:
   waterdropPrefab: {fileID: 846535088814142963, guid: 71606232f6a1f405ab748a75268d3cba,
     type: 3}
   progressionBar: {fileID: 938732785}
+  minProgressionPerc: 0.4
+  loseProgressionPerc: 0.5
+  winProgressionPerc: 0.98
 --- !u!1001 &852230263
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3932,6 +3935,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 782273169436171605, guid: 3f422914225544c0481e1f2cbf09cc96,
         type: 3}
+      propertyPath: bulletDamage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 782273169436171605, guid: 3f422914225544c0481e1f2cbf09cc96,
+        type: 3}
       propertyPath: buttonFiller
       value: 
       objectReference: {fileID: 1715595832320993898}
@@ -3955,6 +3963,11 @@ PrefabInstance:
       propertyPath: stageManager
       value: 
       objectReference: {fileID: 2098056895}
+    - target: {fileID: 782273169436171614, guid: 3f422914225544c0481e1f2cbf09cc96,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 3.5
+      objectReference: {fileID: 0}
     - target: {fileID: 782273169436171615, guid: 3f422914225544c0481e1f2cbf09cc96,
         type: 3}
       propertyPath: m_RootOrder
@@ -6936,6 +6949,16 @@ PrefabInstance:
       propertyPath: m_Text
       value: Wild Fire appeared!
       objectReference: {fileID: 0}
+    - target: {fileID: 3322873949589055784, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322873949589055784, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_MinValue
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3835399740152799375, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -7014,6 +7037,11 @@ PrefabInstance:
     - target: {fileID: 5444028090378437002, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5444028090378437002, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5766869013694836603, guid: c7b202ae4dba84871811aa7c44bc43e3,

@@ -4,7 +4,7 @@ public class Bullet : MonoBehaviour
 {
     public PlaygroundManager playgroundManager;
     public float energy = 5;
-    public float damage = 15;
+    public float damage = 10;
 
     void OnTriggerEnter2D(Collider2D other)
     {

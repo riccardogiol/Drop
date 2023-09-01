@@ -15,11 +15,16 @@ public class PlaygroundManager : MonoBehaviour
     public GameObject flamePrefab;
     public GameObject waterdropPrefab;
 
+
     private int totalTiles = 0;
     private int burntTiles = 0;
     private float fireValue = 0;
     private float progressionPerc = 0;
     public ButtonFiller progressionBar;
+    // make it a slider in the unity editor
+    public float minProgressionPerc = 0.3f;
+    public float loseProgressionPerc = 0.45f;
+    public float winProgressionPerc = 0.98f;
 
     void Start()
     {
@@ -28,6 +33,7 @@ public class PlaygroundManager : MonoBehaviour
         totalTiles = walkTilemap.GetComponent<RuleTileStateManager>().numberTiles();
         totalTiles += wallTilemap.GetComponent<RuleTileStateManager>().numberTiles();
         fireValue = flameParent.GetComponent<FireCounter>().FireValue();
+        progressionBar.SetMinValue(minProgressionPerc);
         Debug.Log(totalTiles);
     }
 
