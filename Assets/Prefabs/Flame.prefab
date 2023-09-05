@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 351608897783991199}
   - component: {fileID: 8701150934190704425}
   - component: {fileID: 351608897783991170}
+  - component: {fileID: 8745705882468078219}
   m_Layer: 0
   m_Name: Flame
   m_TagString: Flame
@@ -96,7 +97,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   energy: 7
   maxEnergy: 15
-  flameGFX: {fileID: 6583054781906759048}
+  spriteChanger: {fileID: 8745705882468078219}
+--- !u!114 &8745705882468078219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351608897783991198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a2f54c8e4964c5b91666539ccb591d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 4361813338703181754}
+  randomlyFlipX: 1
+  sprites:
+  - {fileID: -1766014593, guid: 0d227bb735d2d49d5b3e025cccbc6984, type: 3}
+  - {fileID: -61540072, guid: 0d227bb735d2d49d5b3e025cccbc6984, type: 3}
+  - {fileID: 1402884298, guid: 0d227bb735d2d49d5b3e025cccbc6984, type: 3}
+  thresholds:
+  - 7
+  - 11
 --- !u!1 &4966454036529489779
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,7 +144,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4966454036529489779}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -170,7 +192,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 09cff07f4f75b44cfaec3d8e3975f356, type: 3}
+  m_Sprite: {fileID: 1402884298, guid: 0d227bb735d2d49d5b3e025cccbc6984, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

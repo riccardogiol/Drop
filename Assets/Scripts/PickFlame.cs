@@ -4,7 +4,7 @@ public class PickFlame : MonoBehaviour
 {
     public float energy = 10;
     public float maxEnergy = 15f;
-    public Transform flameGFX;
+    public SpriteChangingOnValue spriteChanger;
 
     void Awake()
     {
@@ -14,7 +14,7 @@ public class PickFlame : MonoBehaviour
 
     public void ScaleOnEnergy()
     {
-        flameGFX.localScale = new Vector3(energy/maxEnergy, energy/maxEnergy, 1);
+        spriteChanger.Evaluate(energy);
     }
 
     void OnTriggerEnter2D(Collider2D other)

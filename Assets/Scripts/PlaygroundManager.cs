@@ -33,6 +33,7 @@ public class PlaygroundManager : MonoBehaviour
         totalTiles = walkTilemap.GetComponent<RuleTileStateManager>().numberTiles();
         totalTiles += wallTilemap.GetComponent<RuleTileStateManager>().numberTiles();
         fireValue = flameParent.GetComponent<FireCounter>().FireValue();
+        progressionBar.SetGameOverLimit((loseProgressionPerc - minProgressionPerc) / (1-minProgressionPerc));
         Debug.Log(totalTiles);
     }
 
@@ -126,5 +127,7 @@ public class PlaygroundManager : MonoBehaviour
         progressionBar.SetValue(progressionPercOnMin);
         if (progressionPerc >= 0.98)
             stageManager.WinGame();
+        if (progressionPerc <= loseProgressionPerc)
+            stageManager.GameOver();
     }
 }

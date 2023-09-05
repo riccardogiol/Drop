@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class PickWaterdrop : MonoBehaviour
 {
-    public float energy = 10;
+    public float energy = 5;
     public float maxEnergy = 20f;
-    public Transform waterdropGFX;
+    public SpriteChangingOnValue spriteChanger;
 
 
     void Awake()
@@ -15,8 +15,7 @@ public class PickWaterdrop : MonoBehaviour
 
     public void ScaleOnEnergy()
     {
-        //gradient and different images
-        waterdropGFX.localScale = new Vector3(energy/maxEnergy, energy/maxEnergy, 1);
+        spriteChanger.Evaluate(energy);
     }
 
     void OnTriggerEnter2D(Collider2D other)

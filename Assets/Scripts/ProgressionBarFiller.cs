@@ -9,6 +9,8 @@ public class ProgressionBarFiller : MonoBehaviour
     public Image barr;
     public Image barrTop;
 
+    public Transform gameoverLimit;
+
     public void SetMaxValue(float value)
     {
         slider.maxValue = value;
@@ -17,6 +19,11 @@ public class ProgressionBarFiller : MonoBehaviour
     public void SetMinValue(float value)
     {
         slider.minValue = value;
+    }
+
+    public void SetGameOverLimit(float value)
+    {
+        gameoverLimit.Translate(- (value*400), 0, 0);
     }
 
     public void SetValue(float currentValue)
