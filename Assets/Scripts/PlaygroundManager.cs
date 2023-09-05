@@ -20,7 +20,7 @@ public class PlaygroundManager : MonoBehaviour
     private int burntTiles = 0;
     private float fireValue = 0;
     private float progressionPerc = 0;
-    public ButtonFiller progressionBar;
+    public ProgressionBarFiller progressionBar;
     // make it a slider in the unity editor
     public float minProgressionPerc = 0.3f;
     public float loseProgressionPerc = 0.45f;
@@ -33,7 +33,6 @@ public class PlaygroundManager : MonoBehaviour
         totalTiles = walkTilemap.GetComponent<RuleTileStateManager>().numberTiles();
         totalTiles += wallTilemap.GetComponent<RuleTileStateManager>().numberTiles();
         fireValue = flameParent.GetComponent<FireCounter>().FireValue();
-        progressionBar.SetMinValue(minProgressionPerc);
         Debug.Log(totalTiles);
     }
 
@@ -123,7 +122,8 @@ public class PlaygroundManager : MonoBehaviour
     {
         progressionPerc = 1 - (fireValue + burntTiles)/totalTiles;
         Debug.Log("Progression perc: " + progressionPerc);
-        progressionBar.SetValue(progressionPerc);
+        float progressionPercOnMin = (progressionPerc - minProgressionPerc) / (1-minProgressionPerc);
+        progressionBar.SetValue(progressionPercOnMin);
         if (progressionPerc >= 0.98)
             stageManager.WinGame();
     }
