@@ -1,7 +1,9 @@
+using System;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public Joystick joystick;
     public float moveSpeed = 5f;
     public Rigidbody2D player;
     
@@ -23,15 +25,23 @@ public class PlayerMovement : MonoBehaviour
             // handle input here
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");
-            if (movement.magnitude > 0)
+            if (joystick.Horizontal != 0 || joystick.Vertical != 0)
+            {
+                movement.x = joystick.Horizontal;
+                movement.y = joystick.Vertical;
+            }
+            if (movement.magnitude > 0.1)
             {
                 //update direction
-                Vector3 newDirection;
-                if (movement.x != 0)
-                {
-                    newDirection = new Vector3(movement.x, 0, 0);
-                } else {
-                    newDirection = new Vector3(0, movement.y, 0);
+                Vector3 newDirection = lastDirection;
+                if (movement.x >= 0.3f) {
+                    newDirection = new Vector3(1, 0, 0);
+                } else if (movement.x <= -0.3f){
+                    newDirection = new Vector3(-1, 0, 0);
+                } else if (movement.y >= 0.3f){
+                    newDirection = new Vector3(0, 1, 0);
+                } else if (movement.y <= -0.3f){
+                    newDirection = new Vector3(0, -1, 0);
                 }
                 if (lastDirection != newDirection)
                 {
@@ -47,6 +57,11 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         //hendle movement here
-        player.MovePosition(player.position + movement * moveSpeed * Time.deltaTime);
+        //if (movement.magnitude > 0.7)
+            //player.MovePosition(player.position + movement * moveSpeed * Time.deltaTime);
+        if ( Math.Abs(movement.x) > 0.5)
+            player.MovePosition(player.position + (moveSpeed * Time.deltaTime * new Vector2(movement.x, 0)));
+        if ( Math.Abs(movement.y) > 0.5)
+            player.MovePosition(player.position + (moveSpeed * Time.deltaTime * new Vector2(0, movement.y)));
     }
 }

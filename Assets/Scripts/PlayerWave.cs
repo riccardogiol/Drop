@@ -30,16 +30,25 @@ public class PlayerWave : MonoBehaviour
             timer -= Time.deltaTime;
             buttonFiller.SetValue(timer);
         }
+        //keyboard input
         else if(Input.GetKeyDown(KeyCode.E))
         {
-            if (playerHealth.currentHealth > waveEnergy)
-            { 
-                playerHealth.TakeDamage((int)waveEnergy);
-                WaveAttack();
-                timer = cooldown;
-            }
-            // else sound finished ammos
+            TryWaveAttack();
         }
+    }
+
+    //button input
+    public void TryWaveAttack()
+    {
+        if (timer > 0)
+            return;
+        if (playerHealth.currentHealth > waveEnergy)
+        { 
+            playerHealth.TakeDamage((int)waveEnergy);
+            WaveAttack();
+            timer = cooldown;
+        }
+        // else sound finished ammos
     }
 
     void WaveAttack()

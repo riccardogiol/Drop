@@ -36,14 +36,21 @@ public class PlayerShooting : MonoBehaviour
         }
         else if(Input.GetKeyDown(KeyCode.Space))
         {
-            if (playerHealth.currentHealth > bulletEnergy)
-            { 
-                playerHealth.TakeDamage((int)bulletEnergy);
-                Shoot();
-                timer = cooldown;
-            }
-            // else sound finished ammos
+            TryShoot();
         }
+    }
+
+    public void TryShoot()
+    {
+        if (timer > 0)
+            return;
+        if (playerHealth.currentHealth > bulletEnergy)
+        { 
+            playerHealth.TakeDamage((int)bulletEnergy);
+            Shoot();
+            timer = cooldown;
+        }
+        // else sound finished ammos
     }
 
     void Shoot()

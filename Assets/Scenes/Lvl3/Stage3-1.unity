@@ -3965,6 +3965,11 @@ PrefabInstance:
       objectReference: {fileID: 2098056895}
     - target: {fileID: 782273169436171614, guid: 3f422914225544c0481e1f2cbf09cc96,
         type: 3}
+      propertyPath: joystick
+      value: 
+      objectReference: {fileID: 1945025211}
+    - target: {fileID: 782273169436171614, guid: 3f422914225544c0481e1f2cbf09cc96,
+        type: 3}
       propertyPath: moveSpeed
       value: 3.5
       objectReference: {fileID: 0}
@@ -4041,6 +4046,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 884353088}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &884353090 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 782273169436171605, guid: 3f422914225544c0481e1f2cbf09cc96,
+    type: 3}
+  m_PrefabInstance: {fileID: 884353088}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99598502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 084d5a32c22414077859614f15a3bc92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &884353093 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 782273169436171611, guid: 3f422914225544c0481e1f2cbf09cc96,
@@ -4051,6 +4068,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca504422e4bf64631bf8ed4984a0734a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &884353096 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2792556921469393297, guid: 3f422914225544c0481e1f2cbf09cc96,
+    type: 3}
+  m_PrefabInstance: {fileID: 884353088}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99598502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed5d76ca048e4ba482454a2207f4fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &919931347
@@ -6719,6 +6748,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ebeaf7f56b23485bbeed257861f6e4b, type: 3}
+--- !u!114 &1945025211 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8723123059062450944, guid: c7b202ae4dba84871811aa7c44bc43e3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1715595832320993896}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2098056893
 GameObject:
   m_ObjectHideFlags: 0
@@ -6774,6 +6815,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 41317828913900929, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 884353090}
+    - target: {fileID: 41317828913900929, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TryShoot
+      objectReference: {fileID: 0}
+    - target: {fileID: 41317828913900929, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerShooting, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 41317828913900929, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1715595830883914204, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -7078,6 +7139,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.x
       value: 715.6651
+      objectReference: {fileID: 0}
+    - target: {fileID: 8825963201474568080, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 884353096}
+    - target: {fileID: 8825963201474568080, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TryWaveAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 8825963201474568080, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerWave, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8825963201474568080, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7b202ae4dba84871811aa7c44bc43e3, type: 3}
