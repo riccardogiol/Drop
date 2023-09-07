@@ -3040,6 +3040,7 @@ GameObject:
   - component: {fileID: 5549846473868401159}
   - component: {fileID: 8212794030455640316}
   - component: {fileID: 8825963201474568080}
+  - component: {fileID: 3877850754628274076}
   m_Layer: 5
   m_Name: ButtonBorder
   m_TagString: Untagged
@@ -3148,19 +3149,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8212794030455640316}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &3877850754628274076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2523560577000900888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00e968ad7582549aea1750412252c367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 8825963201474568080}
 --- !u!1 &2592170642003379855
 GameObject:
   m_ObjectHideFlags: 0
@@ -4074,6 +4076,7 @@ GameObject:
   - component: {fileID: 1116551624139859788}
   - component: {fileID: 8937760859008128222}
   - component: {fileID: 41317828913900929}
+  - component: {fileID: 7132777265242669601}
   m_Layer: 5
   m_Name: ButtonBorder
   m_TagString: Untagged
@@ -4182,19 +4185,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8937760859008128222}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &7132777265242669601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7339551182611081563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f2d62bf2571b4ba79b1ac3716ae7c1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 41317828913900929}
 --- !u!1 &7474827322298110750
 GameObject:
   m_ObjectHideFlags: 0
@@ -4234,7 +4238,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -160, y: 330}
+  m_AnchoredPosition: {x: -160, y: 280}
   m_SizeDelta: {x: 130, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3792613211448941174
@@ -4416,7 +4420,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -330, y: 160}
+  m_AnchoredPosition: {x: -370, y: 160}
   m_SizeDelta: {x: 130, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1758158219699841292
@@ -5056,6 +5060,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+--- !u!1 &8723123059062450956 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2929252283123773939, guid: aaa2c939c0359ac4dbce3f49e8b90252,
+    type: 3}
+  m_PrefabInstance: {fileID: 5883963195352652543}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3692172947261446342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8723123059062450956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b65f1cb2abcb4e10a9341bb00df73cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &8723123059062450957 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252,

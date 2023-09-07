@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public Joystick joystick;
+    Joystick joystick;
     public float moveSpeed = 5f;
     public Rigidbody2D player;
     
@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
         lastDirection = new Vector3(1, 0, 0);
         spriteFacing = GetComponent<SpriteFacing>();
         spriteFacing.changeSide(lastDirection);
+        joystick = FindFirstObjectByType<Joystick>();
     }
 
     void Update()
@@ -25,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
             // handle input here
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");
-            if (joystick.Horizontal != 0 || joystick.Vertical != 0)
+            if (joystick != null && (joystick.Horizontal != 0 || joystick.Vertical != 0))
             {
                 movement.x = joystick.Horizontal;
                 movement.y = joystick.Vertical;

@@ -11,9 +11,9 @@ public class PlayerShooting : MonoBehaviour
     public float cooldown = 1.5f;
     float timer;
 
-    public PlaygroundManager playgroundManager;
+    PlaygroundManager playgroundManager;
 
-    public ButtonFiller buttonFiller;
+    ButtonFiller buttonFiller;
     
     PlayerMovement playerMovement;
     PlayerHealth playerHealth;
@@ -23,8 +23,20 @@ public class PlayerShooting : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         playerHealth = GetComponent<PlayerHealth>();
         timer = 0;
+        ButtonFiller[] buttonFillers = FindObjectsOfType<ButtonFiller>();
+        foreach (var bf in buttonFillers)
+        {
+            if (bf.gameObject.name == "BulletButton")
+               buttonFiller = bf;
+        }
         buttonFiller.SetMaxValue(cooldown);
         buttonFiller.SetValue(0);
+        playgroundManager = FindFirstObjectByType<PlaygroundManager>();
+        if (playgroundManager == null)
+        {
+            Debug.LogWarning("No playgroundManager found");
+            return;
+        }
     }
 
     void Update()
