@@ -10,6 +10,13 @@ public class FireCounter : MonoBehaviour
     
     void Start()
     {
+        UpdateFireCounters();
+    }
+
+    public void UpdateFireCounters()
+    {
+        flameCounter = 0;
+        wildfireCounter = 0;
         foreach(Transform child in transform)
         {
             if(child.gameObject.CompareTag("Flame"))

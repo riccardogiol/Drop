@@ -18,6 +18,8 @@ public class Bullet : MonoBehaviour
                 return;
             case "Player":
                 return;
+            case "Wave":
+                return;
             case "Wall":
                 playgroundManager.WaterOnPosition(other.transform.position);
                 break;

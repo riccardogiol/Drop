@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -30,9 +29,12 @@ public class PlaygroundManager : MonoBehaviour
     {
         walkTilemap.GetComponent<RuleTileStateManager>().EvaluateTilesState();
         wallTilemap.GetComponent<RuleTileStateManager>().EvaluateTilesState();
+        flameParent.GetComponent<FireCounter>().UpdateFireCounters();
+        fireValue = flameParent.GetComponent<FireCounter>().FireValue();
         totalTiles = walkTilemap.GetComponent<RuleTileStateManager>().numberTiles();
         totalTiles += wallTilemap.GetComponent<RuleTileStateManager>().numberTiles();
-        fireValue = flameParent.GetComponent<FireCounter>().FireValue();
+        Debug.Log("Total tiles: " + totalTiles);
+
         progressionBar = FindFirstObjectByType<ProgressionBarFiller>();
         if (progressionBar == null)
         {
@@ -40,8 +42,9 @@ public class PlaygroundManager : MonoBehaviour
             return;
         }
         progressionBar.SetGameOverLimit((loseProgressionPerc - minProgressionPerc) / (1-minProgressionPerc));
+        
+        InvokeRepeating(nameof(RefreshCounters), 3, 3);
         EvaluateCleanSurface();
-        Debug.Log(totalTiles);
     }
 
     public void FlameOnPosition(Vector3 position)
@@ -106,7 +109,6 @@ public class PlaygroundManager : MonoBehaviour
     {
         flameParent.GetComponent<FireCounter>().flameCounter--;
         fireValue = flameParent.GetComponent<FireCounter>().FireValue();
-        Debug.Log("Fire value: " + fireValue);
         EvaluateLevelProgression();
     }
 
@@ -114,7 +116,6 @@ public class PlaygroundManager : MonoBehaviour
     {
         flameParent.GetComponent<FireCounter>().wildfireCounter--;
         fireValue = flameParent.GetComponent<FireCounter>().FireValue();
-        Debug.Log("Fire value: " + fireValue);
         EvaluateLevelProgression();
     }
 
@@ -122,19 +123,29 @@ public class PlaygroundManager : MonoBehaviour
     {
         burntTiles = walkTilemap.GetComponent<RuleTileStateManager>().numberBurntTiles();
         burntTiles += wallTilemap.GetComponent<RuleTileStateManager>().numberBurntTiles();
-        Debug.Log(burntTiles);
         EvaluateLevelProgression();
     }
 
     void EvaluateLevelProgression()
     {
         progressionPerc = 1 - (fireValue + burntTiles)/totalTiles;
-        Debug.Log("Progression perc: " + progressionPerc);
         float progressionPercOnMin = (progressionPerc - minProgressionPerc) / (1-minProgressionPerc);
         progressionBar.SetValue(progressionPercOnMin);
         if (progressionPerc >= 0.98)
             stageManager.WinGame();
         if (progressionPerc <= loseProgressionPerc)
             stageManager.GameOver();
+    }
+
+    void RefreshCounters()
+    {
+        walkTilemap.GetComponent<RuleTileStateManager>().EvaluateTilesState();
+        wallTilemap.GetComponent<RuleTileStateManager>().EvaluateTilesState();
+        flameParent.GetComponent<FireCounter>().UpdateFireCounters();
+        fireValue = flameParent.GetComponent<FireCounter>().FireValue();
+        Debug.Log("Burnt tiles: " + burntTiles);
+        Debug.Log("Fire value: " + fireValue);
+        Debug.Log("Progression perc: " + progressionPerc);
+        EvaluateCleanSurface();
     }
 }
