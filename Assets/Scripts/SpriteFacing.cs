@@ -9,6 +9,13 @@ public class SpriteFacing : MonoBehaviour
     public SpriteRenderer left;
     public SpriteRenderer right;
 
+    Animator playerAnimator;
+
+    void Start()
+    {
+        playerAnimator = GetComponent<Animator>();
+    }
+
     public void changeSide(Vector3 facing)
     {
         front.enabled = false;

@@ -2,13 +2,15 @@ using UnityEngine;
 
 public class PickFlame : MonoBehaviour
 {
-    public float energy = 10;
+    public bool randomEnergy = true;
+    public float energy = 3;
     public float maxEnergy = 15f;
     public SpriteChangingOnValue spriteChanger;
 
     void Awake()
     {
-        energy = Random.Range(energy, maxEnergy);
+        if (randomEnergy)
+            energy = Random.Range(energy, maxEnergy);
         ScaleOnEnergy();   
     }
 
@@ -21,10 +23,11 @@ public class PickFlame : MonoBehaviour
     {
         switch (other.tag)
         {
-            case "Player":
+            /*case "Player":
                 other.GetComponent<PlayerHealth>().TakeDamage((int)energy);
+                Debug.Log("flame touching player");
                 DestroyFlame();
-                break;
+                break;*/
             case "Enemy":
                 float enemyHealthDiff = other.GetComponent<EnemyHealth>().maxHealth - other.GetComponent<EnemyHealth>().currentHealth;
                 other.GetComponent<EnemyHealth>().FillReservoir((int)energy);

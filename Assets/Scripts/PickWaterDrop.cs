@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PickWaterdrop : MonoBehaviour
 {
+    public bool randomEnergy = true;
     public float energy = 5;
     public float maxEnergy = 20f;
     public SpriteChangingOnValue spriteChanger;
@@ -9,7 +10,8 @@ public class PickWaterdrop : MonoBehaviour
 
     void Awake()
     {
-        energy = Random.Range(energy, maxEnergy);
+        if (randomEnergy)
+            energy = Random.Range(energy, maxEnergy);
         ScaleOnEnergy();
     }
 

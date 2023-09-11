@@ -12,7 +12,7 @@ public class SpriteChangingOnValue : MonoBehaviour
     {
         for (int i = 0; i < thresholds.Length; i++)
         {
-            if (value < thresholds[i])
+            if (value <= thresholds[i])
             {
                 spriteRenderer.sprite = sprites[ Math.Min(i, sprites.Length - 1)];
                 if (randomlyFlipX && UnityEngine.Random.value > 0.5)

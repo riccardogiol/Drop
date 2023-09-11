@@ -3,19 +3,19 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    Joystick joystick;
-    public float moveSpeed = 5f;
-    public Rigidbody2D player;
+    public float moveSpeed = 3.5f;
     
-    SpriteFacing spriteFacing;
+    Rigidbody2D player;
+    Animator playerAnimator;
+    Joystick joystick;
+    
     Vector2 movement;
     public Vector3 lastDirection;
 
     void Start()
     {
-        lastDirection = new Vector3(1, 0, 0);
-        spriteFacing = GetComponent<SpriteFacing>();
-        spriteFacing.changeSide(lastDirection);
+        playerAnimator = GetComponent<Animator>();
+        player = GetComponent<Rigidbody2D>();
         joystick = FindFirstObjectByType<Joystick>();
     }
 
@@ -46,10 +46,14 @@ public class PlayerMovement : MonoBehaviour
                 }
                 if (lastDirection != newDirection)
                 {
-                    spriteFacing.changeSide(newDirection);
+                    playerAnimator.SetFloat("LastHorizontal", newDirection.x);
+                    playerAnimator.SetFloat("LastVertical", newDirection.y);
                 }
                 lastDirection = newDirection;
             }
+            playerAnimator.SetFloat("Horizontal", movement.x);
+            playerAnimator.SetFloat("Vertical", movement.y);
+            playerAnimator.SetFloat("Speed", movement.sqrMagnitude);
         }
         
     }
@@ -57,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
     //it is like the update with the DT of frames considered. It is not subject to change in framerate
     void FixedUpdate()
     {
-        //hendle movement here
+        //hendle movement here -->> to change anyway
         //if (movement.magnitude > 0.7)
             //player.MovePosition(player.position + movement * moveSpeed * Time.deltaTime);
         if ( Math.Abs(movement.x) > 0.5)

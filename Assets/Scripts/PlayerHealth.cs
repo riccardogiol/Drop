@@ -5,14 +5,13 @@ public class PlayerHealth : MonoBehaviour
 {
     public StageManager stageManager;
 
-    public int maxHealth = 100;
-    public int currentHealth;
+    public int maxHealth = 50;
+    public int currentHealth = 50;
 
     public HealthBar healthBar;
 
     void Start()
     {
-        currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
         healthBar.SetHealth(currentHealth);
     }

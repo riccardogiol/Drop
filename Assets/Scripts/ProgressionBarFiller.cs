@@ -23,7 +23,10 @@ public class ProgressionBarFiller : MonoBehaviour
 
     public void SetGameOverLimit(float value)
     {
-        gameoverLimit.Translate(- (value*400), 0, 0);
+        if (value == 0)
+            gameoverLimit.gameObject.SetActive(false);
+        else
+            gameoverLimit.Translate(- (value*400), 0, 0);
     }
 
     public void SetValue(float currentValue)

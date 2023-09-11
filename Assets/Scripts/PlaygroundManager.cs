@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -41,7 +42,7 @@ public class PlaygroundManager : MonoBehaviour
             Debug.LogWarning("No progression bar found");
             return;
         }
-        progressionBar.SetGameOverLimit((loseProgressionPerc - minProgressionPerc) / (1-minProgressionPerc));
+        progressionBar.SetGameOverLimit(Math.Max((loseProgressionPerc - minProgressionPerc) / (1-minProgressionPerc), 0));
         
         InvokeRepeating(nameof(RefreshCounters), 3, 3);
         EvaluateCleanSurface();

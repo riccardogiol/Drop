@@ -5,6 +5,7 @@ public class EnemyGroundInteraction : MonoBehaviour
 {
     public PlaygroundManager playground;
     public float checkingInterval = 0.5f;
+    float timer = 0;
 
     Vector3 oldPosition;
 
@@ -16,6 +17,12 @@ public class EnemyGroundInteraction : MonoBehaviour
     void Start()
     {
         StartCoroutine(NewPosition());
+    }
+
+    void Update()
+    {
+        if (timer >= 0)
+           timer -= Time.deltaTime;
     }
     
     IEnumerator NewPosition()
@@ -38,7 +45,11 @@ public class EnemyGroundInteraction : MonoBehaviour
     {
         if (other.CompareTag("Grass"))
         {
-            playground.FireOnPosition(other.transform.position);
+            if (timer <= 0)
+            {
+                playground.FireOnPosition(other.transform.position);
+                timer = checkingInterval;
+            }
         }
     }
 }

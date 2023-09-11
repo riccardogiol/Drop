@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,16 +11,37 @@ public class StageManager : MonoBehaviour
 
     public MenusManager menusManager;
 
+    public Animator cameraAnimator;
+    public Animator playerAnimator;
+
     void Start()
     {
         FindObjectOfType<AudioManager>().Stop("OpeningMusic");
         FindObjectOfType<AudioManager>().Play("BackgroundMusic");
     }
 
-    //Start procedure functions
+    void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Tab))
+        {
+            WinGame();
+        }
+    }
     
     public void WinGame()
     {
+        StartCoroutine(WinningScene());
+    }
+
+    IEnumerator WinningScene()
+    {
+        cameraAnimator.SetTrigger("ZoomIn");
+        playerAnimator.SetTrigger("Triumph");
+        //make everything no more interactable
+
+        yield return new WaitForSeconds(3);
+        Debug.Log("waited?");
+
         if (finalStage)
         {
             PlayerPrefs.SetInt("Lvl" + currentLvl, 1);

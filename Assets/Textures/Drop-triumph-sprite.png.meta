@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 845638c83da5644b1b96739eadb06475
+guid: de604e27f408c413c91240401e47e580
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
+  spriteExtrude: 0
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -102,6 +102,18 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -117,7 +129,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Drop_sprite_0
+      name: Drop-triumph-sprite_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +143,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8837a7d309fcd4ef18861df3d1653b2e
-      internalID: -2051032232
+      spriteID: 14167ba3dba7440e0857d00c10183bcb
+      internalID: 1282596465
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drop_sprite_1
+      name: Drop-triumph-sprite_1
       rect:
         serializedVersion: 2
         x: 32
@@ -152,14 +164,56 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7a9f719b0a8044a9a04172a253d0037
-      internalID: -844983794
+      spriteID: 19e9dcb8ba46443b1b3499c262d7b7aa
+      internalID: 111512741
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drop_sprite_2
+      name: Drop-triumph-sprite_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.12}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc87b85db59c94bcebfc961c6039ed1a
+      internalID: -1119192076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Drop-triumph-sprite_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 192
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.12}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 140532457356b461caf23564beb23812
+      internalID: 1406278253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Drop-triumph-sprite_4
       rect:
         serializedVersion: 2
         x: 0
@@ -173,14 +227,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 507959128bd74484ea8effcd9927eb61
-      internalID: -262759018
+      spriteID: 5f783bc88faac47b9ad8b38ad619ca2e
+      internalID: -2110274623
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Drop_sprite_3
+      name: Drop-triumph-sprite_5
       rect:
         serializedVersion: 2
         x: 32
@@ -194,8 +248,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44978481955594747aa2d667c252e9e3
-      internalID: -798587462
+      spriteID: 661d0c31f1cb44db7aaa33272685e80b
+      internalID: 1585446896
       vertices: []
       indices: 
       edges: []
@@ -211,10 +265,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Drop_sprite_0: -2051032232
-      Drop_sprite_1: -844983794
-      Drop_sprite_2: -262759018
-      Drop_sprite_3: -798587462
+      Drop-triumph-sprite_0: 1282596465
+      Drop-triumph-sprite_1: 111512741
+      Drop-triumph-sprite_2: -1119192076
+      Drop-triumph-sprite_3: 1406278253
+      Drop-triumph-sprite_4: -2110274623
+      Drop-triumph-sprite_5: 1585446896
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
