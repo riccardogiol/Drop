@@ -1323,7 +1323,7 @@ MonoBehaviour:
     type: 3}
   waterdropPrefab: {fileID: 846535088814142963, guid: 71606232f6a1f405ab748a75268d3cba,
     type: 3}
-  minProgressionPerc: 0.3
+  minProgressionPerc: 0.4
   loseProgressionPerc: 0
   winProgressionPerc: 1
 --- !u!1001 &832573063
@@ -1537,7 +1537,8 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4035631993216704086, guid: 3f422914225544c0481e1f2cbf09cc96, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3f422914225544c0481e1f2cbf09cc96, type: 3}
 --- !u!114 &884353089 stripped
 MonoBehaviour:
@@ -2659,9 +2660,9 @@ MonoBehaviour:
   burntTile: {fileID: 11400000, guid: 20154be431cfb4a01b1769b186ff831b, type: 2}
   cleanTile: {fileID: 11400000, guid: 0ff3ee3e37f534be58f852565faf5c18, type: 2}
   minXCell: 0
-  maxXCell: 0
+  maxXCell: 20
   minYCell: 0
-  maxYCell: 0
+  maxYCell: 20
   burntTileDamage: 0
 --- !u!1 &1736441726
 GameObject:

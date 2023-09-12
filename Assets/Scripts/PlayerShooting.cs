@@ -15,12 +15,12 @@ public class PlayerShooting : MonoBehaviour
 
     ButtonFiller buttonFiller;
     
-    PlayerMovement playerMovement;
+    PlayerDirectionController playerMovement;
     PlayerHealth playerHealth;
 
     void Start()
     {
-        playerMovement = GetComponent<PlayerMovement>();
+        playerMovement = GetComponent<PlayerDirectionController>();
         playerHealth = GetComponent<PlayerHealth>();
         timer = 0;
         ButtonFiller[] buttonFillers = FindObjectsOfType<ButtonFiller>();
@@ -67,7 +67,7 @@ public class PlayerShooting : MonoBehaviour
 
     void Shoot()
     {
-        GameObject bullet = Instantiate(bulletPrefab, shootingPoint.position + (playerMovement.lastDirection * 0.2f), Quaternion.LookRotation(Vector3.forward, playerMovement.lastDirection));
+        GameObject bullet = Instantiate(bulletPrefab, shootingPoint.position + (Vector3)(playerMovement.lastDirection * 0.2f), Quaternion.LookRotation(Vector3.forward, playerMovement.lastDirection));
         bullet.GetComponent<Bullet>().energy = bulletEnergy;
         bullet.GetComponent<Bullet>().damage = bulletDamage;
         bullet.GetComponent<Bullet>().playgroundManager = playgroundManager;

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpriteFacing : MonoBehaviour
@@ -8,13 +6,6 @@ public class SpriteFacing : MonoBehaviour
     public SpriteRenderer back;
     public SpriteRenderer left;
     public SpriteRenderer right;
-
-    Animator playerAnimator;
-
-    void Start()
-    {
-        playerAnimator = GetComponent<Animator>();
-    }
 
     public void changeSide(Vector3 facing)
     {
