@@ -37,6 +37,8 @@ public class PlayerWave : MonoBehaviour
 
     void Update()
     {
+        if (MenusManager.isPaused)
+            return;
         if (timer > 0)
         {
             timer -= Time.deltaTime;
@@ -52,6 +54,8 @@ public class PlayerWave : MonoBehaviour
     //button input
     public void TryWaveAttack()
     {
+        if (MenusManager.isPaused)
+            return;
         if (timer > 0)
             return;
         if (playerHealth.currentHealth > waveEnergy)

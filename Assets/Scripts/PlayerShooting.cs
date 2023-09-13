@@ -41,6 +41,8 @@ public class PlayerShooting : MonoBehaviour
 
     void Update()
     {
+        if (MenusManager.isPaused)
+            return;
         if (timer > 0)
         {
             timer -= Time.deltaTime;
@@ -54,6 +56,8 @@ public class PlayerShooting : MonoBehaviour
 
     public void TryShoot()
     {
+        if (MenusManager.isPaused)
+            return;
         if (timer > 0)
             return;
         if (playerHealth.currentHealth > bulletEnergy)

@@ -1,8 +1,6 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using Pathfinding;
-using UnityEngine.EventSystems;
-using System.Collections.Generic;
 
 public class PlayerMovementPath : MonoBehaviour
 {
@@ -15,7 +13,7 @@ public class PlayerMovementPath : MonoBehaviour
     Vector3 target;
     Path path;
     int currentWaypoint = 0;
-    float nextWaypointDistance = 0.3f;
+    float nextWaypointDistance = 0.1f;
     Seeker seeker;
 
     void Start()
@@ -24,7 +22,6 @@ public class PlayerMovementPath : MonoBehaviour
         player = GetComponent<Rigidbody2D>();
         directionController = GetComponent<PlayerDirectionController>();
     }
-
     
     void UpdatePath()
     {
@@ -40,59 +37,25 @@ public class PlayerMovementPath : MonoBehaviour
             currentWaypoint = 0;
         }
     }
-
-    void Update()
+    
+    public void NewTarget(Vector3 newTarget)
     {
-        if (Input.GetMouseButtonDown(0) || Input.touchCount > 0)
+        if (Vector2.Distance(newTarget, (Vector2)transform.position) < 0.7)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (path != null)
             {
-                if (EventSystem.current.IsPointerOverGameObject())
-                    return;
-                target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            }
-            else
-            {
-                if (TouchOnUI())
-                    return;
-                Debug.Log("touch target: " + Input.GetTouch(0).phase.ToString());
-                target = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
-            } 
-
-
-            if (Vector2.Distance(target, (Vector2)transform.position) < 0.7)
-            {
-                if (path != null)
-                {
-                    InterruptMovement();
-                } else {
-                    directionController.TurnClockwise();
-                }
+                InterruptMovement();
             } else {
-            // do something visual on cell and controle that is a walkable cell!??
-            Vector3Int cell = tilemap.WorldToCell(target);
-            target = tilemap.GetCellCenterWorld(cell);
-
-            UpdatePath();
-
+                directionController.TurnClockwise();
             }
-        }
-    }
-
-    bool TouchOnUI()
-    {
-        PointerEventData eventDataCurrentPosition = new(EventSystem.current) {
-            position = Input.GetTouch(0).position
-        };
-        List<RaycastResult> results = new();
-        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
-        foreach (var item in results)
+        } else 
         {
-            Debug.Log(item.gameObject.layer);
-            if (item.gameObject.layer == 5)
-                return true;
+        // do something visual on cell and controle that is a walkable cell!??
+        Vector3Int cell = tilemap.WorldToCell(newTarget);
+        target = tilemap.GetCellCenterWorld(cell);
+
+        UpdatePath();
         }
-        return false;
     }
 
     public void InterruptMovement()

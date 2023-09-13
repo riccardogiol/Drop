@@ -2,14 +2,13 @@ using UnityEngine;
 
 public class PlayerDirectionController: MonoBehaviour
 {
-    Animator playerAnimator;
+    public Animator playerAnimator;
     public Vector2 lastDirection = new(0, -1);
 
     float speed = 0;
 
     void Start()
     {
-        playerAnimator = GetComponent<Animator>();
         InvokeRepeating("SpeedCheck", 0f, 0.05f);
     }
 
@@ -39,6 +38,7 @@ public class PlayerDirectionController: MonoBehaviour
             speed = lastMovement.sqrMagnitude;
     }
 
+    //TODO: not super clean solution
     void SpeedCheck()
     {
         playerAnimator.SetFloat("Speed", speed);
