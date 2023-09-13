@@ -6,6 +6,17 @@ public class SetButtonActionWave : MonoBehaviour
     public Button button;
     PlayerWave playerWave;
 
+    readonly string unlockingCode1 = "Lvl2";
+
+    void Awake()
+    {
+        if(PlayerPrefs.GetInt(unlockingCode1, 0) == 0)
+        {
+            gameObject.SetActive(false);
+            return;
+        }
+    }
+    
     void Start()
     {
         playerWave = FindFirstObjectByType<PlayerWave>();

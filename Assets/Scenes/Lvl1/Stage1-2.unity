@@ -904,7 +904,7 @@ PrefabInstance:
         type: 3}
       propertyPath: playerMovement
       value: 
-      objectReference: {fileID: 884353089}
+      objectReference: {fileID: 0}
     - target: {fileID: 1715595831200774540, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_Name
@@ -948,12 +948,12 @@ PrefabInstance:
     - target: {fileID: 5411216365801270622, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5411216365801270622, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5444028090378437002, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
@@ -968,22 +968,22 @@ PrefabInstance:
     - target: {fileID: 5766869013694836603, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5766869013694836603, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7474827322298110750, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7692640206896602110, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7b202ae4dba84871811aa7c44bc43e3, type: 3}
@@ -1179,16 +1179,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 782273169436171605, guid: 3f422914225544c0481e1f2cbf09cc96,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 782273169436171605, guid: 3f422914225544c0481e1f2cbf09cc96,
-        type: 3}
-      propertyPath: playgroundManager
-      value: 
-      objectReference: {fileID: 816872895}
     - target: {fileID: 782273169436171610, guid: 3f422914225544c0481e1f2cbf09cc96,
         type: 3}
       propertyPath: playground
@@ -1274,11 +1264,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2792556921469393297, guid: 3f422914225544c0481e1f2cbf09cc96,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4035631993216704086, guid: 3f422914225544c0481e1f2cbf09cc96,
         type: 3}
       propertyPath: m_Enabled
@@ -1291,18 +1276,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f422914225544c0481e1f2cbf09cc96, type: 3}
---- !u!114 &884353089 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 782273169436171614, guid: 3f422914225544c0481e1f2cbf09cc96,
+--- !u!95 &884353089 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4186663221613957995, guid: 3f422914225544c0481e1f2cbf09cc96,
     type: 3}
   m_PrefabInstance: {fileID: 884353088}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8b7070a200da4977a6656c0b7685d4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &884353090 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 782273169436171615, guid: 3f422914225544c0481e1f2cbf09cc96,
@@ -2041,9 +2020,9 @@ MonoBehaviour:
   burntTile: {fileID: 11400000, guid: 20154be431cfb4a01b1769b186ff831b, type: 2}
   cleanTile: {fileID: 11400000, guid: 0ff3ee3e37f534be58f852565faf5c18, type: 2}
   minXCell: 0
-  maxXCell: 0
+  maxXCell: 15
   minYCell: 0
-  maxYCell: 0
+  maxYCell: 6
   burntTileDamage: 0
 --- !u!1 &1736441726
 GameObject:
@@ -2076,7 +2055,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAIIexDDWVQeAIAADIFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMzoWxAyF2by0hpIckTEgnF19kaY01yJJHkgMkw3/vSjbYpVMurN9+vX279hcRytbAnDYrI/iT5kC+j4i3ybdR73yEA91qtRGfcI55F9yVPoiGmFfqhEY89mlWV+CMYD/UVvrgCMFGiUKbasm3sNDWWYQLKi2gy2jnsxVCXyNywL9x6lOOaN3ceesTrTQandBkoByYQWg0uY38L+4y4i4+ntwlSTxN59PlOLoLuY1iklY1cD9IXyK+7VKTEKVwwi7A12JaSmE7esQd6zD+Kz364bmgOGrgE02SBJESxLZ0nvkw96UoLLhOCkOP98KgaG1R8lO3SlbU7lpWH1Q2vs18Fhi1NZ/+cY/j4C6Mrh7PbePIt3ClYDvkyKh1A6WH8H1PPQ7a7Knc0VzCewnqWa+MbhRHpzONT20s3Nz3j5fJFiWwXY+3VK/Apu7Fvix2Mk1mcTKfzv16up35gU5BicNCiioPss5aYCN1kD6cBhhc0i9kHw7HdnUR9ZR+W3ij2+GFdY4HYaxDVzey8lxz3RgfSh7Q8FtgjVtoo8AMC9SgqHTHNZZx1+u88v0/64H6d6lr3vnOr8hVSoD7+Ci6cq31/rI5W+r9E9jypXFSKOhl945n1GmhlWqvbTjSOW3TmIKyQdq2EfzvOyMpyznwOGE5jeZ5SsdpzvgtTPMiL2YsSWMSDlEonJPKdUu0kwe3pvriCo/u/IkZrQytw+VzQ/cr8Vlp20cKVegNMwDqpa1wIQ4Gm+ALypdcoEAbcE6osG/ylRGp2Q54dimUhUmXB2do1lfJSC0+tPNIRhbhm5IRD18Oe23gQ8DeNz8XO5HTH1BLAwQUAAAICAAACCHsRge48G0AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGII4pZkpIHa0kmVyUkpqiqFFclKigVmSZaKuZVJyimmqcVJaUppJsoWloVIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAACCHsQw1lUHgCAAAyBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAACCHsRge48G0AAAB4AAAACQAkAAAAAAAAAAAAAADFAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAH0DAAAAAA==
+    dataString: UEsDBBQAAAgIAAAIIeyZsRgEagIAAB8FAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMziVjB0JMby0Q0kMSJqSTiy+ytMYaZMkjyQGS4b93JdvYpdMTy9u3u28/5C8ilK2AOW3WRvAnzYF8HxFvk2+j3vkIR7rTais+oeO8C+4KT6KB80qd0IjHPszqEpwR7IfaSU+OEKyVyLUpV3wHC22dRTin0gK6jHY+WiH0NSJH/BnPfcgJrdt7b32iNY9GZzQZKAdmQI1u7lpu3DIbYq2YpGUF3Kvu+ZMucxJYCttpCT6caSmFbbUQd6pCr6/05DvlgmJfoXh0kySIFCB2hfMyh7EveW7BtX0beloKgxNqkpKfuhlbSe2+UfVBZe3LzKZBUZPz6R/3OA7u3OjysSsbR76EKwTbo0ZGrRuMdQgve+lxmM2Byj3NJLwXoJ712uhacXQ6U/vQ2sLtsv976WxRANv3eCP1CqyrftiXLd5MkmmczCaz1Ti6b9fkGzqHSRwXUpRZGOu0AbZSh9GHOwCDS/qF6sOV2DYvol7SbwtvdDc8p9bxIIx16GpbVl5rpmvjqeQBDb8FVruFNgrMMEEFikp32mAad73OK9//ox6ofzht8dbXvYerkAD3/Ci6cm304bI5W+jDE9jipXZSKOjH7h3POKeFVqq5tmFLXdi2Njllg7BdLfjfd0bmLOPA44RlNJplczqeZ4zfwSTLs3zKknlMwiEKhX1SuWmEtuPBrak+ucKj674no7WhVbh8buhhLT5LbXumULneMgOgXpoMF+FgsAg+UL7iAge0BeeECvsmXymRmu2Bp5dEaeh0dXSGpn2WlFTiQzuPpGQRPiAp8fDlsDcGPgQcfPEu2Zmc/wBQSwMEFAAACAgAAAgh7EYHuPBtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tJJlclJKaoqhRXJSooFZkmWirmVScoppqnFSWlKaSbKFpaFSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAAgh7JmxGARqAgAAHwUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAAgh7EYHuPBtAAAAeAAAAAkAJAAAAAAAAAAAAAAAtwIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABvAwAAAAA=
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -2213,3 +2192,4 @@ MonoBehaviour:
   finalStage: 0
   menusManager: {fileID: 573872597}
   cameraAnimator: {fileID: 1200696499}
+  playerAnimator: {fileID: 884353089}

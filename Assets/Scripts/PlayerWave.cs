@@ -3,20 +3,25 @@ using UnityEngine;
 public class PlayerWave : MonoBehaviour
 {
     public GameObject wavePrefab;
-    public float waveEnergy = 5f;
-    public float waveDamage = 5f;
-
-    public float cooldown = 1.5f;
+    float waveEnergy = 5f;
+    float waveDamage = 5f;
+    float cooldown = 1.5f;
     float timer;
 
     PlaygroundManager playgroundManager;
-
     ButtonFiller buttonFiller;
-    
     PlayerHealth playerHealth;
+
+    readonly string unlockingCode1 = "Lvl2";
+
 
     void Start()
     {
+        if(PlayerPrefs.GetInt(unlockingCode1, 0) == 0)
+        {
+            enabled = false;
+            return;
+        }
         playerHealth = GetComponent<PlayerHealth>();
         timer = 0;
         ButtonFiller[] buttonFillers = FindObjectsOfType<ButtonFiller>();

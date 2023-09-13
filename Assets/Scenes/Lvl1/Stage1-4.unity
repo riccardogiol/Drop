@@ -1435,7 +1435,7 @@ PrefabInstance:
     - target: {fileID: 782273169436171605, guid: 3f422914225544c0481e1f2cbf09cc96,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 782273169436171605, guid: 3f422914225544c0481e1f2cbf09cc96,
         type: 3}
@@ -1535,23 +1535,17 @@ PrefabInstance:
     - target: {fileID: 2792556921469393297, guid: 3f422914225544c0481e1f2cbf09cc96,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4035631993216704086, guid: 3f422914225544c0481e1f2cbf09cc96, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3f422914225544c0481e1f2cbf09cc96, type: 3}
---- !u!114 &884353089 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 782273169436171614, guid: 3f422914225544c0481e1f2cbf09cc96,
+--- !u!95 &884353089 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4186663221613957995, guid: 3f422914225544c0481e1f2cbf09cc96,
     type: 3}
   m_PrefabInstance: {fileID: 884353088}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8b7070a200da4977a6656c0b7685d4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &884353090 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 782273169436171615, guid: 3f422914225544c0481e1f2cbf09cc96,
@@ -1857,7 +1851,7 @@ PrefabInstance:
         type: 3}
       propertyPath: playerMovement
       value: 
-      objectReference: {fileID: 884353089}
+      objectReference: {fileID: 0}
     - target: {fileID: 1715595831200774540, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_Name
@@ -1901,12 +1895,12 @@ PrefabInstance:
     - target: {fileID: 5411216365801270622, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5411216365801270622, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5444028090378437002, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
@@ -1921,22 +1915,22 @@ PrefabInstance:
     - target: {fileID: 5766869013694836603, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5766869013694836603, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7474827322298110750, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7692640206896602110, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7b202ae4dba84871811aa7c44bc43e3, type: 3}
@@ -2111,12 +2105,6 @@ MonoBehaviour:
   wildfireValue: 30
   flameCounter: 0
   wildfireCounter: 0
---- !u!95 &1624958823 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 3099807628375327232, guid: 3f422914225544c0481e1f2cbf09cc96,
-    type: 3}
-  m_PrefabInstance: {fileID: 884353088}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1712472139
 GameObject:
   m_ObjectHideFlags: 0
@@ -2695,7 +2683,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAIIexDDWVQeAIAADIFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMzoWxAyF2by0hpIckTEgnF19kaY01yJJHkgMkw3/vSjbYpVMurN9+vX279hcRytbAnDYrI/iT5kC+j4i3ybdR73yEA91qtRGfcI55F9yVPoiGmFfqhEY89mlWV+CMYD/UVvrgCMFGiUKbasm3sNDWWYQLKi2gy2jnsxVCXyNywL9x6lOOaN3ceesTrTQandBkoByYQWg0uY38L+4y4i4+ntwlSTxN59PlOLoLuY1iklY1cD9IXyK+7VKTEKVwwi7A12JaSmE7esQd6zD+Kz364bmgOGrgE02SBJESxLZ0nvkw96UoLLhOCkOP98KgaG1R8lO3SlbU7lpWH1Q2vs18Fhi1NZ/+cY/j4C6Mrh7PbePIt3ClYDvkyKh1A6WH8H1PPQ7a7Knc0VzCewnqWa+MbhRHpzONT20s3Nz3j5fJFiWwXY+3VK/Apu7Fvix2Mk1mcTKfzv16up35gU5BicNCiioPss5aYCN1kD6cBhhc0i9kHw7HdnUR9ZR+W3ij2+GFdY4HYaxDVzey8lxz3RgfSh7Q8FtgjVtoo8AMC9SgqHTHNZZx1+u88v0/64H6d6lr3vnOr8hVSoD7+Ci6cq31/rI5W+r9E9jypXFSKOhl945n1GmhlWqvbTjSOW3TmIKyQdq2EfzvOyMpyznwOGE5jeZ5SsdpzvgtTPMiL2YsSWMSDlEonJPKdUu0kwe3pvriCo/u/IkZrQytw+VzQ/cr8Vlp20cKVegNMwDqpa1wIQ4Gm+ALypdcoEAbcE6osG/ylRGp2Q54dimUhUmXB2do1lfJSC0+tPNIRhbhm5IRD18Oe23gQ8DeNz8XO5HTH1BLAwQUAAAICAAACCHsRge48G0AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGII4pZkpIHa0kmVyUkpqiqFFclKigVmSZaKuZVJyimmqcVJaUppJsoWloVIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAACCHsQw1lUHgCAAAyBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAACCHsRge48G0AAAB4AAAACQAkAAAAAAAAAAAAAADFAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAH0DAAAAAA==
+    dataString: UEsDBBQAAAgIAAAIIeyWEmdbWAIAABAFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1zmzAQ/SsenZsOuGlqemtx4vSQxBO3kwsXIS2gsZAYScRf4//elQBD3cnJ67dvd99+iBMRyjbAnDYrI/iT5kC+z4i3yafZ6HyEPS212ogjDJw3wV3lSTRwXqkTGvHYh1ldgzOC/VCl9OQIwVaJQpv6npeQausswgWVFtBltPPRCqHTjOzx5ybxIQe05t+8dUQriWZnNBkoB2akDsSB1rFaxSStG+Be8kie3/XseB5oCpvpGV4401IK2ysh7tCETl/pwffJBcWuQuno82KBSAWirJxPO419KQoLrldk6GEpDM6nS0p+6m5oNbXbTtY7la0vc3cbFHU5n/5z38TBXRhdPw5l48iXcJVgW9TIqHWToU7h5Sg9DsPZUbmluYS3CtSzXhndKo5OZ1of2lqYL8e/l87SCth2xDupV2DbfLwa38M5NL9PpajzMMnbDthIHaYdFg8G9/ILBYezsH0KRL2KPxZ+03J6P73jQRjr0NV3qby8XLfGU8kDGn7wrHWpNgrMNEEDikp3WGMad73BK9/HUQ/Uv5S+eO8bHsBVSIBHfhRdudZ6d1mWrfTuCWz10jopFIyT9o5nnFOqleoObNrSELZpTUHZJKxsBf/3tEjCcg48XrCcRnd5Qm+SnPGv8CUv8uKWLZKYhNsTCvukct0J7ceDW1NjcoV3NnxAZitDm3Ds3NDdShxrbUemUIXeMAOgXroMF+FgsAi+SX7PBQ5oA84JFfZNThmRmm2BZ5dEWej0fu8MzcYsGWnEu3YeyUgavhgZ8fDlltcG3gXsfPEh2Zmc/wJQSwMEFAAACAgAAAgh7EYHuPBtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tJJlclJKaoqhRXJSooFZkmWirmVScoppqnFSWlKaSbKFpaFSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAAgh7JYSZ1tYAgAAEAUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAAgh7EYHuPBtAAAAeAAAAAkAJAAAAAAAAAAAAAAApQIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABdAwAAAAA=
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -2907,8 +2895,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLvl: 1
-  currentStage: 3
+  currentStage: 4
   finalStage: 1
   menusManager: {fileID: 1207991583}
   cameraAnimator: {fileID: 284692770}
-  playerAnimator: {fileID: 1624958823}
+  playerAnimator: {fileID: 884353089}

@@ -132,7 +132,7 @@ public class PlaygroundManager : MonoBehaviour
         progressionPerc = 1 - (fireValue + burntTiles)/totalTiles;
         float progressionPercOnMin = (progressionPerc - minProgressionPerc) / (1-minProgressionPerc);
         progressionBar.SetValue(progressionPercOnMin);
-        if (progressionPerc >= 0.98)
+        if (progressionPerc >= winProgressionPerc)
             stageManager.WinGame();
         if (progressionPerc <= loseProgressionPerc)
             stageManager.GameOver();

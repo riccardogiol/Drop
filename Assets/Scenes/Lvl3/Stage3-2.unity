@@ -192,20 +192,8 @@ Transform:
   m_Children:
   - {fileID: 1417914571}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &87785845 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 782273169436171614, guid: 3f422914225544c0481e1f2cbf09cc96,
-    type: 3}
-  m_PrefabInstance: {fileID: 884353088}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 884353090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8b7070a200da4977a6656c0b7685d4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &90711643
 GameObject:
   m_ObjectHideFlags: 0
@@ -3791,7 +3779,7 @@ PrefabInstance:
     - target: {fileID: 5199020348406506346, guid: ca1a8f2291ec7488c86157df88f34b14,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5199020348406506346, guid: ca1a8f2291ec7488c86157df88f34b14,
         type: 3}
@@ -4008,7 +3996,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &519420033
 MonoBehaviour:
@@ -4519,7 +4507,7 @@ PrefabInstance:
     - target: {fileID: 5216817755464628974, guid: 6bb134c00edf74efd85ea0e64199baf8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5216817755464628974, guid: 6bb134c00edf74efd85ea0e64199baf8,
         type: 3}
@@ -6979,7 +6967,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1749840035
 PrefabInstance:
@@ -7194,6 +7182,8 @@ MonoBehaviour:
   currentStage: 2
   finalStage: 1
   menusManager: {fileID: 1132385257}
+  cameraAnimator: {fileID: 0}
+  playerAnimator: {fileID: 0}
 --- !u!1001 &1715595832320993896
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7330,7 +7320,7 @@ PrefabInstance:
         type: 3}
       propertyPath: playerMovement
       value: 
-      objectReference: {fileID: 87785845}
+      objectReference: {fileID: 0}
     - target: {fileID: 1715595831200774540, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_Name

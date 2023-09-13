@@ -22,11 +22,6 @@ public class PlayerMovementKeys: MonoBehaviour
         {
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");
-            if (movement.magnitude > 0.1)
-            {
-                if (pathMovement != null)
-                    pathMovement.InterruptMovement();
-            }
         }
         
     }
@@ -35,6 +30,8 @@ public class PlayerMovementKeys: MonoBehaviour
     {
         if (movement.magnitude > 0.7)
         {
+            if (pathMovement != null)
+                pathMovement.InterruptMovement();
             player.MovePosition(player.position + movement * moveSpeed * Time.deltaTime);
             directionController.UpdateDirection(movement);
         }

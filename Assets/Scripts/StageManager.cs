@@ -13,11 +13,13 @@ public class StageManager : MonoBehaviour
 
     public Animator cameraAnimator;
     public Animator playerAnimator;
+    PlayerMovementPath playerMovementPath;
 
     void Start()
     {
         FindObjectOfType<AudioManager>().Stop("OpeningMusic");
         FindObjectOfType<AudioManager>().Play("BackgroundMusic");
+        playerMovementPath = FindObjectOfType<PlayerMovementPath>();
     }
 
     void Update()
@@ -35,6 +37,8 @@ public class StageManager : MonoBehaviour
 
     IEnumerator WinningScene()
     {
+        if (playerMovementPath != null)
+            playerMovementPath.InterruptMovement();
         cameraAnimator.SetTrigger("ZoomIn");
         playerAnimator.SetTrigger("Triumph");
         //make everything no more interactable

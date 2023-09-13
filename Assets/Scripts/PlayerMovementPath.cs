@@ -4,7 +4,6 @@ using Pathfinding;
 
 public class PlayerMovementPath : MonoBehaviour
 {
-    public Tilemap tilemap;
     public float moveSpeed = 3.5f;
 
     Rigidbody2D player;
@@ -15,10 +14,12 @@ public class PlayerMovementPath : MonoBehaviour
     int currentWaypoint = 0;
     float nextWaypointDistance = 0.1f;
     Seeker seeker;
+    Tilemap tilemap;
 
     void Start()
     {
         seeker = GetComponent<Seeker>();
+        tilemap = FindFirstObjectByType<Tilemap>();
         player = GetComponent<Rigidbody2D>();
         directionController = GetComponent<PlayerDirectionController>();
     }

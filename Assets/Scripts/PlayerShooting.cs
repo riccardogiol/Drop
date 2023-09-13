@@ -3,23 +3,33 @@ using UnityEngine;
 public class PlayerShooting : MonoBehaviour
 {
     public GameObject bulletPrefab;
-    public float bulletSpeed = 10f;
-    public float bulletEnergy = 5f;
-    public float bulletDamage = 10f;
+    float bulletSpeed = 10f;
+    float bulletEnergy = 10f;
+    float bulletDamage = 15f;
+    float bulletRange = 3.0f;
+    float cooldown = 1.5f;
+
+    readonly string unlockingCode1 = "Lvl1";
+    readonly string unlockingCode2 = "Lvl6";
+    readonly float bulletRange2 = 6.0f;
+    readonly string unlockingCode3 = "Lvl7";
+    readonly float bulletDamege3 = 25f;
 
     public Transform shootingPoint;
-    public float cooldown = 1.5f;
     float timer;
 
     PlaygroundManager playgroundManager;
-
     ButtonFiller buttonFiller;
-    
     PlayerDirectionController playerMovement;
     PlayerHealth playerHealth;
 
     void Start()
     {
+        if(PlayerPrefs.GetInt(unlockingCode1, 0) == 0)
+        {
+            enabled = false;
+            return;
+        }
         playerMovement = GetComponent<PlayerDirectionController>();
         playerHealth = GetComponent<PlayerHealth>();
         timer = 0;
@@ -37,6 +47,12 @@ public class PlayerShooting : MonoBehaviour
             Debug.LogWarning("No playgroundManager found");
             return;
         }
+
+        if (PlayerPrefs.GetInt(unlockingCode2, 0) == 1)
+            bulletRange = bulletRange2;
+        if (PlayerPrefs.GetInt(unlockingCode3, 0) == 1)
+            bulletDamage = bulletDamege3;
+
     }
 
     void Update()
@@ -74,6 +90,7 @@ public class PlayerShooting : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, shootingPoint.position + (Vector3)(playerMovement.lastDirection * 0.2f), Quaternion.LookRotation(Vector3.forward, playerMovement.lastDirection));
         bullet.GetComponent<Bullet>().energy = bulletEnergy;
         bullet.GetComponent<Bullet>().damage = bulletDamage;
+        bullet.GetComponent<Bullet>().range = bulletRange;
         bullet.GetComponent<Bullet>().playgroundManager = playgroundManager;
         bullet.GetComponent<Rigidbody2D>().velocity = playerMovement.lastDirection * bulletSpeed;
     }

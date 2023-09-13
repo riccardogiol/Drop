@@ -3,15 +3,23 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public StageManager stageManager;
-
-    public int maxHealth = 50;
+    int maxHealth = 50;
     public int currentHealth = 50;
 
+    public StageManager stageManager;
     public HealthBar healthBar;
+    
+    readonly string unlockingCode2 = "Lvl3";
+    readonly int maxHealth2 = 75;
+    readonly string unlockingCode3 = "Lvl10";
+    readonly int maxHealth3 = 100;
 
     void Start()
     {
+        if (PlayerPrefs.GetInt(unlockingCode2, 0) == 1)
+            maxHealth = maxHealth2;
+        if (PlayerPrefs.GetInt(unlockingCode3, 0) == 1)
+            maxHealth = maxHealth3;
         healthBar.SetMaxHealth(maxHealth);
         healthBar.SetHealth(currentHealth);
     }

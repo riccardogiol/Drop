@@ -6,6 +6,17 @@ public class SetButtonActionShoot : MonoBehaviour
     public Button button;
     PlayerShooting playerShooting;
 
+    readonly string unlockingCode1 = "Lvl1";
+
+    void Awake()
+    {
+        if(PlayerPrefs.GetInt(unlockingCode1, 0) == 0)
+        {
+            gameObject.SetActive(false);
+            return;
+        }
+    }
+
     void Start()
     {
         playerShooting = FindFirstObjectByType<PlayerShooting>();

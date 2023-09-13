@@ -9,6 +9,8 @@ public class PlayerDirectionController: MonoBehaviour
 
     void Start()
     {
+        playerAnimator.SetFloat("LastHorizontal", lastDirection.x);
+        playerAnimator.SetFloat("LastVertical", lastDirection.y);
         InvokeRepeating("SpeedCheck", 0f, 0.05f);
     }
 

@@ -5,6 +5,20 @@ public class Bullet : MonoBehaviour
     public PlaygroundManager playgroundManager;
     public float energy = 5;
     public float damage = 10;
+    public float range = 4;
+
+    Vector2 startingPosition;
+
+    void Start()
+    {
+        startingPosition = transform.position;
+    }
+
+    void FixedUpdate()
+    {
+        if (Vector2.Distance(startingPosition, transform.position) > range)
+            DestroyBullet();
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -25,7 +39,7 @@ public class Bullet : MonoBehaviour
                 break;
             case "Flame":
                 float otherEnergy = other.GetComponent<PickFlame>().energy;
-                if (otherEnergy < damage)
+                if (otherEnergy <= damage)
                     other.GetComponent<PickFlame>().DestroyFlame();
                 else {
                     other.GetComponent<PickFlame>().energy -= damage;
@@ -33,6 +47,11 @@ public class Bullet : MonoBehaviour
                 }
                 break;
         }
+        DestroyBullet();
+    }
+
+    void DestroyBullet()
+    {
         FindObjectOfType<AudioManager>().Play("BulletExplosion");
         Destroy(gameObject);
     }
