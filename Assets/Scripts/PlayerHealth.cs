@@ -3,16 +3,16 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    int maxHealth = 50;
-    public int currentHealth = 50;
+    int maxHealth = 12;
+    public int currentHealth = 12;
 
     public StageManager stageManager;
     public HealthBar healthBar;
     
     readonly string unlockingCode2 = "Lvl3";
-    readonly int maxHealth2 = 75;
+    readonly int maxHealth2 = 15;
     readonly string unlockingCode3 = "Lvl10";
-    readonly int maxHealth3 = 100;
+    readonly int maxHealth3 = 18;
 
     void Start()
     {
@@ -40,6 +40,5 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth = Math.Min( currentHealth + value, maxHealth);
         healthBar.SetHealth(currentHealth);
-        // condition it dies!
     }
 }

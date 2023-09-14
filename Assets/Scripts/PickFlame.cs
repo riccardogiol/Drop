@@ -1,22 +1,35 @@
 using UnityEngine;
+using System;
 
 public class PickFlame : MonoBehaviour
 {
     public bool randomEnergy = true;
-    public float energy = 3;
-    public float maxEnergy = 15f;
-    public SpriteChangingOnValue spriteChanger;
+    public int energy = 3;
+
+    readonly int[] energyValues = { 1, 3, 5 };
+    readonly int maxEnergy = 5;
+    SpriteChangingOnValue spriteChanger;
 
     void Awake()
     {
+        spriteChanger = GetComponent<SpriteChangingOnValue>();
         if (randomEnergy)
-            energy = Random.Range(energy, maxEnergy);
-        ScaleOnEnergy();   
+        {
+            int randomIndex = UnityEngine.Random.Range(0, energyValues.Length-1);
+            energy = energyValues[randomIndex];
+        }
+        ScaleOnEnergy();
     }
 
     public void ScaleOnEnergy()
     {
         spriteChanger.Evaluate(energy);
+    }
+
+    public void RechargeEnergy(int energyIncome)
+    {
+        energy = Math.Min(maxEnergy, energy + energyIncome);
+        ScaleOnEnergy();
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -29,8 +42,8 @@ public class PickFlame : MonoBehaviour
                 DestroyFlame();
                 break;*/
             case "Enemy":
-                float enemyHealthDiff = other.GetComponent<EnemyHealth>().maxHealth - other.GetComponent<EnemyHealth>().currentHealth;
-                other.GetComponent<EnemyHealth>().FillReservoir((int)energy);
+                int enemyHealthDiff = other.GetComponent<EnemyHealth>().maxHealth - other.GetComponent<EnemyHealth>().currentHealth;
+                other.GetComponent<EnemyHealth>().FillReservoir(energy);
                 if (enemyHealthDiff > energy)
                 {
                     DestroyFlame();
@@ -40,8 +53,11 @@ public class PickFlame : MonoBehaviour
                 }
                 break;
             case "Flame":
-                if (other.GetComponent<PickFlame>().energy>energy)
+                if (other.GetComponent<PickFlame>().energy >= energy)
+                {
+                    other.GetComponent<PickFlame>().RechargeEnergy(energy);
                     DestroyFlame();
+                }
                 break;
         }
     }

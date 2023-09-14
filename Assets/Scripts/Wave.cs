@@ -3,7 +3,7 @@ using UnityEngine;
 public class Wave : MonoBehaviour
 {
     public PlaygroundManager playgroundManager;
-    public float damage = 5;
+    public int damage = 2;
     public float timer = 1;
 
     public GameObject[] watersparklers;
@@ -48,11 +48,11 @@ public class Wave : MonoBehaviour
         if (other.CompareTag("Grass"))
             playgroundManager.WaterOnPosition(other.transform.position);
         if (other.CompareTag("Enemy"))
-            other.GetComponent<EnemyHealth>().TakeDamage((int)damage);
+            other.GetComponent<EnemyHealth>().TakeDamage(damage);
         if (other.CompareTag("Flame"))
         {
-            float otherEnergy = other.GetComponent<PickFlame>().energy;
-            if (otherEnergy < damage)
+            int otherEnergy = other.GetComponent<PickFlame>().energy;
+            if (otherEnergy <= damage)
                 other.GetComponent<PickFlame>().DestroyFlame();
             else {
                 other.GetComponent<PickFlame>().energy -= damage;

@@ -4,8 +4,8 @@ public class PlayerShooting : MonoBehaviour
 {
     public GameObject bulletPrefab;
     float bulletSpeed = 10f;
-    float bulletEnergy = 10f;
-    float bulletDamage = 15f;
+    int bulletEnergy = 3;
+    int bulletDamage = 5;
     float bulletRange = 3.0f;
     float cooldown = 1.5f;
 
@@ -13,7 +13,7 @@ public class PlayerShooting : MonoBehaviour
     readonly string unlockingCode2 = "Lvl6";
     readonly float bulletRange2 = 6.0f;
     readonly string unlockingCode3 = "Lvl7";
-    readonly float bulletDamege3 = 25f;
+    readonly int bulletDamege3 = 7; // or bulletEnergy = 2
 
     public Transform shootingPoint;
     float timer;
@@ -78,7 +78,7 @@ public class PlayerShooting : MonoBehaviour
             return;
         if (playerHealth.currentHealth > bulletEnergy)
         { 
-            playerHealth.TakeDamage((int)bulletEnergy);
+            playerHealth.TakeDamage(bulletEnergy);
             Shoot();
             timer = cooldown;
         }

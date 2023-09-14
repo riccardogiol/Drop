@@ -3,8 +3,8 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public PlaygroundManager playgroundManager;
-    public float energy = 5;
-    public float damage = 10;
+    public int energy = 3;
+    public int damage = 5;
     public float range = 4;
 
     Vector2 startingPosition;
@@ -25,7 +25,7 @@ public class Bullet : MonoBehaviour
         switch (other.tag)
         {
             case "Enemy":
-                other.GetComponent<EnemyHealth>().TakeDamage((int)damage);
+                other.GetComponent<EnemyHealth>().TakeDamage(damage);
                 break;
             case "Grass":
                 playgroundManager.WaterOnPosition(other.transform.position);
@@ -34,17 +34,22 @@ public class Bullet : MonoBehaviour
                 return;
             case "Wave":
                 return;
+            case "OneWayCollider":
+                return;
             case "Wall":
                 playgroundManager.WaterOnPosition(other.transform.position);
                 break;
             case "Flame":
-                float otherEnergy = other.GetComponent<PickFlame>().energy;
+                int otherEnergy = other.GetComponent<PickFlame>().energy;
                 if (otherEnergy <= damage)
                     other.GetComponent<PickFlame>().DestroyFlame();
                 else {
                     other.GetComponent<PickFlame>().energy -= damage;
                     other.GetComponent<PickFlame>().ScaleOnEnergy();
                 }
+                break;
+            case "Waterdrop":
+                other.GetComponent<PickWaterdrop>().RechargeEnergy(energy);
                 break;
         }
         DestroyBullet();

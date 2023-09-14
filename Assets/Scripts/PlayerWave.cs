@@ -3,8 +3,8 @@ using UnityEngine;
 public class PlayerWave : MonoBehaviour
 {
     public GameObject wavePrefab;
-    float waveEnergy = 5f;
-    float waveDamage = 5f;
+    int waveEnergy = 3;
+    int waveDamage = 2;
     float cooldown = 1.5f;
     float timer;
 
@@ -65,7 +65,7 @@ public class PlayerWave : MonoBehaviour
             return;
         if (playerHealth.currentHealth > waveEnergy)
         { 
-            playerHealth.TakeDamage((int)waveEnergy);
+            playerHealth.TakeDamage(waveEnergy);
             WaveAttack();
             timer = cooldown;
         }

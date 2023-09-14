@@ -16,7 +16,7 @@ public class RuleTileStateManager : MonoBehaviour
     private int tileNumber;
     private int burntTileNumber;
 
-    public int burntTileDamage = 3;
+    readonly int burntTileDamage = 1;
 
     void Awake()
     {
