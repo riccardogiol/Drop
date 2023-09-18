@@ -718,7 +718,7 @@ Tilemap:
   - m_RefCount: 2
     m_Data: {fileID: 89665249, guid: 4ec136dd92a1f406facec3bcba154369, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: -380948256, guid: 4ec136dd92a1f406facec3bcba154369, type: 3}
+    m_Data: {fileID: -283411104, guid: 679e9469257d24f2883117a46854e303, type: 3}
   - m_RefCount: 4
     m_Data: {fileID: 1635783403, guid: 4ec136dd92a1f406facec3bcba154369, type: 3}
   - m_RefCount: 4
@@ -796,7 +796,6 @@ MonoBehaviour:
   maxXCell: 6
   minYCell: -3
   maxYCell: 4
-  burntTileDamage: 3
 --- !u!1001 &283417957
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1797,7 +1796,6 @@ MonoBehaviour:
   maxXCell: 6
   minYCell: -3
   maxYCell: 4
-  burntTileDamage: 0
 --- !u!1 &1736441726
 GameObject:
   m_ObjectHideFlags: 0
@@ -1974,6 +1972,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1273812183191168762, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_Text
+      value: clear the area
+      objectReference: {fileID: 0}
     - target: {fileID: 1715595830883914204, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2109,6 +2112,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1715595831553309570, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715595831764206309, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1715595832030293733, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2139,10 +2152,40 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2098056895}
+    - target: {fileID: 1715595832583040290, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715595832583040292, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715595832583040292, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715595832583040292, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1867412258302356888, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_Text
       value: Clear the stage!
+      objectReference: {fileID: 0}
+    - target: {fileID: 2633837282925200891, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3524557551147183366, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_Text
+      value: tutorial
       objectReference: {fileID: 0}
     - target: {fileID: 3879348273464800413, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
@@ -2189,10 +2232,45 @@ PrefabInstance:
       propertyPath: m_text
       value: Walk over the burnt grass to water it
       objectReference: {fileID: 0}
+    - target: {fileID: 5962257617227980836, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.2830189
+      objectReference: {fileID: 0}
+    - target: {fileID: 5962257617227980836, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.20579103
+      objectReference: {fileID: 0}
+    - target: {fileID: 5962257617227980836, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.01735494
+      objectReference: {fileID: 0}
+    - target: {fileID: 6419582724499864665, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_Text
+      value: burnt grass
+      objectReference: {fileID: 0}
     - target: {fileID: 6633096614707632329, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7437508144108885100, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.2784314
+      objectReference: {fileID: 0}
+    - target: {fileID: 7437508144108885100, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.20000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 7437508144108885100, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.015686275
       objectReference: {fileID: 0}
     - target: {fileID: 7474827322298110750, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
@@ -2204,11 +2282,39 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7841191838149230578, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1132385257}
+    - target: {fileID: 7841191838149230578, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Resume
+      objectReference: {fileID: 0}
+    - target: {fileID: 7841191838149230578, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MenusManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8272775178286412716, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_Text
+      value: save the forest
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874799144318361618, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_Text
+      value: 'water the burnt grass walking over it.
+
+        careful! every patch
+        of burnt grass you water will cost some energy from the reservoir.'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7b202ae4dba84871811aa7c44bc43e3, type: 3}
 --- !u!1 &1715595832320993897 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 6633096614707632329, guid: c7b202ae4dba84871811aa7c44bc43e3,
+  m_CorrespondingSourceObject: {fileID: 2633837282925200891, guid: c7b202ae4dba84871811aa7c44bc43e3,
     type: 3}
   m_PrefabInstance: {fileID: 1715595832320993896}
   m_PrefabAsset: {fileID: 0}

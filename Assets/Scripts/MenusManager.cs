@@ -68,19 +68,13 @@ public class MenusManager : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (!messageOnScreen)
-            {
-                if (isPaused)
-                    Resume();
-                else
-                    Pause();
-            }
-        }
+            Pause();
     }
 
     public void Pause()
     {
+        if (messageOnScreen)
+            return;
         Time.timeScale = 0f;
         pauseMenu.SetActive(true);
         shader.SetActive(true);

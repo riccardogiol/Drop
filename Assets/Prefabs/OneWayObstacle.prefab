@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4462471140003702127}
   - component: {fileID: 4462471140003702124}
   - component: {fileID: 4462471140003702125}
+  - component: {fileID: 6318219958897345114}
   m_Layer: 0
   m_Name: OneWayObstacle
   m_TagString: OneWayCollider
@@ -132,3 +133,23 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!114 &6318219958897345114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4462471140003702098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 657bf229d492a4e268a100269c0c1fc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockingFromBelow: 1
+  blockingFromAbove: 0
+  blockingFromLeft: 0
+  blockingFromRight: 0
+  spriteAbove: {fileID: -674828726, guid: 7bf8a9625a03449f991cfff2d470cc86, type: 3}
+  spriteBelow: {fileID: 467864751, guid: 7bf8a9625a03449f991cfff2d470cc86, type: 3}
+  spriteLeft: {fileID: -1248690028, guid: 7bf8a9625a03449f991cfff2d470cc86, type: 3}
+  spriteRight: {fileID: 1301071097, guid: 7bf8a9625a03449f991cfff2d470cc86, type: 3}
