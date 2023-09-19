@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 8701150934190704425}
   - component: {fileID: 351608897783991170}
   - component: {fileID: 8745705882468078219}
+  - component: {fileID: 4553556838832309129}
+  - component: {fileID: 592553961053811721}
   m_Layer: 0
   m_Name: Flame
   m_TagString: Flame
@@ -97,8 +99,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   randomEnergy: 1
   energy: 7
-  maxEnergy: 15
-  spriteChanger: {fileID: 8745705882468078219}
 --- !u!114 &8745705882468078219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,6 +120,39 @@ MonoBehaviour:
   thresholds:
   - 1
   - 3
+--- !u!95 &4553556838832309129
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351608897783991198}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d4ab46e81f214458ba8d261988998879, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &592553961053811721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351608897783991198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78fd168d96b6a411cacdf0294bc5f3d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4966454036529489779
 GameObject:
   m_ObjectHideFlags: 0
@@ -145,7 +178,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4966454036529489779}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -203,4 +236,4 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1

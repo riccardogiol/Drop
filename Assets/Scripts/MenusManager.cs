@@ -164,4 +164,9 @@ public class MenusManager : MonoBehaviour
     {
         stageManager.GoWorldMap();
     }
+
+    public void GoNextStage()
+    {
+        stageManager.GoNextStage();
+    }
 }
