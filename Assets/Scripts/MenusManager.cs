@@ -150,4 +150,18 @@ public class MenusManager : MonoBehaviour
         isPaused = false;
         messageOnScreen = false;
     }
+
+    public void ExitMessage(GameObject message)
+    {
+        Time.timeScale = 1f;
+        shader.SetActive(false);
+        message.SetActive(false);
+        isPaused = false;
+        messageOnScreen = false;
+    }
+
+    public void GoToWorldMap()
+    {
+        stageManager.GoWorldMap();
+    }
 }
