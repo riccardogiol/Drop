@@ -5,6 +5,7 @@ using Pathfinding;
 public class PlayerMovementPath : MonoBehaviour
 {
     public float moveSpeed = 3.5f;
+    public GameObject touchIndicator;
 
     Rigidbody2D player;
     PlayerDirectionController directionController;
@@ -51,11 +52,10 @@ public class PlayerMovementPath : MonoBehaviour
             }
         } else 
         {
-        // do something visual on cell and controle that is a walkable cell!??
-        Vector3Int cell = tilemap.WorldToCell(newTarget);
-        target = tilemap.GetCellCenterWorld(cell);
-
-        UpdatePath();
+            Vector3Int cell = tilemap.WorldToCell(newTarget);
+            target = tilemap.GetCellCenterWorld(cell);
+            Instantiate(touchIndicator, target, Quaternion.identity);
+            UpdatePath();
         }
     }
 

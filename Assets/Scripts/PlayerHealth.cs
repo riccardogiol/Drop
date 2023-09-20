@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
 
     public StageManager stageManager;
     public HealthBar healthBar;
+    public DamageIndicator damageIndicator;
     
     readonly string unlockingCode2 = "Lvl3";
     readonly int maxHealth2 = 15;
@@ -27,6 +28,7 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth = Math.Max( currentHealth - damage, 0);
+        damageIndicator.ShowDamage(damage);
         healthBar.SetHealth(currentHealth);
         if(currentHealth == 0)
         {
@@ -39,6 +41,7 @@ public class PlayerHealth : MonoBehaviour
     public void FillReservoir(int value)
     {
         currentHealth = Math.Min( currentHealth + value, maxHealth);
+        damageIndicator.ShowEnergy(value);
         healthBar.SetHealth(currentHealth);
     }
 }
