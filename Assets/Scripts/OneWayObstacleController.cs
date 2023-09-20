@@ -24,18 +24,32 @@ public class OneWayObstacleController : MonoBehaviour
         {
             spriteRenderer.sprite = spriteAbove;
             platformEffector2D.rotationalOffset = 0;
+            if (Random.value > 0.5)
+                spriteRenderer.flipX = true;
         } else if (blockingFromBelow)
         {
             spriteRenderer.sprite = spriteBelow;
             platformEffector2D.rotationalOffset = 180;
+            if (Random.value > 0.5)
+                spriteRenderer.flipX = true;
         } else if (blockingFromLeft)
         {
             spriteRenderer.sprite = spriteLeft;
             platformEffector2D.rotationalOffset = 90;
+            if (Random.value > 0.5)
+            {
+                spriteRenderer.sprite = spriteRight;
+                spriteRenderer.flipX = true;
+            }
         } else
         {
             spriteRenderer.sprite = spriteRight;
             platformEffector2D.rotationalOffset = 270;
+            if (Random.value > 0.5)
+            {
+                spriteRenderer.sprite = spriteLeft;
+                spriteRenderer.flipX = true;
+            }
         }
     }
 
