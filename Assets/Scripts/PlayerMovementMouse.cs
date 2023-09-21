@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using System.Collections.Generic;
 
 public class PlayerMovementMouse : MonoBehaviour
 {
@@ -20,10 +21,25 @@ public class PlayerMovementMouse : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (EventSystem.current.IsPointerOverGameObject())
+            if (ClickOnUI())
                 return;
             Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition); 
             movementPath.NewTarget(target);
         }
+    }
+    
+    bool ClickOnUI()
+    {
+        PointerEventData eventDataCurrentPosition = new(EventSystem.current) {
+            position = Input.mousePosition
+        };
+        List<RaycastResult> results = new();
+        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+        foreach (var item in results)
+        {
+            if (item.gameObject.layer == 5)
+                return true;
+        }
+        return false;
     }
 }

@@ -37,11 +37,11 @@ public class StageManager : MonoBehaviour
 
     IEnumerator WinningScene()
     {
+        menusManager.SetIsPause(true);
         if (playerMovementPath != null)
             playerMovementPath.InterruptMovement();
         cameraAnimator.SetTrigger("ZoomIn");
         playerAnimator.SetTrigger("Triumph");
-        //make everything no more interactable
 
         yield return new WaitForSeconds(3);
         Debug.Log("waited?");

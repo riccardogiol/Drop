@@ -42,6 +42,8 @@ public class PlayerMovementPath : MonoBehaviour
     
     public void NewTarget(Vector3 newTarget)
     {
+        if (MenusManager.isPaused)
+            return;
         if (Vector2.Distance(newTarget, (Vector2)transform.position) < 0.7)
         {
             if (path != null)

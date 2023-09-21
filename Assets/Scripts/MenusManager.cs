@@ -169,4 +169,9 @@ public class MenusManager : MonoBehaviour
     {
         stageManager.GoNextStage();
     }
+
+    public void SetIsPause(bool value)
+    {
+        isPaused = value;
+    }
 }
