@@ -250,6 +250,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3630253859656403414}
+  - component: {fileID: 4880310780935055023}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -274,6 +275,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4880310780935055023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3630253859656403413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86366b3bbc8214e9aaa8a6cb65aa48a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cinemachine: {fileID: 3630253860076335746}
+  camAnimator: {fileID: 3630253860076335756}
+  cam: {fileID: 3630253859576267595}
+  targetPrefab: {fileID: 1529357162247461357, guid: 33783d452b8ec478bb35fc511c90ec16,
+    type: 3}
 --- !u!1 &3630253860076335745
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,6 +303,7 @@ GameObject:
   - component: {fileID: 3630253860076335747}
   - component: {fileID: 3630253860076335746}
   - component: {fileID: 3630253860076335756}
+  - component: {fileID: 7912952354918402124}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -367,3 +386,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7912952354918402124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3630253860076335745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f453f694addf4275988fac205bc91968, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BoundingShape2D: {fileID: 0}
+  m_Damping: 0.5
+  m_MaxWindowSize: -1

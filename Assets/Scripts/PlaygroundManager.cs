@@ -149,4 +149,32 @@ public class PlaygroundManager : MonoBehaviour
         Debug.Log("Progression perc: " + progressionPerc);
         EvaluateCleanSurface();
     }
+
+    public void ShowEnergy()
+    {
+        foreach(Transform child in flameParent.transform)
+        {
+            if(child.gameObject.CompareTag("Flame"))
+                child.GetComponent<EnergyIndicator>().ShowEnergy();
+        }
+        foreach(Transform child in waterdropParent.transform)
+        {
+            if(child.gameObject.CompareTag("Waterdrop"))
+                child.GetComponent<EnergyIndicator>().ShowEnergy();
+        }
+    }
+
+    public void HideEnergy()
+    {
+        foreach(Transform child in flameParent.transform)
+        {
+            if(child.gameObject.CompareTag("Flame"))
+                child.GetComponent<EnergyIndicator>().HideEnergy();
+        }
+        foreach(Transform child in waterdropParent.transform)
+        {
+            if(child.gameObject.CompareTag("Waterdrop"))
+                child.GetComponent<EnergyIndicator>().HideEnergy();
+        }
+    }
 }

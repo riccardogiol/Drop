@@ -8,6 +8,7 @@ public class MenusManager : MonoBehaviour
     GameObject stageClearedMenu;
     GameObject levelClearedMenu;
     GameObject shader;
+    EagleEyeMode eagleEye;
     
     public GameObject openMessage;
 
@@ -15,6 +16,7 @@ public class MenusManager : MonoBehaviour
 
     public static bool isPaused = false;
     public bool messageOnScreen = false;
+    bool eagleEyeState = false;
 
     
     void Start()
@@ -42,6 +44,10 @@ public class MenusManager : MonoBehaviour
         if (auxTrans == null)
             return;
         levelClearedMenu = auxTrans.gameObject;
+
+        eagleEye = FindFirstObjectByType<EagleEyeMode>();
+        if (eagleEye == null)
+            return;
 
         shader.SetActive(false);
         pauseMenu.SetActive(false);
@@ -173,5 +179,24 @@ public class MenusManager : MonoBehaviour
     public void SetIsPause(bool value)
     {
         isPaused = value;
+    }
+
+    public void ToggleEagleEye()
+    {
+        if (messageOnScreen)
+            return;
+
+        if (eagleEyeState)
+        {
+            Time.timeScale = 1f;
+            isPaused = false;
+            eagleEyeState = false;
+            eagleEye.Exit();
+        } else {
+            Time.timeScale = 0.2f;
+            isPaused = true;
+            eagleEyeState = true;
+            eagleEye.Enter();
+        }
     }
 }

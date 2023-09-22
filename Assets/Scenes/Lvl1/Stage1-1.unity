@@ -1306,6 +1306,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -11.87
       objectReference: {fileID: 0}
+    - target: {fileID: 7912952354918402124, guid: 968746b6d569541f8a229d945ad218b9,
+        type: 3}
+      propertyPath: m_BoundingShape2D
+      value: 
+      objectReference: {fileID: 816872896}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 968746b6d569541f8a229d945ad218b9, type: 3}
 --- !u!95 &308731740 stripped
@@ -1472,6 +1477,7 @@ GameObject:
   - component: {fileID: 816872894}
   - component: {fileID: 816872893}
   - component: {fileID: 816872895}
+  - component: {fileID: 816872896}
   m_Layer: 0
   m_Name: Playground
   m_TagString: Untagged
@@ -1532,6 +1538,36 @@ MonoBehaviour:
   minProgressionPerc: 0.7
   loseProgressionPerc: 0
   winProgressionPerc: 1
+--- !u!60 &816872896
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816872892}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.09911728, y: 6.2532206}
+      - {x: -15.471752, y: 6.2560596}
+      - {x: -15.356275, y: -6.8551774}
+      - {x: 9.954377, y: -6.8551764}
+      - {x: 10.069854, y: 6.156942}
 --- !u!1001 &884353088
 PrefabInstance:
   m_ObjectHideFlags: 0
