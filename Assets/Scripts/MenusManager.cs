@@ -81,6 +81,8 @@ public class MenusManager : MonoBehaviour
     {
         if (messageOnScreen)
             return;
+        if (eagleEyeState)
+            return;
         Time.timeScale = 0f;
         pauseMenu.SetActive(true);
         shader.SetActive(true);

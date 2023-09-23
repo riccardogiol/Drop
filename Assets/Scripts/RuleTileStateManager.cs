@@ -6,10 +6,10 @@ public class RuleTileStateManager : MonoBehaviour
     public RuleTile burntTile;
     public RuleTile cleanTile;
 
-    public int minXCell = 0;
-    public int maxXCell = 40;
-    public int minYCell = 0;
-    public int maxYCell = 40;
+    int minXCell = 0;
+    int maxXCell = 40;
+    int minYCell = 0;
+    int maxYCell = 40;
 
     private Tilemap tilemap;
 
@@ -21,6 +21,12 @@ public class RuleTileStateManager : MonoBehaviour
     void Awake()
     {
         tilemap = GetComponent<Tilemap>();
+    }
+
+    public void SetTilemapLimit(int maxX, int maxY)
+    {
+        maxXCell = maxX;
+        maxYCell = maxY;
     }
 
     public void EvaluateTilesState()

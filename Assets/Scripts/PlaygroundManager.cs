@@ -4,30 +4,51 @@ using UnityEngine.Tilemaps;
 
 public class PlaygroundManager : MonoBehaviour
 {
-    public StageManager stageManager;
+    StageManager stageManager;
 
-    public Tilemap walkTilemap;
-    public Tilemap wallTilemap;
+    Tilemap walkTilemap;
+    Tilemap wallTilemap;
+    public int maxX = 40;
+    public int maxY = 40;
 
-    public GameObject flameParent;
-    public GameObject waterdropParent;
-
+    GameObject flameParent;
+    GameObject waterdropParent;
     public GameObject flamePrefab;
     public GameObject waterdropPrefab;
 
-
-    private int totalTiles = 0;
-    private int burntTiles = 0;
-    private float fireValue = 0;
-    private float progressionPerc = 0;
+    int totalTiles = 0;
+    int burntTiles = 0;
+    float fireValue = 0;
+    float progressionPerc = 0;
     ProgressionBarFiller progressionBar;
-    // make it a slider in the unity editor
     public float minProgressionPerc = 0.3f;
     public float loseProgressionPerc = 0.45f;
     public float winProgressionPerc = 0.98f;
 
+    void Awake()
+    {
+        stageManager = FindFirstObjectByType<StageManager>();
+
+        GameObject auxGO = transform.Find("WalkTilemap").gameObject;
+        if (auxGO == null)
+            return;
+        walkTilemap = auxGO.GetComponent<Tilemap>();
+        stageManager = FindFirstObjectByType<StageManager>();
+
+        auxGO = transform.Find("WallTilemap").gameObject;
+        if (auxGO == null)
+            return;
+        wallTilemap = auxGO.GetComponent<Tilemap>();
+
+        flameParent = transform.Find("FlameParent").gameObject;
+        waterdropParent = transform.Find("WaterdropParent").gameObject;
+
+    }
+
     void Start()
     {
+        walkTilemap.GetComponent<RuleTileStateManager>().SetTilemapLimit(maxX, maxY);
+        wallTilemap.GetComponent<RuleTileStateManager>().SetTilemapLimit(maxX, maxY);
         walkTilemap.GetComponent<RuleTileStateManager>().EvaluateTilesState();
         wallTilemap.GetComponent<RuleTileStateManager>().EvaluateTilesState();
         flameParent.GetComponent<FireCounter>().UpdateFireCounters();

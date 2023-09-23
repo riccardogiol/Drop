@@ -146,14 +146,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 90711643}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1568359837}
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_Father: {fileID: 816872894}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &280733216
 GameObject:
@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 280733218}
   - component: {fileID: 280733220}
   m_Layer: 0
-  m_Name: walk
+  m_Name: WalkTilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -187,7 +187,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 816872894}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &280733218
 TilemapRenderer:
@@ -775,7 +775,7 @@ Tilemap:
   - m_RefCount: 2
     m_Data: {fileID: 2112830844, guid: 4ec136dd92a1f406facec3bcba154369, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: -380948256, guid: 4ec136dd92a1f406facec3bcba154369, type: 3}
+    m_Data: {fileID: -283411104, guid: 679e9469257d24f2883117a46854e303, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 1442834666, guid: 4ec136dd92a1f406facec3bcba154369, type: 3}
   - m_RefCount: 2
@@ -853,10 +853,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   burntTile: {fileID: 11400000, guid: 6979f7f924b64482ca839ab58a846e04, type: 2}
   cleanTile: {fileID: 11400000, guid: 24c96346e809541c58b1ef1b73220991, type: 2}
-  minXCell: 0
-  maxXCell: 20
-  minYCell: 0
-  maxYCell: 20
 --- !u!95 &284692770 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 3630253860076335756, guid: 968746b6d569541f8a229d945ad218b9,
@@ -963,7 +959,7 @@ PrefabInstance:
     - target: {fileID: 6553719475120922810, guid: a28b45a62e9f6470da88cc37f1af80c6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6553719475120922810, guid: a28b45a62e9f6470da88cc37f1af80c6,
         type: 3}
@@ -1059,6 +1055,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1604410127}
+  - {fileID: 90711644}
   - {fileID: 280733217}
   - {fileID: 1712472140}
   m_Father: {fileID: 0}
@@ -1076,11 +1074,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 001285730cfff400386bba5c04bc2c4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageManager: {fileID: 2098056895}
-  walkTilemap: {fileID: 280733219}
-  wallTilemap: {fileID: 1712472142}
-  flameParent: {fileID: 1604410126}
-  waterdropParent: {fileID: 90711643}
+  maxX: 10
+  maxY: 6
   flamePrefab: {fileID: 351608897783991198, guid: 3ebeaf7f56b23485bbeed257861f6e4b,
     type: 3}
   waterdropPrefab: {fileID: 846535088814142963, guid: 71606232f6a1f405ab748a75268d3cba,
@@ -1113,7 +1108,7 @@ PrefabInstance:
     - target: {fileID: 3630253859656403414, guid: 968746b6d569541f8a229d945ad218b9,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3630253859656403414, guid: 968746b6d569541f8a229d945ad218b9,
         type: 3}
@@ -1227,7 +1222,7 @@ PrefabInstance:
     - target: {fileID: 782273169436171615, guid: 3f422914225544c0481e1f2cbf09cc96,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 782273169436171615, guid: 3f422914225544c0481e1f2cbf09cc96,
         type: 3}
@@ -1401,7 +1396,7 @@ PrefabInstance:
     - target: {fileID: 1715595831200774528, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1715595831200774528, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
@@ -1551,6 +1546,21 @@ PrefabInstance:
     - target: {fileID: 5411216365801270622, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5444028090378437002, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5444028090378437002, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5549952816802255127, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5766869013694836603, guid: c7b202ae4dba84871811aa7c44bc43e3,
@@ -1714,15 +1724,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1604410126}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1439329602}
   - {fileID: 768443949}
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 816872894}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1604410128
 MonoBehaviour:
@@ -1753,7 +1763,7 @@ GameObject:
   - component: {fileID: 1712472141}
   - component: {fileID: 1712472143}
   m_Layer: 6
-  m_Name: Walls
+  m_Name: WallTilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1772,7 +1782,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 816872894}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &1712472141
 TilemapRenderer:
@@ -2262,10 +2272,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   burntTile: {fileID: 11400000, guid: 20154be431cfb4a01b1769b186ff831b, type: 2}
   cleanTile: {fileID: 11400000, guid: 0ff3ee3e37f534be58f852565faf5c18, type: 2}
-  minXCell: 0
-  maxXCell: 20
-  minYCell: 0
-  maxYCell: 20
 --- !u!1 &1736441726
 GameObject:
   m_ObjectHideFlags: 0
