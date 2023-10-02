@@ -4,10 +4,10 @@ using UnityEngine;
 public class PickWaterdrop : MonoBehaviour
 {
     public bool randomEnergy = true;
-    public int energy = 5;
+    public int energy = 6;
 
-    readonly int[] energyValues = {3, 5, 7};
-    readonly int maxEnergy = 7;
+    readonly int[] energyValues = {2, 4, 6};
+    readonly int maxEnergy = 6;
     SpriteChangingOnValue spriteChanger;
 
 

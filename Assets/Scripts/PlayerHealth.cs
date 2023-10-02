@@ -3,17 +3,17 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    int maxHealth = 12;
-    public int currentHealth = 12;
+    int maxHealth = 6;
+    public int currentHealth = 6;
 
     public StageManager stageManager;
     public HealthBar healthBar;
     public DamageIndicator damageIndicator;
     
     readonly string unlockingCode2 = "Lvl3";
-    readonly int maxHealth2 = 15;
+    readonly int maxHealth2 = 8;
     readonly string unlockingCode3 = "Lvl10";
-    readonly int maxHealth3 = 18;
+    readonly int maxHealth3 = 10;
 
     void Start()
     {

@@ -1633,7 +1633,7 @@ PrefabInstance:
     - target: {fileID: 846535088814142962, guid: 71606232f6a1f405ab748a75268d3cba,
         type: 3}
       propertyPath: energy
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 846535088814142962, guid: 71606232f6a1f405ab748a75268d3cba,
         type: 3}
@@ -1723,7 +1723,7 @@ PrefabInstance:
     - target: {fileID: 351608897783991170, guid: 3ebeaf7f56b23485bbeed257861f6e4b,
         type: 3}
       propertyPath: energy
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 351608897783991170, guid: 3ebeaf7f56b23485bbeed257861f6e4b,
         type: 3}
@@ -1978,7 +1978,7 @@ PrefabInstance:
     - target: {fileID: 351608897783991170, guid: 3ebeaf7f56b23485bbeed257861f6e4b,
         type: 3}
       propertyPath: energy
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 351608897783991170, guid: 3ebeaf7f56b23485bbeed257861f6e4b,
         type: 3}
@@ -2260,7 +2260,7 @@ PrefabInstance:
     - target: {fileID: 782273169436171611, guid: 3f422914225544c0481e1f2cbf09cc96,
         type: 3}
       propertyPath: currentHealth
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 782273169436171614, guid: 3f422914225544c0481e1f2cbf09cc96,
         type: 3}
@@ -2407,7 +2407,7 @@ PrefabInstance:
     - target: {fileID: 846535088814142962, guid: 71606232f6a1f405ab748a75268d3cba,
         type: 3}
       propertyPath: energy
-      value: 7
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 846535088814142962, guid: 71606232f6a1f405ab748a75268d3cba,
         type: 3}
@@ -2979,7 +2979,7 @@ PrefabInstance:
     - target: {fileID: 351608897783991170, guid: 3ebeaf7f56b23485bbeed257861f6e4b,
         type: 3}
       propertyPath: energy
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 351608897783991170, guid: 3ebeaf7f56b23485bbeed257861f6e4b,
         type: 3}
@@ -3118,6 +3118,7 @@ Transform:
   - {fileID: 537231041}
   - {fileID: 548982856}
   - {fileID: 1373839359}
+  - {fileID: 1970407319}
   m_Father: {fileID: 816872894}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3179,7 +3180,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: "you can now cast a wave around you to water burnt grass, bushes and
-        flames\n - cost: 3\n - damage: 2\n - range: 1 tile"
+        flames\n - cost: 2\n - damage: 2\n - range: 1 tile"
       objectReference: {fileID: 0}
     - target: {fileID: 6390407501108583463, guid: 4317a480abfeb4491af35141a980d8e0,
         type: 3}
@@ -4320,6 +4321,91 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1970407318
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1604410127}
+    m_Modifications:
+    - target: {fileID: 351608897783991169, guid: 3ebeaf7f56b23485bbeed257861f6e4b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 351608897783991169, guid: 3ebeaf7f56b23485bbeed257861f6e4b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 351608897783991169, guid: 3ebeaf7f56b23485bbeed257861f6e4b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 351608897783991169, guid: 3ebeaf7f56b23485bbeed257861f6e4b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 351608897783991169, guid: 3ebeaf7f56b23485bbeed257861f6e4b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 351608897783991169, guid: 3ebeaf7f56b23485bbeed257861f6e4b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 351608897783991169, guid: 3ebeaf7f56b23485bbeed257861f6e4b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 351608897783991169, guid: 3ebeaf7f56b23485bbeed257861f6e4b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 351608897783991169, guid: 3ebeaf7f56b23485bbeed257861f6e4b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 351608897783991169, guid: 3ebeaf7f56b23485bbeed257861f6e4b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 351608897783991169, guid: 3ebeaf7f56b23485bbeed257861f6e4b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 351608897783991170, guid: 3ebeaf7f56b23485bbeed257861f6e4b,
+        type: 3}
+      propertyPath: energy
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 351608897783991170, guid: 3ebeaf7f56b23485bbeed257861f6e4b,
+        type: 3}
+      propertyPath: randomEnergy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 351608897783991198, guid: 3ebeaf7f56b23485bbeed257861f6e4b,
+        type: 3}
+      propertyPath: m_Name
+      value: Flame (5)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3ebeaf7f56b23485bbeed257861f6e4b, type: 3}
+--- !u!4 &1970407319 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 351608897783991169, guid: 3ebeaf7f56b23485bbeed257861f6e4b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1970407318}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1979485829
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -14,12 +14,14 @@ public class StageManager : MonoBehaviour
     public Animator cameraAnimator;
     public Animator playerAnimator;
     PlayerMovementPath playerMovementPath;
+    DecorationManager decorationManager;
 
     void Start()
     {
         FindObjectOfType<AudioManager>().Stop("OpeningMusic");
         FindObjectOfType<AudioManager>().Play("BackgroundMusic");
         playerMovementPath = FindObjectOfType<PlayerMovementPath>();
+        decorationManager = FindObjectOfType<DecorationManager>();
     }
 
     void Update()
@@ -39,7 +41,9 @@ public class StageManager : MonoBehaviour
     {
         menusManager.SetIsPause(true);
         if (playerMovementPath != null)
-            playerMovementPath.InterruptMovement();
+            playerMovementPath.InterruptMovement(); // actually goes to a specific point
+        if (decorationManager != null)
+            decorationManager.SetGreenSprites();
         cameraAnimator.SetTrigger("ZoomIn");
         playerAnimator.SetTrigger("Triumph");
 

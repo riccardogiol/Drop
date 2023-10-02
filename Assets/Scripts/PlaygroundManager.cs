@@ -122,8 +122,8 @@ public class PlaygroundManager : MonoBehaviour
     {
         int waterDamage = walkTilemap.GetComponent<RuleTileStateManager>().WaterTile(cell);
         waterDamage += wallTilemap.GetComponent<RuleTileStateManager>().WaterTile(cell);
-        if (waterDamage > 0)
-            EvaluateCleanSurface();
+        //if (waterDamage > 0)
+        EvaluateCleanSurface();
         return waterDamage;
     }
 

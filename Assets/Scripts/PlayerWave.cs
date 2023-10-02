@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerWave : MonoBehaviour
 {
     public GameObject wavePrefab;
-    int waveEnergy = 3;
+    int waveEnergy = 2;
     int waveDamage = 2;
     float cooldown = 1.5f;
     float timer;
