@@ -12,9 +12,12 @@ public class LinearMovement : MonoBehaviour
     public Vector3 startingScale;
     public Vector3 finalScale;
 
+    BoxCollider2D boxCollider;
+
     void Awake()
     {
         startingScale = finalScale = transform.localScale;
+        boxCollider = GetComponent<BoxCollider2D>();
     }
 
     public void MoveTo(Vector3 finalPos, float time)
@@ -25,6 +28,8 @@ public class LinearMovement : MonoBehaviour
         timer = time;
         elapsedTime = 0;
         isMoving = true;
+        if (boxCollider != null)
+            boxCollider.enabled = false;
     }
 
     void FixedUpdate()
@@ -35,6 +40,8 @@ public class LinearMovement : MonoBehaviour
             if (elapsedTime > timer)
             {
                 isMoving = false;
+            if (boxCollider != null)
+                boxCollider.enabled = true;
                 transform.position = finalPosition;
                 if (scale)
                     transform.localScale = finalScale;

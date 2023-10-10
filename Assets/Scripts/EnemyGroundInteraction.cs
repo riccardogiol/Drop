@@ -3,15 +3,17 @@ using UnityEngine;
 
 public class EnemyGroundInteraction : MonoBehaviour
 {
-    public PlaygroundManager playground;
     public float checkingInterval = 0.5f;
     float timer = 0;
 
+    PlaygroundManager playground;
     Vector3 oldPosition;
 
     void Awake()
     {
         oldPosition = transform.position;
+        playground = FindFirstObjectByType<PlaygroundManager>();
+
     }
 
     void Start()

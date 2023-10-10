@@ -7,7 +7,7 @@ public class PickFlame : MonoBehaviour
     public int energy = 3;
 
     readonly int[] energyValues = { 1, 3, 5 };
-    readonly int maxEnergy = 5;
+    public readonly int maxEnergy = 5;
     SpriteChangingOnValue spriteChanger;
 
     void Awake()
@@ -36,29 +36,32 @@ public class PickFlame : MonoBehaviour
     {
         switch (other.tag)
         {
-            /*case "Player":
-                other.GetComponent<PlayerHealth>().TakeDamage((int)energy);
-                Debug.Log("flame touching player");
+        /*case "Player":
+            other.GetComponent<PlayerHealth>().TakeDamage((int)energy);
+            Debug.Log("flame touching player");
+            DestroyFlame();
+            break;*/
+        case "Enemy":
+            int enemyHealthDiff = other.GetComponent<EnemyHealth>().maxHealth - other.GetComponent<EnemyHealth>().currentHealth;
+            other.GetComponent<EnemyHealth>().FillReservoir(energy);
+            if (enemyHealthDiff > energy)
+            {
                 DestroyFlame();
-                break;*/
-            case "Enemy":
-                int enemyHealthDiff = other.GetComponent<EnemyHealth>().maxHealth - other.GetComponent<EnemyHealth>().currentHealth;
-                other.GetComponent<EnemyHealth>().FillReservoir(energy);
-                if (enemyHealthDiff > energy)
-                {
-                    DestroyFlame();
-                } else {
-                    energy -= enemyHealthDiff;
-                    ScaleOnEnergy();
-                }
-                break;
-            case "Flame":
-                if (other.GetComponent<PickFlame>().energy >= energy)
-                {
-                    other.GetComponent<PickFlame>().RechargeEnergy(energy);
-                    DestroyFlame();
-                }
-                break;
+            } else {
+                energy -= enemyHealthDiff;
+                ScaleOnEnergy();
+            }
+            break;
+        case "Flame":
+            if (other.GetComponent<PickFlame>().energy >= energy)
+            {
+                other.GetComponent<PickFlame>().RechargeEnergy(energy);
+                DestroyFlame();
+            }
+            break;
+        case "Decoration":
+            DestroyFlame();
+            break;
         }
     }
 

@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class FireCounter : MonoBehaviour
 {
-    public float flameValue = 10;
-    public float wildfireValue = 30;
+    float flameValue = 4;
+    float wildfireValue = 9;
 
     public int flameCounter = 0;
     public int wildfireCounter = 0;

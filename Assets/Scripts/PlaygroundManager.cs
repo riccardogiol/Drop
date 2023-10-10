@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -20,9 +21,12 @@ public class PlaygroundManager : MonoBehaviour
     int burntTiles = 0;
     float fireValue = 0;
     float progressionPerc = 0;
+    bool isRaining = false;
+    float rainInterval = 3.0f;
     ProgressionBarFiller progressionBar;
     public float minProgressionPerc = 0.3f;
     public float loseProgressionPerc = 0.45f;
+    public float rainProgressionPerc = 1.0f;
     public float winProgressionPerc = 0.98f;
 
     void Awake()
@@ -33,7 +37,6 @@ public class PlaygroundManager : MonoBehaviour
         if (auxGO == null)
             return;
         walkTilemap = auxGO.GetComponent<Tilemap>();
-        stageManager = FindFirstObjectByType<StageManager>();
 
         auxGO = transform.Find("WallTilemap").gameObject;
         if (auxGO == null)
@@ -78,13 +81,62 @@ public class PlaygroundManager : MonoBehaviour
     public void AddFlame(Vector3Int cell)
     {
         Vector3 cellCenter = walkTilemap.GetCellCenterWorld(cell);
-        GameObject newFlame = Instantiate(flamePrefab, cellCenter, Quaternion.identity);
-        newFlame.transform.parent = flameParent.transform;
-        flameParent.GetComponent<FireCounter>().flameCounter++;
-        fireValue = flameParent.GetComponent<FireCounter>().FireValue();
+        GameObject auxFlame = GetFlameInPosition(cellCenter);
+        if (auxFlame == null)
+        {
+            GameObject newFlame = Instantiate(flamePrefab, cellCenter, Quaternion.identity);
+            newFlame.transform.parent = flameParent.transform;
+            flameParent.GetComponent<FireCounter>().flameCounter++;
+            fireValue = flameParent.GetComponent<FireCounter>().FireValue();
 
-        FindObjectOfType<AudioManager>().Play("FireBurst");
-        BurnCellsAround(cell);
+            FindObjectOfType<AudioManager>().Play("FireBurst");
+            BurnCellsAround(cell);
+        } else {
+            PickFlame pickFlame = auxFlame.GetComponent<PickFlame>();
+            if (pickFlame.energy == pickFlame.maxEnergy)
+                return;
+            else
+            {
+                pickFlame.RechargeEnergy(2);
+                FindObjectOfType<AudioManager>().Play("FireBurst");
+                BurnCellsAround(cell);
+            }
+        }
+    }
+
+    public void AddWaterdrop(Vector3Int cell)
+    {
+        Vector3 cellCenter = walkTilemap.GetCellCenterWorld(cell);
+        bool isOnPlayground = IsOnPlayground(cellCenter);
+        if (isOnPlayground)
+        {
+            GameObject newWaterdrop = Instantiate(waterdropPrefab, cellCenter, Quaternion.identity);
+            newWaterdrop.transform.parent = waterdropParent.transform;
+            //FindObjectOfType<AudioManager>().Play("FireBurst");
+        }
+    }
+
+    GameObject GetFlameInPosition(Vector3 cellCenter)
+    {
+        foreach(Transform child in flameParent.transform)
+        {
+            if(child.gameObject.CompareTag("Flame"))
+            {
+                if (child.transform.position == cellCenter)
+                    return child.gameObject;
+            }
+        }
+        return null;
+    }
+
+    bool IsOnPlayground(Vector3 cellCenter)
+    {
+        foreach(Transform child in walkTilemap.transform)
+        {
+            if (child.transform.position == cellCenter)
+                    return true;
+        }
+        return false;
     }
 
     public void BurnCellsAround(Vector3Int cell)
@@ -155,8 +207,37 @@ public class PlaygroundManager : MonoBehaviour
         progressionBar.SetValue(progressionPercOnMin);
         if (progressionPerc >= winProgressionPerc)
             stageManager.WinGame();
+        if (!isRaining && progressionPerc > (rainProgressionPerc + 0.05))
+        {
+            isRaining = true;
+            stageManager.MakeRain(isRaining);
+            StartCoroutine(Raining());
+        } else if (isRaining && progressionPerc < (rainProgressionPerc - 0.05))
+        {
+            isRaining = false;
+            stageManager.MakeRain(isRaining);
+            StopAllCoroutines();
+        }
         if (progressionPerc <= loseProgressionPerc)
             stageManager.GameOver();
+    }
+
+    IEnumerator Raining()
+    {
+        while(true)
+        {
+            Vector3Int raindropPos;
+            bool isOnPlayground;
+            do
+            {
+                raindropPos = new Vector3Int(UnityEngine.Random.Range(0, maxX), UnityEngine.Random.Range(0, maxY), 0);
+                Vector3 cellCenter = walkTilemap.GetCellCenterWorld(raindropPos);
+                isOnPlayground = IsOnPlayground(cellCenter);
+            }while(!isOnPlayground);
+            AddWaterdrop(raindropPos);
+            Debug.Log("Rain on position " + raindropPos);
+            yield return new WaitForSeconds(rainInterval);
+        }
     }
 
     void RefreshCounters()

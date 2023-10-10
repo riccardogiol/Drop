@@ -13,6 +13,7 @@ public class StageManager : MonoBehaviour
 
     public Animator cameraAnimator;
     public Animator playerAnimator;
+    public ParticleSystem rainEffect;
     PlayerMovementPath playerMovementPath;
     DecorationManager decorationManager;
 
@@ -44,6 +45,7 @@ public class StageManager : MonoBehaviour
             playerMovementPath.InterruptMovement(); // actually goes to a specific point
         if (decorationManager != null)
             decorationManager.SetGreenSprites();
+        MakeRain(true);
         cameraAnimator.SetTrigger("ZoomIn");
         playerAnimator.SetTrigger("Triumph");
 
@@ -57,6 +59,14 @@ public class StageManager : MonoBehaviour
         } else {
             menusManager.StageCleared();
         }
+    }
+
+    public void MakeRain(bool isRaining)
+    {
+        if (isRaining)
+            rainEffect.Play();
+        else
+            rainEffect.Stop();
     }
 
     public void GameOver()

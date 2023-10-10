@@ -7,17 +7,17 @@ public class Bullet : MonoBehaviour
     public int damage = 5;
     public float range = 4;
 
-    Vector2 startingPosition;
+    //Vector2 startingPosition;
 
     void Start()
     {
-        startingPosition = transform.position;
+        //startingPosition = transform.position;
     }
 
     void FixedUpdate()
     {
-        if (Vector2.Distance(startingPosition, transform.position) > range)
-            DestroyBullet();
+        //if (Vector2.Distance(startingPosition, transform.position) > range)
+            //DestroyBullet();
     }
 
     void OnTriggerEnter2D(Collider2D other)

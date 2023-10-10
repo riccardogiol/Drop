@@ -69,6 +69,14 @@ public class PickWaterdrop : MonoBehaviour
         case "Grass":
             FindObjectOfType<PlaygroundManager>().WaterOnPosition(transform.position);
             break;
+        case "Wall":
+            FindObjectOfType<PlaygroundManager>().WaterOnPosition(transform.position);
+            // add some visual effect anyway
+            Destroy(gameObject);
+            break;
+        case "Decoration":
+            Destroy(gameObject);
+            break;
         }
     }
 }
