@@ -1083,6 +1083,7 @@ MonoBehaviour:
     type: 3}
   minProgressionPerc: 0.3
   loseProgressionPerc: 0
+  rainProgressionPerc: 1
   winProgressionPerc: 1
 --- !u!1001 &832573063
 PrefabInstance:
@@ -1630,7 +1631,7 @@ PrefabInstance:
     - target: {fileID: 846535088814142927, guid: 71606232f6a1f405ab748a75268d3cba,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.68
+      value: 1.55
       objectReference: {fileID: 0}
     - target: {fileID: 846535088814142927, guid: 71606232f6a1f405ab748a75268d3cba,
         type: 3}
@@ -1686,6 +1687,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WaterDrop
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749165221775597024, guid: 71606232f6a1f405ab748a75268d3cba,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.372
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71606232f6a1f405ab748a75268d3cba, type: 3}
