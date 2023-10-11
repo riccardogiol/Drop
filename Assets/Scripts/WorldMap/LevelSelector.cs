@@ -4,11 +4,11 @@ using UnityEngine.UI;
 
 public class LevelSelector : MonoBehaviour
 {
+    public GameObject StoryDisplay;
     public Button[] LevelButton;
 
     void Start()
     {
-        PlayerPrefs.SetInt("Lvl0", 1);
         for (int i = 0; i < LevelButton.Length; i++)
         {
             if (PlayerPrefs.GetInt(LevelButton[i].name, 0) == 1)
@@ -16,10 +16,11 @@ public class LevelSelector : MonoBehaviour
                 LevelButton[i].interactable = true;
             }
         }
-        
         FindObjectOfType<AudioManager>().Play("OpeningMusic");
         FindObjectOfType<AudioManager>().Stop("BackgroundMusic");
-
+        if (PlayerPrefs.GetInt("FromMainMenu", 0) == 1)
+            StoryDisplay.SetActive(true);
+        PlayerPrefs.SetInt("FromMainMenu", 0);
     }
 
     public void OpenLevel(string sceneName)
