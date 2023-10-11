@@ -9,6 +9,10 @@ public class EnergyIndicator : MonoBehaviour
     public PickFlame flame;
     public PickWaterdrop waterdrop;
     public EnemyHealth enemyHealth;
+    public EnemyAIPatrolMovement patrolMovement;
+
+    public Sprite patrolIcon;
+    public Sprite chasingIcon;
 
     public void ShowEnergy()
     {
@@ -21,6 +25,8 @@ public class EnergyIndicator : MonoBehaviour
         else
             valueToDisplay = 0;
         SetText();
+        if (image != null)
+            SetImage();
     }
 
     void SetText()
@@ -30,8 +36,17 @@ public class EnergyIndicator : MonoBehaviour
             text.text = "+" + valueToDisplay;
         else
             text.text = "-" + valueToDisplay;
-        if (image != null)
-            image.enabled = true;
+    }
+
+    void SetImage()
+    {
+        image.sprite = chasingIcon;
+        if (patrolMovement != null)
+        {
+            if (patrolMovement.enabled)
+                image.sprite = patrolIcon;
+        }
+        image.enabled = true;
     }
 
     public void HideEnergy()
