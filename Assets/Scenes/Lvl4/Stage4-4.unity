@@ -1390,8 +1390,8 @@ MonoBehaviour:
     type: 3}
   waterdropPrefab: {fileID: 846535088814142963, guid: 71606232f6a1f405ab748a75268d3cba,
     type: 3}
-  minProgressionPerc: 0.5
-  loseProgressionPerc: 0
+  minProgressionPerc: 0.2
+  loseProgressionPerc: 0.35
   rainProgressionPerc: 1
   winProgressionPerc: 1
 --- !u!1001 &832573063
@@ -1864,6 +1864,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 634472582219926895, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_Text
+      value: Water source unlocked
+      objectReference: {fileID: 0}
     - target: {fileID: 1715595830883914204, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1993,7 +1998,7 @@ PrefabInstance:
         type: 3}
       propertyPath: openMessage
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1207991584}
     - target: {fileID: 1715595831200774529, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: stageManager
@@ -2013,6 +2018,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715595831553309570, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1715595832030293733, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
@@ -2052,15 +2062,27 @@ PrefabInstance:
     - target: {fileID: 1867412258302356888, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_Text
-      value: Shoot!
+      value: hint
       objectReference: {fileID: 0}
     - target: {fileID: 3879348273464800413, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_Text
-      value: 'you can now shoot to estinguish flames and water burnt bushed.
-
-        The
-        bullet is 4 tiles ranged'
+      value: Make enemies walk over waterdrops on the ground to weaken them
+      objectReference: {fileID: 0}
+    - target: {fileID: 3913156770975925532, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -130
+      objectReference: {fileID: 0}
+    - target: {fileID: 4462540637395414638, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4644781750324647884, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_Text
+      value: artesian well
       objectReference: {fileID: 0}
     - target: {fileID: 5411216365801270622, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
@@ -2091,11 +2113,27 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592947122140413068, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6633096614707632329, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082749135812840327, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_Text
+      value: The access to this water source helps Drop bring rain earlier during
+        the watering of the levels
+      objectReference: {fileID: 0}
+    - target: {fileID: 7431537747280669944, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -24
       objectReference: {fileID: 0}
     - target: {fileID: 7474827322298110750, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
@@ -2106,6 +2144,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7759043742210922553, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_Text
+      value: access to artesian well unlocked
+      objectReference: {fileID: 0}
+    - target: {fileID: 7759043742210922553, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 52
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7b202ae4dba84871811aa7c44bc43e3, type: 3}
@@ -2133,6 +2181,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef61b1f826a4442cc971e2d0a9b37601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1207991584 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6633096614707632329, guid: c7b202ae4dba84871811aa7c44bc43e3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1207991581}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1433952302
 PrefabInstance:
   m_ObjectHideFlags: 0

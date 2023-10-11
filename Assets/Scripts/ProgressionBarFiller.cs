@@ -10,6 +10,7 @@ public class ProgressionBarFiller : MonoBehaviour
     public Image barrTop;
 
     public Transform gameoverLimit;
+    public Transform rainLimit;
 
     public void SetMaxValue(float value)
     {
@@ -26,7 +27,15 @@ public class ProgressionBarFiller : MonoBehaviour
         if (value == 0)
             gameoverLimit.gameObject.SetActive(false);
         else
-            gameoverLimit.Translate(- (value*400), 0, 0);
+            gameoverLimit.GetComponent<RectTransform>().anchoredPosition = new Vector2(-(value*400 + 20), 30);
+    }
+
+    public void SetRainLimit(float value)
+    {
+        if (value == 1)
+            rainLimit.gameObject.SetActive(false);
+        else
+            rainLimit.GetComponent<RectTransform>().anchoredPosition = new Vector2(-(value*400 + 20), 30);
     }
 
     public void SetValue(float currentValue)

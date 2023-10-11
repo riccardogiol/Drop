@@ -976,7 +976,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: "you can now shoot a water bullet in front of you to water burnt grass,
-        bushes and flames\n - cost: 2\n - damage: 4\n - range: 4 tiles"
+        bushes and flames\n - cost: 2\n - damage: 4"
       objectReference: {fileID: 0}
     - target: {fileID: 6390407501108583463, guid: 4317a480abfeb4491af35141a980d8e0,
         type: 3}
@@ -1767,6 +1767,7 @@ MonoBehaviour:
     type: 3}
   minProgressionPerc: 0.4
   loseProgressionPerc: 0
+  rainProgressionPerc: 1
   winProgressionPerc: 1
 --- !u!1001 &832573063
 PrefabInstance:
@@ -2504,7 +2505,7 @@ PrefabInstance:
     - target: {fileID: 2396537561442032236, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2476064941540019042, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
@@ -2601,6 +2602,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7493151242473289198, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 7692640206896602110, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}

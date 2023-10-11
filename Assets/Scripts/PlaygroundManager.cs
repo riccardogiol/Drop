@@ -67,6 +67,7 @@ public class PlaygroundManager : MonoBehaviour
             return;
         }
         progressionBar.SetGameOverLimit(Math.Max((loseProgressionPerc - minProgressionPerc) / (1-minProgressionPerc), 0));
+        progressionBar.SetRainLimit((rainProgressionPerc - minProgressionPerc) / (1-minProgressionPerc));
         
         InvokeRepeating(nameof(RefreshCounters), 3, 3);
         EvaluateCleanSurface();
@@ -258,6 +259,8 @@ public class PlaygroundManager : MonoBehaviour
         {
             if(child.gameObject.CompareTag("Flame"))
                 child.GetComponent<EnergyIndicator>().ShowEnergy();
+            if(child.gameObject.CompareTag("Enemy"))
+                child.GetComponent<EnergyIndicator>().ShowEnergy();
         }
         foreach(Transform child in waterdropParent.transform)
         {
@@ -271,6 +274,8 @@ public class PlaygroundManager : MonoBehaviour
         foreach(Transform child in flameParent.transform)
         {
             if(child.gameObject.CompareTag("Flame"))
+                child.GetComponent<EnergyIndicator>().HideEnergy();
+            if(child.gameObject.CompareTag("Enemy"))
                 child.GetComponent<EnergyIndicator>().HideEnergy();
         }
         foreach(Transform child in waterdropParent.transform)
