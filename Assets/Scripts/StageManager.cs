@@ -50,7 +50,6 @@ public class StageManager : MonoBehaviour
         playerAnimator.SetTrigger("Triumph");
 
         yield return new WaitForSeconds(3);
-        Debug.Log("waited?");
 
         if (finalStage)
         {
