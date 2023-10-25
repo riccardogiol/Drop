@@ -90,4 +90,14 @@ public class StageManager : MonoBehaviour
         MenusManager.isPaused = false;
         SceneManager.LoadScene("WorldMap");
     }
+
+    public void ShowButtonDescription()
+    {
+        menusManager.ShowDescriptions();
+    }
+
+    public void HideButtonDescription()
+    {
+        menusManager.HideDescriptions();
+    }
 }

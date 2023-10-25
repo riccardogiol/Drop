@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,7 +19,8 @@ public class MenusManager : MonoBehaviour
     public bool messageOnScreen = false;
     bool eagleEyeState = false;
 
-    
+    public Text[] descriptions;
+
     void Start()
     {
         Transform auxTrans = transform.Find("PauseMenu");
@@ -204,6 +206,22 @@ public class MenusManager : MonoBehaviour
             isPaused = true;
             eagleEyeState = true;
             eagleEye.Enter();
+        }
+    }
+
+    public void ShowDescriptions()
+    {
+        foreach(Text description in descriptions)
+        {
+            description.enabled = true;
+        }
+    }
+
+    public void HideDescriptions()
+    {
+        foreach(Text description in descriptions)
+        {
+            description.enabled = false;
         }
     }
 }

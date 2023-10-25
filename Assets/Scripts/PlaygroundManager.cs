@@ -267,6 +267,7 @@ public class PlaygroundManager : MonoBehaviour
             if(child.gameObject.CompareTag("Waterdrop"))
                 child.GetComponent<EnergyIndicator>().ShowEnergy();
         }
+        stageManager.ShowButtonDescription();
     }
 
     public void HideEnergy()
@@ -283,5 +284,6 @@ public class PlaygroundManager : MonoBehaviour
             if(child.gameObject.CompareTag("Waterdrop"))
                 child.GetComponent<EnergyIndicator>().HideEnergy();
         }
+        stageManager.HideButtonDescription();
     }
 }
