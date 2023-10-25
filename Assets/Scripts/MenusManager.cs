@@ -121,7 +121,7 @@ public class MenusManager : MonoBehaviour
         gameOverMenu.SetActive(true);
         shader.SetActive(true);
         isPaused = true;
-        Transform auxTrans = gameOverMenu.transform.Find("WorldMapButton");
+        Transform auxTrans = gameOverMenu.transform.Find("RetryButton");
         if (auxTrans == null)
             return;
         auxTrans.GetComponent<Button>().Select();
@@ -176,6 +176,11 @@ public class MenusManager : MonoBehaviour
     public void GoNextStage()
     {
         stageManager.GoNextStage();
+    }
+
+    public void RetryStage()
+    {
+        stageManager.RetryStage();
     }
 
     public void SetIsPause(bool value)

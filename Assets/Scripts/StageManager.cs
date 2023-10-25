@@ -24,14 +24,6 @@ public class StageManager : MonoBehaviour
         playerMovementPath = FindObjectOfType<PlayerMovementPath>();
         decorationManager = FindObjectOfType<DecorationManager>();
     }
-
-    void Update()
-    {
-        if (Input.GetKeyUp(KeyCode.Tab))
-        {
-            WinGame();
-        }
-    }
     
     public void WinGame()
     {
@@ -70,10 +62,19 @@ public class StageManager : MonoBehaviour
 
     public void GameOver()
     {
+        // add animation
          menusManager.GameOver();
     }
 
     //Close stage functions
+
+    public void RetryStage()
+    {
+        Time.timeScale = 1f;
+        MenusManager.isPaused = false;
+        string nextSceneName = "Stage" + currentLvl + "-" + currentStage;
+        SceneManager.LoadScene(nextSceneName);
+    }
 
     public void GoNextStage()
     {
