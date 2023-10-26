@@ -5,6 +5,8 @@ public class RuleTileStateManager : MonoBehaviour
 {
     public RuleTile burntTile;
     public RuleTile cleanTile;
+    public bool chessStyle = false;
+    public RuleTile cleanDarkTile;
 
     int minXCell = 0;
     int maxXCell = 40;
@@ -27,6 +29,18 @@ public class RuleTileStateManager : MonoBehaviour
     {
         maxXCell = maxX;
         maxYCell = maxY;
+        for (int y = minYCell; y <= maxYCell; y++)
+        {
+            for (int x = minXCell; x <= maxXCell; x++)
+            {
+                RuleTile currentTile = tilemap.GetTile<RuleTile>(new Vector3Int(x, y, 0));
+                if (currentTile != null)
+                {
+                    if (currentTile != burntTile)
+                        SetCleanTile(new Vector3Int(x, y, 0));
+                }
+            }
+        }
     }
 
     public void EvaluateTilesState()
@@ -61,7 +75,7 @@ public class RuleTileStateManager : MonoBehaviour
     public void BurnTile(Vector3Int cell)
     {
         RuleTile currentTile = tilemap.GetTile<RuleTile>(cell);
-        if (currentTile == cleanTile)
+        if (currentTile != null && currentTile != burntTile)
         {
             tilemap.SetTile(cell, burntTile);
             burntTileNumber++;
@@ -74,11 +88,26 @@ public class RuleTileStateManager : MonoBehaviour
         RuleTile currentTile = tilemap.GetTile<RuleTile>(cell);
         if (currentTile == burntTile)
         {
-            tilemap.SetTile(cell, cleanTile);
+            SetCleanTile(cell);
             burntTileNumber--;
             // show watering animation
             return burntTileDamage;
         }
         return 0;
+    }
+
+    void SetCleanTile(Vector3Int cell)
+    {
+        if (chessStyle)
+        {
+            if ((cell.x + cell.y) % 2 == 0)
+            {
+                tilemap.SetTile(cell, cleanTile);
+            } else {
+                tilemap.SetTile(cell, cleanDarkTile);
+            }
+        } else {
+            tilemap.SetTile(cell, cleanTile);
+        }
     }
 }
