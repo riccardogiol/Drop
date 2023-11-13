@@ -51,6 +51,7 @@ public class LevelTileManager : MonoBehaviour
     {
         movementPath.NewTarget(dropSpot.transform.position);
         dropSpot.GetComponent<CircleCollider2D>().enabled = true;
+        FindFirstObjectByType<MapMoveCamera>().Exit();
     }
 
     public void StartLevel()
