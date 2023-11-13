@@ -88,7 +88,8 @@ public class StageManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         MenusManager.isPaused = false;
-        SceneManager.LoadScene("WorldMap");
+        //SceneManager.LoadScene("WorldMap");
+        SceneManager.LoadScene("WorldMapNew");
     }
 
     public void ShowButtonDescription()

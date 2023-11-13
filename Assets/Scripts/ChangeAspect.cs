@@ -9,7 +9,7 @@ public class ChangeAspect : MonoBehaviour
 
     public SpriteRenderer spriteRenderer;
 
-    void Start()
+    void Awake()
     {
         if (isBurnt)
             spriteRenderer.sprite = burntSprite;
