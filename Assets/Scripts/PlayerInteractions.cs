@@ -9,12 +9,10 @@ public class PlayerInteractions : MonoBehaviour
         switch (other.tag)
         {
             case "Flame":
-                    int flameEnergy = (int)other.GetComponent<PickFlame>().energy;
-                    gameObject.GetComponent<PlayerHealth>().TakeDamage(flameEnergy);
-                    Debug.Log("flame touching player");
-                    other.GetComponent<PickFlame>().DestroyFlame();
-                    break;
-            
+                int flameEnergy = other.GetComponent<PickFlame>().energy;
+                gameObject.GetComponent<PlayerHealth>().TakeDamage(flameEnergy);
+                other.GetComponent<PickFlame>().DestroyFlame();
+                break;
             case "Enemy":
                 int enemyHealth = other.GetComponent<EnemyHealth>().currentHealth;
                 other.GetComponent<EnemyHealth>().TakeDamage(enemyHealth);

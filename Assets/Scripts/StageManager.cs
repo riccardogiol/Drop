@@ -27,7 +27,8 @@ public class StageManager : MonoBehaviour
     
     public void WinGame()
     {
-        StartCoroutine(WinningScene());
+        if (!MenusManager.isPaused)
+            StartCoroutine(WinningScene());
     }
 
     IEnumerator WinningScene()
@@ -62,8 +63,21 @@ public class StageManager : MonoBehaviour
 
     public void GameOver()
     {
-        // add animation
-         menusManager.GameOver();
+        if (!MenusManager.isPaused)
+            StartCoroutine(EvaporatingScene());
+    }
+
+    IEnumerator EvaporatingScene()
+    {
+        menusManager.SetIsPause(true);
+        if (playerMovementPath != null)
+            playerMovementPath.InterruptMovement();
+        cameraAnimator.SetTrigger("ZoomIn");
+        playerAnimator.SetTrigger("Evaporation");
+
+        yield return new WaitForSeconds(3);
+
+        menusManager.GameOver();
     }
 
     //Close stage functions
@@ -88,8 +102,7 @@ public class StageManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         MenusManager.isPaused = false;
-        //SceneManager.LoadScene("WorldMap");
-        SceneManager.LoadScene("WorldMapNew");
+        SceneManager.LoadScene("WorldMap");
     }
 
     public void ShowButtonDescription()

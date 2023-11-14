@@ -21,14 +21,14 @@ public class MainMenuActions : MonoBehaviour
         PlayerPrefs.SetInt("Lvl0", 1);
         PlayerPrefs.SetInt("FromMainMenu", 1);
         FindObjectOfType<AudioManager>().Play("SelectSound");
-        SceneManager.LoadScene("WorldMapNew");
+        SceneManager.LoadScene("WorldMap");
     }
 
     public void ContinueGame()
     {
         PlayerPrefs.SetInt("FromMainMenu", 1);
         FindObjectOfType<AudioManager>().Play("SelectSound");
-        SceneManager.LoadScene("WorldMapNew");
+        SceneManager.LoadScene("WorldMap");
     }
 
     public void QuitGame()

@@ -36,11 +36,6 @@ public class PickFlame : MonoBehaviour
     {
         switch (other.tag)
         {
-        /*case "Player":
-            other.GetComponent<PlayerHealth>().TakeDamage((int)energy);
-            Debug.Log("flame touching player");
-            DestroyFlame();
-            break;*/
         case "Enemy":
             int enemyHealthDiff = other.GetComponent<EnemyHealth>().maxHealth - other.GetComponent<EnemyHealth>().currentHealth;
             other.GetComponent<EnemyHealth>().FillReservoir(energy);
