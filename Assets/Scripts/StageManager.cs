@@ -11,9 +11,10 @@ public class StageManager : MonoBehaviour
 
     public MenusManager menusManager;
 
-    public Animator cameraAnimator;
     public Animator playerAnimator;
     public ParticleSystem rainEffect;
+
+    CameraAnimationManager cameraAnimationManager;
     PlayerMovementPath playerMovementPath;
     DecorationManager decorationManager;
 
@@ -23,6 +24,7 @@ public class StageManager : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("BackgroundMusic");
         playerMovementPath = FindObjectOfType<PlayerMovementPath>();
         decorationManager = FindObjectOfType<DecorationManager>();
+        cameraAnimationManager = FindObjectOfType<CameraAnimationManager>();
     }
     
     public void WinGame()
@@ -39,7 +41,7 @@ public class StageManager : MonoBehaviour
         if (decorationManager != null)
             decorationManager.SetGreenSprites();
         MakeRain(true);
-        cameraAnimator.SetTrigger("ZoomIn");
+        cameraAnimationManager.StartEndingAnimation();
         playerAnimator.SetTrigger("Triumph");
 
         yield return new WaitForSeconds(3);
@@ -72,7 +74,7 @@ public class StageManager : MonoBehaviour
         menusManager.SetIsPause(true);
         if (playerMovementPath != null)
             playerMovementPath.InterruptMovement();
-        cameraAnimator.SetTrigger("ZoomIn");
+        cameraAnimationManager.StartEndingAnimation();
         playerAnimator.SetTrigger("Evaporation");
 
         yield return new WaitForSeconds(3);

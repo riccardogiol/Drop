@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 4553556838832309129}
   - component: {fileID: 592553961053811721}
   - component: {fileID: 897139899012207446}
+  - component: {fileID: 6259391615036178784}
+  - component: {fileID: 5902981870569772020}
   m_Layer: 0
   m_Name: Flame
   m_TagString: Flame
@@ -176,6 +178,37 @@ MonoBehaviour:
   patrolMovement: {fileID: 0}
   patrolIcon: {fileID: 0}
   chasingIcon: {fileID: 0}
+--- !u!114 &6259391615036178784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351608897783991198}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 838fb46d14d1d4007893c13a6896f180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  completelyRandom: 1
+--- !u!114 &5902981870569772020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351608897783991198}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2d493437a1584dc6b9af88112de6031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingPosition: {x: 0, y: 0, z: 0}
+  finalPosition: {x: 0, y: 0, z: 0}
+  timer: 2
+  scale: 0
+  startingScale: {x: 0, y: 0, z: 0}
+  finalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &4440694963879980671
 GameObject:
   m_ObjectHideFlags: 0

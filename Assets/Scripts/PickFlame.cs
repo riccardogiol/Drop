@@ -54,6 +54,9 @@ public class PickFlame : MonoBehaviour
                 DestroyFlame();
             }
             break;
+        case "Grass":
+            FindObjectOfType<PlaygroundManager>().FireOnPosition(transform.position);
+            break;
         case "Decoration":
             DestroyFlame();
             break;

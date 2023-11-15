@@ -5,6 +5,9 @@ public class LinearMovement : MonoBehaviour
     public Vector3 startingPosition;
     public Vector3 finalPosition;
     public float timer = 2;
+
+    public bool disableColliderWhileMoving = false;
+
     private float elapsedTime;
     private bool isMoving = false;
 
@@ -17,7 +20,8 @@ public class LinearMovement : MonoBehaviour
     void Awake()
     {
         startingScale = finalScale = transform.localScale;
-        boxCollider = GetComponent<BoxCollider2D>();
+        if (disableColliderWhileMoving)
+            boxCollider = GetComponent<BoxCollider2D>();
     }
 
     public void MoveTo(Vector3 finalPos, float time)

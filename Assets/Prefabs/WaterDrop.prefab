@@ -281,6 +281,7 @@ MonoBehaviour:
   startingPosition: {x: 0, y: 0, z: 0}
   finalPosition: {x: 0, y: 0, z: 0}
   timer: 2
+  disableColliderWhileMoving: 1
   scale: 1
   startingScale: {x: 0, y: 0, z: 0}
   finalScale: {x: 0, y: 0, z: 0}
@@ -352,8 +353,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 5728554567122942611}
+  image: {fileID: 0}
   flame: {fileID: 0}
   waterdrop: {fileID: 846535088814142962}
+  enemyHealth: {fileID: 0}
+  patrolMovement: {fileID: 0}
+  patrolIcon: {fileID: 0}
+  chasingIcon: {fileID: 0}
 --- !u!1 &5474055832922080926
 GameObject:
   m_ObjectHideFlags: 0

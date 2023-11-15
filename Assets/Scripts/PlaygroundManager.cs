@@ -130,6 +130,7 @@ public class PlaygroundManager : MonoBehaviour
         return null;
     }
 
+    //rewrite this with getTile?
     bool IsOnPlayground(Vector3 cellCenter)
     {
         foreach(Transform child in walkTilemap.transform)
@@ -138,6 +139,27 @@ public class PlaygroundManager : MonoBehaviour
                     return true;
         }
         return false;
+    }
+
+    public bool IsObstacle(Vector3 onCellPoint)
+    {
+        Vector3Int tileCoordinate = walkTilemap.WorldToCell(onCellPoint);
+        RuleTile currentTile = wallTilemap.GetTile<RuleTile>(tileCoordinate);
+        if (currentTile != null)
+            return true;
+        foreach(Transform child in waterdropParent.transform)
+        {
+            Vector3Int waterdropCoordinate = walkTilemap.WorldToCell(child.position);
+            if (waterdropCoordinate == tileCoordinate)
+                return true;
+        }
+        return false;
+    }
+    
+    public Vector3 GetCellCenter(Vector3 onCellPoint)
+    {
+        Vector3Int tileCoordinate = walkTilemap.WorldToCell(onCellPoint);
+        return walkTilemap.GetCellCenterWorld(tileCoordinate);
     }
 
     public void BurnCellsAround(Vector3Int cell)
