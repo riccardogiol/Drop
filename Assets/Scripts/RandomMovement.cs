@@ -5,6 +5,7 @@ using UnityEngine;
 public class RandomMovement : MonoBehaviour
 {
     public bool completelyRandom = true;
+    public float waitingSeconds = 2.0f;
     LinearMovement lm;
     PlaygroundManager playgroundManager;
 
@@ -23,7 +24,9 @@ public class RandomMovement : MonoBehaviour
     {
         do
         {
+            yield return new WaitForSeconds(Random.Range(waitingSeconds*0.9f, waitingSeconds*1.1f));
             EvaluateFreeDirections();
+            yield return new WaitForSeconds(2);
             if (freeDirections.Count > 0)
             {
                 if (!completelyRandom && freeDirections.Count > 1 && freeDirections.Contains(lastPosition))
@@ -52,8 +55,6 @@ public class RandomMovement : MonoBehaviour
                 Vector3 nextCellCenter = playgroundManager.GetCellCenter(transform.position + movement);
                 lm.MoveTo(nextCellCenter, 1);
             }
-
-            yield return new WaitForSeconds(2);
         }while(true);
     }
 

@@ -521,12 +521,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca1a8f2291ec7488c86157df88f34b14, type: 3}
---- !u!95 &284692770 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 3630253860076335756, guid: 968746b6d569541f8a229d945ad218b9,
-    type: 3}
-  m_PrefabInstance: {fileID: 832573063}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &362871239
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -758,16 +752,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3630253859576267700, guid: 968746b6d569541f8a229d945ad218b9,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -18.12
-      objectReference: {fileID: 0}
-    - target: {fileID: 3630253859576267700, guid: 968746b6d569541f8a229d945ad218b9,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3.7600002
-      objectReference: {fileID: 0}
     - target: {fileID: 3630253859656403413, guid: 968746b6d569541f8a229d945ad218b9,
         type: 3}
       propertyPath: m_Name
@@ -827,21 +811,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3630253860076335746, guid: 968746b6d569541f8a229d945ad218b9,
-        type: 3}
-      propertyPath: m_Follow
-      value: 
-      objectReference: {fileID: 884353090}
-    - target: {fileID: 3630253860076335747, guid: 968746b6d569541f8a229d945ad218b9,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -18.12
-      objectReference: {fileID: 0}
-    - target: {fileID: 3630253860076335747, guid: 968746b6d569541f8a229d945ad218b9,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3.7600002
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 968746b6d569541f8a229d945ad218b9, type: 3}
@@ -963,12 +932,6 @@ PrefabInstance:
 --- !u!95 &884353089 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 4186663221613957995, guid: 3f422914225544c0481e1f2cbf09cc96,
-    type: 3}
-  m_PrefabInstance: {fileID: 884353088}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &884353090 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 782273169436171615, guid: 3f422914225544c0481e1f2cbf09cc96,
     type: 3}
   m_PrefabInstance: {fileID: 884353088}
   m_PrefabAsset: {fileID: 0}
@@ -1940,7 +1903,6 @@ MonoBehaviour:
   currentStage: 1
   finalStage: 0
   menusManager: {fileID: 1207991583}
-  cameraAnimator: {fileID: 284692770}
   playerAnimator: {fileID: 884353089}
   rainEffect: {fileID: 4617294187859838833}
 --- !u!1001 &4617294187859838832

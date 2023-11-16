@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PlayerMapTargeting : MonoBehaviour
 {
-    public Transform playerPosition;
     public GameObject target;
     PlaygroundManager playgroundManager;
+    Transform playerPosition;
+
 
     float borderX, borderY;
     float maxX, maxY, minX, minY;
@@ -15,6 +16,7 @@ public class PlayerMapTargeting : MonoBehaviour
     void Start()
     {
         playgroundManager = FindFirstObjectByType<PlaygroundManager>();
+        playerPosition = FindFirstObjectByType<PlayerHealth>().gameObject.transform;
         int playgroundMaxX = playgroundManager.maxX;
         int playgroundMaxY = playgroundManager.maxY;
         borderX = Math.Min(playgroundMaxX/2, 3f);

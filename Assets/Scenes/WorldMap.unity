@@ -956,6 +956,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 658483869127993266, guid: 968746b6d569541f8a229d945ad218b9,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3630253858678035448, guid: 968746b6d569541f8a229d945ad218b9,
         type: 3}
       propertyPath: m_XDamping
@@ -1004,7 +1009,12 @@ PrefabInstance:
     - target: {fileID: 3630253859576267700, guid: 968746b6d569541f8a229d945ad218b9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.37
+      value: 2.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 3630253859576267700, guid: 968746b6d569541f8a229d945ad218b9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3630253859656403413, guid: 968746b6d569541f8a229d945ad218b9,
         type: 3}
@@ -1084,7 +1094,12 @@ PrefabInstance:
     - target: {fileID: 3630253860076335747, guid: 968746b6d569541f8a229d945ad218b9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.37
+      value: 2.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 3630253860076335747, guid: 968746b6d569541f8a229d945ad218b9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4880310780935055023, guid: 968746b6d569541f8a229d945ad218b9,
         type: 3}
@@ -1093,6 +1108,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4880310780935055023, guid: 968746b6d569541f8a229d945ad218b9, type: 3}
+    - {fileID: 658483869127993266, guid: 968746b6d569541f8a229d945ad218b9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 968746b6d569541f8a229d945ad218b9, type: 3}
 --- !u!20 &389692830 stripped
 Camera:
@@ -5545,7 +5561,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Lvl1
+  m_Text: Lvl2
 --- !u!114 &2036009500122723272
 MonoBehaviour:
   m_ObjectHideFlags: 0
