@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Tilemaps;
 
 public class PlaygroundManager : MonoBehaviour
@@ -143,14 +145,12 @@ public class PlaygroundManager : MonoBehaviour
 
     public bool IsObstacle(Vector3 onCellPoint)
     {
-        Vector3Int tileCoordinate = walkTilemap.WorldToCell(onCellPoint);
-        RuleTile currentTile = wallTilemap.GetTile<RuleTile>(tileCoordinate);
-        if (currentTile != null)
-            return true;
-        foreach(Transform child in waterdropParent.transform)
+        Collider2D[] results = Physics2D.OverlapPointAll(onCellPoint);
+        foreach(Collider2D item in results)
         {
-            Vector3Int waterdropCoordinate = walkTilemap.WorldToCell(child.position);
-            if (waterdropCoordinate == tileCoordinate)
+            if (item.gameObject.layer == 6)
+                return true;
+            if (item.gameObject.CompareTag("Waterdrop"))
                 return true;
         }
         return false;

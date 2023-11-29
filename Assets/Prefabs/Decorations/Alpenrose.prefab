@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5831071955705032784}
   - component: {fileID: 5831071955705032785}
+  - component: {fileID: 1249488104714868320}
   m_Layer: 0
   m_Name: GFX
   m_TagString: Untagged
@@ -84,6 +85,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!95 &1249488104714868320
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5831071955705032790}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 770ccb67150294aa18b291ac7b6456fb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5831071956751903875
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,6 +179,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBurnt: 1
-  burntSprite: {fileID: 21300000, guid: 1eeec493297964aabb4e30fa9a0255b7, type: 3}
-  greenSprite: {fileID: 21300000, guid: 0d1552b8a849c4a1b9975e97dd1636fd, type: 3}
-  spriteRenderer: {fileID: 5831071955705032785}
+  decoAnimator: {fileID: 1249488104714868320}

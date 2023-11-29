@@ -24,9 +24,8 @@ public class RandomMovement : MonoBehaviour
     {
         do
         {
-            yield return new WaitForSeconds(Random.Range(waitingSeconds*0.9f, waitingSeconds*1.1f));
             EvaluateFreeDirections();
-            yield return new WaitForSeconds(2);
+            //yield return new WaitForSeconds(2);
             if (freeDirections.Count > 0)
             {
                 if (!completelyRandom && freeDirections.Count > 1 && freeDirections.Contains(lastPosition))
@@ -53,8 +52,9 @@ public class RandomMovement : MonoBehaviour
                         break;
                 }
                 Vector3 nextCellCenter = playgroundManager.GetCellCenter(transform.position + movement);
-                lm.MoveTo(nextCellCenter, 1);
+                lm.MoveTo(nextCellCenter, System.Math.Min(1f, waitingSeconds*0.7f));
             }
+            yield return new WaitForSeconds(Random.Range(waitingSeconds*0.9f, waitingSeconds*1.1f));
         }while(true);
     }
 

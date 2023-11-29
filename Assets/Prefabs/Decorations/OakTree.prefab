@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5831071955705032784}
   - component: {fileID: 5831071955705032785}
+  - component: {fileID: 1468620817856862184}
   m_Layer: 0
   m_Name: OakGFX
   m_TagString: Untagged
@@ -84,6 +85,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!95 &1468620817856862184
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5831071955705032790}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9c9942901a68a4bf9adbe676e57b348d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5831071956751903875
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,4 +181,5 @@ MonoBehaviour:
   isBurnt: 1
   burntSprite: {fileID: 21300000, guid: 78ff907fbf8c2421db98fc04aaa16b70, type: 3}
   greenSprite: {fileID: 21300000, guid: fd53a03c84056480c8447f853c5251f1, type: 3}
+  decoAnimator: {fileID: 1468620817856862184}
   spriteRenderer: {fileID: 5831071955705032785}

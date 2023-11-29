@@ -22,6 +22,7 @@ public class MapMoveCamera : MonoBehaviour
         originalTarget = cinemachine.Follow.gameObject;
         movingTarget = Instantiate(targetPrefab, originalTarget.transform.position, quaternion.identity);
         target = originalTarget.transform;
+        inMoveCameraMode = false;
     }
 
     void Update()

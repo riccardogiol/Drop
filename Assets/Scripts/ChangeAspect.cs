@@ -4,26 +4,23 @@ public class ChangeAspect : MonoBehaviour
 {
     public bool isBurnt = true;
 
-    public Sprite burntSprite;
-    public Sprite greenSprite;
-
-    public SpriteRenderer spriteRenderer;
+    public Animator decoAnimator;
 
     void Awake()
     {
-        if (isBurnt)
-            spriteRenderer.sprite = burntSprite;
-        else
-            spriteRenderer.sprite = greenSprite;
+        decoAnimator.SetBool("IsBurnt", isBurnt);
+        return;
     }
 
     public void SetGreenSprite()
     {
-        spriteRenderer.sprite = greenSprite;
+        isBurnt = false;
+        decoAnimator.SetBool("IsBurnt", isBurnt);
     }
 
     public void SetBurntSprite()
     {
-        spriteRenderer.sprite = burntSprite;
+        isBurnt = true;
+        decoAnimator.SetBool("IsBurnt", isBurnt);
     }
 }
