@@ -1,6 +1,8 @@
 # Hello I'm Drop!
 Drop is a waterdrop shaped hero sent by the good rainy-clouds to save the forest! His goal is to enter the forest extinguish all fires he founds on the path and so clean the skies from the evil smoke-clouds.
 
+The game is available [here](https://play.unity.com/mg/other/webgl-builds-365707)
+
 ### Presentation
 
 The game is a Pacman like arcade game with puzzle elements.
@@ -30,6 +32,9 @@ Enemy (flames and fires) can move around randomly or follow some paths or target
  2. the Chasing of the player
 Then I wrote a script that alternate from a behaviour to the other when the enemy has more life of the hero, and so can kill him, triggering the Game Over once it catch Drop.
 
+**Dependency Diagrams**
+
+[Here](https://docs.google.com/presentation/d/1mJR4IN6gnJuLRN5uLg-RrrvGOn1jYGfzPaLEFQhLrOs/edit?usp=sharing) some dependency diagrams I created to keep track of dependencies in a scene and processes.
 
 ### Note on Graphic
 
