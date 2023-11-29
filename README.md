@@ -15,29 +15,20 @@ Drop can enter in contact with flame and wildfire enemies to estinguish them, bu
 The payer moves over a map created with tiles. The tiles dynamically change aspect during the game changing from burnt tiles to cleared tiles.
 Their aspect has to change in function of the surrounding tile, for this reason I used Rule Tiles. 
 The component *PlaygroundManager* has the role of managing the state of the tiles for the walkable map and the wall bushes.
-So when we place a flame in the map, the *PlaygroundManager* burn all tiles around that flame, in the walkable map and in the wall map.
-It does the same when the player water an area. Drop can do this in 2 different ways:
+For example: to water a tile (or burn it) I added for each tile a collider. Once a trigger enter the collider, I ask the PlaygroundManager to water (or burn) the tile at the collider position, transforming world coordinates to tilemap coordinates.
+Drop can water a tile in different ways:
  1. walking over a burnt tile
- 2. shooting to a bush
+ 2. shooting over a tile or to a bush
+ 3. casting a waterwave over the tile
 
-For the first case we water the tile under the player all the time it moves. To do so we change the coordinate from world to tilemap coordinates.
-For the second case we chack the collision of the spawned bullet to a colliding box positioned over each wall tile. Identified the colliding box we water the tile under it.
-The *PlaygroundManager* is in charge of ending the stage if we have no more burnt tiles in both the tilemaps.
+The *PlaygroundManager* is in charge of terminate the stage if we have no more burnt tiles (win) or if the burn tiles are too many (loose).
 
 **Enemies logic**
 
-I used the Astar library to make the enemies able to follow a target evaluating the best path to follow. I wrote for them 2 different behaviours:
+Enemy (flames and fires) can move around randomly or follow some paths or targets. I used the Astar library to make the enemies able to follow a target evaluating the best path to follow. I wrote for them 2 different behaviours:
  1. the Patrol over some coordinate
  2. the Chasing of the player
-Then I wrote a script that alternate from a behaviour to the other when the enemy has more life of the hero, and so can kill him, triggering the Game Over.
-
-**Persistent data**
-
-On the world map I made buttons and images change graphic once the previous level is completed. To do so I used the PlayerPrefs as a local store to save progression data and keep them persistent on disk.
-
-**Coroutines**
-
-The pond element spawns water orbs all around every X seconds thanks to a *IEnumerator* coroutine of the script *sparkler*.
+Then I wrote a script that alternate from a behaviour to the other when the enemy has more life of the hero, and so can kill him, triggering the Game Over once it catch Drop.
 
 
 ### Note on Graphic
@@ -47,9 +38,9 @@ All textures and images in the game are drawn by me (:
 ### Further improovements
 
 I would like to publish the game, and to do so there is still a lot to do:
- 1. graphic: refine everything, add elements and details
- 2. animations: make all entities (at least) animated when they move
- 3. bar for the restoration of the level: make visible the state of restoration of the level, and make the game over if we go under a threshold
- 4. new wave action for the player: give the possibility to the player to water all 8 tiles around it in a shot
- 5. new graphic for the worldmap: maybe refactor the worldmap to make it more interactable
+ 1. graphic: add animations, elements and details
+ 2. gameplay: I'm currently re-arrange the first levels to make them more enjoyable (first 2 levels ok so far)
+ 3. puzzle elements: add puzzle elements in the levels like moving rocks, keys and doors
+ 4. game economy: makes good progression curve, challenging and motivating
+ 5. book of biome: add description for plants and animals saved
  6. sound: finish to integrate all sounds needed
