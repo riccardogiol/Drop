@@ -12,6 +12,6 @@ public class CameraAnimationManager : MonoBehaviour
     public void StartEndingAnimation()
     {
         cameraAnimator.SetTrigger("ZoomIn");
-        playerMapTargeting.FromTargetToPlayer();
+        //playerMapTargeting.FromTargetToPlayer();
     }
 }

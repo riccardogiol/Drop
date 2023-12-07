@@ -12,7 +12,7 @@ public class PlayerWave : MonoBehaviour
     ButtonFiller buttonFiller;
     PlayerHealth playerHealth;
 
-    readonly string unlockingCode1 = "Lvl2";
+    readonly string unlockingCode1 = "Lvl3";
 
 
     void Start()
