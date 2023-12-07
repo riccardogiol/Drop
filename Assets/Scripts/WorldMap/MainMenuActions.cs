@@ -7,7 +7,7 @@ public class MainMenuActions : MonoBehaviour
     public Button continueButton;
     void Start()
     {
-        if (PlayerPrefs.GetInt("Lvl1", 0) == 1)
+        if ((PlayerPrefs.GetInt("Lvl1", 0) == 1) || PlayerPrefs.GetInt("LastStageCompleted", 0) > 0)
             continueButton.interactable = true;
         else
             continueButton.interactable = false;

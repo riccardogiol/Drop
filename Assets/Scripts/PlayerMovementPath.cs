@@ -6,6 +6,7 @@ public class PlayerMovementPath : MonoBehaviour
 {
     public float moveSpeed = 3.5f;
     public GameObject touchIndicator;
+    public Animator animator;
 
     Rigidbody2D player;
     PlayerDirectionController directionController;
@@ -64,6 +65,12 @@ public class PlayerMovementPath : MonoBehaviour
     public void InterruptMovement()
     {
         path = null;
+    }
+
+    public void OnVictorySpot()
+    {
+        InterruptMovement();
+        animator.SetTrigger("Triumph");
     }
 
     void FixedUpdate()

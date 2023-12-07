@@ -143,7 +143,7 @@ public class PlaygroundManager : MonoBehaviour
         return false;
     }
 
-    public bool IsObstacle(Vector3 onCellPoint)
+    public bool IsObstacleForFlame(Vector3 onCellPoint)
     {
         Collider2D[] results = Physics2D.OverlapPointAll(onCellPoint);
         foreach(Collider2D item in results)
@@ -151,6 +151,8 @@ public class PlaygroundManager : MonoBehaviour
             if (item.gameObject.layer == 6)
                 return true;
             if (item.gameObject.CompareTag("Waterdrop"))
+                return true;
+            if (item.gameObject.CompareTag("OneWayCollider"))
                 return true;
         }
         return false;

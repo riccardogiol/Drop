@@ -12,6 +12,7 @@ public class LevelTileManager : MonoBehaviour
     
     public Button button;
     public SpriteRenderer dropSpot;
+    public StageSpotManager stageSpotManager;
     public ChangeAspect decoration;
     public GameObject SmokyCloudParent;
 
@@ -38,8 +39,10 @@ public class LevelTileManager : MonoBehaviour
             {
                 dropSpot.color = new Color(104.0f/255, 189.0f/255, 225.0f/255);
                 decoration.SetGreenSprite();
+                stageSpotManager.ColorStageSpots(100);
             } else {
                 dropSpot.color = new Color(241.0f/255, 154.0f/255, 40.0f/255);
+                stageSpotManager.ColorStageSpots(PlayerPrefs.GetInt("LastStageCompleted", 0));
             }
         } else {  
             button.interactable = false;

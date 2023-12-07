@@ -73,6 +73,6 @@ public class RandomMovement : MonoBehaviour
 
     bool FreeTile(Vector3 position)
     {
-        return !playgroundManager.IsObstacle(position);
+        return !playgroundManager.IsObstacleForFlame(position);
     }
 }

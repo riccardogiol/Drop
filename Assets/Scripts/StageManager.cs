@@ -8,6 +8,7 @@ public class StageManager : MonoBehaviour
     public int currentStage = 1;
 
     public bool finalStage = false;
+    VictoryPositionTrigger victoryPositionTrigger;
 
     public MenusManager menusManager;
 
@@ -25,6 +26,7 @@ public class StageManager : MonoBehaviour
         playerMovementPath = FindObjectOfType<PlayerMovementPath>();
         decorationManager = FindObjectOfType<DecorationManager>();
         cameraAnimationManager = FindObjectOfType<CameraAnimationManager>();
+        victoryPositionTrigger = FindObjectOfType<VictoryPositionTrigger>();
     }
     
     public void WinGame()
@@ -35,22 +37,43 @@ public class StageManager : MonoBehaviour
 
     IEnumerator WinningScene()
     {
-        menusManager.SetIsPause(true);
-        if (playerMovementPath != null)
-            playerMovementPath.InterruptMovement(); // actually goes to a specific point
-        if (decorationManager != null)
-            decorationManager.SetGreenSprites();
-        MakeRain(true);
-        cameraAnimationManager.StartEndingAnimation();
-        playerAnimator.SetTrigger("Triumph");
-
-        yield return new WaitForSeconds(3);
 
         if (finalStage)
         {
+            MakeRain(true);
+            if (decorationManager != null)
+                decorationManager.SetGreenSprites();
+            cameraAnimationManager.StartEndingAnimation();
+
+            if (victoryPositionTrigger != null)
+            {
+                victoryPositionTrigger.ActivateCollider();
+                playerMovementPath.NewTarget(victoryPositionTrigger.transform.position);
+                menusManager.SetIsPause(true);
+                yield return new WaitForSeconds(6);
+            } else {
+                playerMovementPath.InterruptMovement();
+                playerAnimator.SetTrigger("Triumph");
+                menusManager.SetIsPause(true);
+                yield return new WaitForSeconds(3);
+            }
+
             PlayerPrefs.SetInt("Lvl" + currentLvl, 1);
+            PlayerPrefs.SetInt("LastStageCompleted", 0);
+
             menusManager.LevelCleared();
-        } else {
+        } else
+        {
+            MakeRain(true);
+            if (decorationManager != null)
+                decorationManager.SetGreenSprites();
+            cameraAnimationManager.StartEndingAnimation();
+            playerMovementPath.InterruptMovement();
+            playerAnimator.SetTrigger("Triumph");
+            menusManager.SetIsPause(true);
+            yield return new WaitForSeconds(3);
+
+            PlayerPrefs.SetInt("LastStageCompleted", currentStage);
             menusManager.StageCleared();
         }
     }

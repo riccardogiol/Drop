@@ -14,13 +14,6 @@ public class MapMenuManager : MonoBehaviour
         PlayerPrefs.SetInt("FromMainMenu", 0);
     }
 
-    public void OpenLevel(int levelCode)
-    {
-        PlayerPrefs.SetInt("LastLevelPlayed", levelCode);
-        FindObjectOfType<AudioManager>().Play("SelectSound");
-        SceneManager.LoadScene("Stage" + levelCode + "-1");
-    }
-
     public void GoMainMenu()
     {
         FindObjectOfType<AudioManager>().Play("SelectSound");
