@@ -59,6 +59,8 @@ public class Wave : MonoBehaviour
                 other.GetComponent<PickFlame>().ScaleOnEnergy();
             }
         }
+        if (other.CompareTag("Waterbomb"))
+            other.GetComponent<PickWaterBomb>().TriggerBomb();
     }
 
     void SpawnWatersparkle(Vector3 movement)

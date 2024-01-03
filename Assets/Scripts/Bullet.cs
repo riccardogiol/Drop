@@ -3,6 +3,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public PlaygroundManager playgroundManager;
+    public bool shootByPlayer = true;
     public int energy = 3;
     public int damage = 5;
     public float range = 4;
@@ -31,7 +32,10 @@ public class Bullet : MonoBehaviour
                 playgroundManager.WaterOnPosition(other.transform.position);
                 return;
             case "Player":
-                return;
+                if (shootByPlayer)
+                    return;
+                else
+                    break;
             case "Wave":
                 return;
             case "OneWayCollider":
@@ -50,6 +54,9 @@ public class Bullet : MonoBehaviour
                 break;
             case "Waterdrop":
                 other.GetComponent<PickWaterdrop>().RechargeEnergy(energy);
+                break;
+            case "Waterbomb":
+                other.GetComponent<PickWaterBomb>().TriggerBomb();
                 break;
         }
         DestroyBullet();

@@ -60,6 +60,17 @@ public class PickFlame : MonoBehaviour
         case "Decoration":
             DestroyFlame();
             break;
+        case "Waterbomb":
+            int bombEnergy = other.GetComponent<PickWaterBomb>().bombEnergy;
+            if (bombEnergy >= energy)
+                DestroyFlame();
+            else
+            {
+                energy -= bombEnergy;
+                ScaleOnEnergy();
+            }
+            other.GetComponent<PickWaterBomb>().DestroyBomb();
+            break;
         }
     }
 
