@@ -159,6 +159,21 @@ public class PlaygroundManager : MonoBehaviour
         }
         return false;
     }
+
+    public bool IsObstacle(Vector3 onCellPoint)
+    {
+        Collider2D[] results = Physics2D.OverlapPointAll(onCellPoint);
+        foreach(Collider2D item in results)
+        {
+            if (item.gameObject.layer == 6)
+                return true;
+            if (item.gameObject.CompareTag("Waterbomb"))
+                return true;
+            if (item.gameObject.CompareTag("OneWayCollider"))
+                return true;
+        }
+        return false;
+    }
     
     public Vector3 GetCellCenter(Vector3 onCellPoint)
     {
