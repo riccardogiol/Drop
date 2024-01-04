@@ -20,6 +20,27 @@ public class RuleTileStateManager : MonoBehaviour
 
     readonly int burntTileDamage = 0;
 
+    public GameObject particleCollider;
+    
+    public void SpawnParticleColliders()
+    {
+        if (particleCollider == null)
+            return;
+        for(float j = 0.5f; j < maxYCell; j += 1f)
+        {
+            for(float i = 0.5f; i < maxXCell; i += 1f)
+            {
+                SpawnPrefab(particleCollider, new Vector3(i, j));  
+            }
+        }
+    }
+
+    void SpawnPrefab(GameObject go, Vector3 position)
+    {
+        GameObject goRef = Instantiate(go, position, Quaternion.identity);
+        goRef.transform.parent = transform;
+    }
+
     void Awake()
     {
         tilemap = GetComponent<Tilemap>();
@@ -80,6 +101,10 @@ public class RuleTileStateManager : MonoBehaviour
             tilemap.SetTile(cell, burntTile);
             burntTileNumber++;
             // show fire animation
+            GameObject particleCollider = GetParticleCollider(tilemap.CellToWorld(cell) + new Vector3(0.5f, 0.5f));
+            if (particleCollider == null)
+                return;
+            particleCollider.GetComponent<TileParticlesManager>().ActivateBurntParticle();
         }
     }
 
@@ -91,6 +116,9 @@ public class RuleTileStateManager : MonoBehaviour
             SetCleanTile(cell);
             burntTileNumber--;
             // show watering animation
+            GameObject particleCollider = GetParticleCollider(tilemap.CellToWorld(cell) + new Vector3(0.5f, 0.5f));
+            if (particleCollider != null)
+                particleCollider.GetComponent<TileParticlesManager>().DesactivateBurntParticle();
             return burntTileDamage;
         }
         return 0;
@@ -109,5 +137,17 @@ public class RuleTileStateManager : MonoBehaviour
         } else {
             tilemap.SetTile(cell, cleanTile);
         }
+    }
+
+    GameObject GetParticleCollider(Vector3 onCellPoint)
+    {
+        Debug.Log(onCellPoint);
+        Collider2D[] results = Physics2D.OverlapPointAll(onCellPoint);
+        foreach(Collider2D item in results)
+        {
+            if (item.gameObject.CompareTag("ParticleCollider"))
+                return item.gameObject;
+        }
+        return null;
     }
 }

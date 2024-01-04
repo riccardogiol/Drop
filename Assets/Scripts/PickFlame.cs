@@ -10,6 +10,8 @@ public class PickFlame : MonoBehaviour
     public readonly int maxEnergy = 5;
     SpriteChangingOnValue spriteChanger;
 
+    public GameObject vaporBurstPrefab;
+
     void Awake()
     {
         spriteChanger = GetComponent<SpriteChangingOnValue>();
@@ -79,6 +81,8 @@ public class PickFlame : MonoBehaviour
         PlaygroundManager pgRef = FindObjectOfType<PlaygroundManager>();
         if (pgRef != null)
             pgRef.FlameEstinguished();
+        
+        Instantiate(vaporBurstPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }

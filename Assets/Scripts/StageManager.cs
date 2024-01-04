@@ -14,6 +14,7 @@ public class StageManager : MonoBehaviour
 
     public Animator playerAnimator;
     public ParticleSystem rainEffect;
+    public GameObject vaporBurstPrefab;
 
     CameraAnimationManager cameraAnimationManager;
     PlayerMovementPath playerMovementPath;
@@ -99,6 +100,10 @@ public class StageManager : MonoBehaviour
             playerMovementPath.InterruptMovement();
         cameraAnimationManager.StartEndingAnimation();
         playerAnimator.SetTrigger("Evaporation");
+
+        yield return new WaitForSeconds(0.7f);
+
+        Instantiate(vaporBurstPrefab, playerAnimator.transform.position + new Vector3(0, 0.3f, 0), Quaternion.identity);
 
         yield return new WaitForSeconds(3);
 

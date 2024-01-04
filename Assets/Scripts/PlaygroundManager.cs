@@ -73,6 +73,8 @@ public class PlaygroundManager : MonoBehaviour
         
         InvokeRepeating(nameof(RefreshCounters), 3, 3);
         EvaluateCleanSurface();
+
+        walkTilemap.GetComponent<RuleTileStateManager>().SpawnParticleColliders();
     }
 
     public void FlameOnPosition(Vector3 position)
