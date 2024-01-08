@@ -10,6 +10,7 @@ public class PickWaterdrop : MonoBehaviour
     readonly int maxEnergy = 6;
     SpriteChangingOnValue spriteChanger;
 
+    public GameObject takeWaterBurstPrefab;
 
     void Awake()
     {
@@ -40,11 +41,11 @@ public class PickWaterdrop : MonoBehaviour
         case "Player":
             other.GetComponent<PlayerHealth>().FillReservoir(energy);
             FindObjectOfType<AudioManager>().Play("PickWater");
-            Destroy(gameObject);
+            DestroyWaterdrop();
             break;
         case "Enemy":
             other.GetComponent<EnemyHealth>().TakeDamage(energy);
-            Destroy(gameObject);
+            DestroyWaterdrop();
             break ;
         case "Flame":
             int otherEnergy = other.GetComponent<PickFlame>().energy;
@@ -56,14 +57,14 @@ public class PickWaterdrop : MonoBehaviour
             } else {
                 other.GetComponent<PickFlame>().energy -= energy;
                 other.GetComponent<PickFlame>().ScaleOnEnergy();
-                Destroy(gameObject);
+                DestroyWaterdrop();
             }
             break;
         case "Waterdrop":
             if (other.GetComponent<PickWaterdrop>().energy >= energy)
             {
                 other.GetComponent<PickWaterdrop>().RechargeEnergy(energy);
-                Destroy(gameObject);
+                DestroyWaterdrop();
             }
             break;
         case "Grass":
@@ -72,11 +73,17 @@ public class PickWaterdrop : MonoBehaviour
         case "Wall":
             FindObjectOfType<PlaygroundManager>().WaterOnPosition(transform.position);
             // add some visual effect anyway
-            Destroy(gameObject);
+            DestroyWaterdrop();
             break;
         case "Decoration":
-            Destroy(gameObject);
+            DestroyWaterdrop();
             break;
         }
+    }
+
+    void DestroyWaterdrop()
+    {
+        Instantiate(takeWaterBurstPrefab, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 }

@@ -12,10 +12,14 @@ public class RandomMovement : MonoBehaviour
     List<string> freeDirections;
     string lastPosition;
 
+    public ParticleSystem magicParticles;
+
     void Start()
     {
         lm = GetComponent<LinearMovement>();
         playgroundManager = FindFirstObjectByType<PlaygroundManager>();
+
+        magicParticles.Play();
 
         StartCoroutine(NextStep());
     }
