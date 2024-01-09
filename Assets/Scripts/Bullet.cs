@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -8,11 +9,18 @@ public class Bullet : MonoBehaviour
     public int damage = 5;
     public float range = 4;
 
-    //Vector2 startingPosition;
+    public ParticleSystem trailParticles;
+    public GameObject explosionEffect;
+
+    Rigidbody2D rigidbody2D;
+    Collider2D collider2D;
+    SpriteRenderer spriteRenderer;
 
     void Start()
     {
-        //startingPosition = transform.position;
+        rigidbody2D = GetComponent<Rigidbody2D>();
+        collider2D = GetComponent<BoxCollider2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void FixedUpdate()
@@ -23,25 +31,23 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log(other.tag);
         switch (other.tag)
         {
             case "Enemy":
                 other.GetComponent<EnemyHealth>().TakeDamage(damage);
+                DestroyBullet();
                 break;
             case "Grass":
                 playgroundManager.WaterOnPosition(other.transform.position);
                 return;
             case "Player":
-                if (shootByPlayer)
-                    return;
-                else
-                    break;
-            case "Wave":
-                return;
-            case "OneWayCollider":
-                return;
+                if (!shootByPlayer)
+                    DestroyBullet();
+                break;
             case "Wall":
                 playgroundManager.WaterOnPosition(other.transform.position);
+                DestroyBullet();
                 break;
             case "Flame":
                 int otherEnergy = other.GetComponent<PickFlame>().energy;
@@ -51,20 +57,33 @@ public class Bullet : MonoBehaviour
                     other.GetComponent<PickFlame>().energy -= damage;
                     other.GetComponent<PickFlame>().ScaleOnEnergy();
                 }
+                DestroyBullet();
                 break;
             case "Waterdrop":
                 other.GetComponent<PickWaterdrop>().RechargeEnergy(energy);
+                DestroyBullet();
                 break;
             case "Waterbomb":
                 other.GetComponent<PickWaterBomb>().TriggerBomb();
+                DestroyBullet();
                 break;
         }
-        DestroyBullet();
     }
 
     void DestroyBullet()
     {
         FindObjectOfType<AudioManager>().Play("BulletExplosion");
+        Instantiate(explosionEffect, transform.position, transform.rotation);
+        spriteRenderer.enabled = false;
+        rigidbody2D.velocity = new Vector2(0f, 0f);
+        collider2D.enabled = false;
+        trailParticles.Stop();
+        StartCoroutine(DelayDestroy());
+    }
+
+    IEnumerator DelayDestroy()
+    {
+        yield return new WaitForSeconds(3f);
         Destroy(gameObject);
     }
 }

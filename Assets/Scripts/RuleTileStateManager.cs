@@ -26,19 +26,28 @@ public class RuleTileStateManager : MonoBehaviour
     {
         if (particleCollider == null)
             return;
-        for(float j = 0.5f; j < maxYCell; j += 1f)
+        for (int y = minYCell; y <= maxYCell; y++)
         {
-            for(float i = 0.5f; i < maxXCell; i += 1f)
+            for (int x = minXCell; x <= maxXCell; x++)
             {
-                SpawnPrefab(particleCollider, new Vector3(i, j));  
+                RuleTile currentTile = tilemap.GetTile<RuleTile>(new Vector3Int(x, y, 0));
+                if (currentTile != null)
+                {
+                    if (currentTile != burntTile)
+                        SpawnParticleCollider(particleCollider, new Vector3(x + 0.5f, y + 0.5f), false); 
+                    else
+                        SpawnParticleCollider(particleCollider, new Vector3(x + 0.5f, y + 0.5f), true);   
+                }
             }
         }
     }
 
-    void SpawnPrefab(GameObject go, Vector3 position)
+    void SpawnParticleCollider(GameObject go, Vector3 position, bool isBurning)
     {
         GameObject goRef = Instantiate(go, position, Quaternion.identity);
         goRef.transform.parent = transform;
+        if (isBurning)
+            goRef.GetComponent<TileParticlesManager>().ActivateBurntParticle();
     }
 
     void Awake()

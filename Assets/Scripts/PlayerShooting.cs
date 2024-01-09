@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerShooting : MonoBehaviour
 {
     public GameObject bulletPrefab;
-    float bulletSpeed = 10f;
+    float bulletSpeed = 6f;
     int bulletEnergy = 2;
     int bulletDamage = 4;
     float bulletRange = 3.0f;

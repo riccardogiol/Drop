@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1746407697583636751}
   - component: {fileID: 1746407697583636737}
   - component: {fileID: 1746407697583636736}
+  - component: {fileID: 5593181364555241800}
   m_Layer: 0
   m_Name: Wave
   m_TagString: Wave
@@ -102,11 +103,8 @@ MonoBehaviour:
   playgroundManager: {fileID: 0}
   damage: 5
   timer: 1
-  watersparklers:
-  - {fileID: 2258884786719793634, guid: 24e7dd8a7905e49cdb62def3dcedeed1, type: 3}
-  - {fileID: 3665166571164927204, guid: e8b950b35721f49cdb22b8d6b9deb6ec, type: 3}
-  - {fileID: 407160926066966936, guid: ef8139c20c98f445a81a36dca608e028, type: 3}
-  - {fileID: 6040046144950142737, guid: 7c6c370065eae4b2394cb9363ee6c07a, type: 3}
+  waveExplosion: {fileID: 3751233161064887440, guid: 3fa5d1a551356464592774c44583888a,
+    type: 3}
 --- !u!58 &1746407697583636737
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -144,3 +142,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &5593181364555241800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746407697583636748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5c6d4b5968f847f5b518e9da43cbf85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 1
