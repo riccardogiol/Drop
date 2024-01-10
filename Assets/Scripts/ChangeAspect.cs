@@ -5,6 +5,7 @@ public class ChangeAspect : MonoBehaviour
     public bool isBurnt = true;
 
     public Animator decoAnimator;
+    public ParticleSystem waterParticles;
 
     void Awake()
     {
@@ -15,6 +16,8 @@ public class ChangeAspect : MonoBehaviour
     public void SetGreenSprite()
     {
         isBurnt = false;
+        if (waterParticles != null)
+            waterParticles.Play();
         decoAnimator.SetBool("IsBurnt", isBurnt);
     }
 

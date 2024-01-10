@@ -49,6 +49,9 @@ public class Bullet : MonoBehaviour
                 playgroundManager.WaterOnPosition(other.transform.position);
                 DestroyBullet();
                 break;
+             case "Decoration":
+                DestroyBullet();
+                break;
             case "Flame":
                 int otherEnergy = other.GetComponent<PickFlame>().energy;
                 if (otherEnergy <= damage)

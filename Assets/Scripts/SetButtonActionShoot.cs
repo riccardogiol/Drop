@@ -6,7 +6,7 @@ public class SetButtonActionShoot : MonoBehaviour
     public Button button;
     PlayerShooting playerShooting;
 
-    readonly string unlockingCode1 = "Lvl1";
+    readonly string unlockingCode1 = "Lvl2";
 
     void Awake()
     {

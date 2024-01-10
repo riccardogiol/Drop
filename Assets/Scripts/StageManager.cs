@@ -12,9 +12,8 @@ public class StageManager : MonoBehaviour
 
     public MenusManager menusManager;
 
-    public Animator playerAnimator;
+    PlayerAnimationManager playerAnimationManager;
     public ParticleSystem rainEffect;
-    public GameObject vaporBurstPrefab;
 
     CameraAnimationManager cameraAnimationManager;
     PlayerMovementPath playerMovementPath;
@@ -28,6 +27,7 @@ public class StageManager : MonoBehaviour
         decorationManager = FindObjectOfType<DecorationManager>();
         cameraAnimationManager = FindObjectOfType<CameraAnimationManager>();
         victoryPositionTrigger = FindObjectOfType<VictoryPositionTrigger>();
+        playerAnimationManager = FindObjectOfType<PlayerAnimationManager>();
     }
     
     public void WinGame()
@@ -38,14 +38,13 @@ public class StageManager : MonoBehaviour
 
     IEnumerator WinningScene()
     {
+        MakeRain(true);
+        if (decorationManager != null)
+            decorationManager.SetGreenSprites();
+        cameraAnimationManager.StartEndingAnimation();
 
         if (finalStage)
         {
-            MakeRain(true);
-            if (decorationManager != null)
-                decorationManager.SetGreenSprites();
-            cameraAnimationManager.StartEndingAnimation();
-
             if (victoryPositionTrigger != null)
             {
                 victoryPositionTrigger.ActivateCollider();
@@ -54,7 +53,7 @@ public class StageManager : MonoBehaviour
                 yield return new WaitForSeconds(6);
             } else {
                 playerMovementPath.InterruptMovement();
-                playerAnimator.SetTrigger("Triumph");
+                playerAnimationManager.PlayTriumph();
                 menusManager.SetIsPause(true);
                 yield return new WaitForSeconds(3);
             }
@@ -65,12 +64,8 @@ public class StageManager : MonoBehaviour
             menusManager.LevelCleared();
         } else
         {
-            MakeRain(true);
-            if (decorationManager != null)
-                decorationManager.SetGreenSprites();
-            cameraAnimationManager.StartEndingAnimation();
             playerMovementPath.InterruptMovement();
-            playerAnimator.SetTrigger("Triumph");
+            playerAnimationManager.PlayTriumph();
             menusManager.SetIsPause(true);
             yield return new WaitForSeconds(3);
 
@@ -99,11 +94,7 @@ public class StageManager : MonoBehaviour
         if (playerMovementPath != null)
             playerMovementPath.InterruptMovement();
         cameraAnimationManager.StartEndingAnimation();
-        playerAnimator.SetTrigger("Evaporation");
-
-        yield return new WaitForSeconds(0.7f);
-
-        Instantiate(vaporBurstPrefab, playerAnimator.transform.position + new Vector3(0, 0.3f, 0), Quaternion.identity);
+        playerAnimationManager.PlayEvaporation();
 
         yield return new WaitForSeconds(3);
 

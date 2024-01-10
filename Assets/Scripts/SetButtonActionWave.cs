@@ -6,7 +6,7 @@ public class SetButtonActionWave : MonoBehaviour
     public Button button;
     PlayerWave playerWave;
 
-    readonly string unlockingCode1 = "Lvl2";
+    readonly string unlockingCode1 = "Lvl3";
 
     void Awake()
     {

@@ -78,9 +78,13 @@ public class PickFlame : MonoBehaviour
 
     public void DestroyFlame()
     {
+        GetComponent<Collider2D>().enabled = false;
         PlaygroundManager pgRef = FindObjectOfType<PlaygroundManager>();
         if (pgRef != null)
+        {
             pgRef.FlameEstinguished();
+            pgRef.WaterOnPosition(transform.position);
+        }
         
         Instantiate(vaporBurstPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);

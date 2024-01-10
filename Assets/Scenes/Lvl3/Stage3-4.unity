@@ -1302,6 +1302,8 @@ MonoBehaviour:
   cleanTile: {fileID: 11400000, guid: 24c96346e809541c58b1ef1b73220991, type: 2}
   chessStyle: 1
   cleanDarkTile: {fileID: 11400000, guid: abe6a8a05687b44d3bde32b2b0bbcf33, type: 2}
+  particleCollider: {fileID: 1808614739267387393, guid: dac83bbfc639e4cfaa53c56b6dfa6a52,
+    type: 3}
 --- !u!1001 &319780241
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1831,7 +1833,7 @@ PrefabInstance:
     - target: {fileID: 6553719475120922810, guid: a28b45a62e9f6470da88cc37f1af80c6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6553719475120922810, guid: a28b45a62e9f6470da88cc37f1af80c6,
         type: 3}
@@ -1895,7 +1897,7 @@ PrefabInstance:
     - target: {fileID: 5831071956751903874, guid: e96c47f9a3bde45e783ebcce8d8c389f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5831071956751903874, guid: e96c47f9a3bde45e783ebcce8d8c389f,
         type: 3}
@@ -6819,7 +6821,7 @@ Transform:
   - {fileID: 1712472140}
   - {fileID: 796775520}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &816872895
 MonoBehaviour:
@@ -6858,7 +6860,7 @@ PrefabInstance:
     - target: {fileID: 3630253859656403414, guid: 968746b6d569541f8a229d945ad218b9,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3630253859656403414, guid: 968746b6d569541f8a229d945ad218b9,
         type: 3}
@@ -7385,7 +7387,7 @@ PrefabInstance:
     - target: {fileID: 1715595831200774528, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1715595831200774528, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
@@ -8382,6 +8384,7 @@ MonoBehaviour:
   cleanTile: {fileID: 11400000, guid: 0ff3ee3e37f534be58f852565faf5c18, type: 2}
   chessStyle: 0
   cleanDarkTile: {fileID: 0}
+  particleCollider: {fileID: 0}
 --- !u!1 &1736441726
 GameObject:
   m_ObjectHideFlags: 0
@@ -8551,3 +8554,4 @@ MonoBehaviour:
   menusManager: {fileID: 1207991583}
   playerAnimator: {fileID: 884353089}
   rainEffect: {fileID: 796775518}
+  vaporBurstPrefab: {fileID: 0}

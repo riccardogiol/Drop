@@ -1637,6 +1637,8 @@ MonoBehaviour:
   cleanTile: {fileID: 11400000, guid: 24c96346e809541c58b1ef1b73220991, type: 2}
   chessStyle: 1
   cleanDarkTile: {fileID: 11400000, guid: abe6a8a05687b44d3bde32b2b0bbcf33, type: 2}
+  particleCollider: {fileID: 1808614739267387393, guid: dac83bbfc639e4cfaa53c56b6dfa6a52,
+    type: 3}
 --- !u!1001 &319780241
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1832,7 +1834,7 @@ PrefabInstance:
     - target: {fileID: 351608897783991169, guid: 3ebeaf7f56b23485bbeed257861f6e4b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.54
+      value: 8.5
       objectReference: {fileID: 0}
     - target: {fileID: 351608897783991169, guid: 3ebeaf7f56b23485bbeed257861f6e4b,
         type: 3}
@@ -1997,7 +1999,7 @@ PrefabInstance:
     - target: {fileID: 351608897783991169, guid: 3ebeaf7f56b23485bbeed257861f6e4b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.66
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 351608897783991169, guid: 3ebeaf7f56b23485bbeed257861f6e4b,
         type: 3}
@@ -2398,12 +2400,12 @@ PrefabInstance:
     - target: {fileID: 846535088814142927, guid: 71606232f6a1f405ab748a75268d3cba,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.22
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 846535088814142927, guid: 71606232f6a1f405ab748a75268d3cba,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.48
+      value: 8.5
       objectReference: {fileID: 0}
     - target: {fileID: 846535088814142927, guid: 71606232f6a1f405ab748a75268d3cba,
         type: 3}
@@ -7892,7 +7894,7 @@ PrefabInstance:
     - target: {fileID: 351608897783991169, guid: 3ebeaf7f56b23485bbeed257861f6e4b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.54
+      value: 8.5
       objectReference: {fileID: 0}
     - target: {fileID: 351608897783991169, guid: 3ebeaf7f56b23485bbeed257861f6e4b,
         type: 3}
@@ -9180,6 +9182,7 @@ MonoBehaviour:
   cleanTile: {fileID: 11400000, guid: 0ff3ee3e37f534be58f852565faf5c18, type: 2}
   chessStyle: 0
   cleanDarkTile: {fileID: 0}
+  particleCollider: {fileID: 0}
 --- !u!1 &1736441726
 GameObject:
   m_ObjectHideFlags: 0
@@ -9509,6 +9512,7 @@ MonoBehaviour:
   menusManager: {fileID: 1207991583}
   playerAnimator: {fileID: 884353089}
   rainEffect: {fileID: 1116573892}
+  vaporBurstPrefab: {fileID: 0}
 --- !u!1001 &8532292465419163218
 PrefabInstance:
   m_ObjectHideFlags: 0

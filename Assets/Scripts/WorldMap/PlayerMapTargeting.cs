@@ -13,6 +13,8 @@ public class PlayerMapTargeting : MonoBehaviour
     float maxX, maxY, minX, minY;
     bool isMoving = true;
 
+    bool centerPlayer = false;
+
     void Start()
     {
         playgroundManager = FindFirstObjectByType<PlaygroundManager>();
@@ -27,6 +29,7 @@ public class PlayerMapTargeting : MonoBehaviour
         minY = borderY;
         target.transform.position = playerPosition.position;
 
+        centerPlayer = true;
         StartCoroutine(FromPlayerToTarget());
 
     }
@@ -34,21 +37,25 @@ public class PlayerMapTargeting : MonoBehaviour
     IEnumerator FromPlayerToTarget()
     {
         yield return new WaitForSeconds(1);
-        target.GetComponent<LinearMovement>().MoveTo(BoundedPosition(playerPosition.position), 1);
-        yield return new WaitForSeconds(1);
-        isMoving = false;
+        centerPlayer = false;
+        //target.GetComponent<LinearMovement>().MoveTo(BoundedPosition(playerPosition.position), 1);
+        //yield return new WaitForSeconds(1);
+        //isMoving = false;
 
     }
 
     public void FromTargetToPlayer()
     {
-        isMoving = true;
-        target.GetComponent<LinearMovement>().MoveTo(playerPosition.position, 1);
+        //isMoving = true;
+        //target.GetComponent<LinearMovement>().MoveTo(playerPosition.position, 1);
+        centerPlayer = true;
     }
 
     void FixedUpdate()
     {
-        if (!isMoving)
+        if (centerPlayer)
+            target.transform.position = playerPosition.position;
+        else
             target.transform.position = BoundedPosition(playerPosition.position);
     }
 
