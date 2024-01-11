@@ -14,6 +14,8 @@ public class Sparkler : MonoBehaviour
     public bool right;
 
     void Start () {
+        if (parent == null)
+            parent = gameObject;
 		StartCoroutine(SpawnPrefabs());
 	}
 

@@ -2,7 +2,12 @@ using UnityEngine;
 
 public class PlayerInteractions : MonoBehaviour
 {
-    public PlaygroundManager playground;
+    PlaygroundManager playground;
+
+    void Start()
+    {
+        playground = FindObjectOfType<PlaygroundManager>();
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {

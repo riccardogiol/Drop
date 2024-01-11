@@ -48,6 +48,9 @@ public class Wave : MonoBehaviour
         }
         if (other.CompareTag("Waterbomb"))
             other.GetComponent<PickWaterBomb>().TriggerBomb();
+        if (other.CompareTag("Waterdrop"))
+            other.GetComponent<PickWaterdrop>().RechargeEnergy(damage);
+
     }
 
 }

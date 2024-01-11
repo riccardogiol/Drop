@@ -4,6 +4,8 @@ using UnityEngine.UI;
 public class SetButtonActionWave : MonoBehaviour
 {
     public Button button;
+    public bool actionDisabled = false;
+    public GameObject disableImage;
     PlayerWave playerWave;
 
     readonly string unlockingCode1 = "Lvl3";
@@ -26,5 +28,10 @@ public class SetButtonActionWave : MonoBehaviour
             return;
         }
         button.onClick.AddListener(delegate {playerWave.TryWaveAttack();});
+        if (actionDisabled)
+        {
+            button.interactable = false;
+            disableImage.SetActive(true);
+        }
     }
 }

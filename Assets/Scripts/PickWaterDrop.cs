@@ -11,6 +11,7 @@ public class PickWaterdrop : MonoBehaviour
     SpriteChangingOnValue spriteChanger;
 
     public GameObject takeWaterBurstPrefab;
+    public GameObject vaporBurstPrefab;
 
     void Awake()
     {
@@ -31,6 +32,10 @@ public class PickWaterdrop : MonoBehaviour
     public void RechargeEnergy(int energyIncome)
     {
         energy = Math.Min(maxEnergy, energy + energyIncome);
+        if (energyIncome > 0)
+            PlayWaterBurst();
+        else
+            PlayVaporBurst();
         ScaleOnEnergy();
     }
 
@@ -41,22 +46,24 @@ public class PickWaterdrop : MonoBehaviour
         case "Player":
             other.GetComponent<PlayerHealth>().FillReservoir(energy);
             FindObjectOfType<AudioManager>().Play("PickWater");
+            PlayWaterBurst();
             DestroyWaterdrop();
             break;
         case "Enemy":
             other.GetComponent<EnemyHealth>().TakeDamage(energy);
+            PlayVaporBurst();
             DestroyWaterdrop();
             break ;
         case "Flame":
             int otherEnergy = other.GetComponent<PickFlame>().energy;
             if (otherEnergy < energy)
             {
-                energy -= otherEnergy;
-                ScaleOnEnergy();
+                RechargeEnergy(-otherEnergy);
                 other.GetComponent<PickFlame>().DestroyFlame();
             } else {
                 other.GetComponent<PickFlame>().energy -= energy;
                 other.GetComponent<PickFlame>().ScaleOnEnergy();
+                PlayVaporBurst();
                 DestroyWaterdrop();
             }
             break;
@@ -72,18 +79,28 @@ public class PickWaterdrop : MonoBehaviour
             break;
         case "Wall":
             FindObjectOfType<PlaygroundManager>().WaterOnPosition(transform.position);
-            // add some visual effect anyway
+            PlayWaterBurst();
             DestroyWaterdrop();
             break;
         case "Decoration":
+            PlayWaterBurst();
             DestroyWaterdrop();
             break;
         }
     }
 
-    void DestroyWaterdrop()
+    public void PlayWaterBurst()
     {
         Instantiate(takeWaterBurstPrefab, transform.position, Quaternion.identity);
+    }
+
+    public void PlayVaporBurst()
+    {
+        Instantiate(vaporBurstPrefab, transform.position, Quaternion.identity);
+    }
+
+    void DestroyWaterdrop()
+    {
         Destroy(gameObject);
     }
 }

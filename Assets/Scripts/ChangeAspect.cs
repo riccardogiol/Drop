@@ -3,6 +3,7 @@ using UnityEngine;
 public class ChangeAspect : MonoBehaviour
 {
     public bool isBurnt = true;
+    public bool reactOnWater = false;
 
     public Animator decoAnimator;
     public ParticleSystem waterParticles;
@@ -15,6 +16,8 @@ public class ChangeAspect : MonoBehaviour
 
     public void SetGreenSprite()
     {
+        if (!isBurnt)
+            return;
         isBurnt = false;
         if (waterParticles != null)
             waterParticles.Play();
@@ -26,4 +29,18 @@ public class ChangeAspect : MonoBehaviour
         isBurnt = true;
         decoAnimator.SetBool("IsBurnt", isBurnt);
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (!reactOnWater)
+            return;
+        switch(other.tag)
+        {
+            case "Waterbullet":
+            case "Wave":
+                SetGreenSprite();
+                break;
+        }
+    }
+
 }

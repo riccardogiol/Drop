@@ -12,8 +12,8 @@ public class PlayerHealth : MonoBehaviour
     
     readonly string unlockingCode2 = "Lvl1";
     readonly int maxHealth2 = 6;
-    readonly string unlockingCode3 = "Lvl10";
-    readonly int maxHealth3 = 10;
+    readonly string unlockingCode3 = "Lvl4";
+    readonly int maxHealth3 = 8;
 
     void Start()
     {

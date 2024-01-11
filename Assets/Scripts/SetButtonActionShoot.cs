@@ -4,6 +4,8 @@ using UnityEngine.UI;
 public class SetButtonActionShoot : MonoBehaviour
 {
     public Button button;
+    public bool actionDisabled = false;
+    public GameObject disableImage;
     PlayerShooting playerShooting;
 
     readonly string unlockingCode1 = "Lvl2";
@@ -26,5 +28,10 @@ public class SetButtonActionShoot : MonoBehaviour
             return;
         }
         button.onClick.AddListener(delegate {playerShooting.TryShoot();});
+        if (actionDisabled)
+        {
+            button.interactable = false;
+            disableImage.SetActive(true);
+        }
     }
 }
