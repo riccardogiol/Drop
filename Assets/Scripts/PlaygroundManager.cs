@@ -154,6 +154,8 @@ public class PlaygroundManager : MonoBehaviour
                 return true;
             if (item.gameObject.CompareTag("Waterdrop"))
                 return true;
+            if (item.gameObject.CompareTag("Flame"))
+                return true;
             if (item.gameObject.CompareTag("Waterbomb"))
                 return true;
             if (item.gameObject.CompareTag("OneWayCollider"))
