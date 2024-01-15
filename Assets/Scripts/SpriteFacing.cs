@@ -2,24 +2,15 @@ using UnityEngine;
 
 public class SpriteFacing : MonoBehaviour
 {
-    public SpriteRenderer front;
-    public SpriteRenderer back;
-    public SpriteRenderer left;
-    public SpriteRenderer right;
+    public Animator bodyAnimator;
+    public Animator faceAnimator;
 
     public void changeSide(Vector3 facing)
     {
-        front.enabled = false;
-        back.enabled = false;
-        left.enabled = false;
-        right.enabled = false;
-        if (facing.y < -0.1)
-            front.enabled = true;
-        else if (facing.y > 0.1)
-            back.enabled = true;
-        else if (facing.x < -0.1)
-            left.enabled = true;
-        else
-            right.enabled = true;
+        bodyAnimator.SetFloat("Horizontal", facing.x);
+        bodyAnimator.SetFloat("Vertical", facing.y);
+    
+        faceAnimator.SetFloat("Horizontal", facing.x);
+        faceAnimator.SetFloat("Vertical", facing.y);
     }
 }
