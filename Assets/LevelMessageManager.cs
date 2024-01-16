@@ -4,8 +4,19 @@ using UnityEngine.SceneManagement;
 
 public class LevelMessageManager : MonoBehaviour
 {
+    [Header("Personalizable parameters")]
     public int levelCode;
+    public string TrophyName;
+    [TextArea]
+    public string TrophyDescription;
+    public Sprite TrophyGreenSprite;
+
+    [Header("Fixed parameters")]
+    public Text TrophyNameBox;
+    public Text TrophyDescriptionBox;
+    public Image TrophySpriteRenderer;
     public Button continueButton;
+
     void Start()
     {
         if ((PlayerPrefs.GetInt("Lvl" + levelCode, 0) == 0) && (PlayerPrefs.GetInt("LastStageCompleted", 0) > 0))
@@ -13,6 +24,13 @@ public class LevelMessageManager : MonoBehaviour
         else
             continueButton.interactable = false;
         
+        if (PlayerPrefs.GetInt("Lvl" + levelCode, 0) == 1)
+        {
+            TrophyNameBox.text = TrophyName;
+            TrophyDescriptionBox.text = TrophyDescription;
+            TrophySpriteRenderer.sprite = TrophyGreenSprite;
+        }
+
     }
 
     public void StartAction()

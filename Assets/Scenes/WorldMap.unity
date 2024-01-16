@@ -1894,6 +1894,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -1.95
       objectReference: {fileID: 0}
+    - target: {fileID: 6165337443358378160, guid: 92976f1534b464e7c80621c1f41d849c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8662433632034506411, guid: 92976f1534b464e7c80621c1f41d849c,
         type: 3}
       propertyPath: m_RootOrder
@@ -4022,7 +4027,7 @@ PrefabInstance:
     - target: {fileID: 5831071956751903874, guid: 212328ec8bbf54e72ac0087c1633b12b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5831071956751903874, guid: 212328ec8bbf54e72ac0087c1633b12b,
         type: 3}
@@ -4764,7 +4769,7 @@ PrefabInstance:
     - target: {fileID: 5831071956751903874, guid: 9c62499f7c5e24ec29ded221f704dc26,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5831071956751903874, guid: 9c62499f7c5e24ec29ded221f704dc26,
         type: 3}
@@ -5036,6 +5041,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7924431065260569414, guid: ca691ae4f3e014057a411460eb5423a3,
+        type: 3}
+      propertyPath: TrophyName
+      value: Bee
+      objectReference: {fileID: 0}
+    - target: {fileID: 7924431065260569414, guid: ca691ae4f3e014057a411460eb5423a3,
+        type: 3}
+      propertyPath: TrophyDescription
+      value: Bees are crucial for biomes as pollinators, facilitating plant reproduction
+        and biodiversity. Their role ensures the growth of various crops, supports
+        ecosystems, and sustains the interconnected web of life.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7924431065260569414, guid: ca691ae4f3e014057a411460eb5423a3,
+        type: 3}
+      propertyPath: TrophyGreenSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a1546433a105b4ba4b8a7cd82e8df5fc,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca691ae4f3e014057a411460eb5423a3, type: 3}
 --- !u!1001 &2036009500296732962
@@ -5294,7 +5317,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &7168873417994881996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8034,7 +8057,7 @@ TilemapRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7168873417994881992}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1

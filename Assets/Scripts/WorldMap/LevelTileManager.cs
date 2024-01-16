@@ -14,6 +14,7 @@ public class LevelTileManager : MonoBehaviour
     public SpriteRenderer dropSpot;
     public StageSpotManager stageSpotManager;
     public ChangeAspect decoration;
+    public ParticleSystem smokeEffect;
     public GameObject SmokyCloudParent;
 
     PlayerMovementPath movementPath;
@@ -43,9 +44,11 @@ public class LevelTileManager : MonoBehaviour
             } else {
                 dropSpot.color = new Color(241.0f/255, 154.0f/255, 40.0f/255);
                 stageSpotManager.ColorStageSpots(PlayerPrefs.GetInt("LastStageCompleted", 0));
+                smokeEffect.Play();
             }
         } else {  
             button.interactable = false;
+            smokeEffect.Play();
             SmokyCloudParent.SetActive(true);
         }
     }

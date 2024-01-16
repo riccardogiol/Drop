@@ -8,7 +8,7 @@ public class EnemyHealth : MonoBehaviour
 
     public Transform enemyGFX;
 
-    //add/show? public HealthBar healthBar;
+    public GameObject vaporBurstPrefab;
 
     void Start()
     {
@@ -18,7 +18,7 @@ public class EnemyHealth : MonoBehaviour
 
     public void ScaleOnHealth()
     {
-        float scale = Math.Max((float)currentHealth/maxHealth, 0.4f);
+        float scale = (float)currentHealth/maxHealth*0.4f + 0.6f;
         enemyGFX.localScale = new Vector3(scale, scale, 1);
     }
 
@@ -31,6 +31,8 @@ public class EnemyHealth : MonoBehaviour
             PlaygroundManager pgRef = FindObjectOfType<PlaygroundManager>();
             if (pgRef != null)
                 pgRef.WildfireEstinguished();
+            Instantiate(vaporBurstPrefab, transform.position, Quaternion.identity);
+            Instantiate(vaporBurstPrefab, transform.position + new Vector3(0, 0.5f), Quaternion.identity);
             Destroy(gameObject);
         }
     }
@@ -40,6 +42,5 @@ public class EnemyHealth : MonoBehaviour
     {
         currentHealth = Math.Min( currentHealth + value, maxHealth);
         ScaleOnHealth();
-        // condition it dies!
     }
 }

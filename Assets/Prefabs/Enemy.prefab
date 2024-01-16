@@ -34,7 +34,7 @@ RectTransform:
   - {fileID: 4018695039959413037}
   - {fileID: 2840200949362102833}
   m_Father: {fileID: 5216817755464628974}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -258,6 +258,39 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &5018641837394513445
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2878689735299882629}
+  m_Layer: 0
+  m_Name: EnemyGFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2878689735299882629
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5018641837394513445}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5216817754092034037}
+  - {fileID: 6841415359410527659}
+  m_Father: {fileID: 5216817755464628974}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5216817754092034026
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,7 +303,7 @@ GameObject:
   - component: {fileID: 4652801420409721833}
   - component: {fileID: 1570668480238483831}
   m_Layer: 0
-  m_Name: EnemyGFX
+  m_Name: EnemyBodyGFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -283,12 +316,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5216817754092034026}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5216817755464628974}
+  m_Father: {fileID: 2878689735299882629}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4652801420409721833
@@ -403,8 +436,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5216817754092034037}
-  - {fileID: 6841415359410527659}
+  - {fileID: 2878689735299882629}
   - {fileID: 970927184857164978}
   - {fileID: 2795563438151978813}
   - {fileID: 2699984706689612299}
@@ -462,7 +494,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   currentHealth: 20
-  enemyGFX: {fileID: 5216817754092034037}
+  enemyGFX: {fileID: 2878689735299882629}
+  vaporBurstPrefab: {fileID: 2932825668177330008, guid: 5a0db5a8bb6544822be5283d9c96fc30,
+    type: 3}
 --- !u!114 &5216817755464628962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -628,12 +662,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5848459264359273688}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5216817755464628974}
+  m_Father: {fileID: 2878689735299882629}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5877613872758846225
@@ -719,7 +753,7 @@ PrefabInstance:
     - target: {fileID: 7261966851134090418, guid: 2370a93cb58c44e3593fd7bdbdea330b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7261966851134090418, guid: 2370a93cb58c44e3593fd7bdbdea330b,
         type: 3}
@@ -859,7 +893,7 @@ PrefabInstance:
     - target: {fileID: 5439541568655226023, guid: d55032f1adeb2440a828d323d5b67218,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5439541568655226023, guid: d55032f1adeb2440a828d323d5b67218,
         type: 3}
