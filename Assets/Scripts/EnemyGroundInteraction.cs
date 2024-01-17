@@ -4,6 +4,7 @@ using UnityEngine;
 public class EnemyGroundInteraction : MonoBehaviour
 {
     public float checkingInterval = 0.5f;
+    public float spawnFlameProbability = 0.5f;
     float timer = 0;
 
     PlaygroundManager playground;
@@ -33,7 +34,7 @@ public class EnemyGroundInteraction : MonoBehaviour
         {
             if ((transform.position - oldPosition).magnitude > 0.9f)
             {
-                if (Random.value > 0.5)
+                if (Random.value < spawnFlameProbability)
                 {
                     playground.FlameOnPosition(oldPosition);
                 }

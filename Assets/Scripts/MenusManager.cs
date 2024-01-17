@@ -1,9 +1,9 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class MenusManager : MonoBehaviour
 {
+    GameObject stageSpecsInfo;
     GameObject pauseMenu;
     GameObject gameOverMenu;
     GameObject stageClearedMenu;
@@ -23,7 +23,11 @@ public class MenusManager : MonoBehaviour
 
     void Start()
     {
-        Transform auxTrans = transform.Find("PauseMenu");
+        Transform auxTrans = transform.Find("StageSpecification");
+        if (auxTrans == null)
+            return;
+        stageSpecsInfo = auxTrans.gameObject;
+        auxTrans = transform.Find("PauseMenu");
         if (auxTrans == null)
             return;
         pauseMenu = auxTrans.gameObject;
@@ -57,6 +61,9 @@ public class MenusManager : MonoBehaviour
         stageClearedMenu.SetActive(false);
         levelClearedMenu.SetActive(false);
         messageOnScreen = false;
+
+        
+        stageSpecsInfo.GetComponent<Text>().text = "Level " + stageManager.currentLvl + " - Stage " + stageManager.currentStage + "\n" + stageManager.stageMode;
 
         if (openMessage != null)
         {

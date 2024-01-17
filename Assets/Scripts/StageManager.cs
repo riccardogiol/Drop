@@ -6,6 +6,7 @@ public class StageManager : MonoBehaviour
 {
     public int currentLvl = 1;
     public int currentStage = 1;
+    public string stageMode = "puzzle";
 
     public bool finalStage = false;
     VictoryPositionTrigger victoryPositionTrigger;

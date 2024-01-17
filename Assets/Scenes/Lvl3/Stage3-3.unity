@@ -7750,7 +7750,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 280733217}
-  m_RootOrder: 142
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &1169771875
 TilemapRenderer:
@@ -10135,6 +10135,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6924485055866696843, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 7474827322298110750, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_IsActive
@@ -11848,6 +11853,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLvl: 3
   currentStage: 3
+  stageMode: action
   finalStage: 0
   menusManager: {fileID: 1207991583}
   rainEffect: {fileID: 780174391}
