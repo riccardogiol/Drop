@@ -11,6 +11,8 @@ public class PlayerWave : MonoBehaviour
     PlaygroundManager playgroundManager;
     ButtonFiller buttonFiller;
     PlayerHealth playerHealth;
+    PlayerMovementPath playerMovement;
+    PlayerAnimationManager animator;
 
     readonly string unlockingCode1 = "Lvl3";
 
@@ -23,6 +25,7 @@ public class PlayerWave : MonoBehaviour
             return;
         }
         playerHealth = GetComponent<PlayerHealth>();
+        playerMovement = GetComponent<PlayerMovementPath>();
         timer = 0;
         ButtonFiller[] buttonFillers = FindObjectsOfType<ButtonFiller>();
         foreach (var bf in buttonFillers)
@@ -38,6 +41,8 @@ public class PlayerWave : MonoBehaviour
             Debug.LogWarning("No playgroundManager found");
             return;
         }
+        animator = FindFirstObjectByType<PlayerAnimationManager>();
+
     }
 
     void Update()
@@ -66,6 +71,9 @@ public class PlayerWave : MonoBehaviour
         if (playerHealth.currentHealth > waveEnergy)
         { 
             playerHealth.TakeDamage(waveEnergy);
+            playerMovement.InterruptMovement();
+            if (animator != null)
+                animator.PlayCastingWave();
             WaveAttack();
             timer = cooldown;
         }

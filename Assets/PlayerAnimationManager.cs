@@ -22,6 +22,16 @@ public class PlayerAnimationManager : MonoBehaviour
         StartCoroutine(DelayedVaporBurst());
     }
 
+    public void PlayShooting()
+    {
+        animator.SetTrigger("Shooting");
+    }
+
+    public void PlayCastingWave()
+    {
+        animator.SetTrigger("Wave");
+    }
+
     IEnumerator DelayedVaporBurst()
     {
         yield return new WaitForSeconds(0.9f);

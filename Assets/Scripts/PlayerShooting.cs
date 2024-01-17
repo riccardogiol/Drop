@@ -10,18 +10,22 @@ public class PlayerShooting : MonoBehaviour
     float cooldown = 1.5f;
 
     readonly string unlockingCode1 = "Lvl2";
+    /*
     readonly string unlockingCode2 = "Lvl6";
     readonly float bulletRange2 = 6.0f;
     readonly string unlockingCode3 = "Lvl7";
     readonly int bulletDamege3 = 6; // or bulletEnergy = 2
+    */
 
     public Transform shootingPoint;
     float timer;
 
     PlaygroundManager playgroundManager;
     ButtonFiller buttonFiller;
-    PlayerDirectionController playerMovement;
+    PlayerDirectionController playerDirection;
+    PlayerMovementPath playerMovement;
     PlayerHealth playerHealth;
+    PlayerAnimationManager animator;
 
     void Start()
     {
@@ -30,7 +34,8 @@ public class PlayerShooting : MonoBehaviour
             enabled = false;
             return;
         }
-        playerMovement = GetComponent<PlayerDirectionController>();
+        playerDirection = GetComponent<PlayerDirectionController>();
+        playerMovement = GetComponent<PlayerMovementPath>();
         playerHealth = GetComponent<PlayerHealth>();
         timer = 0;
         ButtonFiller[] buttonFillers = FindObjectsOfType<ButtonFiller>();
@@ -47,11 +52,13 @@ public class PlayerShooting : MonoBehaviour
             Debug.LogWarning("No playgroundManager found");
             return;
         }
-
+        animator = FindFirstObjectByType<PlayerAnimationManager>();
+         /*
         if (PlayerPrefs.GetInt(unlockingCode2, 0) == 1)
             bulletRange = bulletRange2;
         if (PlayerPrefs.GetInt(unlockingCode3, 0) == 1)
             bulletDamage = bulletDamege3;
+        */
 
     }
 
@@ -79,6 +86,9 @@ public class PlayerShooting : MonoBehaviour
         if (playerHealth.currentHealth > bulletEnergy)
         { 
             playerHealth.TakeDamage(bulletEnergy);
+            playerMovement.InterruptMovement();
+            if (animator != null)
+                animator.PlayShooting();
             Shoot();
             timer = cooldown;
         }
@@ -87,11 +97,11 @@ public class PlayerShooting : MonoBehaviour
 
     void Shoot()
     {
-        GameObject bullet = Instantiate(bulletPrefab, shootingPoint.position + (Vector3)(playerMovement.lastDirection * 0.2f), Quaternion.LookRotation(Vector3.forward, playerMovement.lastDirection));
+        GameObject bullet = Instantiate(bulletPrefab, shootingPoint.position + (Vector3)(playerDirection.lastDirection * 0.2f), Quaternion.LookRotation(Vector3.forward, playerDirection.lastDirection));
         bullet.GetComponent<Bullet>().energy = bulletEnergy;
         bullet.GetComponent<Bullet>().damage = bulletDamage;
         bullet.GetComponent<Bullet>().range = bulletRange;
         bullet.GetComponent<Bullet>().playgroundManager = playgroundManager;
-        bullet.GetComponent<Rigidbody2D>().velocity = playerMovement.lastDirection * bulletSpeed;
+        bullet.GetComponent<Rigidbody2D>().velocity = playerDirection.lastDirection * bulletSpeed;
     }
 }

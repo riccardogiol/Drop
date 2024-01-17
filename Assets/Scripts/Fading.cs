@@ -1,3 +1,4 @@
+using UnityEngine.UI;
 using UnityEngine;
 
 public class Fading : MonoBehaviour
@@ -6,6 +7,8 @@ public class Fading : MonoBehaviour
     public float alphaTimer = 0.3f;
     public float delayTimer = 0.4f;
 
+    public Image imageUI;
+
     private float elapsedTime;
     private SpriteRenderer spriteRenderer;
     private float red, green, blue, startingAlpha;
@@ -13,11 +16,19 @@ public class Fading : MonoBehaviour
 
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        red = spriteRenderer.color.r;
-        green = spriteRenderer.color.g;
-        blue = spriteRenderer.color.b;
-        startingAlpha = spriteRenderer.color.a;
+        if (imageUI != null)
+        {
+            red = imageUI.color.r;
+            green = imageUI.color.g;
+            blue = imageUI.color.b;
+            startingAlpha = imageUI.color.a;
+        } else {
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            red = spriteRenderer.color.r;
+            green = spriteRenderer.color.g;
+            blue = spriteRenderer.color.b;
+            startingAlpha = spriteRenderer.color.a;
+        }
     }
 
     void FixedUpdate()
@@ -30,12 +41,18 @@ public class Fading : MonoBehaviour
         } else if (delayExpired) {
             if (elapsedTime > alphaTimer)
             {
-                spriteRenderer.color = new Color(red, green, blue, finalAlpha);
+                if (imageUI != null)
+                    imageUI.color = new Color(red, green, blue, finalAlpha);
+                else
+                    spriteRenderer.color = new Color(red, green, blue, finalAlpha);
                 this.enabled = false;
                 return;
             }
             float currentAlpha = startingAlpha - ((startingAlpha - finalAlpha) * elapsedTime/alphaTimer);
-            spriteRenderer.color = new Color(red, green, blue, currentAlpha);
+            if (imageUI != null)
+                imageUI.color = new Color(red, green, blue, currentAlpha);
+            else
+                spriteRenderer.color = new Color(red, green, blue, currentAlpha);
         }
     }
 }
