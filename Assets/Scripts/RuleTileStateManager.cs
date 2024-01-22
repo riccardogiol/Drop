@@ -21,6 +21,11 @@ public class RuleTileStateManager : MonoBehaviour
     readonly int burntTileDamage = 0;
 
     public GameObject particleCollider;
+
+    void Awake()
+    {
+        tilemap = GetComponent<Tilemap>();
+    }
     
     public void SpawnParticleColliders()
     {
@@ -34,25 +39,21 @@ public class RuleTileStateManager : MonoBehaviour
                 if (currentTile != null)
                 {
                     if (currentTile != burntTile)
-                        SpawnParticleCollider(particleCollider, new Vector3(x + 0.5f, y + 0.5f), false); 
+                        SpawnParticleCollider(new Vector3(x + 0.5f, y + 0.5f), false); 
                     else
-                        SpawnParticleCollider(particleCollider, new Vector3(x + 0.5f, y + 0.5f), true);   
+                        SpawnParticleCollider(new Vector3(x + 0.5f, y + 0.5f), true);   
                 }
             }
         }
     }
 
-    void SpawnParticleCollider(GameObject go, Vector3 position, bool isBurning)
+    void SpawnParticleCollider(Vector3 position, bool isBurning)
     {
-        GameObject goRef = Instantiate(go, position, Quaternion.identity);
+        GameObject goRef = Instantiate(particleCollider, position, Quaternion.identity);
         goRef.transform.parent = transform;
         if (isBurning)
             goRef.GetComponent<TileParticlesManager>().ActivateBurntParticle();
-    }
-
-    void Awake()
-    {
-        tilemap = GetComponent<Tilemap>();
+        goRef.GetComponent<TileFlowerManager>().walkTilemap = this;
     }
 
     public void SetTilemapLimit(int maxX, int maxY)
@@ -114,6 +115,7 @@ public class RuleTileStateManager : MonoBehaviour
             if (particleCollider == null)
                 return;
             particleCollider.GetComponent<TileParticlesManager>().ActivateBurntParticle();
+            StopFloweringAllAround(tilemap.CellToWorld(cell) + new Vector3(0.5f, 0.5f));
         }
     }
 
@@ -148,9 +150,8 @@ public class RuleTileStateManager : MonoBehaviour
         }
     }
 
-    GameObject GetParticleCollider(Vector3 onCellPoint)
+    public GameObject GetParticleCollider(Vector3 onCellPoint)
     {
-        Debug.Log(onCellPoint);
         Collider2D[] results = Physics2D.OverlapPointAll(onCellPoint);
         foreach(Collider2D item in results)
         {
@@ -158,5 +159,26 @@ public class RuleTileStateManager : MonoBehaviour
                 return item.gameObject;
         }
         return null;
+    }
+
+    void StopFloweringAllAround(Vector3 onCellPoint)
+    {
+        for (float y = onCellPoint.y - 1; y <= onCellPoint.y + 1; y++)
+        {
+            for (float x = onCellPoint.x - 1; x <= onCellPoint.x + 1; x++)
+            {
+                GameObject goRef = GetParticleCollider(new Vector3(x, y));
+                if (goRef != null)
+                    goRef.GetComponent<TileFlowerManager>().StopFlowering();
+            }
+        }
+    }
+
+    public bool IsTileBurnt(Vector3 onCellPoint)
+    {
+        RuleTile currentTile = tilemap.GetTile<RuleTile>(tilemap.WorldToCell(onCellPoint));
+        if (currentTile != null && currentTile == burntTile)
+            return true;
+        return false;
     }
 }

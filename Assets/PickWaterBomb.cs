@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PickWaterBomb : MonoBehaviour
@@ -27,6 +28,12 @@ public class PickWaterBomb : MonoBehaviour
 
     public void TriggerBomb()
     {
+        StartCoroutine(DelayedTrigger());
+    }
+
+    IEnumerator DelayedTrigger()
+    {
+        yield return new WaitForSeconds(0.3f);
         Shoot(new Vector3(1, 0));
         Shoot(new Vector3(-1, 0));
         Shoot(new Vector3(0, 1));
