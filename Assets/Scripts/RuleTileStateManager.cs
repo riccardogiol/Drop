@@ -20,42 +20,14 @@ public class RuleTileStateManager : MonoBehaviour
 
     readonly int burntTileDamage = 0;
 
-    public GameObject particleCollider;
+    TilemapEffectManager tilemapEffectManager;
 
     void Awake()
     {
         tilemap = GetComponent<Tilemap>();
+        tilemapEffectManager = GetComponent<TilemapEffectManager>();
     }
     
-    public void SpawnParticleColliders()
-    {
-        if (particleCollider == null)
-            return;
-        for (int y = minYCell; y <= maxYCell; y++)
-        {
-            for (int x = minXCell; x <= maxXCell; x++)
-            {
-                RuleTile currentTile = tilemap.GetTile<RuleTile>(new Vector3Int(x, y, 0));
-                if (currentTile != null)
-                {
-                    if (currentTile != burntTile)
-                        SpawnParticleCollider(new Vector3(x + 0.5f, y + 0.5f), false); 
-                    else
-                        SpawnParticleCollider(new Vector3(x + 0.5f, y + 0.5f), true);   
-                }
-            }
-        }
-    }
-
-    void SpawnParticleCollider(Vector3 position, bool isBurning)
-    {
-        GameObject goRef = Instantiate(particleCollider, position, Quaternion.identity);
-        goRef.transform.parent = transform;
-        if (isBurning)
-            goRef.GetComponent<TileParticlesManager>().ActivateBurntParticle();
-        goRef.GetComponent<TileFlowerManager>().walkTilemap = this;
-    }
-
     public void SetTilemapLimit(int maxX, int maxY)
     {
         maxXCell = maxX;
@@ -110,12 +82,8 @@ public class RuleTileStateManager : MonoBehaviour
         {
             tilemap.SetTile(cell, burntTile);
             burntTileNumber++;
-            // show fire animation
-            GameObject particleCollider = GetParticleCollider(tilemap.CellToWorld(cell) + new Vector3(0.5f, 0.5f));
-            if (particleCollider == null)
-                return;
-            particleCollider.GetComponent<TileParticlesManager>().ActivateBurntParticle();
-            StopFloweringAllAround(tilemap.CellToWorld(cell) + new Vector3(0.5f, 0.5f));
+            if (tilemapEffectManager != null)
+                tilemapEffectManager.BurnTile(tilemap.CellToWorld(cell) + new Vector3(0.5f, 0.5f));
         }
     }
 
@@ -126,10 +94,8 @@ public class RuleTileStateManager : MonoBehaviour
         {
             SetCleanTile(cell);
             burntTileNumber--;
-            // show watering animation
-            GameObject particleCollider = GetParticleCollider(tilemap.CellToWorld(cell) + new Vector3(0.5f, 0.5f));
-            if (particleCollider != null)
-                particleCollider.GetComponent<TileParticlesManager>().DesactivateBurntParticle();
+            if (tilemapEffectManager != null)
+                tilemapEffectManager.WaterTile(tilemap.CellToWorld(cell) + new Vector3(0.5f, 0.5f));
             return burntTileDamage;
         }
         return 0;
@@ -150,28 +116,9 @@ public class RuleTileStateManager : MonoBehaviour
         }
     }
 
-    public GameObject GetParticleCollider(Vector3 onCellPoint)
+    public RuleTile GetTile(Vector3Int cell)
     {
-        Collider2D[] results = Physics2D.OverlapPointAll(onCellPoint);
-        foreach(Collider2D item in results)
-        {
-            if (item.gameObject.CompareTag("ParticleCollider"))
-                return item.gameObject;
-        }
-        return null;
-    }
-
-    void StopFloweringAllAround(Vector3 onCellPoint)
-    {
-        for (float y = onCellPoint.y - 1; y <= onCellPoint.y + 1; y++)
-        {
-            for (float x = onCellPoint.x - 1; x <= onCellPoint.x + 1; x++)
-            {
-                GameObject goRef = GetParticleCollider(new Vector3(x, y));
-                if (goRef != null)
-                    goRef.GetComponent<TileFlowerManager>().StopFlowering();
-            }
-        }
+        return tilemap.GetTile<RuleTile>(cell);
     }
 
     public bool IsTileBurnt(Vector3 onCellPoint)
@@ -180,5 +127,10 @@ public class RuleTileStateManager : MonoBehaviour
         if (currentTile != null && currentTile == burntTile)
             return true;
         return false;
+    }
+
+    public bool IsTileBurnt(RuleTile ruleTile)
+    {
+        return ruleTile == burntTile;
     }
 }

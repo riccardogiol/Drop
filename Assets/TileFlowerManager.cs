@@ -3,14 +3,14 @@ using UnityEngine;
 public class TileFlowerManager : MonoBehaviour
 {
     public bool isFlowering = false;
-    bool isObstacle = false;
+    public bool isObstacle = false;
 
     public FlowerGFXManager flowerGFX;
 
     public float checkSpreadingEligibilityInterval = 2f;
     float checkSpreadingEligibilityTimer;
 
-    public RuleTileStateManager walkTilemap;
+    public TilemapEffectManager tilemapEffectManager;
 
     void Start()
     {
@@ -45,7 +45,7 @@ public class TileFlowerManager : MonoBehaviour
 
     void CallEvaluation(Vector3 position)
     {
-        GameObject goRef = walkTilemap.GetParticleCollider(position);
+        GameObject goRef = tilemapEffectManager.GetParticleCollider(position);
         if (goRef != null)
             goRef.GetComponent<TileFlowerManager>().EvaluateFloweringEligibility();
     }
@@ -80,7 +80,7 @@ public class TileFlowerManager : MonoBehaviour
         {
             for (float x = transform.position.x - 1; x <= transform.position.x + 1; x++)
             {
-                if (walkTilemap.IsTileBurnt(new Vector3(x, y)))
+                if (tilemapEffectManager.IsTileBurnt(new Vector3(x, y)))
                     return true;
             }
         }
