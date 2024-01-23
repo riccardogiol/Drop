@@ -3,9 +3,9 @@ using UnityEngine;
 public class TileFlowerManager : MonoBehaviour
 {
     public bool isFlowering = false;
-    bool isBush = false;
+    bool isObstacle = false;
 
-    public SpriteRenderer spriteRenderer;
+    public FlowerGFXManager flowerGFX;
 
     public float checkSpreadingEligibilityInterval = 2f;
     float checkSpreadingEligibilityTimer;
@@ -20,17 +20,17 @@ public class TileFlowerManager : MonoBehaviour
         foreach(Collider2D item in results)
         {
             if (item.gameObject.CompareTag("Wall"))
-                isBush = true; //disabling this should be way lighter
+                isObstacle = true; 
+            if (item.gameObject.CompareTag("Decoration"))
+                isObstacle = true; 
         }
-        if (!isFlowering || isBush)
-        {
-            spriteRenderer.color = new Color(1, 1, 1, 0);
-        }
+        if (!isFlowering || isObstacle)
+            flowerGFX.Uproot();
     }
 
     void Update()
     {
-        if (!isFlowering || isBush)
+        if (!isFlowering || isObstacle)
             return;
         checkSpreadingEligibilityTimer -= Time.deltaTime;
         if (checkSpreadingEligibilityTimer < 0)
@@ -52,7 +52,7 @@ public class TileFlowerManager : MonoBehaviour
 
     public void EvaluateFloweringEligibility()
     {
-        if (isFlowering || isBush)
+        if (isFlowering || isObstacle)
             return;
         if (!IsSourrandedByAtLeastOneBurntTile())
         {
@@ -64,14 +64,14 @@ public class TileFlowerManager : MonoBehaviour
     {
         isFlowering = true;
         checkSpreadingEligibilityTimer = checkSpreadingEligibilityInterval;
-        spriteRenderer.color = new Color(1, 1, 1, 1);
+        flowerGFX.Plant();
     }
 
     public void StopFlowering()
     {
         isFlowering = false;
         checkSpreadingEligibilityTimer = checkSpreadingEligibilityInterval;
-        spriteRenderer.color = new Color(1, 1, 1, 0);
+        flowerGFX.Uproot();
     }
 
     bool IsSourrandedByAtLeastOneBurntTile()

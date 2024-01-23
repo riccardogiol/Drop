@@ -7,11 +7,17 @@ public class ChangeAspect : MonoBehaviour
 
     public Animator decoAnimator;
     public ParticleSystem waterParticles;
+    public GameObject flowerStarter;
 
     void Awake()
     {
         decoAnimator.SetBool("IsBurnt", isBurnt);
-        return;
+    }
+
+    void Start()
+    {
+        if (!isBurnt && flowerStarter!=null)
+            Instantiate(flowerStarter, transform.position, Quaternion.identity);
     }
 
     public void SetGreenSprite()
@@ -21,6 +27,8 @@ public class ChangeAspect : MonoBehaviour
         isBurnt = false;
         if (waterParticles != null)
             waterParticles.Play();
+        if (flowerStarter != null)
+            Instantiate(flowerStarter, transform.position, Quaternion.identity);
         decoAnimator.SetBool("IsBurnt", isBurnt);
     }
 
