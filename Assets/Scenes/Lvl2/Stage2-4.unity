@@ -3757,6 +3757,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: OakTree
       objectReference: {fileID: 0}
+    - target: {fileID: 5831071956751903884, guid: e96c47f9a3bde45e783ebcce8d8c389f,
+        type: 3}
+      propertyPath: flowerStarter
+      value: 
+      objectReference: {fileID: 5770852909111897427, guid: b0e409c68b0e6470a85155cf0cdd890c,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e96c47f9a3bde45e783ebcce8d8c389f, type: 3}
 --- !u!4 &996048439 stripped
@@ -4069,7 +4075,7 @@ PrefabInstance:
     - target: {fileID: 2396537561442032236, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2476064941540019042, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
@@ -4166,6 +4172,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5773600779128570001, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6088715425270165249, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_RootOrder
@@ -4194,7 +4205,7 @@ PrefabInstance:
     - target: {fileID: 7493151242473289198, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 7692640206896602110, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
@@ -4239,7 +4250,7 @@ PrefabInstance:
     - target: {fileID: 8584349168261066136, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7b202ae4dba84871811aa7c44bc43e3, type: 3}
@@ -10384,6 +10395,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLvl: 2
   currentStage: 4
+  stageMode: puzzle
   finalStage: 1
   menusManager: {fileID: 1207991583}
   rainEffect: {fileID: 2054824122}
