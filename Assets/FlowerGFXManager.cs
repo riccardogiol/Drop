@@ -5,21 +5,12 @@ public class FlowerGFXManager : MonoBehaviour
     public SpriteRenderer petalRenderer;
     public SpriteRenderer leafRenderer;
 
-    public Sprite[] petalListLvl1;
-    public Sprite[] leafListLvl1;
-
-
-    public Sprite[] petalListLvl2;
-    public Sprite[] leafListLvl2;
-
-    public Sprite[] petalListLvl3;
-    public Sprite[] leafListLvl3;
-
-    public Color[] colors;
-
-    int indexLvl1 = 0;
-    int indexLvl2 = 0;
-    int indexLvl3 = 0;
+    Sprite petalLvl1;
+    Sprite leafLvl1;
+    Sprite petalLvl2;
+    Sprite leafLvl2;
+    Sprite petalLvl3;
+    Sprite leafLvl3;
 
     int currentLevel = 1;
     int maxLevel = 1;
@@ -28,11 +19,6 @@ public class FlowerGFXManager : MonoBehaviour
 
     void Start()
     {
-        indexLvl1 = Random.Range(0, petalListLvl1.Length);
-        indexLvl2 = Random.Range(0, petalListLvl2.Length);
-        indexLvl3 = Random.Range(0, petalListLvl3.Length);
-
-        petalRenderer.color = colors[Random.Range(0, colors.Length)];
         if (Random.value > 0.5f)
         {
             petalRenderer.flipX = true;
@@ -40,6 +26,17 @@ public class FlowerGFXManager : MonoBehaviour
         }
         maxLevel = Random.Range(1, 4);
         timer = interval;
+    }
+
+    public void SetFlowerGFX(FlowerGFXData fgd)
+    {
+        petalLvl1 = fgd.petalLvl1;
+        leafLvl1 = fgd.leafLvl1;
+        petalLvl2 = fgd.petalLvl2;
+        leafLvl2 = fgd.leafLvl2;
+        petalLvl3 = fgd.petalLvl3;
+        leafLvl3 = fgd.leafLvl3;
+        petalRenderer.color = fgd.color;
     }
 
     void Update()
@@ -60,16 +57,16 @@ public class FlowerGFXManager : MonoBehaviour
         switch (currentLevel)
         {
             case 1:
-                petalRenderer.sprite = petalListLvl1[indexLvl1];
-                leafRenderer.sprite = leafListLvl1[indexLvl1];
+                petalRenderer.sprite = petalLvl1;
+                leafRenderer.sprite = leafLvl1;
                 break;
             case 2:
-                petalRenderer.sprite = petalListLvl2[indexLvl2];
-                leafRenderer.sprite = leafListLvl2[indexLvl2];
+                petalRenderer.sprite = petalLvl2;
+                leafRenderer.sprite = leafLvl2;
                 break;
             case 3:
-                petalRenderer.sprite = petalListLvl3[indexLvl3];
-                leafRenderer.sprite = leafListLvl3[indexLvl3];
+                petalRenderer.sprite = petalLvl3;
+                leafRenderer.sprite = leafLvl3;
                 break;
         }
     }
@@ -91,4 +88,25 @@ public class FlowerGFXManager : MonoBehaviour
         leafRenderer.enabled = false;
     }
 
+}
+
+public class FlowerGFXData
+{
+    public Sprite petalLvl1;
+    public Sprite leafLvl1;
+    public Sprite petalLvl2;
+    public Sprite leafLvl2;
+    public Sprite petalLvl3;
+    public Sprite leafLvl3;
+    public Color color;
+    public FlowerGFXData(Sprite pl1, Sprite ll1, Sprite pl2, Sprite ll2, Sprite pl3, Sprite ll3, Color c)
+    {
+        petalLvl1 = pl1;
+        leafLvl1 = ll1;
+        petalLvl2 = pl2;
+        leafLvl2 = ll2;
+        petalLvl3 = pl3;
+        leafLvl3 = ll3;
+        color = c;
+    }
 }

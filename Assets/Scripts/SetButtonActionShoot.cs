@@ -8,7 +8,7 @@ public class SetButtonActionShoot : MonoBehaviour
     public GameObject disableImage;
     PlayerShooting playerShooting;
 
-    readonly string unlockingCode1 = "Lvl2";
+    readonly string unlockingCode1 = "Lvl3";
 
     void Awake()
     {

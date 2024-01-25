@@ -10,9 +10,9 @@ public class PlayerHealth : MonoBehaviour
     public HealthBar healthBar;
     public DamageIndicator damageIndicator;
     
-    readonly string unlockingCode2 = "Lvl1";
+    readonly string unlockingCode2 = "Lvl2";
     readonly int maxHealth2 = 6;
-    readonly string unlockingCode3 = "Lvl4";
+    readonly string unlockingCode3 = "Lvl5";
     readonly int maxHealth3 = 8;
 
     void Start()
@@ -33,7 +33,7 @@ public class PlayerHealth : MonoBehaviour
         if(currentHealth == 0)
         {
             //add some effect
-            stageManager.GameOver();
+            stageManager.GameOver("health");
         }
     }
     

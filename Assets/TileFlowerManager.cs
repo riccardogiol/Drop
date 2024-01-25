@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class TileFlowerManager : MonoBehaviour
@@ -6,16 +7,10 @@ public class TileFlowerManager : MonoBehaviour
     public bool isObstacle = false;
 
     public FlowerGFXManager flowerGFX;
-
-    public float checkSpreadingEligibilityInterval = 2f;
-    float checkSpreadingEligibilityTimer;
-
     public TilemapEffectManager tilemapEffectManager;
 
     void Start()
-    {
-        checkSpreadingEligibilityTimer = checkSpreadingEligibilityInterval;
-        
+    {        
         Collider2D[] results = Physics2D.OverlapPointAll(transform.position);
         foreach(Collider2D item in results)
         {
@@ -28,19 +23,17 @@ public class TileFlowerManager : MonoBehaviour
             flowerGFX.Uproot();
     }
 
-    void Update()
+    public void SetFlowerGFX(FlowerGFXData fgd)
     {
-        if (!isFlowering || isObstacle)
-            return;
-        checkSpreadingEligibilityTimer -= Time.deltaTime;
-        if (checkSpreadingEligibilityTimer < 0)
-        {
-            CallEvaluation(transform.position + new Vector3(1, 0));
-            CallEvaluation(transform.position + new Vector3(-1, 0));
-            CallEvaluation(transform.position + new Vector3(0, 1));
-            CallEvaluation(transform.position + new Vector3(0, -1));
-            checkSpreadingEligibilityTimer = checkSpreadingEligibilityInterval;
-        }
+        flowerGFX.SetFlowerGFX(fgd);
+    }
+
+    public void TrySpreadingAround()
+    {  
+        CallEvaluation(transform.position + new Vector3(1, 0));
+        CallEvaluation(transform.position + new Vector3(-1, 0));
+        CallEvaluation(transform.position + new Vector3(0, 1));
+        CallEvaluation(transform.position + new Vector3(0, -1));
     }
 
     void CallEvaluation(Vector3 position)
@@ -55,22 +48,24 @@ public class TileFlowerManager : MonoBehaviour
         if (isFlowering || isObstacle)
             return;
         if (!IsSourrandedByAtLeastOneBurntTile())
-        {
             StartFlowering();
-        }
     }
 
     public void StartFlowering()
     {
+        StartCoroutine(DelayedFlowering());
+    }
+
+    IEnumerator DelayedFlowering()
+    {
+        yield return new WaitForSeconds(0.05f);
         isFlowering = true;
-        checkSpreadingEligibilityTimer = checkSpreadingEligibilityInterval;
         flowerGFX.Plant();
     }
 
     public void StopFlowering()
     {
         isFlowering = false;
-        checkSpreadingEligibilityTimer = checkSpreadingEligibilityInterval;
         flowerGFX.Uproot();
     }
 

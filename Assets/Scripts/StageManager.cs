@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -40,8 +41,6 @@ public class StageManager : MonoBehaviour
     IEnumerator WinningScene()
     {
         MakeRain(true);
-        if (decorationManager != null)
-            decorationManager.SetGreenSprites();
         cameraAnimationManager.StartEndingAnimation();
 
         if (finalStage)
@@ -78,28 +77,33 @@ public class StageManager : MonoBehaviour
     public void MakeRain(bool isRaining)
     {
         if (isRaining)
+        {
             rainEffect.Play();
+            if (decorationManager != null)
+                decorationManager.SetGreenSprites();
+        }
         else
             rainEffect.Stop();
     }
 
-    public void GameOver()
+    public void GameOver(String deadCode)
     {
         if (!MenusManager.isPaused)
-            StartCoroutine(EvaporatingScene());
+            StartCoroutine(EvaporatingScene(deadCode));
     }
 
-    IEnumerator EvaporatingScene()
+    IEnumerator EvaporatingScene(String deadCode)
     {
         menusManager.SetIsPause(true);
         if (playerMovementPath != null)
             playerMovementPath.InterruptMovement();
         cameraAnimationManager.StartEndingAnimation();
-        playerAnimationManager.PlayEvaporation();
+        if (deadCode != "no_flower")
+            playerAnimationManager.PlayEvaporation();
 
         yield return new WaitForSeconds(3);
 
-        menusManager.GameOver();
+        menusManager.GameOver(deadCode);
     }
 
     //Close stage functions

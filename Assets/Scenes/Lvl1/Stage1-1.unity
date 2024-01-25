@@ -312,7 +312,7 @@ PrefabInstance:
     - target: {fileID: 8923013457301026658, guid: 4317a480abfeb4491af35141a980d8e0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8923013457301026658, guid: 4317a480abfeb4491af35141a980d8e0,
         type: 3}
@@ -439,6 +439,7 @@ GameObject:
   - component: {fileID: 280733219}
   - component: {fileID: 280733218}
   - component: {fileID: 280733220}
+  - component: {fileID: 280733221}
   m_Layer: 0
   m_Name: WalkTilemap
   m_TagString: Untagged
@@ -1148,8 +1149,66 @@ MonoBehaviour:
   cleanTile: {fileID: 11400000, guid: 24c96346e809541c58b1ef1b73220991, type: 2}
   chessStyle: 1
   cleanDarkTile: {fileID: 11400000, guid: abe6a8a05687b44d3bde32b2b0bbcf33, type: 2}
-  particleCollider: {fileID: 1808614739267387393, guid: dac83bbfc639e4cfaa53c56b6dfa6a52,
-    type: 3}
+--- !u!114 &280733221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280733216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2ea15370a580467a91aab84668388f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  petalListLvl1:
+  - {fileID: -1128444323, guid: b6515d44c6d854f0198f3632f1d3f874, type: 3}
+  - {fileID: -904804321, guid: b6515d44c6d854f0198f3632f1d3f874, type: 3}
+  - {fileID: -1346896186, guid: b6515d44c6d854f0198f3632f1d3f874, type: 3}
+  - {fileID: 1089660965, guid: b6515d44c6d854f0198f3632f1d3f874, type: 3}
+  - {fileID: -2010199875, guid: b6515d44c6d854f0198f3632f1d3f874, type: 3}
+  leafListLvl1:
+  - {fileID: -1230083442, guid: 5ce5d80b301804eeea0353d9e9f448c7, type: 3}
+  - {fileID: -1310048477, guid: 5ce5d80b301804eeea0353d9e9f448c7, type: 3}
+  - {fileID: 1443723748, guid: 5ce5d80b301804eeea0353d9e9f448c7, type: 3}
+  - {fileID: 631540527, guid: 5ce5d80b301804eeea0353d9e9f448c7, type: 3}
+  - {fileID: 1764696991, guid: 5ce5d80b301804eeea0353d9e9f448c7, type: 3}
+  petalListLvl2:
+  - {fileID: 868836655, guid: b6515d44c6d854f0198f3632f1d3f874, type: 3}
+  - {fileID: -1387259853, guid: b6515d44c6d854f0198f3632f1d3f874, type: 3}
+  - {fileID: -198140895, guid: b6515d44c6d854f0198f3632f1d3f874, type: 3}
+  - {fileID: -725025450, guid: b6515d44c6d854f0198f3632f1d3f874, type: 3}
+  - {fileID: 688940321, guid: b6515d44c6d854f0198f3632f1d3f874, type: 3}
+  - {fileID: -2099773128, guid: b6515d44c6d854f0198f3632f1d3f874, type: 3}
+  leafListLvl2:
+  - {fileID: 1884045522, guid: 5ce5d80b301804eeea0353d9e9f448c7, type: 3}
+  - {fileID: 173866170, guid: 5ce5d80b301804eeea0353d9e9f448c7, type: 3}
+  - {fileID: -996117372, guid: 5ce5d80b301804eeea0353d9e9f448c7, type: 3}
+  - {fileID: 1520222212, guid: 5ce5d80b301804eeea0353d9e9f448c7, type: 3}
+  - {fileID: -942798277, guid: 5ce5d80b301804eeea0353d9e9f448c7, type: 3}
+  - {fileID: 231404050, guid: 5ce5d80b301804eeea0353d9e9f448c7, type: 3}
+  petalListLvl3:
+  - {fileID: -1965353215, guid: b6515d44c6d854f0198f3632f1d3f874, type: 3}
+  - {fileID: -733244679, guid: b6515d44c6d854f0198f3632f1d3f874, type: 3}
+  - {fileID: -1282043605, guid: b6515d44c6d854f0198f3632f1d3f874, type: 3}
+  - {fileID: -818563494, guid: b6515d44c6d854f0198f3632f1d3f874, type: 3}
+  - {fileID: 1141429056, guid: b6515d44c6d854f0198f3632f1d3f874, type: 3}
+  - {fileID: -865404513, guid: b6515d44c6d854f0198f3632f1d3f874, type: 3}
+  - {fileID: 244400597, guid: b6515d44c6d854f0198f3632f1d3f874, type: 3}
+  leafListLvl3:
+  - {fileID: -86154337, guid: 5ce5d80b301804eeea0353d9e9f448c7, type: 3}
+  - {fileID: 663934790, guid: 5ce5d80b301804eeea0353d9e9f448c7, type: 3}
+  - {fileID: -125206186, guid: 5ce5d80b301804eeea0353d9e9f448c7, type: 3}
+  - {fileID: 1962434714, guid: 5ce5d80b301804eeea0353d9e9f448c7, type: 3}
+  - {fileID: 1250505546, guid: 5ce5d80b301804eeea0353d9e9f448c7, type: 3}
+  - {fileID: 486898484, guid: 5ce5d80b301804eeea0353d9e9f448c7, type: 3}
+  - {fileID: 1232915927, guid: 5ce5d80b301804eeea0353d9e9f448c7, type: 3}
+  colors:
+  - {r: 1, g: 0.94399023, b: 0.36320752, a: 1}
+  - {r: 1, g: 0.8007262, b: 0.3820755, a: 1}
+  - {r: 0.9716981, g: 0.61344683, b: 0.5179334, a: 1}
+  - {r: 1, g: 0.5801887, b: 0.742759, a: 1}
+  trySpreadingInterval: 3
 --- !u!1001 &283417957
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7199,7 +7258,7 @@ RectTransform:
   - {fileID: 117676555}
   - {fileID: 5804737764657246315}
   m_Father: {fileID: 1751392445}
-  m_RootOrder: 17
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -7293,6 +7352,7 @@ MonoBehaviour:
   loseProgressionPerc: 0.75
   rainProgressionPerc: 1
   winProgressionPerc: 1
+  winByFlower: 0
 --- !u!1001 &884353088
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8095,7 +8155,6 @@ MonoBehaviour:
   cleanTile: {fileID: 11400000, guid: 0ff3ee3e37f534be58f852565faf5c18, type: 2}
   chessStyle: 0
   cleanDarkTile: {fileID: 0}
-  particleCollider: {fileID: 0}
 --- !u!1 &1736441726
 GameObject:
   m_ObjectHideFlags: 0
@@ -8465,7 +8524,7 @@ PrefabInstance:
     - target: {fileID: 3609857410889989770, guid: 0523bb4d062064c4eb935a51509597a0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 3609857410889989770, guid: 0523bb4d062064c4eb935a51509597a0,
         type: 3}
@@ -8825,7 +8884,7 @@ PrefabInstance:
     - target: {fileID: 3609857410889989770, guid: 0523bb4d062064c4eb935a51509597a0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 3609857410889989770, guid: 0523bb4d062064c4eb935a51509597a0,
         type: 3}
@@ -9540,6 +9599,12 @@ PrefabInstance:
       propertyPath: m_Text
       value: pass over the burnt grass to water it
       objectReference: {fileID: 0}
+    - target: {fileID: 5202744236371482476, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fdf1f6b22bfd24d4c82b430413beffad,
+        type: 3}
     - target: {fileID: 5230732201757920063, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_text
@@ -9570,6 +9635,31 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5559032019624942066, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5559032019624942066, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5559032019624942066, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5559032019624942066, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5559032019624942066, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5766869013694836603, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -9583,7 +9673,7 @@ PrefabInstance:
     - target: {fileID: 5773600779128570001, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5952432851450507982, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
@@ -9653,7 +9743,7 @@ PrefabInstance:
     - target: {fileID: 7493151242473289198, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 7692640206896602110, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
@@ -9693,7 +9783,7 @@ PrefabInstance:
     - target: {fileID: 8584349168261066136, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8874799144318361618, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}

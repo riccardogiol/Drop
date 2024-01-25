@@ -8,7 +8,7 @@ public class SetButtonActionWave : MonoBehaviour
     public GameObject disableImage;
     PlayerWave playerWave;
 
-    readonly string unlockingCode1 = "Lvl3";
+    readonly string unlockingCode1 = "Lvl4";
 
     void Awake()
     {

@@ -30,6 +30,8 @@ public class PlaygroundManager : MonoBehaviour
     public float rainProgressionPerc = 1.0f;
     public float winProgressionPerc = 0.98f;
 
+    public bool winByFlower = true;
+
     void Awake()
     {
         stageManager = FindFirstObjectByType<StageManager>();
@@ -74,19 +76,14 @@ public class PlaygroundManager : MonoBehaviour
         EvaluateCleanSurface();
 
         tilemapEffectManager = walkTilemap.GetComponent<TilemapEffectManager>();
-        if (tilemapEffectManager != null)
-        {
-            Debug.Log("spawn colliders");
-            tilemapEffectManager.SpawnParticleColliders(maxX, maxY);
-            StartCoroutine(StartFlowerCounter());
-        }
+        tilemapEffectManager.SpawnParticleColliders(maxX, maxY);
+        StartCoroutine(StartFlowerCounter());
     }
 
     IEnumerator StartFlowerCounter()
     {
         yield return new WaitForSeconds(1);
         tilemapEffectManager.CollectFlowerTiles();
-        tilemapEffectManager.SetFlowerSpreading(3);
     }
 
     public void FlameOnPosition(Vector3 position)
@@ -265,28 +262,28 @@ public class PlaygroundManager : MonoBehaviour
         progressionBar.SetValue(progressionPercOnMin);
         if (progressionPerc >= winProgressionPerc)
         {
-            stageManager.WinGame();
-            if (tilemapEffectManager != null)
-                tilemapEffectManager.SetFlowerSpreading(0.3f);
+            isRaining = true;
+            stageManager.MakeRain(isRaining);
+            tilemapEffectManager.SetFlowerSpreading(0.5f);
+            if (!winByFlower)
+                stageManager.WinGame();
         }
         if (!isRaining && progressionPerc > (rainProgressionPerc + 0.05))
         {
             isRaining = true;
             stageManager.MakeRain(isRaining);
             StartCoroutine(Raining());
-            if (tilemapEffectManager != null)
-                tilemapEffectManager.SetFlowerSpreading(1f);
+            tilemapEffectManager.SetFlowerSpreading(0.7f);
 
         } else if (isRaining && progressionPerc < (rainProgressionPerc - 0.05))
         {
             isRaining = false;
             stageManager.MakeRain(isRaining);
             StopAllCoroutines();
-            if (tilemapEffectManager != null)
-                tilemapEffectManager.SetFlowerSpreading(3f);
+            tilemapEffectManager.SetFlowerSpreading(3f);
         }
         if (progressionPerc <= loseProgressionPerc)
-            stageManager.GameOver();
+            stageManager.GameOver("heat");
     }
 
     IEnumerator Raining()

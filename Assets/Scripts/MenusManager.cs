@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -123,14 +124,27 @@ public class MenusManager : MonoBehaviour
         auxTrans.GetComponent<Text>().text = "Level " + stageManager.currentLvl + " - Stage " + stageManager.currentStage;
     }
 
-    public void GameOver()
+    public void GameOver(String deadCode)
     {
         messageOnScreen = true;
         Time.timeScale = 0f;
+        Transform auxTrans = gameOverMenu.transform.Find("GameOverText");
+        switch (deadCode)
+        {
+            case "health":
+                auxTrans.GetComponent<Text>().text = "Oh no, the water in your reservoir is exshausted!\nYou've evaporated :(";
+                break;
+            case "heat":
+                auxTrans.GetComponent<Text>().text = "Oh no, the stage became too hot!\nYou've evaporated :(";
+                break;
+            case "no_flower":
+                auxTrans.GetComponent<Text>().text = "Oh no, there are no more flowers on the stage!\nThe biome can't be settle :(";
+                break;
+        }
         gameOverMenu.SetActive(true);
         shader.SetActive(true);
         isPaused = true;
-        Transform auxTrans = gameOverMenu.transform.Find("RetryButton");
+        auxTrans = gameOverMenu.transform.Find("RetryButton");
         if (auxTrans == null)
             return;
         auxTrans.GetComponent<Button>().Select();

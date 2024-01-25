@@ -9,7 +9,7 @@ public class PlayerShooting : MonoBehaviour
     float bulletRange = 3.0f;
     float cooldown = 1.5f;
 
-    readonly string unlockingCode1 = "Lvl2";
+    readonly string unlockingCode1 = "Lvl3";
     /*
     readonly string unlockingCode2 = "Lvl6";
     readonly float bulletRange2 = 6.0f;

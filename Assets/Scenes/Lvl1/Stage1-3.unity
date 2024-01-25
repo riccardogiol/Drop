@@ -167,6 +167,7 @@ GameObject:
   - component: {fileID: 280733219}
   - component: {fileID: 280733218}
   - component: {fileID: 280733220}
+  - component: {fileID: 280733221}
   m_Layer: 0
   m_Name: WalkTilemap
   m_TagString: Untagged
@@ -978,8 +979,66 @@ MonoBehaviour:
   cleanTile: {fileID: 11400000, guid: 24c96346e809541c58b1ef1b73220991, type: 2}
   chessStyle: 1
   cleanDarkTile: {fileID: 11400000, guid: abe6a8a05687b44d3bde32b2b0bbcf33, type: 2}
-  particleCollider: {fileID: 1808614739267387393, guid: dac83bbfc639e4cfaa53c56b6dfa6a52,
-    type: 3}
+--- !u!114 &280733221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280733216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2ea15370a580467a91aab84668388f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  petalListLvl1:
+  - {fileID: -1128444323, guid: b6515d44c6d854f0198f3632f1d3f874, type: 3}
+  - {fileID: -904804321, guid: b6515d44c6d854f0198f3632f1d3f874, type: 3}
+  - {fileID: -1346896186, guid: b6515d44c6d854f0198f3632f1d3f874, type: 3}
+  - {fileID: 1089660965, guid: b6515d44c6d854f0198f3632f1d3f874, type: 3}
+  - {fileID: -2010199875, guid: b6515d44c6d854f0198f3632f1d3f874, type: 3}
+  leafListLvl1:
+  - {fileID: -1230083442, guid: 5ce5d80b301804eeea0353d9e9f448c7, type: 3}
+  - {fileID: -1310048477, guid: 5ce5d80b301804eeea0353d9e9f448c7, type: 3}
+  - {fileID: 1443723748, guid: 5ce5d80b301804eeea0353d9e9f448c7, type: 3}
+  - {fileID: 631540527, guid: 5ce5d80b301804eeea0353d9e9f448c7, type: 3}
+  - {fileID: 1764696991, guid: 5ce5d80b301804eeea0353d9e9f448c7, type: 3}
+  petalListLvl2:
+  - {fileID: 868836655, guid: b6515d44c6d854f0198f3632f1d3f874, type: 3}
+  - {fileID: -1387259853, guid: b6515d44c6d854f0198f3632f1d3f874, type: 3}
+  - {fileID: -198140895, guid: b6515d44c6d854f0198f3632f1d3f874, type: 3}
+  - {fileID: -725025450, guid: b6515d44c6d854f0198f3632f1d3f874, type: 3}
+  - {fileID: 688940321, guid: b6515d44c6d854f0198f3632f1d3f874, type: 3}
+  - {fileID: -2099773128, guid: b6515d44c6d854f0198f3632f1d3f874, type: 3}
+  leafListLvl2:
+  - {fileID: 1884045522, guid: 5ce5d80b301804eeea0353d9e9f448c7, type: 3}
+  - {fileID: 173866170, guid: 5ce5d80b301804eeea0353d9e9f448c7, type: 3}
+  - {fileID: -996117372, guid: 5ce5d80b301804eeea0353d9e9f448c7, type: 3}
+  - {fileID: 1520222212, guid: 5ce5d80b301804eeea0353d9e9f448c7, type: 3}
+  - {fileID: -942798277, guid: 5ce5d80b301804eeea0353d9e9f448c7, type: 3}
+  - {fileID: 231404050, guid: 5ce5d80b301804eeea0353d9e9f448c7, type: 3}
+  petalListLvl3:
+  - {fileID: -1965353215, guid: b6515d44c6d854f0198f3632f1d3f874, type: 3}
+  - {fileID: -733244679, guid: b6515d44c6d854f0198f3632f1d3f874, type: 3}
+  - {fileID: -1282043605, guid: b6515d44c6d854f0198f3632f1d3f874, type: 3}
+  - {fileID: -818563494, guid: b6515d44c6d854f0198f3632f1d3f874, type: 3}
+  - {fileID: 1141429056, guid: b6515d44c6d854f0198f3632f1d3f874, type: 3}
+  - {fileID: -865404513, guid: b6515d44c6d854f0198f3632f1d3f874, type: 3}
+  - {fileID: 244400597, guid: b6515d44c6d854f0198f3632f1d3f874, type: 3}
+  leafListLvl3:
+  - {fileID: -86154337, guid: 5ce5d80b301804eeea0353d9e9f448c7, type: 3}
+  - {fileID: 663934790, guid: 5ce5d80b301804eeea0353d9e9f448c7, type: 3}
+  - {fileID: -125206186, guid: 5ce5d80b301804eeea0353d9e9f448c7, type: 3}
+  - {fileID: 1962434714, guid: 5ce5d80b301804eeea0353d9e9f448c7, type: 3}
+  - {fileID: 1250505546, guid: 5ce5d80b301804eeea0353d9e9f448c7, type: 3}
+  - {fileID: 486898484, guid: 5ce5d80b301804eeea0353d9e9f448c7, type: 3}
+  - {fileID: 1232915927, guid: 5ce5d80b301804eeea0353d9e9f448c7, type: 3}
+  colors:
+  - {r: 1, g: 0.94399023, b: 0.36320752, a: 1}
+  - {r: 1, g: 0.8007262, b: 0.3820755, a: 1}
+  - {r: 0.9716981, g: 0.61344683, b: 0.5179334, a: 1}
+  - {r: 1, g: 0.5801887, b: 0.742759, a: 1}
+  trySpreadingInterval: 3
 --- !u!1 &418850658
 GameObject:
   m_ObjectHideFlags: 0
@@ -2334,6 +2393,7 @@ MonoBehaviour:
   loseProgressionPerc: 0.5
   rainProgressionPerc: 1
   winProgressionPerc: 1
+  winByFlower: 0
 --- !u!1001 &832573063
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2638,6 +2698,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 883560211532010066, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1715595830883914204, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2884,6 +2949,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef61b1f826a4442cc971e2d0a9b37601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &1207991584 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2163175346783930883, guid: c7b202ae4dba84871811aa7c44bc43e3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1207991581}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1284241994
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7786,6 +7857,82 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 650867797}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1562505891
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1562505892}
+  - component: {fileID: 1562505894}
+  - component: {fileID: 1562505893}
+  m_Layer: 5
+  m_Name: Logo (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1562505892
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562505891}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1207991584}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 70, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1562505893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562505891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: fdf1f6b22bfd24d4c82b430413beffad, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1562505894
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562505891}
+  m_CullTransparentMesh: 1
 --- !u!4 &1568359837 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 846535088814142927, guid: 71606232f6a1f405ab748a75268d3cba,
@@ -8404,7 +8551,6 @@ MonoBehaviour:
   cleanTile: {fileID: 11400000, guid: 0ff3ee3e37f534be58f852565faf5c18, type: 2}
   chessStyle: 0
   cleanDarkTile: {fileID: 0}
-  particleCollider: {fileID: 0}
 --- !u!1 &1736441726
 GameObject:
   m_ObjectHideFlags: 0
@@ -8649,6 +8795,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLvl: 1
   currentStage: 3
+  stageMode: puzzle
   finalStage: 0
   menusManager: {fileID: 1207991583}
   rainEffect: {fileID: 1409235864}
