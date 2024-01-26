@@ -79,7 +79,7 @@ public class PlayerMovementPath : MonoBehaviour
             return;
         if (currentWaypoint >= path.vectorPath.Count)
         {
-            path = null;
+            InterruptMovement();
             return;
         }
         

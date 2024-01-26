@@ -32,6 +32,7 @@ public class SetButtonActionShoot : MonoBehaviour
         {
             button.interactable = false;
             disableImage.SetActive(true);
+            playerShooting.enabled = false;
         }
     }
 }

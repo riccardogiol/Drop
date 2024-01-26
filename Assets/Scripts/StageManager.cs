@@ -19,6 +19,7 @@ public class StageManager : MonoBehaviour
 
     CameraAnimationManager cameraAnimationManager;
     PlayerMovementPath playerMovementPath;
+    PlayerMovementKeys playerMovementKeys;
     DecorationManager decorationManager;
 
     void Start()
@@ -26,6 +27,7 @@ public class StageManager : MonoBehaviour
         FindObjectOfType<AudioManager>().Stop("OpeningMusic");
         FindObjectOfType<AudioManager>().Play("BackgroundMusic");
         playerMovementPath = FindObjectOfType<PlayerMovementPath>();
+        playerMovementKeys = FindObjectOfType<PlayerMovementKeys>();
         decorationManager = FindObjectOfType<DecorationManager>();
         cameraAnimationManager = FindObjectOfType<CameraAnimationManager>();
         victoryPositionTrigger = FindObjectOfType<VictoryPositionTrigger>();
@@ -49,10 +51,12 @@ public class StageManager : MonoBehaviour
             {
                 victoryPositionTrigger.ActivateCollider();
                 playerMovementPath.NewTarget(victoryPositionTrigger.transform.position);
+                playerMovementKeys.InterruptMovement(0.3f);
                 menusManager.SetIsPause(true);
                 yield return new WaitForSeconds(6);
             } else {
                 playerMovementPath.InterruptMovement();
+                playerMovementKeys.InterruptMovement(0.3f);
                 playerAnimationManager.PlayTriumph();
                 menusManager.SetIsPause(true);
                 yield return new WaitForSeconds(3);
@@ -65,6 +69,7 @@ public class StageManager : MonoBehaviour
         } else
         {
             playerMovementPath.InterruptMovement();
+            playerMovementKeys.InterruptMovement(0.3f);
             playerAnimationManager.PlayTriumph();
             menusManager.SetIsPause(true);
             yield return new WaitForSeconds(3);
@@ -97,6 +102,7 @@ public class StageManager : MonoBehaviour
         menusManager.SetIsPause(true);
         if (playerMovementPath != null)
             playerMovementPath.InterruptMovement();
+        playerMovementKeys.InterruptMovement(0.3f);
         cameraAnimationManager.StartEndingAnimation();
         if (deadCode != "no_flower")
             playerAnimationManager.PlayEvaporation();

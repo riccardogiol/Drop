@@ -32,6 +32,7 @@ public class SetButtonActionWave : MonoBehaviour
         {
             button.interactable = false;
             disableImage.SetActive(true);
+            playerWave.enabled = false;
         }
     }
 }

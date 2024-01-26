@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2375907246373891934}
   - component: {fileID: 3438515303140057438}
   - component: {fileID: 7924431065260569414}
+  - component: {fileID: 6273753198535687943}
   m_Layer: 5
   m_Name: LevelPresentationMessage1
   m_TagString: Untagged
@@ -104,6 +105,19 @@ MonoBehaviour:
   TrophyDescriptionBox: {fileID: 6614856200633849795}
   TrophySpriteRenderer: {fileID: 2410611307499054941}
   continueButton: {fileID: 1598168082714752845}
+--- !u!114 &6273753198535687943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 317621877041574442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4f12dad56a4549b5a11575b840f115f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonName: StartButton
 --- !u!1 &1137639153390040182
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,7 +529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 3
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -649,7 +663,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 3
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -860,7 +874,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 3
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}

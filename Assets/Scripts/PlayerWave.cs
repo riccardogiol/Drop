@@ -12,6 +12,7 @@ public class PlayerWave : MonoBehaviour
     ButtonFiller buttonFiller;
     PlayerHealth playerHealth;
     PlayerMovementPath playerMovement;
+    PlayerMovementKeys playerMovementKeys;
     PlayerAnimationManager animator;
 
     readonly string unlockingCode1 = "Lvl4";
@@ -26,6 +27,7 @@ public class PlayerWave : MonoBehaviour
         }
         playerHealth = GetComponent<PlayerHealth>();
         playerMovement = GetComponent<PlayerMovementPath>();
+        playerMovementKeys = GetComponent<PlayerMovementKeys>();
         timer = 0;
         ButtonFiller[] buttonFillers = FindObjectsOfType<ButtonFiller>();
         foreach (var bf in buttonFillers)
@@ -55,7 +57,7 @@ public class PlayerWave : MonoBehaviour
             buttonFiller.SetValue(timer);
         }
         //keyboard input
-        else if(Input.GetKeyDown(KeyCode.E))
+        else if(Input.GetKeyDown(KeyCode.LeftShift))
         {
             TryWaveAttack();
         }
@@ -72,6 +74,7 @@ public class PlayerWave : MonoBehaviour
         { 
             playerHealth.TakeDamage(waveEnergy);
             playerMovement.InterruptMovement();
+            playerMovementKeys.InterruptMovement(0.5f);
             if (animator != null)
                 animator.PlayCastingWave();
             WaveAttack();

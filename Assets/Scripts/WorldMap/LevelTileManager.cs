@@ -38,11 +38,11 @@ public class LevelTileManager : MonoBehaviour
             button.interactable = true;
             if (PlayerPrefs.GetInt(codeLvlname, 0) == 1)
             {
-                dropSpot.color = new Color(104.0f/255, 189.0f/255, 225.0f/255);
+                //dropSpot.color = new Color(104.0f/255, 189.0f/255, 225.0f/255);
                 decoration.SetGreenSprite();
                 stageSpotManager.ColorStageSpots(100);
             } else {
-                dropSpot.color = new Color(241.0f/255, 154.0f/255, 40.0f/255);
+                //dropSpot.color = new Color(241.0f/255, 154.0f/255, 40.0f/255);
                 stageSpotManager.ColorStageSpots(PlayerPrefs.GetInt("LastStageCompleted", 0));
                 smokeEffect.Play();
             }

@@ -21,6 +21,8 @@ public class EnemyAIChasingMovement : MonoBehaviour
 
     void Start()
     {
+        if (target == null)
+            target = FindFirstObjectByType<PlayerHealth>().transform;
         seeker = GetComponent<Seeker>();
         lm = GetComponent<LinearMovement>();
         spriteFacing = GetComponent<SpriteFacing>();

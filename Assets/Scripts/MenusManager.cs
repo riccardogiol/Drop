@@ -22,6 +22,8 @@ public class MenusManager : MonoBehaviour
 
     public Text[] descriptions;
 
+    public GameObject[] buttonHints;
+
     void Start()
     {
         Transform auxTrans = transform.Find("StageSpecification");
@@ -66,6 +68,9 @@ public class MenusManager : MonoBehaviour
         
         stageSpecsInfo.GetComponent<Text>().text = "Level " + stageManager.currentLvl + " - Stage " + stageManager.currentStage + "\n" + stageManager.stageMode;
 
+        foreach(GameObject bh in buttonHints)
+            bh.SetActive(false);
+
         if (openMessage != null)
         {
             messageOnScreen = true;
@@ -84,7 +89,14 @@ public class MenusManager : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
-            Pause();
+        {
+            if (pauseMenu.activeSelf)
+                Resume();
+            else
+                Pause();
+        }
+        if (Input.GetKeyDown(KeyCode.H))
+            ToggleEagleEye();
     }
 
     public void Pause()
@@ -96,6 +108,8 @@ public class MenusManager : MonoBehaviour
         Time.timeScale = 0f;
         pauseMenu.SetActive(true);
         shader.SetActive(true);
+        foreach(GameObject bh in buttonHints)
+            bh.SetActive(true);
         isPaused = true;
         Transform auxTrans = pauseMenu.transform.Find("ResumeButton");
         if (auxTrans == null)
@@ -175,6 +189,8 @@ public class MenusManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         pauseMenu.SetActive(false);
+        foreach(GameObject bh in buttonHints)
+            bh.SetActive(false);
         if (openMessage != null)
             openMessage.SetActive(false);
         shader.SetActive(false);

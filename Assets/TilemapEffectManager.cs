@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -101,24 +102,32 @@ public class TilemapEffectManager : MonoBehaviour
         trySpreadingTimer -= Time.deltaTime;
         if (trySpreadingTimer < 0 && flowersCollected)
         {
-            allFlowered = true;
-            noFlower = true;
-            foreach(TileFlowerManager tileFlowerManager in flowerTiles)
-            {
-                if (tileFlowerManager.isFlowering)
-                {
-                    noFlower = false;
-                    tileFlowerManager.TrySpreadingAround();
-                }
-                else
-                    allFlowered = false;
-            }
-            trySpreadingTimer = trySpreadingInterval;
-            if (allFlowered)
-                FindObjectOfType<StageManager>().WinGame();
-            if (noFlower && flowerAtStart)
-                FindObjectOfType<StageManager>().GameOver("no_flower");
+            flowersCollected = false;
+            StartCoroutine(TriggerSpreadingAllBoard());
         }
+    }
+
+    IEnumerator TriggerSpreadingAllBoard()
+    {
+        allFlowered = true;
+        noFlower = true;
+        foreach(TileFlowerManager tileFlowerManager in flowerTiles)
+        {
+            if (tileFlowerManager.isFlowering)
+            {
+                noFlower = false;
+                tileFlowerManager.TrySpreadingAround();
+            }
+            else
+                allFlowered = false;
+        }
+        trySpreadingTimer = trySpreadingInterval;
+        if (allFlowered)
+            FindObjectOfType<StageManager>().WinGame();
+        if (noFlower && flowerAtStart)
+            FindObjectOfType<StageManager>().GameOver("no_flower");
+        flowersCollected = true;
+        yield return new WaitForSeconds(0.1f);
     }
 
     public void SetFlowerSpreading(float spreadInterval)

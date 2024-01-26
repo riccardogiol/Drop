@@ -1,9 +1,10 @@
-using UnityEngine.Audio;
 using System;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+
+    public float volumeFactor = 1f;
     public Sound[] sounds;
 
     void Awake()
@@ -13,7 +14,7 @@ public class AudioManager : MonoBehaviour
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
-            s.source.volume = s.volume;
+            s.source.volume = s.volume*volumeFactor;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
         }

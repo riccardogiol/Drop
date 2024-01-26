@@ -24,6 +24,7 @@ public class PlayerShooting : MonoBehaviour
     ButtonFiller buttonFiller;
     PlayerDirectionController playerDirection;
     PlayerMovementPath playerMovement;
+    PlayerMovementKeys playerMovementKeys;
     PlayerHealth playerHealth;
     PlayerAnimationManager animator;
 
@@ -36,6 +37,7 @@ public class PlayerShooting : MonoBehaviour
         }
         playerDirection = GetComponent<PlayerDirectionController>();
         playerMovement = GetComponent<PlayerMovementPath>();
+        playerMovementKeys = GetComponent<PlayerMovementKeys>();
         playerHealth = GetComponent<PlayerHealth>();
         timer = 0;
         ButtonFiller[] buttonFillers = FindObjectsOfType<ButtonFiller>();
@@ -87,6 +89,7 @@ public class PlayerShooting : MonoBehaviour
         { 
             playerHealth.TakeDamage(bulletEnergy);
             playerMovement.InterruptMovement();
+            playerMovementKeys.InterruptMovement(0.5f);
             if (animator != null)
                 animator.PlayShooting();
             Shoot();
