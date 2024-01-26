@@ -17,7 +17,10 @@ public class ChangeAspect : MonoBehaviour
     void Start()
     {
         if (!isBurnt && flowerStarter!=null)
-            Instantiate(flowerStarter, transform.position, Quaternion.identity);
+        {
+            GameObject goref = Instantiate(flowerStarter, transform.position, Quaternion.identity);
+            goref.GetComponent<TriggerFlowering>().enabled = true;
+        }
     }
 
     public void SetGreenSprite()

@@ -20,6 +20,11 @@ public class PlayerMovementInterruption : MonoBehaviour
         isMoving = false;
     }
 
+    public void SetIsMoving(bool value)
+    {
+        isMoving = value;
+    }
+
     void FixedUpdate()
     {
         if (Vector2.Distance(transform.position, lastFramePosition) < 0.01)

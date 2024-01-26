@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TilemapEffectManager : MonoBehaviour
 {
-    GameObject particleCollider;
+    public GameObject particleCollider;
     List<TileFlowerManager> flowerTiles;
     RuleTileStateManager ruleTileStateManager;
     bool flowerAtStart = false;
@@ -26,17 +26,20 @@ public class TilemapEffectManager : MonoBehaviour
     public float trySpreadingInterval = 3.0f;
     float trySpreadingTimer;
 
-    void Start()
+    void Awake()
     {
         if (particleCollider == null)
             particleCollider = Resources.Load<GameObject>("ParticleCollider");
         ruleTileStateManager = GetComponent<RuleTileStateManager>();
         flowerTiles = new List<TileFlowerManager>();
         trySpreadingTimer = trySpreadingInterval;
+        allFlowered = false;
+        flowersCollected = false;
     }
 
     public void SpawnParticleColliders(int maxX, int maxY)
     {
+        Debug.Log("enter spawn particle collider");
         if (particleCollider == null)
             return;
         for (int y = 0; y <= maxY; y++)
@@ -95,6 +98,7 @@ public class TilemapEffectManager : MonoBehaviour
             }
         }
         flowersCollected = true;
+        Debug.Log("FlowerTile collected: " + flowerTiles.Count);
     }
 
     void Update()
@@ -103,7 +107,26 @@ public class TilemapEffectManager : MonoBehaviour
         if (trySpreadingTimer < 0 && flowersCollected)
         {
             flowersCollected = false;
-            StartCoroutine(TriggerSpreadingAllBoard());
+
+            allFlowered = true;
+            noFlower = true;
+            foreach(TileFlowerManager tileFlowerManager in flowerTiles)
+            {
+                if (tileFlowerManager.isFlowering)
+                {
+                    noFlower = false;
+                    tileFlowerManager.TrySpreadingAround();
+                }
+                else
+                    allFlowered = false;
+            }
+            trySpreadingTimer = trySpreadingInterval;
+            if (allFlowered)
+                FindObjectOfType<StageManager>().WinGame();
+            if (noFlower && flowerAtStart)
+                FindObjectOfType<StageManager>().GameOver("no_flower");
+            flowersCollected = true;
+            //StartCoroutine(TriggerSpreadingAllBoard());
         }
     }
 

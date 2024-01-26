@@ -10,7 +10,7 @@ public class TriggerFlowering : MonoBehaviour
             if (item.gameObject.CompareTag("ParticleCollider"))
             {
                 item.gameObject.GetComponent<TileFlowerManager>().StartFlowering();
-                Destroy(gameObject);
+                this.enabled = false;
             }
         }
     }

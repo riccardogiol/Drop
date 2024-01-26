@@ -9,6 +9,7 @@ public class PlayerMovementKeys: MonoBehaviour
     Rigidbody2D player;
     Vector3 movement;
     PlayerMovementPath pathMovement;
+    PlayerMovementInterruption playerMovementInterrupt;
     PlayerDirectionController directionController;
     Tilemap tilemap;
 
@@ -21,6 +22,7 @@ public class PlayerMovementKeys: MonoBehaviour
     {
         player = GetComponent<Rigidbody2D>();
         pathMovement = GetComponent<PlayerMovementPath>();
+        playerMovementInterrupt = GetComponent<PlayerMovementInterruption>();
         directionController = GetComponent<PlayerDirectionController>();
         tilemap = FindFirstObjectByType<Tilemap>();
         target = transform.position;
@@ -55,6 +57,7 @@ public class PlayerMovementKeys: MonoBehaviour
             if(Vector2.Distance(transform.position, target) < nextWaypointDistance)
                 hasTarget = false;
 
+            playerMovementInterrupt.SetIsMoving(true);
             Vector2 direction = (target - transform.position).normalized;
             player.MovePosition(player.position + (moveSpeed * Time.deltaTime * direction));
             directionController.UpdateDirection(direction);

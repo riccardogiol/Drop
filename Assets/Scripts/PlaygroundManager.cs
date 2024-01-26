@@ -72,7 +72,8 @@ public class PlaygroundManager : MonoBehaviour
         progressionBar.SetGameOverLimit(Math.Max((loseProgressionPerc - minProgressionPerc) / (1-minProgressionPerc), 0));
         progressionBar.SetRainLimit((rainProgressionPerc - minProgressionPerc) / (1-minProgressionPerc));
         
-        InvokeRepeating(nameof(RefreshCounters), 3, 3);
+        //InvokeRepeating(nameof(RefreshCounters), 3, 3);
+        //StartCoroutine(RefreshCounters());
         EvaluateCleanSurface();
 
         tilemapEffectManager = walkTilemap.GetComponent<TilemapEffectManager>();
@@ -257,11 +258,16 @@ public class PlaygroundManager : MonoBehaviour
 
     void EvaluateLevelProgression()
     {
-        progressionPerc = 1 - (fireValue + burntTiles)/totalTiles;
+        progressionPerc = 1.0f - (fireValue + (float)burntTiles)/(float)totalTiles;
         float progressionPercOnMin = (progressionPerc - minProgressionPerc) / (1-minProgressionPerc);
         progressionBar.SetValue(progressionPercOnMin);
+        
+        Debug.Log("Burnt tiles: " + burntTiles);
+        Debug.Log("Fire value: " + fireValue);
+        Debug.Log("Progression perc: " + progressionPerc);
         if (progressionPerc >= winProgressionPerc)
         {
+            StopAllCoroutines();
             isRaining = true;
             stageManager.MakeRain(isRaining);
             tilemapEffectManager.SetFlowerSpreading(0.5f);
@@ -304,16 +310,21 @@ public class PlaygroundManager : MonoBehaviour
         }
     }
 
-    void RefreshCounters()
-    {
-        walkTilemap.GetComponent<RuleTileStateManager>().EvaluateTilesState();
-        wallTilemap.GetComponent<RuleTileStateManager>().EvaluateTilesState();
-        flameParent.GetComponent<FireCounter>().UpdateFireCounters();
-        fireValue = flameParent.GetComponent<FireCounter>().FireValue();
-        Debug.Log("Burnt tiles: " + burntTiles);
-        Debug.Log("Fire value: " + fireValue);
-        Debug.Log("Progression perc: " + progressionPerc);
-        EvaluateCleanSurface();
+    IEnumerator RefreshCounters()
+    { 
+        while (true)
+        {
+            yield return new WaitForSeconds(3f);
+            //while true
+            walkTilemap.GetComponent<RuleTileStateManager>().EvaluateTilesState();
+            wallTilemap.GetComponent<RuleTileStateManager>().EvaluateTilesState();
+            flameParent.GetComponent<FireCounter>().UpdateFireCounters();
+            fireValue = flameParent.GetComponent<FireCounter>().FireValue();
+            Debug.Log("Burnt tiles: " + burntTiles);
+            Debug.Log("Fire value: " + fireValue);
+            Debug.Log("Progression perc: " + progressionPerc);
+            EvaluateCleanSurface();
+        }
     }
 
     public void ShowEnergy()
