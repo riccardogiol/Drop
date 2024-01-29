@@ -24,9 +24,7 @@ public class PlayerInteractions : MonoBehaviour
                 gameObject.GetComponent<PlayerHealth>().TakeDamage(enemyHealth);
                 break;
             case "Grass":
-                int damage = playground.WaterOnPosition(other.transform.position);
-                if (damage > 0)
-                    GetComponent<PlayerHealth>().TakeDamage(damage);
+                playground.WaterOnPosition(other.transform.position);
                 break;
         }
     }

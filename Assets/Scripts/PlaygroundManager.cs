@@ -32,6 +32,8 @@ public class PlaygroundManager : MonoBehaviour
 
     public bool winByFlower = true;
 
+    bool reachedWinningCondition;
+
     void Awake()
     {
         stageManager = FindFirstObjectByType<StageManager>();
@@ -48,6 +50,7 @@ public class PlaygroundManager : MonoBehaviour
 
         flameParent = transform.Find("FlameParent").gameObject;
         waterdropParent = transform.Find("WaterdropParent").gameObject;
+        reachedWinningCondition = false;
 
     }
 
@@ -60,7 +63,6 @@ public class PlaygroundManager : MonoBehaviour
         flameParent.GetComponent<FireCounter>().UpdateFireCounters();
         fireValue = flameParent.GetComponent<FireCounter>().FireValue();
         totalTiles = walkTilemap.GetComponent<RuleTileStateManager>().numberTiles();
-        totalTiles += wallTilemap.GetComponent<RuleTileStateManager>().numberTiles();
         Debug.Log("Total tiles: " + totalTiles);
 
         progressionBar = FindFirstObjectByType<ProgressionBarFiller>();
@@ -72,8 +74,6 @@ public class PlaygroundManager : MonoBehaviour
         progressionBar.SetGameOverLimit(Math.Max((loseProgressionPerc - minProgressionPerc) / (1-minProgressionPerc), 0));
         progressionBar.SetRainLimit((rainProgressionPerc - minProgressionPerc) / (1-minProgressionPerc));
         
-        //InvokeRepeating(nameof(RefreshCounters), 3, 3);
-        //StartCoroutine(RefreshCounters());
         EvaluateCleanSurface();
 
         tilemapEffectManager = walkTilemap.GetComponent<TilemapEffectManager>();
@@ -215,24 +215,24 @@ public class PlaygroundManager : MonoBehaviour
 
     public void BurnCell(Vector3Int cell)
     {
-        walkTilemap.GetComponent<RuleTileStateManager>().BurnTile(cell);
-        wallTilemap.GetComponent<RuleTileStateManager>().BurnTile(cell);
-        EvaluateCleanSurface();
+        bool statechange = walkTilemap.GetComponent<RuleTileStateManager>().BurnTile(cell);
+        statechange = statechange || wallTilemap.GetComponent<RuleTileStateManager>().BurnTile(cell);
+        if (statechange)
+            EvaluateCleanSurface();
     }
 
-    public int WaterOnPosition(Vector3 position)
+    public void WaterOnPosition(Vector3 position)
     {
         Vector3Int cell = walkTilemap.WorldToCell(position);
-        return WaterCell(cell);
+        WaterCell(cell);
     }
 
-    public int WaterCell(Vector3Int cell)
+    public void WaterCell(Vector3Int cell)
     {
-        int waterDamage = walkTilemap.GetComponent<RuleTileStateManager>().WaterTile(cell);
-        waterDamage += wallTilemap.GetComponent<RuleTileStateManager>().WaterTile(cell);
-        //if (waterDamage > 0)
-        EvaluateCleanSurface();
-        return waterDamage;
+        bool statechange = walkTilemap.GetComponent<RuleTileStateManager>().WaterTile(cell);
+        statechange = statechange || wallTilemap.GetComponent<RuleTileStateManager>().WaterTile(cell);
+        if (statechange)
+            EvaluateCleanSurface();
     }
 
     public void FlameEstinguished()
@@ -252,23 +252,23 @@ public class PlaygroundManager : MonoBehaviour
     void EvaluateCleanSurface()
     {
         burntTiles = walkTilemap.GetComponent<RuleTileStateManager>().numberBurntTiles();
-        burntTiles += wallTilemap.GetComponent<RuleTileStateManager>().numberBurntTiles();
         EvaluateLevelProgression();
     }
 
     void EvaluateLevelProgression()
     {
-        progressionPerc = 1.0f - (fireValue + (float)burntTiles)/(float)totalTiles;
+        progressionPerc = 1.0f - (fireValue + burntTiles)/totalTiles;
         float progressionPercOnMin = (progressionPerc - minProgressionPerc) / (1-minProgressionPerc);
         progressionBar.SetValue(progressionPercOnMin);
         
         Debug.Log("Burnt tiles: " + burntTiles);
         Debug.Log("Fire value: " + fireValue);
         Debug.Log("Progression perc: " + progressionPerc);
-        if (progressionPerc >= winProgressionPerc)
+        if (progressionPerc >= winProgressionPerc && !reachedWinningCondition)
         {
             StopAllCoroutines();
             isRaining = true;
+            reachedWinningCondition = true;
             stageManager.MakeRain(isRaining);
             tilemapEffectManager.SetFlowerSpreading(0.5f);
             if (!winByFlower)
@@ -307,23 +307,6 @@ public class PlaygroundManager : MonoBehaviour
             AddWaterdrop(raindropPos);
             Debug.Log("Rain on position " + raindropPos);
             yield return new WaitForSeconds(rainInterval);
-        }
-    }
-
-    IEnumerator RefreshCounters()
-    { 
-        while (true)
-        {
-            yield return new WaitForSeconds(3f);
-            //while true
-            walkTilemap.GetComponent<RuleTileStateManager>().EvaluateTilesState();
-            wallTilemap.GetComponent<RuleTileStateManager>().EvaluateTilesState();
-            flameParent.GetComponent<FireCounter>().UpdateFireCounters();
-            fireValue = flameParent.GetComponent<FireCounter>().FireValue();
-            Debug.Log("Burnt tiles: " + burntTiles);
-            Debug.Log("Fire value: " + fireValue);
-            Debug.Log("Progression perc: " + progressionPerc);
-            EvaluateCleanSurface();
         }
     }
 

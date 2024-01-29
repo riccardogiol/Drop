@@ -5,6 +5,7 @@ public class TileFlowerManager : MonoBehaviour
 {
     public bool isFlowering = false;
     public bool isObstacle = false;
+    public bool isSourrandedByFlowers;
 
     public FlowerGFXManager flowerGFX;
     public TilemapEffectManager tilemapEffectManager;
@@ -21,6 +22,7 @@ public class TileFlowerManager : MonoBehaviour
         }
         if (!isFlowering || isObstacle)
             flowerGFX.Uproot();
+        isSourrandedByFlowers = false;
     }
 
     public void SetFlowerGFX(FlowerGFXData fgd)
@@ -28,27 +30,35 @@ public class TileFlowerManager : MonoBehaviour
         flowerGFX.SetFlowerGFX(fgd);
     }
 
-    public void TrySpreadingAround()
-    {  
-        CallEvaluation(transform.position + new Vector3(1, 0));
-        CallEvaluation(transform.position + new Vector3(-1, 0));
-        CallEvaluation(transform.position + new Vector3(0, 1));
-        CallEvaluation(transform.position + new Vector3(0, -1));
+    public bool TrySpreadingAround()
+    {
+        if (isSourrandedByFlowers)
+            return false;
+        isSourrandedByFlowers = CallEvaluation(transform.position + new Vector3(1, 0));
+        isSourrandedByFlowers = isSourrandedByFlowers && CallEvaluation(transform.position + new Vector3(-1, 0));
+        isSourrandedByFlowers = isSourrandedByFlowers && CallEvaluation(transform.position + new Vector3(0, 1));
+        isSourrandedByFlowers = isSourrandedByFlowers && CallEvaluation(transform.position + new Vector3(0, -1));
+        return true;
     }
 
-    void CallEvaluation(Vector3 position)
+    bool CallEvaluation(Vector3 position)
     {
         GameObject goRef = tilemapEffectManager.GetParticleCollider(position);
         if (goRef != null)
-            goRef.GetComponent<TileFlowerManager>().EvaluateFloweringEligibility();
+            return goRef.GetComponent<TileFlowerManager>().EvaluateFloweringEligibility();
+        return true;
     }
 
-    public void EvaluateFloweringEligibility()
+    public bool EvaluateFloweringEligibility()
     {
         if (isFlowering || isObstacle)
-            return;
+            return true;
         if (!IsSourrandedByAtLeastOneBurntTile())
+        {
             StartFlowering();
+            return true;
+        }
+        return false;
     }
 
     public void StartFlowering()
@@ -67,6 +77,19 @@ public class TileFlowerManager : MonoBehaviour
     {
         isFlowering = false;
         flowerGFX.Uproot();
+        GameObject auxGO;
+        for (float y = transform.position.y - 1; y <= transform.position.y + 1; y++)
+        {
+            auxGO = tilemapEffectManager.GetParticleCollider(new Vector3(transform.position.x, y));
+            if (auxGO != null)
+                auxGO.GetComponent<TileFlowerManager>().isSourrandedByFlowers = false;
+        }
+        for (float x = transform.position.x - 1; x <= transform.position.x + 1; x++)
+            {
+                auxGO = tilemapEffectManager.GetParticleCollider(new Vector3(x, transform.position.y));
+                if (auxGO != null)
+                    auxGO.GetComponent<TileFlowerManager>().isSourrandedByFlowers = false;
+            }
     }
 
     bool IsSourrandedByAtLeastOneBurntTile()

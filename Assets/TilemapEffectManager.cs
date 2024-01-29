@@ -110,16 +110,19 @@ public class TilemapEffectManager : MonoBehaviour
 
             allFlowered = true;
             noFlower = true;
+            int nbrTrySpread = 0;
             foreach(TileFlowerManager tileFlowerManager in flowerTiles)
             {
                 if (tileFlowerManager.isFlowering)
                 {
                     noFlower = false;
-                    tileFlowerManager.TrySpreadingAround();
+                    if (tileFlowerManager.TrySpreadingAround())
+                        nbrTrySpread ++;
                 }
                 else
                     allFlowered = false;
             }
+            Debug.Log("Tiles try to spread: " + nbrTrySpread);
             trySpreadingTimer = trySpreadingInterval;
             if (allFlowered)
                 FindObjectOfType<StageManager>().WinGame();
@@ -129,7 +132,7 @@ public class TilemapEffectManager : MonoBehaviour
             //StartCoroutine(TriggerSpreadingAllBoard());
         }
     }
-
+/*
     IEnumerator TriggerSpreadingAllBoard()
     {
         allFlowered = true;
@@ -152,7 +155,7 @@ public class TilemapEffectManager : MonoBehaviour
         flowersCollected = true;
         yield return new WaitForSeconds(0.1f);
     }
-
+*/
     public void SetFlowerSpreading(float spreadInterval)
     {
         trySpreadingInterval = spreadInterval;

@@ -18,8 +18,6 @@ public class RuleTileStateManager : MonoBehaviour
     private int tileNumber;
     private int burntTileNumber;
 
-    readonly int burntTileDamage = 0;
-
     TilemapEffectManager tilemapEffectManager;
 
     void Awake()
@@ -75,7 +73,7 @@ public class RuleTileStateManager : MonoBehaviour
         return tileNumber;
     }
 
-    public void BurnTile(Vector3Int cell)
+    public bool BurnTile(Vector3Int cell)
     {
         RuleTile currentTile = tilemap.GetTile<RuleTile>(cell);
         if (currentTile != null && currentTile != burntTile)
@@ -84,10 +82,12 @@ public class RuleTileStateManager : MonoBehaviour
             burntTileNumber++;
             if (tilemapEffectManager != null)
                 tilemapEffectManager.BurnTile(tilemap.CellToWorld(cell) + new Vector3(0.5f, 0.5f));
+            return true;
         }
+        return false;
     }
 
-    public int WaterTile(Vector3Int cell)
+    public bool WaterTile(Vector3Int cell)
     {
         RuleTile currentTile = tilemap.GetTile<RuleTile>(cell);
         if (currentTile == burntTile)
@@ -96,9 +96,9 @@ public class RuleTileStateManager : MonoBehaviour
             burntTileNumber--;
             if (tilemapEffectManager != null)
                 tilemapEffectManager.WaterTile(tilemap.CellToWorld(cell) + new Vector3(0.5f, 0.5f));
-            return burntTileDamage;
+            return true;
         }
-        return 0;
+        return false;
     }
 
     void SetCleanTile(Vector3Int cell)
