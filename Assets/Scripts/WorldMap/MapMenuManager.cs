@@ -14,6 +14,16 @@ public class MapMenuManager : MonoBehaviour
         PlayerPrefs.SetInt("FromMainMenu", 0);
     }
 
+    public void EndIntroductionSlides(GameObject message)
+    {
+        if (PlayerPrefs.GetInt("Lvl1", 0) == 0 && PlayerPrefs.GetInt("LastStageCompleted", 0) == 0 )
+        {
+            SceneManager.LoadScene("Stage1-1");
+        } else {
+            message.SetActive(false);
+        }
+    }
+
     public void GoMainMenu()
     {
         FindObjectOfType<AudioManager>().Play("SelectSound");

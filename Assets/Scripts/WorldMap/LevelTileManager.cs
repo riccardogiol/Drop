@@ -13,6 +13,7 @@ public class LevelTileManager : MonoBehaviour
     public Button button;
     public SpriteRenderer dropSpot;
     public StageSpotManager stageSpotManager;
+    public SpriteRenderer buttonHighlighter;
     public ChangeAspect decoration;
     public ParticleSystem smokeEffect;
     public GameObject SmokyCloudParent;
@@ -38,13 +39,15 @@ public class LevelTileManager : MonoBehaviour
             button.interactable = true;
             if (PlayerPrefs.GetInt(codeLvlname, 0) == 1)
             {
-                //dropSpot.color = new Color(104.0f/255, 189.0f/255, 225.0f/255);
                 decoration.SetGreenSprite();
                 stageSpotManager.ColorStageSpots(100);
+                buttonHighlighter.color = new Color(46f/255, 76f/255, 0f/255);
+
             } else {
-                //dropSpot.color = new Color(241.0f/255, 154.0f/255, 40.0f/255);
                 stageSpotManager.ColorStageSpots(PlayerPrefs.GetInt("LastStageCompleted", 0));
                 smokeEffect.Play();
+                buttonHighlighter.color = new Color(230f/255, 150f/255, 36f/255);
+                buttonHighlighter.GetComponent<Animator>().SetBool("IsHighlighted", true);
             }
         } else {  
             button.interactable = false;

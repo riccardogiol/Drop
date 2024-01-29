@@ -146,13 +146,13 @@ public class MenusManager : MonoBehaviour
         switch (deadCode)
         {
             case "health":
-                auxTrans.GetComponent<Text>().text = "Oh no, the water in your reservoir is exshausted!\nYou've evaporated :(";
+                auxTrans.GetComponent<Text>().text = "Energy exhausted\nOh no, you've evaporated :(";
                 break;
             case "heat":
-                auxTrans.GetComponent<Text>().text = "Oh no, the stage became too hot!\nYou've evaporated :(";
+                auxTrans.GetComponent<Text>().text = "Stage too hot!\nOh no, you've evaporated :(";
                 break;
             case "no_flower":
-                auxTrans.GetComponent<Text>().text = "Oh no, there are no more flowers on the stage!\nThe biome can't be settle :(";
+                auxTrans.GetComponent<Text>().text = "No more flowers\nOh no, the biome can't be settle :(";
                 break;
         }
         gameOverMenu.SetActive(true);
