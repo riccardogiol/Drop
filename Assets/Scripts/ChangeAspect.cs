@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ChangeAspect : MonoBehaviour
@@ -8,10 +9,13 @@ public class ChangeAspect : MonoBehaviour
     public Animator decoAnimator;
     public ParticleSystem waterParticles;
     public GameObject flowerStarter;
+    public List<Transform> touchingCells;
+    PlaygroundManager playgroundManager;
 
     void Awake()
     {
         decoAnimator.SetBool("IsBurnt", isBurnt);
+        playgroundManager = FindFirstObjectByType<PlaygroundManager>();
     }
 
     void Start()
@@ -33,6 +37,11 @@ public class ChangeAspect : MonoBehaviour
         if (flowerStarter != null)
             Instantiate(flowerStarter, transform.position, Quaternion.identity);
         decoAnimator.SetBool("IsBurnt", isBurnt);
+
+        foreach(Transform point in touchingCells)
+        {
+            playgroundManager.WaterOnPosition(point.position);
+        }
     }
 
     public void SetBurntSprite()

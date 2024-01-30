@@ -11,17 +11,20 @@ public class HealthBar : MonoBehaviour
     public GameObject barBackgroundParent;
     public GameObject barMaskParent;
     public GameObject barTop;
+    Animator animator;
 
     RectTransform rectTransform;
 
     void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
+        animator = GetComponent<Animator>();
     }
 
     public void SetMaxHealth(int maxHealth)
     {
         slider.maxValue = maxHealth;
+        slider.value = 0;
         int numIcons = maxHealth/2;
         rectTransform.sizeDelta = new Vector2(numIcons*50, 100);
 
@@ -44,6 +47,8 @@ public class HealthBar : MonoBehaviour
 
     public void SetHealth(int currentHealth)
     {
+        if (currentHealth == 1 && slider.value != 0)
+            animator.SetTrigger("LowHealth");
         slider.value = currentHealth;
         hp.text = currentHealth.ToString();
     }

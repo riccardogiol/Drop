@@ -54,6 +54,9 @@ public class Bullet : MonoBehaviour
                 other.GetComponent<ChangeAspect>().SetGreenSprite();
                 DestroyBullet();
                 break;
+             case "DecorationNoFire":
+                DestroyBullet();
+                break;
              case "Insect":
                 playgroundManager.WaterOnPosition(other.transform.position);
                 other.GetComponent<ChangeAspect>().SetGreenSprite();

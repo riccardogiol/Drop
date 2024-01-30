@@ -375,20 +375,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 652f7165b7c30ab46af6c4aad90a639b, type: 2}
-    m_FontSize: 24
+    m_FontSize: 28
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 2
+    m_MinSize: 0
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Drop''s energy
-
-    careful not to run out of energy or you''ll evaporate!'
+  m_Text: Drop's energy
 --- !u!222 &220558012
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -430,7 +428,7 @@ RectTransform:
   - {fileID: 1810170665}
   - {fileID: 1645039364}
   m_Father: {fileID: 573872598}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -452,6 +450,7 @@ MonoBehaviour:
   nextMessage: {fileID: 0}
   turnShaderOff: 0
   shader: {fileID: 0}
+  isPaused: 1
 --- !u!1 &280733216
 GameObject:
   m_ObjectHideFlags: 0
@@ -1056,6 +1055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2ea15370a580467a91aab84668388f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particleCollider: {fileID: 0}
   petalListLvl1:
   - {fileID: -1128444323, guid: b6515d44c6d854f0198f3632f1d3f874, type: 3}
   - {fileID: -904804321, guid: b6515d44c6d854f0198f3632f1d3f874, type: 3}
@@ -1424,7 +1424,7 @@ PrefabInstance:
     - target: {fileID: 6924485055866696843, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7474827322298110750, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
@@ -2056,6 +2056,7 @@ MonoBehaviour:
   nextMessage: {fileID: 241792110}
   turnShaderOff: 1
   shader: {fileID: 573872599}
+  isPaused: 1
 --- !u!1001 &1096780253
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8055,7 +8056,7 @@ PrefabInstance:
     - target: {fileID: 3630253859576267700, guid: 968746b6d569541f8a229d945ad218b9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.6999998
       objectReference: {fileID: 0}
     - target: {fileID: 3630253859576267700, guid: 968746b6d569541f8a229d945ad218b9,
         type: 3}
@@ -8130,7 +8131,7 @@ PrefabInstance:
     - target: {fileID: 3630253860076335747, guid: 968746b6d569541f8a229d945ad218b9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.6999998
       objectReference: {fileID: 0}
     - target: {fileID: 3630253860076335747, guid: 968746b6d569541f8a229d945ad218b9,
         type: 3}
@@ -8224,7 +8225,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 197.43, y: -506.38}
+  m_AnchoredPosition: {x: 176, y: -471}
   m_SizeDelta: {x: 260, y: 70}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1645039365
@@ -9006,8 +9007,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -300}
-  m_SizeDelta: {x: 357.4327, y: 206.3771}
+  m_AnchoredPosition: {x: 119.62537, y: -300}
+  m_SizeDelta: {x: 318.1819, y: 160.5845}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1810170666
 MonoBehaviour:

@@ -80,7 +80,10 @@ public class PlayerWave : MonoBehaviour
             WaveAttack();
             timer = cooldown;
         }
-        // else sound finished ammos
+        else
+        {
+            buttonFiller.GetComponent<Animator>().SetTrigger("NoAmmo");
+        }
     }
 
     void WaveAttack()

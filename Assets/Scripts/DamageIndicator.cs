@@ -13,18 +13,18 @@ public class DamageIndicator : MonoBehaviour
 
     public void ShowDamage(int damage)
     {
-        if (countdown > 0)
-            valueToDisplay = valueToDisplay - damage;
-        else
+       //if (countdown > 0)
+        //    valueToDisplay = valueToDisplay - damage;
+        //else
             valueToDisplay = - damage;
         SetText();
     }
 
     public void ShowEnergy(int energy)
     {
-        if (countdown > 0)
-            valueToDisplay = valueToDisplay + energy;
-        else
+        //if (countdown > 0)
+        //    valueToDisplay = valueToDisplay + energy;
+        //else
             valueToDisplay = energy;
         SetText();
     }

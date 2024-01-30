@@ -95,6 +95,10 @@ public class PlayerShooting : MonoBehaviour
             Shoot();
             timer = cooldown;
         }
+        else
+        {
+            buttonFiller.GetComponent<Animator>().SetTrigger("NoAmmo");
+        }
         // else sound finished ammos
     }
 

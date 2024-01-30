@@ -18,6 +18,7 @@ public class MenusManager : MonoBehaviour
 
     public static bool isPaused = false;
     public bool messageOnScreen = false;
+    public GameObject overlayMessage;
     bool eagleEyeState = false;
 
     public Text[] descriptions;
@@ -118,7 +119,7 @@ public class MenusManager : MonoBehaviour
         auxTrans = pauseMenu.transform.Find("LevelText");
         if (auxTrans == null)
             return;
-        auxTrans.GetComponent<Text>().text = "Level " + stageManager.currentLvl + " - Stage " + stageManager.currentStage;
+        auxTrans.GetComponent<Text>().text = "Level " + stageManager.currentLvl + " - Stage " + stageManager.currentStage + "\n" + stageManager.stageMode;
     }
 
     public void StageCleared()
@@ -203,6 +204,8 @@ public class MenusManager : MonoBehaviour
         Time.timeScale = 1f;
         shader.SetActive(false);
         message.SetActive(false);
+        if (overlayMessage != null)
+            overlayMessage.SetActive(true);
         isPaused = false;
         messageOnScreen = false;
     }

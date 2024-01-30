@@ -215,9 +215,15 @@ public class PlaygroundManager : MonoBehaviour
 
     public void BurnCell(Vector3Int cell)
     {
+        Collider2D[] results = Physics2D.OverlapPointAll(walkTilemap.GetCellCenterWorld(cell));
+        foreach(Collider2D item in results)
+        {
+            if (item.gameObject.CompareTag("DecorationNoFire"))
+                return;
+        }
         bool statechange = walkTilemap.GetComponent<RuleTileStateManager>().BurnTile(cell);
-        statechange = statechange || wallTilemap.GetComponent<RuleTileStateManager>().BurnTile(cell);
-        if (statechange)
+        bool statechange2 = wallTilemap.GetComponent<RuleTileStateManager>().BurnTile(cell);
+        if (statechange || statechange2)
             EvaluateCleanSurface();
     }
 
@@ -230,8 +236,8 @@ public class PlaygroundManager : MonoBehaviour
     public void WaterCell(Vector3Int cell)
     {
         bool statechange = walkTilemap.GetComponent<RuleTileStateManager>().WaterTile(cell);
-        statechange = statechange || wallTilemap.GetComponent<RuleTileStateManager>().WaterTile(cell);
-        if (statechange)
+        bool statechange2 = wallTilemap.GetComponent<RuleTileStateManager>().WaterTile(cell);
+        if (statechange || statechange2)
             EvaluateCleanSurface();
     }
 

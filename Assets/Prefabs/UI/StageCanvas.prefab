@@ -1091,6 +1091,7 @@ MonoBehaviour:
   openMessage: {fileID: 0}
   stageManager: {fileID: 0}
   messageOnScreen: 0
+  overlayMessage: {fileID: 0}
   descriptions:
   - {fileID: 4053901734449049379}
   - {fileID: 2100691610156778620}
@@ -1739,7 +1740,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -105}
+  m_AnchoredPosition: {x: 0, y: -58}
   m_SizeDelta: {x: 301.1597, y: 80.7877}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1715595831786628815
@@ -2476,6 +2477,7 @@ GameObject:
   - component: {fileID: 1715595832529047432}
   - component: {fileID: 1715595832529047433}
   - component: {fileID: 1715595832529047434}
+  - component: {fileID: 6158591202159465906}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -2591,6 +2593,27 @@ MonoBehaviour:
   barBackgroundParent: {fileID: 8735840923628205595}
   barMaskParent: {fileID: 5099706594991575623}
   barTop: {fileID: 6416210226759537437}
+--- !u!95 &6158591202159465906
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715595832529047479}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f9a33889720b44fae8d5f0be253962a3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1715595832534139839
 GameObject:
   m_ObjectHideFlags: 0
@@ -2626,9 +2649,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -50}
-  m_SizeDelta: {x: 400, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -85}
+  m_SizeDelta: {x: 400, y: 100}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &1715595832534139826
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3126,6 +3149,7 @@ GameObject:
   - component: {fileID: 4883859154277877911}
   - component: {fileID: 8255387080350301807}
   - component: {fileID: 2868149273183625897}
+  - component: {fileID: 7866439195910973762}
   m_Layer: 7
   m_Name: StageSpecification
   m_TagString: Untagged
@@ -3218,6 +3242,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7866439195910973762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2323654667416805830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5c6d4b5968f847f5b518e9da43cbf85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 2
 --- !u!1 &2523560577000900888
 GameObject:
   m_ObjectHideFlags: 0
@@ -5784,6 +5821,7 @@ GameObject:
   - component: {fileID: 3792613211448941174}
   - component: {fileID: 7156450722809774283}
   - component: {fileID: 6246609257589879157}
+  - component: {fileID: 788712739529504797}
   m_Layer: 5
   m_Name: WaveButton
   m_TagString: Untagged
@@ -5898,6 +5936,27 @@ MonoBehaviour:
   button: {fileID: 8825963201474568080}
   actionDisabled: 0
   disableImage: {fileID: 0}
+--- !u!95 &788712739529504797
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7474827322298110750}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c9d73f2de3e3c431c917974d73e6f881, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7522569676746149794
 GameObject:
   m_ObjectHideFlags: 0
@@ -5986,6 +6045,7 @@ GameObject:
   - component: {fileID: 1758158219699841292}
   - component: {fileID: 2480248350360682653}
   - component: {fileID: 4224992879558898453}
+  - component: {fileID: 7099472384102371727}
   m_Layer: 5
   m_Name: BulletButton
   m_TagString: Untagged
@@ -6100,6 +6160,27 @@ MonoBehaviour:
   button: {fileID: 41317828913900929}
   actionDisabled: 0
   disableImage: {fileID: 3882174525811917770}
+--- !u!95 &7099472384102371727
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7692640206896602110}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 917b6c41f3b5349b192917b1c1b6fe8b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7715440584488422989
 GameObject:
   m_ObjectHideFlags: 0

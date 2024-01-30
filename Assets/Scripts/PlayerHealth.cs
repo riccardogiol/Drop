@@ -40,8 +40,9 @@ public class PlayerHealth : MonoBehaviour
 
     public void FillReservoir(int value)
     {
-        currentHealth = Math.Min( currentHealth + value, maxHealth);
-        damageIndicator.ShowEnergy(value);
+        int energyAbsorbed = Math.Min(maxHealth - currentHealth, value);
+        currentHealth += energyAbsorbed;
+        damageIndicator.ShowEnergy(energyAbsorbed);
         healthBar.SetHealth(currentHealth);
     }
 }
