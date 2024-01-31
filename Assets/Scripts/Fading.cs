@@ -3,31 +3,41 @@ using UnityEngine;
 
 public class Fading : MonoBehaviour
 {
+    public bool setStartingAlpha = false;
+    public float startingAlpha;
     public float finalAlpha = 0f;
     public float alphaTimer = 0.3f;
     public float delayTimer = 0.4f;
 
-    public Image imageUI;
+    private Image imageUI;
+    private SpriteRenderer spriteRenderer;
+
 
     private float elapsedTime;
-    private SpriteRenderer spriteRenderer;
-    private float red, green, blue, startingAlpha;
+    private float red, green, blue;
     private bool delayExpired = false;
 
     void Start()
     {
+        imageUI = GetComponent<Image>();
         if (imageUI != null)
         {
             red = imageUI.color.r;
             green = imageUI.color.g;
             blue = imageUI.color.b;
-            startingAlpha = imageUI.color.a;
+            if (!setStartingAlpha)
+                startingAlpha = imageUI.color.a;
+            else
+                imageUI.color = new Color(red, green, blue, startingAlpha);
         } else {
             spriteRenderer = GetComponent<SpriteRenderer>();
             red = spriteRenderer.color.r;
             green = spriteRenderer.color.g;
             blue = spriteRenderer.color.b;
-            startingAlpha = spriteRenderer.color.a;
+            if (!setStartingAlpha)
+                startingAlpha = spriteRenderer.color.a;
+            else
+                spriteRenderer.color = new Color(red, green, blue, startingAlpha);
         }
     }
 
