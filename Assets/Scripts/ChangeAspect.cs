@@ -38,9 +38,12 @@ public class ChangeAspect : MonoBehaviour
             Instantiate(flowerStarter, transform.position, Quaternion.identity);
         decoAnimator.SetBool("IsBurnt", isBurnt);
 
-        foreach(Transform point in touchingCells)
+        if (playgroundManager != null)
         {
-            playgroundManager.WaterOnPosition(point.position);
+            foreach(Transform point in touchingCells)
+            {
+                playgroundManager.WaterOnPosition(point.position);
+            }
         }
     }
 

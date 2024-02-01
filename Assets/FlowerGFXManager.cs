@@ -16,6 +16,9 @@ public class FlowerGFXManager : MonoBehaviour
     int maxLevel = 1;
     float timer = 0f;
     readonly float interval = 5f;
+    bool isFlowering = false;
+    
+    public GameObject petalBurstPrefab;
 
     void Start()
     {
@@ -41,6 +44,8 @@ public class FlowerGFXManager : MonoBehaviour
 
     void Update()
     {
+        if (!isFlowering)
+            return;
         if (currentLevel >= maxLevel)
             return;
         if (timer < 0)
@@ -48,6 +53,9 @@ public class FlowerGFXManager : MonoBehaviour
             currentLevel++;
             SetGraphic();
             timer = interval;
+            
+            GameObject go = Instantiate(petalBurstPrefab, transform.position, Quaternion.identity);
+            go.GetComponent<ParticleSystem>().startColor = petalRenderer.color;
         }
         timer -= Time.deltaTime;        
     }
@@ -73,19 +81,25 @@ public class FlowerGFXManager : MonoBehaviour
 
     public void Plant()
     {
+        if (isFlowering)
+            return;
         currentLevel = 1;
 
         SetGraphic();
 
         petalRenderer.enabled = true;
         leafRenderer.enabled = true;
+        isFlowering = true;
 
+        GameObject go = Instantiate(petalBurstPrefab, transform.position, Quaternion.identity);
+        go.GetComponent<ParticleSystem>().startColor = petalRenderer.color;
     }
 
     public void Uproot()
     {
         petalRenderer.enabled = false;
         leafRenderer.enabled = false;
+        isFlowering = false;
     }
 
 }

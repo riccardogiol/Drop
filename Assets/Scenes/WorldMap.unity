@@ -347,6 +347,7 @@ GameObject:
   m_Component:
   - component: {fileID: 29211836}
   - component: {fileID: 29211837}
+  - component: {fileID: 29211838}
   m_Layer: 5
   m_Name: Slide2
   m_TagString: Untagged
@@ -391,6 +392,19 @@ MonoBehaviour:
   nextMessage: {fileID: 614221616}
   turnShaderOff: 0
   shader: {fileID: 0}
+--- !u!114 &29211838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29211835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4f12dad56a4549b5a11575b840f115f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonName: ContinueButton
 --- !u!1 &74823352
 GameObject:
   m_ObjectHideFlags: 0
@@ -1108,7 +1122,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Rain cloud decide to rain down their hero to estinguish the fire and save
+  m_Text: 'Rain clouds decide to release their hero, to extinguish the fire and save
     the forest from the ground: Drop!'
 --- !u!222 &271942825
 CanvasRenderer:
@@ -2196,8 +2210,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Happy rain cloud, spreading water on the environment and making everything
-    green, bumps on bully smoke clouds
+  m_Text: The happy rain clouds spread water across the environment, turning everything
+    green. Suddenly, they bump into the bully smoke clouds.
 --- !u!222 &567238987
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2454,6 +2468,7 @@ GameObject:
   m_Component:
   - component: {fileID: 614221617}
   - component: {fileID: 614221618}
+  - component: {fileID: 614221619}
   m_Layer: 5
   m_Name: Slide3
   m_TagString: Untagged
@@ -2498,6 +2513,19 @@ MonoBehaviour:
   nextMessage: {fileID: 607923326}
   turnShaderOff: 1
   shader: {fileID: 1592410719}
+--- !u!114 &614221619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614221616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4f12dad56a4549b5a11575b840f115f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonName: ContinueButton
 --- !u!1001 &713466320
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5197,8 +5225,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Rain cloud notice the smoke comes from a forest fire over a mountain nearby,
-    They are worried for the forest biome
+  m_Text: Rain clouds notice smoke coming from a forest fire on a nearby mountain.
+    They are worried for the forest biome.
 --- !u!222 &1197393578
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5401,6 +5429,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1308318127}
   - component: {fileID: 1308318128}
+  - component: {fileID: 1308318129}
   m_Layer: 5
   m_Name: Slide1
   m_TagString: Untagged
@@ -5445,6 +5474,19 @@ MonoBehaviour:
   nextMessage: {fileID: 29211835}
   turnShaderOff: 0
   shader: {fileID: 0}
+--- !u!114 &1308318129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308318126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4f12dad56a4549b5a11575b840f115f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonName: ContinueButton
 --- !u!1001 &1338844706
 PrefabInstance:
   m_ObjectHideFlags: 0
