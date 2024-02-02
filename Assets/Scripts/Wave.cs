@@ -8,6 +8,7 @@ public class Wave : MonoBehaviour
     public GameObject waveExplosion;
 
     Collider2D collider2D;
+    public bool shootByPlayer = true;
     float timer = 0.1f;
 
     void Start()
@@ -29,7 +30,11 @@ public class Wave : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
-            return;
+            if (!shootByPlayer)
+            {
+                other.GetComponent<PlayerHealth>().FillReservoir(damage);
+                Debug.Log(damage);
+            }
         if (other.CompareTag("Wall"))
             playgroundManager.WaterOnPosition(other.transform.position);
         if (other.CompareTag("Grass"))

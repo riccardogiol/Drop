@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5199020348406506347}
   - component: {fileID: 5199020348406506344}
   - component: {fileID: -8860175530737911741}
+  - component: {fileID: 2811797860454942391}
   m_Layer: 6
   m_Name: Sparkler
   m_TagString: DecorationNoFire
@@ -94,7 +95,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5199020348406506345}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 723c5d898edd84a889af4683d73659d3, type: 3}
   m_Name: 
@@ -132,6 +133,29 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2811797860454942391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5199020348406506345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2134466ba10864b4ab1ad8df0ba05d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waterdropPrefab: {fileID: 846535088814142963, guid: 71606232f6a1f405ab748a75268d3cba,
+    type: 3}
+  wavePrefab: {fileID: 1746407697583636748, guid: 2b3f941eba6ba498ea8d05bfcbc0f04f,
+    type: 3}
+  parent: {fileID: 0}
+  timer: 5
+  delay: 0
+  top: 0
+  down: 0
+  left: 0
+  right: 0
 --- !u!1001 &4534065345604227774
 PrefabInstance:
   m_ObjectHideFlags: 0
