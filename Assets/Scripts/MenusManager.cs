@@ -21,6 +21,8 @@ public class MenusManager : MonoBehaviour
     public GameObject overlayMessage;
     bool eagleEyeState = false;
 
+    bool musicState;
+
     public Text[] descriptions;
 
     public GameObject[] buttonHints;
@@ -66,6 +68,7 @@ public class MenusManager : MonoBehaviour
         levelClearedMenu.SetActive(false);
         messageOnScreen = false;
 
+        musicState = PlayerPrefs.GetInt("MusicState", 0) == 1;
         
         stageSpecsInfo.GetComponent<Text>().text = "Level " + stageManager.currentLvl + " - Stage " + stageManager.currentStage + "\n" + stageManager.stageMode;
 
@@ -116,6 +119,9 @@ public class MenusManager : MonoBehaviour
         if (auxTrans == null)
             return;
         auxTrans.GetComponent<Button>().Select();
+
+        UpdateMusicToggleText();
+        
         auxTrans = pauseMenu.transform.Find("LevelText");
         if (auxTrans == null)
             return;
@@ -247,6 +253,32 @@ public class MenusManager : MonoBehaviour
             eagleEyeState = true;
             eagleEye.Enter();
         }
+    }
+
+    public void ToggleMusic()
+    {
+        if (musicState)
+        {
+            FindFirstObjectByType<AudioManager>().SetVolume(0f);
+            musicState = false;
+            PlayerPrefs.SetInt("MusicState", 0);
+        } else {
+            FindFirstObjectByType<AudioManager>().SetVolume(0.2f);
+            musicState = true;
+            PlayerPrefs.SetInt("MusicState", 1);
+        }
+        UpdateMusicToggleText();
+    }
+
+    void UpdateMusicToggleText()
+    {
+        Transform auxTrans = pauseMenu.transform.Find("ToggleMusicButton");
+        auxTrans = auxTrans.transform.Find("Text");
+        if (musicState)
+            auxTrans.GetComponent<Text>().text = "Music: off";
+        else
+            auxTrans.GetComponent<Text>().text = "Music: on";
+
     }
 
     public void ShowDescriptions()

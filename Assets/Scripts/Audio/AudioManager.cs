@@ -9,6 +9,10 @@ public class AudioManager : MonoBehaviour
 
     void Awake()
     {
+        if (PlayerPrefs.GetInt("MusicState", 1) == 1)
+            volumeFactor = 0.2f;
+        else
+            volumeFactor = 0f;
 
         foreach (Sound s in sounds)
         {
@@ -42,5 +46,13 @@ public class AudioManager : MonoBehaviour
             return;
         }
         s.source.Stop();
+    }
+
+    public void SetVolume(float value)
+    {
+        foreach (Sound s in sounds)
+        {
+            s.source.volume = s.volume*value;
+        }
     }
 }
