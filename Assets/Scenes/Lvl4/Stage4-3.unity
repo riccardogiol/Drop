@@ -2216,6 +2216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2ea15370a580467a91aab84668388f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particleCollider: {fileID: 0}
   petalListLvl1:
   - {fileID: -1128444323, guid: b6515d44c6d854f0198f3632f1d3f874, type: 3}
   - {fileID: -904804321, guid: b6515d44c6d854f0198f3632f1d3f874, type: 3}
@@ -2318,12 +2319,12 @@ PrefabInstance:
     - target: {fileID: 5831071956751903884, guid: 9c62499f7c5e24ec29ded221f704dc26,
         type: 3}
       propertyPath: isBurnt
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5831071956751903884, guid: 9c62499f7c5e24ec29ded221f704dc26,
         type: 3}
       propertyPath: reactOnWater
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c62499f7c5e24ec29ded221f704dc26, type: 3}
@@ -10343,7 +10344,7 @@ PrefabInstance:
     - target: {fileID: 6924485055866696843, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7474827322298110750, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}

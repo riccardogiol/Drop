@@ -18,7 +18,7 @@ public class MenusManager : MonoBehaviour
 
     public static bool isPaused = false;
     public bool messageOnScreen = false;
-    public GameObject overlayMessage;
+    public GameObject[] overlayMessages;
     bool eagleEyeState = false;
 
     bool musicState;
@@ -86,6 +86,12 @@ public class MenusManager : MonoBehaviour
             if (auxTrans == null)
                 return;
             auxTrans.GetComponent<Button>().Select();
+        } else {
+            if (overlayMessages.Length > 0)
+            {
+                foreach(GameObject om in overlayMessages)
+                    om.SetActive(true);
+            }
         }
 
     }
@@ -210,8 +216,11 @@ public class MenusManager : MonoBehaviour
         Time.timeScale = 1f;
         shader.SetActive(false);
         message.SetActive(false);
-        if (overlayMessage != null)
-            overlayMessage.SetActive(true);
+        if (overlayMessages.Length > 0)
+        {
+            foreach(GameObject om in overlayMessages)
+                om.SetActive(true);
+        }
         isPaused = false;
         messageOnScreen = false;
     }

@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,10 +6,12 @@ public class TilemapEffectManager : MonoBehaviour
     public GameObject particleCollider;
     List<TileFlowerManager> flowerTiles;
     RuleTileStateManager ruleTileStateManager;
+    FlowerBarFiller flowerBarFiller;
     bool flowerAtStart = false;
     bool noFlower = false;
     bool allFlowered = false;
     bool flowersCollected = false;
+    int flowerCount = 1;
     
     public Sprite[] petalListLvl1;
     public Sprite[] leafListLvl1;
@@ -31,6 +32,7 @@ public class TilemapEffectManager : MonoBehaviour
         if (particleCollider == null)
             particleCollider = Resources.Load<GameObject>("ParticleCollider");
         ruleTileStateManager = GetComponent<RuleTileStateManager>();
+        flowerBarFiller = FindFirstObjectByType<FlowerBarFiller>();
         flowerTiles = new List<TileFlowerManager>();
         trySpreadingTimer = trySpreadingInterval;
         allFlowered = false;
@@ -98,7 +100,18 @@ public class TilemapEffectManager : MonoBehaviour
             }
         }
         flowersCollected = true;
-        Debug.Log("FlowerTile collected: " + flowerTiles.Count);
+        flowerCount = flowerTiles.Count;
+        Debug.Log("FlowerTile collected: " + flowerCount);
+        if (flowerBarFiller != null)
+        {
+            int indexLvl3 = Random.Range(0, petalListLvl3.Length);
+            FlowerGFXData fgd = new FlowerGFXData(
+                petalListLvl1[0], leafListLvl1[0],
+                petalListLvl2[0], leafListLvl2[0],
+                petalListLvl3[indexLvl3], leafListLvl3[indexLvl3],
+                colors[Random.Range(0, colors.Length)]);
+            flowerBarFiller.SetGFX(fgd);
+        }
     }
 
     void Update()
@@ -110,19 +123,20 @@ public class TilemapEffectManager : MonoBehaviour
 
             allFlowered = true;
             noFlower = true;
-            int nbrTrySpread = 0;
+            int nbrFlower = 0;
             foreach(TileFlowerManager tileFlowerManager in flowerTiles)
             {
                 if (tileFlowerManager.isFlowering)
                 {
+                    tileFlowerManager.TrySpreadingAround();
+                    nbrFlower++;
                     noFlower = false;
-                    if (tileFlowerManager.TrySpreadingAround())
-                        nbrTrySpread ++;
                 }
                 else
                     allFlowered = false;
             }
-            Debug.Log("Tiles try to spread: " + nbrTrySpread);
+            if (flowerBarFiller != null)
+                flowerBarFiller.SetValue((float)nbrFlower/flowerCount);
             trySpreadingTimer = trySpreadingInterval;
             if (allFlowered)
                 FindObjectOfType<StageManager>().WinGame();
@@ -132,30 +146,7 @@ public class TilemapEffectManager : MonoBehaviour
             //StartCoroutine(TriggerSpreadingAllBoard());
         }
     }
-/*
-    IEnumerator TriggerSpreadingAllBoard()
-    {
-        allFlowered = true;
-        noFlower = true;
-        foreach(TileFlowerManager tileFlowerManager in flowerTiles)
-        {
-            if (tileFlowerManager.isFlowering)
-            {
-                noFlower = false;
-                tileFlowerManager.TrySpreadingAround();
-            }
-            else
-                allFlowered = false;
-        }
-        trySpreadingTimer = trySpreadingInterval;
-        if (allFlowered)
-            FindObjectOfType<StageManager>().WinGame();
-        if (noFlower && flowerAtStart)
-            FindObjectOfType<StageManager>().GameOver("no_flower");
-        flowersCollected = true;
-        yield return new WaitForSeconds(0.1f);
-    }
-*/
+
     public void SetFlowerSpreading(float spreadInterval)
     {
         trySpreadingInterval = spreadInterval;

@@ -2024,6 +2024,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2ea15370a580467a91aab84668388f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particleCollider: {fileID: 0}
   petalListLvl1:
   - {fileID: -1128444323, guid: b6515d44c6d854f0198f3632f1d3f874, type: 3}
   - {fileID: -904804321, guid: b6515d44c6d854f0198f3632f1d3f874, type: 3}
@@ -4675,8 +4676,8 @@ MonoBehaviour:
     type: 3}
   waterdropPrefab: {fileID: 846535088814142963, guid: 71606232f6a1f405ab748a75268d3cba,
     type: 3}
-  minProgressionPerc: 0.5
-  loseProgressionPerc: 0.6
+  minProgressionPerc: 0.4
+  loseProgressionPerc: 0.5
   rainProgressionPerc: 1
   winProgressionPerc: 1
   winByFlower: 1
@@ -5323,6 +5324,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7479097401432682229, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7692640206896602110, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}

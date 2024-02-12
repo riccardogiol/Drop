@@ -8,20 +8,23 @@ public class MapMoveCamera : MonoBehaviour
     public CinemachineVirtualCamera cinemachine;
     public Camera cam;
     public GameObject targetPrefab;
+    public float minX, minY;
+    public float maxX, maxY;
     
-    Transform target;
     GameObject originalTarget;
     GameObject movingTarget;
+
     public static bool inMoveCameraMode;
     Vector3 camStartingPosition;
     Vector3 targetStartingPosition;
-    public float maxX, maxY;
 
     void Start()
     {
         originalTarget = cinemachine.Follow.gameObject;
         movingTarget = Instantiate(targetPrefab, originalTarget.transform.position, quaternion.identity);
-        target = originalTarget.transform;
+        BoundMovingTargetPosition(originalTarget.transform.position);
+        cinemachine.LookAt = movingTarget.transform;
+        cinemachine.Follow = movingTarget.transform;
         inMoveCameraMode = false;
     }
 
@@ -34,64 +37,52 @@ public class MapMoveCamera : MonoBehaviour
                 if (Input.GetTouch(0).phase == TouchPhase.Began)
                 {
                     camStartingPosition = cam.ScreenToWorldPoint(Input.GetTouch(0).position);
-                    targetStartingPosition = target.position;
+                    targetStartingPosition = movingTarget.transform.position;
                 }
                 if (Input.GetTouch(0).phase == TouchPhase.Moved)
                 {
                     Vector3 difference = camStartingPosition - cam.ScreenToWorldPoint(Input.GetTouch(0).position);
                     if (inMoveCameraMode)
-                    {
-                        Vector3 newPosition = targetStartingPosition + difference;
-                        float newX = Math.Max(Math.Min(newPosition.x, maxX), 0);
-                        float newY = Math.Max(Math.Min(newPosition.y, maxY), 0);
-                        target.position = new Vector3(newX, newY);
-                    } else 
-                    {
+                        BoundMovingTargetPosition(targetStartingPosition + difference);
+                    else 
                         if (difference.magnitude > 0.5)
-                            Enter();
-                    }
+                            inMoveCameraMode = true;
                 }
             }
         } else {
             if (Input.GetMouseButtonDown(0))
             {
                 camStartingPosition = cam.ScreenToWorldPoint(Input.mousePosition);
-                targetStartingPosition = target.position;
+                targetStartingPosition = movingTarget.transform.position;
             }
-
             if (Input.GetMouseButton(0))
             {
                 Vector3 difference = camStartingPosition - cam.ScreenToWorldPoint(Input.mousePosition);
                 if (inMoveCameraMode)
-                {
-                    Vector3 newPosition = targetStartingPosition + difference;
-                    float newX = Math.Max(Math.Min(newPosition.x, maxX), 0f);
-                    float newY = Math.Max(Math.Min(newPosition.y, maxY), 0f);
-                    target.position = new Vector3(newX, newY);
-                } else 
-                {
+                    BoundMovingTargetPosition(targetStartingPosition + difference);
+                else 
                     if (difference.magnitude > 0.5)
-                        Enter();
-                }
+                        inMoveCameraMode = true;
             }
         }
     }
 
-    void Enter()
+    void FixedUpdate()
     {
-        movingTarget.transform.position = target.position;
-        target = movingTarget.transform;
-        cinemachine.LookAt = target;
-        cinemachine.Follow = target;
-        inMoveCameraMode = true;
+        if (!inMoveCameraMode)
+            BoundMovingTargetPosition(originalTarget.transform.position);
     }
 
-    
+    void BoundMovingTargetPosition(Vector3 newPosition)
+    {
+        movingTarget.transform.position = new Vector3(
+            Math.Max(Math.Min(newPosition.x, maxX), minX), 
+            Math.Max(Math.Min(newPosition.y, maxY), minY));
+    }
+
     public void Exit()
     {
-        target = originalTarget.transform;
-        cinemachine.LookAt = target;
-        cinemachine.Follow = target;
+        BoundMovingTargetPosition(originalTarget.transform.position);
         inMoveCameraMode =false;
     }
 }

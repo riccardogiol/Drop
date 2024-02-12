@@ -52,6 +52,13 @@ public class PlaygroundManager : MonoBehaviour
         waterdropParent = transform.Find("WaterdropParent").gameObject;
         reachedWinningCondition = false;
 
+        if (!winByFlower)
+        {
+            FlowerBarFiller goRef = FindFirstObjectByType<FlowerBarFiller>();
+            if (goRef != null)
+                goRef.gameObject.SetActive(false);
+        }
+
     }
 
     void Start()
