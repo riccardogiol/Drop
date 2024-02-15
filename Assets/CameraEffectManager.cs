@@ -1,0 +1,37 @@
+using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
+
+public class CameraEffectManager : MonoBehaviour
+{
+    public VolumeProfile volumeProfile;
+
+    float minVignette = 0.1f, maxVignette = 0.3f;
+    float minTemperature = 0, maxtemperature = 40;
+
+    float minExp = 0, maxExp = 0.2f;
+    float minSat = -10, maxSat = 7;
+
+    WhiteBalance whiteBalance;
+    Vignette vignette;
+    ColorAdjustments colorAdjustments;
+
+    void Start()
+    {
+        volumeProfile.TryGet<WhiteBalance>(out whiteBalance);
+        volumeProfile.TryGet<Vignette>(out vignette);
+
+        volumeProfile.TryGet<ColorAdjustments>(out colorAdjustments);
+    }
+
+    public void SetEffect(float perc)
+    {
+        if (vignette == null)
+            return;
+        vignette.intensity.value = minVignette + (maxVignette - minVignette) * (1-perc);
+        whiteBalance.temperature.value = minTemperature + (maxtemperature - minTemperature) * (1-perc);
+
+        colorAdjustments.postExposure.value = minExp + (maxExp - minExp) * perc*perc;
+        colorAdjustments.saturation.value = minSat + (maxSat - minSat) * perc*perc;
+    }
+}

@@ -1,20 +1,25 @@
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class PlaygroundManager : MonoBehaviour
 {
     StageManager stageManager;
+    CameraEffectManager cameraEffectManager;
 
     Tilemap walkTilemap;
     Tilemap wallTilemap;
     TilemapEffectManager tilemapEffectManager;
+    TilemapWallEffectManager tilemapWallEffectManager;
     public int maxX = 40;
     public int maxY = 40;
 
     GameObject flameParent;
     GameObject waterdropParent;
+    DecorationManager decorationManager;
+    ParticleSystem rainEffect;
     public GameObject flamePrefab;
     public GameObject waterdropPrefab;
 
@@ -37,6 +42,7 @@ public class PlaygroundManager : MonoBehaviour
     void Awake()
     {
         stageManager = FindFirstObjectByType<StageManager>();
+        cameraEffectManager = FindFirstObjectByType<CameraEffectManager>();
 
         GameObject auxGO = transform.Find("WalkTilemap").gameObject;
         if (auxGO == null)
@@ -50,6 +56,10 @@ public class PlaygroundManager : MonoBehaviour
 
         flameParent = transform.Find("FlameParent").gameObject;
         waterdropParent = transform.Find("WaterdropParent").gameObject;
+        decorationManager = FindObjectOfType<DecorationManager>();
+        GameObject rainGO = transform.Find("RainEffect").gameObject;
+        if(rainGO!= null)
+            rainEffect = rainGO.GetComponent<ParticleSystem>();
         reachedWinningCondition = false;
 
         if (!winByFlower)
@@ -85,6 +95,9 @@ public class PlaygroundManager : MonoBehaviour
 
         tilemapEffectManager = walkTilemap.GetComponent<TilemapEffectManager>();
         tilemapEffectManager.SpawnParticleColliders(maxX, maxY);
+        tilemapWallEffectManager = wallTilemap.GetComponent<TilemapWallEffectManager>();
+        if(tilemapWallEffectManager != null)
+            tilemapWallEffectManager.SpawnParticleColliders(maxX, maxY);
         StartCoroutine(StartFlowerCounter());
     }
 
@@ -273,6 +286,11 @@ public class PlaygroundManager : MonoBehaviour
         progressionPerc = 1.0f - (fireValue + burntTiles)/totalTiles;
         float progressionPercOnMin = (progressionPerc - minProgressionPerc) / (1-minProgressionPerc);
         progressionBar.SetValue(progressionPercOnMin);
+
+        if (cameraEffectManager != null)
+        {
+            cameraEffectManager.SetEffect(progressionPercOnMin);
+        }
         
         Debug.Log("Burnt tiles: " + burntTiles);
         Debug.Log("Fire value: " + fireValue);
@@ -282,7 +300,7 @@ public class PlaygroundManager : MonoBehaviour
             StopAllCoroutines();
             isRaining = true;
             reachedWinningCondition = true;
-            stageManager.MakeRain(isRaining);
+            MakeRain(isRaining);
             tilemapEffectManager.SetFlowerSpreading(0.5f);
             if (!winByFlower)
                 stageManager.WinGame();
@@ -290,19 +308,31 @@ public class PlaygroundManager : MonoBehaviour
         if (!isRaining && progressionPerc > (rainProgressionPerc + 0.05))
         {
             isRaining = true;
-            stageManager.MakeRain(isRaining);
+            MakeRain(isRaining);
             StartCoroutine(Raining());
             tilemapEffectManager.SetFlowerSpreading(0.7f);
 
         } else if (isRaining && progressionPerc < (rainProgressionPerc - 0.05))
         {
             isRaining = false;
-            stageManager.MakeRain(isRaining);
+            MakeRain(isRaining);
             StopAllCoroutines();
             tilemapEffectManager.SetFlowerSpreading(3f);
         }
         if (progressionPerc <= loseProgressionPerc)
             stageManager.GameOver("heat");
+    }
+
+    public void MakeRain(bool isRaining)
+    {
+        if (isRaining)
+        {
+            rainEffect.Play();
+            if (decorationManager != null)
+                decorationManager.SetGreenSprites();
+        }
+        else
+            rainEffect.Stop();
     }
 
     IEnumerator Raining()

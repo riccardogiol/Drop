@@ -15,12 +15,10 @@ public class StageManager : MonoBehaviour
     public MenusManager menusManager;
 
     PlayerAnimationManager playerAnimationManager;
-    public ParticleSystem rainEffect;
 
     CameraAnimationManager cameraAnimationManager;
     PlayerMovementPath playerMovementPath;
     PlayerMovementKeys playerMovementKeys;
-    DecorationManager decorationManager;
 
     void Start()
     {
@@ -28,7 +26,6 @@ public class StageManager : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("BackgroundMusic");
         playerMovementPath = FindObjectOfType<PlayerMovementPath>();
         playerMovementKeys = FindObjectOfType<PlayerMovementKeys>();
-        decorationManager = FindObjectOfType<DecorationManager>();
         cameraAnimationManager = FindObjectOfType<CameraAnimationManager>();
         victoryPositionTrigger = FindObjectOfType<VictoryPositionTrigger>();
         playerAnimationManager = FindObjectOfType<PlayerAnimationManager>();
@@ -42,7 +39,7 @@ public class StageManager : MonoBehaviour
 
     IEnumerator WinningScene()
     {
-        MakeRain(true);
+        FindFirstObjectByType<PlaygroundManager>().MakeRain(true);
         cameraAnimationManager.StartEndingAnimation();
 
         if (finalStage)
@@ -77,18 +74,6 @@ public class StageManager : MonoBehaviour
             PlayerPrefs.SetInt("LastStageCompleted", currentStage);
             menusManager.StageCleared();
         }
-    }
-
-    public void MakeRain(bool isRaining)
-    {
-        if (isRaining)
-        {
-            rainEffect.Play();
-            if (decorationManager != null)
-                decorationManager.SetGreenSprites();
-        }
-        else
-            rainEffect.Stop();
     }
 
     public void GameOver(String deadCode)

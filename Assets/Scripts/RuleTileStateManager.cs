@@ -19,11 +19,13 @@ public class RuleTileStateManager : MonoBehaviour
     private int burntTileNumber;
 
     TilemapEffectManager tilemapEffectManager;
+    TilemapWallEffectManager tilemapWallEffectManager;
 
     void Awake()
     {
         tilemap = GetComponent<Tilemap>();
         tilemapEffectManager = GetComponent<TilemapEffectManager>();
+        tilemapWallEffectManager = GetComponent<TilemapWallEffectManager>();
     }
     
     public void SetTilemapLimit(int maxX, int maxY)
@@ -82,6 +84,8 @@ public class RuleTileStateManager : MonoBehaviour
             burntTileNumber++;
             if (tilemapEffectManager != null)
                 tilemapEffectManager.BurnTile(tilemap.CellToWorld(cell) + new Vector3(0.5f, 0.5f));
+            if (tilemapWallEffectManager != null)
+                tilemapWallEffectManager.BurnTile(tilemap.CellToWorld(cell) + new Vector3(0.5f, 0.5f));
             return true;
         }
         return false;
@@ -96,6 +100,8 @@ public class RuleTileStateManager : MonoBehaviour
             burntTileNumber--;
             if (tilemapEffectManager != null)
                 tilemapEffectManager.WaterTile(tilemap.CellToWorld(cell) + new Vector3(0.5f, 0.5f));
+            if (tilemapWallEffectManager != null)
+                tilemapWallEffectManager.WaterTile(tilemap.CellToWorld(cell) + new Vector3(0.5f, 0.5f));
             return true;
         }
         return false;
