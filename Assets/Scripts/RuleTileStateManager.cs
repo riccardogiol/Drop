@@ -107,7 +107,7 @@ public class RuleTileStateManager : MonoBehaviour
         return false;
     }
 
-    void SetCleanTile(Vector3Int cell)
+    public void SetCleanTile(Vector3Int cell)
     {
         if (chessStyle)
         {

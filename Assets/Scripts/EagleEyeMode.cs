@@ -6,7 +6,6 @@ using UnityEngine;
 public class EagleEyeMode : MonoBehaviour
 {
     public CinemachineVirtualCamera cinemachine;
-    public Animator camAnimator;
     public Camera cam;
     public GameObject targetPrefab;
     
@@ -16,12 +15,14 @@ public class EagleEyeMode : MonoBehaviour
     Vector3 camStartingPosition;
     Vector3 targetStartingPosition;
     PlaygroundManager playgroundManager;
+    CameraAnimationManager cameraAnimationManager;
     int maxX, maxY;
 
     void Start()
     {
         originalTarget = cinemachine.Follow;
         playgroundManager = FindFirstObjectByType<PlaygroundManager>();
+        cameraAnimationManager = GetComponent<CameraAnimationManager>();
         maxX = playgroundManager.maxX;
         maxY = playgroundManager.maxY;
     }
@@ -43,8 +44,8 @@ public class EagleEyeMode : MonoBehaviour
                 {
                     Vector3 difference = camStartingPosition - cam.ScreenToWorldPoint(Input.GetTouch(0).position);
                     Vector3 newPosition = targetStartingPosition + difference;
-                    float newX = Math.Max(Math.Min(newPosition.x, maxX), 0);
-                    float newY = Math.Max(Math.Min(newPosition.y, maxY), 0);
+                    float newX = Math.Max(Math.Min(newPosition.x, maxX - 3), 3);
+                    float newY = Math.Max(Math.Min(newPosition.y, maxY - 3), 3);
                     target.transform.position = new Vector3(newX, newY);
                 }
             }
@@ -59,8 +60,8 @@ public class EagleEyeMode : MonoBehaviour
             {
                 Vector3 difference = camStartingPosition - cam.ScreenToWorldPoint(Input.mousePosition);
                 Vector3 newPosition = targetStartingPosition + difference;
-                float newX = Math.Max(Math.Min(newPosition.x, maxX), 0);
-                float newY = Math.Max(Math.Min(newPosition.y, maxY), 0);
+                float newX = Math.Max(Math.Min(newPosition.x, maxX - 3), 3);
+                float newY = Math.Max(Math.Min(newPosition.y, maxY - 3), 3);
                 target.transform.position = new Vector3(newX, newY);
             }
         }
@@ -73,17 +74,17 @@ public class EagleEyeMode : MonoBehaviour
         cinemachine.Follow = target.transform;
         inEagleMode = true;
         playgroundManager.ShowEnergy();
-        camAnimator.SetTrigger("EnterEagleEye");
+        cameraAnimationManager.EnterEagleZoomAnimation();
     }
 
     
     public void Exit()
     {
-        Destroy(target);
         cinemachine.LookAt = originalTarget;
         cinemachine.Follow = originalTarget;
+        Destroy(target);
         inEagleMode =false;
         playgroundManager.HideEnergy();
-        camAnimator.SetTrigger("ExitEagleEye");
+        cameraAnimationManager.ExitEagleZoomAnimation();
     }
 }

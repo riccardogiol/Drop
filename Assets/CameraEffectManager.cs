@@ -16,7 +16,7 @@ public class CameraEffectManager : MonoBehaviour
     Vignette vignette;
     ColorAdjustments colorAdjustments;
 
-    void Start()
+    void Awake()
     {
         volumeProfile.TryGet<WhiteBalance>(out whiteBalance);
         volumeProfile.TryGet<Vignette>(out vignette);

@@ -150,7 +150,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4
+  orthographic size: 3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -292,7 +292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cinemachine: {fileID: 3630253860076335746}
-  camAnimator: {fileID: 3630253860076335756}
+  camAnimator: {fileID: 0}
   cam: {fileID: 3630253859576267595}
   targetPrefab: {fileID: 1529357162247461357, guid: 33783d452b8ec478bb35fc511c90ec16,
     type: 3}
@@ -321,7 +321,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05902af6ff0424a6ab1971c429fe8403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraAnimator: {fileID: 3630253860076335756}
+  cinemachineVirtualCamera: {fileID: 3630253860076335746}
+  mobileZoom: 3
+  desktopZoom: 4
+  timer: 2
 --- !u!1 &3630253860076335745
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,7 +335,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3630253860076335747}
   - component: {fileID: 3630253860076335746}
-  - component: {fileID: 3630253860076335756}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -378,7 +380,7 @@ MonoBehaviour:
   m_Follow: {fileID: 8847155836236663726}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 4
+    OrthographicSize: 3
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -394,27 +396,6 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 3630253858678035455}
---- !u!95 &3630253860076335756
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3630253860076335745}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 83e84cf33d0e04e68ab4dcdd7fdacf62, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7597736682045577455
 GameObject:
   m_ObjectHideFlags: 0

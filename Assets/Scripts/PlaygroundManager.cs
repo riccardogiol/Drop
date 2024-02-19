@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -19,6 +18,7 @@ public class PlaygroundManager : MonoBehaviour
     GameObject flameParent;
     GameObject waterdropParent;
     DecorationManager decorationManager;
+    OutOfWallDecorationManager OOWdecorationManager;
     ParticleSystem rainEffect;
     public GameObject flamePrefab;
     public GameObject waterdropPrefab;
@@ -43,6 +43,8 @@ public class PlaygroundManager : MonoBehaviour
     {
         stageManager = FindFirstObjectByType<StageManager>();
         cameraEffectManager = FindFirstObjectByType<CameraEffectManager>();
+        progressionBar = FindFirstObjectByType<ProgressionBarFiller>();
+
 
         GameObject auxGO = transform.Find("WalkTilemap").gameObject;
         if (auxGO == null)
@@ -57,6 +59,8 @@ public class PlaygroundManager : MonoBehaviour
         flameParent = transform.Find("FlameParent").gameObject;
         waterdropParent = transform.Find("WaterdropParent").gameObject;
         decorationManager = FindObjectOfType<DecorationManager>();
+        OOWdecorationManager = FindObjectOfType<OutOfWallDecorationManager>();
+
         GameObject rainGO = transform.Find("RainEffect").gameObject;
         if(rainGO!= null)
             rainEffect = rainGO.GetComponent<ParticleSystem>();
@@ -82,22 +86,18 @@ public class PlaygroundManager : MonoBehaviour
         totalTiles = walkTilemap.GetComponent<RuleTileStateManager>().numberTiles();
         Debug.Log("Total tiles: " + totalTiles);
 
-        progressionBar = FindFirstObjectByType<ProgressionBarFiller>();
-        if (progressionBar == null)
-        {
-            Debug.LogWarning("No progression bar found");
-            return;
-        }
         progressionBar.SetGameOverLimit(Math.Max((loseProgressionPerc - minProgressionPerc) / (1-minProgressionPerc), 0));
         progressionBar.SetRainLimit((rainProgressionPerc - minProgressionPerc) / (1-minProgressionPerc));
         
-        EvaluateCleanSurface();
-
         tilemapEffectManager = walkTilemap.GetComponent<TilemapEffectManager>();
         tilemapEffectManager.SpawnParticleColliders(maxX, maxY);
         tilemapWallEffectManager = wallTilemap.GetComponent<TilemapWallEffectManager>();
         if(tilemapWallEffectManager != null)
             tilemapWallEffectManager.SpawnParticleColliders(maxX, maxY);
+        if(OOWdecorationManager != null)
+            OOWdecorationManager.SpawnDecorations(maxX, maxY);
+
+        EvaluateCleanSurface();
         StartCoroutine(StartFlowerCounter());
     }
 
@@ -290,6 +290,10 @@ public class PlaygroundManager : MonoBehaviour
         if (cameraEffectManager != null)
         {
             cameraEffectManager.SetEffect(progressionPercOnMin);
+        }
+        if (OOWdecorationManager != null)
+        {
+            OOWdecorationManager.SetCleanValue(progressionPercOnMin);
         }
         
         Debug.Log("Burnt tiles: " + burntTiles);
