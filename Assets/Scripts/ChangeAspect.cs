@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class ChangeAspect : MonoBehaviour
 {
+    [Header("Initial parameters")]
     public bool isBurnt = true;
     public bool reactOnWater = false;
 
+    [Header("Set Sprites or Animator")]
+    public Sprite greenSprite;
+    public Sprite burntSprite;
     public Animator decoAnimator;
+    
+    [Header("Fixed Parameters")]
     public ParticleSystem waterParticles;
     public ParticleSystem leavesParticles;
     public ParticleSystem burntLeavesParticles;
@@ -15,10 +21,21 @@ public class ChangeAspect : MonoBehaviour
     public List<int2> touchingCellsCoordinates;
     List<Vector3> touchingCells;
     PlaygroundManager playgroundManager;
+    SpriteRenderer spriteRenderer;
+
+    public Material colorAdjustmentMaterial;
 
     void Awake()
     {
-        decoAnimator.SetBool("IsBurnt", isBurnt);
+        GameObject auxGO = transform.Find("GFX").gameObject;
+        if (auxGO != null)
+            spriteRenderer = auxGO.GetComponent<SpriteRenderer>();
+
+        if (decoAnimator != null)
+            decoAnimator.SetBool("IsBurnt", isBurnt);
+        else if (spriteRenderer != null)
+            spriteRenderer.sprite = burntSprite;
+
         playgroundManager = FindFirstObjectByType<PlaygroundManager>();
         touchingCells = new List<Vector3>();
         foreach(int2 point in touchingCellsCoordinates)
@@ -45,7 +62,11 @@ public class ChangeAspect : MonoBehaviour
             leavesParticles.Play();
         if (flowerStarter != null)
             Instantiate(flowerStarter, transform.position, Quaternion.identity);
-        decoAnimator.SetBool("IsBurnt", isBurnt);
+
+        if (decoAnimator != null)
+            decoAnimator.SetBool("IsBurnt", isBurnt);
+        else if (spriteRenderer != null)
+            spriteRenderer.sprite = greenSprite;
 
         if (playgroundManager != null)
         {
@@ -57,7 +78,11 @@ public class ChangeAspect : MonoBehaviour
     public void SetBurntSprite(bool playLeaves = true)
     {
         isBurnt = true;
-        decoAnimator.SetBool("IsBurnt", isBurnt);
+        if (decoAnimator != null)
+            decoAnimator.SetBool("IsBurnt", isBurnt);
+        else if (spriteRenderer != null)
+            spriteRenderer.sprite = burntSprite;
+
         if (burntLeavesParticles != null && playLeaves)
             burntLeavesParticles.Play();
         if (playgroundManager != null)
@@ -82,9 +107,21 @@ public class ChangeAspect : MonoBehaviour
 
     public void FlipX()
     {
-        GameObject auxGO = transform.Find("GFX").gameObject;
-        if (auxGO != null)
-            auxGO.GetComponent<SpriteRenderer>().flipX = true;
+        if (spriteRenderer != null)
+            spriteRenderer.flipX = true;
+    }
+
+    public void ColorAdjustment(float hue, float brightness)
+    {
+        if (spriteRenderer != null && colorAdjustmentMaterial != null)
+        {
+            spriteRenderer.material = new Material(colorAdjustmentMaterial);
+            if (hue < 0)
+                spriteRenderer.material.SetFloat("_Hue", 1 + hue);
+            else
+                spriteRenderer.material.SetFloat("_Hue", hue);
+            spriteRenderer.material.SetFloat("_Brightness", brightness);
+        }
     }
 
 }

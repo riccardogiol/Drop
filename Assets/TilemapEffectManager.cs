@@ -7,9 +7,9 @@ public class TilemapEffectManager : MonoBehaviour
     List<TileFlowerManager> flowerTiles;
     RuleTileStateManager ruleTileStateManager;
     FlowerBarFiller flowerBarFiller;
-    bool flowerAtStart = false;
-    bool noFlower = false;
-    bool allFlowered = false;
+    // bool flowerAtStart = false;
+    // bool noFlower = false;
+    // bool allFlowered = false;
     bool flowersCollected = false;
     int flowerCount = 1;
     
@@ -35,7 +35,7 @@ public class TilemapEffectManager : MonoBehaviour
         flowerBarFiller = FindFirstObjectByType<FlowerBarFiller>();
         flowerTiles = new List<TileFlowerManager>();
         trySpreadingTimer = trySpreadingInterval;
-        allFlowered = false;
+        //allFlowered = false;
         flowersCollected = false;
     }
 
@@ -94,8 +94,8 @@ public class TilemapEffectManager : MonoBehaviour
                 if (!tfmAux.isObstacle)
                 {
                     flowerTiles.Add(tfmAux);
-                    if (tfmAux.isFlowering)
-                        flowerAtStart = true;
+                    // if (tfmAux.isFlowering)
+                    //     flowerAtStart = true;
                 }
             }
         }
@@ -121,8 +121,8 @@ public class TilemapEffectManager : MonoBehaviour
         {
             flowersCollected = false;
 
-            allFlowered = true;
-            noFlower = true;
+            //allFlowered = true;
+            //noFlower = true;
             int nbrFlower = 0;
             foreach(TileFlowerManager tileFlowerManager in flowerTiles)
             {
@@ -130,18 +130,18 @@ public class TilemapEffectManager : MonoBehaviour
                 {
                     tileFlowerManager.TrySpreadingAround();
                     nbrFlower++;
-                    noFlower = false;
+                    //noFlower = false;
                 }
-                else
-                    allFlowered = false;
+                //else
+                    //allFlowered = false;
             }
             if (flowerBarFiller != null)
                 flowerBarFiller.SetValue((float)nbrFlower/flowerCount);
             trySpreadingTimer = trySpreadingInterval;
-            if (allFlowered)
-                FindObjectOfType<StageManager>().WinGame();
-            if (noFlower && flowerAtStart)
-                FindObjectOfType<StageManager>().GameOver("no_flower");
+            // if (allFlowered)
+            //     FindObjectOfType<StageManager>().WinGame();
+            // if (noFlower && flowerAtStart)
+            //     FindObjectOfType<StageManager>().GameOver("no_flower");
             flowersCollected = true;
             //StartCoroutine(TriggerSpreadingAllBoard());
         }

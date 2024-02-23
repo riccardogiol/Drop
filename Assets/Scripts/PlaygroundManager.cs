@@ -35,7 +35,7 @@ public class PlaygroundManager : MonoBehaviour
     public float rainProgressionPerc = 1.0f;
     public float winProgressionPerc = 0.98f;
 
-    public bool winByFlower = true;
+    //public bool winByFlower = true;
 
     bool reachedWinningCondition;
 
@@ -66,12 +66,12 @@ public class PlaygroundManager : MonoBehaviour
             rainEffect = rainGO.GetComponent<ParticleSystem>();
         reachedWinningCondition = false;
 
-        if (!winByFlower)
-        {
-            FlowerBarFiller goRef = FindFirstObjectByType<FlowerBarFiller>();
-            if (goRef != null)
-                goRef.gameObject.SetActive(false);
-        }
+        // if (!winByFlower)
+        // {
+        //     FlowerBarFiller goRef = FindFirstObjectByType<FlowerBarFiller>();
+        //     if (goRef != null)
+        //         goRef.gameObject.SetActive(false);
+        // }
 
     }
 
@@ -306,15 +306,15 @@ public class PlaygroundManager : MonoBehaviour
             reachedWinningCondition = true;
             MakeRain(isRaining);
             tilemapEffectManager.SetFlowerSpreading(0.5f);
-            if (!winByFlower)
-                stageManager.WinGame();
+            //if (!winByFlower)
+            stageManager.WinGame();
         }
         if (!isRaining && progressionPerc > (rainProgressionPerc + 0.05))
         {
             isRaining = true;
             MakeRain(isRaining);
             StartCoroutine(Raining());
-            tilemapEffectManager.SetFlowerSpreading(0.7f);
+            tilemapEffectManager.SetFlowerSpreading(0.5f);
 
         } else if (isRaining && progressionPerc < (rainProgressionPerc - 0.05))
         {

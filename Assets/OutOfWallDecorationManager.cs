@@ -1,15 +1,25 @@
+using System;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class OutOfWallDecorationManager : MonoBehaviour
 {
     public List<GameObject> decorationsPrefabs;
     public List<GameObject> tallDecorationsPrefabs;
+    public List<GameObject> levelDecorationsPrefabs;
+    public List<int> levelDecorationsUnlockCode;
+    public List<GameObject> levelTallDecorationsPrefabs;
+    public List<int> levelTallDecorationsUnlockCode;
     List<GameObject> burntDecorations;
     List<GameObject> cleanDecorations;
     public RuleTileStateManager walkTileStateManager;
     public RuleTileStateManager wallTileStateManager;
+    public Tilemap outOfWallGrass;
+    public RuleTile GrassTile;
+    public RuleTile DarkGrassTile;
+    public Material colorAdjMaterial;
 
     bool[,] availableTiles;
     bool[,] availableTilesTall;
@@ -25,9 +35,29 @@ public class OutOfWallDecorationManager : MonoBehaviour
 
     void Awake()
     {
+        int index = 0;
+        foreach(int lvlCode in levelDecorationsUnlockCode)
+        {
+            if (PlayerPrefs.GetInt("Lvl" + lvlCode, 0) == 1)
+            {
+                decorationsPrefabs.Add(levelDecorationsPrefabs[index]);
+            }
+            index ++;
+        }
+        index = 0;
+        foreach(int lvlCode in levelTallDecorationsUnlockCode)
+        {
+            if (PlayerPrefs.GetInt("Lvl" + lvlCode, 0) == 1)
+            {
+                tallDecorationsPrefabs.Add(levelTallDecorationsPrefabs[index]);
+            }
+            index ++;
+        }
         burntDecorations = new List<GameObject>();
         cleanDecorations = new List<GameObject>();
         countdown = timer;
+        firstTime = true;
+        currentCleanValue = 0;
     }
 
     public void SpawnDecorations(int maxX, int maxY)
@@ -40,12 +70,20 @@ public class OutOfWallDecorationManager : MonoBehaviour
             {
                 RuleTile currentTile = walkTileStateManager.GetTile(new Vector3Int(x, y, 0));
                 if (currentTile == null)
+                {
                     SetAvailableTile(x, y, true);
+                    if (UnityEngine.Random.value < 0.5)
+                        outOfWallGrass.SetTile(new Vector3Int(x, y), GrassTile);
+                    else
+                        outOfWallGrass.SetTile(new Vector3Int(x, y), DarkGrassTile);
+
+                }
                 else
                 {
                     SetAvailableTile(x, y, false);
                     SetAvailableTileTall(x, y - 1, false);
                     SetAvailableTileTall(x, y - 2, false);
+                    SetAvailableTileTall(x, y - 3, false);
                 }
             }
         }
@@ -76,7 +114,11 @@ public class OutOfWallDecorationManager : MonoBehaviour
         if (GetAvailableTileTall(x, y))
         {
             if (UnityEngine.Random.value < 0.6)
+            {
                 deco = tallDecorationsPrefabs[UnityEngine.Random.Range(0, tallDecorationsPrefabs.Count)];
+                SetAvailableTileTall(x, y+1, false);
+
+            }
             else
                 deco = decorationsPrefabs[UnityEngine.Random.Range(0, decorationsPrefabs.Count)];
         }
@@ -90,9 +132,10 @@ public class OutOfWallDecorationManager : MonoBehaviour
                 return;
         }
         GameObject goRef = Instantiate(deco, new Vector3(x, y), Quaternion.identity);
-        deco.GetComponent<ChangeAspect>().SetBurntSprite(false);
+        goRef.GetComponent<ChangeAspect>().ColorAdjustment(UnityEngine.Random.Range(-0.05f, 0.05f), 0.84f);
+        goRef.GetComponent<ChangeAspect>().SetBurntSprite(false);
         if (UnityEngine.Random.value > 0.5)
-            deco.GetComponent<ChangeAspect>().FlipX();
+            goRef.GetComponent<ChangeAspect>().FlipX();
         goRef.transform.parent = transform;
         burntDecorations.Add(goRef);
         foreach(int2 point in deco.GetComponent<ChangeAspect>().touchingCellsCoordinates)

@@ -150,7 +150,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3
+  orthographic size: 2
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -292,7 +292,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cinemachine: {fileID: 3630253860076335746}
-  camAnimator: {fileID: 0}
   cam: {fileID: 3630253859576267595}
   targetPrefab: {fileID: 1529357162247461357, guid: 33783d452b8ec478bb35fc511c90ec16,
     type: 3}
@@ -322,7 +321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cinemachineVirtualCamera: {fileID: 3630253860076335746}
-  mobileZoom: 3
+  mobileZoom: 3.5
   desktopZoom: 4
   timer: 2
 --- !u!1 &3630253860076335745
@@ -380,7 +379,7 @@ MonoBehaviour:
   m_Follow: {fileID: 8847155836236663726}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 3
+    OrthographicSize: 2
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0

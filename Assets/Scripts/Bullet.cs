@@ -16,6 +16,8 @@ public class Bullet : MonoBehaviour
     Collider2D collider2D;
     SpriteRenderer spriteRenderer;
 
+    Vector3 otherPosition;
+
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -50,8 +52,11 @@ public class Bullet : MonoBehaviour
                 DestroyBullet();
                 break;
              case "Decoration":
-                playgroundManager.WaterOnPosition(other.transform.position);
-                other.GetComponent<ChangeAspect>().SetGreenSprite();
+                if (other.GetComponent<ChangeAspect>().reactOnWater)
+                {
+                    playgroundManager.WaterOnPosition(other.transform.position);
+                    other.GetComponent<ChangeAspect>().SetGreenSprite();
+                }
                 DestroyBullet();
                 break;
              case "DecorationNoFire":
@@ -70,6 +75,7 @@ public class Bullet : MonoBehaviour
                     other.GetComponent<PickFlame>().energy -= damage;
                     other.GetComponent<PickFlame>().ScaleOnEnergy();
                 }
+                otherPosition = other.transform.position;
                 DestroyBullet();
                 break;
             case "Waterdrop":
@@ -96,7 +102,10 @@ public class Bullet : MonoBehaviour
 
     IEnumerator DelayDestroy()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(0.01f);
+        if (otherPosition != null)
+            playgroundManager.WaterOnPosition(otherPosition);
+        yield return new WaitForSeconds(2.8f);
         Destroy(gameObject);
     }
 }
