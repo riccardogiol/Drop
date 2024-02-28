@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
@@ -12,6 +11,9 @@ public class OutOfWallDecorationManager : MonoBehaviour
     public List<int> levelDecorationsUnlockCode;
     public List<GameObject> levelTallDecorationsPrefabs;
     public List<int> levelTallDecorationsUnlockCode;
+    public bool randomOOGridPos = false;
+    public float decorationDensity = 0.6f;
+    public float decorationBrightness = 0.84f;
     List<GameObject> burntDecorations;
     List<GameObject> cleanDecorations;
     public RuleTileStateManager walkTileStateManager;
@@ -19,7 +21,6 @@ public class OutOfWallDecorationManager : MonoBehaviour
     public Tilemap outOfWallGrass;
     public RuleTile GrassTile;
     public RuleTile DarkGrassTile;
-    public Material colorAdjMaterial;
 
     bool[,] availableTiles;
     bool[,] availableTilesTall;
@@ -93,7 +94,7 @@ public class OutOfWallDecorationManager : MonoBehaviour
             {
                 if (GetAvailableTile(x, y))
                 {
-                    if (UnityEngine.Random.value < 0.6)
+                    if (UnityEngine.Random.value < decorationDensity)
                         SpawnRandomDecoration(x, y);   
                 }
             }
@@ -103,7 +104,7 @@ public class OutOfWallDecorationManager : MonoBehaviour
     
     void SpawnRandomDecoration(int x, int y)
     {
-        if (UnityEngine.Random.value < 0.5)
+        if (wallTileStateManager != null && UnityEngine.Random.value < 0.5)
         {
             wallTileStateManager.SetCleanTile(new Vector3Int(x, y));
             SetAvailableTile(x, y, false);
@@ -131,8 +132,11 @@ public class OutOfWallDecorationManager : MonoBehaviour
             if (!GetAvailableTile(x + point.x, y + point.y))
                 return;
         }
-        GameObject goRef = Instantiate(deco, new Vector3(x, y), Quaternion.identity);
-        goRef.GetComponent<ChangeAspect>().ColorAdjustment(UnityEngine.Random.Range(-0.05f, 0.05f), 0.84f);
+        Vector3 position = new Vector3(x, y);
+        if (randomOOGridPos)
+            position += new Vector3(UnityEngine.Random.value - 0.5f, UnityEngine.Random.value - 0.5f);
+        GameObject goRef = Instantiate(deco, position, Quaternion.identity);
+        goRef.GetComponent<ChangeAspect>().ColorAdjustment(UnityEngine.Random.Range(-0.05f, 0.05f), decorationBrightness);
         goRef.GetComponent<ChangeAspect>().SetBurntSprite(false);
         if (UnityEngine.Random.value > 0.5)
             goRef.GetComponent<ChangeAspect>().FlipX();

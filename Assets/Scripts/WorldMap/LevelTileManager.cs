@@ -17,6 +17,7 @@ public class LevelTileManager : MonoBehaviour
     public ChangeAspect decoration;
     public ParticleSystem smokeEffect;
     public GameObject SmokyCloudParent;
+    public WorldTileDecorationManager worldTileDecorationManager;
 
     PlayerMovementPath movementPath;
 
@@ -31,7 +32,7 @@ public class LevelTileManager : MonoBehaviour
 
         if (PlayerPrefs.GetInt("LastLevelPlayed", 0) == codeLvl)
         {
-            movementPath.transform.position = dropSpot.transform.position;
+            stageSpotManager.SetPlayerPositionToStageSpot(PlayerPrefs.GetInt("LastStageCompleted", 0));
         }
 
         if (PlayerPrefs.GetInt(unlockingLvlname, 0) == 1)
@@ -40,11 +41,15 @@ public class LevelTileManager : MonoBehaviour
             if (PlayerPrefs.GetInt(codeLvlname, 0) == 1)
             {
                 decoration.SetGreenSprite();
+                worldTileDecorationManager.SetGreenValue(1f);
                 stageSpotManager.ColorStageSpots(100);
+                stageSpotManager.ActivateStageSpots(100);
                 buttonHighlighter.color = new Color(46f/255, 76f/255, 0f/255);
 
             } else {
                 stageSpotManager.ColorStageSpots(PlayerPrefs.GetInt("LastStageCompleted", 0));
+                stageSpotManager.ActivateStageSpots(PlayerPrefs.GetInt("LastStageCompleted", 0));
+                worldTileDecorationManager.SetGreenValue(PlayerPrefs.GetInt("LastStageCompleted", 0)/5f);
                 smokeEffect.Play();
                 buttonHighlighter.color = new Color(230f/255, 150f/255, 36f/255);
                 buttonHighlighter.GetComponent<Animator>().SetBool("IsHighlighted", true);
@@ -63,8 +68,8 @@ public class LevelTileManager : MonoBehaviour
         FindFirstObjectByType<MapMoveCamera>().Exit();
     }
 
-    public void StartLevel()
+    public void StartLevel(int stageCode = 1)
     {
-        messageManager.ShowLevelMessage(codeLvl);
+        messageManager.ShowLevelMessage(codeLvl, stageCode);
     }
 }

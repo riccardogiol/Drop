@@ -16,12 +16,13 @@ public class PlayerMovementPath : MonoBehaviour
     int currentWaypoint = 0;
     float nextWaypointDistance = 0.1f;
     Seeker seeker;
-    Tilemap tilemap;
+    public Tilemap tilemap;
 
     void Start()
     {
         seeker = GetComponent<Seeker>();
-        tilemap = FindFirstObjectByType<Tilemap>();
+        if (tilemap == null)
+            tilemap = FindFirstObjectByType<Tilemap>();
         player = GetComponent<Rigidbody2D>();
         directionController = GetComponent<PlayerDirectionController>();
     }

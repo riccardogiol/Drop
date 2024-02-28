@@ -6,6 +6,7 @@ public class LevelMessageManager : MonoBehaviour
 {
     [Header("Personalizable parameters")]
     public int levelCode;
+    int stageCode = 1;
     public string TrophyName;
     [TextArea]
     public string TrophyDescription;
@@ -33,11 +34,17 @@ public class LevelMessageManager : MonoBehaviour
 
     }
 
+    public void SetMessage(int sCode)
+    {
+        stageCode = sCode;
+        transform.Find("StagesText").GetComponent<Text>().text = "Stage " + sCode;
+    }
+
     public void StartAction()
     {
         PlayerPrefs.SetInt("LastLevelPlayed", levelCode);
         FindObjectOfType<AudioManager>().Play("SelectSound");
-        SceneManager.LoadScene("Stage" + levelCode + "-1");
+        SceneManager.LoadScene("Stage" + levelCode + "-" + stageCode);
     }
 
     public void ContinueAction()

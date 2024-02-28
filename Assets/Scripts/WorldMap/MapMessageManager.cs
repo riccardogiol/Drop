@@ -1,14 +1,16 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MapMessageManager : MonoBehaviour
 {
     public GameObject shader;
 
-    public void ShowLevelMessage(int code)
+    public void ShowLevelMessage(int lvlCode, int stageCode = 1)
     {   
-        Transform auxTrans = transform.Find("LevelPresentationMessage" + code);
+        Transform auxTrans = transform.Find("LevelPresentationMessage" + lvlCode);
         if (auxTrans == null)
             return;
+        auxTrans.GetComponent<LevelMessageManager>().SetMessage(stageCode);
         auxTrans.gameObject.SetActive(true);
         shader.SetActive(true);
     }

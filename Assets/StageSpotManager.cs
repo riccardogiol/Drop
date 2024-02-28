@@ -22,7 +22,10 @@ public class StageSpotManager : MonoBehaviour
         {
             GameObject auxGo = child.gameObject;
             if (auxGo != null)
+            {
+                auxGo.GetComponent<LevelEnterTrigger>().ActivateButton(false);
                 stageSpots.Add(auxGo);
+            }
         }
     }
 
@@ -51,7 +54,7 @@ public class StageSpotManager : MonoBehaviour
                     if (child.name == "SpotGFX")
                         child.GetComponent<SpriteRenderer>().sprite = greenSpot;
                     if (child.name == "TrailGFX")
-                        child.GetComponent<SpriteRenderer>().color = new Color(22f/255, 50f/255, 0f/255);
+                        child.GetComponent<SpriteRenderer>().color = new Color(157f/255, 214f/255, 66f/255);
                 }
             } else {
                 foreach (Transform child in spot.transform)
@@ -64,9 +67,33 @@ public class StageSpotManager : MonoBehaviour
                     if (child.name == "SpotGFX")
                         child.GetComponent<SpriteRenderer>().sprite = burntSpot;
                     if (child.name == "TrailGFX")
-                        child.GetComponent<SpriteRenderer>().color = new Color(56f/255, 45f/255, 24f/255);
+                        child.GetComponent<SpriteRenderer>().color = new Color(214f/255, 196f/255, 66f/255);
                 }
             }
+            i++;
+        }
+    }
+
+    public void ActivateStageSpots(int stagesCompleted)
+    {
+        int i = 0;
+        foreach(var spot in stageSpots)
+        {
+            if (i <= stagesCompleted)
+                spot.GetComponent<LevelEnterTrigger>().ActivateButton(true);
+            i++;
+        }
+    }
+
+    public void SetPlayerPositionToStageSpot(int index)
+    {
+        int i = 0;
+        foreach(var spot in stageSpots)
+        {
+            FindFirstObjectByType<PlayerMovementPath>().transform.position = spot.transform.position;
+            FindFirstObjectByType<MapMoveCamera>().MoveCameraToPosition(spot.transform.position);
+            if (i >= index)
+                return;
             i++;
         }
     }

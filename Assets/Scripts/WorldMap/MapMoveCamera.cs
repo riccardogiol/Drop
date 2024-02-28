@@ -85,4 +85,14 @@ public class MapMoveCamera : MonoBehaviour
         BoundMovingTargetPosition(originalTarget.transform.position);
         inMoveCameraMode =false;
     }
+
+    public void MoveCameraToPosition(Vector3 position)
+    {
+        GameObject target = cinemachine.Follow.gameObject;
+        cinemachine.Follow = null;
+        cinemachine.LookAt = null;
+        cinemachine.transform.position = position;
+        cinemachine.Follow = target.transform;
+        cinemachine.LookAt = target.transform;
+    }
 }

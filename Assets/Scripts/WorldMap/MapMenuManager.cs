@@ -4,14 +4,21 @@ using UnityEngine.SceneManagement;
 public class MapMenuManager : MonoBehaviour
 {
     public GameObject StoryDisplay;
+    public OutOfWallDecorationManager outOfWallDecorationManager;
 
-    void Start()
+    void Awake()
     {
         FindObjectOfType<AudioManager>().Play("OpeningMusic");
         FindObjectOfType<AudioManager>().Stop("BackgroundMusic");
         if (PlayerPrefs.GetInt("FromMainMenu", 0) == 1)
             StoryDisplay.SetActive(true);
         PlayerPrefs.SetInt("FromMainMenu", 0);
+    }
+
+    void Start()
+    {
+        outOfWallDecorationManager.SpawnDecorations(15, 15);
+        outOfWallDecorationManager.SetCleanValue(1);
     }
 
     public void EndIntroductionSlides(GameObject message)
