@@ -1,9 +1,9 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class MapMessageManager : MonoBehaviour
 {
     public GameObject shader;
+    public bool messageOnScreen = false;
 
     public void ShowLevelMessage(int lvlCode, int stageCode = 1)
     {   
@@ -13,6 +13,7 @@ public class MapMessageManager : MonoBehaviour
         auxTrans.GetComponent<LevelMessageManager>().SetMessage(stageCode);
         auxTrans.gameObject.SetActive(true);
         shader.SetActive(true);
+        messageOnScreen = true;
     }
 
     public void ExitMessage(GameObject message)
@@ -20,6 +21,6 @@ public class MapMessageManager : MonoBehaviour
         shader.SetActive(false);
         message.SetActive(false);
         //isPaused = false;
-        //messageOnScreen = false;
+        messageOnScreen = false;
     }
 }

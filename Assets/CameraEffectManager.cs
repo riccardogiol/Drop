@@ -6,11 +6,11 @@ public class CameraEffectManager : MonoBehaviour
 {
     public VolumeProfile volumeProfile;
 
-    float minVignette = 0.1f, maxVignette = 0.3f;
+    float minVignette = 0.15f, maxVignette = 0.4f;
     float minTemperature = 0, maxtemperature = 40;
 
-    float minExp = 0, maxExp = 0.2f;
-    float minSat = -10, maxSat = 7;
+    float minExp = 0, maxExp = 0f;
+    float minSat = -15, maxSat = 7;
 
     WhiteBalance whiteBalance;
     Vignette vignette;

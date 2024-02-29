@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -35,20 +36,20 @@ public class StageSpotManager : MonoBehaviour
         bool flip;
         foreach(var spot in stageSpots)
         {
-            flip = Random.Range(0, 1.0f) > 0.5f;
+            flip = UnityEngine.Random.Range(0, 1.0f) > 0.5f;
             if (i < stagesCompleted)
             {
                 foreach (Transform child in spot.transform)
                 {
                     if (child.name == "PetalGFX")
                     {
-                        child.GetComponent<SpriteRenderer>().sprite = petalList[Random.Range(0, petalList.Length)];
-                        child.GetComponent<SpriteRenderer>().color = colors[Random.Range(0, colors.Length)];
+                        child.GetComponent<SpriteRenderer>().sprite = petalList[UnityEngine.Random.Range(0, petalList.Length)];
+                        child.GetComponent<SpriteRenderer>().color = colors[UnityEngine.Random.Range(0, colors.Length)];
                         child.GetComponent<SpriteRenderer>().flipX = flip;
                     }
                     if (child.name == "LeafGFX")
                     {
-                        child.GetComponent<SpriteRenderer>().sprite = leafList[Random.Range(0, leafList.Length)];
+                        child.GetComponent<SpriteRenderer>().sprite = leafList[UnityEngine.Random.Range(0, leafList.Length)];
                         child.GetComponent<SpriteRenderer>().flipX = flip;
                     }
                     if (child.name == "SpotGFX")
@@ -61,11 +62,18 @@ public class StageSpotManager : MonoBehaviour
                 {
                     if (child.name == "LeafGFX")
                     {                        
-                        child.GetComponent<SpriteRenderer>().sprite = burntLeafList[Random.Range(0, burntLeafList.Length)];
+                        child.GetComponent<SpriteRenderer>().sprite = burntLeafList[UnityEngine.Random.Range(0, burntLeafList.Length)];
                         child.GetComponent<SpriteRenderer>().flipX = flip;
                     }
                     if (child.name == "SpotGFX")
+                    {
                         child.GetComponent<SpriteRenderer>().sprite = burntSpot;
+                        if (i > stagesCompleted)
+                        {
+                            child.GetComponent<SpriteRenderer>().color = new Color(0.8f, 0.8f, 0.8f);
+                            child.GetComponent<SinLoopScaling>().enabled = false;
+                        }
+                    }
                     if (child.name == "TrailGFX")
                         child.GetComponent<SpriteRenderer>().color = new Color(214f/255, 196f/255, 66f/255);
                 }
@@ -85,17 +93,16 @@ public class StageSpotManager : MonoBehaviour
         }
     }
 
-    public void SetPlayerPositionToStageSpot(int index)
+    public void ActivateStageSpot(int spotIndex)
     {
-        int i = 0;
-        foreach(var spot in stageSpots)
-        {
-            FindFirstObjectByType<PlayerMovementPath>().transform.position = spot.transform.position;
-            FindFirstObjectByType<MapMoveCamera>().MoveCameraToPosition(spot.transform.position);
-            if (i >= index)
-                return;
-            i++;
-        }
+        stageSpots[Math.Min(spotIndex-1, stageSpots.Count - 1)].GetComponent<LevelEnterTrigger>().ActivateCollider(true);
+    }
+
+    public Vector3 GetStageSpot(int index)
+    {
+        if (index <= 0 || stageSpots.Count == 0)
+            return new Vector3();
+        return stageSpots[Math.Min(index-1, stageSpots.Count - 1)].transform.position;
     }
 
 }

@@ -32,6 +32,11 @@ public class LevelEnterTrigger : MonoBehaviour
         button.interactable = state;
     }
 
+    public void ActivateCollider(bool state)
+    {
+        thisCollider.enabled = state;
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         levelTileManager.StartLevel(stageCode);

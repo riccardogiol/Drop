@@ -29,6 +29,9 @@ public class StageManager : MonoBehaviour
         cameraAnimationManager = FindObjectOfType<CameraAnimationManager>();
         victoryPositionTrigger = FindObjectOfType<VictoryPositionTrigger>();
         playerAnimationManager = FindObjectOfType<PlayerAnimationManager>();
+        
+        PlayerPrefs.SetInt("LastStagePlayed", currentStage);
+        PlayerPrefs.SetInt("LastLevelPlayed", currentLvl);
     }
     
     public void WinGame()
@@ -59,8 +62,10 @@ public class StageManager : MonoBehaviour
                 yield return new WaitForSeconds(3);
             }
 
+            if (PlayerPrefs.GetInt("Lvl" + currentLvl, 0) == 0)
+                PlayerPrefs.SetInt("LastStageCompleted", 0);
+
             PlayerPrefs.SetInt("Lvl" + currentLvl, 1);
-            PlayerPrefs.SetInt("LastStageCompleted", 0);
 
             menusManager.LevelCleared();
         } else
@@ -70,8 +75,10 @@ public class StageManager : MonoBehaviour
             playerAnimationManager.PlayTriumph();
             menusManager.SetIsPause(true);
             yield return new WaitForSeconds(3);
+            
+            if (PlayerPrefs.GetInt("Lvl" + currentLvl, 0) == 0 && PlayerPrefs.GetInt("LastStageCompleted", 0) < currentStage)
+                PlayerPrefs.SetInt("LastStageCompleted", currentStage);
 
-            PlayerPrefs.SetInt("LastStageCompleted", currentStage);
             menusManager.StageCleared();
         }
     }

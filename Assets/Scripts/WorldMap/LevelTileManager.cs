@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public class LevelTileManager : MonoBehaviour
 {
-    
     public int unlockingLvl = 0;
     public int codeLvl = 1;
 
@@ -11,7 +10,6 @@ public class LevelTileManager : MonoBehaviour
     string codeLvlname = "Lvl1";
     
     public Button button;
-    public SpriteRenderer dropSpot;
     public StageSpotManager stageSpotManager;
     public SpriteRenderer buttonHighlighter;
     public ChangeAspect decoration;
@@ -32,7 +30,8 @@ public class LevelTileManager : MonoBehaviour
 
         if (PlayerPrefs.GetInt("LastLevelPlayed", 0) == codeLvl)
         {
-            stageSpotManager.SetPlayerPositionToStageSpot(PlayerPrefs.GetInt("LastStageCompleted", 0));
+            FindFirstObjectByType<PlayerMovementPath>().transform.position = stageSpotManager.GetStageSpot(PlayerPrefs.GetInt("LastStagePlayed", 1));
+            button.Select();
         }
 
         if (PlayerPrefs.GetInt(unlockingLvlname, 0) == 1)
@@ -58,13 +57,26 @@ public class LevelTileManager : MonoBehaviour
             button.interactable = false;
             smokeEffect.Play();
             SmokyCloudParent.SetActive(true);
+            stageSpotManager.ColorStageSpots(-100);
+
         }
     }
 
     public void MoveOnThisTile()
     {
-        movementPath.NewTarget(dropSpot.transform.position);
-        dropSpot.GetComponent<CircleCollider2D>().enabled = true;
+        if (FindFirstObjectByType<MapMessageManager>().messageOnScreen)
+            return;
+        Debug.Log(transform.name);
+        Vector3 newPos;
+        if (PlayerPrefs.GetInt("Lvl" + codeLvl, 0) == 0)
+        {
+            newPos = stageSpotManager.GetStageSpot(PlayerPrefs.GetInt("LastStageCompleted", 1) + 1);
+            stageSpotManager.ActivateStageSpot(PlayerPrefs.GetInt("LastStageCompleted", 1) + 1);
+        } else {
+            newPos = stageSpotManager.GetStageSpot(1);
+            stageSpotManager.ActivateStageSpot(1);
+        }
+        movementPath.NewTarget(newPos);
         FindFirstObjectByType<MapMoveCamera>().Exit();
     }
 

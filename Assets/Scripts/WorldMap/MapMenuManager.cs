@@ -11,7 +11,10 @@ public class MapMenuManager : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("OpeningMusic");
         FindObjectOfType<AudioManager>().Stop("BackgroundMusic");
         if (PlayerPrefs.GetInt("FromMainMenu", 0) == 1)
+        {
             StoryDisplay.SetActive(true);
+            FindFirstObjectByType<MapMessageManager>().messageOnScreen = true;
+        }
         PlayerPrefs.SetInt("FromMainMenu", 0);
     }
 
@@ -28,6 +31,7 @@ public class MapMenuManager : MonoBehaviour
             SceneManager.LoadScene("Stage1-1");
         } else {
             message.SetActive(false);
+            FindFirstObjectByType<MapMessageManager>().messageOnScreen = false;
         }
     }
 
