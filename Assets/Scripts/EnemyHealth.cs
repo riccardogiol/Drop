@@ -6,6 +6,11 @@ public class EnemyHealth : MonoBehaviour
     public int maxHealth = 10;
     public int currentHealth;
 
+    public bool scaleGFX = true;
+    public bool healthOnProgBar = false;
+    public Sprite logoOnProgBar;
+    ProgressionBarFiller progressionBarFiller;
+
     public Transform enemyGFX;
 
     public GameObject vaporBurstPrefab;
@@ -13,13 +18,27 @@ public class EnemyHealth : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        if (healthOnProgBar)
+        {
+            progressionBarFiller = FindFirstObjectByType<ProgressionBarFiller>();
+            progressionBarFiller.ShowBossLife();
+            progressionBarFiller.SetImage(logoOnProgBar, new Vector3(-65, 20, 0), Vector3.one*0.9f);
+            progressionBarFiller.SetMaxValue(1);
+            progressionBarFiller.SetMinValue(0);
+            progressionBarFiller.SetValue(1);
+        }
         ScaleOnHealth();
     }
 
     public void ScaleOnHealth()
     {
-        float scale = (float)currentHealth/maxHealth*0.4f + 0.6f;
-        enemyGFX.localScale = new Vector3(scale, scale, 1);
+        if (healthOnProgBar)
+            progressionBarFiller.SetValue((float)currentHealth/maxHealth);
+        if (scaleGFX)
+        {
+            float scale = (float)currentHealth/maxHealth*0.4f + 0.6f;
+            enemyGFX.localScale = new Vector3(scale, scale, 1);
+        }
     }
 
     public void TakeDamage(int damage)

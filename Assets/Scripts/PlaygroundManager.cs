@@ -34,6 +34,7 @@ public class PlaygroundManager : MonoBehaviour
     public float loseProgressionPerc = 0.45f;
     public float rainProgressionPerc = 1.0f;
     public float winProgressionPerc = 0.98f;
+    public bool bossWin = false;
 
     //public bool winByFlower = true;
 
@@ -86,8 +87,11 @@ public class PlaygroundManager : MonoBehaviour
         totalTiles = walkTilemap.GetComponent<RuleTileStateManager>().numberTiles();
         Debug.Log("Total tiles: " + totalTiles);
 
-        progressionBar.SetGameOverLimit(Math.Max((loseProgressionPerc - minProgressionPerc) / (1-minProgressionPerc), 0));
-        progressionBar.SetRainLimit((rainProgressionPerc - minProgressionPerc) / (1-minProgressionPerc));
+        if (!bossWin)
+        {
+            progressionBar.SetGameOverLimit(Math.Max((loseProgressionPerc - minProgressionPerc) / (1-minProgressionPerc), 0));
+            progressionBar.SetRainLimit((rainProgressionPerc - minProgressionPerc) / (1-minProgressionPerc));
+        }
         
         tilemapEffectManager = walkTilemap.GetComponent<TilemapEffectManager>();
         tilemapEffectManager.SpawnParticleColliders(maxX, maxY);
@@ -113,17 +117,27 @@ public class PlaygroundManager : MonoBehaviour
         AddFlame(cell);
     }
 
-    public void AddFlame(Vector3Int cell)
+    public void AddFlame(Vector3Int cell, int energy = 0, bool randomMovement = false, bool compleatlyRandom = true)
     {
         Vector3 cellCenter = walkTilemap.GetCellCenterWorld(cell);
         GameObject auxFlame = GetFlameInPosition(cellCenter);
         if (auxFlame == null)
         {
             GameObject newFlame = Instantiate(flamePrefab, cellCenter, Quaternion.identity);
+            if (energy > 0)
+            {
+                newFlame.GetComponent<PickFlame>().energy = energy;
+                newFlame.GetComponent<PickFlame>().ScaleOnEnergy();
+            }
+            if (randomMovement)
+            {
+                newFlame.GetComponent<RandomMovement>().enabled = true;
+                newFlame.GetComponent<RandomMovement>().completelyRandom = compleatlyRandom;
+
+            }
             newFlame.transform.parent = flameParent.transform;
             flameParent.GetComponent<FireCounter>().flameCounter++;
             fireValue = flameParent.GetComponent<FireCounter>().FireValue();
-
             FindObjectOfType<AudioManager>().Play("FireBurst");
             BurnCellsAround(cell);
         } else {
@@ -261,6 +275,13 @@ public class PlaygroundManager : MonoBehaviour
             EvaluateCleanSurface();
     }
 
+    public void FlameGenerated()
+    {
+        flameParent.GetComponent<FireCounter>().flameCounter++;
+        fireValue = flameParent.GetComponent<FireCounter>().FireValue();
+        EvaluateLevelProgression();
+    }
+
     public void FlameEstinguished()
     {
         flameParent.GetComponent<FireCounter>().flameCounter--;
@@ -285,7 +306,8 @@ public class PlaygroundManager : MonoBehaviour
     {
         progressionPerc = 1.0f - (fireValue + burntTiles)/totalTiles;
         float progressionPercOnMin = (progressionPerc - minProgressionPerc) / (1-minProgressionPerc);
-        progressionBar.SetValue(progressionPercOnMin);
+        if (!bossWin)
+            progressionBar.SetValue(progressionPercOnMin);
 
         if (cameraEffectManager != null)
         {
@@ -306,8 +328,8 @@ public class PlaygroundManager : MonoBehaviour
             reachedWinningCondition = true;
             MakeRain(isRaining);
             tilemapEffectManager.SetFlowerSpreading(0.5f);
-            //if (!winByFlower)
-            stageManager.WinGame();
+            if (!bossWin)
+                stageManager.WinGame();
         }
         if (!isRaining && progressionPerc > (rainProgressionPerc + 0.05))
         {
@@ -324,7 +346,10 @@ public class PlaygroundManager : MonoBehaviour
             tilemapEffectManager.SetFlowerSpreading(3f);
         }
         if (progressionPerc <= loseProgressionPerc)
-            stageManager.GameOver("heat");
+        {
+            if (!bossWin)
+                stageManager.GameOver("heat");
+        }
     }
 
     public void MakeRain(bool isRaining)

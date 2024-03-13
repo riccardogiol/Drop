@@ -29,7 +29,10 @@ public class MenusManager : MonoBehaviour
 
     void Start()
     {
-        Transform auxTrans = transform.Find("StageSpecification");
+        Transform auxTrans = transform.Find("ProgressionBar");
+        if (auxTrans == null)
+            return;
+        auxTrans = auxTrans.Find("StageSpecification");
         if (auxTrans == null)
             return;
         stageSpecsInfo = auxTrans.gameObject;
@@ -70,7 +73,7 @@ public class MenusManager : MonoBehaviour
 
         musicState = PlayerPrefs.GetInt("MusicState", 0) == 1;
         
-        stageSpecsInfo.GetComponent<Text>().text = "Level " + stageManager.currentLvl + " - Stage " + stageManager.currentStage + "\n" + stageManager.stageMode;
+        stageSpecsInfo.GetComponent<Text>().text = stageManager.currentLvl + "." + stageManager.currentStage + " - " + stageManager.stageMode;
 
         foreach(GameObject bh in buttonHints)
             bh.SetActive(false);

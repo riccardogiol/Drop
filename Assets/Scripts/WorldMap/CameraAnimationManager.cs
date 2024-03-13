@@ -1,13 +1,16 @@
 using Cinemachine;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CameraAnimationManager : MonoBehaviour
 {
     public CinemachineVirtualCamera cinemachineVirtualCamera;
+    Camera cam;
     public float mobileZoom = 3;
     public float desktopZoom = 4;
+    public float portraitZoom = 7;
     float eagleZoom;
-    float exitZoom = 2;
+    float exitZoom;
     public float timer = 2.0f;
     float countdown = 0;
 
@@ -16,16 +19,26 @@ public class CameraAnimationManager : MonoBehaviour
     float startZoom;
     float finishZoom;
 
+    float currentRatio;
+
     PlayerMapTargeting playerMapTargeting;
 
     void Awake()
     {
         playerMapTargeting = GetComponent<PlayerMapTargeting>();
-        if (Application.isMobilePlatform)
-            inGameZoom = mobileZoom;
-        else
-            inGameZoom = desktopZoom;
+        cam = FindFirstObjectByType<Camera>();
+        currentRatio = cam.aspect;
+        if (currentRatio < 1)
+        {
+            inGameZoom = portraitZoom;
+        } else {
+            if (Application.isMobilePlatform)
+                inGameZoom = mobileZoom;
+            else
+                inGameZoom = desktopZoom;
+        }
         eagleZoom = inGameZoom + 1;
+        exitZoom = inGameZoom - 1;
     }
 
     void Start()
@@ -38,6 +51,23 @@ public class CameraAnimationManager : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (currentRatio != cam.aspect)
+        {
+            currentRatio = cam.aspect;
+            if (currentRatio < 1)
+            {
+                inGameZoom = portraitZoom;
+            } else {
+                if (Application.isMobilePlatform)
+                    inGameZoom = mobileZoom;
+                else
+                    inGameZoom = desktopZoom;
+            }
+            eagleZoom = inGameZoom + 1;
+            exitZoom = inGameZoom - 1;
+            finishZoom = inGameZoom;
+            cinemachineVirtualCamera.m_Lens.OrthographicSize = inGameZoom;
+        }
         if (stableZoom)
             return;
         if (countdown < timer)

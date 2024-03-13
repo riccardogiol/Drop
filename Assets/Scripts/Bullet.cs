@@ -17,6 +17,7 @@ public class Bullet : MonoBehaviour
     SpriteRenderer spriteRenderer;
 
     Vector3 otherPosition;
+    bool delayedEffect = false;
 
     void Start()
     {
@@ -76,6 +77,7 @@ public class Bullet : MonoBehaviour
                     other.GetComponent<PickFlame>().ScaleOnEnergy();
                 }
                 otherPosition = other.transform.position;
+                delayedEffect = true;
                 DestroyBullet();
                 break;
             case "Waterdrop":
@@ -89,7 +91,7 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    void DestroyBullet()
+    public void DestroyBullet()
     {
         FindObjectOfType<AudioManager>().Play("BulletExplosion");
         Instantiate(explosionEffect, transform.position, transform.rotation);
@@ -103,7 +105,7 @@ public class Bullet : MonoBehaviour
     IEnumerator DelayDestroy()
     {
         yield return new WaitForSeconds(0.01f);
-        if (otherPosition != null)
+        if (delayedEffect)
             playgroundManager.WaterOnPosition(otherPosition);
         yield return new WaitForSeconds(2.8f);
         Destroy(gameObject);

@@ -99,7 +99,7 @@ public class PickWaterdrop : MonoBehaviour
         Instantiate(vaporBurstPrefab, transform.position, Quaternion.identity);
     }
 
-    void DestroyWaterdrop()
+    public void DestroyWaterdrop()
     {
         Destroy(gameObject);
     }

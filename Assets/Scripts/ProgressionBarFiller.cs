@@ -5,12 +5,32 @@ public class ProgressionBarFiller : MonoBehaviour
 {
     public Slider slider;
     public Gradient gradient;
+    public Gradient bossLifeGradient;
+
+    bool isBossLife = false;
 
     public Image barr;
     public Image barrTop;
+    
+    public GameObject logo;
 
     public Transform gameoverLimit;
     public Transform rainLimit;
+
+    public void SetImage(Sprite sprite, Vector3 position, Vector3 scale)
+    {
+        logo.GetComponent<Image>().sprite = sprite;
+        logo.GetComponent<Image>().SetNativeSize();
+        logo.GetComponent<RectTransform>().anchoredPosition = position;
+        logo.GetComponent<RectTransform>().localScale = scale;
+    }
+
+    public void ShowBossLife()
+    {
+        isBossLife = true;
+        gameoverLimit.gameObject.SetActive(false);
+        rainLimit.gameObject.SetActive(false);
+    }
 
     public void SetMaxValue(float value)
     {
@@ -41,7 +61,14 @@ public class ProgressionBarFiller : MonoBehaviour
     public void SetValue(float currentValue)
     {
         slider.value = currentValue;
-        barr.color = gradient.Evaluate(currentValue);
-        barrTop.color = gradient.Evaluate(currentValue);
+        if (isBossLife)
+        {
+            barr.color = bossLifeGradient.Evaluate(currentValue);
+            barrTop.color = bossLifeGradient.Evaluate(currentValue);
+
+        } else {
+            barr.color = gradient.Evaluate(currentValue);
+            barrTop.color = gradient.Evaluate(currentValue);
+        }
     }
 }

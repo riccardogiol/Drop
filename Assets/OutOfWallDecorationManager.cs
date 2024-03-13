@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
@@ -24,6 +25,8 @@ public class OutOfWallDecorationManager : MonoBehaviour
 
     bool[,] availableTiles;
     bool[,] availableTilesTall;
+
+    int maxX = 0, maxY = 0;
 
     float currentCleanValue = 0;
     int amountOfDecorations;
@@ -65,6 +68,8 @@ public class OutOfWallDecorationManager : MonoBehaviour
     {
         availableTiles = new bool[maxX + 24, maxY + 16];
         availableTilesTall = new bool[maxX + 24, maxY + 16];
+        this.maxX = maxX;
+        this.maxY = maxY;
         for (int y = -5; y <= maxY + 5; y++)
         {
             for (int x = -10; x <= maxX + 7; x ++)
@@ -136,7 +141,16 @@ public class OutOfWallDecorationManager : MonoBehaviour
         if (randomOOGridPos)
             position += new Vector3(UnityEngine.Random.value - 0.5f, UnityEngine.Random.value - 0.5f);
         GameObject goRef = Instantiate(deco, position, Quaternion.identity);
-        goRef.GetComponent<ChangeAspect>().ColorAdjustment(UnityEngine.Random.Range(-0.05f, 0.05f), decorationBrightness);
+        float currentBrightness = decorationBrightness;
+        if (x < 0)
+            currentBrightness -= (-x)*0.05f;
+        if (x > maxX)
+            currentBrightness -= (x-maxX)*0.05f;
+        if (y < 0)
+            currentBrightness -= (-y)*0.05f;
+        if (y > maxY)
+            currentBrightness -= (y-maxY)*0.05f;
+        goRef.GetComponent<ChangeAspect>().ColorAdjustment(UnityEngine.Random.Range(-0.05f, 0.05f), currentBrightness);
         goRef.GetComponent<ChangeAspect>().SetBurntSprite(false);
         if (UnityEngine.Random.value > 0.5)
             goRef.GetComponent<ChangeAspect>().FlipX();

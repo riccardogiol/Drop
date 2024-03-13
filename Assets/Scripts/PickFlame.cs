@@ -50,7 +50,9 @@ public class PickFlame : MonoBehaviour
             }
             break;
         case "Flame":
-            if (other.GetComponent<PickFlame>().energy >= energy)
+            if (other.GetComponent<PickFlame>().energy == energy)
+                break;
+            if (other.GetComponent<PickFlame>().energy > energy)
             {
                 other.GetComponent<PickFlame>().RechargeEnergy(energy);
                 DestroyFlame();

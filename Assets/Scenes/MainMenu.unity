@@ -638,7 +638,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1500, y: 750}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 1
+  m_MatchWidthOrHeight: 0.7
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -1128,6 +1128,7 @@ GameObject:
   - component: {fileID: 1056841957}
   - component: {fileID: 1056841956}
   - component: {fileID: 1056841958}
+  - component: {fileID: 1056841959}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -1210,6 +1211,20 @@ MonoBehaviour:
   finalAlpha: 1
   alphaTimer: 0.3
   delayTimer: 2
+--- !u!114 &1056841959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056841954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e4fbd4b0d72c4fcda5e03dcbdf2cc95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Yvalue: 265
+  Xvalue: 0
 --- !u!1 &1137951308
 GameObject:
   m_ObjectHideFlags: 0
@@ -1815,6 +1830,7 @@ GameObject:
   - component: {fileID: 1804516782}
   - component: {fileID: 1804516784}
   - component: {fileID: 1804516783}
+  - component: {fileID: 1804516785}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -1855,18 +1871,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 3be6cb1bffc5247b9b7dceae5f856a5b, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 1
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -1880,6 +1896,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1804516781}
   m_CullTransparentMesh: 1
+--- !u!114 &1804516785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804516781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5df63ee62fcea4d3fb61f64a08ad4a98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setStartingAlpha: 1
+  startingAlpha: 0
+  finalAlpha: 1
+  alphaTimer: 0.3
+  delayTimer: 2
 --- !u!1 &1815172618
 GameObject:
   m_ObjectHideFlags: 0
