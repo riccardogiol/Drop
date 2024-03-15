@@ -11,6 +11,7 @@ public class StageManager : MonoBehaviour
 
     public bool finalStage = false;
     VictoryPositionTrigger victoryPositionTrigger;
+    bool gameOver = false;
 
     public MenusManager menusManager;
 
@@ -34,15 +35,18 @@ public class StageManager : MonoBehaviour
         PlayerPrefs.SetInt("LastLevelPlayed", currentLvl);
     }
     
-    public void WinGame()
+    public void WinGame(bool waterTiles = false, float waitSeconds = 6f)
     {
         if (!MenusManager.isPaused)
-            StartCoroutine(WinningScene());
+            StartCoroutine(WinningScene(waterTiles, waitSeconds));
     }
 
-    IEnumerator WinningScene()
+    IEnumerator WinningScene(bool waterTiles, float waitSeconds)
     {
-        FindFirstObjectByType<PlaygroundManager>().MakeRain(true);
+        yield return new WaitForSeconds(0.5f);
+        if (gameOver)
+            yield break;
+        FindFirstObjectByType<PlaygroundManager>().MakeRain(true, waterTiles);
         cameraAnimationManager.StartEndingAnimation();
 
         if (finalStage)
@@ -53,7 +57,7 @@ public class StageManager : MonoBehaviour
                 playerMovementPath.NewTarget(victoryPositionTrigger.transform.position);
                 playerMovementKeys.InterruptMovement(0.3f);
                 menusManager.SetIsPause(true);
-                yield return new WaitForSeconds(6);
+                yield return new WaitForSeconds(waitSeconds);
             } else {
                 playerMovementPath.InterruptMovement();
                 playerMovementKeys.InterruptMovement(0.3f);
@@ -85,6 +89,7 @@ public class StageManager : MonoBehaviour
 
     public void GameOver(String deadCode)
     {
+        gameOver = true;
         if (!MenusManager.isPaused)
             StartCoroutine(EvaporatingScene(deadCode));
     }

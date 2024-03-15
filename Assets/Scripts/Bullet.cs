@@ -38,6 +38,12 @@ public class Bullet : MonoBehaviour
         switch (other.tag)
         {
             case "Enemy":
+                int enemyHealth = other.GetComponent<EnemyHealth>().currentHealth;
+                if (enemyHealth <= damage)
+                {
+                    otherPosition = other.transform.position;
+                    delayedEffect = true;
+                }
                 other.GetComponent<EnemyHealth>().TakeDamage(damage);
                 DestroyBullet();
                 break;

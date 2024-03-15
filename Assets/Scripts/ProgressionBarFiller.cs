@@ -65,6 +65,8 @@ public class ProgressionBarFiller : MonoBehaviour
         {
             barr.color = bossLifeGradient.Evaluate(currentValue);
             barrTop.color = bossLifeGradient.Evaluate(currentValue);
+            if (currentValue == 0)
+                barrTop.color = new Color(0, 0, 0, 0);
 
         } else {
             barr.color = gradient.Evaluate(currentValue);

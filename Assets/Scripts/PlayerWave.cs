@@ -15,7 +15,7 @@ public class PlayerWave : MonoBehaviour
     PlayerMovementKeys playerMovementKeys;
     PlayerAnimationManager animator;
 
-    readonly string unlockingCode1 = "Lvl4";
+    readonly string unlockingCode1 = "Lvl5";
 
 
     void Start()

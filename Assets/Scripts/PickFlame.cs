@@ -39,19 +39,16 @@ public class PickFlame : MonoBehaviour
         switch (other.tag)
         {
         case "Enemy":
-            int enemyHealthDiff = other.GetComponent<EnemyHealth>().maxHealth - other.GetComponent<EnemyHealth>().currentHealth;
             other.GetComponent<EnemyHealth>().FillReservoir(energy);
-            if (enemyHealthDiff > energy)
-            {
-                DestroyFlame();
-            } else {
-                energy -= enemyHealthDiff;
-                ScaleOnEnergy();
-            }
+            DestroyFlame();
             break;
         case "Flame":
             if (other.GetComponent<PickFlame>().energy == energy)
-                break;
+            {
+                if (energy == maxEnergy)
+                    break;
+                energy++;
+            }
             if (other.GetComponent<PickFlame>().energy > energy)
             {
                 other.GetComponent<PickFlame>().RechargeEnergy(energy);

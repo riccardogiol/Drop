@@ -5104,7 +5104,7 @@ MonoBehaviour:
   loseProgressionPerc: 0
   rainProgressionPerc: 1
   winProgressionPerc: 1
-  winByFlower: 1
+  bossWin: 0
 --- !u!1 &4617294187583709520
 GameObject:
   m_ObjectHideFlags: 0
@@ -11251,13 +11251,15 @@ MonoBehaviour:
   levelTallDecorationsPrefabs:
   - {fileID: 5831071956751903875, guid: e96c47f9a3bde45e783ebcce8d8c389f, type: 3}
   - {fileID: 5831071956751903875, guid: ad76f776090494f7fb901468babf7fde, type: 3}
-  levelTallDecorationsUnlockCode: 0300000006000000
+  levelTallDecorationsUnlockCode: 0300000007000000
+  randomOOGridPos: 0
+  decorationDensity: 0.6
+  decorationBrightness: 0.84
   walkTileStateManager: {fileID: 4617294187583709524}
   wallTileStateManager: {fileID: 4617294188429363007}
   outOfWallGrass: {fileID: 6097016053515598194}
   GrassTile: {fileID: 11400000, guid: 24c96346e809541c58b1ef1b73220991, type: 2}
   DarkGrassTile: {fileID: 11400000, guid: abe6a8a05687b44d3bde32b2b0bbcf33, type: 2}
-  colorAdjMaterial: {fileID: 0}
 --- !u!1 &7083349733356857331
 GameObject:
   m_ObjectHideFlags: 0

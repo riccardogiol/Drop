@@ -9,6 +9,7 @@ public class EnemyHealth : MonoBehaviour
     public bool scaleGFX = true;
     public bool healthOnProgBar = false;
     public Sprite logoOnProgBar;
+    public Animator animator;
     ProgressionBarFiller progressionBarFiller;
 
     public Transform enemyGFX;
@@ -47,12 +48,20 @@ public class EnemyHealth : MonoBehaviour
         ScaleOnHealth();
         if (currentHealth <= 0)
         {
+            
             PlaygroundManager pgRef = FindObjectOfType<PlaygroundManager>();
             if (pgRef != null)
                 pgRef.WildfireEstinguished();
             Instantiate(vaporBurstPrefab, transform.position, Quaternion.identity);
             Instantiate(vaporBurstPrefab, transform.position + new Vector3(0, 0.5f), Quaternion.identity);
-            Destroy(gameObject);
+            if (healthOnProgBar)
+            {
+                if (animator != null)
+                    animator.SetTrigger("Die");
+                FindFirstObjectByType<StageManager>().WinGame(true, 8);
+            } else {
+                Destroy(gameObject);
+            }
         }
     }
     

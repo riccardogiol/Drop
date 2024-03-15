@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Configuration;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -352,13 +353,15 @@ public class PlaygroundManager : MonoBehaviour
         }
     }
 
-    public void MakeRain(bool isRaining)
+    public void MakeRain(bool isRaining, bool waterTiles = false)
     {
         if (isRaining)
         {
             rainEffect.Play();
             if (decorationManager != null)
                 decorationManager.SetGreenSprites();
+            if (waterTiles)
+                StartCoroutine(RainingWaterTiles());
         }
         else
             rainEffect.Stop();
@@ -377,8 +380,25 @@ public class PlaygroundManager : MonoBehaviour
                 isOnPlayground = IsOnPlayground(cellCenter);
             }while(!isOnPlayground);
             AddWaterdrop(raindropPos);
-            Debug.Log("Rain on position " + raindropPos);
             yield return new WaitForSeconds(rainInterval);
+        }
+    }
+
+    IEnumerator RainingWaterTiles()
+    {
+        while(true)
+        {
+            for (int j = 0; j < maxY; j ++)
+            {
+                for (int i = 0; i < maxX; i ++)
+                {
+                    if(UnityEngine.Random.value < 0.15)
+                    {
+                        WaterCell(new Vector3Int(i, j));
+                    }
+                }
+            }
+            yield return new WaitForSeconds(rainInterval/5);
         }
     }
 
