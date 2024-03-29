@@ -19,7 +19,6 @@ public class MenusManager : MonoBehaviour
     public static bool isPaused = false;
     public bool messageOnScreen = false;
     public GameObject[] overlayMessages;
-    bool eagleEyeState = false;
 
     bool musicState;
 
@@ -115,8 +114,6 @@ public class MenusManager : MonoBehaviour
     public void Pause()
     {
         if (messageOnScreen)
-            return;
-        if (eagleEyeState)
             return;
         Time.timeScale = 0f;
         pauseMenu.SetActive(true);
@@ -248,23 +245,19 @@ public class MenusManager : MonoBehaviour
         isPaused = value;
     }
 
+    //this function manage the button to activate EE: countdown if it is possible to press it or not
     public void ToggleEagleEye()
     {
         if (messageOnScreen)
             return;
 
-        if (eagleEyeState)
-        {
-            Time.timeScale = 1f;
-            isPaused = false;
-            eagleEyeState = false;
-            eagleEye.Exit();
-        } else {
-            Time.timeScale = 0.2f;
-            isPaused = true;
-            eagleEyeState = true;
+        // sostituire con un counter per il bottone come per i poteri
+        // exit arriva dopo qualche secondo dell'enter OPPURE se finisce il livello
+        // if possible to activate
+        //if (eagleEyeState)
+        //{
             eagleEye.Enter();
-        }
+        //}
     }
 
     public void ToggleMusic()

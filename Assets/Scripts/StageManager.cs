@@ -18,6 +18,7 @@ public class StageManager : MonoBehaviour
     PlayerAnimationManager playerAnimationManager;
 
     CameraAnimationManager cameraAnimationManager;
+    EagleEyeMode eagleEyeMode;
     PlayerMovementPath playerMovementPath;
     PlayerMovementKeys playerMovementKeys;
 
@@ -28,6 +29,7 @@ public class StageManager : MonoBehaviour
         playerMovementPath = FindObjectOfType<PlayerMovementPath>();
         playerMovementKeys = FindObjectOfType<PlayerMovementKeys>();
         cameraAnimationManager = FindObjectOfType<CameraAnimationManager>();
+        eagleEyeMode = FindObjectOfType<EagleEyeMode>();
         victoryPositionTrigger = FindObjectOfType<VictoryPositionTrigger>();
         playerAnimationManager = FindObjectOfType<PlayerAnimationManager>();
         
@@ -43,6 +45,7 @@ public class StageManager : MonoBehaviour
 
     IEnumerator WinningScene(bool waterTiles, float waitSeconds)
     {
+        eagleEyeMode.Exit();
         yield return new WaitForSeconds(0.5f);
         if (gameOver)
             yield break;
@@ -96,6 +99,7 @@ public class StageManager : MonoBehaviour
 
     IEnumerator EvaporatingScene(String deadCode)
     {
+        eagleEyeMode.Exit();
         menusManager.SetIsPause(true);
         if (playerMovementPath != null)
             playerMovementPath.InterruptMovement();
