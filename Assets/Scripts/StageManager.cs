@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Unity.Services.Analytics;
 
 public class StageManager : MonoBehaviour
 {
@@ -21,6 +22,9 @@ public class StageManager : MonoBehaviour
     EagleEyeMode eagleEyeMode;
     PlayerMovementPath playerMovementPath;
     PlayerMovementKeys playerMovementKeys;
+    PlayerEventParamsManager playerEventPrams;
+
+    float startTime;
 
     void Start()
     {
@@ -32,9 +36,13 @@ public class StageManager : MonoBehaviour
         eagleEyeMode = FindObjectOfType<EagleEyeMode>();
         victoryPositionTrigger = FindObjectOfType<VictoryPositionTrigger>();
         playerAnimationManager = FindObjectOfType<PlayerAnimationManager>();
+
+        playerEventPrams = FindObjectOfType<PlayerEventParamsManager>();
         
         PlayerPrefs.SetInt("LastStagePlayed", currentStage);
         PlayerPrefs.SetInt("LastLevelPlayed", currentLvl);
+
+        startTime = Time.time;
     }
     
     public void WinGame(bool waterTiles = false, float waitSeconds = 6f)
@@ -51,6 +59,18 @@ public class StageManager : MonoBehaviour
             yield break;
         FindFirstObjectByType<PlaygroundManager>().MakeRain(true, waterTiles);
         cameraAnimationManager.StartEndingAnimation();
+
+          AnalyticsService.Instance.RecordEvent(new StageCompleteEvent{
+                StageID = currentStage,
+                LevelID = currentLvl,
+                TimeElapsed = Time.time - startTime,
+                PlayerPositionX = playerEventPrams.GetPositionX(),
+                PlayerPositionY = playerEventPrams.GetPositionY(),
+                WaterBulletUsage = playerEventPrams.GetWaterBulletUsage(),
+                WaveUsage = playerEventPrams.GetWaveUsage(),
+                HealthLeft = playerEventPrams.GetHealth(),
+                ScoutCloudUsage = menusManager.ScoutCloudUsage
+                });
 
         if (finalStage)
         {
@@ -110,10 +130,42 @@ public class StageManager : MonoBehaviour
 
         yield return new WaitForSeconds(3);
 
+        AnalyticsService.Instance.RecordEvent(new GameOverEvent{
+            StageID = currentStage,
+            LevelID = currentLvl,
+            TimeElapsed = Time.time - startTime,
+            PlayerPositionX = playerEventPrams.GetPositionX(),
+            PlayerPositionY = playerEventPrams.GetPositionY(),
+            WaterBulletUsage = playerEventPrams.GetWaterBulletUsage(),
+            WaveUsage = playerEventPrams.GetWaveUsage(),
+            HealthLeft = playerEventPrams.GetHealth(),
+            ScoutCloudUsage = menusManager.ScoutCloudUsage,
+            GameOverCode = deadCode
+            });
+
         menusManager.GameOver(deadCode);
     }
 
     //Close stage functions
+
+    public void RestartStage()
+    {
+        AnalyticsService.Instance.RecordEvent(new StageRestartEvent{
+            StageID = currentStage,
+            LevelID = currentLvl,
+            TimeElapsed = Time.time - startTime,
+            PlayerPositionX = playerEventPrams.GetPositionX(),
+            PlayerPositionY = playerEventPrams.GetPositionY(),
+            WaterBulletUsage = playerEventPrams.GetWaterBulletUsage(),
+            WaveUsage = playerEventPrams.GetWaveUsage(),
+            HealthLeft = playerEventPrams.GetHealth(),
+            ScoutCloudUsage = menusManager.ScoutCloudUsage
+            });
+        Time.timeScale = 1f;
+        MenusManager.isPaused = false;
+        string nextSceneName = "Stage" + currentLvl + "-" + currentStage;
+        SceneManager.LoadScene(nextSceneName);
+    }
 
     public void RetryStage()
     {
@@ -133,6 +185,25 @@ public class StageManager : MonoBehaviour
 
     public void GoWorldMap()
     {
+        Time.timeScale = 1f;
+        MenusManager.isPaused = false;
+        SceneManager.LoadScene("WorldMap");
+    }
+
+    public void LeaveStage()
+    {
+        AnalyticsService.Instance.RecordEvent(new StageRestartEvent{
+            StageID = currentStage,
+            LevelID = currentLvl,
+            TimeElapsed = Time.time - startTime,
+            PlayerPositionX = playerEventPrams.GetPositionX(),
+            PlayerPositionY = playerEventPrams.GetPositionY(),
+            WaterBulletUsage = playerEventPrams.GetWaterBulletUsage(),
+            WaveUsage = playerEventPrams.GetWaveUsage(),
+            HealthLeft = playerEventPrams.GetHealth(),
+            ScoutCloudUsage = menusManager.ScoutCloudUsage
+            });
+        Debug.Log("LeaveStage");
         Time.timeScale = 1f;
         MenusManager.isPaused = false;
         SceneManager.LoadScene("WorldMap");

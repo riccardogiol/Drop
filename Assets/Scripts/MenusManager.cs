@@ -11,6 +11,8 @@ public class MenusManager : MonoBehaviour
     GameObject levelClearedMenu;
     GameObject shader;
     EagleEyeMode eagleEye;
+
+    public int ScoutCloudUsage;
     
     public GameObject openMessage;
 
@@ -95,6 +97,8 @@ public class MenusManager : MonoBehaviour
                     om.SetActive(true);
             }
         }
+
+        ScoutCloudUsage = 0;
 
     }
 
@@ -230,9 +234,19 @@ public class MenusManager : MonoBehaviour
         stageManager.GoWorldMap();
     }
 
+    public void LeaveStage()
+    {
+        stageManager.LeaveStage();
+    }
+
     public void GoNextStage()
     {
         stageManager.GoNextStage();
+    }
+
+    public void RestartStage()
+    {
+        stageManager.RestartStage();
     }
 
     public void RetryStage()
@@ -256,6 +270,7 @@ public class MenusManager : MonoBehaviour
         // if possible to activate
         //if (eagleEyeState)
         //{
+            ScoutCloudUsage++;
             eagleEye.Enter();
         //}
     }

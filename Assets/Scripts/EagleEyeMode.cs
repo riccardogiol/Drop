@@ -22,6 +22,8 @@ public class EagleEyeMode : MonoBehaviour
             if (bf.gameObject.name == "EagleEyeButton")
                buttonFiller = bf;
         }
+        if (buttonFiller == null)
+            return;
         buttonFiller.SetMaxValue(rechargeTimer);
         buttonFiller.SetValue(0);
     }

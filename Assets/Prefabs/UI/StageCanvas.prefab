@@ -195,7 +195,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Retry Stage
+  m_Text: Restart Stage
 --- !u!1 &883560211532010066
 GameObject:
   m_ObjectHideFlags: 0
@@ -870,7 +870,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1715595831200774529}
         m_TargetAssemblyTypeName: MenusManager, Assembly-CSharp
-        m_MethodName: GoToWorldMap
+        m_MethodName: LeaveStage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4731,7 +4731,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1715595831200774529}
         m_TargetAssemblyTypeName: MenusManager, Assembly-CSharp
-        m_MethodName: RetryStage
+        m_MethodName: RestartStage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

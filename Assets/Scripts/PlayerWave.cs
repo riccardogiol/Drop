@@ -17,6 +17,8 @@ public class PlayerWave : MonoBehaviour
 
     readonly string unlockingCode1 = "Lvl5";
 
+    public int powerUsage;
+
 
     void Start()
     {
@@ -44,6 +46,8 @@ public class PlayerWave : MonoBehaviour
             return;
         }
         animator = FindFirstObjectByType<PlayerAnimationManager>();
+
+        powerUsage = 0;
 
     }
 
@@ -88,6 +92,7 @@ public class PlayerWave : MonoBehaviour
 
     void WaveAttack()
     {
+        powerUsage++;
         GameObject wave = Instantiate(wavePrefab, transform.position, Quaternion.identity);
         wave.GetComponent<Wave>().damage = waveDamage;
         wave.GetComponent<Wave>().playgroundManager = playgroundManager;

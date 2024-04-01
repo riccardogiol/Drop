@@ -28,6 +28,8 @@ public class PlayerShooting : MonoBehaviour
     PlayerHealth playerHealth;
     PlayerAnimationManager animator;
 
+    public int powerUsage;
+
     void Start()
     {
         if(PlayerPrefs.GetInt(unlockingCode1, 0) == 0)
@@ -55,6 +57,8 @@ public class PlayerShooting : MonoBehaviour
             return;
         }
         animator = FindFirstObjectByType<PlayerAnimationManager>();
+
+        powerUsage = 0;
          /*
         if (PlayerPrefs.GetInt(unlockingCode2, 0) == 1)
             bulletRange = bulletRange2;
@@ -104,6 +108,7 @@ public class PlayerShooting : MonoBehaviour
 
     void Shoot()
     {
+        powerUsage++;
         GameObject bullet = Instantiate(bulletPrefab, shootingPoint.position + (Vector3)(playerDirection.lastDirection * 0.2f), Quaternion.LookRotation(Vector3.forward, playerDirection.lastDirection));
         bullet.GetComponent<Bullet>().energy = bulletEnergy;
         bullet.GetComponent<Bullet>().damage = bulletDamage;
