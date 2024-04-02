@@ -25,6 +25,7 @@ public class StageManager : MonoBehaviour
     PlayerEventParamsManager playerEventPrams;
 
     float startTime;
+    int stageInstanceCode;
 
     void Start()
     {
@@ -43,6 +44,19 @@ public class StageManager : MonoBehaviour
         PlayerPrefs.SetInt("LastLevelPlayed", currentLvl);
 
         startTime = Time.time;
+        stageInstanceCode = UnityEngine.Random.Range(1, 999999999);
+
+        float currentRatio = 0;
+        Camera cam = FindFirstObjectByType<Camera>();
+        if (cam!= null)
+            currentRatio = cam.aspect;
+
+        AnalyticsService.Instance.RecordEvent(new StageStartEvent{
+            StageID = currentStage,
+            LevelID = currentLvl,
+            StageInstanceCode = stageInstanceCode,
+            CameraRatio = currentRatio
+            });
     }
     
     public void WinGame(bool waterTiles = false, float waitSeconds = 6f)
@@ -60,17 +74,18 @@ public class StageManager : MonoBehaviour
         FindFirstObjectByType<PlaygroundManager>().MakeRain(true, waterTiles);
         cameraAnimationManager.StartEndingAnimation();
 
-          AnalyticsService.Instance.RecordEvent(new StageCompleteEvent{
-                StageID = currentStage,
-                LevelID = currentLvl,
-                TimeElapsed = Time.time - startTime,
-                PlayerPositionX = playerEventPrams.GetPositionX(),
-                PlayerPositionY = playerEventPrams.GetPositionY(),
-                WaterBulletUsage = playerEventPrams.GetWaterBulletUsage(),
-                WaveUsage = playerEventPrams.GetWaveUsage(),
-                HealthLeft = playerEventPrams.GetHealth(),
-                ScoutCloudUsage = menusManager.ScoutCloudUsage
-                });
+        AnalyticsService.Instance.RecordEvent(new StageCompleteEvent{
+            StageID = currentStage,
+            LevelID = currentLvl,
+            StageInstanceCode = stageInstanceCode,
+            TimeElapsed = Time.time - startTime,
+            PlayerPositionX = playerEventPrams.GetPositionX(),
+            PlayerPositionY = playerEventPrams.GetPositionY(),
+            WaterBulletUsage = playerEventPrams.GetWaterBulletUsage(),
+            WaveUsage = playerEventPrams.GetWaveUsage(),
+            HealthLeft = playerEventPrams.GetHealth(),
+            ScoutCloudUsage = menusManager.ScoutCloudUsage
+            });
 
         if (finalStage)
         {
@@ -133,6 +148,7 @@ public class StageManager : MonoBehaviour
         AnalyticsService.Instance.RecordEvent(new GameOverEvent{
             StageID = currentStage,
             LevelID = currentLvl,
+            StageInstanceCode = stageInstanceCode,
             TimeElapsed = Time.time - startTime,
             PlayerPositionX = playerEventPrams.GetPositionX(),
             PlayerPositionY = playerEventPrams.GetPositionY(),
@@ -153,6 +169,7 @@ public class StageManager : MonoBehaviour
         AnalyticsService.Instance.RecordEvent(new StageRestartEvent{
             StageID = currentStage,
             LevelID = currentLvl,
+            StageInstanceCode = stageInstanceCode,
             TimeElapsed = Time.time - startTime,
             PlayerPositionX = playerEventPrams.GetPositionX(),
             PlayerPositionY = playerEventPrams.GetPositionY(),
@@ -195,6 +212,7 @@ public class StageManager : MonoBehaviour
         AnalyticsService.Instance.RecordEvent(new StageRestartEvent{
             StageID = currentStage,
             LevelID = currentLvl,
+            StageInstanceCode = stageInstanceCode,
             TimeElapsed = Time.time - startTime,
             PlayerPositionX = playerEventPrams.GetPositionX(),
             PlayerPositionY = playerEventPrams.GetPositionY(),

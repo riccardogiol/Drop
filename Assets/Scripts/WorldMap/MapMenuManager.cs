@@ -38,6 +38,7 @@ public class MapMenuManager : MonoBehaviour
     public void GoMainMenu()
     {
         FindObjectOfType<AudioManager>().Play("SelectSound");
+        PlayerPrefs.SetInt("FromWorldMap", 1);
         SceneManager.LoadScene("MainMenu");
     }
 }
