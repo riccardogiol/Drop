@@ -51,12 +51,17 @@ public class StageManager : MonoBehaviour
         if (cam!= null)
             currentRatio = cam.aspect;
 
+        try {
         AnalyticsService.Instance.RecordEvent(new StageStartEvent{
             StageID = currentStage,
             LevelID = currentLvl,
             StageInstanceCode = stageInstanceCode,
             CameraRatio = currentRatio
             });
+        } catch
+        {
+            Debug.Log("Analytic service are not initialized, message not sent to cloud DB");
+        }
     }
     
     public void WinGame(bool waterTiles = false, float waitSeconds = 6f)
@@ -73,7 +78,8 @@ public class StageManager : MonoBehaviour
             yield break;
         FindFirstObjectByType<PlaygroundManager>().MakeRain(true, waterTiles);
         cameraAnimationManager.StartEndingAnimation();
-
+        
+        try {
         AnalyticsService.Instance.RecordEvent(new StageCompleteEvent{
             StageID = currentStage,
             LevelID = currentLvl,
@@ -86,6 +92,10 @@ public class StageManager : MonoBehaviour
             HealthLeft = playerEventPrams.GetHealth(),
             ScoutCloudUsage = menusManager.ScoutCloudUsage
             });
+        } catch
+        {
+            Debug.Log("Analytic service are not initialized, message not sent to cloud DB");
+        }
 
         if (finalStage)
         {
@@ -144,6 +154,8 @@ public class StageManager : MonoBehaviour
             playerAnimationManager.PlayEvaporation();
 
         yield return new WaitForSeconds(3);
+        
+        try {
 
         AnalyticsService.Instance.RecordEvent(new GameOverEvent{
             StageID = currentStage,
@@ -158,6 +170,10 @@ public class StageManager : MonoBehaviour
             ScoutCloudUsage = menusManager.ScoutCloudUsage,
             GameOverCode = deadCode
             });
+        } catch
+        {
+            Debug.Log("Analytic service are not initialized, message not sent to cloud DB");
+        }
 
         menusManager.GameOver(deadCode);
     }
@@ -166,6 +182,7 @@ public class StageManager : MonoBehaviour
 
     public void RestartStage()
     {
+        try {
         AnalyticsService.Instance.RecordEvent(new StageRestartEvent{
             StageID = currentStage,
             LevelID = currentLvl,
@@ -178,6 +195,10 @@ public class StageManager : MonoBehaviour
             HealthLeft = playerEventPrams.GetHealth(),
             ScoutCloudUsage = menusManager.ScoutCloudUsage
             });
+        } catch
+        {
+            Debug.Log("Analytic service are not initialized, message not sent to cloud DB");
+        }
         Time.timeScale = 1f;
         MenusManager.isPaused = false;
         string nextSceneName = "Stage" + currentLvl + "-" + currentStage;
@@ -209,6 +230,7 @@ public class StageManager : MonoBehaviour
 
     public void LeaveStage()
     {
+        try {
         AnalyticsService.Instance.RecordEvent(new StageRestartEvent{
             StageID = currentStage,
             LevelID = currentLvl,
@@ -221,6 +243,10 @@ public class StageManager : MonoBehaviour
             HealthLeft = playerEventPrams.GetHealth(),
             ScoutCloudUsage = menusManager.ScoutCloudUsage
             });
+        } catch
+        {
+            Debug.Log("Analytic service are not initialized, message not sent to cloud DB");
+        }
         Debug.Log("LeaveStage");
         Time.timeScale = 1f;
         MenusManager.isPaused = false;

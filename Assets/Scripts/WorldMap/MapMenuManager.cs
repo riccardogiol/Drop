@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 public class MapMenuManager : MonoBehaviour
 {
     public GameObject StoryDisplay;
+    public GameObject storeMessage;
+    public GameObject shader;
     public OutOfWallDecorationManager outOfWallDecorationManager;
 
     void Awake()
@@ -33,6 +35,18 @@ public class MapMenuManager : MonoBehaviour
             message.SetActive(false);
             FindFirstObjectByType<MapMessageManager>().messageOnScreen = false;
         }
+    }
+
+    public void OpenStore()
+    {
+        shader.SetActive(true);
+        storeMessage.SetActive(true);
+    }
+
+    public void CloseStore()
+    {
+        shader.SetActive(false);
+        storeMessage.SetActive(false);
     }
 
     public void GoMainMenu()
