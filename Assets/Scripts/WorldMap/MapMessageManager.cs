@@ -3,10 +3,15 @@ using UnityEngine;
 public class MapMessageManager : MonoBehaviour
 {
     public GameObject shader;
+    public GameObject storeMessage;
     public bool messageOnScreen = false;
 
     public void ShowLevelMessage(int lvlCode, int stageCode = 1)
     {   
+        if (messageOnScreen)
+        {
+            return;
+        }
         Transform auxTrans = transform.Find("LevelPresentationMessage" + lvlCode);
         if (auxTrans == null)
             return;
@@ -20,7 +25,21 @@ public class MapMessageManager : MonoBehaviour
     {
         shader.SetActive(false);
         message.SetActive(false);
-        //isPaused = false;
         messageOnScreen = false;
     }
+
+    public void OpenStore()
+    {
+        shader.SetActive(true);
+        storeMessage.SetActive(true);
+        messageOnScreen = true;
+    }
+
+    public void CloseStore()
+    {
+        shader.SetActive(false);
+        storeMessage.SetActive(false);
+        messageOnScreen = false;
+    }
+
 }

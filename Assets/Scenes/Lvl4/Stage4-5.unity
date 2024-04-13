@@ -9296,6 +9296,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1255469263681175279, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: coinObtained
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 1715595830711995674, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_RootOrder
@@ -9547,6 +9552,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3250874807881098396, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3250874807881098396, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3250874807881098396, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3879348273464800413, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_Text
@@ -9666,30 +9686,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 8481094432099046503, guid: c7b202ae4dba84871811aa7c44bc43e3,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1207991586}
-    - target: {fileID: 8481094432099046503, guid: c7b202ae4dba84871811aa7c44bc43e3,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Switch
-      objectReference: {fileID: 0}
-    - target: {fileID: 8481094432099046503, guid: c7b202ae4dba84871811aa7c44bc43e3,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: SwitchMessage, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 8536141735300943603, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8576215840805864516, guid: c7b202ae4dba84871811aa7c44bc43e3,
-        type: 3}
-      propertyPath: m_Text
-      value: continue
       objectReference: {fileID: 0}
     - target: {fileID: 8584349168261066136, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
@@ -9728,27 +9728,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1207991581}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1207991585 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4462540637395414638, guid: c7b202ae4dba84871811aa7c44bc43e3,
-    type: 3}
-  m_PrefabInstance: {fileID: 1207991581}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1207991586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1207991585}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9504f594d16146c3b7a38932c3e1e94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextMessage: {fileID: 1639176382}
-  turnShaderOff: 0
-  shader: {fileID: 0}
 --- !u!1001 &1373839358
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10088,12 +10067,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4317a480abfeb4491af35141a980d8e0, type: 3}
---- !u!1 &1639176382 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1316667429294487053, guid: 4317a480abfeb4491af35141a980d8e0,
-    type: 3}
-  m_PrefabInstance: {fileID: 1639176381}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1736441726
 GameObject:
   m_ObjectHideFlags: 0

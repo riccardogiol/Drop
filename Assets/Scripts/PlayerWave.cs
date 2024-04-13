@@ -15,7 +15,7 @@ public class PlayerWave : MonoBehaviour
     PlayerMovementKeys playerMovementKeys;
     PlayerAnimationManager animator;
 
-    readonly string unlockingCode1 = "Lvl5";
+    readonly string unlockingCode1 = "WavePurchased";
 
     public int powerUsage;
 
