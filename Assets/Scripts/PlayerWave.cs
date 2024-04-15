@@ -17,6 +17,9 @@ public class PlayerWave : MonoBehaviour
 
     readonly string unlockingCode1 = "WavePurchased";
 
+    readonly string unlockingCode2 = "Wave1Purchased";
+    readonly float cooldown2 = 0.8f;
+
     public int powerUsage;
 
 
@@ -32,6 +35,9 @@ public class PlayerWave : MonoBehaviour
         playerMovementKeys = GetComponent<PlayerMovementKeys>();
         timer = 0;
         ButtonFiller[] buttonFillers = FindObjectsOfType<ButtonFiller>();
+
+        if (PlayerPrefs.GetInt(unlockingCode2, 0) == 1)
+            cooldown = cooldown2;
         foreach (var bf in buttonFillers)
         {
             if (bf.gameObject.name == "WaveButton")

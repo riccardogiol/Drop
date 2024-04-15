@@ -55,18 +55,22 @@ public class ButtonActivationManager : MonoBehaviour
             return;
         if (PlayerPrefs.GetInt(unlockingCode, 0) == 0)
         {
-            trail.color = new Color(0.3f, 0.3f, 0.3f);
+            if (trail != null)
+                trail.color = new Color(0.3f, 0.3f, 0.3f);
             image.color = new Color(0.7f, 0.7f, 0.7f);
         } else {
-            trail.color = new Color(214f/255, 196f/255, 66f/255);
+            if (trail != null)
+                trail.color = new Color(214f/255, 196f/255, 66f/255);
             image.color = new Color(0.86f, 0.82f, 0.56f);
         }
         
         if (PlayerPrefs.GetInt(buttonKeyCode, 0) == 1)
         {
-            trail.color = new Color(157f/255, 214f/255, 66f/255);
+            if (trail != null)
+                trail.color = new Color(157f/255, 214f/255, 66f/255);
             image.color = new Color(0.54f, 0.70f, 0.32f);
-            image.sprite = activatedSpot;
+            if (activatedSpot != null)
+                image.sprite = activatedSpot;
         }
     }
 }

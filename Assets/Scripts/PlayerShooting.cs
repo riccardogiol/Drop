@@ -10,12 +10,9 @@ public class PlayerShooting : MonoBehaviour
     float cooldown = 1.5f;
 
     readonly string unlockingCode1 = "Lvl3";
-    /*
-    readonly string unlockingCode2 = "Lvl6";
-    readonly float bulletRange2 = 6.0f;
-    readonly string unlockingCode3 = "Lvl7";
-    readonly int bulletDamege3 = 6; // or bulletEnergy = 2
-    */
+    
+    readonly string unlockingCode2 = "Wave1Purchased";
+    readonly float cooldown2 = 0.8f;
 
     public Transform shootingPoint;
     float timer;
@@ -42,6 +39,10 @@ public class PlayerShooting : MonoBehaviour
         playerMovementKeys = GetComponent<PlayerMovementKeys>();
         playerHealth = GetComponent<PlayerHealth>();
         timer = 0;
+        
+        if (PlayerPrefs.GetInt(unlockingCode2, 0) == 1)
+            cooldown = cooldown2;
+
         ButtonFiller[] buttonFillers = FindObjectsOfType<ButtonFiller>();
         foreach (var bf in buttonFillers)
         {

@@ -4,6 +4,7 @@ public class SelectUpgradeButton : MonoBehaviour
 {
     ButtonActivationManager buttonActivationManager;
     public string upgradeTitle;
+    [TextArea]
     public string upgradeDescription;
     public int upgradePrice;
     public Sprite powerSprite;

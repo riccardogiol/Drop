@@ -10,6 +10,8 @@ public class InitializePlayerPrefs : MonoBehaviour
         PlayerPrefs.SetInt("Upgrade1", 0);
         PlayerPrefs.SetInt("Upgrade2", 0);
         PlayerPrefs.SetInt("WavePurchased", 0);
+        PlayerPrefs.SetInt("SuperPurchased", 0);
+        PlayerPrefs.SetInt("Super1Purchased", 0);
     }
 
 }
