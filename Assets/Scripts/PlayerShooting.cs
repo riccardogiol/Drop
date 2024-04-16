@@ -117,4 +117,9 @@ public class PlayerShooting : MonoBehaviour
         bullet.GetComponent<Bullet>().playgroundManager = playgroundManager;
         bullet.GetComponent<Rigidbody2D>().velocity = playerDirection.lastDirection * bulletSpeed;
     }
+
+    public void SetBulletCost(int value)
+    {
+        bulletEnergy = value;
+    }
 }

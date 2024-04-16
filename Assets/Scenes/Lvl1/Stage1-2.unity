@@ -6071,8 +6071,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TileSpriteArray.Array.data[1].m_Data
       value: 
-      objectReference: {fileID: -1132797196, guid: cd8c33599541a437dac17e1327dd88c1,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 7375164596223087192, guid: 7d19396bf7baf4454a1ea3fcd2ae69ab,
         type: 3}
       propertyPath: m_TileSpriteArray.Array.data[2].m_Data
@@ -6095,7 +6094,8 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TileSpriteArray.Array.data[6].m_Data
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: -1132797196, guid: cd8c33599541a437dac17e1327dd88c1,
+        type: 3}
     - target: {fileID: 7375164596223087192, guid: 7d19396bf7baf4454a1ea3fcd2ae69ab,
         type: 3}
       propertyPath: m_TileSpriteArray.Array.data[8].m_Data
@@ -6120,7 +6120,7 @@ PrefabInstance:
     - target: {fileID: 7375164596223087192, guid: 7d19396bf7baf4454a1ea3fcd2ae69ab,
         type: 3}
       propertyPath: m_TileSpriteArray.Array.data[1].m_RefCount
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7375164596223087192, guid: 7d19396bf7baf4454a1ea3fcd2ae69ab,
         type: 3}
@@ -6145,7 +6145,7 @@ PrefabInstance:
     - target: {fileID: 7375164596223087192, guid: 7d19396bf7baf4454a1ea3fcd2ae69ab,
         type: 3}
       propertyPath: m_TileSpriteArray.Array.data[6].m_RefCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7375164596223087192, guid: 7d19396bf7baf4454a1ea3fcd2ae69ab,
         type: 3}
@@ -6185,7 +6185,7 @@ PrefabInstance:
     - target: {fileID: 7375164596223087192, guid: 7d19396bf7baf4454a1ea3fcd2ae69ab,
         type: 3}
       propertyPath: m_Tiles.Array.data[6].second.m_TileSpriteIndex
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7375164596223087192, guid: 7d19396bf7baf4454a1ea3fcd2ae69ab,
         type: 3}
@@ -8032,6 +8032,7 @@ GameObject:
   - component: {fileID: 1645039367}
   - component: {fileID: 1645039366}
   - component: {fileID: 1645039365}
+  - component: {fileID: 1645039368}
   m_Layer: 5
   m_Name: ContinueButton
   m_TagString: Untagged
@@ -8154,6 +8155,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1645039363}
   m_CullTransparentMesh: 1
+--- !u!114 &1645039368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645039363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e4fbd4b0d72c4fcda5e03dcbdf2cc95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Yvalue: -150
+  Xvalue: 0
 --- !u!1 &1662532895
 GameObject:
   m_ObjectHideFlags: 0
@@ -8360,6 +8375,7 @@ GameObject:
   - component: {fileID: 1810170665}
   - component: {fileID: 1810170667}
   - component: {fileID: 1810170666}
+  - component: {fileID: 1810170668}
   m_Layer: 5
   m_Name: MessageBox
   m_TagString: Untagged
@@ -8428,6 +8444,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1810170664}
   m_CullTransparentMesh: 1
+--- !u!114 &1810170668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1810170664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e4fbd4b0d72c4fcda5e03dcbdf2cc95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Yvalue: -150
+  Xvalue: 0
 --- !u!1001 &1843101833
 PrefabInstance:
   m_ObjectHideFlags: 0

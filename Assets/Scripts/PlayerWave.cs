@@ -103,4 +103,10 @@ public class PlayerWave : MonoBehaviour
         wave.GetComponent<Wave>().damage = waveDamage;
         wave.GetComponent<Wave>().playgroundManager = playgroundManager;
     }
+
+    
+    public void SetWaveCost(int value)
+    {
+        waveEnergy = value;
+    }
 }

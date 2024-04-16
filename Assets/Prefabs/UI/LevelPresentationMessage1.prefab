@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3438515303140057438}
   - component: {fileID: 7924431065260569414}
   - component: {fileID: 6273753198535687943}
+  - component: {fileID: 4543855108685893272}
   m_Layer: 5
   m_Name: LevelPresentationMessage1
   m_TagString: Untagged
@@ -118,6 +119,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonName: StartButton
+--- !u!114 &4543855108685893272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 317621877041574442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e19a517a730141599114ad4fe877c5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  widthP: 800
+  heightP: 1200
 --- !u!1 &1137639153390040182
 GameObject:
   m_ObjectHideFlags: 0
@@ -584,6 +599,7 @@ GameObject:
   - component: {fileID: 1598168082915700539}
   - component: {fileID: 1598168082915700538}
   - component: {fileID: 1598168082915700537}
+  - component: {fileID: 5151447120277982742}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -706,6 +722,20 @@ MonoBehaviour:
           m_StringArgument: Lvl1
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5151447120277982742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1598168082915700519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19862d39fdac047e98668a04badd3a16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleXP: 1.3
+  scaleYP: 1.3
 --- !u!1 &1767362200174777625
 GameObject:
   m_ObjectHideFlags: 0
@@ -795,6 +825,7 @@ GameObject:
   - component: {fileID: 1053717968920545769}
   - component: {fileID: 5538123226045956370}
   - component: {fileID: 5491203002432276515}
+  - component: {fileID: 5423720986534858992}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -917,6 +948,20 @@ MonoBehaviour:
           m_StringArgument: 1
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5423720986534858992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2473748954363886842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19862d39fdac047e98668a04badd3a16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleXP: 1.3
+  scaleYP: 1.3
 --- !u!1 &2536708122375725349
 GameObject:
   m_ObjectHideFlags: 0
@@ -928,6 +973,8 @@ GameObject:
   - component: {fileID: 7645232426905687902}
   - component: {fileID: 3549223194126762928}
   - component: {fileID: 453688889823939472}
+  - component: {fileID: 2228277921432880684}
+  - component: {fileID: 5524733853237346850}
   m_Layer: 5
   m_Name: ImageBox
   m_TagString: Untagged
@@ -995,6 +1042,34 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1.5
+--- !u!114 &2228277921432880684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2536708122375725349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e4fbd4b0d72c4fcda5e03dcbdf2cc95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Yvalue: 222
+  Xvalue: 288
+--- !u!114 &5524733853237346850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2536708122375725349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19862d39fdac047e98668a04badd3a16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleXP: 1.3
+  scaleYP: 1.3
 --- !u!1 &4417615041555137685
 GameObject:
   m_ObjectHideFlags: 0
@@ -1086,6 +1161,8 @@ GameObject:
   - component: {fileID: 7003355390911480148}
   - component: {fileID: 7339586283729796088}
   - component: {fileID: 1902944635237738924}
+  - component: {fileID: 2007664328127540053}
+  - component: {fileID: 7303964561279905170}
   m_Layer: 5
   m_Name: DescriptionBox
   m_TagString: Untagged
@@ -1153,6 +1230,34 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1.5
+--- !u!114 &2007664328127540053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4511212637464398168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e4fbd4b0d72c4fcda5e03dcbdf2cc95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Yvalue: -200
+  Xvalue: -111
+--- !u!114 &7303964561279905170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4511212637464398168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e19a517a730141599114ad4fe877c5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  widthP: 600
+  heightP: 400
 --- !u!1 &4535291114224662000
 GameObject:
   m_ObjectHideFlags: 0
@@ -1324,6 +1429,7 @@ GameObject:
   - component: {fileID: 4662437092684910403}
   - component: {fileID: 840465132916397132}
   - component: {fileID: 6614856200633849795}
+  - component: {fileID: 6589245364502982800}
   m_Layer: 5
   m_Name: DescriptionText
   m_TagString: Untagged
@@ -1393,6 +1499,19 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: The animal has not been rescued from the fire yet
+--- !u!114 &6589245364502982800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7131608343782269128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0790f43911664f7a93fbbb93fd8fff9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fontSizeP: 36
 --- !u!1 &7232286560980253348
 GameObject:
   m_ObjectHideFlags: 0
