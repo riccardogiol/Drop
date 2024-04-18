@@ -6,9 +6,7 @@ public class HealthBar : MonoBehaviour
     public Slider slider;
     public Text hp;
 
-    public GameObject barBackgroundImage;
     public GameObject barMaskImage;
-    public GameObject barBackgroundParent;
     public GameObject barMaskParent;
     public GameObject barTop;
     Animator animator;
@@ -25,24 +23,18 @@ public class HealthBar : MonoBehaviour
     {
         slider.maxValue = maxHealth;
         slider.value = 0;
-        int numIcons = maxHealth/2;
-        rectTransform.sizeDelta = new Vector2(numIcons*50, 100);
+        rectTransform.sizeDelta = new Vector2(maxHealth*25, 100);
 
         GameObject goRef;
-        for (int i = 0; i < numIcons; i++)
+        for (int i = 0; i < maxHealth; i++)
         {
-            goRef = Instantiate(barBackgroundImage, new Vector2(0, 0), Quaternion.identity);
-            goRef.transform.SetParent(barBackgroundParent.transform);
-            goRef.GetComponent<RectTransform>().anchoredPosition = new Vector2(50*i, 0);
-            goRef.transform.localScale = Vector3.one;
-    
             goRef = Instantiate(barMaskImage, new Vector2(0, 0), Quaternion.identity);
             goRef.transform.SetParent(barMaskParent.transform);
-            goRef.GetComponent<RectTransform>().anchoredPosition = new Vector2(50*i, 0);
+            goRef.GetComponent<RectTransform>().anchoredPosition = new Vector2(25*i, 0);
             goRef.transform.localScale = Vector3.one;
         }
-        barTop.GetComponent<RectTransform>().anchoredPosition = new Vector2(50*numIcons, 0);
 
+        barTop.GetComponent<RectTransform>().anchoredPosition = new Vector2(25*maxHealth, 0);
     }
 
     public void SetHealth(int currentHealth)

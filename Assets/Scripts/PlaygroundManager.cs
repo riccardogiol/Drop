@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Configuration;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -416,6 +415,11 @@ public class PlaygroundManager : MonoBehaviour
             if(child.gameObject.CompareTag("Waterdrop"))
                 child.GetComponent<EnergyIndicator>().ShowEnergy();
         }
+        foreach(Transform child in decorationManager.transform)
+        {
+            if(child.gameObject.CompareTag("Superdrop"))
+                child.GetComponent<EnergyIndicator>().ShowEnergy();
+        }
         stageManager.ShowButtonDescription();
     }
 
@@ -433,6 +437,20 @@ public class PlaygroundManager : MonoBehaviour
             if(child.gameObject.CompareTag("Waterdrop"))
                 child.GetComponent<EnergyIndicator>().HideEnergy();
         }
+        foreach(Transform child in decorationManager.transform)
+        {
+            if(child.gameObject.CompareTag("Superdrop"))
+                child.GetComponent<EnergyIndicator>().ShowEnergy();
+        }
         stageManager.HideButtonDescription();
+    }
+
+    public void EstinguishAllFlames()
+    {
+        foreach(Transform child in flameParent.transform)
+        {
+            if (child.GetComponent<PickFlame>() != null)
+                child.GetComponent<PickFlame>().DestroyFlame();
+        }
     }
 }

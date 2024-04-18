@@ -83,7 +83,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 2
   m_SpriteSortPoint: 1
 --- !u!95 &1468620817856862184
 Animator:
@@ -183,6 +183,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBurnt: 1
   reactOnWater: 0
+  greenSprite: {fileID: 0}
+  burntSprite: {fileID: 0}
   decoAnimator: {fileID: 1468620817856862184}
   waterParticles: {fileID: 8101247488794350730}
   leavesParticles: {fileID: 6227016013280429003}

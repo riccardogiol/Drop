@@ -8,6 +8,7 @@ public class EnergyIndicator : MonoBehaviour
     public Image image;
     public PickFlame flame;
     public PickWaterdrop waterdrop;
+    public PickSuperdrop superdrop;
     public EnemyHealth enemyHealth;
     public EnemyAIPatrolMovement patrolMovement;
 
@@ -20,8 +21,10 @@ public class EnergyIndicator : MonoBehaviour
             valueToDisplay = flame.energy;
         else if (waterdrop != null)
             valueToDisplay = waterdrop.energy;
+        else if (superdrop != null)
+            valueToDisplay = superdrop.energy;
         else if (enemyHealth != null)
-            valueToDisplay = enemyHealth.currentHealth; // display current and max!
+            valueToDisplay = enemyHealth.currentHealth; // display current and max! or directly a bar?
         else
             valueToDisplay = 0;
         SetText();
@@ -32,7 +35,7 @@ public class EnergyIndicator : MonoBehaviour
     void SetText()
     {
         text.enabled = true;
-        if (waterdrop != null)
+        if (waterdrop != null || superdrop != null)
             text.text = "+" + valueToDisplay;
         else
             text.text = "-" + valueToDisplay;

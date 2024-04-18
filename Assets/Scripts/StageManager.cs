@@ -77,6 +77,7 @@ public class StageManager : MonoBehaviour
         if (gameOver)
             yield break;
         FindFirstObjectByType<PlaygroundManager>().MakeRain(true, waterTiles);
+        FindFirstObjectByType<PlaygroundManager>().EstinguishAllFlames();
         cameraAnimationManager.StartEndingAnimation();
         
         try {

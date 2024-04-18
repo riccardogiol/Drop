@@ -8,14 +8,13 @@ public class PickSuperdrop : MonoBehaviour
 
     readonly int[] energyValues = {1, 2, 3};
     readonly int maxEnergy = 3;
-    //SpriteChangingOnValue spriteChanger;
+    SpriteChangingOnValue spriteChanger;
 
-    public GameObject takeWaterBurstPrefab;
-    public GameObject vaporBurstPrefab;
+    public GameObject takeLightningBurstPrefab;
 
     void Awake()
     {
-        //spriteChanger = GetComponent<SpriteChangingOnValue>();
+        spriteChanger = GetComponent<SpriteChangingOnValue>();
         if (randomEnergy)
         {
             int randomIndex = UnityEngine.Random.Range(0, energyValues.Length-1);
@@ -26,16 +25,13 @@ public class PickSuperdrop : MonoBehaviour
 
     public void ScaleOnEnergy()
     {
-        //spriteChanger.Evaluate(energy);
+        spriteChanger.Evaluate(energy);
     }
 
     public void RechargeEnergy(int energyIncome)
     {
         energy = Math.Min(maxEnergy, energy + energyIncome);
-        if (energyIncome > 0)
-            PlayWaterBurst();
-        else
-            PlayVaporBurst();
+        PlayLightningBurst();
         ScaleOnEnergy();
     }
 
@@ -46,62 +42,45 @@ public class PickSuperdrop : MonoBehaviour
         case "Player":
             other.GetComponent<PlayerSuperPower>().Recharge(energy);
             FindObjectOfType<AudioManager>().Play("PickWater");
-            PlayWaterBurst();
-            DestroyWaterdrop();
+            PlayLightningBurst();
+            DestroySuperdrop();
             break;
-        /*
         case "Enemy":
-            other.GetComponent<EnemyHealth>().TakeDamage(energy);
-            PlayVaporBurst();
-            DestroyWaterdrop();
+            other.GetComponent<EnemyHealth>().FillReservoir(energy);
+            DestroySuperdrop();
             break ;
         case "Flame":
-            int otherEnergy = other.GetComponent<PickFlame>().energy;
-            if (otherEnergy < energy)
-            {
-                RechargeEnergy(-otherEnergy);
-                other.GetComponent<PickFlame>().DestroyFlame();
-            } else {
-                other.GetComponent<PickFlame>().energy -= energy;
-                other.GetComponent<PickFlame>().ScaleOnEnergy();
-                PlayVaporBurst();
-                DestroyWaterdrop();
-            }
+            other.GetComponent<PickFlame>().RechargeEnergy(energy);
+            other.GetComponent<PickFlame>().ScaleOnEnergy();
+            DestroySuperdrop();
             break;
         case "Waterdrop":
-            if (other.GetComponent<PickWaterdrop>().energy >= energy)
+            other.GetComponent<PickWaterdrop>().RechargeEnergy(energy);
+            other.GetComponent<PickWaterdrop>().ScaleOnEnergy();
+            DestroySuperdrop();
+            break;
+        case "Superdrop":
+            if (other.GetComponent<PickSuperdrop>().energy >= energy)
             {
-                other.GetComponent<PickWaterdrop>().RechargeEnergy(energy);
-                DestroyWaterdrop();
+                other.GetComponent<PickSuperdrop>().RechargeEnergy(energy);
+                DestroySuperdrop();
             }
             break;
-        case "Grass":
-            FindObjectOfType<PlaygroundManager>().WaterOnPosition(transform.position);
-            break;
         case "Wall":
-            FindObjectOfType<PlaygroundManager>().WaterOnPosition(transform.position);
-            PlayWaterBurst();
-            DestroyWaterdrop();
+            DestroySuperdrop();
             break;
         case "Decoration":
-            PlayWaterBurst();
-            DestroyWaterdrop();
+            DestroySuperdrop();
             break;
-        */
         }
     }
 
-    public void PlayWaterBurst()
+    public void PlayLightningBurst()
     {
-        Instantiate(takeWaterBurstPrefab, transform.position, Quaternion.identity);
+        Instantiate(takeLightningBurstPrefab, transform.position, Quaternion.identity);
     }
 
-    public void PlayVaporBurst()
-    {
-        Instantiate(vaporBurstPrefab, transform.position, Quaternion.identity);
-    }
-
-    public void DestroyWaterdrop()
+    public void DestroySuperdrop()
     {
         Destroy(gameObject);
     }

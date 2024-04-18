@@ -947,6 +947,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Yvalue: 100
   Xvalue: 0
+--- !u!1 &121751353 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7232286560980253348, guid: ca691ae4f3e014057a411460eb5423a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 2088334244}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &121751357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121751353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef05307b2f5a94c19ad3ef549fedff0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: Lvl5
+  width: 100
+  height: 100
 --- !u!1001 &123968921
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8990,6 +9011,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 901558231}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &932171425 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7131608343782269128, guid: ca691ae4f3e014057a411460eb5423a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 2088334244}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &932171430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932171425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40abff7cb306e4eadb5903c7a7b08fa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: Lvl5
+  fontSize: 22
 --- !u!1001 &946513226
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9888,6 +9929,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6320090765939370754, guid: ced3916433b5d410fa6a4276dda0ad92,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ced3916433b5d410fa6a4276dda0ad92, type: 3}
 --- !u!114 &1020267769 stripped
@@ -10075,6 +10121,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 808838775}
     m_Modifications:
+    - target: {fileID: 5518236711149801051, guid: 7bcf063f4846448ccaadc318cb1bf5ea,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5831071956751903874, guid: 7bcf063f4846448ccaadc318cb1bf5ea,
         type: 3}
       propertyPath: m_RootOrder
@@ -14765,7 +14816,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1566114202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23298,6 +23349,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: Level 5
       objectReference: {fileID: 0}
+    - target: {fileID: 6589245364502982800, guid: ca691ae4f3e014057a411460eb5423a3,
+        type: 3}
+      propertyPath: fontSizeP
+      value: 26
+      objectReference: {fileID: 0}
     - target: {fileID: 6614856200633849795, guid: ca691ae4f3e014057a411460eb5423a3,
         type: 3}
       propertyPath: m_Text
@@ -23421,7 +23477,14 @@ PrefabInstance:
     - target: {fileID: 7924431065260569414, guid: ca691ae4f3e014057a411460eb5423a3,
         type: 3}
       propertyPath: TrophyDescription
-      value: Most of the forest wildfire are caused by cigarette butt. [WIP]
+      value: 'The majority of forest fires are caused by human intervention (over
+        80%).
+
+        One of the main cause of human-triggered forest fires is the
+        irresponsible behavior of discarding cigarette butts.
+
+        Please refrain
+        from dispersing cigarette butts in natural environments.'
       objectReference: {fileID: 0}
     - target: {fileID: 7924431065260569414, guid: ca691ae4f3e014057a411460eb5423a3,
         type: 3}
@@ -23970,6 +24033,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2036009500296732963}
     m_Modifications:
+    - target: {fileID: 1473433583370522580, guid: 9c62499f7c5e24ec29ded221f704dc26,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5831071956751903874, guid: 9c62499f7c5e24ec29ded221f704dc26,
         type: 3}
       propertyPath: m_RootOrder
@@ -25182,10 +25250,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 652f7165b7c30ab46af6c4aad90a639b, type: 2}
-    m_FontSize: 32
+    m_FontSize: 26
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0

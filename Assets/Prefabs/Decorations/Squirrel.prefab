@@ -117,6 +117,7 @@ GameObject:
   - component: {fileID: 5831071956751903874}
   - component: {fileID: 5831071956751903885}
   - component: {fileID: 5831071956751903884}
+  - component: {fileID: 5518236711149801051}
   m_Layer: 6
   m_Name: Squirrel
   m_TagString: Decoration
@@ -181,13 +182,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBurnt: 1
   reactOnWater: 1
+  greenSprite: {fileID: 0}
+  burntSprite: {fileID: 0}
   decoAnimator: {fileID: 4594055453069162625}
   waterParticles: {fileID: 8692842919302474259}
   leavesParticles: {fileID: 0}
+  burntLeavesParticles: {fileID: 0}
   flowerStarter: {fileID: 0}
   touchingCellsCoordinates:
   - x: 0
     y: 0
+  colorAdjustmentMaterial: {fileID: 0}
+--- !u!114 &5518236711149801051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5831071956751903875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 477297663b888458cad4a47028f629cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  superdropPrefab: {fileID: 846535088814142963, guid: 4c02d9cfb759c4b81ad282ad2e86c539,
+    type: 3}
+  lightningBurstPrefab: {fileID: 7261966851134090421, guid: 74436484ca5a445a1882058e8ac9169b,
+    type: 3}
+  timer: 5
+  spawnDropProb: 0.2
+  spawnSpot: {x: 1, y: 0, z: 0}
 --- !u!1001 &5524826282660667013
 PrefabInstance:
   m_ObjectHideFlags: 0
