@@ -40,6 +40,9 @@ public class ChangeAspect : MonoBehaviour
         touchingCells = new List<Vector3>();
         foreach(int2 point in touchingCellsCoordinates)
             touchingCells.Add(transform.position + new Vector3(point.x + 0.5f, point.y + 0.5f));
+        
+        if (colorAdjustmentMaterial != null)
+            spriteRenderer.material = new Material(colorAdjustmentMaterial);
     }
 
     void Start()
@@ -92,6 +95,7 @@ public class ChangeAspect : MonoBehaviour
         }
     }
 
+/*
     void OnTriggerEnter2D(Collider2D other)
     {
         if (!reactOnWater)
@@ -104,6 +108,7 @@ public class ChangeAspect : MonoBehaviour
                 break;
         }
     }
+    */
 
     public void FlipX()
     {
@@ -115,13 +120,22 @@ public class ChangeAspect : MonoBehaviour
     {
         if (spriteRenderer != null && colorAdjustmentMaterial != null)
         {
-            spriteRenderer.material = new Material(colorAdjustmentMaterial);
             if (hue < 0)
                 spriteRenderer.material.SetFloat("_Hue", 1 + hue);
             else
                 spriteRenderer.material.SetFloat("_Hue", hue);
             spriteRenderer.material.SetFloat("_Brightness", brightness);
         }
+    }
+
+    public void SetTransparancy(bool transparent)
+    {
+
+        if (transparent)
+            spriteRenderer.material.SetInt("_HalfTransparent", 1);
+        else
+            spriteRenderer.material.SetInt("_HalfTransparent", 0);
+            
     }
 
 }

@@ -26,12 +26,6 @@ public class Bullet : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    void FixedUpdate()
-    {
-        //if (Vector2.Distance(startingPosition, transform.position) > range)
-            //DestroyBullet();
-    }
-
     void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log(other.tag);
@@ -58,18 +52,28 @@ public class Bullet : MonoBehaviour
                 playgroundManager.WaterOnPosition(other.transform.position);
                 DestroyBullet();
                 break;
-             case "Decoration":
-                if (other.GetComponent<ChangeAspect>().reactOnWater)
+            case "Decoration":
+                if (other.GetComponent<ChangeAspect>() != null)
                 {
-                    playgroundManager.WaterOnPosition(other.transform.position);
-                    other.GetComponent<ChangeAspect>().SetGreenSprite();
+                    if (other.GetComponent<ChangeAspect>().reactOnWater)
+                    {
+                        playgroundManager.WaterOnPosition(other.transform.position);
+                        other.GetComponent<ChangeAspect>().SetGreenSprite();
+                    }
+                } else if (other.GetComponent<RootTriggerLogic>() != null)
+                {
+                    if (other.GetComponent<RootTriggerLogic>().reactOnWater)
+                    {
+                        playgroundManager.WaterOnPosition(other.transform.position);
+                        other.GetComponent<RootTriggerLogic>().SetGreenSprite();
+                    }
                 }
                 DestroyBullet();
                 break;
-             case "DecorationNoFire":
+            case "DecorationNoFire":
                 DestroyBullet();
                 break;
-             case "Insect":
+            case "Insect":
                 playgroundManager.WaterOnPosition(other.transform.position);
                 other.GetComponent<ChangeAspect>().SetGreenSprite();
                 DestroyBullet();
