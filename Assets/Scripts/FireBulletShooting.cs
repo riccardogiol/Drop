@@ -3,8 +3,8 @@ using UnityEngine;
 public class FireBulletShooting : MonoBehaviour
 {
     public GameObject bulletPrefab;
-    float bulletSpeed = 6f;
-    int bulletDamage = 4;
+    public float bulletSpeed = 4.5f;
+    public int bulletDamage = 4;
     public float timer = 2f;
 
     public Transform shootingPoint;

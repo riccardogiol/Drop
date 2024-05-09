@@ -39,8 +39,10 @@ public class PickFlame : MonoBehaviour
         switch (other.tag)
         {
         case "Enemy":
+            if (other.GetComponent<EnemyHealth>().maxHealth == other.GetComponent<EnemyHealth>().currentHealth)
+                break;
             other.GetComponent<EnemyHealth>().FillReservoir(energy);
-            DestroyFlame();
+            DestroyFlame(false);
             break;
         case "Flame":
             if (other.GetComponent<PickFlame>().energy == energy)
@@ -52,7 +54,7 @@ public class PickFlame : MonoBehaviour
             if (other.GetComponent<PickFlame>().energy > energy)
             {
                 other.GetComponent<PickFlame>().RechargeEnergy(energy);
-                DestroyFlame();
+                DestroyFlame(false);
             }
             break;
         case "Grass":
@@ -75,14 +77,15 @@ public class PickFlame : MonoBehaviour
         }
     }
 
-    public void DestroyFlame()
+    public void DestroyFlame(bool byWater = true)
     {
         GetComponent<Collider2D>().enabled = false;
         PlaygroundManager pgRef = FindObjectOfType<PlaygroundManager>();
         if (pgRef != null)
         {
             pgRef.FlameEstinguished();
-            pgRef.WaterOnPosition(transform.position);
+            if (byWater)
+                pgRef.WaterOnPosition(transform.position);
         }
         
         Instantiate(vaporBurstPrefab, transform.position, Quaternion.identity);

@@ -418,7 +418,7 @@ GameObject:
   - component: {fileID: 5184621122123990544}
   - component: {fileID: 1045431984353554495}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: ChasingEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -494,6 +494,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   currentHealth: 20
+  scaleGFX: 1
+  healthOnProgBar: 0
+  logoOnProgBar: {fileID: 0}
+  animator: {fileID: 0}
   enemyGFX: {fileID: 2878689735299882629}
   vaporBurstPrefab: {fileID: 2932825668177330008, guid: 5a0db5a8bb6544822be5283d9c96fc30,
     type: 3}
@@ -546,7 +550,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5216817755464628964}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ee70b7e2e9bb49a5966866df4a03af9, type: 3}
   m_Name: 
@@ -634,6 +638,7 @@ MonoBehaviour:
   image: {fileID: 4076543078214466226}
   flame: {fileID: 0}
   waterdrop: {fileID: 0}
+  superdrop: {fileID: 0}
   enemyHealth: {fileID: 5216817755464628960}
   patrolMovement: {fileID: 2837100105941273716}
   patrolIcon: {fileID: 21300000, guid: 66a554bb4c2234b06acc2624a7c203ff, type: 3}

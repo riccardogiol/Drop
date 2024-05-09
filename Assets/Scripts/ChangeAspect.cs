@@ -18,6 +18,7 @@ public class ChangeAspect : MonoBehaviour
     public ParticleSystem leavesParticles;
     public ParticleSystem burntLeavesParticles;
     public GameObject flowerStarter;
+    public GameObject fireBarrier;
     public List<int2> touchingCellsCoordinates;
     List<Vector3> touchingCells;
     PlaygroundManager playgroundManager;
@@ -65,6 +66,8 @@ public class ChangeAspect : MonoBehaviour
             leavesParticles.Play();
         if (flowerStarter != null)
             Instantiate(flowerStarter, transform.position, Quaternion.identity);
+        if (fireBarrier != null)
+            fireBarrier.GetComponent<FireBarrierEffectManager>().Estinguish();
 
         if (decoAnimator != null)
             decoAnimator.SetBool("IsBurnt", isBurnt);
@@ -94,21 +97,6 @@ public class ChangeAspect : MonoBehaviour
                 playgroundManager.FireOnPosition(point);
         }
     }
-
-/*
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (!reactOnWater)
-            return;
-        switch(other.tag)
-        {
-            case "Waterbullet":
-            case "Wave":
-                SetGreenSprite();
-                break;
-        }
-    }
-    */
 
     public void FlipX()
     {
