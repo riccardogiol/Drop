@@ -4,7 +4,7 @@ using UnityEngine;
 public class PickWaterBomb : MonoBehaviour
 {
     public GameObject bulletPrefab;
-    float bulletSpeed = 7f;
+    float bulletSpeed = 5f;
     int bulletEnergy = 2;
     int bulletDamage = 4;
 
@@ -33,7 +33,12 @@ public class PickWaterBomb : MonoBehaviour
 
     IEnumerator DelayedTrigger()
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.2f);
+        InstantTrigger();
+    }
+
+    void InstantTrigger()
+    {
         Shoot(new Vector3(1, 0));
         Shoot(new Vector3(-1, 0));
         Shoot(new Vector3(0, 1));
@@ -72,6 +77,14 @@ public class PickWaterBomb : MonoBehaviour
         {
         case "Grass":
             FindObjectOfType<PlaygroundManager>().WaterOnPosition(other.transform.position);
+            break;
+        case "Enemy":
+            other.GetComponent<EnemyHealth>().TakeDamage(bombEnergy);
+            InstantTrigger();
+            break;
+        case "Flame":
+            other.GetComponent<PickFlame>().DestroyFlame();
+            InstantTrigger();
             break;
         }
     }

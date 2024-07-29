@@ -46,7 +46,10 @@ public class Bullet : MonoBehaviour
                 return;
             case "Player":
                 if (!shootByPlayer)
+                {
+                    other.GetComponent<PlayerHealth>().FillReservoir(2);
                     DestroyBullet();
+                }
                 break;
             case "Wall":
                 playgroundManager.WaterOnPosition(other.transform.position);
