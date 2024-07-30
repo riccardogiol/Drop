@@ -35,7 +35,12 @@ public class ChangeAspect : MonoBehaviour
         if (decoAnimator != null)
             decoAnimator.SetBool("IsBurnt", isBurnt);
         else if (spriteRenderer != null)
-            spriteRenderer.sprite = burntSprite;
+        {
+            if (isBurnt)
+                spriteRenderer.sprite = burntSprite;
+            else
+                spriteRenderer.sprite = greenSprite;
+        }
 
         playgroundManager = FindFirstObjectByType<PlaygroundManager>();
         touchingCells = new List<Vector3>();
