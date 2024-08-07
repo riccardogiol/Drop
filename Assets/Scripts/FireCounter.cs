@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class FireCounter : MonoBehaviour
@@ -28,6 +29,6 @@ public class FireCounter : MonoBehaviour
 
     public float FireValue()
     {
-        return flameCounter * flameValue + wildfireCounter * wildfireValue;
+        return Math.Max(flameCounter, 0) * flameValue + Math.Max(wildfireCounter, 0) * wildfireValue;
     }
 }

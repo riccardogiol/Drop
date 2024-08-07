@@ -21,7 +21,6 @@ public class FireBulletShooting : MonoBehaviour
         enemyDirection = GetComponent<EnemyDirectionController>();
         countdown = timer;
         playgroundManager = FindFirstObjectByType<PlaygroundManager>();
-        //animator = FindFirstObjectByType<PlayerAnimationManager>();
     }
 
     void Update()
@@ -43,8 +42,6 @@ public class FireBulletShooting : MonoBehaviour
     {
         if (MenusManager.isPaused)
             return;
-        //if (animator != null)
-        //    animator.PlayShooting();
         Shoot();
     }
 
@@ -53,6 +50,7 @@ public class FireBulletShooting : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, shootingPoint.position + (Vector3)(enemyDirection.lastDirection * 0.2f), Quaternion.LookRotation(Vector3.forward, enemyDirection.lastDirection));
         bullet.GetComponent<FireBullet>().damage = bulletDamage;
         bullet.GetComponent<FireBullet>().playgroundManager = playgroundManager;
+        bullet.GetComponent<FireBullet>().shootingEnemyID = gameObject.GetInstanceID();
         bullet.GetComponent<Rigidbody2D>().velocity = enemyDirection.lastDirection * bulletSpeed;
         if (Random.value < spawnFlameProbability)
             bullet.GetComponent<FireBullet>().spawnFlame = true;

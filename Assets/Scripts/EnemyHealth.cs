@@ -44,6 +44,8 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (currentHealth <= 0)
+            return;
         currentHealth = Math.Max( currentHealth - damage, 0);
         ScaleOnHealth();
         if (currentHealth <= 0)

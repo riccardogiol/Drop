@@ -5,7 +5,7 @@ using UnityEngine.Tilemaps;
 public class FireBullet : MonoBehaviour
 {
     public PlaygroundManager playgroundManager;
-    public bool shootByEnemy = true;
+    public int shootingEnemyID;
     public int damage = 2;
 
     public ParticleSystem trailParticles;
@@ -32,11 +32,10 @@ public class FireBullet : MonoBehaviour
         switch (other.tag)
         {
             case "Enemy":
-                if (!shootByEnemy)
-                {
-                    other.GetComponent<EnemyHealth>().FillReservoir(damage);
-                    DestroyBullet();
-                }
+                if (shootingEnemyID == other.gameObject.GetInstanceID())
+                    return;
+                other.GetComponent<EnemyHealth>().FillReservoir(damage);
+                DestroyBullet();
                 break;
             case "Grass":
                 playgroundManager.FireOnPosition(other.transform.position);
@@ -63,7 +62,15 @@ public class FireBullet : MonoBehaviour
                 break;
              case "Insect":
                 playgroundManager.FireOnPosition(other.transform.position);
-                other.GetComponent<ChangeAspect>().SetBurntSprite();
+                if (other.GetComponent<ChangeAspect>() != null)
+                {
+                    if (other.GetComponent<ChangeAspect>().reactOnWater)
+                        other.GetComponent<ChangeAspect>().SetBurntSprite();
+                } else if (other.GetComponent<RootTriggerLogic>() != null)
+                {
+                    if (other.GetComponent<RootTriggerLogic>().reactOnWater)
+                        other.GetComponent<RootTriggerLogic>().SetBurntSprite();
+                }
                 DestroyBullet();
                 break;
             case "Waterdrop":
