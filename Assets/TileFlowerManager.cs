@@ -19,6 +19,8 @@ public class TileFlowerManager : MonoBehaviour
                 isObstacle = true; 
             if (item.gameObject.CompareTag("Decoration"))
                 isObstacle = true; 
+            if (item.gameObject.CompareTag("DecorationNoFire"))
+                isObstacle = true; 
         }
         if (!isFlowering || isObstacle)
             flowerGFX.Uproot();

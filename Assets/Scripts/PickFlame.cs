@@ -11,6 +11,7 @@ public class PickFlame : MonoBehaviour
     SpriteChangingOnValue spriteChanger;
 
     public GameObject vaporBurstPrefab;
+    public GameObject fireBurstPrefab;
 
     void Awake()
     {
@@ -21,6 +22,11 @@ public class PickFlame : MonoBehaviour
             energy = energyValues[randomIndex];
         }
         ScaleOnEnergy();
+    }
+
+    void Start()
+    {
+        Instantiate(fireBurstPrefab, transform.position, Quaternion.identity);
     }
 
     public void ScaleOnEnergy()
@@ -59,6 +65,10 @@ public class PickFlame : MonoBehaviour
             break;
         case "Grass":
             FindObjectOfType<PlaygroundManager>().FireOnPosition(other.transform.position);
+            break; 
+        case "Wall":
+            FindObjectOfType<PlaygroundManager>().FireOnPosition(other.transform.position);
+            DestroyFlame(false);
             break;
         case "Decoration":
             DestroyFlame();

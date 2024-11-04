@@ -132,6 +132,7 @@ MonoBehaviour:
   parent: {fileID: 0}
   timer: 5
   delay: 0
+  spawnDropProb: 0.5
 --- !u!1001 &4534065345604227774
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -194,6 +195,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7261966851134090420, guid: 3fa60b0273f7446f69e03fd6d951b3dd,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 653ecd732c9ec43949c0d32ec9f9a7c0, type: 2}
     - target: {fileID: 7261966851134090421, guid: 3fa60b0273f7446f69e03fd6d951b3dd,
         type: 3}
       propertyPath: m_Name

@@ -6,6 +6,7 @@ public class PushTrigger : MonoBehaviour
     PlaygroundManager playgroundManager;
     public CircleCollider2D triggerComponent;
     LinearMovement linearMovement;
+    public bool isObstacle = false;
 
     void Start()
     {
@@ -20,12 +21,27 @@ public class PushTrigger : MonoBehaviour
             Vector3 playerPosition = other.transform.position;
             Vector3 destinationDirection = (transform.position - playerPosition).normalized;
             Vector3 destination = playgroundManager.GetCellCenter(transform.position + destinationDirection);
-            if (!playgroundManager.IsObstacle(destination))
+            if(isObstacle)
             {
-                linearMovement.MoveTo(destination, 0.3f);
-                triggerComponent.enabled = false;
-                StartCoroutine(ActivateTriggerDelay(0.3f));
+                if (!playgroundManager.IsObstacleForRock(destination))
+                {
+                    linearMovement.MoveTo(destination, 0.3f);
+                    triggerComponent.enabled = false;
+                    StartCoroutine(ActivateTriggerDelay(0.3f));
+                }
+            } else {
+                if (!playgroundManager.IsObstacle(destination))
+                {
+                    linearMovement.MoveTo(destination, 0.3f);
+                    triggerComponent.enabled = false;
+                    StartCoroutine(ActivateTriggerDelay(0.3f));
+                }
             }
+        }
+        if(other.CompareTag("Enemy"))
+        {
+            if (isObstacle)
+                other.GetComponent<LinearMovement>().ReverseMovement(0.2f);
         }
     }
 
@@ -33,5 +49,7 @@ public class PushTrigger : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         triggerComponent.enabled = true;
+        if (isObstacle)
+            AstarPath.active.Scan();
     }
 }

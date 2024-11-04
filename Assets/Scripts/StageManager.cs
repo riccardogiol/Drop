@@ -100,6 +100,7 @@ public class StageManager : MonoBehaviour
 
         if (finalStage)
         {
+            victoryPositionTrigger = FindObjectOfType<VictoryPositionTrigger>();
             if (victoryPositionTrigger != null)
             {
                 victoryPositionTrigger.ActivateCollider();

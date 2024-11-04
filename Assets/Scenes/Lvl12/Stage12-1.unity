@@ -1060,6 +1060,21 @@ PrefabInstance:
       propertyPath: targets.Array.data[3].y
       value: 3.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5216817755464628960, guid: 6bb134c00edf74efd85ea0e64199baf8,
+        type: 3}
+      propertyPath: maxHealth
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5216817755464628960, guid: 6bb134c00edf74efd85ea0e64199baf8,
+        type: 3}
+      propertyPath: currentHealth
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5216817755464628962, guid: 6bb134c00edf74efd85ea0e64199baf8,
+        type: 3}
+      propertyPath: spawnFlameProbability
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 5216817755464628964, guid: 6bb134c00edf74efd85ea0e64199baf8,
         type: 3}
       propertyPath: m_Name
@@ -1923,7 +1938,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d66b788dec5d410684f6008a48b2fb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLvl: 5
+  currentLvl: 12
   currentStage: 1
   stageMode: puzzle
   finalStage: 0
@@ -2013,7 +2028,7 @@ PrefabInstance:
     - target: {fileID: 4617294187047221967, guid: 7d19396bf7baf4454a1ea3fcd2ae69ab,
         type: 3}
       propertyPath: loseProgressionPerc
-      value: 0.08
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 4617294187047221967, guid: 7d19396bf7baf4454a1ea3fcd2ae69ab,
         type: 3}

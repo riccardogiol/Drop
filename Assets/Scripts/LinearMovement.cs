@@ -36,6 +36,11 @@ public class LinearMovement : MonoBehaviour
             boxCollider.enabled = false;
     }
 
+    public void ReverseMovement(float time)
+    {
+        MoveTo(startingPosition, time);
+    }
+
     void FixedUpdate()
     {
         if (isMoving)

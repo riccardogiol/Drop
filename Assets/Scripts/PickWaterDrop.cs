@@ -24,6 +24,11 @@ public class PickWaterdrop : MonoBehaviour
         ScaleOnEnergy();
     }
 
+     void Start()
+    {
+        Instantiate(takeWaterBurstPrefab, transform.position, Quaternion.identity);
+    }
+
     public void ScaleOnEnergy()
     {
         spriteChanger.Evaluate(energy);
@@ -83,6 +88,10 @@ public class PickWaterdrop : MonoBehaviour
             DestroyWaterdrop();
             break;
         case "Decoration":
+            PlayWaterBurst();
+            DestroyWaterdrop();
+            break;
+        case "DecorationNoFire":
             PlayWaterBurst();
             DestroyWaterdrop();
             break;
