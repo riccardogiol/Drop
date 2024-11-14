@@ -13,8 +13,11 @@ public class Wave : MonoBehaviour
 
     void Start()
     {
-        Instantiate(waveExplosion, transform.position, Quaternion.identity);
+        GameObject goRef = Instantiate(waveExplosion, transform.position, transform.rotation);
+        goRef.transform.parent = transform;
         collider2D = GetComponent<CircleCollider2D>();
+        if (collider2D == null)
+            collider2D = GetComponent<PolygonCollider2D>();
     }
     
     void Update()
@@ -55,6 +58,14 @@ public class Wave : MonoBehaviour
             other.GetComponent<PickWaterBomb>().TriggerBomb();
         if (other.CompareTag("Waterdrop"))
             other.GetComponent<PickWaterdrop>().RechargeEnergy(damage);
+        if (other.CompareTag("DecorationNoFire"))
+        {
+            if (other.GetComponent<SparklerCharge>() != null)
+                other.GetComponent<SparklerCharge>().FillReservoir(damage);
+            if (other.GetComponent<RiverWave>() != null)
+                other.GetComponent<RiverWave>().TriggerWave();
+            
+        }
 
     }
 

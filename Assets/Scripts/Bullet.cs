@@ -74,6 +74,10 @@ public class Bullet : MonoBehaviour
                 DestroyBullet();
                 break;
             case "DecorationNoFire":
+                if (other.GetComponent<SparklerCharge>() != null)
+                {
+                    other.GetComponent<SparklerCharge>().FillReservoir(damage);
+                }
                 DestroyBullet();
                 break;
             case "Insect":

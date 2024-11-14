@@ -10,6 +10,7 @@ public class EnergyIndicator : MonoBehaviour
     public PickWaterdrop waterdrop;
     public PickSuperdrop superdrop;
     public EnemyHealth enemyHealth;
+    public SparklerCharge sparklerCharge;
     public EnemyAIPatrolMovement patrolMovement;
 
     public Sprite patrolIcon;
@@ -25,6 +26,8 @@ public class EnergyIndicator : MonoBehaviour
             valueToDisplay = superdrop.energy;
         else if (enemyHealth != null)
             valueToDisplay = enemyHealth.currentHealth; // display current and max! or directly a bar?
+        else if (sparklerCharge != null)
+            valueToDisplay = sparklerCharge.maxCharge - sparklerCharge.currentCharge;
         else
             valueToDisplay = 0;
         SetText();

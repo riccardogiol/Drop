@@ -42,6 +42,7 @@ public class FireWaveCasting : MonoBehaviour
     void Shoot()
     {
         GameObject wave = Instantiate(wavePrefab, transform.position, Quaternion.identity);
+        wave.transform.parent = transform;
         wave.GetComponent<FireWave>().playgroundManager = playgroundManager;
         // if (Random.value < spawnFlameProbability)
         // {

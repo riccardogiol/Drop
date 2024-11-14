@@ -436,6 +436,11 @@ public class PlaygroundManager : MonoBehaviour
         {
             if(child.gameObject.CompareTag("Superdrop"))
                 child.GetComponent<EnergyIndicator>().ShowEnergy();
+            if(child.gameObject.CompareTag("DecorationNoFire"))
+            {
+                if (child.gameObject.GetComponent<EnergyIndicator>() != null)
+                    child.GetComponent<EnergyIndicator>().ShowEnergy();
+            }
         }
         stageManager.ShowButtonDescription();
     }
@@ -457,7 +462,12 @@ public class PlaygroundManager : MonoBehaviour
         foreach(Transform child in decorationManager.transform)
         {
             if(child.gameObject.CompareTag("Superdrop"))
-                child.GetComponent<EnergyIndicator>().ShowEnergy();
+                child.GetComponent<EnergyIndicator>().HideEnergy();
+            if(child.gameObject.CompareTag("DecorationNoFire"))
+            {
+                if (child.gameObject.GetComponent<EnergyIndicator>() != null)
+                    child.GetComponent<EnergyIndicator>().HideEnergy();
+            }
         }
         stageManager.HideButtonDescription();
     }

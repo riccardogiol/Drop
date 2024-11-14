@@ -9,40 +9,42 @@ public class SparklerWave : MonoBehaviour
     PlaygroundManager playgroundManager;
 
     public float timer = 3;
-    public float delay = 0f;
+    public float delay = 0.3f;
     public float spawnDropProb = 0.5f;
+    float countdown = 0;
 
     void Start () {
         playgroundManager = FindFirstObjectByType<PlaygroundManager>();
         if (parent == null)
             parent = gameObject;
-		StartCoroutine(SpawnPrefabsWithDelay());
+        countdown = delay;
 	}
 
-    IEnumerator SpawnPrefabsWithDelay()
+    void FixedUpdate()
     {
-        yield return new WaitForSeconds(delay);
-        StartCoroutine(SpawnPrefabs());
+        countdown -= Time.fixedDeltaTime;
+        if (countdown <= 0)
+        {
+            countdown = timer;
+            SpawnPrefabs();
+        }
     }
 
-	IEnumerator SpawnPrefabs() {
-		while (true) {
-            GameObject waveRef = Instantiate(wavePrefab, transform.position, Quaternion.identity);
-            waveRef.GetComponent<Wave>().shootByPlayer = false;
-            waveRef.GetComponent<Wave>().damage = 2;
-            waveRef.GetComponent<Wave>().playgroundManager = playgroundManager;
-            if (Random.value < spawnDropProb)
+	void SpawnPrefabs() {
+        GameObject waveRef = Instantiate(wavePrefab, transform.position, Quaternion.identity);
+        waveRef.transform.parent = transform;
+        waveRef.GetComponent<Wave>().shootByPlayer = false;
+        waveRef.GetComponent<Wave>().damage = 2;
+        waveRef.GetComponent<Wave>().playgroundManager = playgroundManager;
+        if (Random.value < spawnDropProb)
+        {
+            Vector3 randomPos = transform.position + new Vector3(Random.Range(-1, 2), Random.Range(-1, 2));
+            if (!playgroundManager.IsObstacle(randomPos))
             {
-                Vector3 randomPos = transform.position + new Vector3(Random.Range(-1, 2), Random.Range(-1, 2));
-                if (!playgroundManager.IsObstacle(randomPos))
-                {
-                    GameObject goRef = Instantiate(waterdropPrefab, randomPos, Quaternion.identity);
-                    goRef.GetComponent<PickWaterdrop>().randomEnergy = false;
-                    goRef.GetComponent<PickWaterdrop>().energy = 2;
-                }
+                GameObject goRef = Instantiate(waterdropPrefab, randomPos, Quaternion.identity);
+                goRef.GetComponent<PickWaterdrop>().randomEnergy = false;
+                goRef.GetComponent<PickWaterdrop>().energy = 2;
             }
-            
-			yield return new WaitForSeconds(timer);
-		}
+        }   
 	}
 }

@@ -5,6 +5,7 @@ public class RuleTileStateManager : MonoBehaviour
 {
     public RuleTile burntTile;
     public RuleTile cleanTile;
+    public RuleTile riverBorderTile;
     public bool chessStyle = false;
     public RuleTile cleanDarkTile;
 
@@ -109,6 +110,8 @@ public class RuleTileStateManager : MonoBehaviour
 
     public void SetCleanTile(Vector3Int cell)
     {
+        if (tilemap.GetTile<RuleTile>(cell) == riverBorderTile)
+            return;
         if (chessStyle)
         {
             if ((cell.x + cell.y) % 2 == 0)

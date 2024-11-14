@@ -499,6 +499,7 @@ GameObject:
   - component: {fileID: 9090018663620281356}
   - component: {fileID: 5463709446212641605}
   - component: {fileID: 3304165457519852038}
+  - component: {fileID: 2215807466280574320}
   m_Layer: 0
   m_Name: CigaretteEnemy
   m_TagString: Enemy
@@ -617,6 +618,7 @@ MonoBehaviour:
   image: {fileID: 4076543078214466226}
   flame: {fileID: 0}
   waterdrop: {fileID: 0}
+  superdrop: {fileID: 0}
   enemyHealth: {fileID: 5216817755464628960}
   patrolMovement: {fileID: 0}
   patrolIcon: {fileID: 21300000, guid: 66a554bb4c2234b06acc2624a7c203ff, type: 3}
@@ -635,6 +637,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 6216458611507051821, guid: 7e0f4f946a1e14b8f8629919c809c33b,
     type: 3}
+  bulletSpeed: 4.5
+  bulletDamage: 4
   timer: 2
   shootingPoint: {fileID: 5216817755464628974}
   spawnFlameProbability: 0.5
@@ -688,6 +692,28 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2215807466280574320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5216817755464628964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e7775e0358da4ff1ab533d3918a3513, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flameSparkles:
+  - {fileID: 9047246481699604005, guid: 5fb2f9c99a7a0469e87dc857c54a374c, type: 3}
+  - {fileID: 9047246481699604005, guid: 422289d50ebd348afac8282226f68cd8, type: 3}
+  - {fileID: 9047246481699604005, guid: 42bb979ced71342e491a11d7c06380cb, type: 3}
+  - {fileID: 9047246481699604005, guid: 4d2c61a84e84743b280477a529860a77, type: 3}
+  timer: 1
+  fromX: -1
+  fromY: 1
+  toX: 1
+  toY: 2
 --- !u!1 &5848459264359273688
 GameObject:
   m_ObjectHideFlags: 0
