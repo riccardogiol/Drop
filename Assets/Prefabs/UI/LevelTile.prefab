@@ -269,7 +269,7 @@ MonoBehaviour:
   button: {fileID: 2036009498854856168}
   stageSpotManager: {fileID: 7359409007285564079}
   buttonHighlighter: {fileID: 2584179332718452849}
-  decoration: {fileID: 5525207380705380093}
+  decoration: {fileID: 0}
   smokeEffect: {fileID: 512434020628041387}
   SmokyCloudParent: {fileID: 6287841531350088475}
   worldTileDecorationManager: {fileID: 741653507312665072}
@@ -291,7 +291,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2036009500004463057
 RectTransform:
   m_ObjectHideFlags: 0
@@ -493,7 +493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38d6a4572548743408cdb917850f0c1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cloudySmokePrefab: {fileID: 351608897783991198, guid: 8c62ef9a5113942498216c20d62e299e,
+  cloudySmokePrefab: {fileID: 5439541568655226016, guid: 5cdb48b5c90e44d1395d36e8fc1d33d5,
     type: 3}
 --- !u!1 &7038820917782542077
 GameObject:
@@ -512,7 +512,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2123933907269614033
 Transform:
   m_ObjectHideFlags: 0
@@ -824,18 +824,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2036009499025730161}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5525207380705380093 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5831071956751903884, guid: e96c47f9a3bde45e783ebcce8d8c389f,
-    type: 3}
-  m_PrefabInstance: {fileID: 2036009499025730161}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 625c3704862d64977b18913d430ddfbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &5503867386898840077
 PrefabInstance:
   m_ObjectHideFlags: 0

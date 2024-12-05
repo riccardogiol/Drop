@@ -39,17 +39,18 @@ public class StageSpotManager : MonoBehaviour
             flip = UnityEngine.Random.Range(0, 1.0f) > 0.5f;
             if (i < stagesCompleted)
             {
+                int flowerIndex = UnityEngine.Random.Range(0, petalList.Length);
                 foreach (Transform child in spot.transform)
                 {
                     if (child.name == "PetalGFX")
                     {
-                        child.GetComponent<SpriteRenderer>().sprite = petalList[UnityEngine.Random.Range(0, petalList.Length)];
+                        child.GetComponent<SpriteRenderer>().sprite = petalList[flowerIndex];
                         child.GetComponent<SpriteRenderer>().color = colors[UnityEngine.Random.Range(0, colors.Length)];
                         child.GetComponent<SpriteRenderer>().flipX = flip;
                     }
                     if (child.name == "LeafGFX")
                     {
-                        child.GetComponent<SpriteRenderer>().sprite = leafList[UnityEngine.Random.Range(0, leafList.Length)];
+                        child.GetComponent<SpriteRenderer>().sprite = leafList[flowerIndex];
                         child.GetComponent<SpriteRenderer>().flipX = flip;
                     }
                     if (child.name == "SpotGFX")

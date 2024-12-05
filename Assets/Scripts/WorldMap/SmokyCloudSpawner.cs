@@ -18,7 +18,7 @@ public class SmokyCloudSpawner : MonoBehaviour
     {
         GameObject goRef = Instantiate(cloudySmokePrefab, transform.position + position, Quaternion.identity);
         goRef.transform.parent = transform;
-        goRef.GetComponent<SpriteChangingOnValue>().Evaluate(Random.Range(0, 3));
+        //goRef.GetComponent<SpriteChangingOnValue>().Evaluate(Random.Range(0, 3));
     }
 
 }
