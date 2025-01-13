@@ -12,7 +12,7 @@ public class RiverWave : MonoBehaviour
     float countdown = 0;
     bool triggered = false;
     bool notTrigger = false;
-    float stopTimer = 3.0f;
+    float stopTimer = 1.0f;
 
     void Start () {
         playgroundManager = FindFirstObjectByType<PlaygroundManager>();
