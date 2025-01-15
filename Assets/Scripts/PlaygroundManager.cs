@@ -111,10 +111,10 @@ public class PlaygroundManager : MonoBehaviour
         tilemapEffectManager.CollectFlowerTiles();
     }
 
-    public void FlameOnPosition(Vector3 position)
+    public void FlameOnPosition(Vector3 position, int energy = 0, bool randomMovement = false, bool compleatlyRandom = true)
     {
         Vector3Int cell = walkTilemap.WorldToCell(position);
-        AddFlame(cell);
+        AddFlame(cell, energy, randomMovement, compleatlyRandom);
     }
 
     public void AddFlame(Vector3Int cell, int energy = 0, bool randomMovement = false, bool compleatlyRandom = true)
@@ -199,6 +199,8 @@ public class PlaygroundManager : MonoBehaviour
             if (item.gameObject.CompareTag("Waterdrop"))
                 return true;
             if (item.gameObject.CompareTag("Flame"))
+                return true;
+            if (item.gameObject.CompareTag("Enemy"))
                 return true;
             if (item.gameObject.CompareTag("Waterbomb"))
                 return true;

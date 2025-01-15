@@ -5,10 +5,10 @@ public class InitializePlayerPrefs : MonoBehaviour
     
     void Awake()
     {
-        PlayerPrefs.SetInt("Lvl6", 1);
+        PlayerPrefs.SetInt("Lvl1", 1);
+        PlayerPrefs.SetInt("Lvl2", 1);
+        PlayerPrefs.SetInt("Lvl3", 1);
         PlayerPrefs.SetInt("Lvl4", 1);
-        PlayerPrefs.SetInt("Lvl5", 1);
-        PlayerPrefs.SetInt("Lvl7", 1);
         //PlayerPrefs.SetInt("LastStagePlayed", 3);
         //PlayerPrefs.SetInt("LastLevelPlayed", 7);
         PlayerPrefs.SetInt("CoinAmount", 1000);

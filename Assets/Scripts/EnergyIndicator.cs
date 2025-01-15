@@ -25,7 +25,7 @@ public class EnergyIndicator : MonoBehaviour
         else if (superdrop != null)
             valueToDisplay = superdrop.energy;
         else if (enemyHealth != null)
-            valueToDisplay = enemyHealth.currentHealth; // display current and max! or directly a bar?
+            valueToDisplay = enemyHealth.currentHealth;
         else if (sparklerCharge != null)
             valueToDisplay = sparklerCharge.maxCharge - sparklerCharge.currentCharge;
         else

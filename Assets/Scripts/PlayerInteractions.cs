@@ -20,7 +20,8 @@ public class PlayerInteractions : MonoBehaviour
                 break;
             case "Enemy":
                 int enemyHealth = other.GetComponent<EnemyHealth>().currentHealth;
-                other.GetComponent<EnemyHealth>().TakeDamage(enemyHealth);
+                int playerHealth = gameObject.GetComponent<PlayerHealth>().currentHealth;
+                other.GetComponent<EnemyHealth>().TakeDamage(playerHealth);
                 gameObject.GetComponent<PlayerHealth>().TakeDamage(enemyHealth);
                 break;
             case "Grass":
