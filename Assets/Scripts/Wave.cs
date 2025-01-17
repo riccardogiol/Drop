@@ -63,7 +63,7 @@ public class Wave : MonoBehaviour
             if (other.GetComponent<SparklerCharge>() != null)
                 other.GetComponent<SparklerCharge>().FillReservoir(damage);
             if (other.GetComponent<RiverWave>() != null)
-                other.GetComponent<RiverWave>().TriggerWave();
+                other.GetComponent<RiverWave>().TriggerWave(shootByPlayer);
             
         }
 

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class RiverWave : MonoBehaviour
@@ -14,15 +15,40 @@ public class RiverWave : MonoBehaviour
     bool notTrigger = false;
     float stopTimer = 1.0f;
 
+    public bool dryRiver = false;
+    SpriteRenderer riverGFX;
+    Sprite waterSprite;
+    public Sprite[] dryRiverSprites;
+    public GameObject waterComing;
+    public ParticleSystem waterFlowPS;
+
+
+    void Awake()
+    {
+        riverGFX = GetComponent<SpriteRenderer>();
+        waterSprite = riverGFX.sprite;
+        if (dryRiver)
+        {
+            riverGFX.sprite = dryRiverSprites[Random.Range(0, dryRiverSprites.Length)];
+            waterFlowPS.Stop();
+            waterFlowPS.Clear();
+            var main = waterFlowPS.main;
+            main.prewarm = false;
+        }
+    }
+
     void Start () {
+        
         playgroundManager = FindFirstObjectByType<PlaygroundManager>();
         if (parent == null)
             parent = gameObject;
         countdown = delay;
 	}
 
-    public void TriggerWave()
+    public void TriggerWave(bool shootByPlayer = true)
     {
+        if (dryRiver && shootByPlayer)
+                return;
         if (notTrigger)
             return;
         triggered = true;
@@ -53,6 +79,13 @@ public class RiverWave : MonoBehaviour
     }
 
 	void SpawnPrefabs() {
+        if (dryRiver)
+        {
+            dryRiver = false;
+            StartCoroutine(ChangeGFXDelayed());
+            Instantiate(waterComing, transform.position, Quaternion.identity);
+            waterFlowPS.Play();
+        }
         GameObject waveRef = Instantiate(wavePrefab, transform.position, wavePrefab.transform.rotation);
         waveRef.transform.parent = transform;
         waveRef.GetComponent<Wave>().shootByPlayer = false;
@@ -69,4 +102,10 @@ public class RiverWave : MonoBehaviour
             }
         }   
 	}
+
+    IEnumerator ChangeGFXDelayed()
+    {
+        yield return new WaitForSeconds(0.15f);
+        riverGFX.sprite = waterSprite;
+    }
 }

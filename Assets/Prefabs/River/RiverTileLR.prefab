@@ -132,6 +132,15 @@ MonoBehaviour:
   parent: {fileID: 0}
   delay: 0.3
   spawnDropProb: 0
+  dryRiver: 0
+  dryRiverSprites:
+  - {fileID: 1751239301, guid: c2cf7f232e014421ca125a4773318f7d, type: 3}
+  - {fileID: 1456169759, guid: c2cf7f232e014421ca125a4773318f7d, type: 3}
+  - {fileID: 1756593944, guid: c2cf7f232e014421ca125a4773318f7d, type: 3}
+  - {fileID: 1680779132, guid: c2cf7f232e014421ca125a4773318f7d, type: 3}
+  waterComing: {fileID: 3751233161064887440, guid: 65e153c0633414828af9d9beb23d8798,
+    type: 3}
+  waterFlowPS: {fileID: 2989989763627170853}
 --- !u!1001 &2121650030908344499
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -148,6 +157,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3751233161064887446, guid: c5a3a453210b6460a86bd4a28be99db0,
+        type: 3}
+      propertyPath: prewarm
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3751233161064887446, guid: c5a3a453210b6460a86bd4a28be99db0,
         type: 3}
@@ -219,6 +233,12 @@ PrefabInstance:
 --- !u!4 &2989989763627170852 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3751233161064887447, guid: c5a3a453210b6460a86bd4a28be99db0,
+    type: 3}
+  m_PrefabInstance: {fileID: 2121650030908344499}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &2989989763627170853 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3751233161064887446, guid: c5a3a453210b6460a86bd4a28be99db0,
     type: 3}
   m_PrefabInstance: {fileID: 2121650030908344499}
   m_PrefabAsset: {fileID: 0}
