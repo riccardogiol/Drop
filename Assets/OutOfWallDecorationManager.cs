@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
@@ -168,6 +167,8 @@ public class OutOfWallDecorationManager : MonoBehaviour
 
     void SetAvailableTileTall(int x, int y, bool state)
     {
+        if (y < -5)
+            return;
         availableTilesTall[x +10, y+5] = state;
     }
 

@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Unity.Services.Analytics;
+using Cinemachine;
 
 public class StageManager : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class StageManager : MonoBehaviour
     public string stageMode = "puzzle";
 
     public bool finalStage = false;
+    public Transform bossTransform;
     VictoryPositionTrigger victoryPositionTrigger;
     bool gameOver = false;
 
@@ -101,18 +103,29 @@ public class StageManager : MonoBehaviour
         if (finalStage)
         {
             victoryPositionTrigger = FindObjectOfType<VictoryPositionTrigger>();
-            if (victoryPositionTrigger != null)
+            bool isBoss = victoryPositionTrigger != null;
+            if (isBoss)
             {
                 victoryPositionTrigger.ActivateCollider();
                 playerMovementPath.NewTarget(victoryPositionTrigger.transform.position);
-                playerMovementKeys.InterruptMovement(0.3f);
-                menusManager.SetIsPause(true);
-                yield return new WaitForSeconds(waitSeconds);
+                CinemachineVirtualCamera cinemachineVirtual = FindFirstObjectByType<CinemachineVirtualCamera>();
+                if (cinemachineVirtual != null)
+                {
+                    cinemachineVirtual.Follow = bossTransform;
+                    cinemachineVirtual.LookAt = bossTransform;
+                }
             } else {
                 playerMovementPath.InterruptMovement();
-                playerMovementKeys.InterruptMovement(0.3f);
                 playerAnimationManager.PlayTriumph();
-                menusManager.SetIsPause(true);
+            }
+            
+            playerMovementKeys.InterruptMovement(0.3f);
+            menusManager.SetIsPause(true);
+
+            if (isBoss)
+            {
+                yield return new WaitForSeconds(waitSeconds);
+            } else {
                 yield return new WaitForSeconds(3);
             }
 

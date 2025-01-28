@@ -49,7 +49,7 @@ public class FireBullet : MonoBehaviour
                 playgroundManager.FireOnPosition(other.transform.position);
                 DestroyBullet();
                 break;
-             case "Decoration":
+            case "Decoration":
                 if (other.GetComponent<ChangeAspect>().reactOnWater)
                 {
                     playgroundManager.FireOnPosition(other.transform.position);
@@ -57,10 +57,12 @@ public class FireBullet : MonoBehaviour
                 }
                 DestroyBullet();
                 break;
-             case "DecorationNoFire":
+            case "DecorationNoFire":
+                if (other.GetComponent<RiverWave>() != null)
+                    break;
                 DestroyBullet();
                 break;
-             case "Insect":
+            case "Insect":
                 playgroundManager.FireOnPosition(other.transform.position);
                 if (other.GetComponent<ChangeAspect>() != null)
                 {

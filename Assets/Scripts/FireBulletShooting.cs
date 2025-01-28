@@ -19,7 +19,7 @@ public class FireBulletShooting : MonoBehaviour
     void Awake()
     {
         enemyDirection = GetComponent<EnemyDirectionController>();
-        countdown = timer;
+        countdown = 0f;
         playgroundManager = FindFirstObjectByType<PlaygroundManager>();
     }
 

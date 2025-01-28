@@ -1,17 +1,23 @@
 using System.Collections;
 using UnityEngine;
+using Pathfinding;
 
 public class PushTrigger : MonoBehaviour
 {
     PlaygroundManager playgroundManager;
     public CircleCollider2D triggerComponent;
     LinearMovement linearMovement;
+
     public bool isObstacle = false;
+    Vector3 origin;
+    OneWayObstacleController[] oneWayComps;
 
     void Start()
     {
         playgroundManager = FindFirstObjectByType<PlaygroundManager>();
         linearMovement = GetComponent<LinearMovement>();
+        if (isObstacle)
+            oneWayComps = FindObjectsOfType<OneWayObstacleController>();
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -19,7 +25,8 @@ public class PushTrigger : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             Vector3 playerPosition = other.transform.position;
-            Vector3 destinationDirection = (transform.position - playerPosition).normalized;
+            origin = transform.position;
+            Vector3 destinationDirection = (origin - playerPosition).normalized;
             Vector3 destination = playgroundManager.GetCellCenter(transform.position + destinationDirection);
             if(isObstacle)
             {
@@ -50,6 +57,19 @@ public class PushTrigger : MonoBehaviour
         yield return new WaitForSeconds(delay);
         triggerComponent.enabled = true;
         if (isObstacle)
-            AstarPath.active.Scan();
+        {
+            Collider2D obstacleCollider = GetComponent<Collider2D>();
+            Bounds bounds = obstacleCollider.bounds;
+            bounds.Expand(2.0f);
+            GraphUpdateObject guo = new GraphUpdateObject(bounds)
+            {
+                updatePhysics = true
+            };
+            AstarPath.active.UpdateGraphs(guo);
+            AstarPath.active.FlushGraphUpdates();
+            
+            foreach(OneWayObstacleController oneWayComp in oneWayComps)
+                oneWayComp.UpdateCollider();
+        }
     }
 }

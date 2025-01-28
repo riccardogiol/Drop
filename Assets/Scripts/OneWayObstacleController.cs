@@ -1,4 +1,5 @@
 using UnityEngine;
+using Pathfinding;
 
 public class OneWayObstacleController : MonoBehaviour
 {
@@ -50,6 +51,35 @@ public class OneWayObstacleController : MonoBehaviour
                 spriteRenderer.sprite = spriteLeft;
                 spriteRenderer.flipX = true;
             }
+        }
+
+        UpdateCollider();
+    }
+
+    public void UpdateCollider()
+    {
+         var gridGraph = AstarPath.active.data.gridGraph;
+        
+        if (blockingFromAbove)
+        {
+            GridNode targetNode = (GridNode)gridGraph.GetNode((int)transform.position.x, (int)transform.position.y + 1);
+            if (targetNode == null) return;
+            targetNode.SetConnectionInternal(0, false);
+        } else if (blockingFromBelow)
+        {
+            GridNode targetNode = (GridNode)gridGraph.GetNode((int)transform.position.x, (int)transform.position.y - 1);
+            if (targetNode == null) return;
+            targetNode.SetConnectionInternal(2, false);
+        } else if (blockingFromLeft)
+        {
+            GridNode targetNode = (GridNode)gridGraph.GetNode((int)transform.position.x - 1, (int)transform.position.y);
+            if (targetNode == null) return;
+            targetNode.SetConnectionInternal(1, false);
+        } else
+        {
+            GridNode targetNode = (GridNode)gridGraph.GetNode((int)transform.position.x + 1, (int)transform.position.y);
+            if (targetNode == null) return;
+            targetNode.SetConnectionInternal(3, false);
         }
     }
 
