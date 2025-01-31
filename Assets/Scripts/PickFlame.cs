@@ -13,6 +13,8 @@ public class PickFlame : MonoBehaviour
     public GameObject vaporBurstPrefab;
     public GameObject fireBurstPrefab;
 
+    public bool isDecoration = false;
+
     void Awake()
     {
         spriteChanger = GetComponent<SpriteChangingOnValue>();
@@ -26,7 +28,8 @@ public class PickFlame : MonoBehaviour
 
     void Start()
     {
-        Instantiate(fireBurstPrefab, transform.position, Quaternion.identity);
+        if (!isDecoration)
+            Instantiate(fireBurstPrefab, transform.position, Quaternion.identity);
     }
 
     public void ScaleOnEnergy()
@@ -42,6 +45,8 @@ public class PickFlame : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        if (isDecoration)
+            return;
         switch (other.tag)
         {
         case "Enemy":

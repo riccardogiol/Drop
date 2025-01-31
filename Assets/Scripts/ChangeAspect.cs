@@ -111,13 +111,17 @@ public class ChangeAspect : MonoBehaviour
 
     public void ColorAdjustment(float hue, float brightness)
     {
-        if (spriteRenderer != null && colorAdjustmentMaterial != null)
+        if (spriteRenderer == null)
+            return;
+        if (colorAdjustmentMaterial != null)
         {
             if (hue < 0)
                 spriteRenderer.material.SetFloat("_Hue", 1 + hue);
             else
                 spriteRenderer.material.SetFloat("_Hue", hue);
             spriteRenderer.material.SetFloat("_Brightness", brightness);
+        } else {
+            spriteRenderer.color = new Color(brightness, brightness, brightness);
         }
     }
 

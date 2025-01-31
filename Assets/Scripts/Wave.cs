@@ -13,8 +13,11 @@ public class Wave : MonoBehaviour
 
     void Start()
     {
-        GameObject goRef = Instantiate(waveExplosion, transform.position, transform.rotation);
-        goRef.transform.parent = transform;
+        if (waveExplosion != null)
+        {
+            GameObject goRef = Instantiate(waveExplosion, transform.position, transform.rotation);
+            goRef.transform.parent = transform;
+        }
         collider2D = GetComponent<CircleCollider2D>();
         if (collider2D == null)
             collider2D = GetComponent<PolygonCollider2D>();

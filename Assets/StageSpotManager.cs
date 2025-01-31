@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class StageSpotManager : MonoBehaviour
 {
-    
-    public Sprite burntSpot;
-    public Sprite greenSpot;
-
     public Sprite[] petalList;
     public Sprite[] leafList;
     public Sprite[] burntLeafList;
@@ -54,7 +50,9 @@ public class StageSpotManager : MonoBehaviour
                         child.GetComponent<SpriteRenderer>().flipX = flip;
                     }
                     if (child.name == "SpotGFX")
-                        child.GetComponent<SpriteRenderer>().sprite = greenSpot;
+                    {
+                        child.GetComponent<SpriteRenderer>().color = new Color(157f/255, 214f/255, 66f/255);
+                    }
                     if (child.name == "TrailGFX")
                         child.GetComponent<SpriteRenderer>().color = new Color(157f/255, 214f/255, 66f/255);
                 }
@@ -68,10 +66,10 @@ public class StageSpotManager : MonoBehaviour
                     }
                     if (child.name == "SpotGFX")
                     {
-                        child.GetComponent<SpriteRenderer>().sprite = burntSpot;
+                        child.GetComponent<SpriteRenderer>().color = new Color(214f/255, 196f/255, 66f/255);
                         if (i > stagesCompleted)
                         {
-                            child.GetComponent<SpriteRenderer>().color = new Color(0.8f, 0.8f, 0.8f);
+                            child.GetComponent<SpriteRenderer>().color = new Color(214f/320, 196f/320, 66f/320); // darker
                             child.GetComponent<SinLoopScaling>().enabled = false;
                         }
                     }
@@ -81,6 +79,31 @@ public class StageSpotManager : MonoBehaviour
             }
             i++;
         }
+    }
+
+    public void DisableAllStageSpots()
+    {
+        int i = 0;
+        foreach(var spot in stageSpots)
+        {
+            spot.GetComponent<LevelEnterTrigger>().ActivateButton(false);
+            foreach (Transform child in spot.transform)
+            {
+                if (child.name == "LeafGFX")
+                {                        
+                    child.GetComponent<SpriteRenderer>().sprite = burntLeafList[UnityEngine.Random.Range(0, burntLeafList.Length)];
+                    child.GetComponent<SpriteRenderer>().color = new Color(0.2f, 0.2f, 0.2f);
+                }
+                if (child.name == "SpotGFX")
+                {
+                    child.GetComponent<SpriteRenderer>().color = new Color(0.2f, 0.2f, 0.2f);
+                    child.GetComponent<SinLoopScaling>().enabled = false;
+                }
+                if (child.name == "TrailGFX")
+                    child.GetComponent<SpriteRenderer>().color = new Color(0.2f, 0.2f, 0.2f);
+            }
+        }
+
     }
 
     public void ActivateStageSpots(int stagesCompleted)

@@ -92,6 +92,16 @@ public class OutOfWallDecorationManager : MonoBehaviour
                 }
             }
         }
+        foreach(Transform child in transform)
+        {
+            ChangeAspect caComp = child.GetComponent<ChangeAspect>();
+            if (caComp != null)
+            {
+                foreach(int2 point in caComp.touchingCellsCoordinates)
+                    SetAvailableTile((int)child.position.x + point.x, (int)child.position.y + point.y, false);
+            }
+        }
+
         for (int y = -5; y <= maxY + 5; y++)
         {
             for (int x = -10; x <= maxX + 5; x ++)

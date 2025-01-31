@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class LevelTileManager : MonoBehaviour
 {
@@ -9,13 +8,10 @@ public class LevelTileManager : MonoBehaviour
     string unlockingLvlname = "Lvl1";
     string codeLvlname = "Lvl1";
     
-    public Button button;
     public StageSpotManager stageSpotManager;
-    public SpriteRenderer buttonHighlighter;
     public ChangeAspect decoration;
-    public ParticleSystem smokeEffect;
     public GameObject SmokyCloudParent;
-    public WorldTileDecorationManager worldTileDecorationManager;
+    public LevelTileDecorationManager levelTileDecorationManager;
 
     PlayerMovementPath movementPath;
 
@@ -31,34 +27,28 @@ public class LevelTileManager : MonoBehaviour
         if (PlayerPrefs.GetInt("LastLevelPlayed", 0) == codeLvl)
         {
             FindFirstObjectByType<PlayerMovementPath>().transform.position = stageSpotManager.GetStageSpot(PlayerPrefs.GetInt("LastStagePlayed", 1));
-            button.Select();
         }
 
         if (PlayerPrefs.GetInt(unlockingLvlname, 0) == 1)
         {
-            button.interactable = true;
             if (PlayerPrefs.GetInt(codeLvlname, 0) == 1)
             {
-                decoration.SetGreenSprite();
-                worldTileDecorationManager.SetGreenValue(1f);
+                decoration.SetGreenSprite(false);
+                levelTileDecorationManager.SetGreenValue(1f);
                 stageSpotManager.ColorStageSpots(100);
                 stageSpotManager.ActivateStageSpots(100);
-                buttonHighlighter.color = new Color(46f/255, 76f/255, 0f/255);
 
             } else {
                 stageSpotManager.ColorStageSpots(PlayerPrefs.GetInt("LastStageCompleted", 0));
                 stageSpotManager.ActivateStageSpots(PlayerPrefs.GetInt("LastStageCompleted", 0));
-                worldTileDecorationManager.SetGreenValue(PlayerPrefs.GetInt("LastStageCompleted", 0)/5f);
-                smokeEffect.Play();
-                buttonHighlighter.color = new Color(230f/255, 150f/255, 36f/255);
-                buttonHighlighter.GetComponent<Animator>().SetBool("IsHighlighted", true);
+                levelTileDecorationManager.SetGreenValue(PlayerPrefs.GetInt("LastStageCompleted", 0)/5f);
             }
         } else {  
-            button.interactable = false;
-            smokeEffect.Play();
             SmokyCloudParent.SetActive(true);
-            stageSpotManager.ColorStageSpots(-100);
-
+            stageSpotManager.DisableAllStageSpots();
+            levelTileDecorationManager.SetGreenValue(0f);
+            if (decoration != null)
+                decoration.ColorAdjustment(0f, 0.2f);
         }
     }
 

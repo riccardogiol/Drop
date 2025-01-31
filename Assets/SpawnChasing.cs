@@ -7,10 +7,12 @@ public class SpawnChasing : MonoBehaviour
     float countdown;
     public Vector3 spawnSpot;
     public GameObject chasingEnemyPrefab;
+    FireCounter fireCounter;
 
     void Start()
     {
         playgroundManager = FindFirstObjectByType<PlaygroundManager>();
+        fireCounter = FindFirstObjectByType<FireCounter>();
         countdown = 5.0f;
     }
 
@@ -24,6 +26,7 @@ public class SpawnChasing : MonoBehaviour
             spawnEnemy.GetComponent<EnemyHealth>().maxHealth = 5;
             spawnEnemy.GetComponent<EnemyGroundInteraction>().spawnFlameProbability = 0.01f;
             spawnEnemy.GetComponent<EnemyAIChasingMovement>().jumpInterval = 1.3f;
+            spawnEnemy.transform.parent = fireCounter.transform;
         }
         
     }

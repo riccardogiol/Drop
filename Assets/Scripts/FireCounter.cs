@@ -31,4 +31,22 @@ public class FireCounter : MonoBehaviour
     {
         return Math.Max(flameCounter, 0) * flameValue + Math.Max(wildfireCounter, 0) * wildfireValue;
     }
+
+    public void DestroyAllFires()
+    {
+        foreach (Transform child in gameObject.transform)
+        {
+            if (child.GetComponent<EnemyHealth>() != null)
+            {
+                child.GetComponent<EnemyHealth>().TakeDamage(100);
+            }
+            else if (child.GetComponent<PickFlame>() != null)
+            {
+                child.GetComponent<PickFlame>().DestroyFlame();
+            } else 
+            {
+                Destroy(child);
+            }
+        }
+    }
 }

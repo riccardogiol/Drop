@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
@@ -17,6 +19,8 @@ public class EnemyHealth : MonoBehaviour
 
     public GameObject vaporBurstPrefab;
 
+    public FireCounter flameParent;
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -28,6 +32,7 @@ public class EnemyHealth : MonoBehaviour
             progressionBarFiller.SetMaxValue(1);
             progressionBarFiller.SetMinValue(0);
             progressionBarFiller.SetValue(1);
+            flameParent = FindFirstObjectByType<FireCounter>();
         }
         ScaleOnHealth();
     }
@@ -53,6 +58,8 @@ public class EnemyHealth : MonoBehaviour
         {
             if (healthOnProgBar)
             {
+                if (flameParent != null)
+                    flameParent.DestroyAllFires();
                 if (animator != null)
                     animator.SetTrigger("Die");
                 FindFirstObjectByType<StageManager>().WinGame(true, winningSceneTimer);
