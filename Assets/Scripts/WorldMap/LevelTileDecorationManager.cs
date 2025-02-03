@@ -5,7 +5,6 @@ using UnityEngine.Tilemaps;
 public class LevelTileDecorationManager : MonoBehaviour
 {
     public PolygonCollider2D[] decorationAreas;
-    List<Vector3> availablePositions;
     public GameObject[] decorationPrefabs;
     List<GameObject> decorations= new List<GameObject>();
     Tilemap tilemap;
@@ -16,17 +15,24 @@ public class LevelTileDecorationManager : MonoBehaviour
     void Awake()
     {
         tilemap = FindFirstObjectByType<Tilemap>();
-        availablePositions = new List<Vector3>();
+        List<Vector3> availablePositions = new List<Vector3>();
         tilePositions = new List<Vector3Int>();
 
+        foreach (Transform child in transform)
+            if (child.GetComponent<ChangeAspect>() != null)
+            {
+                child.GetComponent<ChangeAspect>().SetBurntSprite();
+                decorations.Add(child.gameObject);
+            }
+        
         foreach ( PolygonCollider2D decorationArea in decorationAreas )
         {
             Bounds bounds = decorationArea.bounds;
-            for (int x = (int)bounds.min.x; x < bounds.max.x; x++)
+            for (float x = bounds.min.x; x < bounds.max.x; x += 0.25f)
             {
-                for (int y = (int)bounds.min.y; y < bounds.max.y; y++)
+                for (float y = bounds.min.y; y < bounds.max.y; y += 0.25f)
                 {
-                    Vector3 worldPosition = tilemap.GetCellCenterWorld(new Vector3Int(x, y, 0));
+                    Vector3 worldPosition = new Vector3(x, y);
                     if (decorationArea.OverlapPoint(worldPosition))
                     {
                         availablePositions.Add(worldPosition);
@@ -34,21 +40,19 @@ public class LevelTileDecorationManager : MonoBehaviour
                 }
             }
         }
-        
+
 
         foreach (Vector3 position in availablePositions)
         {
-            if (Random.value < 0.9)
+            if (Random.value < 0.2)
             {    
                 GameObject goRef = Instantiate(decorationPrefabs[Random.Range(0, decorationPrefabs.Length)], position, Quaternion.identity);
                 goRef.transform.parent = transform;
                 decorations.Add(goRef);
                 ChangeAspect caRef = goRef.GetComponent<ChangeAspect>();
                 if (caRef != null)
-                {
                     goRef.GetComponent<ChangeAspect>().SetBurntSprite();
-                    goRef.transform.SetPositionAndRotation(new Vector3(goRef.transform.position.x + Random.Range(-0.65f, 0.15f), goRef.transform.position.y + Random.Range(-0.65f, 0.15f)), Quaternion.identity);
-                } else if (goRef.GetComponent<PickFlame>() != null)
+                else if (goRef.GetComponent<PickFlame>() != null)
                 {
                     goRef.GetComponent<PickFlame>().isDecoration = true;
                     tilemap.SetTile(new Vector3Int((int)position.x, (int)position.y, 0), burnedTile);
@@ -56,7 +60,7 @@ public class LevelTileDecorationManager : MonoBehaviour
                 }
             }
 
-            if (Random.value < 0.5)
+            if (Random.value < -0.5)
             {
                 tilemap.SetTile(new Vector3Int((int)position.x, (int)position.y, 0), burnedTile);
                 tilePositions.Add(new Vector3Int((int)position.x, (int)position.y, 0));
@@ -90,7 +94,6 @@ public class LevelTileDecorationManager : MonoBehaviour
         {
             if (Random.value < value)
             {
-                Debug.Log("New random value");
                 if (go.GetComponent<ChangeAspect>() != null)
                 {
                     go.GetComponent<ChangeAspect>().SetGreenSprite();
