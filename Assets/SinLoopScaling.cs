@@ -16,7 +16,7 @@ public class SinLoopScaling : MonoBehaviour
 
     void FixedUpdate()
     {
-        float value = 1 + ((float)Math.Sin(Time.time * speed - delay*0.7)) * strenght;
+        float value = 1 + Math.Max((float)Math.Sin(Time.time * speed - delay*0.7), -0.5f) * strenght;
         transform.localScale = new Vector3(startingScale.x * value, startingScale.y * value, startingScale.z);
     }
 }

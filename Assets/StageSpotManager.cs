@@ -12,6 +12,9 @@ public class StageSpotManager : MonoBehaviour
 
     List<GameObject> stageSpots;
 
+    public int lvlCode = 0;
+    float delaySin = 0.3f;
+
     void Awake()
     {
         stageSpots = new List<GameObject>();
@@ -23,6 +26,22 @@ public class StageSpotManager : MonoBehaviour
                 auxGo.GetComponent<LevelEnterTrigger>().ActivateButton(false);
                 stageSpots.Add(auxGo);
             }
+        }
+
+        for(int i = 0; i < stageSpots.Count - 1; i++)
+        {
+            GameObject spot = stageSpots[i];
+            GameObject nextSpot = stageSpots[i+1];
+            Vector3 direction = nextSpot.transform.position - spot.transform.position;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 90.0f;
+            foreach(Transform child in spot.transform)
+            {
+                if (child.name == "TrailGFX")
+                {
+                    child.SetPositionAndRotation(spot.transform.position + direction/2.0f, Quaternion.Euler(0, 0, angle));
+                }
+            }
+
         }
     }
 
@@ -52,6 +71,7 @@ public class StageSpotManager : MonoBehaviour
                     if (child.name == "SpotGFX")
                     {
                         child.GetComponent<SpriteRenderer>().color = new Color(157f/255, 214f/255, 66f/255);
+                        child.GetComponent<SinLoopScaling>().delay = lvlCode*4*delaySin + i*delaySin;
                     }
                     if (child.name == "TrailGFX")
                         child.GetComponent<SpriteRenderer>().color = new Color(157f/255, 214f/255, 66f/255);
@@ -83,7 +103,6 @@ public class StageSpotManager : MonoBehaviour
 
     public void DisableAllStageSpots()
     {
-        int i = 0;
         foreach(var spot in stageSpots)
         {
             spot.GetComponent<LevelEnterTrigger>().ActivateButton(false);

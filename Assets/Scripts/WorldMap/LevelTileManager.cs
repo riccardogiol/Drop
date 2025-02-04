@@ -26,6 +26,8 @@ public class LevelTileManager : MonoBehaviour
         movementPath = FindFirstObjectByType<PlayerMovementPath>();
         messageManager = FindFirstObjectByType<MapMessageManager>();
 
+        stageSpotManager.lvlCode = codeLvl;
+
         if (PlayerPrefs.GetInt("LastLevelPlayed", 0) == codeLvl)
         {
             FindFirstObjectByType<PlayerMovementPath>().transform.position = stageSpotManager.GetStageSpot(PlayerPrefs.GetInt("LastStagePlayed", 1));
