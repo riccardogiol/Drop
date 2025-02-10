@@ -1,10 +1,16 @@
+using System.Collections;
 using UnityEngine;
 
 public class MapMessageManager : MonoBehaviour
 {
     public GameObject shader;
     public GameObject storeMessage;
-    public bool messageOnScreen = false;
+    public static bool messageOnScreen = false;
+
+    void Awake()
+    {
+        messageOnScreen = false;
+    }
 
     public void ShowLevelMessage(int lvlCode, int stageCode = 1)
     {   
@@ -25,7 +31,7 @@ public class MapMessageManager : MonoBehaviour
     {
         shader.SetActive(false);
         message.SetActive(false);
-        messageOnScreen = false;
+        StartCoroutine(delayMessageOnScreenExit());
     }
 
     public void OpenStore()
@@ -39,6 +45,12 @@ public class MapMessageManager : MonoBehaviour
     {
         shader.SetActive(false);
         storeMessage.SetActive(false);
+        StartCoroutine(delayMessageOnScreenExit());
+    }
+
+    IEnumerator delayMessageOnScreenExit()
+    {
+        yield return null;
         messageOnScreen = false;
     }
 

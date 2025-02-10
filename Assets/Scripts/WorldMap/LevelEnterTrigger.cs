@@ -23,6 +23,7 @@ public class LevelEnterTrigger : MonoBehaviour
     public void MovePlayerAndActivate()
     {
         FindFirstObjectByType<PlayerMovementPath>().NewTarget(transform.position);
+        FindFirstObjectByType<PlayerMovementKeysMap>().SetSelectedStage(levelTileManager.codeLvl, stageCode);
         thisCollider.enabled = true;
         FindFirstObjectByType<MapMoveCamera>().Exit();
     }

@@ -103,20 +103,23 @@ public class StageManager : MonoBehaviour
         if (finalStage)
         {
             victoryPositionTrigger = FindObjectOfType<VictoryPositionTrigger>();
-            bool isBoss = victoryPositionTrigger != null;
-            if (isBoss)
+            if (victoryPositionTrigger != null)
             {
                 victoryPositionTrigger.ActivateCollider();
                 playerMovementPath.NewTarget(victoryPositionTrigger.transform.position);
+            } else {
+                playerMovementPath.InterruptMovement();
+                playerAnimationManager.PlayTriumph();
+            }
+            bool isBoss = bossTransform != null;
+            if (isBoss)
+            {
                 CinemachineVirtualCamera cinemachineVirtual = FindFirstObjectByType<CinemachineVirtualCamera>();
                 if (cinemachineVirtual != null)
                 {
                     cinemachineVirtual.Follow = bossTransform;
                     cinemachineVirtual.LookAt = bossTransform;
                 }
-            } else {
-                playerMovementPath.InterruptMovement();
-                playerAnimationManager.PlayTriumph();
             }
             
             playerMovementKeys.InterruptMovement(0.3f);
@@ -130,7 +133,10 @@ public class StageManager : MonoBehaviour
             }
 
             if (PlayerPrefs.GetInt("Lvl" + currentLvl, 0) == 0)
+            {
                 PlayerPrefs.SetInt("LastStageCompleted", 0);
+                PlayerPrefs.SetInt("LastLevelCompleted", currentLvl);
+            }
 
             PlayerPrefs.SetInt("Lvl" + currentLvl, 1);
 

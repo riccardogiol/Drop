@@ -64,7 +64,7 @@ public class LevelTileManager : MonoBehaviour
 
     public void MoveOnThisTile()
     {
-        if (FindFirstObjectByType<MapMessageManager>().messageOnScreen)
+        if (MapMessageManager.messageOnScreen)
             return;
         Debug.Log(transform.name);
         Vector3 newPos;
