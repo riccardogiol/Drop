@@ -11,7 +11,7 @@ public class ChangeAspect : MonoBehaviour
     [Header("Set Sprites or Animator")]
     public Sprite greenSprite;
     public Sprite burntSprite;
-    public Animator decoAnimator;
+    public DecorationAnimationManager decoAnimator;
     
     [Header("Fixed Parameters")]
     public ParticleSystem waterParticles;
@@ -22,18 +22,19 @@ public class ChangeAspect : MonoBehaviour
     public List<int2> touchingCellsCoordinates;
     List<Vector3> touchingCells;
     PlaygroundManager playgroundManager;
-    SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRenderer;
 
     public Material colorAdjustmentMaterial;
 
     void Awake()
     {
-        GameObject auxGO = transform.Find("GFX").gameObject;
-        if (auxGO != null)
-            spriteRenderer = auxGO.GetComponent<SpriteRenderer>();
+        if (spriteRenderer == null)
+        {
+            GameObject auxGO = transform.Find("GFX").gameObject;
+            if (auxGO != null)
+                spriteRenderer = auxGO.GetComponent<SpriteRenderer>();
+        }
 
-        if (decoAnimator != null)
-            decoAnimator.SetBool("IsBurnt", isBurnt);
         else if (spriteRenderer != null)
         {
             if (isBurnt)
@@ -53,6 +54,13 @@ public class ChangeAspect : MonoBehaviour
 
     void Start()
     {
+        if (decoAnimator != null)
+        {
+            if (isBurnt)
+                decoAnimator.SetBurnt();
+            else
+                decoAnimator.SetGreen();
+        }
         if (!isBurnt && flowerStarter!=null)
         {
             GameObject goref = Instantiate(flowerStarter, transform.position, Quaternion.identity);
@@ -75,7 +83,7 @@ public class ChangeAspect : MonoBehaviour
             fireBarrier.GetComponent<FireBarrierEffectManager>().Estinguish();
 
         if (decoAnimator != null)
-            decoAnimator.SetBool("IsBurnt", isBurnt);
+            decoAnimator.SetGreen();
         else if (spriteRenderer != null)
             spriteRenderer.sprite = greenSprite;
 
@@ -90,7 +98,7 @@ public class ChangeAspect : MonoBehaviour
     {
         isBurnt = true;
         if (decoAnimator != null)
-            decoAnimator.SetBool("IsBurnt", isBurnt);
+            decoAnimator.SetBurnt();
         else if (spriteRenderer != null)
             spriteRenderer.sprite = burntSprite;
 
@@ -127,12 +135,10 @@ public class ChangeAspect : MonoBehaviour
 
     public void SetTransparancy(bool transparent)
     {
-
         if (transparent)
             spriteRenderer.material.SetInt("_HalfTransparent", 1);
         else
             spriteRenderer.material.SetInt("_HalfTransparent", 0);
-            
     }
 
 }

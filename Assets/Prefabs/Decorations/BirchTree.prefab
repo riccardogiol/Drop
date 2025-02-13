@@ -82,7 +82,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5831071955705032784}
   - component: {fileID: 5831071955705032785}
-  - component: {fileID: 1468620817856862184}
   m_Layer: 0
   m_Name: GFX
   m_TagString: Untagged
@@ -157,27 +156,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 2
   m_SpriteSortPoint: 1
---- !u!95 &1468620817856862184
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5831071955705032790}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3d7b0eb30b53746449a9689ad91b5b31, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5831071956751903875
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,13 +208,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBurnt: 1
   reactOnWater: 0
-  greenSprite: {fileID: 0}
-  burntSprite: {fileID: 0}
-  decoAnimator: {fileID: 1468620817856862184}
+  greenSprite: {fileID: 21300000, guid: 9a3136442611e44ce8a09057f5109cfc, type: 3}
+  burntSprite: {fileID: 21300000, guid: 0dc53f8ddbd134c51b1a2341782a0ebf, type: 3}
+  decoAnimator: {fileID: 0}
   waterParticles: {fileID: 8101247488794350730}
   leavesParticles: {fileID: 6227016013280429003}
   burntLeavesParticles: {fileID: 6378864589124729406}
   flowerStarter: {fileID: 0}
+  fireBarrier: {fileID: 0}
   touchingCellsCoordinates:
   - x: 0
     y: 0

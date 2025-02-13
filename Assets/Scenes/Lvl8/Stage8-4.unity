@@ -1638,6 +1638,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: animal Saved
       objectReference: {fileID: 0}
+    - target: {fileID: 883560211532010066, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1255469263681175279, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: coinObtained
@@ -1832,12 +1837,52 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 92ce265c800b64fb49ae7067da9ce810,
+      objectReference: {fileID: 985591993, guid: 4b2a85062c0bd427fa0c5797d3ad550e,
         type: 3}
     - target: {fileID: 1867412258302356888, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_Text
       value: Shoot!
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476064941540019042, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 143.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476064941540019042, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 143.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476064941540019042, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476064941540019042, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476064941540019042, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476064941540019042, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476064941540019042, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 56
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476064941540019042, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3250874807881098396, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
@@ -1875,12 +1920,17 @@ PrefabInstance:
     - target: {fileID: 4462540637395414638, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4644781750324647884, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_Text
-      value: Danaus plexippus
+      value: Dendrocopos major
+      objectReference: {fileID: 0}
+    - target: {fileID: 4644781750324647884, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 5411216365801270622, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
@@ -1920,9 +1970,12 @@ PrefabInstance:
     - target: {fileID: 7082749135812840327, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_Text
-      value: Butterflies are essential pollinators in the alpine biome, supporting
-        plant reproduction and indicating ecosystem health. Their sensitivity to
-        environmental changes makes them important bioindicators of climate change.
+      value: 'Woodpeckers play a crucial role in the alpine biome by controlling
+        insect populations and creating tree cavities used by other species. Their
+        strong beaks allow them to forage in bark, helping maintain forest health
+        while adapting to harsh mountain conditions.
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 7474827322298110750, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
@@ -1937,7 +1990,12 @@ PrefabInstance:
     - target: {fileID: 7759043742210922553, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_Text
-      value: you saved the butterfly from fire
+      value: you saved the woodpecker from fire
+      objectReference: {fileID: 0}
+    - target: {fileID: 7759043742210922553, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7b202ae4dba84871811aa7c44bc43e3, type: 3}
@@ -1965,6 +2023,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef61b1f826a4442cc971e2d0a9b37601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &1207991584 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1715595831200774528, guid: c7b202ae4dba84871811aa7c44bc43e3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1207991581}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1237639760
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2119,6 +2183,82 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c6a04371febd4a96affb811d3ecaba9, type: 3}
+--- !u!1 &1664544527
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1664544528}
+  - component: {fileID: 1664544530}
+  - component: {fileID: 1664544529}
+  m_Layer: 5
+  m_Name: Logo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1664544528
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664544527}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1207991584}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -144.76953, y: 242.487}
+  m_SizeDelta: {x: 143.75, y: 143.75}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1664544529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664544527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -99924686, guid: a01fea9d2c5c04098ad752cc90c54521, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1664544530
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664544527}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1680450059
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3042,6 +3182,7 @@ MonoBehaviour:
   currentStage: 4
   stageMode: puzzle
   finalStage: 1
+  bossTransform: {fileID: 0}
   menusManager: {fileID: 1207991583}
 --- !u!1001 &4617294187859838832
 PrefabInstance:

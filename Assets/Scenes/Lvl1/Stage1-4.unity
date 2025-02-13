@@ -268,12 +268,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 527510075}
   m_CullTransparentMesh: 1
---- !u!95 &535697513 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 6065479866870988387, guid: 9c62499f7c5e24ec29ded221f704dc26,
-    type: 3}
-  m_PrefabInstance: {fileID: 1778904543}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &554380413
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7538,7 +7532,7 @@ PrefabInstance:
     - target: {fileID: 4462540637395414638, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4644781750324647884, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
@@ -7961,6 +7955,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1559908933}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1634184825 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4642354539459563545, guid: 9c62499f7c5e24ec29ded221f704dc26,
+    type: 3}
+  m_PrefabInstance: {fileID: 1778904543}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5f942cb5cce8482fb772e311511a0a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1736441726
 GameObject:
   m_ObjectHideFlags: 0
@@ -8161,7 +8167,7 @@ PrefabInstance:
         type: 3}
       propertyPath: decoAnimator
       value: 
-      objectReference: {fileID: 535697513}
+      objectReference: {fileID: 1634184825}
     - target: {fileID: 8692842919302474258, guid: 9c62499f7c5e24ec29ded221f704dc26,
         type: 3}
       propertyPath: m_RootOrder
@@ -8302,4 +8308,5 @@ MonoBehaviour:
   currentStage: 4
   stageMode: puzzle
   finalStage: 1
+  bossTransform: {fileID: 0}
   menusManager: {fileID: 1207991583}

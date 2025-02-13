@@ -702,7 +702,7 @@ RectTransform:
   m_GameObject: {fileID: 879641800}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
+  m_LocalScale: {x: 0.65, y: 0.65, z: 0.65}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1207991585}
@@ -711,7 +711,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 70, y: -25}
-  m_SizeDelta: {x: 112.5, y: 112.5}
+  m_SizeDelta: {x: 225, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &879641802
 MonoBehaviour:
@@ -733,7 +733,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6d3a302226f7a4ebcab936dcbbfe137c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 78ff907fbf8c2421db98fc04aaa16b70, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1842,6 +1842,7 @@ MonoBehaviour:
   currentStage: 1
   stageMode: puzzle
   finalStage: 0
+  bossTransform: {fileID: 0}
   menusManager: {fileID: 1207991583}
 --- !u!1001 &2146217147
 PrefabInstance:

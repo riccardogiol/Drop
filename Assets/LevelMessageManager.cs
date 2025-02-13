@@ -10,13 +10,17 @@ public class LevelMessageManager : MonoBehaviour
     public string TrophyName;
     [TextArea]
     public string TrophyDescription;
+    [TextArea]
+    public string TrophyDescriptionBurnt = "The XXX has not been rescued yet";
     public Sprite TrophyGreenSprite;
+    [Header("Change the burnt image in the image box to regulate size and position")]
 
     [Header("Fixed parameters")]
     public Text TrophyNameBox;
     public Text TrophyDescriptionBox;
     public Image TrophySpriteRenderer;
     public Button continueButton;
+    public Text LevelTitle;
 
     void Start()
     {
@@ -24,12 +28,16 @@ public class LevelMessageManager : MonoBehaviour
             continueButton.interactable = true;
         else
             continueButton.interactable = false;
+
+        LevelTitle.text = "Level " + levelCode;
         
         if (PlayerPrefs.GetInt("Lvl" + levelCode, 0) == 1)
         {
             TrophyNameBox.text = TrophyName;
             TrophyDescriptionBox.text = TrophyDescription;
             TrophySpriteRenderer.sprite = TrophyGreenSprite;
+        } else {
+            TrophyDescriptionBox.text = TrophyDescriptionBurnt;
         }
 
     }
