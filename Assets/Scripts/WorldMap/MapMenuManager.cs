@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 public class MapMenuManager : MonoBehaviour
 {
     public GameObject StoryDisplay;
-    public OutOfWallDecorationManager outOfWallDecorationManager;
 
     void Awake()
     {
@@ -16,12 +15,6 @@ public class MapMenuManager : MonoBehaviour
             MapMessageManager.messageOnScreen = true;
         }
         PlayerPrefs.SetInt("FromMainMenu", 0);
-    }
-
-    void Start()
-    {
-        outOfWallDecorationManager.SpawnDecorations(15, 15);
-        outOfWallDecorationManager.SetCleanValue(1);
     }
 
     public void EndIntroductionSlides(GameObject message)

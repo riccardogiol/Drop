@@ -7,14 +7,22 @@ public class LevelTileDecorationManager : MonoBehaviour
     public PolygonCollider2D[] decorationAreas;
     public GameObject[] decorationPrefabs;
     List<GameObject> decorations= new List<GameObject>();
-    Tilemap tilemap;
+    public Tilemap tilemap;
     public RuleTile darkGreenTile;
     public RuleTile burnedTile;
     List<Vector3Int> tilePositions;
 
+    public float density = 0.25f;
+    public float decProb = 0.2f;
+    public float spriteBrightness = 0.76f;
+
+    public bool preSet = false;
+    public float percGreen = 0.5f;
+
     void Awake()
     {
-        tilemap = FindFirstObjectByType<Tilemap>();
+        if (tilemap == null)
+            tilemap = FindFirstObjectByType<Tilemap>();
         List<Vector3> availablePositions = new List<Vector3>();
         tilePositions = new List<Vector3Int>();
 
@@ -28,9 +36,9 @@ public class LevelTileDecorationManager : MonoBehaviour
         foreach ( PolygonCollider2D decorationArea in decorationAreas )
         {
             Bounds bounds = decorationArea.bounds;
-            for (float x = bounds.min.x; x < bounds.max.x; x += 0.25f)
+            for (float x = bounds.min.x; x < bounds.max.x; x += density)
             {
-                for (float y = bounds.min.y; y < bounds.max.y; y += 0.25f)
+                for (float y = bounds.min.y; y < bounds.max.y; y += density)
                 {
                     Vector3 worldPosition = new Vector3(x, y);
                     if (decorationArea.OverlapPoint(worldPosition))
@@ -44,7 +52,7 @@ public class LevelTileDecorationManager : MonoBehaviour
 
         foreach (Vector3 position in availablePositions)
         {
-            if (Random.value < 0.2)
+            if (Random.value < decProb)
             {    
                 GameObject goRef = Instantiate(decorationPrefabs[Random.Range(0, decorationPrefabs.Length)], position, Quaternion.identity);
                 goRef.transform.parent = transform;
@@ -60,12 +68,15 @@ public class LevelTileDecorationManager : MonoBehaviour
                 }
             }
 
-            if (Random.value < -0.5)
+            if (Random.value < 0.5)
             {
                 tilemap.SetTile(new Vector3Int((int)position.x, (int)position.y, 0), burnedTile);
                 tilePositions.Add(new Vector3Int((int)position.x, (int)position.y, 0));
             }
         }
+
+        if (preSet)
+            SetGreenValue(percGreen);
     }
 
     public void SetGreenValue(float value)
@@ -79,7 +90,7 @@ public class LevelTileDecorationManager : MonoBehaviour
                 if (go.GetComponent<ChangeAspect>() != null)
                 {
                     go.GetComponent<ChangeAspect>().SetGreenSprite();
-                    go.GetComponent<ChangeAspect>().ColorAdjustment(Random.Range(-0.05f, 0.05f), 0.76f);
+                    go.GetComponent<ChangeAspect>().ColorAdjustment(Random.Range(-0.05f, 0.05f), spriteBrightness);
                 }
                 else if(go.GetComponent<PickFlame>() != null)
                     Destroy(go);
@@ -97,7 +108,7 @@ public class LevelTileDecorationManager : MonoBehaviour
                 if (go.GetComponent<ChangeAspect>() != null)
                 {
                     go.GetComponent<ChangeAspect>().SetGreenSprite();
-                    go.GetComponent<ChangeAspect>().ColorAdjustment(Random.Range(-0.05f, 0.05f), 0.76f);
+                    go.GetComponent<ChangeAspect>().ColorAdjustment(Random.Range(-0.05f, 0.05f), spriteBrightness);
                 }
                 else if(go.GetComponent<PickFlame>() != null)
                     Destroy(go);
