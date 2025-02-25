@@ -129,7 +129,7 @@ public class StageManager : MonoBehaviour
             {
                 yield return new WaitForSeconds(waitSeconds);
             } else {
-                yield return new WaitForSeconds(3);
+                yield return new WaitForSeconds(5);
             }
 
             if (PlayerPrefs.GetInt("Lvl" + currentLvl, 0) == 0)

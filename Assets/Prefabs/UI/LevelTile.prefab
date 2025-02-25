@@ -129,6 +129,7 @@ MonoBehaviour:
   - {r: 1, g: 0.5613208, b: 0.5613208, a: 1}
   - {r: 0.9056604, g: 0.86284953, b: 0.46564615, a: 1}
   - {r: 0.9339623, g: 0.6638423, b: 0.3216002, a: 1}
+  lvlCode: 0
 --- !u!1 &6287841531350088475
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,8 +387,14 @@ MonoBehaviour:
   - {fileID: 5831071956751903875, guid: e9893e31cf1fb4bc9a9da4e420334236, type: 3}
   - {fileID: 5831071956751903875, guid: c5ccbb054e0754e809adf7a27de8853f, type: 3}
   - {fileID: 5831071956751903875, guid: 9013ce8089e524495871cada8141e7b0, type: 3}
+  tilemap: {fileID: 0}
   darkGreenTile: {fileID: 11400000, guid: f63f2b99273e842ee8d7024483c8ff7b, type: 2}
   burnedTile: {fileID: 11400000, guid: 61cb62a24517b42ce8d043aca42a2870, type: 2}
+  density: 0.25
+  decProb: 0.2
+  spriteBrightness: 0.76
+  preSet: 0
+  percGreen: 0.5
 --- !u!1001 &3833500046519330066
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -451,6 +458,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1483925133027237811, guid: bd2c8ac9b9e5242a7bd0ae2baf74a04f,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5b25214fbb59e4d1a8a0f38b936818d9,
+        type: 3}
+    - target: {fileID: 2658775627518513649, guid: bd2c8ac9b9e5242a7bd0ae2baf74a04f,
         type: 3}
       propertyPath: m_Sprite
       value: 

@@ -35,7 +35,7 @@ public class ChangeAspect : MonoBehaviour
                 spriteRenderer = auxGO.GetComponent<SpriteRenderer>();
         }
 
-        else if (spriteRenderer != null)
+        if (spriteRenderer != null)
         {
             if (isBurnt)
                 spriteRenderer.sprite = burntSprite;

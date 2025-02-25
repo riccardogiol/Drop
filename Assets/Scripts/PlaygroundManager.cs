@@ -353,7 +353,7 @@ public class PlaygroundManager : MonoBehaviour
         if (!isRaining && progressionPerc > (rainProgressionPerc + 0.05))
         {
             isRaining = true;
-            MakeRain(isRaining);
+            MakeRain(isRaining, false, false);
             StartCoroutine(Raining());
             tilemapEffectManager.SetFlowerSpreading(0.5f);
 
@@ -371,12 +371,12 @@ public class PlaygroundManager : MonoBehaviour
         }
     }
 
-    public void MakeRain(bool isRaining, bool waterTiles = false)
+    public void MakeRain(bool isRaining, bool waterTiles = false, bool win = true)
     {
         if (isRaining)
         {
             rainEffect.Play();
-            if (decorationManager != null)
+            if (decorationManager != null && win == true) 
                 decorationManager.SetGreenSprites();
             if (waterTiles)
                 StartCoroutine(RainingWaterTiles());

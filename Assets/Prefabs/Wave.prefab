@@ -51,8 +51,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playgroundManager: {fileID: 0}
   damage: 5
-  waveExplosion: {fileID: 3751233161064887440, guid: 3fa5d1a551356464592774c44583888a,
+  waveExplosion: {fileID: 3751233161064887440, guid: 2a6d55587e88b421f9bb80a8cdc34aa1,
     type: 3}
+  shootByPlayer: 1
 --- !u!58 &1746407697583636737
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -102,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5c6d4b5968f847f5b518e9da43cbf85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 1
+  delay: 3
 --- !u!95 &3053756474756094569
 Animator:
   serializedVersion: 5
@@ -111,7 +112,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1746407697583636748}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 0a3cfd0ce321e4d50999315f705df4f8, type: 2}
   m_CullingMode: 0
