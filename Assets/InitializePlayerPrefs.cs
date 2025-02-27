@@ -25,11 +25,11 @@ public class InitializePlayerPrefs : MonoBehaviour
         PlayerPrefs.SetInt("LastLevelPlayed", 8);
         PlayerPrefs.SetInt("Lvl9", 1);
         PlayerPrefs.SetInt("Lvl5Prize", 0);
-        PlayerPrefs.SetInt("Lvl11", 0);
-        PlayerPrefs.SetInt("Lvl12", 0);
-        PlayerPrefs.SetInt("Lvl13", 0);
-        PlayerPrefs.SetInt("Lvl14", 0);
-        PlayerPrefs.SetInt("Lvl15", 0);
+        PlayerPrefs.SetInt("Lvl11", 1);
+        PlayerPrefs.SetInt("Lvl12", 1);
+        PlayerPrefs.SetInt("Lvl13", 1);
+        PlayerPrefs.SetInt("Lvl14", 1);
+        PlayerPrefs.SetInt("Lvl15", 1);
 
 
     }

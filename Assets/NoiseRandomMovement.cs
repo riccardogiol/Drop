@@ -17,6 +17,10 @@ public class NoiseRandomMovement : MonoBehaviour
         {
             offsetX = Random.Range(0f, 100f);
             offsetY = Random.Range(0f, 100f);
+        } else 
+        {
+            offsetX = seed;
+            offsetY = seed;
         }
     }
 

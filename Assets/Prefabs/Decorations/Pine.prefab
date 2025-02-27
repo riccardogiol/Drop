@@ -98,7 +98,7 @@ Transform:
   m_GameObject: {fileID: 5831071955705032790}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1, y: 0.5, z: 0}
-  m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5831071956751903874}
@@ -145,7 +145,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 280aede99595148fa810d025ff0e6daa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 95600a558799c41758499be6c7d1eaaa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 5831071956751903874}
   - component: {fileID: 5831071956751903884}
   m_Layer: 6
-  m_Name: BirchTree
+  m_Name: Pine
   m_TagString: Decoration
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -207,9 +207,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBurnt: 1
-  reactOnWater: 0
-  greenSprite: {fileID: 21300000, guid: 280aede99595148fa810d025ff0e6daa, type: 3}
-  burntSprite: {fileID: 21300000, guid: 834eea626b07f4888b54577c5b9fe937, type: 3}
+  reactOnWater: 1
+  greenSprite: {fileID: 21300000, guid: 95600a558799c41758499be6c7d1eaaa, type: 3}
+  burntSprite: {fileID: 21300000, guid: 5c5d7c20cb06f46c78ac513a80dad610, type: 3}
   decoAnimator: {fileID: 0}
   waterParticles: {fileID: 8101247488794350730}
   leavesParticles: {fileID: 6227016013280429003}
