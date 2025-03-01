@@ -26,6 +26,8 @@ public class ChangeAspect : MonoBehaviour
 
     public Material colorAdjustmentMaterial;
 
+    public float bloomIntensity = 0f;
+
     void Awake()
     {
         if (spriteRenderer == null)
@@ -49,7 +51,11 @@ public class ChangeAspect : MonoBehaviour
             touchingCells.Add(transform.position + new Vector3(point.x + 0.5f, point.y + 0.5f));
         
         if (colorAdjustmentMaterial != null)
+        {
             spriteRenderer.material = new Material(colorAdjustmentMaterial);
+            if (bloomIntensity > 0f)
+                spriteRenderer.material.SetColor("_Color", new Color(1+bloomIntensity, 1+bloomIntensity, 1+bloomIntensity));
+        }
     }
 
     void Start()
@@ -117,7 +123,7 @@ public class ChangeAspect : MonoBehaviour
             spriteRenderer.flipX = true;
     }
 
-    public void ColorAdjustment(float hue, float brightness)
+    public void ColorAdjustment(float hue, float brightness, bool noiseOffset = true)
     {
         if (spriteRenderer == null)
             return;
@@ -128,6 +134,8 @@ public class ChangeAspect : MonoBehaviour
             else
                 spriteRenderer.material.SetFloat("_Hue", hue);
             spriteRenderer.material.SetFloat("_Brightness", brightness);
+            if (noiseOffset)
+                spriteRenderer.material.SetFloat("_NoiseOffset", UnityEngine.Random.Range(0, 10f));
         } else {
             spriteRenderer.color = new Color(brightness, brightness, brightness);
         }

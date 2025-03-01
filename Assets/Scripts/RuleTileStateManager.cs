@@ -121,7 +121,7 @@ public class RuleTileStateManager : MonoBehaviour
                 tilemap.SetTile(cell, cleanDarkTile);
             }
         } else {
-            tilemap.SetTile(cell, cleanTile);
+            //tilemap.SetTile(cell, cleanTile);
         }
     }
 
