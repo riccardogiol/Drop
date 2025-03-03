@@ -1,14 +1,19 @@
 using System;
-using Unity.Mathematics;
 using UnityEngine;
 
 public class PlayerSuperPower : MonoBehaviour
 {
     SuperBarAndButtonManager barManager;
     readonly string unlockingCode1 = "SuperPurchased";
+    readonly string unlockingCode2 = "SuperUpgrade1Purchased";
+    readonly string unlockingCode3 = "SuperUpgrade2Purchased";
+    readonly string unlockingCode4 = "SuperUpgrade3Purchased";
+    readonly string unlockingCode5 = "SuperUpgrade4Purchased";
+    int upgradeLvl = 1;
 
     PlayerShooting playerShooting;
     PlayerWave playerWave;
+    PlaygroundManager playgroundManager;
 
     public float currentValue = 0;
     int maxValue = 5;
@@ -23,9 +28,8 @@ public class PlayerSuperPower : MonoBehaviour
     public Material bloomMaterial;
     Material originaleMaterial;
 
-    void Start()
+    void Awake()
     {
-        
         if(PlayerPrefs.GetInt(unlockingCode1, 0) == 0)
         {
             enabled = false;
@@ -38,9 +42,24 @@ public class PlayerSuperPower : MonoBehaviour
             enabled = false;
             return ;
         }
+
         playerShooting = GetComponent<PlayerShooting>();
         playerWave = GetComponent<PlayerWave>();
+        playgroundManager = FindFirstObjectByType<PlaygroundManager>();
+
         originaleMaterial = playerGFX.material;
+        if(PlayerPrefs.GetInt(unlockingCode2, 0) == 1)
+            upgradeLvl++;
+        if(PlayerPrefs.GetInt(unlockingCode3, 0) == 1)
+            upgradeLvl++;
+        if(PlayerPrefs.GetInt(unlockingCode4, 0) == 1)
+            upgradeLvl++;
+        if(PlayerPrefs.GetInt(unlockingCode5, 0) == 1)
+            upgradeLvl++;
+    }
+
+    void Start()
+    {
 
         barManager.SetButtonInteractable(false);
         barManager.SetSliderMax(maxValue);
@@ -71,7 +90,7 @@ public class PlayerSuperPower : MonoBehaviour
     {
         if(superState)
         {
-            currentValue -= Time.deltaTime;
+            currentValue -= Time.deltaTime/1.5f;
             barManager.UpdateSlider(currentValue);
             if(currentValue <= 0)
             {
@@ -88,18 +107,32 @@ public class PlayerSuperPower : MonoBehaviour
 
     void EnterSuperState()
     {
-        Instantiate(lightningBurstPrefab, transform.position, Quaternion.identity);
+        // GFX
+        GameObject goRef = Instantiate(lightningBurstPrefab, transform.position, Quaternion.identity);
+        goRef.GetComponent<ParticleSystem>().emission.SetBurst(0, new ParticleSystem.Burst(0, upgradeLvl));
+        playerGFX.material = new Material(bloomMaterial);
+        playerGFX.material.SetColor("_Color", new Color(2.0f, 2.0f, 2.0f));
         lightningSparklesPS.Play();
+        
+        // Power effects
         playerShooting.SetBulletCost(0);
         playerWave.SetWaveCost(0);
-        playerGFX.material = bloomMaterial;
+
+        if(PlayerPrefs.GetInt(unlockingCode2, 0) == 1)
+            playgroundManager.MakeRain(true, true, true, false, true);
     }
 
     void ExitSuperState()
     {
+        GameObject goRef = Instantiate(lightningBurstPrefab, transform.position, Quaternion.identity);
+        goRef.GetComponent<ParticleSystem>().emission.SetBurst(0, new ParticleSystem.Burst(0, upgradeLvl));
         lightningSparklesPS.Stop();
+        playerGFX.material = originaleMaterial;
+
         playerShooting.SetBulletCost(2);
         playerWave.SetWaveCost(2);
-        playerGFX.material = originaleMaterial;
+
+        if(PlayerPrefs.GetInt(unlockingCode2, 0) == 1)
+            playgroundManager.MakeRain(false, true, true, false, true);
     }
 }

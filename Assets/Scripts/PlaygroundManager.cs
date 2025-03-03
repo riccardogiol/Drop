@@ -28,7 +28,8 @@ public class PlaygroundManager : MonoBehaviour
     float fireValue = 0;
     float progressionPerc = 0;
     bool isRaining = false;
-    float rainInterval = 3.0f;
+    bool isSuper = false;
+    RainManager rainManager;
     ProgressionBarFiller progressionBar;
     public float minProgressionPerc = 0.3f;
     public float loseProgressionPerc = 0.45f;
@@ -45,6 +46,7 @@ public class PlaygroundManager : MonoBehaviour
         stageManager = FindFirstObjectByType<StageManager>();
         cameraEffectManager = FindFirstObjectByType<CameraEffectManager>();
         progressionBar = FindFirstObjectByType<ProgressionBarFiller>();
+        rainManager = FindFirstObjectByType<RainManager>();
 
 
         GameObject auxGO = transform.Find("WalkTilemap").gameObject;
@@ -62,18 +64,7 @@ public class PlaygroundManager : MonoBehaviour
         decorationManager = FindObjectOfType<DecorationManager>();
         OOWdecorationManager = FindObjectOfType<OutOfWallDecorationManager>();
 
-        GameObject rainGO = transform.Find("RainEffect").gameObject;
-        if(rainGO!= null)
-            rainEffect = rainGO.GetComponent<ParticleSystem>();
         reachedWinningCondition = false;
-
-        // if (!winByFlower)
-        // {
-        //     FlowerBarFiller goRef = FindFirstObjectByType<FlowerBarFiller>();
-        //     if (goRef != null)
-        //         goRef.gameObject.SetActive(false);
-        // }
-
     }
 
     void Start()
@@ -179,7 +170,7 @@ public class PlaygroundManager : MonoBehaviour
     }
 
     //rewrite this with getTile?
-    bool IsOnPlayground(Vector3 cellCenter)
+    public bool IsOnPlayground(Vector3 cellCenter)
     {
         foreach(Transform child in walkTilemap.transform)
         {
@@ -345,78 +336,28 @@ public class PlaygroundManager : MonoBehaviour
             StopAllCoroutines();
             isRaining = true;
             reachedWinningCondition = true;
-            MakeRain(isRaining);
             tilemapEffectManager.SetFlowerSpreading(0.5f);
             if (!bossWin)
                 stageManager.WinGame();
         }
+
         if (!isRaining && progressionPerc > (rainProgressionPerc + 0.05))
         {
             isRaining = true;
-            MakeRain(isRaining, false, false);
-            StartCoroutine(Raining());
+            MakeRain(isRaining, false, true, false);
             tilemapEffectManager.SetFlowerSpreading(0.5f);
 
-        } else if (isRaining && progressionPerc < (rainProgressionPerc - 0.05))
+        } else if (isRaining && progressionPerc < (rainProgressionPerc - 0.05) && !isSuper)
         {
             isRaining = false;
             MakeRain(isRaining);
-            StopAllCoroutines();
             tilemapEffectManager.SetFlowerSpreading(3f);
         }
+
         if (progressionPerc <= loseProgressionPerc)
         {
             if (!bossWin)
                 stageManager.GameOver("heat");
-        }
-    }
-
-    public void MakeRain(bool isRaining, bool waterTiles = false, bool win = true)
-    {
-        if (isRaining)
-        {
-            rainEffect.Play();
-            if (decorationManager != null && win == true) 
-                decorationManager.SetGreenSprites();
-            if (waterTiles)
-                StartCoroutine(RainingWaterTiles());
-        }
-        else
-            rainEffect.Stop();
-    }
-
-    IEnumerator Raining()
-    {
-        while(true)
-        {
-            Vector3Int raindropPos;
-            bool isOnPlayground;
-            do
-            {
-                raindropPos = new Vector3Int(UnityEngine.Random.Range(0, maxX), UnityEngine.Random.Range(0, maxY), 0);
-                Vector3 cellCenter = walkTilemap.GetCellCenterWorld(raindropPos);
-                isOnPlayground = IsOnPlayground(cellCenter);
-            }while(!isOnPlayground);
-            AddWaterdrop(raindropPos);
-            yield return new WaitForSeconds(rainInterval);
-        }
-    }
-
-    IEnumerator RainingWaterTiles()
-    {
-        while(true)
-        {
-            for (int j = 0; j < maxY; j ++)
-            {
-                for (int i = 0; i < maxX; i ++)
-                {
-                    if(UnityEngine.Random.value < 0.15)
-                    {
-                        WaterCell(new Vector3Int(i, j));
-                    }
-                }
-            }
-            yield return new WaitForSeconds(rainInterval/5);
         }
     }
 
@@ -481,5 +422,29 @@ public class PlaygroundManager : MonoBehaviour
             if (child.GetComponent<PickFlame>() != null)
                 child.GetComponent<PickFlame>().DestroyFlame();
         }
+    }
+
+    public void SetGreenDecorations()
+    {
+        if (decorationManager != null)
+            decorationManager.SetGreenSprites();
+    }
+
+    public void MakeRain(bool rainingState, bool waterTiles = false, bool spawnWaterdrops = false, bool win = true, bool super = false)
+    {
+        isSuper = rainingState && super;
+        if (rainingState == false)
+        {
+            if (progressionPerc > (rainProgressionPerc + 0.05))
+            {
+                isRaining = true;
+                MakeRain(true, false, true, false);
+                tilemapEffectManager.SetFlowerSpreading(0.5f);
+                return;
+            }
+        }
+
+        isRaining = rainingState;
+        rainManager.MakeRain(rainingState, waterTiles, spawnWaterdrops, win);
     }
 }

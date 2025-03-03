@@ -14,13 +14,13 @@ public class InitializePlayerPrefs : MonoBehaviour
         PlayerPrefs.SetInt("Lvl6", 0);
         PlayerPrefs.SetInt("Lvl7", 0);
         PlayerPrefs.SetInt("Lvl8", 0);
-        PlayerPrefs.SetInt("CoinAmount", 1000);
         PlayerPrefs.SetInt("Upgrade1", 0);
         PlayerPrefs.SetInt("Upgrade2", 0);
         PlayerPrefs.SetInt("WavePurchased", );
         PlayerPrefs.SetInt("SuperPurchased", 0);
         PlayerPrefs.SetInt("Super1Purchased", 0);
         */
+        PlayerPrefs.SetInt("CoinAmount", 1000);
         PlayerPrefs.SetInt("LastStagePlayed", 2);
         PlayerPrefs.SetInt("LastLevelPlayed", 8);
         PlayerPrefs.SetInt("Lvl9", 1);
