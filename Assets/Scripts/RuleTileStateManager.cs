@@ -33,18 +33,15 @@ public class RuleTileStateManager : MonoBehaviour
     {
         maxXCell = maxX;
         maxYCell = maxY;
-        for (int y = minYCell; y <= maxYCell; y++)
-        {
-            for (int x = minXCell; x <= maxXCell; x++)
-            {
-                RuleTile currentTile = tilemap.GetTile<RuleTile>(new Vector3Int(x, y, 0));
-                if (currentTile != null)
+        if (chessStyle)
+            for (int y = minYCell; y <= maxYCell; y++)
+                for (int x = minXCell; x <= maxXCell; x++)
                 {
-                    if (currentTile != burntTile)
-                        SetCleanTile(new Vector3Int(x, y, 0));
+                    RuleTile currentTile = tilemap.GetTile<RuleTile>(new Vector3Int(x, y, 0));
+                    if (currentTile != null)
+                        if (currentTile != burntTile)
+                            SetCleanTile(new Vector3Int(x, y, 0));
                 }
-            }
-        }
     }
 
     public void EvaluateTilesState()
@@ -121,7 +118,7 @@ public class RuleTileStateManager : MonoBehaviour
                 tilemap.SetTile(cell, cleanDarkTile);
             }
         } else {
-            //tilemap.SetTile(cell, cleanTile);
+            tilemap.SetTile(cell, cleanTile);
         }
     }
 

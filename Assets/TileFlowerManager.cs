@@ -10,6 +10,10 @@ public class TileFlowerManager : MonoBehaviour
     public FlowerGFXManager flowerGFX;
     public TilemapEffectManager tilemapEffectManager;
 
+    public GameObject insectFlying;
+    float timer = 5.0f;
+    bool hasInsects = false;
+
     void Start()
     {        
         Collider2D[] results = Physics2D.OverlapPointAll(transform.position);
@@ -73,12 +77,22 @@ public class TileFlowerManager : MonoBehaviour
         yield return new WaitForSeconds(0.05f);
         isFlowering = true;
         flowerGFX.Plant();
+        if (Random.value < 0.2)
+        {
+            InvokeRepeating("SpawnInsectGFX", Random.Range(0.0f, 2.0f), timer);
+            hasInsects = true;
+        }
     }
 
     public void StopFlowering()
     {
         isFlowering = false;
         flowerGFX.Uproot();
+        if (hasInsects)
+        {
+            CancelInvoke("SpawnInsectGFX");
+            hasInsects = false;
+        }
         GameObject auxGO;
         for (float y = transform.position.y - 1; y <= transform.position.y + 1; y++)
         {
@@ -105,5 +119,14 @@ public class TileFlowerManager : MonoBehaviour
             }
         }
         return false;
+    }
+
+    void SpawnInsectGFX()
+    {
+        if (Random.value < 0.3)
+        {
+            GameObject goref = Instantiate(insectFlying, transform.position, Quaternion.identity);
+            goref.transform.parent = transform;
+        }
     }
 }
