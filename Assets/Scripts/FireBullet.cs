@@ -50,10 +50,20 @@ public class FireBullet : MonoBehaviour
                 DestroyBullet();
                 break;
             case "Decoration":
-                if (other.GetComponent<ChangeAspect>().reactOnWater)
+                if (other.GetComponent<ChangeAspect>() != null)
                 {
-                    playgroundManager.FireOnPosition(other.transform.position);
-                    other.GetComponent<ChangeAspect>().SetBurntSprite();
+                    if (other.GetComponent<ChangeAspect>().reactOnWater)
+                    {
+                        playgroundManager.FireOnPosition(other.transform.position);
+                        other.GetComponent<ChangeAspect>().SetBurntSprite();
+                    }
+                } else if (other.GetComponent<RootTriggerLogic>() != null)
+                {
+                    if (other.GetComponent<RootTriggerLogic>().reactOnWater)
+                    {
+                        playgroundManager.FireOnPosition(other.transform.position);
+                        other.GetComponent<RootTriggerLogic>().SetBurntSprite();
+                    }
                 }
                 DestroyBullet();
                 break;

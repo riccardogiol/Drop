@@ -29,7 +29,7 @@ public class InitializePlayerPrefs : MonoBehaviour
         PlayerPrefs.SetInt("Lvl12", 1);
         PlayerPrefs.SetInt("Lvl13", 1);
         PlayerPrefs.SetInt("Lvl14", 1);
-        PlayerPrefs.SetInt("Lvl15", 1);
+        PlayerPrefs.SetInt("Lvl15", 0);
 
 
     }

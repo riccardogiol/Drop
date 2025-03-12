@@ -54,7 +54,24 @@ public class FireWave : MonoBehaviour
             other.GetComponent<PickFlame>().RechargeEnergy(damage);
         if (other.CompareTag("WaterBullet"))
             other.GetComponent<Bullet>().DestroyBullet();
-
+        if (other.CompareTag("Decoration"))
+        {
+            if (other.GetComponent<ChangeAspect>() != null)
+            {
+                if (other.GetComponent<ChangeAspect>().reactOnWater)
+                {
+                    playgroundManager.FireOnPosition(other.transform.position);
+                    other.GetComponent<ChangeAspect>().SetBurntSprite();
+                }
+            } else if (other.GetComponent<RootTriggerLogic>() != null)
+            {
+                if (other.GetComponent<RootTriggerLogic>().reactOnWater)
+                {
+                    playgroundManager.FireOnPosition(other.transform.position);
+                    other.GetComponent<RootTriggerLogic>().SetBurntSprite();
+                }
+            }
+        }
     }
 
 }

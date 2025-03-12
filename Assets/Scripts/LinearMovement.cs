@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class LinearMovement : MonoBehaviour
 {
-    public Vector3 startingPosition;
-    public Vector3 finalPosition;
+    public Vector2 startingPosition;
+    public Vector2 finalPosition;
     public float timer = 2;
 
     public bool disableColliderWhileMoving = false;

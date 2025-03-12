@@ -264,6 +264,19 @@ public class PlaygroundManager : MonoBehaviour
         {
             if (item.gameObject.CompareTag("DecorationNoFire"))
                 return;
+            if (item.gameObject.CompareTag("Decoration"))
+            {
+                if (item.gameObject.GetComponent<ChangeAspect>() != null)
+                    if (!item.gameObject.GetComponent<ChangeAspect>().reactOnWater)
+                        return;
+                
+                if (item.gameObject.GetComponent<RootTriggerLogic>() != null)
+                   if (!item.gameObject.transform.parent.GetComponent<ChangeAspect>().reactOnWater)
+                   {
+                        Debug.Log("GET INTO CONDITION NO BURN");
+                        return;
+                   }
+            }
         }
         bool statechange = walkTilemap.GetComponent<RuleTileStateManager>().BurnTile(cell);
         bool statechange2 = wallTilemap.GetComponent<RuleTileStateManager>().BurnTile(cell);

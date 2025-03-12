@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerWave : MonoBehaviour
@@ -7,6 +8,8 @@ public class PlayerWave : MonoBehaviour
     int waveDamage = 2;
     float cooldown = 1.5f;
     float timer;
+
+    public GameObject takeWaterGFX;
 
     PlaygroundManager playgroundManager;
     ButtonFiller buttonFiller;
@@ -18,6 +21,7 @@ public class PlayerWave : MonoBehaviour
     readonly string unlockingCode1 = "WavePurchased";
 
     readonly string unlockingCode2 = "Wave1Purchased";
+    readonly string unlockingCode3 = "Wave2Purchased";
     readonly float cooldown2 = 0.8f;
 
     public int powerUsage;
@@ -89,6 +93,8 @@ public class PlayerWave : MonoBehaviour
                 animator.PlayCastingWave();
             WaveAttack();
             timer = cooldown;
+            if(PlayerPrefs.GetInt(unlockingCode3, 0) == 1 && Random.value < 0.20)
+                StartCoroutine("DelayedEnergyReward");
         }
         else
         {
@@ -108,5 +114,13 @@ public class PlayerWave : MonoBehaviour
     public void SetWaveCost(int value)
     {
         waveEnergy = value;
+    }
+
+    
+    IEnumerator DelayedEnergyReward()
+    {
+        yield return new WaitForSeconds(0.3f);
+        playerHealth.FillReservoir(1);
+        Instantiate(takeWaterGFX, transform.position, Quaternion.identity);
     }
 }

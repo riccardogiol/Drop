@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour
@@ -6,16 +7,18 @@ public class PlayerShooting : MonoBehaviour
     float bulletSpeed = 6f;
     int bulletEnergy = 2;
     int bulletDamage = 4;
-    float bulletRange = 3.0f;
     float cooldown = 1.5f;
 
     readonly string unlockingCode1 = "Lvl3";
     
-    readonly string unlockingCode2 = "Wave1Purchased";
+    readonly string unlockingCode2 = "Waterbullet1Purchased";
+    readonly string unlockingCode3 = "Waterbullet2Purchased";
     readonly float cooldown2 = 0.8f;
 
     public Transform shootingPoint;
     float timer;
+
+    public GameObject takeWaterGFX;
 
     PlaygroundManager playgroundManager;
     ButtonFiller buttonFiller;
@@ -60,13 +63,6 @@ public class PlayerShooting : MonoBehaviour
         animator = FindFirstObjectByType<PlayerAnimationManager>();
 
         powerUsage = 0;
-         /*
-        if (PlayerPrefs.GetInt(unlockingCode2, 0) == 1)
-            bulletRange = bulletRange2;
-        if (PlayerPrefs.GetInt(unlockingCode3, 0) == 1)
-            bulletDamage = bulletDamege3;
-        */
-
     }
 
     void Update()
@@ -99,6 +95,9 @@ public class PlayerShooting : MonoBehaviour
                 animator.PlayShooting();
             Shoot();
             timer = cooldown;
+            if(PlayerPrefs.GetInt(unlockingCode3, 0) == 1 && Random.value < 0.20)
+                StartCoroutine("DelayedEnergyReward");
+
         }
         else
         {
@@ -113,7 +112,6 @@ public class PlayerShooting : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, shootingPoint.position + (Vector3)(playerDirection.lastDirection * 0.2f), Quaternion.LookRotation(Vector3.forward, playerDirection.lastDirection));
         bullet.GetComponent<Bullet>().energy = bulletEnergy;
         bullet.GetComponent<Bullet>().damage = bulletDamage;
-        bullet.GetComponent<Bullet>().range = bulletRange;
         bullet.GetComponent<Bullet>().playgroundManager = playgroundManager;
         bullet.GetComponent<Rigidbody2D>().velocity = playerDirection.lastDirection * bulletSpeed;
     }
@@ -121,5 +119,12 @@ public class PlayerShooting : MonoBehaviour
     public void SetBulletCost(int value)
     {
         bulletEnergy = value;
+    }
+
+    IEnumerator DelayedEnergyReward()
+    {
+        yield return new WaitForSeconds(0.3f);
+        playerHealth.FillReservoir(1);
+        Instantiate(takeWaterGFX, transform.position, Quaternion.identity);
     }
 }

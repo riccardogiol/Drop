@@ -18,6 +18,7 @@ public class ChangeAspect : MonoBehaviour
     public ParticleSystem leavesParticles;
     public ParticleSystem burntLeavesParticles;
     public GameObject flowerStarter;
+    GameObject flowerStarterGO;
     public GameObject fireBarrier;
     public List<int2> touchingCellsCoordinates;
     List<Vector3> touchingCells;
@@ -67,10 +68,14 @@ public class ChangeAspect : MonoBehaviour
             else
                 decoAnimator.SetGreen();
         }
-        if (!isBurnt && flowerStarter!=null)
+        if (flowerStarter!=null)
         {
-            GameObject goref = Instantiate(flowerStarter, transform.position, Quaternion.identity);
-            goref.GetComponent<TriggerFlowering>().enabled = true;
+            flowerStarterGO = Instantiate(flowerStarter, transform.position, Quaternion.identity);
+            flowerStarterGO.transform.parent = transform;
+            if (isBurnt)
+               flowerStarterGO.SetActive(false);
+            else
+                flowerStarterGO.SetActive(true);
         }
     }
 
@@ -83,8 +88,8 @@ public class ChangeAspect : MonoBehaviour
             waterParticles.Play();
         if (leavesParticles != null && playLeaves)
             leavesParticles.Play();
-        if (flowerStarter != null)
-            Instantiate(flowerStarter, transform.position, Quaternion.identity);
+        if (flowerStarter != null && flowerStarterGO != null)
+            flowerStarterGO.SetActive(true);
         if (fireBarrier != null)
             fireBarrier.GetComponent<FireBarrierEffectManager>().Estinguish();
 
@@ -110,6 +115,8 @@ public class ChangeAspect : MonoBehaviour
 
         if (burntLeavesParticles != null && playLeaves)
             burntLeavesParticles.Play();
+        if (flowerStarter != null)
+            flowerStarterGO.SetActive(false);
         if (playgroundManager != null)
         {
             foreach(Vector3 point in touchingCells)

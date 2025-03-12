@@ -5,10 +5,10 @@ public class PlayerSuperPower : MonoBehaviour
 {
     SuperBarAndButtonManager barManager;
     readonly string unlockingCode1 = "SuperPurchased";
-    readonly string unlockingCode2 = "SuperUpgrade1Purchased";
-    readonly string unlockingCode3 = "SuperUpgrade2Purchased";
-    readonly string unlockingCode4 = "SuperUpgrade3Purchased";
-    readonly string unlockingCode5 = "SuperUpgrade4Purchased";
+    readonly string unlockingCode2 = "Super1Purchased";
+    readonly string unlockingCode3 = "Super2Purchased";
+    readonly string unlockingCode4 = "Super3Purchased";
+    readonly string unlockingCode5 = "Super4Purchased";
     int upgradeLvl = 1;
 
     PlayerShooting playerShooting;
@@ -51,7 +51,10 @@ public class PlayerSuperPower : MonoBehaviour
         if(PlayerPrefs.GetInt(unlockingCode2, 0) == 1)
             upgradeLvl++;
         if(PlayerPrefs.GetInt(unlockingCode3, 0) == 1)
+        {
             upgradeLvl++;
+            currentValue += 2;
+        }
         if(PlayerPrefs.GetInt(unlockingCode4, 0) == 1)
             upgradeLvl++;
         if(PlayerPrefs.GetInt(unlockingCode5, 0) == 1)
