@@ -2,6 +2,7 @@ using UnityEngine;
 using Pathfinding;
 using System.Collections;
 using System;
+using System.Collections.Generic;
 
 public class EnemyAIChasingMovement : MonoBehaviour
 {
@@ -18,6 +19,9 @@ public class EnemyAIChasingMovement : MonoBehaviour
     SpriteFacing spriteFacing;
 
     bool wasDisabled = false;
+
+    public GameObject waypointGFX;
+    List<GameObject> waypointsGFXGO = new List<GameObject>();
 
     void Start()
     {
@@ -82,5 +86,34 @@ public class EnemyAIChasingMovement : MonoBehaviour
                 yield return new WaitForSeconds(jumpInterval);
             }
         }
+    }
+
+    public void ShowPath()
+    {
+        if (path == null)
+            return;
+        Vector3 direction = new Vector3(1, 0, 0);
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        for(int i = currentWaypoint; i < path.vectorPath.Count; i++)
+        {
+            if (i < path.vectorPath.Count - 1)
+            {
+                Vector3 nextWaypoint = path.vectorPath[i+1];
+                direction = (nextWaypoint - path.vectorPath[i]).normalized;
+                angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            }
+            GameObject goRef = Instantiate(waypointGFX, path.vectorPath[i], Quaternion.identity);
+            foreach (Transform child in goRef.transform)
+                child.Rotate(0, 0, angle);
+            goRef.transform.parent = transform.parent;
+            waypointsGFXGO.Add(goRef);
+        }
+    }
+
+    public void HidePath()
+    {
+        foreach (GameObject go in waypointsGFXGO)
+            Destroy(go);
+        waypointsGFXGO.Clear();
     }
 }

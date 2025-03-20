@@ -98,7 +98,7 @@ public class ChangeAspect : MonoBehaviour
         else if (spriteRenderer != null)
             spriteRenderer.sprite = greenSprite;
 
-        if (playgroundManager != null)
+        if (reactOnWater && playgroundManager != null)
         {
             foreach(Vector3 point in touchingCells)
                 playgroundManager.WaterOnPosition(point);
@@ -117,7 +117,7 @@ public class ChangeAspect : MonoBehaviour
             burntLeavesParticles.Play();
         if (flowerStarter != null)
             flowerStarterGO.SetActive(false);
-        if (playgroundManager != null)
+        if (reactOnWater && playgroundManager != null)
         {
             foreach(Vector3 point in touchingCells)
                 playgroundManager.FireOnPosition(point);

@@ -496,11 +496,13 @@ MonoBehaviour:
   currentHealth: 20
   scaleGFX: 1
   healthOnProgBar: 0
+  winningSceneTimer: 8
   logoOnProgBar: {fileID: 0}
   animator: {fileID: 0}
   enemyGFX: {fileID: 2878689735299882629}
   vaporBurstPrefab: {fileID: 2932825668177330008, guid: 5a0db5a8bb6544822be5283d9c96fc30,
     type: 3}
+  flameParent: {fileID: 0}
 --- !u!114 &5216817755464628962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -558,6 +560,8 @@ MonoBehaviour:
   target: {fileID: 0}
   jumpInterval: 2
   jumpSpeed: 0.5
+  waypointGFX: {fileID: 1249133460442079072, guid: d538003d5e2d049679a51052a2babbe4,
+    type: 3}
 --- !u!114 &5216817755464628971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -570,8 +574,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2d493437a1584dc6b9af88112de6031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingPosition: {x: 0, y: 0, z: 0}
-  finalPosition: {x: 0, y: 0, z: 0}
+  startingPosition: {x: 0, y: 0}
+  finalPosition: {x: 0, y: 0}
   timer: 2
   disableColliderWhileMoving: 0
   scale: 0
@@ -640,7 +644,9 @@ MonoBehaviour:
   waterdrop: {fileID: 0}
   superdrop: {fileID: 0}
   enemyHealth: {fileID: 5216817755464628960}
+  sparklerCharge: {fileID: 0}
   patrolMovement: {fileID: 2837100105941273716}
+  chasingMovement: {fileID: 5216817755464628970}
   patrolIcon: {fileID: 21300000, guid: 66a554bb4c2234b06acc2624a7c203ff, type: 3}
   chasingIcon: {fileID: 21300000, guid: 22c08a395142a43368398c091ca6de64, type: 3}
 --- !u!1 &5848459264359273688

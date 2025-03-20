@@ -8,10 +8,12 @@ public class FadeOut : MonoBehaviour
 
     Color auxColor;
     public SpriteRenderer sprite;
+    float startingAlpha;
 
     void Start()
     {
         countdown = timer;
+        startingAlpha = sprite.color.a;
     }
 
     void Update()
@@ -20,7 +22,7 @@ public class FadeOut : MonoBehaviour
         {
             countdown -= Time.deltaTime;
             auxColor = sprite.color;
-            auxColor.a = Math.Max(countdown/timer, 0);
+            auxColor.a = Math.Max(startingAlpha*countdown/timer, 0);
             sprite.color = auxColor;
         }
         else

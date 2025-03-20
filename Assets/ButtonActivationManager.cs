@@ -8,6 +8,7 @@ public class ButtonActivationManager : MonoBehaviour
     public Sprite lockedSprite;
     Sprite unlockedSprite;
     public string unlockingCode;
+    public ButtonActivationManager previousUpgrade;
     bool locked = false;
 
     public bool activable = false;
@@ -22,7 +23,13 @@ public class ButtonActivationManager : MonoBehaviour
 
         unlockedSprite = image.sprite;
         
-        if (PlayerPrefs.GetInt(unlockingCode, 0) == 0)
+        bool condition;
+        if (previousUpgrade != null)
+            condition = PlayerPrefs.GetInt(unlockingCode, 0) == 0 || PlayerPrefs.GetInt(previousUpgrade.buttonKeyCode, 0 ) == 0;
+        else 
+            condition = PlayerPrefs.GetInt(unlockingCode, 0) == 0;
+
+        if (condition)
         {
             if (button != null)
                 button.interactable = false;
@@ -37,7 +44,13 @@ public class ButtonActivationManager : MonoBehaviour
     {
         if (locked)
         {
-            if (PlayerPrefs.GetInt(unlockingCode, 0) == 1)
+            bool condition;
+            if (previousUpgrade != null)
+                condition = PlayerPrefs.GetInt(unlockingCode, 0) == 1 && PlayerPrefs.GetInt(previousUpgrade.buttonKeyCode, 0 ) == 1;
+            else 
+                condition = PlayerPrefs.GetInt(unlockingCode, 0) == 1;
+
+            if (condition)
             {
                 image.sprite = unlockedSprite;
                 if (button != null)
@@ -45,7 +58,21 @@ public class ButtonActivationManager : MonoBehaviour
                 locked = false;
                 UpdateGFX();
             }
-
+        } else 
+        {
+            bool condition;
+            if (previousUpgrade != null)
+                condition = PlayerPrefs.GetInt(unlockingCode, 0) == 0 || PlayerPrefs.GetInt(previousUpgrade.buttonKeyCode, 0 ) == 0;
+            else 
+                condition = PlayerPrefs.GetInt(unlockingCode, 0) == 0;
+            if (condition)
+            {
+                if (button != null)
+                    button.interactable = false;
+                image.sprite = lockedSprite;
+                locked = true;
+                UpdateGFX();
+            }
         }
     }
 
@@ -53,7 +80,14 @@ public class ButtonActivationManager : MonoBehaviour
     {
         if (!activable)
             return;
-        if (PlayerPrefs.GetInt(unlockingCode, 0) == 0)
+        
+        bool condition;
+        if (previousUpgrade != null)
+            condition = PlayerPrefs.GetInt(unlockingCode, 0) == 0 || PlayerPrefs.GetInt(previousUpgrade.buttonKeyCode, 0 ) == 0;
+        else 
+            condition = PlayerPrefs.GetInt(unlockingCode, 0) == 0;
+
+        if (condition)
         {
             if (trail != null)
                 trail.color = new Color(0.3f, 0.3f, 0.3f);

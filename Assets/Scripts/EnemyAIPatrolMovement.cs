@@ -2,6 +2,7 @@ using UnityEngine;
 using Pathfinding;
 using System.Collections;
 using System;
+using System.Collections.Generic;
 
 public class EnemyAIPatrolMovement : MonoBehaviour
 {
@@ -21,6 +22,9 @@ public class EnemyAIPatrolMovement : MonoBehaviour
     SpriteFacing spriteFacing;
 
     bool wasDisabled = false;
+
+    public GameObject targetGFX;
+    List<GameObject> targetsGFXGO = new List<GameObject>();
 
     void Start()
     {
@@ -97,5 +101,25 @@ public class EnemyAIPatrolMovement : MonoBehaviour
             currentTargetIndex = 0;
         }
         currentTarget = targets[currentTargetIndex];
+    }
+
+    public void ShowPath()
+    {
+        int counter = 1;
+        foreach(Vector3 target in targets)
+        {
+            GameObject goRef = Instantiate(targetGFX, target, Quaternion.identity);
+            goRef.GetComponent<SetText>().SetInt(counter);
+            goRef.transform.parent = transform.parent;
+            targetsGFXGO.Add(goRef);
+            counter++;
+        }
+    }
+
+    public void HidePath()
+    {
+        foreach (GameObject go in targetsGFXGO)
+            Destroy(go);
+        targetsGFXGO.Clear();
     }
 }

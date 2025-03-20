@@ -12,6 +12,7 @@ public class EnergyIndicator : MonoBehaviour
     public EnemyHealth enemyHealth;
     public SparklerCharge sparklerCharge;
     public EnemyAIPatrolMovement patrolMovement;
+    public EnemyAIChasingMovement chasingMovement;
 
     public Sprite patrolIcon;
     public Sprite chasingIcon;
@@ -33,6 +34,11 @@ public class EnergyIndicator : MonoBehaviour
         SetText();
         if (image != null)
             SetImage();
+
+        if (chasingMovement != null)
+            chasingMovement.ShowPath();
+        if (patrolMovement != null)
+            patrolMovement.ShowPath();
     }
 
     void SetText()
@@ -60,5 +66,11 @@ public class EnergyIndicator : MonoBehaviour
         text.enabled = false;
         if (image != null)
             image.enabled = false;
+            
+        if (chasingMovement != null)
+            chasingMovement.HidePath();
+            
+        if (patrolMovement != null)
+            patrolMovement.HidePath();
     }
 }
