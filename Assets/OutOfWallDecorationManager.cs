@@ -5,12 +5,17 @@ using UnityEngine.Tilemaps;
 
 public class OutOfWallDecorationManager : MonoBehaviour
 {
-    public List<GameObject> decorationsPrefabs;
-    public List<GameObject> tallDecorationsPrefabs;
+    List<GameObject> decorationsPrefabs = new List<GameObject>();
+    List<GameObject> tallDecorationsPrefabs = new List<GameObject>();
+
     public List<GameObject> levelDecorationsPrefabs;
-    public List<int> levelDecorationsUnlockCode;
+    public List<int> fromLevelDecorationsUnlockCode;
+    public List<int> toLevelDecorationsUnlockCode;
+
     public List<GameObject> levelTallDecorationsPrefabs;
-    public List<int> levelTallDecorationsUnlockCode;
+    public List<int> fromLevelTallDecorationsUnlockCode;
+    public List<int> toLevelTallDecorationsUnlockCode;
+
     public bool randomOOGridPos = false;
     public float decorationDensity = 0.6f;
     public float decorationBrightness = 0.84f;
@@ -36,26 +41,28 @@ public class OutOfWallDecorationManager : MonoBehaviour
     float timer = 2;
     float countdown = 0;
 
+    StageManager stageManager;
+
     void Awake()
     {
+        stageManager = FindFirstObjectByType<StageManager>();
+        int lvlCode = stageManager.currentLvl;
         int index = 0;
-        foreach(int lvlCode in levelDecorationsUnlockCode)
+        foreach(GameObject ldp in levelDecorationsPrefabs)
         {
-            if (PlayerPrefs.GetInt("Lvl" + lvlCode, 0) == 1)
-            {
-                decorationsPrefabs.Add(levelDecorationsPrefabs[index]);
-            }
+            if (lvlCode >= fromLevelDecorationsUnlockCode[index] && lvlCode <= toLevelDecorationsUnlockCode[index])
+                decorationsPrefabs.Add(ldp);
             index ++;
         }
+
         index = 0;
-        foreach(int lvlCode in levelTallDecorationsUnlockCode)
+        foreach(GameObject ltdp in levelTallDecorationsPrefabs)
         {
-            if (PlayerPrefs.GetInt("Lvl" + lvlCode, 0) == 1)
-            {
-                tallDecorationsPrefabs.Add(levelTallDecorationsPrefabs[index]);
-            }
+            if (lvlCode >= fromLevelTallDecorationsUnlockCode[index] && lvlCode <= toLevelTallDecorationsUnlockCode[index])
+                tallDecorationsPrefabs.Add(ltdp);
             index ++;
         }
+
         burntDecorations = new List<GameObject>();
         cleanDecorations = new List<GameObject>();
         countdown = timer;

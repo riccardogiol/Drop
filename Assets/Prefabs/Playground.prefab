@@ -6099,11 +6099,18 @@ MonoBehaviour:
   - {fileID: 1250505546, guid: 5ce5d80b301804eeea0353d9e9f448c7, type: 3}
   - {fileID: 486898484, guid: 5ce5d80b301804eeea0353d9e9f448c7, type: 3}
   - {fileID: 1232915927, guid: 5ce5d80b301804eeea0353d9e9f448c7, type: 3}
-  colors:
-  - {r: 1, g: 0.94399023, b: 0.36320752, a: 1}
-  - {r: 1, g: 0.8007262, b: 0.3820755, a: 1}
-  - {r: 0.9716981, g: 0.61344683, b: 0.5179334, a: 1}
-  - {r: 1, g: 0.5801887, b: 0.742759, a: 1}
+  flowerColors:
+  - {r: 0.9622642, g: 0.34950158, b: 0.811383, a: 1}
+  - {r: 1, g: 0.43867922, b: 0.43867922, a: 1}
+  - {r: 1, g: 0.7628584, b: 0.24056602, a: 1}
+  - {r: 0.83050036, g: 0.4812656, b: 0.990566, a: 1}
+  - {r: 1, g: 0.48769647, b: 0.2588235, a: 1}
+  - {r: 0.8632076, g: 1, b: 0.96814084, a: 1}
+  - {r: 0.9343144, g: 1, b: 0.3443396, a: 1}
+  - {r: 0.4669811, g: 0.95063186, b: 1, a: 1}
+  - {r: 1, g: 0.77864647, b: 0.3176471, a: 1}
+  fromLevelColor: 0100000001000000010000000600000006000000060000000b0000000b0000000b000000
+  toLevelColor: 0500000005000000050000000a0000000a0000000a0000000f0000000f0000000f000000
   trySpreadingInterval: 3
 --- !u!1 &4617294187941110059
 GameObject:
@@ -11418,19 +11425,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 370b4775497f94f86976e4d89a540a78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  decorationsPrefabs:
-  - {fileID: 5831071956751903875, guid: 5d705038dc56a46d786cc3d2d152bb91, type: 3}
+  levelDecorationsPrefabs:
   - {fileID: 5831071956751903875, guid: 12ca0d8423081400899dbcef68e7b725, type: 3}
-  tallDecorationsPrefabs:
+  - {fileID: 5831071956751903875, guid: 5d705038dc56a46d786cc3d2d152bb91, type: 3}
+  - {fileID: 5831071956751903875, guid: 15dbd97e5b2fe4983ac09298da2a18c9, type: 3}
+  - {fileID: 5831071956751903875, guid: 31f2e8278051a47f4968d451599eefd7, type: 3}
+  - {fileID: 5831071956751903875, guid: 67241946a3dbc43ceb8d35e1ae65a3b2, type: 3}
+  - {fileID: 5831071956751903875, guid: 8b39da650d3ea411c9e34f7d5f5e19a2, type: 3}
+  fromLevelDecorationsUnlockCode: 010000000100000005000000060000000a0000000e000000
+  toLevelDecorationsUnlockCode: 05000000090000000e0000000f0000000f0000000f000000
+  levelTallDecorationsPrefabs:
   - {fileID: 5831071956751903875, guid: 4c6a04371febd4a96affb811d3ecaba9, type: 3}
   - {fileID: 5831071956751903875, guid: 2295686f91a52422e869eb7f865dd5ef, type: 3}
-  levelDecorationsPrefabs:
-  - {fileID: 5831071956751903875, guid: 212328ec8bbf54e72ac0087c1633b12b, type: 3}
-  levelDecorationsUnlockCode: 04000000
-  levelTallDecorationsPrefabs:
   - {fileID: 5831071956751903875, guid: e96c47f9a3bde45e783ebcce8d8c389f, type: 3}
   - {fileID: 5831071956751903875, guid: ad76f776090494f7fb901468babf7fde, type: 3}
-  levelTallDecorationsUnlockCode: 0300000007000000
+  - {fileID: 5831071956751903875, guid: c7c2126512a0d478b9a0322a14dcfabd, type: 3}
+  - {fileID: 5831071956751903875, guid: 51622f4a9bf36426e909cea29d4cafe1, type: 3}
+  - {fileID: 5199020348406506345, guid: b0e95c7fb9a4644b2925d12ffd7f2ebe, type: 3}
+  fromLevelTallDecorationsUnlockCode: 010000000100000003000000080000000d000000000000000b000000
+  toLevelTallDecorationsUnlockCode: 070000000a0000000c0000000f0000000f000000000000000f000000
   randomOOGridPos: 0
   decorationDensity: 0.6
   decorationBrightness: 0.84
@@ -12682,7 +12695,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8423452053524241364}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.6103096, y: 4.340401, z: 0.03902522}
+  m_LocalPosition: {x: 4.6103096, y: 4.340401, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

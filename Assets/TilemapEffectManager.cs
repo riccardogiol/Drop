@@ -7,9 +7,6 @@ public class TilemapEffectManager : MonoBehaviour
     List<TileFlowerManager> flowerTiles;
     RuleTileStateManager ruleTileStateManager;
     FlowerBarFiller flowerBarFiller;
-    // bool flowerAtStart = false;
-    // bool noFlower = false;
-    // bool allFlowered = false;
     bool flowersCollected = false;
     int flowerCount = 1;
     
@@ -22,13 +19,28 @@ public class TilemapEffectManager : MonoBehaviour
     public Sprite[] petalListLvl3;
     public Sprite[] leafListLvl3;
 
-    public Color[] colors;
+    List<Color> colors = new List<Color>();
+    public List<Color> flowerColors;
+    public List<int> fromLevelColor;
+    public List<int> toLevelColor;
 
     public float trySpreadingInterval = 3.0f;
     float trySpreadingTimer;
 
+    StageManager stageManager;
+
     void Awake()
     {
+        stageManager = FindFirstObjectByType<StageManager>();
+        int lvlCode = stageManager.currentLvl;
+        int index = 0;
+        foreach(Color clr in flowerColors)
+        {
+            if (lvlCode >= fromLevelColor[index] && lvlCode <= toLevelColor[index])
+                colors.Add(clr);
+            index ++;
+        }
+
         if (particleCollider == null)
             particleCollider = Resources.Load<GameObject>("ParticleCollider");
         ruleTileStateManager = GetComponent<RuleTileStateManager>();
@@ -80,7 +92,7 @@ public class TilemapEffectManager : MonoBehaviour
             petalListLvl1[indexLvl1], leafListLvl1[indexLvl1],
             petalListLvl2[indexLvl2], leafListLvl2[indexLvl2],
             petalListLvl3[indexLvl3], leafListLvl3[indexLvl3],
-            colors[Random.Range(0, colors.Length)]);
+            colors[Random.Range(0, colors.Count)]);
         tfm.SetFlowerGFX(fgd);
     }
 
@@ -109,7 +121,7 @@ public class TilemapEffectManager : MonoBehaviour
                 petalListLvl1[0], leafListLvl1[0],
                 petalListLvl2[0], leafListLvl2[0],
                 petalListLvl3[indexLvl3], leafListLvl3[indexLvl3],
-                colors[Random.Range(0, colors.Length)]);
+                colors[Random.Range(0, colors.Count)]);
             flowerBarFiller.SetGFX(fgd);
         }
     }
