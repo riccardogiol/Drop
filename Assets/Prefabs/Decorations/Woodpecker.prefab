@@ -325,6 +325,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5831071956751903874}
   - component: {fileID: 5831071956751903884}
+  - component: {fileID: 1846615507060242054}
   m_Layer: 6
   m_Name: Woodpecker
   m_TagString: Decoration
@@ -382,6 +383,26 @@ MonoBehaviour:
     y: 0
   spriteRenderer: {fileID: 5831071955705032785}
   colorAdjustmentMaterial: {fileID: 0}
+  bloomIntensity: 0
+--- !u!114 &1846615507060242054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5831071956751903875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 477297663b888458cad4a47028f629cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  superdropPrefab: {fileID: 846535088814142963, guid: 4c02d9cfb759c4b81ad282ad2e86c539,
+    type: 3}
+  lightningBurstPrefab: {fileID: 7261966851134090421, guid: 74436484ca5a445a1882058e8ac9169b,
+    type: 3}
+  timer: 5
+  spawnDropProb: 0.2
+  spawnSpot: {x: 0.5, y: -0.5, z: 0}
 --- !u!1 &5832017945800983600
 GameObject:
   m_ObjectHideFlags: 0

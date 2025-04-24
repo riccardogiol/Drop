@@ -105,7 +105,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 803956616299069525}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.2, z: 0}
+  m_LocalPosition: {x: 0, y: 0.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -153,7 +153,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -993758497, guid: 58fbbf23fc5e74989b7f75423767af02, type: 3}
+  m_Sprite: {fileID: 1929885396, guid: d7d2b880ecf42420b8511597659f120c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -283,8 +283,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2d493437a1584dc6b9af88112de6031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingPosition: {x: 0, y: 0, z: 0}
-  finalPosition: {x: 0, y: 0, z: 0}
+  startingPosition: {x: 0, y: 0}
+  finalPosition: {x: 0, y: 0}
   timer: 2
   disableColliderWhileMoving: 1
   scale: 1
@@ -305,9 +305,9 @@ MonoBehaviour:
   spriteRenderer: {fileID: 6682618783864886867}
   randomlyFlipX: 1
   sprites:
-  - {fileID: -1371538808, guid: 58fbbf23fc5e74989b7f75423767af02, type: 3}
-  - {fileID: -1237151425, guid: 58fbbf23fc5e74989b7f75423767af02, type: 3}
-  - {fileID: -993758497, guid: 58fbbf23fc5e74989b7f75423767af02, type: 3}
+  - {fileID: 1781324511, guid: d7d2b880ecf42420b8511597659f120c, type: 3}
+  - {fileID: -970043237, guid: d7d2b880ecf42420b8511597659f120c, type: 3}
+  - {fileID: 1929885396, guid: d7d2b880ecf42420b8511597659f120c, type: 3}
   thresholds:
   - 2
   - 4
@@ -361,8 +361,11 @@ MonoBehaviour:
   image: {fileID: 0}
   flame: {fileID: 0}
   waterdrop: {fileID: 846535088814142962}
+  superdrop: {fileID: 0}
   enemyHealth: {fileID: 0}
+  sparklerCharge: {fileID: 0}
   patrolMovement: {fileID: 0}
+  chasingMovement: {fileID: 0}
   patrolIcon: {fileID: 0}
   chasingIcon: {fileID: 0}
 --- !u!1 &5474055832922080926

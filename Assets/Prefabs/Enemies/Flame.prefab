@@ -110,6 +110,7 @@ MonoBehaviour:
     type: 3}
   fireBurstPrefab: {fileID: 3751233161064887440, guid: ef2020688c647430689d2ff343e0e05e,
     type: 3}
+  isDecoration: 0
 --- !u!114 &8745705882468078219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,9 +126,9 @@ MonoBehaviour:
   spriteRenderer: {fileID: 4361813338703181754}
   randomlyFlipX: 1
   sprites:
-  - {fileID: -1766014593, guid: 0d227bb735d2d49d5b3e025cccbc6984, type: 3}
-  - {fileID: -61540072, guid: 0d227bb735d2d49d5b3e025cccbc6984, type: 3}
-  - {fileID: 1402884298, guid: 0d227bb735d2d49d5b3e025cccbc6984, type: 3}
+  - {fileID: 851944443, guid: a3121ce84c2c34bf4b0316e3a5e11c8f, type: 3}
+  - {fileID: 1937631914, guid: a3121ce84c2c34bf4b0316e3a5e11c8f, type: 3}
+  - {fileID: 909010329, guid: a3121ce84c2c34bf4b0316e3a5e11c8f, type: 3}
   thresholds:
   - 1
   - 3
@@ -183,7 +184,9 @@ MonoBehaviour:
   waterdrop: {fileID: 0}
   superdrop: {fileID: 0}
   enemyHealth: {fileID: 0}
+  sparklerCharge: {fileID: 0}
   patrolMovement: {fileID: 0}
+  chasingMovement: {fileID: 0}
   patrolIcon: {fileID: 0}
   chasingIcon: {fileID: 0}
 --- !u!114 &6259391615036178784
@@ -213,8 +216,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2d493437a1584dc6b9af88112de6031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingPosition: {x: 0, y: 0, z: 0}
-  finalPosition: {x: 0, y: 0, z: 0}
+  startingPosition: {x: 0, y: 0}
+  finalPosition: {x: 0, y: 0}
   timer: 2
   disableColliderWhileMoving: 0
   scale: 0
@@ -346,7 +349,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4966454036529489779}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.1, z: 0}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -394,7 +397,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 1402884298, guid: 0d227bb735d2d49d5b3e025cccbc6984, type: 3}
+  m_Sprite: {fileID: 909010329, guid: a3121ce84c2c34bf4b0316e3a5e11c8f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -587,6 +590,91 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SmokeParticles
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439541568655226022, guid: d55032f1adeb2440a828d323d5b67218,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.ctime0
+      value: 4145
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439541568655226022, guid: d55032f1adeb2440a828d323d5b67218,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.ctime1
+      value: 12140
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439541568655226022, guid: d55032f1adeb2440a828d323d5b67218,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.ctime2
+      value: 17864
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439541568655226022, guid: d55032f1adeb2440a828d323d5b67218,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.ctime3
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439541568655226022, guid: d55032f1adeb2440a828d323d5b67218,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.b
+      value: 0.31626022
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439541568655226022, guid: d55032f1adeb2440a828d323d5b67218,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.g
+      value: 0.7491292
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439541568655226022, guid: d55032f1adeb2440a828d323d5b67218,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.r
+      value: 0.9716981
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439541568655226022, guid: d55032f1adeb2440a828d323d5b67218,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439541568655226022, guid: d55032f1adeb2440a828d323d5b67218,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.g
+      value: 0.19702937
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439541568655226022, guid: d55032f1adeb2440a828d323d5b67218,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.r
+      value: 0.5943396
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439541568655226022, guid: d55032f1adeb2440a828d323d5b67218,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key2.b
+      value: 0.1981132
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439541568655226022, guid: d55032f1adeb2440a828d323d5b67218,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key2.g
+      value: 0.1981132
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439541568655226022, guid: d55032f1adeb2440a828d323d5b67218,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key2.r
+      value: 0.1981132
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439541568655226022, guid: d55032f1adeb2440a828d323d5b67218,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key3.b
+      value: 0.5566038
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439541568655226022, guid: d55032f1adeb2440a828d323d5b67218,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key3.g
+      value: 0.5566038
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439541568655226022, guid: d55032f1adeb2440a828d323d5b67218,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key3.r
+      value: 0.5566038
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439541568655226022, guid: d55032f1adeb2440a828d323d5b67218,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.m_NumColorKeys
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5439541568655226023, guid: d55032f1adeb2440a828d323d5b67218,
         type: 3}
