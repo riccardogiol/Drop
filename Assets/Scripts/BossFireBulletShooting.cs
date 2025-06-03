@@ -21,6 +21,9 @@ public class BossFireBulletShooting : MonoBehaviour
     {
         countdown = 0f;
         playgroundManager = FindFirstObjectByType<PlaygroundManager>();
+        
+        if (PlayerPrefs.GetInt("EasyMode", 0) == 1)
+            timer *= 1.3f;
     }
 
     void Update()

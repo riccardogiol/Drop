@@ -20,22 +20,22 @@ public class MainMenuActions : MonoBehaviour
         
     }
 
-    public void NewGame()
+    public void NewGame(bool casual = false)
     {
         // add disclaimer in the case the game is already started
         PlayerPrefs.DeleteAll();
         PlayerPrefs.SetInt("MusicState", musicState?1:0);
         PlayerPrefs.SetInt("Lvl0", 1);
-        PlayerPrefs.SetInt("FromMainMenu", 1);
+        if (casual)
+            PlayerPrefs.SetInt("EasyMode", 1);
         FindObjectOfType<AudioManager>().Play("SelectSound");
-        SceneManager.LoadScene("WorldMap");
+        SceneManager.LoadScene("OpeningScene");
     }
 
     public void ContinueGame()
     {
-        PlayerPrefs.SetInt("FromMainMenu", 1);
         FindObjectOfType<AudioManager>().Play("SelectSound");
-        SceneManager.LoadScene("WorldMap");
+        SceneManager.LoadScene("OpeningScene");
     }
 
     public void ToggleMusic()

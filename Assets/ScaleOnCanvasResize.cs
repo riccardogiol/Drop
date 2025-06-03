@@ -15,6 +15,15 @@ public class ScaleOnCanvasResize : MonoBehaviour
     {
         originalWidth = GetComponent<RectTransform>().rect.width;
         originalHeight = GetComponent<RectTransform>().rect.height;
+        currentRatio = canvasRT.rect.width / canvasRT.rect.height;
+        if (currentRatio > 1)
+        {
+            float scalingFactor = canvasRT.rect.height/(originalHeight + VPadding*2);
+            GetComponent<RectTransform>().localScale = new Vector3(scalingFactor, scalingFactor, 1); 
+        } else {
+            float scalingFactor = canvasRT.rect.width/(originalWidth + HPadding*2);
+            GetComponent<RectTransform>().localScale = new Vector3(scalingFactor, scalingFactor, 1); 
+        }
     }
 
     void Update()

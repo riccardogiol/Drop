@@ -24,6 +24,10 @@ public class EagleEyeMode : MonoBehaviour
         }
         if (buttonFiller == null)
             return;
+
+        if (PlayerPrefs.GetInt("EasyMode", 0) == 1)
+            rechargeTimer -= 4.0f;
+
         buttonFiller.SetMaxValue(rechargeTimer);
         buttonFiller.SetValue(0);
     }

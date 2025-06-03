@@ -13,6 +13,8 @@ public class SpawnChasing : MonoBehaviour
     {
         playgroundManager = FindFirstObjectByType<PlaygroundManager>();
         fireCounter = FindFirstObjectByType<FireCounter>();
+        if (PlayerPrefs.GetInt("EasyMode", 0) == 1)
+            timer *= 1.3f;
         countdown = 5.0f;
     }
 

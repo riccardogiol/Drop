@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class SparklerWave : MonoBehaviour
@@ -18,6 +17,9 @@ public class SparklerWave : MonoBehaviour
         if (parent == null)
             parent = gameObject;
         countdown = delay;
+
+        if (PlayerPrefs.GetInt("EasyMode", 0) == 1)
+            timer = timer * 0.7f;
 	}
 
     void FixedUpdate()

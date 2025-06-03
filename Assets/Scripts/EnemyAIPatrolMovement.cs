@@ -34,6 +34,9 @@ public class EnemyAIPatrolMovement : MonoBehaviour
 
         spriteFacing.changeSide(new Vector3(0, -1, 0));
 
+        if (PlayerPrefs.GetInt("EasyMode", 0) == 1)
+            jumpInterval *= 1.3f;
+
         currentTarget = targets[currentTargetIndex];
         InvokeRepeating("UpdatePath", 0f, jumpInterval);
         

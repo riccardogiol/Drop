@@ -27,7 +27,10 @@ public class PlayerHealth : MonoBehaviour
         if (PlayerPrefs.GetInt(unlockingCode4, 0) == 1)
             maxHealth += 2;
         if (PlayerPrefs.GetInt("EasyMode", 0) == 1)
+        {
             maxHealth += 2;
+            currentHealth += 1;
+        }
         
         healthBar.SetMaxHealth(maxHealth);
         healthBar.SetHealth(currentHealth);

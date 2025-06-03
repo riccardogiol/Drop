@@ -32,6 +32,9 @@ public class EnemyAIChasingMovement : MonoBehaviour
         spriteFacing = GetComponent<SpriteFacing>();
 
         spriteFacing.changeSide(new Vector3(0, -1, 0));
+
+        if (PlayerPrefs.GetInt("EasyMode", 0) == 1)
+            jumpInterval *= 1.3f;
         
         InvokeRepeating("UpdatePath", 0f, jumpInterval);
         

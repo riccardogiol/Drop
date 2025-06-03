@@ -21,6 +21,12 @@ public class FireBulletShooting : MonoBehaviour
         enemyDirection = GetComponent<EnemyDirectionController>();
         countdown = 0f;
         playgroundManager = FindFirstObjectByType<PlaygroundManager>();
+        
+        if (PlayerPrefs.GetInt("EasyMode", 0) == 1)
+        {
+            timer *= 1.3f;
+            bulletSpeed = bulletSpeed * 0.7f;
+        }
     }
 
     void Update()

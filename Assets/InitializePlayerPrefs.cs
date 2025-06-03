@@ -34,6 +34,8 @@ public class InitializePlayerPrefs : MonoBehaviour
         PlayerPrefs.SetInt("Lvl9", 1);
         PlayerPrefs.SetInt("Lvl10", 1);
 
+        PlayerPrefs.SetInt("EasyMode", 1);
+
         PlayerPrefs.SetInt("CoinAmount", 1000);
     }
 

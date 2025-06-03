@@ -11,6 +11,9 @@ public class SpawnFlames : MonoBehaviour
     void Start()
     {
         playgroundManager = FindFirstObjectByType<PlaygroundManager>();
+        
+        if (PlayerPrefs.GetInt("EasyMode", 0) == 1)
+            timer *= 1.3f;
         countdown = timer;
     }
 
@@ -22,7 +25,6 @@ public class SpawnFlames : MonoBehaviour
             countdown = timer;
             playgroundManager.FlameOnPosition(spawnSpots[currentSpotIndex], 1, true, false);
             currentSpotIndex = (currentSpotIndex + 1)%spawnSpots.Length;
-            Debug.Log("" + currentSpotIndex);
         }
         
     }

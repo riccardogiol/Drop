@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 1809696149, guid: 92d8fffeb34b74d1286433cc3d729e05, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -156,7 +156,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 1593692993, guid: 76dff3dca554041da9cd8ff43af38246, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -270,6 +270,11 @@ MonoBehaviour:
   currentCharge: 0
   scaleGFX: 1
   waterGFX: {fileID: 2749142576565103523}
+  groundGFX: {fileID: 2749142576184970677}
+  borderGFX: {fileID: 2749142577494681828}
+  connectedToRiver: 0
+  waterSprite: {fileID: -445746397, guid: d65bdf4f7059d422695767f25904cafe, type: 3}
+  groundSprite: {fileID: 1751239301, guid: c2cf7f232e014421ca125a4773318f7d, type: 3}
   waterBurstPrefab: {fileID: 3751233161064887440, guid: 4c7614d99dd2742a59a5aa81ec5ef297,
     type: 3}
   waterSparklesParticles: {fileID: 2749142577460998223}
@@ -293,6 +298,7 @@ MonoBehaviour:
   enemyHealth: {fileID: 0}
   sparklerCharge: {fileID: 2749142577395328245}
   patrolMovement: {fileID: 0}
+  chasingMovement: {fileID: 0}
   patrolIcon: {fileID: 0}
   chasingIcon: {fileID: 0}
 --- !u!1 &2749142577460998224

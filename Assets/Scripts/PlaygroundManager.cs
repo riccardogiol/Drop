@@ -63,6 +63,9 @@ public class PlaygroundManager : MonoBehaviour
         waterdropParent = transform.Find("WaterdropParent").gameObject;
         decorationManager = FindObjectOfType<DecorationManager>();
         OOWdecorationManager = FindObjectOfType<OutOfWallDecorationManager>();
+        
+        if (PlayerPrefs.GetInt("EasyMode", 0) == 1)
+            loseProgressionPerc -= 0.05f;
 
         reachedWinningCondition = false;
     }

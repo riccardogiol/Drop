@@ -9,6 +9,13 @@ public class SparklerCharge : MonoBehaviour
 
     public bool scaleGFX = true;
     public Transform waterGFX;
+    public Transform groundGFX;
+    public Transform borderGFX;
+
+    public bool connectedToRiver = false;
+
+    public Sprite waterSprite;
+    public Sprite groundSprite;
 
     public GameObject waterBurstPrefab;
     public ParticleSystem waterSparklesParticles;
@@ -23,9 +30,14 @@ public class SparklerCharge : MonoBehaviour
     void Start()
     {
         if (sparklerWave != null && currentCharge < maxCharge)
-        {
             sparklerWave.enabled = false;
-            waterSparklesParticles.Pause();
+        if (connectedToRiver)
+        {
+            borderGFX.gameObject.SetActive(false);
+            waterGFX.GetComponent<SpriteRenderer>().sprite = waterSprite;
+            waterGFX.GetComponent<SpriteRenderer>().sortingOrder = -3;
+            groundGFX.GetComponent<SpriteRenderer>().sprite = groundSprite;
+            groundGFX.GetComponent<SpriteRenderer>().sortingOrder = -4;
         }
         ScaleOnHealth();
     }
