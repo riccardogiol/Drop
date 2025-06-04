@@ -31,7 +31,13 @@ public class ShowAndHide : MonoBehaviour
     {
 
         if (!showDefault && PlayerPrefs.GetInt(hideOnTrue, 0) == 1)
-                gameObject.SetActive(false);
+            StartCoroutine(OneFrameDelayDesableObj());
+    }
+    
+    IEnumerator OneFrameDelayDesableObj()
+    {
+        yield return null;
+        gameObject.SetActive(false);
     }
 
 }

@@ -12,6 +12,7 @@ public class PlayerMovementKeys: MonoBehaviour
     PlayerMovementInterruption playerMovementInterrupt;
     PlayerDirectionController directionController;
     Tilemap tilemap;
+    PlaygroundManager playgroundManager;
 
     Vector3 target;
     bool hasTarget;
@@ -25,6 +26,7 @@ public class PlayerMovementKeys: MonoBehaviour
         playerMovementInterrupt = GetComponent<PlayerMovementInterruption>();
         directionController = GetComponent<PlayerDirectionController>();
         tilemap = FindFirstObjectByType<Tilemap>();
+        playgroundManager = FindFirstObjectByType<PlaygroundManager>();
         target = transform.position;
         hasTarget = false;
         movementInterrupted = false;
@@ -48,6 +50,12 @@ public class PlayerMovementKeys: MonoBehaviour
             {
                 Vector3Int cell = tilemap.WorldToCell(newTarget);
                 target = tilemap.GetCellCenterWorld(cell);
+                if (playgroundManager.IsObstacleForWalk(target))
+                {
+                    Vector2 direction = (target - transform.position).normalized;
+                    directionController.UpdateDirection(direction);
+                    return;
+                }
                 pathMovement.InterruptMovement();
                 hasTarget = true;
             }

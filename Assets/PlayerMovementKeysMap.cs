@@ -24,22 +24,25 @@ public class PlayerMovementKeysMap : MonoBehaviour
                 levelTiles.Add(child.gameObject);
         }
 
-        orderedStageSpots = new GameObject[levelTiles.Count*4];
+        orderedStageSpots = new GameObject[levelTiles.Count * 4];
 
         foreach (GameObject levelTile in levelTiles)
-            foreach(Transform child in levelTile.transform)
+            foreach (Transform child in levelTile.transform)
                 if (child.name == "StageSpotParent")
                 {
                     int i = 0;
-                    foreach(Transform spot in child.transform)
-                        if (spot.GetComponent<LevelEnterTrigger>()!= null && spot.gameObject.activeInHierarchy)
+                    foreach (Transform spot in child.transform)
+                        if (spot.GetComponent<LevelEnterTrigger>() != null && spot.gameObject.activeInHierarchy)
                         {
-                            orderedStageSpots[(levelTile.GetComponent<LevelTileManager>().codeLvl-1)*4 + i] = spot.gameObject;
+                            orderedStageSpots[(levelTile.GetComponent<LevelTileManager>().codeLvl - 1) * 4 + i] = spot.gameObject;
                             i++;
                         }
                 }
+    }
 
-        selectedStage = (PlayerPrefs.GetInt("LastLevelPlayed", 1)-1)*4 + (PlayerPrefs.GetInt("LastStagePlayed", 1) -1);
+    void Start()
+    {
+        selectedStage = (PlayerPrefs.GetInt("LastLevelPlayed", 1) - 1) * 4 + (PlayerPrefs.GetInt("LastStagePlayed", 1) - 1);
         bool selectedStageValid = orderedStageSpots[selectedStage] != null;
         while (!selectedStageValid)
         {
@@ -48,11 +51,8 @@ public class PlayerMovementKeysMap : MonoBehaviour
             selectedStageValid = orderedStageSpots[selectedStage] != null;
         }
 
-        lastAvailableStageSpot = Math.Min(PlayerPrefs.GetInt("LastLevelCompleted", 0)*4 + PlayerPrefs.GetInt("LastStageCompleted", 0), orderedStageSpots.Length -1);
-    }
+        lastAvailableStageSpot = Math.Min(PlayerPrefs.GetInt("LastLevelCompleted", 0) * 4 + PlayerPrefs.GetInt("LastStageCompleted", 0), orderedStageSpots.Length - 1);
 
-    void Start()
-    {
         pathMovement = GetComponent<PlayerMovementPath>();
     }
 
@@ -102,7 +102,7 @@ public class PlayerMovementKeysMap : MonoBehaviour
             }
             selectedStageValid = orderedStageSpots[selectedStage] != null;
         }
-        pathMovement.NewTarget(orderedStageSpots[selectedStage].transform.position);
+        pathMovement.NewTarget(orderedStageSpots[selectedStage].transform.position, true);
         FindFirstObjectByType<MapMoveCamera>().Exit();
     }
 
@@ -121,7 +121,7 @@ public class PlayerMovementKeysMap : MonoBehaviour
             }
             selectedStageValid = orderedStageSpots[selectedStage] != null;
         }
-        pathMovement.NewTarget(orderedStageSpots[selectedStage].transform.position);
+        pathMovement.NewTarget(orderedStageSpots[selectedStage].transform.position, true);
         FindFirstObjectByType<MapMoveCamera>().Exit();
     }
 
@@ -140,6 +140,6 @@ public class PlayerMovementKeysMap : MonoBehaviour
 
     public void SetLastAvailableStage(int absoluteStageCode)
     {
-        lastAvailableStageSpot = absoluteStageCode;
+        lastAvailableStageSpot = Math.Min( absoluteStageCode, lastAvailableStageSpot);
     }
 }

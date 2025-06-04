@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4706189041261789876}
   m_Layer: 6
   m_Name: MovingRock
-  m_TagString: Wall
+  m_TagString: MovingRock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86,8 +86,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2d493437a1584dc6b9af88112de6031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingPosition: {x: 0, y: 0, z: 0}
-  finalPosition: {x: 0, y: 0, z: 0}
+  startingPosition: {x: 0, y: 0}
+  finalPosition: {x: 0, y: 0}
   timer: 2
   disableColliderWhileMoving: 0
   scale: 0

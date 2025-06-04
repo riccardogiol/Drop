@@ -14,17 +14,19 @@ public class BlockStage : MonoBehaviour
     void Start()
     {
         if (PlayerPrefs.GetInt(solvingCode, 0) == 0)
+        {
+            playerMovementKeysMap = FindFirstObjectByType<PlayerMovementKeysMap>();
             StartCoroutine(OneFrameDelayBlockStage());
-        else 
-           enabled = false;
-        
+        }
+        else
+            enabled = false;
+
     }
 
     IEnumerator OneFrameDelayBlockStage()
     {
         yield return null;
         stageButton.interactable = false;
-        playerMovementKeysMap = FindFirstObjectByType<PlayerMovementKeysMap>();
         playerMovementKeysMap.SetLastAvailableStage(stageBlocked - 1);
     }
 
@@ -37,6 +39,6 @@ public class BlockStage : MonoBehaviour
             playerMovementKeysMap.SetLastAvailableStage(stageBlocked);
             enabled = false;
         }
-        
     }
+
 }

@@ -9,32 +9,35 @@ public class InitializePlayerPrefs : MonoBehaviour
         
         PlayerPrefs.SetInt("Upgrade1", 0);
         PlayerPrefs.SetInt("Upgrade2", 0);
-        PlayerPrefs.SetInt("WavePurchased", );
         PlayerPrefs.SetInt("SuperPurchased", 0);
         PlayerPrefs.SetInt("Super1Purchased", 0);
-        PlayerPrefs.SetInt("LastStagePlayed", 2);
-        PlayerPrefs.SetInt("LastLevelPlayed", 8);
         PlayerPrefs.SetInt("Lvl5Prize", 0);
-        PlayerPrefs.SetInt("Lvl11", 1);
-        PlayerPrefs.SetInt("Lvl12", 1);
-        PlayerPrefs.SetInt("Lvl13", 1);
-        PlayerPrefs.SetInt("Lvl14", 1);
-        PlayerPrefs.SetInt("Lvl15", 0);
+
+        PlayerPrefs.SetInt("WavePurchased", 0);
 
         */
+        PlayerPrefs.SetInt("LastStagePlayed", 3);
+        PlayerPrefs.SetInt("LastLevelPlayed", 7);
 
+        PlayerPrefs.SetInt("LastStageCompleted", 3);
+        PlayerPrefs.SetInt("LastLevelCompleted", 7);
         PlayerPrefs.SetInt("Lvl1", 1);
         PlayerPrefs.SetInt("Lvl2", 1);
         PlayerPrefs.SetInt("Lvl3", 1);
         PlayerPrefs.SetInt("Lvl4", 1);
         PlayerPrefs.SetInt("Lvl5", 1);
         PlayerPrefs.SetInt("Lvl6", 1);
-        PlayerPrefs.SetInt("Lvl7", 1);
-        PlayerPrefs.SetInt("Lvl8", 1);        
-        PlayerPrefs.SetInt("Lvl9", 1);
-        PlayerPrefs.SetInt("Lvl10", 1);
+        PlayerPrefs.SetInt("Lvl7", 0);
+        PlayerPrefs.SetInt("Lvl8", 0);        
+        PlayerPrefs.SetInt("Lvl9", 0);
+        PlayerPrefs.SetInt("Lvl10", 0);
+        PlayerPrefs.SetInt("Lvl11", 0);
+        PlayerPrefs.SetInt("Lvl12", 0);
+        PlayerPrefs.SetInt("Lvl13", 0);
+        PlayerPrefs.SetInt("Lvl14", 0);
+        PlayerPrefs.SetInt("Lvl15", 0);
 
-        PlayerPrefs.SetInt("EasyMode", 1);
+        PlayerPrefs.SetInt("EasyMode", 0);
 
         PlayerPrefs.SetInt("CoinAmount", 1000);
     }

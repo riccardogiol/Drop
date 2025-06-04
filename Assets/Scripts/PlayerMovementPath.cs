@@ -42,7 +42,7 @@ public class PlayerMovementPath : MonoBehaviour
         }
     }
     
-    public void NewTarget(Vector3 newTarget)
+    public void NewTarget(Vector3 newTarget, bool visualTouch = false)
     {
         if (MenusManager.isPaused)
             return;
@@ -58,7 +58,10 @@ public class PlayerMovementPath : MonoBehaviour
         {
             Vector3Int cell = tilemap.WorldToCell(newTarget);
             target = tilemap.GetCellCenterWorld(cell);
-            Instantiate(touchIndicator, target, Quaternion.identity);
+            if (visualTouch)
+                Instantiate(touchIndicator, newTarget, Quaternion.identity);
+            else
+                Instantiate(touchIndicator, target, Quaternion.identity);
             UpdatePath();
         }
     }

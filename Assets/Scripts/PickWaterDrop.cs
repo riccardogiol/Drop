@@ -87,6 +87,11 @@ public class PickWaterdrop : MonoBehaviour
             PlayWaterBurst();
             DestroyWaterdrop();
             break;
+        case "MovingRock":
+            FindObjectOfType<PlaygroundManager>().WaterOnPosition(transform.position);
+            PlayWaterBurst();
+            DestroyWaterdrop();
+            break;
         case "Decoration":
             PlayWaterBurst();
             DestroyWaterdrop();

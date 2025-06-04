@@ -219,6 +219,19 @@ public class PlaygroundManager : MonoBehaviour
         return false;
     }
 
+    public bool IsObstacleForWalk(Vector3 onCellPoint)
+    {
+        Collider2D[] results = Physics2D.OverlapPointAll(onCellPoint);
+        foreach(Collider2D item in results)
+        {
+            if (item.gameObject.CompareTag("MovingRock"))
+                return false;
+            if (item.gameObject.layer == 6)
+                return true;
+        }
+        return false;
+    }
+
     public bool IsObstacleForRock(Vector3 onCellPoint)
     {
         Collider2D[] results = Physics2D.OverlapPointAll(onCellPoint);
@@ -363,7 +376,7 @@ public class PlaygroundManager : MonoBehaviour
             MakeRain(isRaining, false, true, false);
             tilemapEffectManager.SetFlowerSpreading(0.5f);
 
-        } else if (isRaining && progressionPerc < (rainProgressionPerc - 0.05) && !isSuper)
+        } else if (isRaining && progressionPerc < (rainProgressionPerc - 0.05) && !isSuper && !reachedWinningCondition)
         {
             isRaining = false;
             MakeRain(isRaining);
@@ -448,6 +461,8 @@ public class PlaygroundManager : MonoBehaviour
 
     public void MakeRain(bool rainingState, bool waterTiles = false, bool spawnWaterdrops = false, bool win = true, bool super = false)
     {
+        if (win)
+            reachedWinningCondition = true;
         isSuper = rainingState && super;
         if (rainingState == false)
         {
