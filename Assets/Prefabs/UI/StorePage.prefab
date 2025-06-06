@@ -254,6 +254,7 @@ GameObject:
   - component: {fileID: 4956305298408424834}
   - component: {fileID: 6376853621070552732}
   - component: {fileID: 8979979815380434326}
+  - component: {fileID: 8451157016323153471}
   m_Layer: 5
   m_Name: RefundButton
   m_TagString: Untagged
@@ -388,8 +389,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19862d39fdac047e98668a04badd3a16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleXP: 1.5
-  scaleYP: 1.5
+  scaleXP: 1.2
+  scaleYP: 1.2
 --- !u!114 &8979979815380434326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,6 +409,20 @@ MonoBehaviour:
   - {fileID: 52277113755688962}
   - {fileID: 7638407820285971507}
   defaultButton: {fileID: 4976131210292080619}
+--- !u!114 &8451157016323153471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4298892090052846930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e4fbd4b0d72c4fcda5e03dcbdf2cc95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Yvalue: -20
+  Xvalue: -40
 --- !u!1 &4976131209943099114
 GameObject:
   m_ObjectHideFlags: 0
@@ -3692,6 +3707,7 @@ GameObject:
   - component: {fileID: 8728147678345652258}
   - component: {fileID: 74576342523144748}
   - component: {fileID: 74576342523144751}
+  - component: {fileID: 7707157412839295345}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -3775,6 +3791,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scaleXP: 1.5
   scaleYP: 1.5
+--- !u!114 &7707157412839295345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7957179832257292996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e4fbd4b0d72c4fcda5e03dcbdf2cc95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Yvalue: 0
+  Xvalue: -200
 --- !u!1 &8176166439612469931
 GameObject:
   m_ObjectHideFlags: 0
@@ -3788,6 +3818,7 @@ GameObject:
   - component: {fileID: 2303674930443022147}
   - component: {fileID: 2240467795680749170}
   - component: {fileID: 2303674930443022146}
+  - component: {fileID: 727995103043537333}
   m_Layer: 5
   m_Name: CloseButton
   m_TagString: Untagged
@@ -3922,8 +3953,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19862d39fdac047e98668a04badd3a16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleXP: 1.5
-  scaleYP: 1.5
+  scaleXP: 1.2
+  scaleYP: 1.2
+--- !u!114 &727995103043537333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8176166439612469931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e4fbd4b0d72c4fcda5e03dcbdf2cc95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Yvalue: -20
+  Xvalue: 0
 --- !u!1001 &4976131209918968211
 PrefabInstance:
   m_ObjectHideFlags: 0

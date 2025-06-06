@@ -27,12 +27,12 @@ public class InitializePlayerPrefs : MonoBehaviour
         PlayerPrefs.SetInt("Lvl4", 1);
         PlayerPrefs.SetInt("Lvl5", 1);
         PlayerPrefs.SetInt("Lvl6", 1);
-        PlayerPrefs.SetInt("Lvl7", 0);
-        PlayerPrefs.SetInt("Lvl8", 0);        
-        PlayerPrefs.SetInt("Lvl9", 0);
-        PlayerPrefs.SetInt("Lvl10", 0);
-        PlayerPrefs.SetInt("Lvl11", 0);
-        PlayerPrefs.SetInt("Lvl12", 0);
+        PlayerPrefs.SetInt("Lvl7", 1);
+        PlayerPrefs.SetInt("Lvl8", 1);        
+        PlayerPrefs.SetInt("Lvl9", 1);
+        PlayerPrefs.SetInt("Lvl10", 1);
+        PlayerPrefs.SetInt("Lvl11", 1);
+        PlayerPrefs.SetInt("Lvl12", 1);
         PlayerPrefs.SetInt("Lvl13", 0);
         PlayerPrefs.SetInt("Lvl14", 0);
         PlayerPrefs.SetInt("Lvl15", 0);

@@ -11,7 +11,7 @@ public class ScaleOnCanvasResize : MonoBehaviour
 
     float currentRatio = 0;
 
-    void Awake()
+    void Start()
     {
         originalWidth = GetComponent<RectTransform>().rect.width;
         originalHeight = GetComponent<RectTransform>().rect.height;

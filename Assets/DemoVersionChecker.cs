@@ -10,6 +10,10 @@ public class DemoVersionChecker : MonoBehaviour
         if (PlayerPrefs.GetInt("DemoVersion", 0) == 0)
             stageManager.GoNextStage();
         else
-            SceneManager.LoadScene("OpeningScene");
+        {
+            Time.timeScale = 1f;
+            MenusManager.isPaused = false;
+            SceneManager.LoadScene("DemoEpilogueScene");
+        }
     }
 }

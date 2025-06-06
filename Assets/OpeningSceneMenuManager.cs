@@ -3,7 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class OpeningSceneMenuManager : MonoBehaviour
 {
-    public GameObject StoryDisplay;
 
     void Awake()
     {

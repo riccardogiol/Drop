@@ -26,6 +26,7 @@ public class OutOfWallDecorationManager : MonoBehaviour
     public Tilemap outOfWallGrass;
     public RuleTile GrassTile;
     public RuleTile DarkGrassTile;
+    public GameObject grassGO;
 
     bool[,] availableTiles;
     bool[,] availableTilesTall;
@@ -116,7 +117,13 @@ public class OutOfWallDecorationManager : MonoBehaviour
                 if (GetAvailableTile(x, y))
                 {
                     if (UnityEngine.Random.value < decorationDensity)
-                        SpawnRandomDecoration(x, y);   
+                        SpawnRandomDecoration(x, y);
+                    else
+                    {
+                        Vector3 position = new Vector3(x + 0.5f, y + 0.5f);
+                        GameObject goRef = Instantiate(grassGO, position, Quaternion.identity);
+                        goRef.transform.parent = transform;
+                    }
                 }
             }
         }
