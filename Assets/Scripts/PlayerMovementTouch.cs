@@ -6,10 +6,13 @@ public class PlayerMovementTouch : MonoBehaviour
 {
     PlayerMovementPath movementPath;
 
+    float countdown = 0f;
+    float timer = 0.2f;
+
     void Awake()
     {
         if (!Application.isMobilePlatform)
-             enabled = false;
+            enabled = false;
     }
 
     void Start()
@@ -19,15 +22,21 @@ public class PlayerMovementTouch : MonoBehaviour
 
     void Update()
     {
-        if (Input.touchCount > 0)
+        if (countdown > 0.0f)
         {
-            if (Input.GetTouch(0).phase != TouchPhase.Began && Input.GetTouch(0).phase != TouchPhase.Ended)
-                return;
-            if (TouchOnUI())
-                return;
-            Vector3 target = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
-            movementPath.NewTarget(target);
+            countdown -= Time.deltaTime;
+            return;
         }
+        if (Input.touchCount > 0)
+            {
+                if (Input.GetTouch(0).phase != TouchPhase.Began && Input.GetTouch(0).phase != TouchPhase.Ended)
+                    return;
+                if (TouchOnUI())
+                    return;
+                Vector3 target = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+                movementPath.NewTarget(target);
+                countdown = timer;
+            }
     }
 
     bool TouchOnUI()
