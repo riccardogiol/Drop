@@ -26,6 +26,7 @@ public class MapMoveCamera : MonoBehaviour
         cinemachine.LookAt = movingTarget.transform;
         cinemachine.Follow = movingTarget.transform;
         inMoveCameraMode = false;
+        MoveCameraToPosition(originalTarget.transform.position);
     }
 
     void Update()

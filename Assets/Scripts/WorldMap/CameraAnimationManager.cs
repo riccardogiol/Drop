@@ -1,5 +1,6 @@
 using Cinemachine;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CameraAnimationManager : MonoBehaviour
 {
@@ -10,13 +11,19 @@ public class CameraAnimationManager : MonoBehaviour
     public float portraitZoom = 7;
     float eagleZoom;
     float exitZoom;
-    public float timer = 2.0f;
+    public float timer = 1.4f;
     float countdown = 0;
 
     float inGameZoom;
     bool stableZoom = true;
     float startZoom;
     float finishZoom;
+
+    float currentZoom = 0.0f;
+    float maxZoom = 0;
+    float minZoom = 0;
+
+    public Button zoomOutButton, zoomInButton;
 
     float currentRatio;
 
@@ -30,7 +37,9 @@ public class CameraAnimationManager : MonoBehaviour
         if (currentRatio < 1)
         {
             inGameZoom = portraitZoom;
-        } else {
+        }
+        else
+        {
             if (Application.isMobilePlatform)
                 inGameZoom = mobileZoom;
             else
@@ -38,6 +47,9 @@ public class CameraAnimationManager : MonoBehaviour
         }
         eagleZoom = inGameZoom + 1;
         exitZoom = inGameZoom - 1;
+        maxZoom = inGameZoom + 3;
+        minZoom = inGameZoom;
+        zoomInButton.interactable = false;
     }
 
     void Start()
@@ -64,7 +76,10 @@ public class CameraAnimationManager : MonoBehaviour
             }
             eagleZoom = inGameZoom + 1;
             exitZoom = inGameZoom - 1;
+            maxZoom = inGameZoom + 3;
+            minZoom = inGameZoom;
             finishZoom = inGameZoom;
+            zoomInButton.interactable = false;
             cinemachineVirtualCamera.m_Lens.OrthographicSize = inGameZoom;
         }
         if (stableZoom)
@@ -77,6 +92,7 @@ public class CameraAnimationManager : MonoBehaviour
             if (countdown >= timer)
             {
                 cinemachineVirtualCamera.m_Lens.OrthographicSize = finishZoom;
+                inGameZoom = finishZoom;
                 stableZoom = true;
             }
         }
@@ -99,6 +115,23 @@ public class CameraAnimationManager : MonoBehaviour
     public void EnterEagleZoomAnimation()
     {
         StartZoomAnimation(eagleZoom);
+    }
+
+    public void ZoomValueAnimation(float value)
+    {
+        if (!stableZoom)
+            return;
+        float targetZoom = Mathf.Clamp(inGameZoom + value, minZoom, maxZoom);
+        if (targetZoom >= maxZoom)
+            zoomOutButton.interactable = false;
+        else if (targetZoom <= minZoom)
+            zoomInButton.interactable = false;
+        else
+        {
+            zoomInButton.interactable = true;
+            zoomOutButton.interactable = true;
+        }
+        StartZoomAnimation(targetZoom);
     }
 
     public void ExitEagleZoomAnimation()
