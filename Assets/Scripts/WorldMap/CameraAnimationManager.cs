@@ -50,6 +50,7 @@ public class CameraAnimationManager : MonoBehaviour
         maxZoom = inGameZoom + 3;
         minZoom = inGameZoom;
         zoomInButton.interactable = false;
+        zoomOutButton.interactable = true;
     }
 
     void Start()
@@ -80,6 +81,7 @@ public class CameraAnimationManager : MonoBehaviour
             minZoom = inGameZoom;
             finishZoom = inGameZoom;
             zoomInButton.interactable = false;
+            zoomOutButton.interactable = true;
             cinemachineVirtualCamera.m_Lens.OrthographicSize = inGameZoom;
         }
         if (stableZoom)
