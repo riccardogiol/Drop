@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Wave : MonoBehaviour
@@ -7,9 +8,12 @@ public class Wave : MonoBehaviour
 
     public GameObject waveExplosion;
 
-    Collider2D collider2D;
+    Collider2D waveCollider;
     public bool shootByPlayer = true;
-    float timer = 0.1f;
+    float timer = 0.9f;
+    float tileColliderStop = 0.1f;
+
+    List<int> touchedIDs = new List<int>();
 
     void Start()
     {
@@ -18,32 +22,32 @@ public class Wave : MonoBehaviour
             GameObject goRef = Instantiate(waveExplosion, transform.position, transform.rotation);
             goRef.transform.parent = transform;
         }
-        collider2D = GetComponent<CircleCollider2D>();
-        if (collider2D == null)
-            collider2D = GetComponent<PolygonCollider2D>();
+        waveCollider = GetComponent<CircleCollider2D>();
+        if (waveCollider == null)
+            waveCollider = GetComponent<PolygonCollider2D>();
     }
     
     void Update()
     {
         if (timer<0)
-        {
-            collider2D.enabled = false;
-        } else {
+            waveCollider.enabled = false;
+        else
             timer -= Time.deltaTime;
-        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        if (touchedIDs.Contains(other.gameObject.GetInstanceID()))
+            return;
         if (other.CompareTag("Player"))
             if (!shootByPlayer)
             {
                 other.GetComponent<PlayerHealth>().FillReservoir(damage);
                 Debug.Log(damage);
             }
-        if (other.CompareTag("Wall"))
+        if (other.CompareTag("Wall") && timer > tileColliderStop)
             playgroundManager.WaterOnPosition(other.transform.position);
-        if (other.CompareTag("Grass"))
+        if (other.CompareTag("Grass") && timer > tileColliderStop)
             playgroundManager.WaterOnPosition(other.transform.position);
         if (other.CompareTag("Enemy"))
             other.GetComponent<EnemyHealth>().TakeDamage(damage);
@@ -69,7 +73,7 @@ public class Wave : MonoBehaviour
                 other.GetComponent<RiverWave>().TriggerWave(shootByPlayer);
             
         }
-
+        touchedIDs.Add(other.gameObject.GetInstanceID());
     }
 
 }

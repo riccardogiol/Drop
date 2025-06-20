@@ -147,6 +147,15 @@ public class PlaygroundManager : MonoBehaviour
         }
     }
 
+    public void SubscribeFlame(GameObject flame)
+    {
+        flame.transform.parent = flameParent.transform;
+        flameParent.GetComponent<FireCounter>().flameCounter++;
+        fireValue = flameParent.GetComponent<FireCounter>().FireValue();
+        FindObjectOfType<AudioManager>().Play("FireBurst");
+        BurnCellsAround(walkTilemap.WorldToCell(flame.transform.position));
+    }
+
     public void AddWaterdrop(Vector3Int cell)
     {
         Vector3 cellCenter = walkTilemap.GetCellCenterWorld(cell);

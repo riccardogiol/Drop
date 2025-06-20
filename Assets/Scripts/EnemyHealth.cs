@@ -21,7 +21,7 @@ public class EnemyHealth : MonoBehaviour
 
     void Start()
     {
-        currentHealth = maxHealth;
+        currentHealth = Math.Min(maxHealth, currentHealth);
         if (healthOnProgBar)
         {
             progressionBarFiller = FindFirstObjectByType<ProgressionBarFiller>();

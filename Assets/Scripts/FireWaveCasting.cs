@@ -3,53 +3,55 @@ using UnityEngine;
 public class FireWaveCasting : MonoBehaviour
 {
     public GameObject wavePrefab;
-    public float timer = 2f;
-    float countdown;
-
-    public float spawnFlameProbability;
-
-
+    public int waveDamage = 4;
     PlaygroundManager playgroundManager;
+
+    public float timer = 5f;
+    public float delay = 0.3f;
+    public float spawnFlameProb = 0.5f;
+    float countdown = 0;
+
+    FlamesCountdown flamesCountdown;
+    float countdownTimer = 1.5f;
+    float timer2;
+    int numerOfFlames = 3;
 
     void Awake()
     {
-        countdown = timer;
         playgroundManager = FindFirstObjectByType<PlaygroundManager>();
+        flamesCountdown = GetComponent<FlamesCountdown>();
+        countdown = delay;
+
+        if (PlayerPrefs.GetInt("EasyMode", 0) == 1)
+            timer = timer * 1.3f;
+
+        timer2 = countdownTimer;
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        if (MenusManager.isPaused)
-            return;
-        if (countdown > 0)
+        countdown -= Time.fixedDeltaTime;
+        if (countdown <= timer2)
         {
-            countdown -= Time.deltaTime;
+            if (flamesCountdown != null)
+                flamesCountdown.PlayCountdown(countdownTimer, numerOfFlames);
+            timer2 = -99;
         }
-        else 
+        if (countdown <= 0)
         {
-            TryShoot();
             countdown = timer;
+            CastWave();
+            timer2 = countdownTimer;
         }
     }
 
-    public void TryShoot()
-    {
-        if (MenusManager.isPaused)
-            return;
-        Shoot();
-    }
-
-    void Shoot()
+    void CastWave()
     {
         GameObject wave = Instantiate(wavePrefab, transform.position, Quaternion.identity);
         wave.transform.parent = transform;
         wave.GetComponent<FireWave>().playgroundManager = playgroundManager;
-        // if (Random.value < spawnFlameProbability)
-        // {
-        //     bullet.GetComponent<FireBullet>().flamePrefab = flamePrefab;
-        //     bullet.GetComponent<FireBullet>().spawnFlame = true;
-        //     bullet.GetComponent<FireBullet>().flameParent = flameParent;
-
-        // }
+        wave.GetComponent<FireWave>().damage = waveDamage;
+        wave.GetComponent<FireWave>().shootByID = gameObject.GetInstanceID();
+        wave.GetComponent<FireWave>().spawnFlameProb = spawnFlameProb;
     }
 }

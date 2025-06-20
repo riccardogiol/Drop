@@ -49,8 +49,11 @@ public class CameraAnimationManager : MonoBehaviour
         exitZoom = inGameZoom - 1;
         maxZoom = inGameZoom + 3;
         minZoom = inGameZoom;
-        zoomInButton.interactable = false;
-        zoomOutButton.interactable = true;
+        if (zoomInButton != null)
+        {
+            zoomInButton.interactable = false;
+            zoomOutButton.interactable = true;
+        }
     }
 
     void Start()
@@ -80,8 +83,11 @@ public class CameraAnimationManager : MonoBehaviour
             maxZoom = inGameZoom + 3;
             minZoom = inGameZoom;
             finishZoom = inGameZoom;
-            zoomInButton.interactable = false;
-            zoomOutButton.interactable = true;
+            if (zoomInButton != null)
+            {
+                zoomInButton.interactable = false;
+                zoomOutButton.interactable = true;
+            }
             cinemachineVirtualCamera.m_Lens.OrthographicSize = inGameZoom;
         }
         if (stableZoom)
@@ -124,14 +130,17 @@ public class CameraAnimationManager : MonoBehaviour
         if (!stableZoom)
             return;
         float targetZoom = Mathf.Clamp(inGameZoom + value, minZoom, maxZoom);
-        if (targetZoom >= maxZoom)
-            zoomOutButton.interactable = false;
-        else if (targetZoom <= minZoom)
-            zoomInButton.interactable = false;
-        else
-        {
-            zoomInButton.interactable = true;
-            zoomOutButton.interactable = true;
+        if (zoomInButton != null)
+        { 
+            if (targetZoom >= maxZoom)
+                zoomOutButton.interactable = false;
+            else if (targetZoom <= minZoom)
+                zoomInButton.interactable = false;
+            else
+            {
+                zoomInButton.interactable = true;
+                zoomOutButton.interactable = true;
+            }
         }
         StartZoomAnimation(targetZoom);
     }
