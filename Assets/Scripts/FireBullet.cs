@@ -10,6 +10,7 @@ public class FireBullet : MonoBehaviour
 
     public ParticleSystem trailParticles;
     public GameObject explosionEffect;
+    public GameObject smokeEffect;
 
     public bool spawnFlame = false;
 
@@ -101,10 +102,10 @@ public class FireBullet : MonoBehaviour
             case "WaterBullet":
                 other.GetComponent<Bullet>().DestroyBullet();
                 spawnFlame = false;
-                DestroyBullet();
+                DestroyBullet(true);
                 break;
             case "Wave":
-                DestroyBullet();
+                DestroyBullet(true);
                 spawnFlame = false;
                 break;
             case "Flame":
@@ -121,10 +122,12 @@ public class FireBullet : MonoBehaviour
         }
     }
 
-    void DestroyBullet()
+    void DestroyBullet(bool playSmokeEffect = false)
     {
         FindObjectOfType<AudioManager>().Play("BulletExplosion");
         Instantiate(explosionEffect, transform.position, transform.rotation);
+        if (playSmokeEffect)
+            Instantiate(smokeEffect, transform.position, transform.rotation);
         spriteRenderer.enabled = false;
         rigidbody2D.velocity = new Vector2(0f, 0f);
         collider2D.enabled = false;

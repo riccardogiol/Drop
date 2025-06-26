@@ -44,8 +44,11 @@ public class SparklerWave : MonoBehaviour
             if (!playgroundManager.IsObstacle(randomPos))
             {
                 GameObject goRef = Instantiate(waterdropPrefab, randomPos, Quaternion.identity);
+                playgroundManager.SubscribeWaterdrop(goRef);
                 goRef.GetComponent<PickWaterdrop>().randomEnergy = false;
                 goRef.GetComponent<PickWaterdrop>().energy = 2;
+                goRef.GetComponent<PickWaterdrop>().ScaleOnEnergy();
+                waveRef.GetComponent<Wave>().SubscribeID(goRef.GetInstanceID());
             }
         }   
 	}

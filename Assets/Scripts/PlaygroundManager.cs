@@ -168,6 +168,12 @@ public class PlaygroundManager : MonoBehaviour
         }
     }
 
+    public void SubscribeWaterdrop(GameObject waterdrop)
+    {
+        waterdrop.transform.parent = waterdropParent.transform;
+        //FindObjectOfType<AudioManager>().Play("FireBurst");
+    }
+
     GameObject GetFlameInPosition(Vector3 cellCenter)
     {
         foreach(Transform child in flameParent.transform)

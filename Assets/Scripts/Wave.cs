@@ -17,6 +17,7 @@ public class Wave : MonoBehaviour
 
     void Start()
     {
+        tileColliderStop = timer - tileColliderStop;
         if (waveExplosion != null)
         {
             GameObject goRef = Instantiate(waveExplosion, transform.position, transform.rotation);
@@ -25,6 +26,11 @@ public class Wave : MonoBehaviour
         waveCollider = GetComponent<CircleCollider2D>();
         if (waveCollider == null)
             waveCollider = GetComponent<PolygonCollider2D>();
+    }
+
+    public void SubscribeID(int ID)
+    {
+        touchedIDs.Add(ID);
     }
     
     void Update()
@@ -41,10 +47,7 @@ public class Wave : MonoBehaviour
             return;
         if (other.CompareTag("Player"))
             if (!shootByPlayer)
-            {
                 other.GetComponent<PlayerHealth>().FillReservoir(damage);
-                Debug.Log(damage);
-            }
         if (other.CompareTag("Wall") && timer > tileColliderStop)
             playgroundManager.WaterOnPosition(other.transform.position);
         if (other.CompareTag("Grass") && timer > tileColliderStop)

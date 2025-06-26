@@ -492,8 +492,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca561870e53e5490ba2403768a629806, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 4
-  currentHealth: 4
+  maxHealth: 8
+  currentHealth: 8
   scaleGFX: 1
   healthOnProgBar: 0
   winningSceneTimer: 8
@@ -582,7 +582,7 @@ MonoBehaviour:
   wavePrefab: {fileID: 1746407697583636748, guid: aa1b52748494b489bbbda3d9c9ad2552,
     type: 3}
   waveDamage: 4
-  timer: 2
+  timer: 4
   delay: 0.5
   spawnFlameProb: 0.3
 --- !u!114 &3180399465683098504
@@ -1099,6 +1099,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7261966851134090418, guid: 3334a664a917b4455864bc244beb92d0,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7261966851134090418, guid: 3334a664a917b4455864bc244beb92d0,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7261966851134090418, guid: 3334a664a917b4455864bc244beb92d0,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7261966851134090418, guid: 3334a664a917b4455864bc244beb92d0,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -1146,6 +1161,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7261966851134090418, guid: 3334a664a917b4455864bc244beb92d0,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7261966851134090421, guid: 3334a664a917b4455864bc244beb92d0,
         type: 3}

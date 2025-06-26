@@ -11,6 +11,7 @@ public class Bullet : MonoBehaviour
 
     public ParticleSystem trailParticles;
     public GameObject explosionEffect;
+    public GameObject smokeEffect;
 
     Rigidbody2D rigidbody2D;
     Collider2D collider2D;
@@ -47,7 +48,7 @@ public class Bullet : MonoBehaviour
             case "Player":
                 if (!shootByPlayer)
                 {
-                    other.GetComponent<PlayerHealth>().FillReservoir(2);
+                    other.GetComponent<PlayerHealth>().FillReservoir(energy);
                     DestroyBullet();
                 }
                 break;
@@ -123,10 +124,12 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    public void DestroyBullet()
+    public void DestroyBullet(bool playSmokeEffect = false)
     {
         FindObjectOfType<AudioManager>().Play("BulletExplosion");
         Instantiate(explosionEffect, transform.position, transform.rotation);
+        if (playSmokeEffect)
+            Instantiate(smokeEffect, transform.position, transform.rotation);
         spriteRenderer.enabled = false;
         rigidbody2D.velocity = new Vector2(0f, 0f);
         collider2D.enabled = false;

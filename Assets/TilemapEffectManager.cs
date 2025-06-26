@@ -53,7 +53,6 @@ public class TilemapEffectManager : MonoBehaviour
 
     public void SpawnParticleColliders(int maxX, int maxY)
     {
-        Debug.Log("enter spawn particle collider");
         if (particleCollider == null)
             return;
         for (int y = 0; y <= maxY; y++)

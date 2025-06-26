@@ -46,8 +46,10 @@ public class SparklerCharge : MonoBehaviour
     {
         if (scaleGFX)
         {
-            float scale = (float)currentCharge/maxCharge*0.8f + 0.2f;
+            float scale = (float)currentCharge / maxCharge * 0.8f + 0.2f;
             waterGFX.localScale = new Vector3(scale, scale, 1);
+            if (connectedToRiver && currentCharge < maxCharge)
+                waterGFX.localScale = new Vector3(scale *0.8f, scale *0.8f, 1);
         }
     }
 

@@ -77,7 +77,7 @@ public class FireWave : MonoBehaviour
         if (other.CompareTag("Flame"))
             other.GetComponent<PickFlame>().RechargeEnergy(2);
         if (other.CompareTag("WaterBullet"))
-            other.GetComponent<Bullet>().DestroyBullet();
+            other.GetComponent<Bullet>().DestroyBullet(true);
         if (other.CompareTag("Decoration"))
         {
             if (other.GetComponent<ChangeAspect>() != null)
