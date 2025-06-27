@@ -16,7 +16,7 @@ public class PlayerMovementKeys: MonoBehaviour
 
     Vector3 target;
     bool hasTarget;
-    float nextWaypointDistance = 0.1f;
+    float nextWaypointDistance = 0.08f;
     bool movementInterrupted;
 
     void Start()
@@ -43,14 +43,32 @@ public class PlayerMovementKeys: MonoBehaviour
 
     void FixedUpdate()
     {
-        if (movement.magnitude > 0.7)
+        if (hasTarget)
+        {
+            if (Vector2.Distance(transform.position, target) < nextWaypointDistance)
+            {
+                hasTarget = false;
+                playerMovementInterrupt.SetIsMoving(false);
+            }
+            else
+            {
+                Vector2 direction = (target - transform.position).normalized;
+                Vector2 newPosition = player.position + (moveSpeed * Time.deltaTime * direction);
+                if (Vector2.Distance(newPosition, target) < nextWaypointDistance)
+                    player.MovePosition(target);
+                else
+                    player.MovePosition(newPosition);
+                directionController.UpdateDirection(direction);
+            }
+        }
+        if (!hasTarget && movement.magnitude > 0.7)
         {
             Vector3 newTarget = transform.position + movement.normalized;
             if (Vector3.Distance(newTarget, target) > 0.8)
             {
                 Vector3Int cell = tilemap.WorldToCell(newTarget);
                 target = tilemap.GetCellCenterWorld(cell);
-                if (playgroundManager.IsObstacleForWalk(target))
+                if (playgroundManager.IsObstacleForWalk(target, transform.position) || playgroundManager.IsPushableWithObstacle(target, movement.normalized)) // add onewaycollider on right side
                 {
                     Vector2 direction = (target - transform.position).normalized;
                     directionController.UpdateDirection(direction);
@@ -58,17 +76,8 @@ public class PlayerMovementKeys: MonoBehaviour
                 }
                 pathMovement.InterruptMovement();
                 hasTarget = true;
+                playerMovementInterrupt.SetIsMoving(true);
             }
-        }
-        if (hasTarget)
-        {
-            if(Vector2.Distance(transform.position, target) < nextWaypointDistance)
-                hasTarget = false;
-
-            playerMovementInterrupt.SetIsMoving(true);
-            Vector2 direction = (target - transform.position).normalized;
-            player.MovePosition(player.position + (moveSpeed * Time.deltaTime * direction));
-            directionController.UpdateDirection(direction);
         }
     }
 

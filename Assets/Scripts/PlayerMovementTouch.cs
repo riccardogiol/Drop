@@ -5,12 +5,14 @@ using System.Collections.Generic;
 public class PlayerMovementTouch : MonoBehaviour
 {
     PlayerMovementPath movementPath;
+    PlaygroundManager playgroundManager;
 
     float countdown = 0f;
     float timer = 0.2f;
 
     void Awake()
     {
+        playgroundManager = FindFirstObjectByType<PlaygroundManager>();
         if (!Application.isMobilePlatform)
             enabled = false;
     }
@@ -34,7 +36,8 @@ public class PlayerMovementTouch : MonoBehaviour
                 if (TouchOnUI())
                     return;
                 Vector3 target = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
-                movementPath.NewTarget(target);
+                if (!playgroundManager.IsObstacleForWalk(target))
+                    movementPath.NewTarget(target);
                 countdown = timer;
             }
     }

@@ -20,20 +20,22 @@ public class OneWayObstacleController : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         platformEffector2D = GetComponent<PlatformEffector2D>();
-        
+
         if (blockingFromAbove)
         {
             spriteRenderer.sprite = spriteAbove;
             platformEffector2D.rotationalOffset = 0;
             if (Random.value > 0.5)
                 spriteRenderer.flipX = true;
-        } else if (blockingFromBelow)
+        }
+        else if (blockingFromBelow)
         {
             spriteRenderer.sprite = spriteBelow;
             platformEffector2D.rotationalOffset = 180;
             if (Random.value > 0.5)
                 spriteRenderer.flipX = true;
-        } else if (blockingFromLeft)
+        }
+        else if (blockingFromLeft)
         {
             spriteRenderer.sprite = spriteLeft;
             platformEffector2D.rotationalOffset = 90;
@@ -42,7 +44,8 @@ public class OneWayObstacleController : MonoBehaviour
                 spriteRenderer.sprite = spriteRight;
                 spriteRenderer.flipX = true;
             }
-        } else
+        }
+        else
         {
             spriteRenderer.sprite = spriteRight;
             platformEffector2D.rotationalOffset = 270;
@@ -58,29 +61,45 @@ public class OneWayObstacleController : MonoBehaviour
 
     public void UpdateCollider()
     {
-         var gridGraph = AstarPath.active.data.gridGraph;
-        
+        var gridGraph = AstarPath.active.data.gridGraph;
+
         if (blockingFromAbove)
         {
             GridNode targetNode = (GridNode)gridGraph.GetNode((int)transform.position.x, (int)transform.position.y + 1);
             if (targetNode == null) return;
             targetNode.SetConnectionInternal(0, false);
-        } else if (blockingFromBelow)
+        }
+        else if (blockingFromBelow)
         {
             GridNode targetNode = (GridNode)gridGraph.GetNode((int)transform.position.x, (int)transform.position.y - 1);
             if (targetNode == null) return;
             targetNode.SetConnectionInternal(2, false);
-        } else if (blockingFromLeft)
+        }
+        else if (blockingFromLeft)
         {
             GridNode targetNode = (GridNode)gridGraph.GetNode((int)transform.position.x - 1, (int)transform.position.y);
             if (targetNode == null) return;
             targetNode.SetConnectionInternal(1, false);
-        } else
+        }
+        else
         {
             GridNode targetNode = (GridNode)gridGraph.GetNode((int)transform.position.x + 1, (int)transform.position.y);
             if (targetNode == null) return;
             targetNode.SetConnectionInternal(3, false);
         }
+    }
+
+    public bool IsBlockingFrom(Vector3 target)
+    {
+        if (target.x < transform.position.x - 0.4 && blockingFromLeft)
+            return true;
+        if (target.x > transform.position.x + 0.4 && blockingFromRight)
+            return true;
+        if (target.y < transform.position.y - 0.4 && blockingFromBelow)
+            return true;
+        if (target.y > transform.position.y + 0.4 && blockingFromAbove)
+            return true;
+        return false;
     }
 
 }

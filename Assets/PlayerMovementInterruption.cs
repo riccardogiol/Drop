@@ -5,6 +5,10 @@ public class PlayerMovementInterruption : MonoBehaviour
     
     PlayerMovementPath playerMovementPath;
     PlayerMovementKeys playerMovementKeys;
+    PlayerDirectionController playerDirectionController;
+    Rigidbody2D playerRB;
+    PlaygroundManager playgroundManager;
+
     
     Vector3 lastFramePosition;
     float secondsNotMoving;
@@ -13,8 +17,11 @@ public class PlayerMovementInterruption : MonoBehaviour
 
     void Start()
     {
+        playerRB = GetComponent<Rigidbody2D>();
+        playgroundManager = FindFirstObjectByType<PlaygroundManager>();
         playerMovementPath = GetComponent<PlayerMovementPath>();
         playerMovementKeys = GetComponent<PlayerMovementKeys>();
+        playerDirectionController = GetComponent<PlayerDirectionController>();
         lastFramePosition = transform.position;
         secondsNotMoving = 0f;
         isMoving = false;
@@ -36,6 +43,9 @@ public class PlayerMovementInterruption : MonoBehaviour
                 {
                     playerMovementKeys.InterruptMovement();
                     playerMovementPath.InterruptMovement();
+                    Vector2 respawnPosition = playgroundManager.GetCellCenter((Vector2)transform.position - playerDirectionController.lastDirection * 0.5f);
+                    playerRB.MovePosition(respawnPosition);
+                    lastFramePosition = respawnPosition;
                     secondsNotMoving = 0;
                     isMoving = false;
                     return;

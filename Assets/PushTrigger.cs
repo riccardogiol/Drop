@@ -11,7 +11,7 @@ public class PushTrigger : MonoBehaviour
     public bool isObstacle = false;
     Vector3 origin;
     OneWayObstacleController[] oneWayComps;
-
+    float speed = 0.15f;
     void Start()
     {
         playgroundManager = FindFirstObjectByType<PlaygroundManager>();
@@ -32,16 +32,24 @@ public class PushTrigger : MonoBehaviour
             {
                 if (!playgroundManager.IsObstacleForRock(destination))
                 {
-                    linearMovement.MoveTo(destination, 0.3f);
+                    linearMovement.MoveTo(destination, speed);
                     triggerComponent.enabled = false;
-                    StartCoroutine(ActivateTriggerDelay(0.3f));
+                    StartCoroutine(ActivateTriggerDelay(speed));
+                }
+                else
+                {
+                    // player go back to player position
                 }
             } else {
                 if (!playgroundManager.IsObstacle(destination))
                 {
-                    linearMovement.MoveTo(destination, 0.3f);
+                    linearMovement.MoveTo(destination, speed);
                     triggerComponent.enabled = false;
-                    StartCoroutine(ActivateTriggerDelay(0.3f));
+                    StartCoroutine(ActivateTriggerDelay(speed));
+                }
+                else
+                {
+                    other.GetComponent<PlayerMovementKeys>().InterruptMovement(0.2f);
                 }
             }
         }

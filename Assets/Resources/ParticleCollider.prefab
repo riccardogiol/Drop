@@ -76,6 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoke: {fileID: 755108644850525236}
+  fireSparkles: {fileID: 4569113550277837139}
   waterGrassPrefab: {fileID: 7261966851134090421, guid: d440de52f89bb4e5591a3d2fcd353f7b,
     type: 3}
   burntGrassGFXManager: {fileID: 9208311371995598833}
@@ -527,6 +528,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9110586210781368769, guid: ece3841e9fd2e492cb54e40795ca6179,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ece3841e9fd2e492cb54e40795ca6179, type: 3}
 --- !u!198 &755108644850525236 stripped
@@ -538,6 +544,12 @@ ParticleSystem:
 --- !u!4 &755108644850525237 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5439541568655226023, guid: ece3841e9fd2e492cb54e40795ca6179,
+    type: 3}
+  m_PrefabInstance: {fileID: 4685869463764865170}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &4569113550277837139 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 9110586210781368769, guid: ece3841e9fd2e492cb54e40795ca6179,
     type: 3}
   m_PrefabInstance: {fileID: 4685869463764865170}
   m_PrefabAsset: {fileID: 0}

@@ -5,9 +5,11 @@ using System.Collections.Generic;
 public class PlayerMovementMouse : MonoBehaviour
 {
     PlayerMovementPath movementPath;
+    PlaygroundManager playgroundManager;
 
     void Awake()
     {
+        playgroundManager = FindFirstObjectByType<PlaygroundManager>();
         if (Application.isMobilePlatform)
             enabled = false;
     }
@@ -24,7 +26,8 @@ public class PlayerMovementMouse : MonoBehaviour
             if (ClickOnUI())
                 return;
             Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition); 
-            movementPath.NewTarget(target);
+            if (!playgroundManager.IsObstacleForWalk(target))
+                movementPath.NewTarget(target);
         }
     }
     

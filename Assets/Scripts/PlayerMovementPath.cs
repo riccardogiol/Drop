@@ -69,6 +69,7 @@ public class PlayerMovementPath : MonoBehaviour
     public void InterruptMovement()
     {
         path = null;
+        GetComponent<PlayerMovementInterruption>().SetIsMoving(false);
     }
 
     public void OnVictorySpot()

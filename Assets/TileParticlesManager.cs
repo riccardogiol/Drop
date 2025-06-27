@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class TileParticlesManager : MonoBehaviour
@@ -8,7 +9,7 @@ public class TileParticlesManager : MonoBehaviour
 
     public void ActivateBurntParticle()
     {
-        smoke.Play();
+        StartCoroutine(DelayedPlay(smoke, Random.value));
         burntGrassGFXManager.Activate();
     }
 
@@ -18,5 +19,11 @@ public class TileParticlesManager : MonoBehaviour
         burntGrassGFXManager.Desactivate();
         GameObject wgpRef = Instantiate(waterGrassPrefab, transform.position + new Vector3(0, 0.3f, 0), Quaternion.identity);
         wgpRef.transform.parent = transform;
+    }
+
+    IEnumerator DelayedPlay(ParticleSystem ps, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        ps.Play();
     }
 }

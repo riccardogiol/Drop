@@ -234,16 +234,49 @@ public class PlaygroundManager : MonoBehaviour
         return false;
     }
 
-    public bool IsObstacleForWalk(Vector3 onCellPoint)
+    public bool IsObstacleForWalk(Vector3 onCellPoint, Vector3 fromPosition)
     {
+        if (walkTilemap.GetTile(walkTilemap.WorldToCell(onCellPoint)) == null)
+            return true;
         Collider2D[] results = Physics2D.OverlapPointAll(onCellPoint);
         foreach(Collider2D item in results)
         {
-            if (item.gameObject.CompareTag("MovingRock"))
-                return false;
+            if (item.gameObject.CompareTag("OneWayCollider"))
+                if (item.GetComponent<OneWayObstacleController>().IsBlockingFrom(fromPosition))
+                    return true;
             if (item.gameObject.layer == 6)
-                return true;
+                if (!item.gameObject.CompareTag("MovingRock"))
+                    return true;
         }
+        return false;
+    }
+    
+    public bool IsObstacleForWalk(Vector3 onCellPoint)
+    {
+        if (walkTilemap.GetTile(walkTilemap.WorldToCell(onCellPoint)) == null)
+            return true;
+        Collider2D[] results = Physics2D.OverlapPointAll(onCellPoint);
+        foreach(Collider2D item in results)
+        {
+            if (item.gameObject.layer == 6)
+                if (!item.gameObject.CompareTag("MovingRock"))
+                    return true;
+        }
+        return false;
+    }
+
+    public bool IsPushableWithObstacle(Vector3 centerCellPointTarget, Vector3 movement)
+    {
+        Vector3 destinationPoint = centerCellPointTarget + movement;
+        Collider2D[] results = Physics2D.OverlapPointAll(centerCellPointTarget);
+        foreach (Collider2D item in results)
+        {
+            if (item.gameObject.CompareTag("MovingRock"))
+                return IsObstacleForRock(destinationPoint);
+            if (item.gameObject.CompareTag("Waterbomb"))
+                return IsObstacle(destinationPoint);
+        }
+
         return false;
     }
 
