@@ -119,6 +119,9 @@ public class FireBullet : MonoBehaviour
                 other.GetComponent<PickWaterBomb>().TriggerBomb();
                 DestroyBullet();
                 break;
+            case "Iceshielddrop":
+                DestroyBullet();
+                break;
         }
     }
 

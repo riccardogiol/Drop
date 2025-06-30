@@ -1,5 +1,4 @@
 using System;
-using TMPro;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
@@ -10,6 +9,8 @@ public class PlayerHealth : MonoBehaviour
     public StageManager stageManager;
     public HealthBar healthBar;
     public DamageIndicator damageIndicator;
+
+    PlayerShield playerShield;
     
     readonly string unlockingCode2 = "Lvl2";
     //readonly int maxHealth2 = 6;
@@ -31,6 +32,8 @@ public class PlayerHealth : MonoBehaviour
             maxHealth += 2;
             currentHealth += 1;
         }
+
+        playerShield = GetComponent<PlayerShield>();
         
         healthBar.SetMaxHealth(maxHealth);
         healthBar.SetHealth(currentHealth);
@@ -38,14 +41,20 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (playerShield != null)
+        {
+            if (playerShield.isActive)
+            {
+                //play shield reflex
+                //abbassi tempo di shield in funzione di damage?
+                return;
+            }
+        }
         currentHealth = Math.Max( currentHealth - damage, 0);
         damageIndicator.ShowDamage(damage);
         healthBar.SetHealth(currentHealth);
         if(currentHealth == 0)
-        {
-            //add some effect
             stageManager.GameOver("health");
-        }
     }
     
 
