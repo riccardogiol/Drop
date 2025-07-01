@@ -8,15 +8,19 @@ public class PlayerShield : MonoBehaviour
 
     public bool isActive = false;
 
-    public GameObject shieldGFX;
+    public Animator shieldGFX;
+    public FlamesCountdown flamesCountdown;
+    public HealthBar healthBar;
 
-    // mettere countdown visivo tipo quello delle bombe
 
-    // add some code to make it last loger
+    bool graphicalCountdownPlayed = false;
+
+    // TODO add some code to make it last loger
     readonly string unlockingCode1 = "ExtraTimeShieldUnlocked";
 
     void Awake()
     {
+        healthBar = FindFirstObjectByType<HealthBar>();
         if (PlayerPrefs.GetInt(unlockingCode1, 0) == 1)
             timer += 2;
         if (PlayerPrefs.GetInt("EasyMode", 0) == 1)
@@ -28,19 +32,32 @@ public class PlayerShield : MonoBehaviour
         if (isActive)
         {
             countdown -= Time.deltaTime;
+            healthBar.SetShield(countdown / timer);
+            if (countdown <= 1 && !graphicalCountdownPlayed)
+            {
+                flamesCountdown.PlayCountdown(1.0f, 3);
+                graphicalCountdownPlayed = true;
+            }
             if (countdown <= 0)
             {
                 isActive = false;
-                shieldGFX.SetActive(false);
+                shieldGFX.SetBool("isActive", false);
+                // make shield slider dissapear
             }
-            //update some graphics like in superdrop?
         }
     }
 
     public void Activate()
     {
+        // make shield slider dissapear
         countdown = timer;
         isActive = true;
-        shieldGFX.SetActive(true);
+        shieldGFX.SetBool("isActive", true);
+        graphicalCountdownPlayed = false;
+    }
+
+    public void PlayReflex()
+    {
+        shieldGFX.SetTrigger("touched");
     }
 }

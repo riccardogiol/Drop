@@ -53,7 +53,6 @@ public class PickIceShield : MonoBehaviour
 
     public void DestroyIceShield()
     {
-        //add something?
         Destroy(gameObject);
     }
 }

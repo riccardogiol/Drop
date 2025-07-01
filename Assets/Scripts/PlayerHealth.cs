@@ -45,7 +45,7 @@ public class PlayerHealth : MonoBehaviour
         {
             if (playerShield.isActive)
             {
-                //play shield reflex
+                playerShield.PlayReflex();
                 //abbassi tempo di shield in funzione di damage?
                 return;
             }
