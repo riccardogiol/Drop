@@ -11,7 +11,7 @@ public class PlayerHealth : MonoBehaviour
     public DamageIndicator damageIndicator;
 
     PlayerShield playerShield;
-    
+
     readonly string unlockingCode2 = "Lvl2";
     //readonly int maxHealth2 = 6;
     readonly string unlockingCode3 = "Hero1Purchased";
@@ -34,7 +34,7 @@ public class PlayerHealth : MonoBehaviour
         }
 
         playerShield = GetComponent<PlayerShield>();
-        
+
         healthBar.SetMaxHealth(maxHealth);
         healthBar.SetHealth(currentHealth);
     }
@@ -42,21 +42,15 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         if (playerShield != null)
-        {
             if (playerShield.isActive)
-            {
-                playerShield.PlayReflex();
-                //abbassi tempo di shield in funzione di damage?
-                return;
-            }
-        }
-        currentHealth = Math.Max( currentHealth - damage, 0);
+                damage = playerShield.DamageShield(damage);
+        currentHealth = Math.Max(currentHealth - damage, 0);
         damageIndicator.ShowDamage(damage);
         healthBar.SetHealth(currentHealth);
-        if(currentHealth == 0)
+        if (currentHealth == 0)
             stageManager.GameOver("health");
     }
-    
+
 
     public void FillReservoir(int value)
     {
@@ -64,5 +58,13 @@ public class PlayerHealth : MonoBehaviour
         currentHealth += energyAbsorbed;
         damageIndicator.ShowEnergy(energyAbsorbed);
         healthBar.SetHealth(currentHealth);
+    }
+
+    public int GetEnergy()
+    {
+        if (playerShield != null)
+            return currentHealth + 2 * Mathf.CeilToInt(playerShield.GetEnergy());
+        else
+            return currentHealth;
     }
 }

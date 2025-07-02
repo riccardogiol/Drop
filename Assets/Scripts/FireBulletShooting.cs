@@ -6,6 +6,7 @@ public class FireBulletShooting : MonoBehaviour
     public float bulletSpeed = 4.5f;
     public int bulletDamage = 4;
     public float timer = 2f;
+    public float delay = 0f;
 
     public Transform shootingPoint;
     float countdown;
@@ -19,7 +20,7 @@ public class FireBulletShooting : MonoBehaviour
     void Awake()
     {
         enemyDirection = GetComponent<EnemyDirectionController>();
-        countdown = 0f;
+        countdown = delay;
         playgroundManager = FindFirstObjectByType<PlaygroundManager>();
         
         if (PlayerPrefs.GetInt("EasyMode", 0) == 1)

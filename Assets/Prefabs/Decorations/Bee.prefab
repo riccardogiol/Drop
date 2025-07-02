@@ -191,6 +191,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5f942cb5cce8482fb772e311511a0a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim1: 0
+  anim1PercAppearance: 1
+  anim2: 0
+  anim2PercAppearance: 1
+  idlePercAppearance: 1
+  timer: 1
 --- !u!1 &5831071956751903875
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,7 +257,9 @@ MonoBehaviour:
     type: 3}
   fireBarrier: {fileID: 0}
   touchingCellsCoordinates: []
+  spriteRenderer: {fileID: 0}
   colorAdjustmentMaterial: {fileID: 0}
+  bloomIntensity: 0
 --- !u!114 &1473433583370522580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,7 +267,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5831071956751903875}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 477297663b888458cad4a47028f629cc, type: 3}
   m_Name: 

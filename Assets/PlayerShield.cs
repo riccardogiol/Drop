@@ -1,12 +1,14 @@
+using System;
 using UnityEngine;
 
 public class PlayerShield : MonoBehaviour
 {
 
     public float timer = 3f;
-    float countdown;
+    float countdown = 0.0f;
 
     public bool isActive = false;
+    int reduceFactor = 2;
 
     public Animator shieldGFX;
     public FlamesCountdown flamesCountdown;
@@ -22,9 +24,9 @@ public class PlayerShield : MonoBehaviour
     {
         healthBar = FindFirstObjectByType<HealthBar>();
         if (PlayerPrefs.GetInt(unlockingCode1, 0) == 1)
-            timer += 2;
+            timer += 5;
         if (PlayerPrefs.GetInt("EasyMode", 0) == 1)
-            timer += 1;
+            timer *= 1.3f;
     }
 
     void Update()
@@ -33,6 +35,7 @@ public class PlayerShield : MonoBehaviour
         {
             countdown -= Time.deltaTime;
             healthBar.SetShield(countdown / timer);
+            // togliere? modificare? iun ogni caso mettere condizione se é minore di 1 ma maggiore di zero nel caso prenda danni e scatti da +2 a zero
             if (countdown <= 1 && !graphicalCountdownPlayed)
             {
                 flamesCountdown.PlayCountdown(1.0f, 3);
@@ -42,22 +45,34 @@ public class PlayerShield : MonoBehaviour
             {
                 isActive = false;
                 shieldGFX.SetBool("isActive", false);
-                // make shield slider dissapear
             }
         }
     }
 
     public void Activate()
     {
-        // make shield slider dissapear
         countdown = timer;
         isActive = true;
         shieldGFX.SetBool("isActive", true);
         graphicalCountdownPlayed = false;
     }
 
+    public int DamageShield(int damage)
+    {
+        damage /= reduceFactor;
+        PlayReflex();
+        int extraDamage = Math.Max(Mathf.FloorToInt(damage - countdown), 0);
+        countdown = Math.Max(countdown - damage, 0);
+        return extraDamage;
+    }
+
     public void PlayReflex()
     {
         shieldGFX.SetTrigger("touched");
+    }
+
+    public float GetEnergy()
+    {
+        return Math.Max(countdown, 0);
     }
 }

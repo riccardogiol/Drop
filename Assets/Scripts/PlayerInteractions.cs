@@ -27,6 +27,7 @@ public class PlayerInteractions : MonoBehaviour
                 other.GetComponent<PickFlame>().DestroyFlame();
                 break;
             case "Enemy":
+                /*
                 if (playerShield != null)
                 {
                     if (playerShield.isActive)
@@ -36,8 +37,9 @@ public class PlayerInteractions : MonoBehaviour
                         return;
                     }
                 }
+                */
                 int enemyHealth = other.GetComponent<EnemyHealth>().currentHealth;
-                int playerHealth = gameObject.GetComponent<PlayerHealth>().currentHealth;
+                int playerHealth = gameObject.GetComponent<PlayerHealth>().GetEnergy();
                 other.GetComponent<EnemyHealth>().TakeDamage(playerHealth);
                 gameObject.GetComponent<PlayerHealth>().TakeDamage(enemyHealth);
                 break;
