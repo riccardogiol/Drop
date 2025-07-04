@@ -21,7 +21,9 @@ public class FireWave : MonoBehaviour
     void Start()
     {
         tileColliderStop = timer - tileColliderStop;
-        waveCollider = GetComponent<CircleCollider2D>(); // o magari un collider quadrato?
+        waveCollider = GetComponent<CircleCollider2D>();
+        if (waveCollider == null)
+            waveCollider = GetComponent<PolygonCollider2D>();
         GameObject goRef = Instantiate(waveExplosion, transform.position, Quaternion.identity);
         goRef.transform.parent = transform;
 
@@ -30,9 +32,10 @@ public class FireWave : MonoBehaviour
         if (Random.value < spawnFlameProb)
         {
             Vector3 randomPos = transform.position + new Vector3(Random.Range(-1, 2), Random.Range(-1, 2));
-            if (!playgroundManager.IsObstacleForFlame(randomPos))
+            if (waveCollider.bounds.Contains(randomPos) && !playgroundManager.IsObstacleForFlame(randomPos))
             {
                 GameObject goRef2 = Instantiate(flamePrefab, randomPos, Quaternion.identity);
+                goRef2.GetComponent<PickFlame>().randomEnergy = false;
                 goRef2.GetComponent<PickFlame>().energy = 1;
                 goRef2.GetComponent<PickFlame>().ScaleOnEnergy();
                 touchedIDs.Add(goRef2.GetInstanceID());
@@ -97,7 +100,6 @@ public class FireWave : MonoBehaviour
                 }
             }
         }
-        touchedIDs.Add(other.gameObject.GetInstanceID());
     }
 
 }

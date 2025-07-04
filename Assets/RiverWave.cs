@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class RiverWave : MonoBehaviour
 {
+    // find parent for flame
     public GameObject waterdropPrefab;
     public GameObject wavePrefab;
     public GameObject parent;

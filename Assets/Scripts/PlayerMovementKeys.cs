@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -47,8 +48,7 @@ public class PlayerMovementKeys: MonoBehaviour
         {
             if (Vector2.Distance(transform.position, target) < nextWaypointDistance)
             {
-                hasTarget = false;
-                playerMovementInterrupt.SetIsMoving(false);
+                InterruptMovement();
             }
             else
             {
@@ -63,6 +63,10 @@ public class PlayerMovementKeys: MonoBehaviour
         }
         if (!hasTarget && movement.magnitude > 0.7)
         {
+            if (Math.Abs(movement.x) >= Math.Abs(movement.y))
+                movement.y = 0;
+            else
+                movement.x = 0;
             Vector3 newTarget = transform.position + movement.normalized;
             if (Vector3.Distance(newTarget, target) > 0.8)
             {
@@ -76,17 +80,18 @@ public class PlayerMovementKeys: MonoBehaviour
                 }
                 pathMovement.InterruptMovement();
                 hasTarget = true;
-                playerMovementInterrupt.SetIsMoving(true);
+                //playerMovementInterrupt.SetIsMoving(true);
             }
         }
     }
 
     public void InterruptMovement(float delay = 0f)
     {
+        playerMovementInterrupt.SetIsMoving(false);
         hasTarget = false;
         target = transform.position;
         movement = new Vector3(0, 0);
-        if (delay > 0.1f)
+        if (delay >= 0.1f)
         {
             movementInterrupted = true;
             StartCoroutine(InterruptInputDelay(delay));

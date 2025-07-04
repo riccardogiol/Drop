@@ -19,8 +19,8 @@ public class PickWaterBomb : MonoBehaviour
     void Start()
     {
         // valutare!!
-        waveDamage = bombEnergy;
-        bulletEnergy = bombEnergy;
+        //waveDamage = bombEnergy;
+       // bulletEnergy = bombEnergy;
         playgroundManager = FindFirstObjectByType<PlaygroundManager>();
         if (playgroundManager == null)
         {
@@ -65,7 +65,7 @@ public class PickWaterBomb : MonoBehaviour
     {
         GameObject wave = Instantiate(wavePrefab, transform.position, Quaternion.identity);
         wave.GetComponent<Wave>().damage = waveDamage;
-        wave.GetComponent<Wave>().shootByPlayer = false;
+        wave.GetComponent<Wave>().shootByPlayer = true;
         wave.GetComponent<Wave>().playgroundManager = playgroundManager;
     }
 
