@@ -24,7 +24,7 @@ public class FireWave : MonoBehaviour
         waveCollider = GetComponent<CircleCollider2D>();
         if (waveCollider == null)
             waveCollider = GetComponent<PolygonCollider2D>();
-        GameObject goRef = Instantiate(waveExplosion, transform.position, Quaternion.identity);
+        GameObject goRef = Instantiate(waveExplosion, transform.position, transform.rotation);
         goRef.transform.parent = transform;
 
         touchedIDs.Add(shootByID);
