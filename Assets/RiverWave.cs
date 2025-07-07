@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 
@@ -23,6 +24,8 @@ public class RiverWave : MonoBehaviour
     public GameObject waterComing;
     public ParticleSystem waterFlowPS;
 
+
+   public List<int> touchedIDs = new List<int>();
 
     void Awake()
     {
@@ -92,6 +95,9 @@ public class RiverWave : MonoBehaviour
         waveRef.GetComponent<Wave>().shootByPlayer = false;
         waveRef.GetComponent<Wave>().damage = 2;
         waveRef.GetComponent<Wave>().playgroundManager = playgroundManager;
+        waveRef.GetComponent<Wave>().touchedIDs = touchedIDs;
+        touchedIDs = new List<int>();
+
         if (Random.value < spawnDropProb)
         {
             Vector3 randomPos = transform.position + new Vector3(Random.Range(-1, 2), Random.Range(-1, 2));

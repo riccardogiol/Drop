@@ -18,7 +18,7 @@ public class FlowerGFXManager : MonoBehaviour
     readonly float interval = 3f;
     bool isFlowering = false;
     bool isVisible = false;
-    
+
     public GameObject petalBurstPrefab;
 
     void Awake()
@@ -58,11 +58,11 @@ public class FlowerGFXManager : MonoBehaviour
             currentLevel++;
             SetGraphic();
             timer = interval;
-            
+
             GameObject go = Instantiate(petalBurstPrefab, transform.position, Quaternion.identity);
             go.GetComponent<ParticleSystem>().startColor = petalRenderer.color;
         }
-        timer -= Time.deltaTime;        
+        timer -= Time.deltaTime;
     }
 
     void SetGraphic()
@@ -95,7 +95,7 @@ public class FlowerGFXManager : MonoBehaviour
 
         if (!isVisible)
             return;
-            
+
         petalRenderer.enabled = true;
         leafRenderer.enabled = true;
 
@@ -108,6 +108,11 @@ public class FlowerGFXManager : MonoBehaviour
         petalRenderer.enabled = false;
         leafRenderer.enabled = false;
         isFlowering = false;
+    }
+
+    public void setInvisible()
+    {
+        isVisible = false;
     }
 
 }

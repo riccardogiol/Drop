@@ -22,9 +22,14 @@ public class TileFlowerManager : MonoBehaviour
             if (item.gameObject.CompareTag("Wall"))
                 isObstacle = true; 
             if (item.gameObject.CompareTag("Decoration"))
-                isObstacle = true; 
+                isObstacle = true;
             if (item.gameObject.CompareTag("DecorationNoFire"))
-                isObstacle = true; 
+            {
+                if (item.gameObject.GetComponent<RiverWave>() != null)
+                    flowerGFX.setInvisible();
+                else
+                    isObstacle = true;
+            }
         }
         if (!isFlowering || isObstacle)
             flowerGFX.Uproot();

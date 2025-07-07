@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class WindFireWave : MonoBehaviour
@@ -13,7 +14,7 @@ public class WindFireWave : MonoBehaviour
     float countdown = 0;
     bool triggered = false;
     bool notTrigger = false;
-    float stopTimer = 1.0f;
+    float stopTimer = 2.0f;
 
     float refreshTimer = 5.0f; 
     float refreshCountdown = 0f;
@@ -23,6 +24,8 @@ public class WindFireWave : MonoBehaviour
 
     public ParticleSystem windFlowPS;
     public ParticleSystem leavesPS;
+
+    List<int> lastTouchedIDs = new List<int>();
 
     void Start()
     {
@@ -97,6 +100,8 @@ public class WindFireWave : MonoBehaviour
         waveRef.GetComponent<FireWave>().damage = 2;
         waveRef.GetComponent<FireWave>().playgroundManager = playgroundManager;
         waveRef.GetComponent<FireWave>().spawnFlameProb = spawnFlameProb;
+        waveRef.GetComponent<FireWave>().touchedIDs = lastTouchedIDs;
+        lastTouchedIDs = new List<int>();
     }
     
     void OnTriggerEnter2D(Collider2D other)
@@ -106,7 +111,10 @@ public class WindFireWave : MonoBehaviour
         if (other.CompareTag("Flame"))
             TriggerWave();
         if (other.CompareTag("FireWave"))
+        {
+            lastTouchedIDs = other.GetComponent<FireWave>().touchedIDs;
             TriggerWave();
+        }
         if (other.CompareTag("FireBullet"))
             TriggerWave();
     }

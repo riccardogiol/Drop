@@ -13,7 +13,7 @@ public class Wave : MonoBehaviour
     float timer = 0.9f;
     float tileColliderStop = 0.1f;
 
-    List<int> touchedIDs = new List<int>();
+    public List<int> touchedIDs = new List<int>();
 
     void Start()
     {
@@ -73,7 +73,10 @@ public class Wave : MonoBehaviour
             if (other.GetComponent<SparklerCharge>() != null)
                 other.GetComponent<SparklerCharge>().FillReservoir(damage);
             if (other.GetComponent<RiverWave>() != null)
+            {
                 other.GetComponent<RiverWave>().TriggerWave(shootByPlayer);
+                other.GetComponent<RiverWave>().touchedIDs = touchedIDs;
+            }
             
         }
         touchedIDs.Add(other.gameObject.GetInstanceID());

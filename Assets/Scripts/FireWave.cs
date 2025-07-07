@@ -16,7 +16,7 @@ public class FireWave : MonoBehaviour
 
     public float spawnFlameProb = 0;
 
-    List<int> touchedIDs = new List<int>();
+   public List<int> touchedIDs = new List<int>();
 
     void Start()
     {
@@ -63,7 +63,10 @@ public class FireWave : MonoBehaviour
         if (other.CompareTag("Grass") && timer > tileColliderStop)
             playgroundManager.FireOnPosition(other.transform.position);
         if (other.CompareTag("Player"))
+        {
             other.GetComponent<PlayerHealth>().TakeDamage(damage);
+            touchedIDs.Add(other.gameObject.GetInstanceID());
+        }
         if (other.CompareTag("Waterdrop"))
         {
             int otherEnergy = other.GetComponent<PickWaterdrop>().energy;
@@ -78,7 +81,10 @@ public class FireWave : MonoBehaviour
         if (other.CompareTag("Waterbomb"))
             other.GetComponent<PickWaterBomb>().TriggerBomb();
         if (other.CompareTag("Flame"))
+        {
             other.GetComponent<PickFlame>().RechargeEnergy(2);
+            touchedIDs.Add(other.gameObject.GetInstanceID());
+        }
         if (other.CompareTag("WaterBullet"))
             other.GetComponent<Bullet>().DestroyBullet(true);
         if (other.CompareTag("Decoration"))
