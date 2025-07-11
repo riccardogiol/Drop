@@ -11,6 +11,8 @@ public class WindFireWave : MonoBehaviour
     public float delay = 0.3f;
     public float spawnFlameProb = 0.2f;
 
+    public bool triggerWithEnemy = true;
+
     float countdown = 0;
     bool triggered = false;
     bool notTrigger = false;
@@ -106,7 +108,7 @@ public class WindFireWave : MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy") && triggerWithEnemy)
             TriggerWave();
         if (other.CompareTag("Flame"))
             TriggerWave();
