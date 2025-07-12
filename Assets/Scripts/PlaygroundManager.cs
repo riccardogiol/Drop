@@ -187,8 +187,8 @@ public class PlaygroundManager : MonoBehaviour
         return null;
     }
 
-    //rewrite this with getTile?
-    public bool IsOnPlayground(Vector3 cellCenter)
+    /*
+    public bool IsOnPlaygroundOld(Vector3 cellCenter)
     {
         foreach(Transform child in walkTilemap.transform)
         {
@@ -197,11 +197,22 @@ public class PlaygroundManager : MonoBehaviour
         }
         return false;
     }
+    */
+
+    public bool IsOnPlayground(Vector3 cellCenter)
+    {
+        if (walkTilemap.GetTile(walkTilemap.WorldToCell(cellCenter)) != null)
+            return true;
+        else
+            return false;
+    }
 
     public bool IsObstacleForFlame(Vector3 onCellPoint)
     {
+        if (!IsOnPlayground(onCellPoint))
+            return true;
         Collider2D[] results = Physics2D.OverlapPointAll(onCellPoint);
-        foreach(Collider2D item in results)
+        foreach (Collider2D item in results)
         {
             if (item.gameObject.layer == 6)
                 return true;
@@ -242,8 +253,13 @@ public class PlaygroundManager : MonoBehaviour
         foreach(Collider2D item in results)
         {
             if (item.gameObject.CompareTag("OneWayCollider"))
-                if (item.GetComponent<OneWayObstacleController>().IsBlockingFrom(fromPosition))
-                    return true;
+            {
+                if (item.GetComponent<OneWayObstacleController>() != null)
+                    if (item.GetComponent<OneWayObstacleController>().IsBlockingFrom(fromPosition))
+                        return true;
+                else if (item.GetComponent<OneWayObstacleControllerNew>().IsBlockingFrom(fromPosition))
+                        return true;
+            }
             if (item.gameObject.layer == 6)
                 if (!item.gameObject.CompareTag("MovingRock"))
                     return true;

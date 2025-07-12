@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class WindFireWave : MonoBehaviour
 {
-    public GameObject flamePrefab;
     public GameObject fireWavePrefab;
 
     PlaygroundManager playgroundManager;

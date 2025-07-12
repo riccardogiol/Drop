@@ -11,7 +11,7 @@ public class FireWave : MonoBehaviour
 
     Collider2D waveCollider;
     public int shootByID;
-    float timer = 0.9f;
+    public float timer = 0.9f;
     float tileColliderStop = 0.1f;
 
     public float spawnFlameProb = 0;
