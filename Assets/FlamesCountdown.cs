@@ -3,8 +3,8 @@ using UnityEngine;
 public class FlamesCountdown : MonoBehaviour
 {
     public ParticleSystem flameGFX;
-    public float timer = 1.0f;
-    public int numberOfFlames = 0;
+    float timer = 1.0f;
+    int numberOfFlames = 0;
 
     int counter = 0;
     float countdown = 0.0f;

@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,17 +14,29 @@ public class FireWave : MonoBehaviour
     public int shootByID;
     public float timer = 0.9f;
     float tileColliderStop = 0.1f;
+    public float delayForCollider = 0.0f;
 
     public float spawnFlameProb = 0;
 
-   public List<int> touchedIDs = new List<int>();
+    public List<int> touchedIDs = new List<int>();
 
-    void Start()
+    void Awake()
     {
         tileColliderStop = timer - tileColliderStop;
+        timer += delayForCollider;
         waveCollider = GetComponent<CircleCollider2D>();
         if (waveCollider == null)
             waveCollider = GetComponent<PolygonCollider2D>();
+        if (delayForCollider > 0.0f)
+        {
+            waveCollider.enabled = false;
+            StartCoroutine(delayedCollider());
+        }
+
+    }
+
+    void Start()
+    {
         GameObject goRef = Instantiate(waveExplosion, transform.position, transform.rotation);
         goRef.transform.parent = transform;
 
@@ -43,7 +56,7 @@ public class FireWave : MonoBehaviour
             }
         }
     }
-    
+
     void Update()
     {
         if (timer < 0)
@@ -106,6 +119,12 @@ public class FireWave : MonoBehaviour
                 }
             }
         }
+    }
+
+    IEnumerator delayedCollider()
+    {
+        yield return new WaitForSeconds(delayForCollider);
+        waveCollider.enabled = true;
     }
 
 }

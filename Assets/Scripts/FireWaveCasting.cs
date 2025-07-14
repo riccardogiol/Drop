@@ -12,9 +12,9 @@ public class FireWaveCasting : MonoBehaviour
     float countdown = 0;
 
     FlamesCountdown flamesCountdown;
-    float countdownTimer = 1.5f;
+    public float countdownTimer = 1.5f;
     float timer2;
-    int numerOfFlames = 3;
+    public int numerOfFlames = 3;
 
     void Awake()
     {
