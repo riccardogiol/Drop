@@ -43,6 +43,9 @@ public class InitializePlayerPrefs : MonoBehaviour
         
         PlayerPrefs.SetInt("Waterbullet3Purchased", 1);
         PlayerPrefs.SetInt("Wave3Purchased", 1);
+        
+        PlayerPrefs.SetInt("Waterbullet4Purchased", 1);
+        PlayerPrefs.SetInt("Wave4Purchased", 1);
     }
 
 }

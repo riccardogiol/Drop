@@ -24,6 +24,7 @@ public class PlayerWave : MonoBehaviour
     readonly string unlockingCode2 = "Wave1Purchased";
     readonly string unlockingCode3 = "Wave2Purchased";
     readonly string unlockingCode4 = "Wave3Purchased";
+    readonly string unlockingCode5 = "Wave4Purchased";
     readonly float cooldown2 = 0.8f;
 
     public int powerUsage;
@@ -111,7 +112,9 @@ public class PlayerWave : MonoBehaviour
         GameObject wave = Instantiate(wavePrefab, transform.position, Quaternion.identity);
         wave.GetComponent<Wave>().damage = waveDamage;
         wave.GetComponent<Wave>().playgroundManager = playgroundManager;
-        if (playerShield.isActive && PlayerPrefs.GetInt(unlockingCode4, 0) == 1)
+        if (PlayerPrefs.GetInt(unlockingCode4, 0) == 1 && playgroundManager.IsRaining())
+            wave.GetComponent<Wave>().bigWave = true;
+        if (playerShield.isActive && PlayerPrefs.GetInt(unlockingCode5, 0) == 1)
             wave.GetComponent<Wave>().spawnIcemines = true;
     }
 

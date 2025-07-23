@@ -15,6 +15,7 @@ public class PlayerShooting : MonoBehaviour
     readonly string unlockingCode2 = "Waterbullet1Purchased";
     readonly string unlockingCode3 = "Waterbullet2Purchased";
     readonly string unlockingCode4 = "Waterbullet3Purchased";
+    readonly string unlockingCode5 = "Waterbullet4Purchased";
     readonly float cooldown2 = 0.8f;
 
     public Transform shootingPoint;
@@ -114,7 +115,7 @@ public class PlayerShooting : MonoBehaviour
     {
         powerUsage++;
         GameObject bullet;
-        if (PlayerPrefs.GetInt(unlockingCode4, 0) == 1 && playerShield.isActive)
+        if (PlayerPrefs.GetInt(unlockingCode5, 0) == 1 && playerShield.isActive)
         {
             playerShield.DamageShield(2);
             bullet = Instantiate(iceBulletPrefab, shootingPoint.position + (Vector3)(playerDirection.lastDirection * 0.2f), Quaternion.LookRotation(Vector3.forward, playerDirection.lastDirection));
@@ -127,6 +128,8 @@ public class PlayerShooting : MonoBehaviour
         }
         bullet.GetComponent<Bullet>().energy = bulletEnergy;
         bullet.GetComponent<Bullet>().playgroundManager = playgroundManager;
+        if (PlayerPrefs.GetInt(unlockingCode4, 0) == 1 && playgroundManager.IsRaining())
+            bullet.GetComponent<Bullet>().castWave = true;
         bullet.GetComponent<Rigidbody2D>().velocity = playerDirection.lastDirection * bulletSpeed;
     }
 

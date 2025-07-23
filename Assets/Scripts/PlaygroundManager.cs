@@ -63,7 +63,7 @@ public class PlaygroundManager : MonoBehaviour
         waterdropParent = transform.Find("WaterdropParent").gameObject;
         decorationManager = FindObjectOfType<DecorationManager>();
         OOWdecorationManager = FindObjectOfType<OutOfWallDecorationManager>();
-        
+
         if (PlayerPrefs.GetInt("EasyMode", 0) == 1)
             loseProgressionPerc -= 0.05f;
 
@@ -83,16 +83,16 @@ public class PlaygroundManager : MonoBehaviour
 
         if (!bossWin)
         {
-            progressionBar.SetGameOverLimit(Math.Max((loseProgressionPerc - minProgressionPerc) / (1-minProgressionPerc), 0));
-            progressionBar.SetRainLimit((rainProgressionPerc - minProgressionPerc) / (1-minProgressionPerc));
+            progressionBar.SetGameOverLimit(Math.Max((loseProgressionPerc - minProgressionPerc) / (1 - minProgressionPerc), 0));
+            progressionBar.SetRainLimit((rainProgressionPerc - minProgressionPerc) / (1 - minProgressionPerc));
         }
-        
+
         tilemapEffectManager = walkTilemap.GetComponent<TilemapEffectManager>();
         tilemapEffectManager.SpawnParticleColliders(maxX, maxY);
         tilemapWallEffectManager = wallTilemap.GetComponent<TilemapWallEffectManager>();
-        if(tilemapWallEffectManager != null)
+        if (tilemapWallEffectManager != null)
             tilemapWallEffectManager.SpawnParticleColliders(maxX, maxY);
-        if(OOWdecorationManager != null)
+        if (OOWdecorationManager != null)
             OOWdecorationManager.SpawnDecorations(maxX, maxY);
 
         EvaluateCleanSurface();
@@ -134,7 +134,9 @@ public class PlaygroundManager : MonoBehaviour
             fireValue = flameParent.GetComponent<FireCounter>().FireValue();
             FindObjectOfType<AudioManager>().Play("FireBurst");
             BurnCellsAround(cell);
-        } else {
+        }
+        else
+        {
             PickFlame pickFlame = auxFlame.GetComponent<PickFlame>();
             if (pickFlame.energy == pickFlame.maxEnergy)
                 return;
@@ -176,9 +178,9 @@ public class PlaygroundManager : MonoBehaviour
 
     GameObject GetFlameInPosition(Vector3 cellCenter)
     {
-        foreach(Transform child in flameParent.transform)
+        foreach (Transform child in flameParent.transform)
         {
-            if(child.gameObject.CompareTag("Flame"))
+            if (child.gameObject.CompareTag("Flame"))
             {
                 if (child.transform.position == cellCenter)
                     return child.gameObject;
@@ -233,14 +235,14 @@ public class PlaygroundManager : MonoBehaviour
     public bool IsObstacle(Vector3 onCellPoint)
     {
         Collider2D[] results = Physics2D.OverlapPointAll(onCellPoint);
-        foreach(Collider2D item in results)
+        foreach (Collider2D item in results)
         {
             if (item.gameObject.layer == 6)
                 return true;
             if (item.gameObject.CompareTag("Waterbomb"))
                 return true;
             //if (item.gameObject.CompareTag("OneWayCollider"))
-                //return true;
+            //return true;
         }
         return false;
     }
@@ -250,7 +252,7 @@ public class PlaygroundManager : MonoBehaviour
         if (walkTilemap.GetTile(walkTilemap.WorldToCell(onCellPoint)) == null)
             return true;
         Collider2D[] results = Physics2D.OverlapPointAll(onCellPoint);
-        foreach(Collider2D item in results)
+        foreach (Collider2D item in results)
         {
             if (item.gameObject.CompareTag("OneWayCollider"))
             {
@@ -258,8 +260,9 @@ public class PlaygroundManager : MonoBehaviour
                 {
                     if (item.GetComponent<OneWayObstacleController>().IsBlockingFrom(fromPosition))
                         return true;
-                } else if (item.GetComponent<OneWayObstacleControllerNew>().IsBlockingFrom(fromPosition))
-                        return true;
+                }
+                else if (item.GetComponent<OneWayObstacleControllerNew>().IsBlockingFrom(fromPosition))
+                    return true;
             }
             if (item.gameObject.layer == 6)
                 if (!item.gameObject.CompareTag("MovingRock"))
@@ -267,13 +270,13 @@ public class PlaygroundManager : MonoBehaviour
         }
         return false;
     }
-    
+
     public bool IsObstacleForWalk(Vector3 onCellPoint)
     {
         if (walkTilemap.GetTile(walkTilemap.WorldToCell(onCellPoint)) == null)
             return true;
         Collider2D[] results = Physics2D.OverlapPointAll(onCellPoint);
-        foreach(Collider2D item in results)
+        foreach (Collider2D item in results)
         {
             if (item.gameObject.layer == 6)
                 if (!item.gameObject.CompareTag("MovingRock"))
@@ -300,7 +303,7 @@ public class PlaygroundManager : MonoBehaviour
     public bool IsObstacleForRock(Vector3 onCellPoint)
     {
         Collider2D[] results = Physics2D.OverlapPointAll(onCellPoint);
-        foreach(Collider2D item in results)
+        foreach (Collider2D item in results)
         {
             if (item.gameObject.layer == 6)
                 return true;
@@ -309,11 +312,11 @@ public class PlaygroundManager : MonoBehaviour
             if (item.gameObject.CompareTag("Enemy"))
                 return true;
             //if (item.gameObject.CompareTag("OneWayCollider"))
-                //return true;
+            //return true;
         }
         return false;
     }
-    
+
     public Vector3 GetCellCenter(Vector3 onCellPoint)
     {
         Vector3Int tileCoordinate = walkTilemap.WorldToCell(onCellPoint);
@@ -341,7 +344,7 @@ public class PlaygroundManager : MonoBehaviour
     public void BurnCell(Vector3Int cell)
     {
         Collider2D[] results = Physics2D.OverlapPointAll(walkTilemap.GetCellCenterWorld(cell));
-        foreach(Collider2D item in results)
+        foreach (Collider2D item in results)
         {
             if (item.gameObject.CompareTag("DecorationNoFire"))
                 return;
@@ -350,13 +353,13 @@ public class PlaygroundManager : MonoBehaviour
                 if (item.gameObject.GetComponent<ChangeAspect>() != null)
                     if (!item.gameObject.GetComponent<ChangeAspect>().reactOnWater)
                         return;
-                
+
                 if (item.gameObject.GetComponent<RootTriggerLogic>() != null)
-                   if (!item.gameObject.transform.parent.GetComponent<ChangeAspect>().reactOnWater)
-                   {
+                    if (!item.gameObject.transform.parent.GetComponent<ChangeAspect>().reactOnWater)
+                    {
                         Debug.Log("GET INTO CONDITION NO BURN");
                         return;
-                   }
+                    }
             }
         }
         bool statechange = walkTilemap.GetComponent<RuleTileStateManager>().BurnTile(cell);
@@ -408,8 +411,8 @@ public class PlaygroundManager : MonoBehaviour
 
     void EvaluateLevelProgression()
     {
-        progressionPerc = 1.0f - (fireValue + burntTiles)/totalTiles;
-        float progressionPercOnMin = (progressionPerc - minProgressionPerc) / (1-minProgressionPerc);
+        progressionPerc = 1.0f - (fireValue + burntTiles) / totalTiles;
+        float progressionPercOnMin = (progressionPerc - minProgressionPerc) / (1 - minProgressionPerc);
         if (!bossWin)
             progressionBar.SetValue(progressionPercOnMin);
 
@@ -421,7 +424,7 @@ public class PlaygroundManager : MonoBehaviour
         {
             OOWdecorationManager.SetCleanValue(progressionPercOnMin);
         }
-        
+
         Debug.Log("Burnt tiles: " + burntTiles);
         Debug.Log("Fire value: " + fireValue);
         Debug.Log("Progression perc: " + progressionPerc);
@@ -441,7 +444,8 @@ public class PlaygroundManager : MonoBehaviour
             MakeRain(isRaining, false, true, false);
             tilemapEffectManager.SetFlowerSpreading(0.5f);
 
-        } else if (isRaining && progressionPerc < (rainProgressionPerc - 0.05) && !isSuper && !reachedWinningCondition)
+        }
+        else if (isRaining && progressionPerc < (rainProgressionPerc - 0.05) && !isSuper && !reachedWinningCondition)
         {
             isRaining = false;
             MakeRain(isRaining);
@@ -457,23 +461,23 @@ public class PlaygroundManager : MonoBehaviour
 
     public void ShowEnergy()
     {
-        foreach(Transform child in flameParent.transform)
+        foreach (Transform child in flameParent.transform)
         {
-            if(child.gameObject.CompareTag("Flame"))
+            if (child.gameObject.CompareTag("Flame"))
                 child.GetComponent<EnergyIndicator>().ShowEnergy();
-            if(child.gameObject.CompareTag("Enemy"))
+            if (child.gameObject.CompareTag("Enemy"))
                 child.GetComponent<EnergyIndicator>().ShowEnergy();
         }
-        foreach(Transform child in waterdropParent.transform)
+        foreach (Transform child in waterdropParent.transform)
         {
-            if(child.gameObject.CompareTag("Waterdrop"))
+            if (child.gameObject.CompareTag("Waterdrop"))
                 child.GetComponent<EnergyIndicator>().ShowEnergy();
         }
-        foreach(Transform child in decorationManager.transform)
+        foreach (Transform child in decorationManager.transform)
         {
-            if(child.gameObject.CompareTag("Superdrop"))
+            if (child.gameObject.CompareTag("Superdrop"))
                 child.GetComponent<EnergyIndicator>().ShowEnergy();
-            if(child.gameObject.CompareTag("DecorationNoFire"))
+            if (child.gameObject.CompareTag("DecorationNoFire"))
             {
                 if (child.gameObject.GetComponent<EnergyIndicator>() != null)
                     child.GetComponent<EnergyIndicator>().ShowEnergy();
@@ -484,23 +488,23 @@ public class PlaygroundManager : MonoBehaviour
 
     public void HideEnergy()
     {
-        foreach(Transform child in flameParent.transform)
+        foreach (Transform child in flameParent.transform)
         {
-            if(child.gameObject.CompareTag("Flame"))
+            if (child.gameObject.CompareTag("Flame"))
                 child.GetComponent<EnergyIndicator>().HideEnergy();
-            if(child.gameObject.CompareTag("Enemy"))
+            if (child.gameObject.CompareTag("Enemy"))
                 child.GetComponent<EnergyIndicator>().HideEnergy();
         }
-        foreach(Transform child in waterdropParent.transform)
+        foreach (Transform child in waterdropParent.transform)
         {
-            if(child.gameObject.CompareTag("Waterdrop"))
+            if (child.gameObject.CompareTag("Waterdrop"))
                 child.GetComponent<EnergyIndicator>().HideEnergy();
         }
-        foreach(Transform child in decorationManager.transform)
+        foreach (Transform child in decorationManager.transform)
         {
-            if(child.gameObject.CompareTag("Superdrop"))
+            if (child.gameObject.CompareTag("Superdrop"))
                 child.GetComponent<EnergyIndicator>().HideEnergy();
-            if(child.gameObject.CompareTag("DecorationNoFire"))
+            if (child.gameObject.CompareTag("DecorationNoFire"))
             {
                 if (child.gameObject.GetComponent<EnergyIndicator>() != null)
                     child.GetComponent<EnergyIndicator>().HideEnergy();
@@ -511,7 +515,7 @@ public class PlaygroundManager : MonoBehaviour
 
     public void EstinguishAllFlames()
     {
-        foreach(Transform child in flameParent.transform)
+        foreach (Transform child in flameParent.transform)
         {
             if (child.GetComponent<PickFlame>() != null)
                 child.GetComponent<PickFlame>().DestroyFlame();
@@ -542,5 +546,10 @@ public class PlaygroundManager : MonoBehaviour
 
         isRaining = rainingState;
         rainManager.MakeRain(rainingState, waterTiles, spawnWaterdrops, win);
+    }
+
+    public bool IsRaining()
+    {
+        return isRaining;
     }
 }

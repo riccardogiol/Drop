@@ -7,9 +7,11 @@ public class Wave : MonoBehaviour
     public int damage = 2;
 
     public GameObject waveExplosion;
+    public GameObject waveExplosionBig;
 
     Collider2D waveCollider;
     public bool shootByPlayer = true;
+    public bool bigWave = false;
     public bool spawnIcemines = false;
     public GameObject icemineGO;
     float timer = 0.9f;
@@ -20,7 +22,13 @@ public class Wave : MonoBehaviour
     void Start()
     {
         tileColliderStop = timer - tileColliderStop;
-        if (waveExplosion != null)
+        if (bigWave)
+        {
+            transform.localScale = new Vector3(1.6f, 1.6f, 1.6f); 
+            GameObject goRef = Instantiate(waveExplosionBig, transform.position, transform.rotation);
+            goRef.transform.parent = transform;
+        }
+        else
         {
             GameObject goRef = Instantiate(waveExplosion, transform.position, transform.rotation);
             goRef.transform.parent = transform;

@@ -12,6 +12,9 @@ public class Bullet : MonoBehaviour
     public GameObject explosionEffect;
     public GameObject smokeEffect;
 
+    public bool castWave = false;
+    public GameObject waveGO;
+
     Rigidbody2D rigidbody2D;
     Collider2D collider2D;
     SpriteRenderer spriteRenderer;
@@ -133,6 +136,14 @@ public class Bullet : MonoBehaviour
         rigidbody2D.velocity = new Vector2(0f, 0f);
         collider2D.enabled = false;
         trailParticles.Stop();
+
+        if (castWave)
+        {
+            GameObject wave = Instantiate(waveGO, transform.position, Quaternion.identity);
+            wave.GetComponent<Wave>().damage = 2;
+            wave.GetComponent<Wave>().playgroundManager = playgroundManager;
+            wave.GetComponent<Wave>().shootByPlayer = true;
+        }
         StartCoroutine(DelayDestroy());
     }
 
