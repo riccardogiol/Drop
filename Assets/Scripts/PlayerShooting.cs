@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerShooting : MonoBehaviour
 {
     public GameObject bulletPrefab;
+    public GameObject iceBulletPrefab;
     float bulletSpeed = 6f;
     int bulletEnergy = 2;
     int bulletDamage = 4;
@@ -13,6 +14,7 @@ public class PlayerShooting : MonoBehaviour
     
     readonly string unlockingCode2 = "Waterbullet1Purchased";
     readonly string unlockingCode3 = "Waterbullet2Purchased";
+    readonly string unlockingCode4 = "Waterbullet3Purchased";
     readonly float cooldown2 = 0.8f;
 
     public Transform shootingPoint;
@@ -27,6 +29,7 @@ public class PlayerShooting : MonoBehaviour
     PlayerMovementKeys playerMovementKeys;
     PlayerHealth playerHealth;
     PlayerAnimationManager animator;
+    PlayerShield playerShield;
 
     public int powerUsage;
 
@@ -41,6 +44,7 @@ public class PlayerShooting : MonoBehaviour
         playerMovement = GetComponent<PlayerMovementPath>();
         playerMovementKeys = GetComponent<PlayerMovementKeys>();
         playerHealth = GetComponent<PlayerHealth>();
+        playerShield = GetComponent<PlayerShield>();
         timer = 0;
         
         if (PlayerPrefs.GetInt(unlockingCode2, 0) == 1)
@@ -88,14 +92,14 @@ public class PlayerShooting : MonoBehaviour
             return;
         if (playerHealth.currentHealth > bulletEnergy)
         { 
-            playerHealth.TakeDamage(bulletEnergy);
+            playerHealth.TakeDamage(bulletEnergy, true);
             playerMovement.InterruptMovement();
             playerMovementKeys.InterruptMovement(0.5f);
             if (animator != null)
                 animator.PlayShooting();
             Shoot();
             timer = cooldown;
-            if(PlayerPrefs.GetInt(unlockingCode3, 0) == 1 && Random.value < 0.20)
+            if(PlayerPrefs.GetInt(unlockingCode3, 0) == 1 && Random.value < 0.20) // decidere s elasciare così o meno
                 StartCoroutine("DelayedEnergyReward");
 
         }
@@ -109,9 +113,19 @@ public class PlayerShooting : MonoBehaviour
     void Shoot()
     {
         powerUsage++;
-        GameObject bullet = Instantiate(bulletPrefab, shootingPoint.position + (Vector3)(playerDirection.lastDirection * 0.2f), Quaternion.LookRotation(Vector3.forward, playerDirection.lastDirection));
+        GameObject bullet;
+        if (PlayerPrefs.GetInt(unlockingCode4, 0) == 1 && playerShield.isActive)
+        {
+            playerShield.DamageShield(2);
+            bullet = Instantiate(iceBulletPrefab, shootingPoint.position + (Vector3)(playerDirection.lastDirection * 0.2f), Quaternion.LookRotation(Vector3.forward, playerDirection.lastDirection));
+            bullet.GetComponent<Bullet>().damage = bulletDamage * 2;
+        }
+        else
+        {
+            bullet = Instantiate(bulletPrefab, shootingPoint.position + (Vector3)(playerDirection.lastDirection * 0.2f), Quaternion.LookRotation(Vector3.forward, playerDirection.lastDirection));
+            bullet.GetComponent<Bullet>().damage = bulletDamage;
+        }
         bullet.GetComponent<Bullet>().energy = bulletEnergy;
-        bullet.GetComponent<Bullet>().damage = bulletDamage;
         bullet.GetComponent<Bullet>().playgroundManager = playgroundManager;
         bullet.GetComponent<Rigidbody2D>().velocity = playerDirection.lastDirection * bulletSpeed;
     }

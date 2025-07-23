@@ -39,9 +39,9 @@ public class PlayerHealth : MonoBehaviour
         healthBar.SetHealth(currentHealth);
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, bool ignoreShield = false)
     {
-        if (playerShield != null)
+        if (playerShield != null && !ignoreShield)
             if (playerShield.isActive)
                 damage = playerShield.DamageShield(damage);
         currentHealth = Math.Max(currentHealth - damage, 0);

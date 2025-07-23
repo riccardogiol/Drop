@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class InitializePlayerPrefs : MonoBehaviour
 {
-    
+
     void Awake()
     {
         /*
@@ -28,7 +28,7 @@ public class InitializePlayerPrefs : MonoBehaviour
         PlayerPrefs.SetInt("Lvl5", 1);
         PlayerPrefs.SetInt("Lvl6", 1);
         PlayerPrefs.SetInt("Lvl7", 1);
-        PlayerPrefs.SetInt("Lvl8", 1);        
+        PlayerPrefs.SetInt("Lvl8", 1);
         PlayerPrefs.SetInt("Lvl9", 1);
         PlayerPrefs.SetInt("Lvl10", 1);
         PlayerPrefs.SetInt("Lvl11", 1);
@@ -40,6 +40,9 @@ public class InitializePlayerPrefs : MonoBehaviour
         PlayerPrefs.SetInt("EasyMode", 0);
 
         PlayerPrefs.SetInt("CoinAmount", 1000);
+        
+        PlayerPrefs.SetInt("Waterbullet3Purchased", 1);
+        PlayerPrefs.SetInt("Wave3Purchased", 1);
     }
 
 }

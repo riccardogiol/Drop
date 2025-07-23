@@ -255,9 +255,10 @@ public class PlaygroundManager : MonoBehaviour
             if (item.gameObject.CompareTag("OneWayCollider"))
             {
                 if (item.GetComponent<OneWayObstacleController>() != null)
+                {
                     if (item.GetComponent<OneWayObstacleController>().IsBlockingFrom(fromPosition))
                         return true;
-                else if (item.GetComponent<OneWayObstacleControllerNew>().IsBlockingFrom(fromPosition))
+                } else if (item.GetComponent<OneWayObstacleControllerNew>().IsBlockingFrom(fromPosition))
                         return true;
             }
             if (item.gameObject.layer == 6)

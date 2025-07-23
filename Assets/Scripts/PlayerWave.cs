@@ -14,6 +14,7 @@ public class PlayerWave : MonoBehaviour
     PlaygroundManager playgroundManager;
     ButtonFiller buttonFiller;
     PlayerHealth playerHealth;
+    PlayerShield playerShield;
     PlayerMovementPath playerMovement;
     PlayerMovementKeys playerMovementKeys;
     PlayerAnimationManager animator;
@@ -22,6 +23,7 @@ public class PlayerWave : MonoBehaviour
 
     readonly string unlockingCode2 = "Wave1Purchased";
     readonly string unlockingCode3 = "Wave2Purchased";
+    readonly string unlockingCode4 = "Wave3Purchased";
     readonly float cooldown2 = 0.8f;
 
     public int powerUsage;
@@ -35,6 +37,7 @@ public class PlayerWave : MonoBehaviour
             return;
         }
         playerHealth = GetComponent<PlayerHealth>();
+        playerShield = GetComponent<PlayerShield>();
         playerMovement = GetComponent<PlayerMovementPath>();
         playerMovementKeys = GetComponent<PlayerMovementKeys>();
         timer = 0;
@@ -86,7 +89,7 @@ public class PlayerWave : MonoBehaviour
             return;
         if (playerHealth.currentHealth > waveEnergy)
         { 
-            playerHealth.TakeDamage(waveEnergy);
+            playerHealth.TakeDamage(waveEnergy, true);
             playerMovement.InterruptMovement();
             playerMovementKeys.InterruptMovement(0.5f);
             if (animator != null)
@@ -108,6 +111,8 @@ public class PlayerWave : MonoBehaviour
         GameObject wave = Instantiate(wavePrefab, transform.position, Quaternion.identity);
         wave.GetComponent<Wave>().damage = waveDamage;
         wave.GetComponent<Wave>().playgroundManager = playgroundManager;
+        if (playerShield.isActive && PlayerPrefs.GetInt(unlockingCode4, 0) == 1)
+            wave.GetComponent<Wave>().spawnIcemines = true;
     }
 
     

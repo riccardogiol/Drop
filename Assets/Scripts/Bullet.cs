@@ -7,7 +7,6 @@ public class Bullet : MonoBehaviour
     public bool shootByPlayer = true;
     public int energy = 3;
     public int damage = 5;
-    public float range = 4;
 
     public ParticleSystem trailParticles;
     public GameObject explosionEffect;

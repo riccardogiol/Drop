@@ -10,6 +10,8 @@ public class Wave : MonoBehaviour
 
     Collider2D waveCollider;
     public bool shootByPlayer = true;
+    public bool spawnIcemines = false;
+    public GameObject icemineGO;
     float timer = 0.9f;
     float tileColliderStop = 0.1f;
 
@@ -51,7 +53,13 @@ public class Wave : MonoBehaviour
         if (other.CompareTag("Wall") && timer > tileColliderStop)
             playgroundManager.WaterOnPosition(other.transform.position);
         if (other.CompareTag("Grass") && timer > tileColliderStop)
+        {
             playgroundManager.WaterOnPosition(other.transform.position);
+            if (shootByPlayer && spawnIcemines)
+            {
+                Instantiate(icemineGO, other.transform.position, Quaternion.identity);
+            }
+        }
         if (other.CompareTag("Enemy"))
             other.GetComponent<EnemyHealth>().TakeDamage(damage);
         if (other.CompareTag("Flame"))
