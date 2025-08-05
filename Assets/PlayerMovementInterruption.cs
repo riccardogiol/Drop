@@ -44,7 +44,11 @@ public class PlayerMovementInterruption : MonoBehaviour
                 if (isMoving)
                 {
                     secondsNotMoving += Time.fixedDeltaTime;
-                    if (secondsNotMoving > secondsNotMovingLimit)
+                if (secondsNotMoving > secondsNotMovingLimit)
+                {
+                    Vector3 direction = playerDirectionController.lastDirection.normalized;
+                    Vector3 target = transform.position + direction*0.5f;
+                    if (playgroundManager.IsPushableWithObstacle(target, direction))
                     {
                         playerMovementKeys.InterruptMovement();
                         playerMovementPath.InterruptMovement();
@@ -54,6 +58,7 @@ public class PlayerMovementInterruption : MonoBehaviour
                         secondsNotMoving = 0;
                         isMoving = false;
                         return;
+                    }
                     }
                 }
             }
