@@ -48,19 +48,22 @@ public class PlayerMovementKeys: MonoBehaviour
         {
             if (Vector2.Distance(transform.position, target) < nextWaypointDistance)
             {
-                InterruptMovement();
+                hasTarget = false;
+                if (movement.magnitude < 0.7)
+                    InterruptMovement();
             }
             else
             {
                 Vector2 direction = (target - transform.position).normalized;
                 Vector2 newPosition = player.position + (moveSpeed * Time.deltaTime * direction);
-                if (Vector2.Distance(newPosition, target) < nextWaypointDistance)
+                if (Vector2.Distance(newPosition, target) < nextWaypointDistance) // what if it goes over? it shouldn't...
                     player.MovePosition(target);
                 else
                     player.MovePosition(newPosition);
                 directionController.UpdateDirection(direction);
             }
         }
+
         if (!hasTarget && movement.magnitude > 0.7)
         {
             if (Math.Abs(movement.x) >= Math.Abs(movement.y))
@@ -80,7 +83,6 @@ public class PlayerMovementKeys: MonoBehaviour
                 }
                 pathMovement.InterruptMovement();
                 hasTarget = true;
-                //playerMovementInterrupt.SetIsMoving(true);
             }
         }
     }
@@ -102,5 +104,6 @@ public class PlayerMovementKeys: MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         movementInterrupted = false;
+        target = transform.position;
     }
 }

@@ -26,8 +26,7 @@ public class PlayerShooting : MonoBehaviour
     PlaygroundManager playgroundManager;
     ButtonFiller buttonFiller;
     PlayerDirectionController playerDirection;
-    PlayerMovementPath playerMovement;
-    PlayerMovementKeys playerMovementKeys;
+    PlayerMovementInterruption playerMovementInterruption;
     PlayerHealth playerHealth;
     PlayerAnimationManager animator;
     PlayerShield playerShield;
@@ -42,8 +41,7 @@ public class PlayerShooting : MonoBehaviour
             return;
         }
         playerDirection = GetComponent<PlayerDirectionController>();
-        playerMovement = GetComponent<PlayerMovementPath>();
-        playerMovementKeys = GetComponent<PlayerMovementKeys>();
+        playerMovementInterruption = GetComponent<PlayerMovementInterruption>();
         playerHealth = GetComponent<PlayerHealth>();
         playerShield = GetComponent<PlayerShield>();
         timer = 0;
@@ -94,8 +92,7 @@ public class PlayerShooting : MonoBehaviour
         if (playerHealth.currentHealth > bulletEnergy)
         { 
             playerHealth.TakeDamage(bulletEnergy, true);
-            playerMovement.InterruptMovement();
-            playerMovementKeys.InterruptMovement(0.5f);
+            playerMovementInterruption.StopInCenterOfCell();
             if (animator != null)
                 animator.PlayShooting();
             Shoot();

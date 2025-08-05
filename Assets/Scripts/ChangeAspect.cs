@@ -55,7 +55,7 @@ public class ChangeAspect : MonoBehaviour
         {
             spriteRenderer.material = new Material(colorAdjustmentMaterial);
             if (bloomIntensity > 0f)
-                spriteRenderer.material.SetColor("_Color", new Color(1+bloomIntensity, 1+bloomIntensity, 1+bloomIntensity));
+                spriteRenderer.material.SetColor("_Color", new Color(1+bloomIntensity, 1+bloomIntensity, 1+bloomIntensity)*bloomIntensity);
         }
     }
 

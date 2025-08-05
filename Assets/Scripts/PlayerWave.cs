@@ -15,8 +15,7 @@ public class PlayerWave : MonoBehaviour
     ButtonFiller buttonFiller;
     PlayerHealth playerHealth;
     PlayerShield playerShield;
-    PlayerMovementPath playerMovement;
-    PlayerMovementKeys playerMovementKeys;
+    PlayerMovementInterruption playerMovementInterruption;
     PlayerAnimationManager animator;
 
     readonly string unlockingCode1 = "WavePurchased";
@@ -39,8 +38,7 @@ public class PlayerWave : MonoBehaviour
         }
         playerHealth = GetComponent<PlayerHealth>();
         playerShield = GetComponent<PlayerShield>();
-        playerMovement = GetComponent<PlayerMovementPath>();
-        playerMovementKeys = GetComponent<PlayerMovementKeys>();
+        playerMovementInterruption = GetComponent<PlayerMovementInterruption>();
         timer = 0;
         ButtonFiller[] buttonFillers = FindObjectsOfType<ButtonFiller>();
 
@@ -91,8 +89,7 @@ public class PlayerWave : MonoBehaviour
         if (playerHealth.currentHealth > waveEnergy)
         { 
             playerHealth.TakeDamage(waveEnergy, true);
-            playerMovement.InterruptMovement();
-            playerMovementKeys.InterruptMovement(0.5f);
+            playerMovementInterruption.StopInCenterOfCell();
             if (animator != null)
                 animator.PlayCastingWave();
             WaveAttack();
