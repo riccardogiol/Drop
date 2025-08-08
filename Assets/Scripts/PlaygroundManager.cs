@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -261,7 +262,7 @@ public class PlaygroundManager : MonoBehaviour
                     if (item.GetComponent<OneWayObstacleController>().IsBlockingFrom(fromPosition))
                         return true;
                 }
-                else if (item.GetComponent<OneWayObstacleControllerNew>().IsBlockingFrom(fromPosition))
+                else if (item.transform.parent.GetComponent<OneWayObstacleControllerNew>().IsBlockingFrom(fromPosition))
                     return true;
             }
             if (item.gameObject.layer == 6)

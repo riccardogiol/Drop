@@ -73,7 +73,7 @@ public class PlayerWave : MonoBehaviour
             buttonFiller.SetValue(timer);
         }
         //keyboard input
-        else if(Input.GetKeyDown(KeyCode.LeftShift))
+        else if(Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
         {
             TryWaveAttack();
         }

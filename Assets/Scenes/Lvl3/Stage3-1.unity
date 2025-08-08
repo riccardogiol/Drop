@@ -123,6 +123,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &19408437 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 205035693797844083, guid: c7b202ae4dba84871811aa7c44bc43e3,
+    type: 3}
+  m_PrefabInstance: {fileID: 617289501}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &139965426
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -585,6 +591,12 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 139965426}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &328991689 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4512866448877200678, guid: c7b202ae4dba84871811aa7c44bc43e3,
+    type: 3}
+  m_PrefabInstance: {fileID: 617289501}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &373245684
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -832,7 +844,7 @@ PrefabInstance:
     - target: {fileID: 846535088814142962, guid: 71606232f6a1f405ab748a75268d3cba,
         type: 3}
       propertyPath: energy
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 846535088814142962, guid: 71606232f6a1f405ab748a75268d3cba,
         type: 3}
@@ -1367,7 +1379,7 @@ PrefabInstance:
     - target: {fileID: 846535088814142962, guid: 71606232f6a1f405ab748a75268d3cba,
         type: 3}
       propertyPath: energy
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 846535088814142962, guid: 71606232f6a1f405ab748a75268d3cba,
         type: 3}
@@ -1533,6 +1545,26 @@ PrefabInstance:
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1715595831200774529, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: buttonHints.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715595831200774529, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: buttonHints.Array.data[2]
+      value: 
+      objectReference: {fileID: 19408437}
+    - target: {fileID: 1715595831200774529, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: buttonHints.Array.data[3]
+      value: 
+      objectReference: {fileID: 1104562517}
+    - target: {fileID: 1715595831200774529, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: buttonHints.Array.data[4]
+      value: 
+      objectReference: {fileID: 328991689}
     - target: {fileID: 1715595831200774540, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_Name
@@ -7262,8 +7294,8 @@ PrefabInstance:
     - target: {fileID: 5611878545120433124, guid: 4317a480abfeb4491af35141a980d8e0,
         type: 3}
       propertyPath: m_Text
-      value: The scout cloud assists Drop by viewing the map from above and identifying
-        the energy from flames and droplets on the scene
+      value: The scout cloud assists Drop identifying the energy from flames and
+        waterdrops on the scene
       objectReference: {fileID: 0}
     - target: {fileID: 6492353852897020932, guid: 4317a480abfeb4491af35141a980d8e0,
         type: 3}
@@ -7463,7 +7495,7 @@ PrefabInstance:
     - target: {fileID: 782273169436171611, guid: 3f422914225544c0481e1f2cbf09cc96,
         type: 3}
       propertyPath: currentHealth
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 782273169436171614, guid: 3f422914225544c0481e1f2cbf09cc96,
         type: 3}
@@ -7615,7 +7647,7 @@ PrefabInstance:
     - target: {fileID: 846535088814142962, guid: 71606232f6a1f405ab748a75268d3cba,
         type: 3}
       propertyPath: energy
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 846535088814142962, guid: 71606232f6a1f405ab748a75268d3cba,
         type: 3}
@@ -7629,6 +7661,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71606232f6a1f405ab748a75268d3cba, type: 3}
+--- !u!1 &1104562517 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7809894871020154473, guid: c7b202ae4dba84871811aa7c44bc43e3,
+    type: 3}
+  m_PrefabInstance: {fileID: 617289501}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1137948137
 GameObject:
   m_ObjectHideFlags: 0
@@ -8161,7 +8199,7 @@ PrefabInstance:
     - target: {fileID: 846535088814142962, guid: 71606232f6a1f405ab748a75268d3cba,
         type: 3}
       propertyPath: energy
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 846535088814142962, guid: 71606232f6a1f405ab748a75268d3cba,
         type: 3}
@@ -10433,6 +10471,7 @@ MonoBehaviour:
     type: 3}
   barMaskParent: {fileID: 5099706594052075354}
   barTop: {fileID: 2193518892392367437}
+  shieldSlider: {fileID: 0}
 --- !u!1 &1715595831589515946
 GameObject:
   m_ObjectHideFlags: 0

@@ -28,7 +28,7 @@ public class Wave : MonoBehaviour
             GameObject goRef = Instantiate(waveExplosionBig, transform.position, transform.rotation);
             goRef.transform.parent = transform;
         }
-        else
+        else if (waveExplosion != null)
         {
             GameObject goRef = Instantiate(waveExplosion, transform.position, transform.rotation);
             goRef.transform.parent = transform;
