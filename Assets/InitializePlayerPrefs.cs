@@ -15,12 +15,12 @@ public class InitializePlayerPrefs : MonoBehaviour
 
         PlayerPrefs.SetInt("WavePurchased", 0);
 
-        */
         PlayerPrefs.SetInt("LastStagePlayed", 3);
         PlayerPrefs.SetInt("LastLevelPlayed", 7);
 
         PlayerPrefs.SetInt("LastStageCompleted", 3);
         PlayerPrefs.SetInt("LastLevelCompleted", 7);
+        */
         PlayerPrefs.SetInt("Lvl1", 1);
         PlayerPrefs.SetInt("Lvl2", 1);
         PlayerPrefs.SetInt("Lvl3", 1);
@@ -33,22 +33,20 @@ public class InitializePlayerPrefs : MonoBehaviour
         PlayerPrefs.SetInt("Lvl10", 1);
         PlayerPrefs.SetInt("Lvl11", 1);
         PlayerPrefs.SetInt("Lvl12", 1);
-        PlayerPrefs.SetInt("Lvl13", 0);
-        PlayerPrefs.SetInt("Lvl14", 0);
+        PlayerPrefs.SetInt("Lvl13", 1);
+        PlayerPrefs.SetInt("Lvl14", 1);
         PlayerPrefs.SetInt("Lvl15", 1);
-        PlayerPrefs.SetInt("Lvl20", 1);
+        PlayerPrefs.SetInt("Lvl16", 1);
+        PlayerPrefs.SetInt("Lvl17", 1);
+        PlayerPrefs.SetInt("Lvl18", 1);
+        PlayerPrefs.SetInt("Lvl19", 1);
+
 
 
         PlayerPrefs.SetInt("EasyMode", 0);
-        PlayerPrefs.SetInt("DemoVersion", 1);
+        PlayerPrefs.SetInt("DemoVersion", 0);
 
-        PlayerPrefs.SetInt("CoinAmount", 1000);
-        
-        PlayerPrefs.SetInt("Waterbullet3Purchased", 1);
-        PlayerPrefs.SetInt("Wave3Purchased", 1);
-        
-        PlayerPrefs.SetInt("Waterbullet4Purchased", 1);
-        PlayerPrefs.SetInt("Wave4Purchased", 1);
+        PlayerPrefs.SetInt("CoinAmount", 2000);
     }
 
 }

@@ -55,6 +55,8 @@ public class OutOfWallDecorationManager : MonoBehaviour
                 decorationsPrefabs.Add(ldp);
             index ++;
         }
+        if (decorationsPrefabs.Count == 0)
+            decorationsPrefabs.Add(levelDecorationsPrefabs[0]);
 
         index = 0;
         foreach(GameObject ltdp in levelTallDecorationsPrefabs)
@@ -63,6 +65,8 @@ public class OutOfWallDecorationManager : MonoBehaviour
                 tallDecorationsPrefabs.Add(ltdp);
             index ++;
         }
+        if (tallDecorationsPrefabs.Count == 0)
+            tallDecorationsPrefabs.Add(levelTallDecorationsPrefabs[0]);
 
         burntDecorations = new List<GameObject>();
         cleanDecorations = new List<GameObject>();

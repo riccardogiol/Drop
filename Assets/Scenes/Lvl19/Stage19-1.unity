@@ -1078,7 +1078,7 @@ PrefabInstance:
     - target: {fileID: 782273169436171611, guid: 3f422914225544c0481e1f2cbf09cc96,
         type: 3}
       propertyPath: currentHealth
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 782273169436171614, guid: 3f422914225544c0481e1f2cbf09cc96,
         type: 3}
@@ -2980,10 +2980,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d66b788dec5d410684f6008a48b2fb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLvl: 3
-  currentStage: 3
+  currentLvl: 19
+  currentStage: 1
   stageMode: puzzle
-  finalStage: 1
+  finalStage: 0
   bossTransform: {fileID: 0}
   menusManager: {fileID: 1207991583}
 --- !u!1001 &2124584243
@@ -3140,6 +3140,11 @@ PrefabInstance:
     - target: {fileID: 4617294187047221967, guid: 7d19396bf7baf4454a1ea3fcd2ae69ab,
         type: 3}
       propertyPath: loseProgressionPerc
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4617294187047221967, guid: 7d19396bf7baf4454a1ea3fcd2ae69ab,
+        type: 3}
+      propertyPath: rainProgressionPerc
       value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 4617294187583709523, guid: 7d19396bf7baf4454a1ea3fcd2ae69ab,

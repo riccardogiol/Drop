@@ -40,6 +40,8 @@ public class TilemapEffectManager : MonoBehaviour
                 colors.Add(clr);
             index ++;
         }
+        if (colors.Count == 0)
+            colors.Add(flowerColors[0]);
 
         if (particleCollider == null)
             particleCollider = Resources.Load<GameObject>("ParticleCollider");
