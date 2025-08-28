@@ -4,19 +4,26 @@ using UnityEngine;
 public class TargetMortar : MonoBehaviour
 {
     public Transform target;
-    //public float vyf = -2f;
     public float movementTime = 3.0f;
     public float height = 4.0f;
-    //public bool rotateSprite = false;
+
+    public GameObject bulletPrefab;
+    public GameObject wavePrefab;
+    float bulletSpeed = 5f;
+
 
     float ay1, ay2, yMax, viy, currentY, startingY, startingX, currentX, vx;
     float t2, currentT = 0.0f, currentT2;
 
-    //Vector2 direction;
+    PlaygroundManager playgroundManager;
+
+    void Awake()
+    {
+        playgroundManager = FindFirstObjectByType<PlaygroundManager>();  
+    }
 
     void Start()
     {
-        //direction = (target.position - transform.position).normalized;
         startingX = transform.position.x;
         startingY = transform.position.y;
         yMax = Math.Max(startingY, target.position.y);
@@ -33,7 +40,6 @@ public class TargetMortar : MonoBehaviour
         vx = (target.position.x - startingX) / movementTime;
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         currentT += Time.fixedDeltaTime;
@@ -48,8 +54,36 @@ public class TargetMortar : MonoBehaviour
             currentY = yMax + 0.5f * ay2 * currentT2 * currentT2;
         }
         else
-            Destroy(gameObject);
+            Detonate();
 
         transform.position = new Vector3(currentX, currentY);
     }
+
+    void Detonate()
+    {
+        Shoot(new Vector3(1, 0));
+        Shoot(new Vector3(-1, 0));
+        Shoot(new Vector3(0, 1));
+        Shoot(new Vector3(0, -1));
+        WaveAttack();
+
+        Destroy(target.gameObject);
+        Destroy(gameObject);
+    }
+
+    void Shoot(Vector3 direction)
+    {
+        GameObject bullet = Instantiate(bulletPrefab, transform.position + (direction * 0.2f), Quaternion.LookRotation(Vector3.forward, direction));
+        //bullet.GetComponent<FireBullet>().shootByPlayer = false;
+        bullet.GetComponent<FireBullet>().playgroundManager = playgroundManager;
+        bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+    }
+    
+    void WaveAttack()
+    {
+        GameObject wave = Instantiate(wavePrefab, transform.position, Quaternion.identity);
+        //wave.GetComponent<FireWave>().shootByPlayer = true;
+        wave.GetComponent<FireWave>().playgroundManager = playgroundManager;
+    }
+
 }

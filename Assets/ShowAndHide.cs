@@ -14,17 +14,17 @@ public class ShowAndHide : MonoBehaviour
     {
         yield return null;
         if (showDefault)
-            {
-                if (PlayerPrefs.GetInt(showOnTrue, 0) == 1)
-                    yield return null;
-                if (PlayerPrefs.GetInt(hideOnTrue, 0) == 1)
-                    gameObject.SetActive(false);
-            } else {
-                if (PlayerPrefs.GetInt(hideOnTrue, 0) == 1)
-                    gameObject.SetActive(false);
-                if (PlayerPrefs.GetInt(showOnTrue, 0) == 0)
-                    gameObject.SetActive(false);
-            }
+        {
+            if (PlayerPrefs.GetInt(showOnTrue, 0) == 1)
+                yield return null;
+            if (PlayerPrefs.GetInt(hideOnTrue, 0) == 1)
+                gameObject.SetActive(false);
+        } else {
+            if (PlayerPrefs.GetInt(hideOnTrue, 0) == 1)
+                gameObject.SetActive(false);
+            if (PlayerPrefs.GetInt(showOnTrue, 0) == 0)
+                gameObject.SetActive(false);
+        }
     }
 
     void Update()

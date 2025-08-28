@@ -1,31 +1,35 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
-public class FireBullet : MonoBehaviour
+public class FireBulletRicochet : MonoBehaviour
 {
     public PlaygroundManager playgroundManager;
+    TargetRicochet targetRicochet;
     public int shootingEnemyID;
-    public int damage = 2;
+    public int damage = 4;
 
     public ParticleSystem trailParticles;
     public GameObject explosionEffect;
-    public GameObject smokeEffect;
+    public GameObject vaporEffect;
 
-    public bool spawnFlame = false;
-
-    Rigidbody2D rigidbody2D;
-    Collider2D collider2D;
-    SpriteRenderer spriteRenderer;
+    Rigidbody2D rb2D;
+    Collider2D col2D;
+    public SpriteRenderer spriteRenderer;
 
     Vector3 otherPosition;
     bool delayedEffect = false;
 
     void Awake()
     {
-        rigidbody2D = GetComponent<Rigidbody2D>();
-        collider2D = GetComponent<BoxCollider2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        rb2D = GetComponent<Rigidbody2D>();
+        col2D = GetComponent<BoxCollider2D>();
+        targetRicochet = GetComponent<TargetRicochet>();
+    }
+
+    void Start()
+    {
+        if (playgroundManager == null)
+            playgroundManager = FindFirstObjectByType<PlaygroundManager>();
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -38,16 +42,8 @@ public class FireBullet : MonoBehaviour
                 other.GetComponent<EnemyHealth>().FillReservoir(damage);
                 DestroyBullet();
                 break;
-            case "Grass":
-                playgroundManager.FireOnPosition(other.transform.position);
-                return;
             case "Player":
                 other.GetComponent<PlayerHealth>().TakeDamage(damage);
-                spawnFlame = false;
-                DestroyBullet();
-                break;
-            case "Wall":
-                playgroundManager.FireOnPosition(other.transform.position);
                 DestroyBullet();
                 break;
             case "Decoration":
@@ -86,57 +82,29 @@ public class FireBullet : MonoBehaviour
                 }
                 DestroyBullet();
                 break;
-            case "Waterdrop":
-                int otherEnergy = other.GetComponent<PickWaterdrop>().energy;
-                if (otherEnergy <= damage)
-                    other.GetComponent<PickWaterdrop>().DestroyWaterdrop();
-                else {
-                    other.GetComponent<PickWaterdrop>().energy -= damage;
-                    other.GetComponent<PickWaterdrop>().ScaleOnEnergy();
-                    spawnFlame = false;
-                }
-                otherPosition = other.transform.position;
-                delayedEffect = true;
-                DestroyBullet();
-                break;
             case "WaterBullet":
                 other.GetComponent<Bullet>().DestroyBullet();
-                spawnFlame = false;
                 DestroyBullet(true);
                 break;
             case "Wave":
                 DestroyBullet(true);
-                spawnFlame = false;
-                break;
-            case "Flame":
-                if (other.GetComponent<PickFlame>().energy >= 5)
-                    break;
-                other.GetComponent<PickFlame>().RechargeEnergy(2);
-                spawnFlame = false;
-                DestroyBullet();
-                break;
-            case "Waterbomb":
-                other.GetComponent<PickWaterBomb>().TriggerBomb();
-                DestroyBullet();
-                break;
-            case "Iceshielddrop":
-                DestroyBullet();
                 break;
         }
     }
 
     void DestroyBullet(bool playSmokeEffect = false)
     {
+        Destroy(targetRicochet.target.gameObject);
+        targetRicochet.enabled = false;
         FindObjectOfType<AudioManager>().Play("BulletExplosion");
         Instantiate(explosionEffect, transform.position, transform.rotation);
         if (playSmokeEffect)
-            Instantiate(smokeEffect, transform.position, transform.rotation);
+            Instantiate(vaporEffect, transform.position, transform.rotation);
         spriteRenderer.enabled = false;
-        rigidbody2D.velocity = new Vector2(0f, 0f);
-        collider2D.enabled = false;
+        rb2D.velocity = new Vector2(0f, 0f);
+        col2D.enabled = false;
         trailParticles.Stop();
-        if (spawnFlame)
-            playgroundManager.AddFlame(FindFirstObjectByType<Tilemap>().WorldToCell(transform.position), 1, true, false);
+        trailParticles.GetComponent<TrailRenderer>().enabled = false;
         StartCoroutine(DelayDestroy());
     }
 

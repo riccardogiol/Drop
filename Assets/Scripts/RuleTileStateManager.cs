@@ -28,7 +28,7 @@ public class RuleTileStateManager : MonoBehaviour
         tilemapEffectManager = GetComponent<TilemapEffectManager>();
         tilemapWallEffectManager = GetComponent<TilemapWallEffectManager>();
     }
-    
+
     public void SetTilemapLimit(int maxX, int maxY)
     {
         maxXCell = maxX;
@@ -105,6 +105,12 @@ public class RuleTileStateManager : MonoBehaviour
         return false;
     }
 
+    public void RemoveTile(Vector3Int cell)
+    {
+        tilemap.SetTile(cell, null);
+        // play some PS
+    }
+
     public void SetCleanTile(Vector3Int cell)
     {
         if (tilemap.GetTile<RuleTile>(cell) == riverBorderTile)
@@ -114,10 +120,14 @@ public class RuleTileStateManager : MonoBehaviour
             if ((cell.x + cell.y) % 2 == 0)
             {
                 tilemap.SetTile(cell, cleanTile);
-            } else {
+            }
+            else
+            {
                 tilemap.SetTile(cell, cleanDarkTile);
             }
-        } else {
+        }
+        else
+        {
             tilemap.SetTile(cell, cleanTile);
         }
     }

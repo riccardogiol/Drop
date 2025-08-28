@@ -318,6 +318,21 @@ public class PlaygroundManager : MonoBehaviour
         return false;
     }
 
+    public bool IsObstacleForAvalanche(Vector3 onCellPoint)
+    {
+        Collider2D[] results = Physics2D.OverlapPointAll(onCellPoint);
+        foreach (Collider2D item in results)
+        {
+            if (item.gameObject.CompareTag("Decoration"))
+                return true;
+            if (item.gameObject.CompareTag("DecorationNoFire"))
+                return true;
+            //if (item.gameObject.CompareTag("OneWayCollider"))
+            //return true;
+        }
+        return false;
+    }
+
     public Vector3 GetCellCenter(Vector3 onCellPoint)
     {
         Vector3Int tileCoordinate = walkTilemap.WorldToCell(onCellPoint);
@@ -381,6 +396,19 @@ public class PlaygroundManager : MonoBehaviour
         bool statechange2 = wallTilemap.GetComponent<RuleTileStateManager>().WaterTile(cell);
         if (statechange || statechange2)
             EvaluateCleanSurface();
+    }
+
+    public void RemoveWall(Vector3 position)
+    {
+        Vector3Int cell = wallTilemap.WorldToCell(position);
+        wallTilemap.GetComponent<RuleTileStateManager>().RemoveTile(cell);
+
+        Collider2D[] results = Physics2D.OverlapPointAll(position);
+        foreach (Collider2D item in results)
+        {
+            if (item.gameObject.CompareTag("WallParticleCollider"))
+                Destroy(item.gameObject);
+        }
     }
 
     public void FlameGenerated()
