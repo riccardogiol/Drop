@@ -7,6 +7,7 @@ public class OutOfWallDecorationManager : MonoBehaviour
 {
     List<GameObject> decorationsPrefabs = new List<GameObject>();
     List<GameObject> tallDecorationsPrefabs = new List<GameObject>();
+    List<GameObject> fillerPrefabs = new List<GameObject>();
 
     public List<GameObject> levelDecorationsPrefabs;
     public List<int> fromLevelDecorationsUnlockCode;
@@ -15,6 +16,10 @@ public class OutOfWallDecorationManager : MonoBehaviour
     public List<GameObject> levelTallDecorationsPrefabs;
     public List<int> fromLevelTallDecorationsUnlockCode;
     public List<int> toLevelTallDecorationsUnlockCode;
+
+    public List<GameObject> levelFillerPrefabs;
+    public List<int> fromLevelFillerUnlockCode;
+    public List<int> toLevelFillerUnlockCode;
 
     public bool randomOOGridPos = false;
     public float decorationDensity = 0.6f;
@@ -26,7 +31,6 @@ public class OutOfWallDecorationManager : MonoBehaviour
     public Tilemap outOfWallGrass;
     public RuleTile GrassTile;
     public RuleTile DarkGrassTile;
-    public GameObject grassGO;
 
     bool[,] availableTiles;
     bool[,] availableTilesTall;
@@ -67,6 +71,16 @@ public class OutOfWallDecorationManager : MonoBehaviour
         }
         if (tallDecorationsPrefabs.Count == 0)
             tallDecorationsPrefabs.Add(levelTallDecorationsPrefabs[0]);
+
+        index = 0;
+        foreach(GameObject lfp in levelFillerPrefabs)
+        {
+            if (lvlCode >= fromLevelFillerUnlockCode[index] && lvlCode <= toLevelFillerUnlockCode[index])
+                fillerPrefabs.Add(lfp);
+            index ++;
+        }
+        if (fillerPrefabs.Count == 0)
+            fillerPrefabs.Add(levelFillerPrefabs[0]);
 
         burntDecorations = new List<GameObject>();
         cleanDecorations = new List<GameObject>();
@@ -125,7 +139,7 @@ public class OutOfWallDecorationManager : MonoBehaviour
                     else
                     {
                         Vector3 position = new Vector3(x + 0.5f, y + 0.5f);
-                        GameObject goRef = Instantiate(grassGO, position, Quaternion.identity);
+                        GameObject goRef = Instantiate(fillerPrefabs[UnityEngine.Random.Range(0, fillerPrefabs.Count)], position, Quaternion.identity);
                         goRef.transform.parent = transform;
                     }
                 }

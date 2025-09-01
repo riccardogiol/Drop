@@ -43,7 +43,6 @@ public class InitializePlayerPrefs : MonoBehaviour
 
 
 
-        PlayerPrefs.SetInt("EasyMode", 0);
         PlayerPrefs.SetInt("DemoVersion", 0);
 
         PlayerPrefs.SetInt("CoinAmount", 2000);

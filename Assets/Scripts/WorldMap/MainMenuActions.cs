@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 public class MainMenuActions : MonoBehaviour
 {
     public Button continueButton;
-    bool musicState;
 
     void Start()
     {
@@ -14,18 +13,18 @@ public class MainMenuActions : MonoBehaviour
         else
             continueButton.interactable = false;
         FindObjectOfType<AudioManager>().Play("OpeningMusic");
-        
-        musicState = PlayerPrefs.GetInt("MusicState", 1) == 1;
-        UpdateMusicToggleText();
-        
     }
 
     public void NewGame(bool casual = false)
     {
         // add disclaimer in the case the game is already started
+        float musicVolume = PlayerPrefs.GetFloat("MusicVolume", 1);
+        float soundVolume = PlayerPrefs.GetFloat("SoundVolume", 1);
         PlayerPrefs.DeleteAll();
-        PlayerPrefs.SetInt("MusicState", musicState?1:0);
+        PlayerPrefs.SetFloat("MusicVolume", musicVolume);
+        PlayerPrefs.SetFloat("SoundVolume", soundVolume);
         PlayerPrefs.SetInt("Lvl0", 1);
+        PlayerPrefs.SetInt("ShowButtonHint", 1);
         if (casual)
             PlayerPrefs.SetInt("EasyMode", 1);
         FindObjectOfType<AudioManager>().Play("SelectSound");
@@ -38,35 +37,17 @@ public class MainMenuActions : MonoBehaviour
         SceneManager.LoadScene("OpeningScene");
     }
 
-    public void ToggleMusic()
-    {
-        if (musicState)
-        {
-            FindFirstObjectByType<AudioManager>().SetVolume(0f);
-            musicState = false;
-            PlayerPrefs.SetInt("MusicState", 0);
-        } else {
-            FindFirstObjectByType<AudioManager>().SetVolume(0.2f);
-            musicState = true;
-            PlayerPrefs.SetInt("MusicState", 1);
-        }
-        UpdateMusicToggleText();
-    }
-
-    void UpdateMusicToggleText()
-    {
-        Transform auxTrans = transform.Find("ToggleMusicButton");
-        auxTrans = auxTrans.transform.Find("Text");
-        if (musicState)
-            auxTrans.GetComponent<Text>().text = "Music: off";
-        else
-            auxTrans.GetComponent<Text>().text = "Music: on";
-
-    }
-
     public void QuitGame()
     {
         FindObjectOfType<AudioManager>().Play("SelectSound");
         Application.Quit();
+    }
+
+    public void NewGameDisclaimer(GameObject disclaimerPanel)
+    {
+        if (PlayerPrefs.GetInt("Lvl1", 0) == 1)
+            disclaimerPanel.SetActive(true);
+        else
+            NewGame(false);
     }
 }

@@ -47,19 +47,21 @@ public class CameraAnimationManager : MonoBehaviour
         }
         eagleZoom = inGameZoom + 1;
         exitZoom = inGameZoom - 1;
-        maxZoom = inGameZoom + 3;
+        maxZoom = inGameZoom + 4;
         minZoom = inGameZoom;
         if (zoomInButton != null)
         {
             zoomInButton.interactable = false;
             zoomOutButton.interactable = true;
         }
+
+        startZoom = exitZoom;
+        finishZoom = inGameZoom;
+        cinemachineVirtualCamera.m_Lens.OrthographicSize = startZoom;
     }
 
     void Start()
     {
-        startZoom = exitZoom;
-        finishZoom = inGameZoom;
         countdown = 0;
         stableZoom = false;
     }
@@ -80,7 +82,7 @@ public class CameraAnimationManager : MonoBehaviour
             }
             eagleZoom = inGameZoom + 1;
             exitZoom = inGameZoom - 1;
-            maxZoom = inGameZoom + 3;
+            maxZoom = inGameZoom + 4;
             minZoom = inGameZoom;
             finishZoom = inGameZoom;
             if (zoomInButton != null)

@@ -11,6 +11,8 @@ public class MenusManager : MonoBehaviour
     GameObject levelClearedMenu;
     GameObject shader;
     EagleEyeMode eagleEye;
+    GameObject diffChangeMessage;
+
 
     public int ScoutCloudUsage;
     
@@ -22,11 +24,10 @@ public class MenusManager : MonoBehaviour
     public bool messageOnScreen = false;
     public GameObject[] overlayMessages;
 
-    bool musicState;
-
     public Text[] descriptions;
 
     public GameObject[] buttonHints;
+    public GameObject movementKeys;
 
     void Start()
     {
@@ -61,6 +62,11 @@ public class MenusManager : MonoBehaviour
             return;
         levelClearedMenu = auxTrans.gameObject;
 
+        auxTrans = transform.Find("OnScreenMessageDifficulty");
+        if (auxTrans == null)
+            return;
+        diffChangeMessage = auxTrans.gameObject;
+
         eagleEye = FindFirstObjectByType<EagleEyeMode>();
         if (eagleEye == null)
             return;
@@ -72,12 +78,22 @@ public class MenusManager : MonoBehaviour
         levelClearedMenu.SetActive(false);
         messageOnScreen = false;
 
-        musicState = PlayerPrefs.GetInt("MusicState", 0) == 1;
+        if ((PlayerPrefs.GetInt("ConsecutiveDeaths", 0) >= PlayerPrefs.GetInt("ConsecutiveDeathsLimit", 3)) && (PlayerPrefs.GetInt("EasyMode", 0) == 0))
+        {
+            diffChangeMessage.SetActive(true);
+            PlayerPrefs.SetInt("ConsecutiveDeathsLimit", PlayerPrefs.GetInt("ConsecutiveDeathsLimit", 3) + 3);
+        }
         
         stageSpecsInfo.GetComponent<Text>().text = stageManager.currentLvl + "." + stageManager.currentStage + " - " + stageManager.stageMode;
 
-        foreach(GameObject bh in buttonHints)
-            bh.SetActive(false);
+        if (PlayerPrefs.GetInt("ShowButtonHint", 0) == 0)
+        {
+            foreach (GameObject bh in buttonHints)
+                    bh.SetActive(false);
+        }
+        movementKeys.SetActive(false);
+
+        HideDescriptions();
 
         if (openMessage != null)
         {
@@ -90,10 +106,12 @@ public class MenusManager : MonoBehaviour
             if (auxTrans == null)
                 return;
             auxTrans.GetComponent<Button>().Select();
-        } else {
+        }
+        else
+        {
             if (overlayMessages.Length > 0)
             {
-                foreach(GameObject om in overlayMessages)
+                foreach (GameObject om in overlayMessages)
                     om.SetActive(true);
             }
         }
@@ -124,13 +142,13 @@ public class MenusManager : MonoBehaviour
         shader.SetActive(true);
         foreach(GameObject bh in buttonHints)
             bh.SetActive(true);
+        movementKeys.SetActive(true);
+        ShowDescriptions();
         isPaused = true;
         Transform auxTrans = pauseMenu.transform.Find("ResumeButton");
         if (auxTrans == null)
             return;
         auxTrans.GetComponent<Button>().Select();
-
-        UpdateMusicToggleText();
         
         auxTrans = pauseMenu.transform.Find("LevelText");
         if (auxTrans == null)
@@ -206,8 +224,13 @@ public class MenusManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         pauseMenu.SetActive(false);
-        foreach(GameObject bh in buttonHints)
-            bh.SetActive(false);
+        if (PlayerPrefs.GetInt("ShowButtonHint", 0) == 0)
+        {
+            foreach (GameObject bh in buttonHints)
+                    bh.SetActive(false);
+        }
+        movementKeys.SetActive(false);
+        HideDescriptions();
         if (openMessage != null)
             openMessage.SetActive(false);
         shader.SetActive(false);
@@ -275,32 +298,6 @@ public class MenusManager : MonoBehaviour
         //}
     }
 
-    public void ToggleMusic()
-    {
-        if (musicState)
-        {
-            FindFirstObjectByType<AudioManager>().SetVolume(0f);
-            musicState = false;
-            PlayerPrefs.SetInt("MusicState", 0);
-        } else {
-            FindFirstObjectByType<AudioManager>().SetVolume(0.2f);
-            musicState = true;
-            PlayerPrefs.SetInt("MusicState", 1);
-        }
-        UpdateMusicToggleText();
-    }
-
-    void UpdateMusicToggleText()
-    {
-        Transform auxTrans = pauseMenu.transform.Find("ToggleMusicButton");
-        auxTrans = auxTrans.transform.Find("Text");
-        if (musicState)
-            auxTrans.GetComponent<Text>().text = "Music: off";
-        else
-            auxTrans.GetComponent<Text>().text = "Music: on";
-
-    }
-
     public void ShowDescriptions()
     {
         foreach(Text description in descriptions)
@@ -311,7 +308,9 @@ public class MenusManager : MonoBehaviour
 
     public void HideDescriptions()
     {
-        foreach(Text description in descriptions)
+        if (PlayerPrefs.GetInt("ShowButtonHint", 0) == 1)
+            return;
+        foreach (Text description in descriptions)
         {
             description.enabled = false;
         }

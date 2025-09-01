@@ -47,12 +47,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   volumeFactor: 0.2
   sounds:
-  - name: BackgroundMusic
-    clip: {fileID: 8300000, guid: 67d7a68ef667f4ceda2c99b262a1b9d2, type: 3}
-    volume: 0.106
-    pitch: 1
-    loop: 1
-    source: {fileID: 0}
   - name: FireBurst
     clip: {fileID: 8300000, guid: d5824ced4588a4d769e85a28ae3c87db, type: 3}
     volume: 0.403
@@ -71,17 +65,24 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: OpeningMusic
-    clip: {fileID: 8300000, guid: 0b400881784d24952b0d6d636d4c347b, type: 3}
-    volume: 0.088
-    pitch: 1
-    loop: 1
-    source: {fileID: 0}
   - name: SelectSound
     clip: {fileID: 8300000, guid: b00a1a332c527404aa5aea618e397b00, type: 3}
     volume: 0.447
     pitch: 1
     loop: 0
+    source: {fileID: 0}
+  musics:
+  - name: BackgroundMusic
+    clip: {fileID: 8300000, guid: 67d7a68ef667f4ceda2c99b262a1b9d2, type: 3}
+    volume: 0.106
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: OpeningMusic
+    clip: {fileID: 8300000, guid: 0b400881784d24952b0d6d636d4c347b, type: 3}
+    volume: 0.088
+    pitch: 1
+    loop: 1
     source: {fileID: 0}
 --- !u!114 &-3171906683405286314
 MonoBehaviour:

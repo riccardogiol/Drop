@@ -68,6 +68,7 @@ public class StageManager : MonoBehaviour
     
     public void WinGame(bool waterTiles = false, float waitSeconds = 6f)
     {
+        PlayerPrefs.SetInt("ConsecutiveDeaths", 0);
         if (!MenusManager.isPaused)
             StartCoroutine(WinningScene(waterTiles, waitSeconds));
     }
@@ -158,6 +159,7 @@ public class StageManager : MonoBehaviour
 
     public void GameOver(String deadCode)
     {
+        PlayerPrefs.SetInt("ConsecutiveDeaths", PlayerPrefs.GetInt("ConsecutiveDeaths", 0) + 1);
         gameOver = true;
         if (!MenusManager.isPaused)
             StartCoroutine(EvaporatingScene(deadCode));
@@ -220,6 +222,7 @@ public class StageManager : MonoBehaviour
         {
             Debug.Log("Analytic service are not initialized, message not sent to cloud DB");
         }
+        PlayerPrefs.SetInt("ConsecutiveDeaths", PlayerPrefs.GetInt("ConsecutiveDeaths", 0) + 1);
         Time.timeScale = 1f;
         MenusManager.isPaused = false;
         string nextSceneName = "Stage" + currentLvl + "-" + currentStage;
