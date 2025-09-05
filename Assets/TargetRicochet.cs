@@ -13,6 +13,8 @@ public class TargetRicochet : MonoBehaviour
 
     void Awake()
     {
+        if (speed == 0)
+            return;
         rigidbody2D = GetComponent<Rigidbody2D>();
         rigidbody2D.velocity = startingDirection * speed;
     }
@@ -20,7 +22,8 @@ public class TargetRicochet : MonoBehaviour
     void FixedUpdate()
     {
         direction = (target.position - transform.position).normalized;
-        rigidbody2D.velocity = direction * speed;
+        if (speed != 0)
+            rigidbody2D.velocity = direction * speed;
         if (rotateSprite)
         {
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;

@@ -1283,6 +1283,21 @@ PrefabInstance:
       propertyPath: m_Text
       value: you released the spring
       objectReference: {fileID: 0}
+    - target: {fileID: 8481094432099046503, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2098056896}
+    - target: {fileID: 8481094432099046503, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CheckVersionNextStage
+      objectReference: {fileID: 0}
+    - target: {fileID: 8481094432099046503, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DemoVersionChecker, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7b202ae4dba84871811aa7c44bc43e3, type: 3}
 --- !u!114 &1207991582 stripped
@@ -1663,6 +1678,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2098056894}
   - component: {fileID: 2098056895}
+  - component: {fileID: 2098056896}
   m_Layer: 0
   m_Name: StageManager
   m_TagString: Untagged
@@ -1703,6 +1719,20 @@ MonoBehaviour:
   finalStage: 1
   bossTransform: {fileID: 6842993322046815723}
   menusManager: {fileID: 1207991583}
+--- !u!114 &2098056896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098056893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aefe8229e79a4d0c9cc130ea4e9ac9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageManager: {fileID: 2098056895}
+  toWorldMap: 1
 --- !u!1001 &4617294187859838832
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19114,6 +19144,77 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BossManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7880061065008968174, guid: f5a08ef030e454c6e8eed05b5d480c68,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.21875
+      objectReference: {fileID: 0}
+    - target: {fileID: 7880061065008968174, guid: f5a08ef030e454c6e8eed05b5d480c68,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7880061065008968174, guid: f5a08ef030e454c6e8eed05b5d480c68,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -416357077, guid: c4a6db8292c504bd8a3968ae7ccedc12,
+        type: 3}
+    - target: {fileID: 7880061065008968174, guid: f5a08ef030e454c6e8eed05b5d480c68,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.5803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 7880061065008968174, guid: f5a08ef030e454c6e8eed05b5d480c68,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7880061065008968174, guid: f5a08ef030e454c6e8eed05b5d480c68,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.6458118
+      objectReference: {fileID: 0}
+    - target: {fileID: 7880061065008968174, guid: f5a08ef030e454c6e8eed05b5d480c68,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7880061065008968174, guid: f5a08ef030e454c6e8eed05b5d480c68,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7880061065008968174, guid: f5a08ef030e454c6e8eed05b5d480c68,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7880061065008968174, guid: f5a08ef030e454c6e8eed05b5d480c68,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7880061065008968174, guid: f5a08ef030e454c6e8eed05b5d480c68,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c1fcd521536644bd9811f2a1e47fd69d, type: 2}
+    - target: {fileID: 7880061065008968175, guid: f5a08ef030e454c6e8eed05b5d480c68,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7880061065008968175, guid: f5a08ef030e454c6e8eed05b5d480c68,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 7880061065008968175, guid: f5a08ef030e454c6e8eed05b5d480c68,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.14
       objectReference: {fileID: 0}
     - target: {fileID: 8459982512255290839, guid: f5a08ef030e454c6e8eed05b5d480c68,
         type: 3}

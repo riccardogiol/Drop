@@ -55,9 +55,7 @@ public class PickSuperdrop : MonoBehaviour
             DestroySuperdrop();
             break;
         case "Waterdrop":
-            other.GetComponent<PickWaterdrop>().RechargeEnergy(energy);
-            other.GetComponent<PickWaterdrop>().ScaleOnEnergy();
-            DestroySuperdrop();
+            other.GetComponent<PickWaterdrop>().DestroyWaterdrop();
             break;
         case "Superdrop":
             if (other.GetComponent<PickSuperdrop>().energy >= energy)
