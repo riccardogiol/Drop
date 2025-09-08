@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using Pathfinding;
+using System.Collections.Generic;
 
 public class PushTriggerAvalanche : MonoBehaviour
 {
@@ -8,11 +9,12 @@ public class PushTriggerAvalanche : MonoBehaviour
     LinearMovement linearMovement;
 
     OneWayObstacleController[] oneWayComps;
-    float movementTime = 0.3f;
+    float movementTime = 0.4f;
 
     public Vector3 destinationDirection;
 
     bool isMoving = false;
+    public List<Animator> rockAnims;
 
     void Start()
     {
@@ -27,8 +29,6 @@ public class PushTriggerAvalanche : MonoBehaviour
         {
             case "Player":
                 TryToMoveInDirection();
-
-
                 break;
             case "Enemy":
                 if (isMoving)
@@ -64,7 +64,8 @@ public class PushTriggerAvalanche : MonoBehaviour
             if (!isMoving)
             {
                 isMoving = true;
-                // change graphics
+                foreach(var rock in rockAnims)
+                    rock.SetTrigger("StartRolling");
             }
             linearMovement.MoveTo(destination, movementTime);
             StartCoroutine(ActivateTriggerDelay(movementTime));
@@ -88,7 +89,10 @@ public class PushTriggerAvalanche : MonoBehaviour
 
             foreach (OneWayObstacleController oneWayComp in oneWayComps)
                 oneWayComp.UpdateCollider();
-            // change grafics
+            
+            
+            foreach(var rock in rockAnims)
+                rock.SetTrigger("StopRolling");
             // enabled = false;
             return false;
         }
