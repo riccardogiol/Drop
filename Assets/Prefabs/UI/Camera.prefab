@@ -253,6 +253,7 @@ GameObject:
   - component: {fileID: 4880310780935055023}
   - component: {fileID: 658483869127993266}
   - component: {fileID: 4812289324573043885}
+  - component: {fileID: 2251526481881546027}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -291,8 +292,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86366b3bbc8214e9aaa8a6cb65aa48a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cinemachine: {fileID: 3630253860076335746}
-  cam: {fileID: 3630253859576267595}
   targetPrefab: {fileID: 1529357162247461357, guid: 33783d452b8ec478bb35fc511c90ec16,
     type: 3}
 --- !u!114 &658483869127993266
@@ -323,7 +322,32 @@ MonoBehaviour:
   cinemachineVirtualCamera: {fileID: 3630253860076335746}
   mobileZoom: 3.5
   desktopZoom: 4
+  portraitZoom: 7
   timer: 2
+  zoomOutButton: {fileID: 0}
+  zoomInButton: {fileID: 0}
+  animator: {fileID: 2251526481881546027}
+--- !u!95 &2251526481881546027
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3630253859656403413}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8da5540a4562f4a21b96f134b11c1668, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3630253860076335745
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,8 +575,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2d493437a1584dc6b9af88112de6031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingPosition: {x: 0, y: 0, z: 0}
-  finalPosition: {x: 0, y: 0, z: 0}
+  startingPosition: {x: 0, y: 0}
+  finalPosition: {x: 0, y: 0}
   timer: 2
   disableColliderWhileMoving: 0
   scale: 0

@@ -16,11 +16,14 @@ public class PushTriggerAvalanche : MonoBehaviour
     bool isMoving = false;
     public List<Animator> rockAnims;
 
+    CameraAnimationManager cameraAnimationManager;
+
     void Start()
     {
         playgroundManager = FindFirstObjectByType<PlaygroundManager>();
         linearMovement = GetComponent<LinearMovement>();
         oneWayComps = FindObjectsOfType<OneWayObstacleController>();
+        cameraAnimationManager = FindFirstObjectByType<CameraAnimationManager>();
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -47,9 +50,13 @@ public class PushTriggerAvalanche : MonoBehaviour
                 }
                 break;
             case "Waterdrop":
+                other.GetComponent<PickWaterdrop>().DestroyWaterdrop();
+                break;
             case "Superdrop":
-            case "Firedrop":
-                
+                other.GetComponent<PickSuperdrop>().DestroySuperdrop();
+                break;
+            case "Flame":
+                other.GetComponent<PickFlame>().DestroyFlame();
                 break;
 
         }
@@ -93,8 +100,10 @@ public class PushTriggerAvalanche : MonoBehaviour
             
             foreach(var rock in rockAnims)
                 rock.SetTrigger("StopRolling");
+            if (cameraAnimationManager != null)
+                cameraAnimationManager.StartTilting();
             // enabled = false;
-            return false;
+                return false;
         }
     }
 

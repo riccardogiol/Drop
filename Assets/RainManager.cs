@@ -66,14 +66,13 @@ public class RainManager : MonoBehaviour
 
     IEnumerator FlashPlay()
     {
-        Debug.Log("CallFlash");
         Color color = lighthningFlashImage.color;
         lighthningFlashImage.color = new Color(color.r, color.g, color.b, 0.5f);
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.2f);
         lighthningFlashImage.color = new Color(color.r, color.g, color.b, 0f);
         yield return new WaitForSeconds(0.2f);
         lighthningFlashImage.color = new Color(color.r, color.g, color.b, 0.2f);
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.3f);
         lighthningFlashImage.color = new Color(color.r, color.g, color.b, 0f);
     }
 }

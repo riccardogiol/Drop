@@ -27,6 +27,8 @@ public class CameraAnimationManager : MonoBehaviour
 
     float currentRatio;
 
+    public Animator animator;
+
     PlayerMapTargeting playerMapTargeting;
 
     void Awake()
@@ -74,7 +76,9 @@ public class CameraAnimationManager : MonoBehaviour
             if (currentRatio < 1)
             {
                 inGameZoom = portraitZoom;
-            } else {
+            }
+            else
+            {
                 if (Application.isMobilePlatform)
                     inGameZoom = mobileZoom;
                 else
@@ -110,7 +114,7 @@ public class CameraAnimationManager : MonoBehaviour
 
     void SetCameraZoomLerp()
     {
-        cinemachineVirtualCamera.m_Lens.OrthographicSize = startZoom + (finishZoom - startZoom) * (countdown/timer);
+        cinemachineVirtualCamera.m_Lens.OrthographicSize = startZoom + (finishZoom - startZoom) * (countdown / timer);
     }
 
     public void StartEndingAnimation()
@@ -133,7 +137,7 @@ public class CameraAnimationManager : MonoBehaviour
             return;
         float targetZoom = Mathf.Clamp(inGameZoom + value, minZoom, maxZoom);
         if (zoomInButton != null)
-        { 
+        {
             if (targetZoom >= maxZoom)
                 zoomOutButton.interactable = false;
             else if (targetZoom <= minZoom)
@@ -158,5 +162,10 @@ public class CameraAnimationManager : MonoBehaviour
         finishZoom = targetZoom;
         countdown = 0;
         stableZoom = false;
+    }
+
+    public void StartTilting()
+    {
+        animator.SetTrigger("StartTilting");
     }
 }
