@@ -4,8 +4,8 @@ public class MortarBombManager : MonoBehaviour
 {
     public GameObject targetSpot;
 
-    public void SetTargetSpot(Transform target)
+    public void SetTargetSpot(Vector3 target)
     {
-        targetSpot.transform.position = target.position;
+        targetSpot.transform.position = target;
     }
 }

@@ -58,8 +58,9 @@ public class MortarBombCasting : MonoBehaviour
     
     void CastMortar()
     {
+        Vector3 targetCellCenter = playgroundManager.GetCellCenter(target.position);
         Instantiate(shootPS, mortarStart.position, Quaternion.LookRotation(Vector3.forward, new Vector3(0, -1, 0)));
         GameObject mortar = Instantiate(mortarPrefab, mortarStart.position, Quaternion.identity);
-        mortar.GetComponent<MortarBombManager>().SetTargetSpot(target);
+        mortar.GetComponent<MortarBombManager>().SetTargetSpot(targetCellCenter);
     }
 }
