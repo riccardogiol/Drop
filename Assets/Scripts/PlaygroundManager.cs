@@ -327,6 +327,8 @@ public class PlaygroundManager : MonoBehaviour
                 return true;
             if (item.gameObject.CompareTag("DecorationNoFire"))
                 return true;
+            if (item.gameObject.CompareTag("MovingRock"))
+                return true;
             //if (item.gameObject.CompareTag("OneWayCollider"))
             //return true;
         }
@@ -580,5 +582,10 @@ public class PlaygroundManager : MonoBehaviour
     public bool IsRaining()
     {
         return isRaining;
+    }
+
+    public float GetProgressionPerc()
+    {
+        return progressionPerc;
     }
 }

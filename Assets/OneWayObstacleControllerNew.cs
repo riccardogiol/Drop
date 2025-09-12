@@ -111,16 +111,21 @@ public class OneWayObstacleControllerNew : MonoBehaviour
         }
     }
 
+    
     public bool IsBlockingFrom(Vector3 target)
     {
-        if (target.x < transform.position.x - 0.4 && blockingFrom == DirectionOWO.Left)
-            return true;
-        if (target.x > transform.position.x + 0.4 && blockingFrom == DirectionOWO.Right)
-            return true;
-        if (target.y < transform.position.y - 0.4 && blockingFrom == DirectionOWO.Below)
-            return true;
-        if (target.y > transform.position.y + 0.4 && blockingFrom == DirectionOWO.Above)
-            return true;
+        if (blockingFrom == DirectionOWO.Left)
+            if (target.x < transform.position.x - 0.4 || target.y > transform.position.y + 0.4 || target.y < transform.position.y - 0.4)
+                return true;
+        if (blockingFrom == DirectionOWO.Right)
+            if (target.x > transform.position.x + 0.4 || target.y > transform.position.y + 0.4 || target.y < transform.position.y - 0.4)
+                return true;
+        if (blockingFrom == DirectionOWO.Below)
+            if (target.y < transform.position.y - 0.4 || target.x < transform.position.x - 0.4 || target.x > transform.position.x + 0.4)
+                return true;
+        if (blockingFrom == DirectionOWO.Above)
+            if (target.y > transform.position.y + 0.4 || target.x < transform.position.x - 0.4 || target.x > transform.position.x + 0.4)
+                return true;
         return false;
     }
 

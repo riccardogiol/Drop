@@ -106,7 +106,8 @@ public class CameraAnimationManager : MonoBehaviour
             if (countdown >= timer)
             {
                 cinemachineVirtualCamera.m_Lens.OrthographicSize = finishZoom;
-                inGameZoom = finishZoom;
+                if (!EagleEyeMode.inEagleMode)
+                    inGameZoom = finishZoom;
                 stableZoom = true;
             }
         }
@@ -126,9 +127,9 @@ public class CameraAnimationManager : MonoBehaviour
         stableZoom = false;
     }
 
-    public void EnterEagleZoomAnimation()
+    public void EnterEagleZoomAnimation(float extraZoomOutValue = 0.0f)
     {
-        StartZoomAnimation(eagleZoom);
+        StartZoomAnimation(eagleZoom + extraZoomOutValue);
     }
 
     public void ZoomValueAnimation(float value)

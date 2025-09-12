@@ -91,14 +91,19 @@ public class OneWayObstacleController : MonoBehaviour
 
     public bool IsBlockingFrom(Vector3 target)
     {
-        if (target.x < transform.position.x - 0.4 && blockingFromLeft)
-            return true;
-        if (target.x > transform.position.x + 0.4 && blockingFromRight)
-            return true;
-        if (target.y < transform.position.y - 0.4 && blockingFromBelow)
-            return true;
-        if (target.y > transform.position.y + 0.4 && blockingFromAbove)
-            return true;
+
+        if (blockingFromLeft)
+            if (target.x < transform.position.x - 0.4 || target.y > transform.position.y + 0.4 || target.y < transform.position.y - 0.4)
+                return true;
+        if (blockingFromRight)
+            if (target.x > transform.position.x + 0.4 || target.y > transform.position.y + 0.4 || target.y < transform.position.y - 0.4) 
+                return true;
+        if (blockingFromBelow)
+            if (target.y < transform.position.y - 0.4 || target.x < transform.position.x - 0.4 || target.x > transform.position.x + 0.4)
+                return true;
+        if (blockingFromAbove)
+            if (target.y > transform.position.y + 0.4 || target.x < transform.position.x - 0.4 || target.x > transform.position.x + 0.4)
+                return true;
         return false;
     }
 

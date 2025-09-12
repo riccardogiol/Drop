@@ -1,17 +1,40 @@
+using System.Collections;
+using Cinemachine;
 using UnityEngine;
 
 public class EagleEyeMode : MonoBehaviour
 {
+    public Transform targetSpot;
+    public float extraZoomOut = 0.0f;
     public GameObject targetPrefab;
-    
+    GameObject originalTarget;
+    GameObject targetRef;
+
     public static bool inEagleMode;
+
     PlaygroundManager playgroundManager;
+    public CinemachineVirtualCamera cinemachine;
+    public CameraAnimationManager cameraAnimationManager;
 
     float rechargeTimer = 10.0f, rechargeCountdown = 0;
     ButtonFiller buttonFiller;
 
-    float timer = 2.0f, countdown = 0;
+    float timer = 4.0f, countdown = 0;
     float maxSlowDownFactor = 0.3f;
+
+    void Awake()
+    {
+        playgroundManager = FindFirstObjectByType<PlaygroundManager>();
+
+        originalTarget = cinemachine.Follow.gameObject;
+
+        if (targetSpot == null)
+        {
+            GameObject goRef = Instantiate(targetPrefab, new Vector3(playgroundManager.maxX / 2.0f, playgroundManager.maxY / 2.0f, 0f), Quaternion.identity);
+            targetSpot = goRef.transform;
+        }
+
+    }
 
     void Start()
     {
@@ -20,7 +43,7 @@ public class EagleEyeMode : MonoBehaviour
         foreach (var bf in buttonFillers)
         {
             if (bf.gameObject.name == "EagleEyeButton")
-               buttonFiller = bf;
+                buttonFiller = bf;
         }
         if (buttonFiller == null)
             return;
@@ -34,11 +57,11 @@ public class EagleEyeMode : MonoBehaviour
 
     void Update()
     {
-        if(inEagleMode)
+        if (inEagleMode)
         {
             countdown -= Time.deltaTime;
-            if (countdown <= timer/2f)
-                Time.timeScale = maxSlowDownFactor + (1-(countdown*2)/timer)*(1-maxSlowDownFactor);
+            if (countdown <= timer / 2f)
+                Time.timeScale = maxSlowDownFactor + (1 - (countdown * 2) / timer) * (1 - maxSlowDownFactor);
             if (countdown <= 0)
                 Exit();
         }
@@ -59,14 +82,33 @@ public class EagleEyeMode : MonoBehaviour
         Time.timeScale = maxSlowDownFactor;
         countdown = timer;
         rechargeCountdown = rechargeTimer;
+
+        targetRef = Instantiate(targetPrefab, originalTarget.transform.position, Quaternion.identity);
+        targetRef.GetComponent<LinearMovement>().MoveTo(targetSpot.position, 0.5f);
+        targetRef.GetComponent<LinearMovement>().enabled = true;
+        cinemachine.LookAt = targetRef.transform;
+        cinemachine.Follow = targetRef.transform;
+        cameraAnimationManager.EnterEagleZoomAnimation(extraZoomOut);
     }
-    
+
     public void Exit()
     {
-        inEagleMode =false;
+        inEagleMode = false;
         playgroundManager.HideEnergy();
         Time.timeScale = 1f;
         countdown = 0;
+
+        StartCoroutine(DelayedExit());
+        cameraAnimationManager.ExitEagleZoomAnimation();
+    }
+
+    IEnumerator DelayedExit()
+    {
+        targetRef.GetComponent<LinearMovement>().MoveTo(originalTarget.transform.position, 1.5f);
+        targetRef.GetComponent<LinearMovement>().enabled = true;
+        yield return new WaitForSeconds(1.4f);
+        cinemachine.LookAt = originalTarget.transform;
+        cinemachine.Follow = originalTarget.transform;
     }
 }
 

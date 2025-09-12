@@ -114,7 +114,7 @@ public class FireBulletRicochet : MonoBehaviour
         if (delayedEffect)
             playgroundManager.FireOnPosition(otherPosition);
         yield return new WaitForSeconds(2.8f);
-        Destroy(gameObject);
+        Destroy(transform.parent.gameObject);
     }
 }
 

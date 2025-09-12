@@ -67,8 +67,7 @@ public class TargetMortar : MonoBehaviour
         Shoot(new Vector3(0, -1));
         WaveAttack();
 
-        Destroy(target.gameObject);
-        Destroy(gameObject);
+        Destroy(transform.parent.gameObject);
     }
 
     void Shoot(Vector3 direction)
