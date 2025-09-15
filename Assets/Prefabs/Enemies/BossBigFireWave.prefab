@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1746407697583636736}
   - component: {fileID: 5593181364555241800}
   - component: {fileID: 1849517928766096667}
+  - component: {fileID: 5906221505883310580}
   m_Layer: 0
   m_Name: BossBigFireWave
   m_TagString: FireWave
@@ -105,6 +106,21 @@ MonoBehaviour:
     type: 3}
   shootByID: 0
   timer: 0.9
-  delayForCollider: 0.3
+  tileColliderStop: 0.9
+  delayForCollider: 0.2
   spawnFlameProb: 0
   touchedIDs: 
+--- !u!114 &5906221505883310580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746407697583636748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30d7a9d21861d4a19b66e73d3bd6a2cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 0.7
+  startingRadius: 1.5

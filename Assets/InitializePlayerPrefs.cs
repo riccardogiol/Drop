@@ -40,6 +40,12 @@ public class InitializePlayerPrefs : MonoBehaviour
         PlayerPrefs.SetInt("Lvl17", 1);
         PlayerPrefs.SetInt("Lvl18", 1);
         PlayerPrefs.SetInt("Lvl19", 1);
+        PlayerPrefs.SetInt("Lvl20", 1);
+        PlayerPrefs.SetInt("Lvl21", 1);
+        PlayerPrefs.SetInt("Lvl22", 1);
+        PlayerPrefs.SetInt("Lvl23", 1);
+        PlayerPrefs.SetInt("Lvl24", 1);
+        PlayerPrefs.SetInt("Lvl25", 1);
 
 
 

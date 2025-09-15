@@ -83,8 +83,9 @@ public class EagleEyeMode : MonoBehaviour
         countdown = timer;
         rechargeCountdown = rechargeTimer;
 
+        Vector3 halfWay = new Vector3((originalTarget.transform.position.x + targetSpot.position.x) / 2.0f, (originalTarget.transform.position.y + targetSpot.position.y) / 2.0f, 0);
         targetRef = Instantiate(targetPrefab, originalTarget.transform.position, Quaternion.identity);
-        targetRef.GetComponent<LinearMovement>().MoveTo(targetSpot.position, 0.5f);
+        targetRef.GetComponent<LinearMovement>().MoveTo(halfWay, 0.5f);
         targetRef.GetComponent<LinearMovement>().enabled = true;
         cinemachine.LookAt = targetRef.transform;
         cinemachine.Follow = targetRef.transform;
@@ -93,6 +94,8 @@ public class EagleEyeMode : MonoBehaviour
 
     public void Exit()
     {
+        if (!inEagleMode)
+            return;
         inEagleMode = false;
         playgroundManager.HideEnergy();
         Time.timeScale = 1f;
