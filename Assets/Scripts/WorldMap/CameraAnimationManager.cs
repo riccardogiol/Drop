@@ -10,7 +10,7 @@ public class CameraAnimationManager : MonoBehaviour
     public float desktopZoom = 4;
     public float portraitZoom = 7;
     float eagleZoom;
-    float exitZoom;
+    public float exitZoom;
     public float timer = 1.4f;
     float countdown = 0;
 
@@ -48,7 +48,10 @@ public class CameraAnimationManager : MonoBehaviour
                 inGameZoom = desktopZoom;
         }
         eagleZoom = inGameZoom + 1;
-        exitZoom = inGameZoom - 1;
+        if (exitZoom == 0.0f)
+            exitZoom = inGameZoom - 1;
+        else
+            exitZoom = inGameZoom + exitZoom;
         maxZoom = inGameZoom + 4;
         minZoom = inGameZoom;
         if (zoomInButton != null)

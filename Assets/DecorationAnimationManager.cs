@@ -46,7 +46,7 @@ public class DecorationAnimationManager : MonoBehaviour
             if(countdown <= 0)
             {
                 countdown = timer;
-                float randVal = Random.value;
+                float randVal = UnityEngine.Random.value;
                 if (randVal < anim1PercAppearance)
                     decoAnimator.SetTrigger("Anim1");
                 else if (anim2 && randVal < (anim2PercAppearance + anim1PercAppearance))

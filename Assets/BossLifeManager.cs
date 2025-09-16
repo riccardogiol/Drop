@@ -12,7 +12,6 @@ public class BossLifeManager : MonoBehaviour
 
     public GameObject fireBarrier;
     bool barrierUp = false;
-    public Collider2D col;
 
     ProgressionBarFiller progressionBarFiller;
     EnemyHealth enemyHealth;
@@ -37,6 +36,8 @@ public class BossLifeManager : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (barrierUp)
+            return;
         int resultingHealth = Math.Max(enemyHealth.currentHealth - damage, 0);
         if (resultingHealth == 0 && secondPhase)
         {
@@ -55,7 +56,6 @@ public class BossLifeManager : MonoBehaviour
 
             fireBarrier.SetActive(true);
             barrierUp = true;
-            col.enabled = false;
         }
         else
         {
@@ -77,7 +77,6 @@ public class BossLifeManager : MonoBehaviour
             {
                 fireBarrier.GetComponent<FireBarrierEffectManager>().Estinguish();
                 barrierUp = false;
-                col.enabled = true;
             }
         }  
     }
