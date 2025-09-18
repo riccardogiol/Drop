@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class Singleton : MonoBehaviour
+public class SingletonLocalizationManager : MonoBehaviour
 {
-    public static Singleton instance;
+    public static SingletonLocalizationManager instance;
 
     void Awake() {
 

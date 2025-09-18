@@ -6,13 +6,14 @@ public class TargetMortar : MonoBehaviour
     public Transform target;
     public float movementTime = 3.0f;
     public float height = 4.0f;
+    public GameObject bombShadow;
 
     public GameObject bulletPrefab;
     public GameObject wavePrefab;
     float bulletSpeed = 5f;
 
 
-    float ay1, ay2, yMax, viy, currentY, startingY, startingX, currentX, vx;
+    float ay1, ay2, yMax, viy, currentY, startingY, startingX, currentX, vx, shadowY, vy;
     float t2, currentT = 0.0f, currentT2;
 
     PlaygroundManager playgroundManager;
@@ -38,6 +39,7 @@ public class TargetMortar : MonoBehaviour
         ay2 = vf2 / t2;
 
         vx = (target.position.x - startingX) / movementTime;
+        vy = (target.position.y - startingY) / movementTime;
     }
 
     void FixedUpdate()
@@ -45,6 +47,7 @@ public class TargetMortar : MonoBehaviour
         currentT += Time.fixedDeltaTime;
 
         currentX = startingX + vx * currentT;
+        shadowY = startingY + vy * currentT;
 
         if (currentT <= t2)
             currentY = startingY + viy * currentT + 0.5f * ay1 * currentT * currentT;
@@ -57,6 +60,7 @@ public class TargetMortar : MonoBehaviour
             Detonate();
 
         transform.position = new Vector3(currentX, currentY);
+        bombShadow.transform.position = new Vector3(currentX, shadowY);
     }
 
     void Detonate()
