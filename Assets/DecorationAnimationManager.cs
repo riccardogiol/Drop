@@ -11,10 +11,15 @@ public class DecorationAnimationManager : MonoBehaviour
     public float anim1PercAppearance = 1;
     public bool anim2 = false;
     public float anim2PercAppearance = 1;
+    public bool animBurnt = false;
+    public float animBurntPercAppearance = 0.3f;
+
     public float idlePercAppearance = 1;
 
     public float timer = 1.0f;
     float countdown = 0;
+
+    float burntCountdown = 0;
 
     void Awake()
     {
@@ -43,7 +48,7 @@ public class DecorationAnimationManager : MonoBehaviour
         if (isGreen && multyAnimation)
         {
             countdown -= Time.deltaTime;
-            if(countdown <= 0)
+            if (countdown <= 0)
             {
                 countdown = timer;
                 float randVal = UnityEngine.Random.value;
@@ -51,6 +56,17 @@ public class DecorationAnimationManager : MonoBehaviour
                     decoAnimator.SetTrigger("Anim1");
                 else if (anim2 && randVal < (anim2PercAppearance + anim1PercAppearance))
                     decoAnimator.SetTrigger("Anim2");
+            }
+        }
+        else if (!isGreen && animBurnt)
+        {
+            burntCountdown -= Time.deltaTime;
+            if (burntCountdown <= 0)
+            {
+                burntCountdown = timer;
+                float randVal = UnityEngine.Random.value;
+                if (randVal < animBurntPercAppearance)
+                    decoAnimator.SetTrigger("AnimBurnt");
             }
         }
     }

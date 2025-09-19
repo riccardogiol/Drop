@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 6915323561349249406}
   - component: {fileID: 8221308596091775776}
   - component: {fileID: 350703994310802688}
+  - component: {fileID: 8699144944591515911}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -188,11 +189,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 652f7165b7c30ab46af6c4aad90a639b, type: 2}
-    m_FontSize: 40
+    m_Font: {fileID: 12800000, guid: a90c5f665414b42689567ecb6d4abc4e, type: 3}
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 4
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -201,6 +202,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: reset exp
+--- !u!114 &8699144944591515911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1366748427092940026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0358f4ffce594fa99c89cb99d26fc64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: menu.world.reset_exp
+  upperCase: 1
 --- !u!1 &3322676780842544527
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,8 +439,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 652f7165b7c30ab46af6c4aad90a639b, type: 2}
-    m_FontSize: 26
+    m_Font: {fileID: 12800000, guid: a90c5f665414b42689567ecb6d4abc4e, type: 3}
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -504,11 +519,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 652f7165b7c30ab46af6c4aad90a639b, type: 2}
-    m_FontSize: 40
+    m_Font: {fileID: 12800000, guid: a90c5f665414b42689567ecb6d4abc4e, type: 3}
+    m_FontSize: 32
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 4
+    m_MinSize: 3
     m_MaxSize: 54
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -558,7 +573,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: -260, y: -20}
-  m_SizeDelta: {x: 200, y: 70}
+  m_SizeDelta: {x: 240, y: 70}
   m_Pivot: {x: 1, y: 0}
 --- !u!222 &6010234770795427620
 CanvasRenderer:
@@ -1000,11 +1015,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 652f7165b7c30ab46af6c4aad90a639b, type: 2}
-    m_FontSize: 54
+    m_Font: {fileID: 12800000, guid: a90c5f665414b42689567ecb6d4abc4e, type: 3}
+    m_FontSize: 32
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 4
+    m_MinSize: 3
     m_MaxSize: 54
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -1100,6 +1115,8 @@ GameObject:
   - component: {fileID: 4976131210206616758}
   - component: {fileID: 4976131210206616752}
   - component: {fileID: 4976131210206616753}
+  - component: {fileID: 3945408218279906375}
+  - component: {fileID: 2771640751747040359}
   m_Layer: 5
   m_Name: ImageName
   m_TagString: Untagged
@@ -1156,11 +1173,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 652f7165b7c30ab46af6c4aad90a639b, type: 2}
-    m_FontSize: 32
+    m_Font: {fileID: 12800000, guid: a90c5f665414b42689567ecb6d4abc4e, type: 3}
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 2
     m_MaxSize: 54
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -1169,6 +1186,36 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1.5
   m_Text: waterbullet
+--- !u!114 &3945408218279906375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4976131210206616759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f410a5090dca49099bc375545e44514, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textComp: {fileID: 0}
+  boxRectTransf: {fileID: 0}
+  padding: {x: 40, y: 20}
+  textResize: 1
+--- !u!114 &2771640751747040359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4976131210206616759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0358f4ffce594fa99c89cb99d26fc64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: content.upgrade.waterbullet.title
+  upperCase: 1
 --- !u!1 &4976131210210664409
 GameObject:
   m_ObjectHideFlags: 0
@@ -1180,6 +1227,8 @@ GameObject:
   - component: {fileID: 4976131210210664408}
   - component: {fileID: 4976131210210664410}
   - component: {fileID: 4976131210210664411}
+  - component: {fileID: 2377538621039361482}
+  - component: {fileID: 8553065950485797902}
   m_Layer: 5
   m_Name: ImageName
   m_TagString: Untagged
@@ -1236,11 +1285,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 652f7165b7c30ab46af6c4aad90a639b, type: 2}
-    m_FontSize: 32
+    m_Font: {fileID: 12800000, guid: a90c5f665414b42689567ecb6d4abc4e, type: 3}
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 2
     m_MaxSize: 54
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -1249,6 +1298,36 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1.5
   m_Text: super state
+--- !u!114 &2377538621039361482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4976131210210664409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0358f4ffce594fa99c89cb99d26fc64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: content.upgrade.super.title
+  upperCase: 1
+--- !u!114 &8553065950485797902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4976131210210664409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f410a5090dca49099bc375545e44514, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textComp: {fileID: 0}
+  boxRectTransf: {fileID: 0}
+  padding: {x: 40, y: 20}
+  textResize: 1
 --- !u!1 &4976131210292080617
 GameObject:
   m_ObjectHideFlags: 0
@@ -1417,8 +1496,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31e5f30f58f544e248d9fffd8ca5ae79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeTitle: Hero stats
-  upgradeDescription: "Base stats:\n - Health Points: 6\n - Speed: 3"
+  upgradeTitleKey: content.upgrade.hero.lvl0.title
+  upgradeDescriptionKey: content.upgrade.hero.lvl0.description
   upgradePrice: 0
   powerSprite: {fileID: 21300000, guid: 040f63dee5c584e8b9360b6881820379, type: 3}
   upgradeSprite: {fileID: 0}
@@ -1434,8 +1513,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12b7d6f5e6d43458d8012216a53b7930, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whenVarTrue: DemoVersion
-  newUpgradeDescription: "Base stats:\n - Health Points: 8\n - Speed: 3"
+  whenVarTrue: EasyMode
+  newUpgradeDescriptionKey: content.upgrade.hero.lvl0easy.description
 --- !u!1 &4976131210463967622
 GameObject:
   m_ObjectHideFlags: 0
@@ -1657,6 +1736,8 @@ GameObject:
   - component: {fileID: 4976131210753528753}
   - component: {fileID: 4976131210753528755}
   - component: {fileID: 4976131210753528752}
+  - component: {fileID: 2137829970853900436}
+  - component: {fileID: 772396870762541396}
   m_Layer: 5
   m_Name: ImageName
   m_TagString: Untagged
@@ -1713,11 +1794,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 652f7165b7c30ab46af6c4aad90a639b, type: 2}
-    m_FontSize: 32
+    m_Font: {fileID: 12800000, guid: a90c5f665414b42689567ecb6d4abc4e, type: 3}
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 2
     m_MaxSize: 54
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -1726,6 +1807,36 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1.5
   m_Text: wave
+--- !u!114 &2137829970853900436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4976131210753528758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0358f4ffce594fa99c89cb99d26fc64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: content.upgrade.wave.title
+  upperCase: 1
+--- !u!114 &772396870762541396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4976131210753528758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f410a5090dca49099bc375545e44514, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textComp: {fileID: 0}
+  boxRectTransf: {fileID: 0}
+  padding: {x: 40, y: 20}
+  textResize: 1
 --- !u!1 &4976131210770012291
 GameObject:
   m_ObjectHideFlags: 0
@@ -1893,10 +2004,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31e5f30f58f544e248d9fffd8ca5ae79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeTitle: Super state
-  upgradeDescription: "Drop enters Super state consuming all the lightning reserve
-    (animals generate lightning orbs)\nBase stats:\n - waterbullet and wave energy
-    use = 0\n - duration 5 sec."
+  upgradeTitleKey: content.upgrade.super.lvl0.title
+  upgradeDescriptionKey: content.upgrade.super.lvl0.description
   upgradePrice: 200
   powerSprite: {fileID: -1642179920, guid: a5f5cff02846d4d2bb107c10703df02a, type: 3}
   upgradeSprite: {fileID: 0}
@@ -2913,9 +3022,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31e5f30f58f544e248d9fffd8ca5ae79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeTitle: Wave
-  upgradeDescription: "Cast a wave around Drop\n - Energy use: 2\n - Damage: 2\n
-    - Recharge time: 1.5 sec."
+  upgradeTitleKey: content.upgrade.wave.lvl0.title
+  upgradeDescriptionKey: content.upgrade.wave.lvl0.description
   upgradePrice: 60
   powerSprite: {fileID: 21300000, guid: 9f7e36f23496a49d48cc05354aafa414, type: 3}
   upgradeSprite: {fileID: 0}
@@ -3601,9 +3709,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31e5f30f58f544e248d9fffd8ca5ae79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeTitle: Waterbullet
-  upgradeDescription: "Shoot a water bullet in front of Drop\n - Energy use: 2\n
-    - Damage: 4\n - Recharge time: 1.5 sec."
+  upgradeTitleKey: content.upgrade.waterbullet.lvl0.title
+  upgradeDescriptionKey: content.upgrade.waterbullet.lvl0.description
   upgradePrice: 0
   powerSprite: {fileID: 21300000, guid: ca62a38cb953049149c585156bc4fcc4, type: 3}
   upgradeSprite: {fileID: 0}
@@ -3618,6 +3725,7 @@ GameObject:
   - component: {fileID: 4976131211955761443}
   - component: {fileID: 4976131211955761437}
   - component: {fileID: 4976131211955761442}
+  - component: {fileID: 4667757254279140945}
   m_Layer: 5
   m_Name: ImageName
   m_TagString: Untagged
@@ -3674,11 +3782,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 652f7165b7c30ab46af6c4aad90a639b, type: 2}
-    m_FontSize: 32
+    m_Font: {fileID: 12800000, guid: a90c5f665414b42689567ecb6d4abc4e, type: 3}
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 2
     m_MaxSize: 54
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -3687,6 +3795,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1.5
   m_Text: hero
+--- !u!114 &4667757254279140945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4976131211955761440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0358f4ffce594fa99c89cb99d26fc64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: content.upgrade.hero.title
+  upperCase: 1
 --- !u!1 &4976131211965323577
 GameObject:
   m_ObjectHideFlags: 0
@@ -3799,7 +3921,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -20}
   m_SizeDelta: {x: 0, y: 80}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &2023574925613298692
@@ -4014,6 +4136,7 @@ GameObject:
   - component: {fileID: 728703446853150066}
   - component: {fileID: 7813607725627111685}
   - component: {fileID: 2135142983492810321}
+  - component: {fileID: 131372990486193542}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -4070,11 +4193,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 652f7165b7c30ab46af6c4aad90a639b, type: 2}
-    m_FontSize: 40
+    m_Font: {fileID: 12800000, guid: a90c5f665414b42689567ecb6d4abc4e, type: 3}
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 4
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -4082,7 +4205,21 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: close
+  m_Text: Back
+--- !u!114 &131372990486193542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6695345592839412263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0358f4ffce594fa99c89cb99d26fc64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: menu.general.back
+  upperCase: 1
 --- !u!1 &7906098151970940681
 GameObject:
   m_ObjectHideFlags: 0
@@ -4245,6 +4382,7 @@ GameObject:
   - component: {fileID: 74576342523144748}
   - component: {fileID: 74576342523144751}
   - component: {fileID: 7707157412839295345}
+  - component: {fileID: 6410655592310368450}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -4301,11 +4439,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 652f7165b7c30ab46af6c4aad90a639b, type: 2}
-    m_FontSize: 80
+    m_Font: {fileID: 12800000, guid: a90c5f665414b42689567ecb6d4abc4e, type: 3}
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 8
+    m_MinSize: 5
     m_MaxSize: 80
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -4313,7 +4451,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Upgrade
+  m_Text: UPGRADE
 --- !u!114 &74576342523144751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4342,6 +4480,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Yvalue: 0
   Xvalue: -200
+--- !u!114 &6410655592310368450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7957179832257292996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0358f4ffce594fa99c89cb99d26fc64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: menu.world.upgrade
+  upperCase: 1
 --- !u!1 &8176166439612469931
 GameObject:
   m_ObjectHideFlags: 0
@@ -4619,8 +4771,18 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
+      propertyPath: upgradeTitleKey
+      value: content.upgrade.wave.lvl3.title
+      objectReference: {fileID: 0}
+    - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
       propertyPath: upgradeDescription
       value: When raining, wave area is larger
+      objectReference: {fileID: 0}
+    - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
+      propertyPath: upgradeDescriptionKey
+      value: content.upgrade.wave.lvl3.description
       objectReference: {fileID: 0}
     - target: {fileID: 5066859187143055090, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
@@ -4805,9 +4967,19 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
+      propertyPath: upgradeTitleKey
+      value: content.upgrade.wave.lvl4.title
+      objectReference: {fileID: 0}
+    - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
       propertyPath: upgradeDescription
       value: When helding an ice shield, the wave set ice mines on touched tiles,
         dealing 1 damage when triggered
+      objectReference: {fileID: 0}
+    - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
+      propertyPath: upgradeDescriptionKey
+      value: content.upgrade.wave.lvl4.description
       objectReference: {fileID: 0}
     - target: {fileID: 5066859187128024684, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
@@ -5005,8 +5177,18 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
+      propertyPath: upgradeTitleKey
+      value: content.upgrade.wave.lvl2.title
+      objectReference: {fileID: 0}
+    - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
       propertyPath: upgradeDescription
       value: low probability of getting +1 energy after casting a wave
+      objectReference: {fileID: 0}
+    - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
+      propertyPath: upgradeDescriptionKey
+      value: content.upgrade.wave.lvl2.description
       objectReference: {fileID: 0}
     - target: {fileID: 5066859187128024684, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
@@ -5186,6 +5368,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4976131209943099109}
     m_Modifications:
+    - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
+      propertyPath: upgradeTitleKey
+      value: content.upgrade.super.lvl4.title
+      objectReference: {fileID: 0}
+    - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
+      propertyPath: upgradeDescriptionKey
+      value: content.upgrade.super.lvl4.description
+      objectReference: {fileID: 0}
     - target: {fileID: 5066859187128024684, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
       propertyPath: m_LocalRotation.z
@@ -5372,8 +5564,18 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
+      propertyPath: upgradeTitleKey
+      value: content.upgrade.super.lvl2.title
+      objectReference: {fileID: 0}
+    - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
       propertyPath: upgradeDescription
       value: start with 2 charges of Super energy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
+      propertyPath: upgradeDescriptionKey
+      value: content.upgrade.super.lvl2.description
       objectReference: {fileID: 0}
     - target: {fileID: 5066859187128024684, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
@@ -5577,8 +5779,18 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
+      propertyPath: upgradeTitleKey
+      value: content.upgrade.waterbullet.lvl3.title
+      objectReference: {fileID: 0}
+    - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
       propertyPath: upgradeDescription
       value: When raining, the waterbullet trigger an explosion on contact
+      objectReference: {fileID: 0}
+    - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
+      propertyPath: upgradeDescriptionKey
+      value: content.upgrade.waterbullet.lvl3.description
       objectReference: {fileID: 0}
     - target: {fileID: 5066859187143055090, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
@@ -5743,6 +5955,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4976131211145673690}
     m_Modifications:
+    - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
+      propertyPath: upgradeTitleKey
+      value: content.upgrade.hero.lvl4.title
+      objectReference: {fileID: 0}
+    - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
+      propertyPath: upgradeDescriptionKey
+      value: content.upgrade.hero.lvl4.description
+      objectReference: {fileID: 0}
     - target: {fileID: 5066859187128024684, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
       propertyPath: m_LocalRotation.z
@@ -5929,8 +6151,18 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
+      propertyPath: upgradeTitleKey
+      value: content.upgrade.hero.lvl2.title
+      objectReference: {fileID: 0}
+    - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
       propertyPath: upgradeDescription
       value: Add 2 Energy Point to Drop reservoir
+      objectReference: {fileID: 0}
+    - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
+      propertyPath: upgradeDescriptionKey
+      value: content.upgrade.hero.lvl2.description
       objectReference: {fileID: 0}
     - target: {fileID: 5066859187128024684, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
@@ -6110,6 +6342,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4976131209943099109}
     m_Modifications:
+    - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
+      propertyPath: upgradeTitleKey
+      value: content.upgrade.super.lvl3.title
+      objectReference: {fileID: 0}
+    - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
+      propertyPath: upgradeDescriptionKey
+      value: content.upgrade.super.lvl3.description
+      objectReference: {fileID: 0}
     - target: {fileID: 5066859187143055090, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
       propertyPath: m_Name
@@ -6287,8 +6529,18 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
+      propertyPath: upgradeTitleKey
+      value: content.upgrade.waterbullet.lvl2.title
+      objectReference: {fileID: 0}
+    - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
       propertyPath: upgradeDescription
       value: low probability of getting +1 energy after shooting
+      objectReference: {fileID: 0}
+    - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
+      propertyPath: upgradeDescriptionKey
+      value: content.upgrade.waterbullet.lvl2.description
       objectReference: {fileID: 0}
     - target: {fileID: 5066859187128024684, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
@@ -6982,8 +7234,18 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
+      propertyPath: upgradeTitleKey
+      value: content.upgrade.super.lvl1.title
+      objectReference: {fileID: 0}
+    - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
       propertyPath: upgradeDescription
       value: While Drop is in Super state clouds help him making it rain.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
+      propertyPath: upgradeDescriptionKey
+      value: content.upgrade.super.lvl1.description
       objectReference: {fileID: 0}
     - target: {fileID: 5066859187128024684, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
@@ -7243,8 +7505,18 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
+      propertyPath: upgradeTitleKey
+      value: content.upgrade.hero.lvl1.title
+      objectReference: {fileID: 0}
+    - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
       propertyPath: upgradeDescription
       value: Add 2 Energy Point to Drop reservoir
+      objectReference: {fileID: 0}
+    - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
+      propertyPath: upgradeDescriptionKey
+      value: content.upgrade.hero.lvl1.description
       objectReference: {fileID: 0}
     - target: {fileID: 5066859187128024684, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
@@ -7473,8 +7745,18 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
+      propertyPath: upgradeTitleKey
+      value: content.upgrade.wave.lvl1.title
+      objectReference: {fileID: 0}
+    - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
       propertyPath: upgradeDescription
       value: Reduce recharge time to 0.8 sec
+      objectReference: {fileID: 0}
+    - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
+      propertyPath: upgradeDescriptionKey
+      value: content.upgrade.wave.lvl1.description
       objectReference: {fileID: 0}
     - target: {fileID: 5066859187128024684, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
@@ -7674,6 +7956,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4976131211145673690}
     m_Modifications:
+    - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
+      propertyPath: upgradeTitleKey
+      value: content.upgrade.hero.lvl3.title
+      objectReference: {fileID: 0}
+    - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
+      propertyPath: upgradeDescriptionKey
+      value: content.upgrade.hero.lvl3.description
+      objectReference: {fileID: 0}
     - target: {fileID: 5066859187143055090, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
       propertyPath: m_Name
@@ -7846,9 +8138,19 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
+      propertyPath: upgradeTitleKey
+      value: content.upgrade.waterbullet.lvl4.title
+      objectReference: {fileID: 0}
+    - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
       propertyPath: upgradeDescription
       value: When helding an ice shield, the waterbullet becomes an ice spike, dealing
         double damage
+      objectReference: {fileID: 0}
+    - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
+      propertyPath: upgradeDescriptionKey
+      value: content.upgrade.waterbullet.lvl4.description
       objectReference: {fileID: 0}
     - target: {fileID: 5066859187128024684, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
@@ -8089,8 +8391,18 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
+      propertyPath: upgradeTitleKey
+      value: content.upgrade.waterbullet.lvl1.title
+      objectReference: {fileID: 0}
+    - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
       propertyPath: upgradeDescription
       value: Reduce recharge time to 0.8 sec
+      objectReference: {fileID: 0}
+    - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
+      propertyPath: upgradeDescriptionKey
+      value: content.upgrade.waterbullet.lvl1.description
       objectReference: {fileID: 0}
     - target: {fileID: 5066859187128024684, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}

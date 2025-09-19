@@ -34,7 +34,7 @@ public class OptionMenuManager : MonoBehaviour
     {
         soundSlider.SetValueWithoutNotify(PlayerPrefs.GetFloat("SoundVolume", 1.0f) * 5);
     }
-    
+
     public void ToggleHUD()
     {
         if (PlayerPrefs.GetInt("ShowButtonHint", 0) == 0)
@@ -49,8 +49,19 @@ public class OptionMenuManager : MonoBehaviour
         Transform auxTrans = transform.Find("ToggleButtonHints");
         auxTrans = auxTrans.transform.Find("Text");
         if (PlayerPrefs.GetInt("ShowButtonHint", 0) == 1)
-            auxTrans.GetComponent<Text>().text = "HUD: off";
+        {
+            string localizedText = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("menu.main.hud_hide");
+            if (localizedText == null)
+                return;
+            auxTrans.GetComponent<Text>().text = localizedText;
+        }
         else
-            auxTrans.GetComponent<Text>().text = "HUD: on";
+        {
+            string localizedText = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("menu.main.hud_show");
+            if (localizedText == null)
+                return;
+            auxTrans.GetComponent<Text>().text = localizedText;
+        }
+        auxTrans.GetComponent<FitBoxText>().Resize();
     }
 }

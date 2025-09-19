@@ -21,7 +21,7 @@ public class StoreDisplayManager : MonoBehaviour
         coinCounterUpdate = FindFirstObjectByType<CoinCounterUpdate>();
     }
 
-    public void ShowUpgradeDescription(string upgradeKeyCode, string upgradeTitle, string upgradeDescription, int upgradePrice, Sprite powerSprite, Sprite upgradeSprite, ButtonActivationManager bam)
+    public void ShowUpgradeDescription(string upgradeKeyCode, string upgradeTitleKey, string upgradeDescriptionKey, int upgradePrice, Sprite powerSprite, Sprite upgradeSprite, ButtonActivationManager bam)
     {
         powerImage.sprite = powerSprite;
         if (powerSprite != null)
@@ -33,8 +33,20 @@ public class StoreDisplayManager : MonoBehaviour
             upgradeImage.color = new Color(1, 1, 1, 1);
         else
             upgradeImage.color = new Color(1, 1, 1, 0);
-        title.text = upgradeTitle;
-        description.text = upgradeDescription;
+
+        string localizedText = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get(upgradeTitleKey);
+        if (localizedText != null)
+            title.text = localizedText;
+        else
+            title.text = upgradeTitleKey;
+        title.text = title.text.ToUpper();
+
+        localizedText = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get(upgradeDescriptionKey);
+        if (localizedText != null)
+            description.text = localizedText;
+        else
+            description.text = upgradeTitleKey;
+
         priceText.text = "" + upgradePrice;
         price = upgradePrice;
         upgradeCode = upgradeKeyCode;
@@ -44,16 +56,33 @@ public class StoreDisplayManager : MonoBehaviour
         {
             if (PlayerPrefs.GetInt("CoinAmount", 0) >= price)
             {
-                purchaseButtonText.text = "Unlock";
+                localizedText = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("menu.world.unlock");
+                if (localizedText != null)
+                    purchaseButtonText.text = localizedText;
+                else
+                    purchaseButtonText.text = "Unlock";
                 purchaseButton.interactable = true;
-            } else {
-                purchaseButtonText.text = "no exp";
+            }
+            else
+            {
+                localizedText = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("menu.world.no_exp");
+                if (localizedText != null)
+                    purchaseButtonText.text = localizedText;
+                else
+                    purchaseButtonText.text = "no exp";
                 purchaseButton.interactable = false;
             }
-        } else {
-            purchaseButton.interactable = false;
-            purchaseButtonText.text = "Active";
         }
+        else
+        {
+            purchaseButton.interactable = false;
+            localizedText = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("menu.world.active");
+            if (localizedText != null)
+                purchaseButtonText.text = localizedText;
+            else
+                purchaseButtonText.text = "Active";
+        }
+        purchaseButtonText.text = purchaseButtonText.text.ToUpper();
     }
 
     public void PurchaseUpgrade()
@@ -63,7 +92,11 @@ public class StoreDisplayManager : MonoBehaviour
             PlayerPrefs.SetInt("CoinAmount", PlayerPrefs.GetInt("CoinAmount", 0) - price);
             PlayerPrefs.SetInt(upgradeCode,1);
             purchaseButton.interactable = false;
-            purchaseButtonText.text = "Active";
+            string localizedText = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("menu.world.active");
+            if (localizedText != null)
+                purchaseButtonText.text = localizedText;
+            else
+                purchaseButtonText.text = "Active";
             coinCounterUpdate.Refresh();
             buttonActivationManager.UpdateGFX();
         }

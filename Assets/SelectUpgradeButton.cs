@@ -3,9 +3,8 @@ using UnityEngine;
 public class SelectUpgradeButton : MonoBehaviour
 {
     ButtonActivationManager buttonActivationManager;
-    public string upgradeTitle;
-    [TextArea]
-    public string upgradeDescription;
+    public string upgradeTitleKey;
+    public string upgradeDescriptionKey;
     public int upgradePrice;
     public Sprite powerSprite;
     public Sprite upgradeSprite;
@@ -20,6 +19,6 @@ public class SelectUpgradeButton : MonoBehaviour
 
     public void Select()
     {
-        storeDisplayManager.ShowUpgradeDescription(buttonActivationManager.buttonKeyCode, upgradeTitle, upgradeDescription, upgradePrice, powerSprite, upgradeSprite, buttonActivationManager);
+        storeDisplayManager.ShowUpgradeDescription(buttonActivationManager.buttonKeyCode, upgradeTitleKey, upgradeDescriptionKey, upgradePrice, powerSprite, upgradeSprite, buttonActivationManager);
     }
 }
