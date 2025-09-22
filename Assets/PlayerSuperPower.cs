@@ -28,6 +28,8 @@ public class PlayerSuperPower : MonoBehaviour
     public Material bloomMaterial;
     Material originaleMaterial;
 
+    public GameObject waterBombCloudPrefab;
+
     void Awake()
     {
         if(PlayerPrefs.GetInt(unlockingCode1, 0) == 0)
@@ -123,6 +125,13 @@ public class PlayerSuperPower : MonoBehaviour
 
         if(PlayerPrefs.GetInt(unlockingCode2, 0) == 1)
             playgroundManager.MakeRain(true, true, true, false, true);
+
+        if (PlayerPrefs.GetInt(unlockingCode4, 0) == 1)
+        {
+            Transform spot = playgroundManager.GetRandomFlame();
+            if (spot != null)
+                Instantiate(waterBombCloudPrefab, spot.position, Quaternion.identity);
+        }
     }
 
     void ExitSuperState()

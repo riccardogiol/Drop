@@ -46,7 +46,7 @@ public class PlayerShooting : MonoBehaviour
         playerShield = GetComponent<PlayerShield>();
         timer = 0;
         
-        if (PlayerPrefs.GetInt(unlockingCode2, 0) == 1)
+        if (PlayerPrefs.GetInt(unlockingCode3, 0) == 1)
             cooldown = cooldown2;
 
         ButtonFiller[] buttonFillers = FindObjectsOfType<ButtonFiller>();
@@ -123,9 +123,13 @@ public class PlayerShooting : MonoBehaviour
             bullet = Instantiate(bulletPrefab, shootingPoint.position + (Vector3)(playerDirection.lastDirection * 0.2f), Quaternion.LookRotation(Vector3.forward, playerDirection.lastDirection));
             bullet.GetComponent<Bullet>().damage = bulletDamage;
         }
+        if (PlayerPrefs.GetInt(unlockingCode2, 0) == 1)
+            bullet.GetComponent<Bullet>().piercingShoot = true;
+
         bullet.GetComponent<Bullet>().energy = bulletEnergy;
         bullet.GetComponent<Bullet>().playgroundManager = playgroundManager;
-        if (PlayerPrefs.GetInt(unlockingCode4, 0) == 1 && playgroundManager.IsRaining())
+        //if (PlayerPrefs.GetInt(unlockingCode4, 0) == 1 && playgroundManager.IsRaining())
+        if (PlayerPrefs.GetInt(unlockingCode4, 0) == 1 && Random.value < 0.15f)
             bullet.GetComponent<Bullet>().castWave = true;
         bullet.GetComponent<Rigidbody2D>().velocity = playerDirection.lastDirection * bulletSpeed;
     }

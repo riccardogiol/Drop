@@ -446,6 +446,11 @@ PrefabInstance:
     - target: {fileID: 5216817755464628960, guid: efa6faef7479742db930e5b8379ad2d3,
         type: 3}
       propertyPath: maxHealth
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5216817755464628960, guid: efa6faef7479742db930e5b8379ad2d3,
+        type: 3}
+      propertyPath: currentHealth
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5216817755464628962, guid: efa6faef7479742db930e5b8379ad2d3,
@@ -1826,7 +1831,7 @@ PrefabInstance:
     - target: {fileID: 4731850025182448036, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5411216365801270622, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
@@ -8158,6 +8163,7 @@ MonoBehaviour:
   currentLvl: 11
   currentStage: 2
   stageMode: puzzle
+  trophyName: 
   finalStage: 0
   bossTransform: {fileID: 0}
   menusManager: {fileID: 1207991583}

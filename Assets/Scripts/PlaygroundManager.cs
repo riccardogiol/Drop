@@ -413,6 +413,14 @@ public class PlaygroundManager : MonoBehaviour
         }
     }
 
+    public Transform GetRandomFlame()
+    {
+        int flamsOnsScene = flameParent.transform.childCount;
+        if (flamsOnsScene <= 0)
+            return null;
+        return flameParent.transform.GetChild(UnityEngine.Random.Range(0, flamsOnsScene));
+    }
+
     public void FlameGenerated()
     {
         flameParent.GetComponent<FireCounter>().flameCounter++;

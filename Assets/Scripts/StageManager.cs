@@ -201,6 +201,32 @@ public class StageManager : MonoBehaviour
 
         menusManager.GameOver(deadCode);
     }
+    
+    public void Reborn()
+    {
+        if (!MenusManager.isPaused)
+            StartCoroutine(RebornEvaporatingScene());
+    }
+
+    IEnumerator RebornEvaporatingScene()
+    {
+        eagleEyeMode.Exit();
+        menusManager.SetIsPause(true);
+        if (playerMovementPath != null)
+            playerMovementPath.InterruptMovement();
+        playerMovementKeys.InterruptMovement(0.3f);
+        cameraAnimationManager.StartEndingAnimation();
+        playerAnimationManager.PlayReborn();
+
+        yield return new WaitForSeconds(3);
+
+        cameraAnimationManager.RevertEndingAnimation();
+
+        yield return new WaitForSeconds(2);
+
+        menusManager.SetIsPause(false);
+        
+    }
 
     //Close stage functions
 

@@ -12,6 +12,9 @@ public class Bullet : MonoBehaviour
     public GameObject explosionEffect;
     public GameObject smokeEffect;
 
+    public bool piercingShoot = false;
+    int touchedCollider = 0;
+
     public bool castWave = false;
     public GameObject waveGO;
 
@@ -35,6 +38,9 @@ public class Bullet : MonoBehaviour
         switch (other.tag)
         {
             case "Enemy":
+                if (touchedCollider == other.gameObject.GetInstanceID())
+                    return;
+                touchedCollider = other.gameObject.GetInstanceID();
                 int enemyHealth = other.GetComponent<EnemyHealth>().currentHealth;
                 if (enemyHealth <= damage)
                 {
@@ -42,7 +48,7 @@ public class Bullet : MonoBehaviour
                     delayedEffect = true;
                 }
                 other.GetComponent<EnemyHealth>().TakeDamage(damage);
-                DestroyBullet();
+                DestroyBullet(false, piercingShoot);
                 break;
             case "Grass":
                 playgroundManager.WaterOnPosition(other.transform.position);
@@ -104,6 +110,9 @@ public class Bullet : MonoBehaviour
                 DestroyBullet();
                 break;
             case "Flame":
+                if (touchedCollider == other.gameObject.GetInstanceID())
+                    return;
+                touchedCollider = other.gameObject.GetInstanceID();
                 int otherEnergy = other.GetComponent<PickFlame>().energy;
                 if (otherEnergy <= damage)
                     other.GetComponent<PickFlame>().DestroyFlame();
@@ -113,7 +122,7 @@ public class Bullet : MonoBehaviour
                 }
                 otherPosition = other.transform.position;
                 delayedEffect = true;
-                DestroyBullet();
+                DestroyBullet(false, piercingShoot);
                 break;
             case "Waterdrop":
                 other.GetComponent<PickWaterdrop>().RechargeEnergy(energy);
@@ -126,16 +135,12 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    public void DestroyBullet(bool playSmokeEffect = false)
+    public void DestroyBullet(bool playSmokeEffect = false, bool pierce = false)
     {
         FindObjectOfType<AudioManager>().Play("BulletExplosion");
         Instantiate(explosionEffect, transform.position, transform.rotation);
         if (playSmokeEffect)
             Instantiate(smokeEffect, transform.position, transform.rotation);
-        spriteRenderer.enabled = false;
-        rigidbody2D.velocity = new Vector2(0f, 0f);
-        collider2D.enabled = false;
-        trailParticles.Stop();
 
         if (castWave)
         {
@@ -144,6 +149,15 @@ public class Bullet : MonoBehaviour
             wave.GetComponent<Wave>().playgroundManager = playgroundManager;
             wave.GetComponent<Wave>().shootByPlayer = true;
         }
+
+        if (pierce && Random.value < 0.25f)
+            return;
+
+        spriteRenderer.enabled = false;
+        rigidbody2D.velocity = new Vector2(0f, 0f);
+        collider2D.enabled = false;
+        trailParticles.Stop();
+
         StartCoroutine(DelayDestroy());
     }
 

@@ -1081,6 +1081,11 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 5216817755464628960, guid: efa6faef7479742db930e5b8379ad2d3,
+        type: 3}
+      propertyPath: currentHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5216817755464628962, guid: efa6faef7479742db930e5b8379ad2d3,
         type: 3}
       propertyPath: spawnFlameProbability
@@ -1473,6 +1478,7 @@ MonoBehaviour:
   currentLvl: 12
   currentStage: 3
   stageMode: puzzle
+  trophyName: 
   finalStage: 0
   bossTransform: {fileID: 0}
   menusManager: {fileID: 1207991583}

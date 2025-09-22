@@ -5,6 +5,7 @@ public class PlayerAnimationManager : MonoBehaviour
 {
     Animator animator;
     public GameObject vaporBurst;
+    public GameObject rebornCloud;
 
     void Start()
     {
@@ -19,6 +20,13 @@ public class PlayerAnimationManager : MonoBehaviour
     public void PlayEvaporation()
     {
         animator.SetTrigger("Evaporation");
+        StartCoroutine(DelayedVaporBurst());
+    }
+
+    public void PlayReborn()
+    {
+        Instantiate(rebornCloud, transform.position + new Vector3(0, 0.3f, 0), Quaternion.identity);
+        animator.SetTrigger("Reborn");
         StartCoroutine(DelayedVaporBurst());
     }
 

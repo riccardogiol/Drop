@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
@@ -13,11 +14,10 @@ public class PlayerHealth : MonoBehaviour
     PlayerShield playerShield;
 
     readonly string unlockingCode2 = "Lvl2";
-    //readonly int maxHealth2 = 6;
     readonly string unlockingCode3 = "Hero1Purchased";
-    //readonly int maxHealth3 = 8;
-    readonly string unlockingCode4 = "Hero2Purchased";
-    //readonly int maxHealth4 = 10;
+    // il 2 e per la pioggia in PlaygroundManager
+    readonly string unlockingCode5 = "Hero3Purchased";
+    readonly string unlockingCode6 = "Hero4Purchased";
 
     void Start()
     {
@@ -25,7 +25,7 @@ public class PlayerHealth : MonoBehaviour
             maxHealth += 2;
         if (PlayerPrefs.GetInt(unlockingCode3, 0) == 1)
             maxHealth += 2;
-        if (PlayerPrefs.GetInt(unlockingCode4, 0) == 1)
+        if (PlayerPrefs.GetInt(unlockingCode5, 0) == 1)
             maxHealth += 2;
         if (PlayerPrefs.GetInt("EasyMode", 0) == 1)
         {
@@ -48,7 +48,15 @@ public class PlayerHealth : MonoBehaviour
         damageIndicator.ShowDamage(damage);
         healthBar.SetHealth(currentHealth);
         if (currentHealth == 0)
-            stageManager.GameOver("health");
+        {
+            if (PlayerPrefs.GetInt(unlockingCode6, 0) == 1 && UnityEngine.Random.value < 0.2)
+            {
+                stageManager.Reborn();
+                StartCoroutine(RestoreLife());
+            }
+            else
+                stageManager.GameOver("health");
+        }
     }
 
 
@@ -66,5 +74,12 @@ public class PlayerHealth : MonoBehaviour
             return currentHealth + 2 * Mathf.CeilToInt(playerShield.GetEnergy());
         else
             return currentHealth;
+    }
+
+    IEnumerator RestoreLife()
+    {
+        yield return new WaitForSeconds(5);
+        currentHealth = 1;
+        healthBar.SetHealth(currentHealth);
     }
 }
