@@ -4,6 +4,7 @@
       "main": {
         "continue": "Continua",
         "new_game": "Nuova partita",
+        "lets_start": "Andiamo!",
         "settings": "Impostazioni",
         "quit": "Esci",
         "music": "Musica",
@@ -22,36 +23,249 @@
         "no_exp": "No exp",
         "unlock": "Sblocca"
       },
-      "stage": {},
+      "stage": {
+        "interface_info" : {
+          "hp" : "PA",
+          "scout_cloud_info" : "Mostra ENG",
+          "super" : "Super!",
+          "puzzle" : "Puzzle", 
+          "action" : "Azione", 
+          "boss" : "Boss",
+          "cost" : "CST", 
+          "damage" : "DMG"
+        },
+        "pause_menu" : {
+          "pause" : "Pausa",
+          "level" : "Livello",
+          "stage" : "Stage",
+          "resume" : "Riprendi",
+          "settings" : "Impostazioni", 
+          "restart" : "Ricomincia", 
+          "quit" : "Esci", 
+          "back_to_wm" : "Torna alla mappa",
+          "to_next_stage" : "Vai al prossimo stage"
+        }
+      },
       "general": {
         "back": "Indietro",
         "continue": "Continua",
-        "confirm": "Conferma"
+        "confirm": "Conferma",
+        "space_key": "Spazio", 
+        "shift_key": "Shift"
       }
     },
     "message":{
       "info":{
-        
+        "new_game_disc": {
+          "title": "Iniziare una nuova partita?",
+          "description": "Se inizi una nuova partita, i salvataggi precedenti verranno persi"
+        }
+      },
+      "stage" : {
+        "game_over_health" : "PUNTI ACQUA ESAURITI\nOh no, sei evaporato!",
+        "game_over_heat" : "STAGE TROPPO CALDO\nOh no, sei evaporato!",
+        "stage_clear" : "GRANDE!\nHai ripulito lo stage",
+        "level_clear":{
+          "title1" : "Hai salvato ",
+          "title2" : " dal fuoco",
+          "titleBoss" : "Hai liberato le acque ",
+          "obtain1" : "+",
+          "obtain2" : " punti esperienza"
+        }
       },
       "tutorial":{}
     },
     "content":{
-      "story": {},
-      "trophy": {},
+      "story": {
+        "intro1" : {
+          "title" : "Scena 1",
+          "label" : "intro",
+          "description" : "C'erano una volta delle nuvolette felici che, fluttuando sopra campi e foreste, spargevano pioggia e rendevano la terra verde"
+        },
+        "intro2" : {
+          "title" : "Scena 2",
+          "label" : "intro",
+          "description" : "Un giorno videro del fumo maligno alzarsi da una montagna lontana: un incendio stava minacciando il bioma della foresta!"
+        },
+        "intro3" : {
+          "title" : "Scena 3",
+          "label" : "intro",
+          "description" : "Così le nuvole si radunarono e decisero di mandare a terra il loro piccolo eroe d’acqua: Drop, pronto a Salvare la Foresta!"
+        }
+      },
+      "trophy": {
+        "bee" : {
+          "name" : "Ape",
+          "name_w_article" : "l'ape",
+          "latin_name" : "Apis Mellifera",
+          "description" : "Le api sono fondamentali per i biomi in quanto impollinatrici, facilitando la riproduzione delle piante e la biodiversità. Il loro ruolo garantisce la crescita di numerose colture, sostiene gli ecosistemi e mantiene la rete interconnessa della vita."
+        },
+        "oak" : {
+          "name" : "Quercia",
+          "name_w_article" : "la quercia",
+          "latin_name" : "Quercus pubescens",
+          "description" : "La quercia è un albero deciduo di imponente altezza ed è caratterizzato da foglie profondamente lobate. È un simbolo di forza, longevità e un habitat vitale per una grande varietà di fauna selvatica.",
+          "prize" : "+2 Punti Acqua massimi"
+        },
+        "squirrel" : {
+          "name" : "Scoiattolo",
+          "name_w_article" : "lo scoiattolo",
+          "latin_name" : "Sciurus vulgaris",
+          "description" : "Piccolo roditore agile dalla coda folta. Abile arrampicatore, si nutre di noci e semi. Parte integrante dell’ecologia forestale come dispersore di semi. Contribuisce anche all’equilibrio dell’ecosistema creando piccole tane nei tronchi o nel terreno, che possono diventare rifugio per altri insetti o microrganismi.",
+          "prize" : "Potere Spruzzo sbloccato"
+        },
+        "fern" : {
+          "name" : "Felce",
+          "name_w_article" : "la felce",
+          "latin_name" : "Dryopteris filix",
+          "description" : "Le felci prosperano negli ambienti ombrosi e umidi del bioma alpino, stabilizzando il suolo e prevenendo l’erosione. Offrono riparo a insetti e piccoli animali, contribuendo alla biodiversità della foresta. La loro resilienza aiuta a mantenere l’equilibrio dell’ecosistema nel rigido clima montano."
+        },
+        "spring" : {
+          "name" : "Risorgiva",
+          "name_w_article" : "della risorgiva",
+          "latin_name" : "Fonte d'acqua",
+          "description" : "Una sorgente nel bioma alpino fornisce una fonte costante di acqua dolce, sostenendo la fauna e la vegetazione. Supporta gli ecosistemi acquatici, previene gli effetti della siccità e contribuisce a regolare i livelli delle falde, svolgendo un ruolo cruciale nel mantenimento della biodiversità e dell’equilibrio ecologico.",
+          "prize" : "Potenziamenti livello 1 sbloccati"
+        },
+        "deer" : {
+          "name" : "Daino",
+          "name_w_article" : "il daino",
+          "latin_name" : "dama dama",
+          "description" : "Elegante mammifero erbivoro, noto per le corna dei maschi. Adattato a diversi habitat, simboleggia la gentilezza ed è vitale per gli ecosistemi come brucatore e dispersore di semi."
+        },
+        "birch" : {
+          "name" : "Betulla",
+          "name_w_article" : "la betulla",
+          "latin_name" : "betula pendula",
+          "description" : "Albero deciduo con caratteristica corteccia bianca, rami sottili e foglie seghettate. Resistente, simboleggia il rinnovamento ed è spesso presente nelle foreste alpine."
+        },
+        "woodpecker" : {
+          "name" : "Picchio",
+          "name_w_article" : "il picchio",
+          "latin_name" : "Dendrocopos major",
+          "description" : "I picchi svolgono un ruolo cruciale nel bioma alpino controllando le popolazioni di insetti e creando cavità negli alberi utilizzate da altre specie. I loro forti becchi consentono di cercare il cibo nella corteccia, contribuendo alla salute della foresta e adattandosi alle difficili condizioni montane."
+        },
+        "gentiana" : {
+          "name" : "Genziana",
+          "name_w_article" : "la genziana",
+          "latin_name" : "Gentiana lutea",
+          "description" : "La genziana è un vivace fiore alpino giallo che prospera nei prati e sui pendii rocciosi. Svolge un ruolo chiave nell’ecosistema, attirando impollinatori come api e farfalle, e si adatta ai rigidi climi montani grazie a radici profonde e a una crescita lenta. La sua sensibilità ai cambiamenti ambientali la rende un importante bioindicatore del cambiamento climatico."
+        },
+        "river" : {
+          "name" : "Torrente",
+          "name_w_article" : "del torrente",
+          "latin_name" : "Fonte d'acqua",
+          "description" : "Un torrente alpino scorre attraverso le valli montane, alimentato da ghiacciai e precipitazioni. Fornisce acqua dolce, sostiene una flora e una fauna diversificate e modella il paesaggio. Essenziale per gli ecosistemi, garantisce la sopravvivenza di anfibi, pesci e piante, contribuendo a regolare temperatura ed erosione.",
+          "prize" : "Potenziamenti livello 2 sbloccati"
+        },
+        "butterfly" : {
+          "name" : "Farfalla",
+          "name_w_article" : "la farfalla",
+          "latin_name" : "Parnassius apollo",
+          "description" : "Le farfalle sono impollinatrici essenziali nel bioma alpino, favorendo la riproduzione delle piante e indicando la salute dell’ecosistema. La loro sensibilità ai cambiamenti ambientali le rende importanti bioindicatori del cambiamento climatico."
+        },
+        "spruce" : {
+          "name" : "Abete",
+          "name_w_article" : "l'abete",
+          "latin_name" : "Picea abies",
+          "description" : "L’abete è una conifera sempreverde e slanciata che domina le foreste alpine. Il suo fitto fogliame offre riparo alla fauna selvatica, mentre i suoi semi nutrono uccelli e mammiferi. Adattato ai climi freddi, stabilizza il suolo, previene l’erosione e svolge un ruolo vitale negli ecosistemi montani."
+        },
+        "wolf" : {
+          "name" : "Lupo",
+          "name_w_article" : "il lupo",
+          "latin_name" : "Canis Lupus",
+          "description" : "Il lupo è un predatore apicale negli ecosistemi alpini, mantenendo l’equilibrio controllando le popolazioni di erbivori. Vive in foreste e terreni rocciosi, cacciando in branco. La sua presenza favorisce la biodiversità, prevenendo il sovrapascolo e creando un ambiente più sano per piante e altre specie selvatiche."
+        },
+        "thistle" : {
+          "name" : "Cardo",
+          "name_w_article" : "il cardo",
+          "latin_name" : "Carduus",
+          "description" : "Il cardo è una pianta alpina resistente, con foglie spinose e vivaci fiori viola. Fornisce nettare a impollinatori come api e farfalle, mentre i suoi semi nutrono gli uccelli. Ben adattato a condizioni difficili, contribuisce a stabilizzare il suolo e ad arricchire la biodiversità montana."
+        },
+        "waterfall" : {
+          "name" : "Cascata",
+          "name_w_article" : "della cascata",
+          "latin_name" : "Fonte d'acqua",
+          "description" : "Una cascata nel bioma alpino ossigena i torrenti, sostenendo pesci e vita acquatica. Distribuisce acqua dolce agli ecosistemi a valle, nutre le piante e modella i paesaggi rocciosi. La sua nebbiolina crea microhabitat per muschi e insetti, arricchendo la biodiversità degli ambienti montani.",
+          "prize" : "Potenziamenti livello 3 sbloccati"
+        },
+        "viper" : {
+          "name" : "Marasso",
+          "name_w_article" : "il marasso",
+          "latin_name" : "vipera berus",
+          "description" : "Il marasso è una vipera alpina presente in prati, boschi e zone rocciose. Predatore di piccoli mammiferi e insetti, mantiene l’equilibrio dell’ecosistema e funge da bioindicatore della salute dei fragili ambienti montani."
+        },
+        "pine" : {
+          "name" : "Pino cembro",
+          "name_w_article" : "il pino",
+          "latin_name" : "Pinus cembra",
+          "description" : "Il pino è una conifera sempreverde che prospera in terreni montani e rocciosi delle Alpi. Le sue lunghe foglie aghiformi e i semi contenuti nei coni forniscono cibo e rifugio a uccelli e piccoli mammiferi, contribuendo a stabilizzare il suolo e sostenere la biodiversità alpina."
+        },
+        "marmot" : {
+          "name" : "Marmotta",
+          "name_w_article" : "la marmotta",
+          "latin_name" : "Marmota marmota",
+          "description" : "La marmotta è un roditore alpino che vive in tane scavate nei prati e pendii rocciosi. Si nutre di erbe e fiori, controllando la vegetazione, e svolge un ruolo chiave nell’ecosistema come preda per rapaci e carnivori, contribuendo alla biodiversità e alla salute del bioma alpino."
+        },
+        "alpenrose" : {
+          "name" : "Rododendro",
+          "name_w_article" : "il rododendro",
+          "latin_name" : "Rhododendron ferrugineum",
+          "description" : "Il rododendro è un arbusto sempreverde delle Alpi, con fiori rosa intenso che prosperano su pendii rocciosi e prati alpini. Attira impollinatori come api e farfalle, contribuisce a stabilizzare il terreno e arricchisce la biodiversità vegetale dei fragili ecosistemi montani."
+        },
+        "lake" : {
+          "name" : "Lago Alpino",
+          "name_w_article" : "del lago alpino",
+          "latin_name" : "Fonte d'acqua",
+          "description" : "I laghi montani si formano spesso in depressioni glaciali o valloni naturali, e si riempiono grazie allo scioglimento dei ghiacciai e alle precipitazioni. Queste acque dolci sostengono piante e animali acquatici, regolano il flusso dei fiumi e contribuiscono a mantenere l’equilibrio dell’ecosistema alpino, fornendo habitat vitali e risorse idriche essenziali per la biodiversità delle montagne.",
+          "prize" : "Potenziamenti livello 4 sbloccati"
+        },
+        "buzzard" : {
+          "name" : "Poiana",
+          "name_w_article" : "la poiana",
+          "latin_name" : "buteo buteo",
+          "description" : "La poiana è un rapace diurno comune nelle Alpi, che caccia roditori, insetti e piccoli vertebrati. Controllando le popolazioni di prede, mantiene l’equilibrio dell’ecosistema, favorisce la salute dei boschi e contribuisce alla biodiversità alpina."
+        },
+        "musk" : {
+          "name" : "Muschi e Licheni",
+          "name_w_article" : "Muschi e Licheni",
+          "latin_name" : "Bryophyta e Lichenes",
+          "description" : "Muschi e licheni sono organismi incredibilmente resistenti e versatili, capaci di prosperare su rocce, tronchi e terreni poveri delle Alpi. Contribuiscono a stabilizzare il suolo, trattenere l’umidità e creare microhabitat per insetti e piccoli organismi, arricchendo la biodiversità montana."
+        },
+        "steinbeck" : {
+          "name" : "Stambecco",
+          "name_w_article" : "lo stambecco",
+          "latin_name" : "Capra ibex",
+          "description" : "Lo stambecco è un ungulato alpino che vive su pendii rocciosi e scoscesi. Alimentandosi di erbe e arbusti, mantiene l’equilibrio della vegetazione. La sua presenza favorisce la biodiversità e contribuisce alla salute degli ecosistemi montani, servendo anche come preda per grandi predatori."
+        },
+        "edelweiss" : {
+          "name" : "Stella Alpina",
+          "name_w_article" : "la stella alpina",
+          "latin_name" : "Leontopodium alpinum",
+          "description" : "La stella alpina è un fiore iconico delle Alpi, resistente al freddo e ai terreni rocciosi. Attira impollinatori come api e farfalle, contribuisce alla stabilizzazione del suolo e simboleggia la bellezza e la fragilità degli ecosistemi montani."
+        },
+        "glacier" : {
+          "name" : "Ghiacciao",
+          "name_w_article" : "il ghiacciaio",
+          "latin_name" : "Fonte d'acqua",
+          "description" : "I ghiacciai si formano dall’accumulo e dalla compressione della neve nel corso di molti anni. Rilasciando lentamente acqua dolce che alimenta fiumi e laghi, svolgono un ruolo fondamentale nel sostenere flora, fauna e ecosistemi, regolando il flusso idrico e contribuendo all’equilibrio naturale delle montagne.",
+          "prize" : "Hai salvato la foresta!"
+        }
+      },
       "upgrade":{
         "hero" : {
           "title" : "Eroe",
           "lvl0" : {
             "title" : "Statistiche dell'eroe",
-            "description": "Tot punti vita: \nEtc"
+            "description": "Drop parte di base con 6 Punti Vita (PV)"
           },
           "lvl1" : {
-            "title" : "Statistiche dell'eroe",
-            "description": "Tot punti vita: \nEtc"
+            "title" : "PV max +2",
+            "description": "Aggiungi 2PV alla riserva di Drop"
           },
           "lvl2" : {
-            "title" : "Statistiche dell'eroe",
-            "description": "Tot punti vita: \nEtc"
+            "title" : "PV max +2",
+            "description": "Aggiungi 2PV alla riserva di Drop"
           },
           "lvl3" : {
             "title" : "Statistiche dell'eroe",
@@ -62,68 +276,68 @@
             "description": "Tot punti vita: \nEtc"
           },
           "lvl0easy" : {
-            "description": "Tot punti vita: \nEtc + 2"
+            "description": "Drop parte di base con 8 Punti Vita (PV) in Modalità Facile"
           }
         },
         "waterbullet" : {
           "title" : "Spruzzo",
           "lvl0" : {
-            "title" : "Statistiche dell'eroe",
-            "description": "Tot punti vita: \nEtc"
+            "title" : "Statistiche del potere Spruzzo",
+            "description": "Drop spara un proiettile d'acqua di fronte a sè. Il proiettile costa (CST) 2PV e infligge 4 danni (DMG)"
           },
           "lvl1" : {
-            "title" : "Statistiche dell'eroe",
-            "description": "Tot punti vita: \nEtc"
+            "title" : "Ricarica rapida",
+            "description": "Diminuisce il tempo di ricarica del potere del 50%"
           },
           "lvl2" : {
-            "title" : "Statistiche dell'eroe",
-            "description": "Tot punti vita: \nEtc"
+            "title" : "Fuoco di ritorno",
+            "description": "Piccola possibilità di ricaricare 1PV dopo lo sparo"
           },
           "lvl3" : {
-            "title" : "Statistiche dell'eroe",
-            "description": "Tot punti vita: \nEtc"
+            "title" : "Bazooka",
+            "description": "Durante la pioggia, il proiettile esplode al contatto"
           },
           "lvl4" : {
-            "title" : "Statistiche dell'eroe",
-            "description": "Tot punti vita: \nEtc"
+            "title" : "Lancia di Ghiaccio",
+            "description": "Con lo Scudo di Ghiaccio attivo, il proiettile diventa una Lancia di Ghiaccio, infliggendo 6 danni (DMG)"
           }
         },
         "wave" : {
           "title" : "Onda",
           "lvl0" : {
-            "title" : "Statistiche dell'eroe",
-            "description": "Tot punti vita: \nEtc"
+            "title" : "Statistiche del potere Onda",
+            "description": "Drop rilascia un'onda intorno a sè. Il proiettile costa (CST) 2PV e infligge 2 danni (DMG) sull'area circostante"
           },
           "lvl1" : {
-            "title" : "Statistiche dell'eroe",
-            "description": "Tot punti vita: \nEtc"
+            "title" : "Ricarica rapida",
+            "description": "Diminuisce il tempo di ricarica del potere del 50%"
           },
           "lvl2" : {
-            "title" : "Statistiche dell'eroe",
-            "description": "Tot punti vita: \nEtc"
+            "title" : "Fuoco di ritorno",
+            "description": "Piccola possibilità di ricaricare 1PV dopo l'onda"
           },
           "lvl3" : {
-            "title" : "Statistiche dell'eroe",
-            "description": "Tot punti vita: \nEtc"
+            "title" : "Tzunami",
+            "description": "Durante la pioggia, l'area dell'onda aumenta di superfice"
           },
           "lvl4" : {
-            "title" : "Statistiche dell'eroe",
-            "description": "Tot punti vita: \nEtc"
+            "title" : "Mine di Ghiaccio",
+            "description": "Con lo Scudo di Ghiaccio attivo, l'onda rilascia sul terreno delle Mine di Ghiaccio, che al contatto con il nemico esplodono infliggendo 2 danni (DMG)"
           }
         },
         "super" : {
           "title" : "Super",
           "lvl0" : {
-            "title" : "Statistiche dell'eroe",
-            "description": "Tot punti vita: \nEtc"
+            "title" : "Statistiche della modalità Super",
+            "description": "In Modalità Super il costo di Spruzzo e Onda é ridotto a 0(PV)\nPuoi entrare in modalità Super una volta la Riserva Fulmine é piena\nGli animali rilasceranno Energia Fulmine (+PF)"
           },
           "lvl1" : {
-            "title" : "Statistiche dell'eroe",
-            "description": "Tot punti vita: \nEtc"
+            "title" : "Tempesta",
+            "description": "Durante la Modalità Fulmine le Nuovole Tempestose aiutano Drop facendo piovere"
           },
           "lvl2" : {
-            "title" : "Statistiche dell'eroe",
-            "description": "Tot punti vita: \nEtc"
+            "title" : "Elettrizzante!",
+            "description": "Inizia gli stage con 2 Punti Fulmine (PF)"
           },
           "lvl3" : {
             "title" : "Statistiche dell'eroe",

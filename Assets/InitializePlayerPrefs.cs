@@ -22,6 +22,8 @@ public class InitializePlayerPrefs : MonoBehaviour
         PlayerPrefs.SetInt("LastLevelCompleted", 7);
         */
         PlayerPrefs.SetInt("Lvl1", 1);
+        PlayerPrefs.SetInt("Lvl1Prize", 0);
+        PlayerPrefs.SetInt("Lvl2Prize", 0);
         PlayerPrefs.SetInt("Lvl2", 1);
         PlayerPrefs.SetInt("Lvl3", 1);
         PlayerPrefs.SetInt("Lvl4", 1);
@@ -40,7 +42,7 @@ public class InitializePlayerPrefs : MonoBehaviour
         PlayerPrefs.SetInt("Lvl17", 1);
         PlayerPrefs.SetInt("Lvl18", 1);
         PlayerPrefs.SetInt("Lvl19", 1);
-        PlayerPrefs.SetInt("Lvl20", 0);
+        PlayerPrefs.SetInt("Lvl20", 1);
         PlayerPrefs.SetInt("Lvl21", 0);
         PlayerPrefs.SetInt("Lvl22", 0);
         PlayerPrefs.SetInt("Lvl23", 0);

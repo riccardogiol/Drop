@@ -347,7 +347,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &34280266
@@ -9130,17 +9130,17 @@ PrefabInstance:
     - target: {fileID: 6169487426057752984, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.64
+      value: 0.79999995
       objectReference: {fileID: 0}
     - target: {fileID: 6169487426057752984, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.64
+      value: 0.79999995
       objectReference: {fileID: 0}
     - target: {fileID: 6169487426057752984, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.64
+      value: 0.79999995
       objectReference: {fileID: 0}
     - target: {fileID: 6169487426057752984, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
@@ -25536,6 +25536,7 @@ MonoBehaviour:
   currentLvl: 15
   currentStage: 1
   stageMode: boss
+  trophyName: 
   finalStage: 1
   bossTransform: {fileID: 2125746807}
   menusManager: {fileID: 1207991583}
@@ -25664,14 +25665,15 @@ MonoBehaviour:
   maxHealth: 22
   currentHealth: 22
   scaleGFX: 0
-  healthOnProgBar: 1
-  winningSceneTimer: 12
-  logoOnProgBar: {fileID: 21300000, guid: d79de1c466cf74042bc3a49f5ee31d13, type: 3}
-  animator: {fileID: 899052754}
   enemyGFX: {fileID: 247474505}
   vaporBurstPrefab: {fileID: 2932825668177330008, guid: 5a0db5a8bb6544822be5283d9c96fc30,
     type: 3}
   flameParent: {fileID: 0}
+  isBoss: 0
+  healthOnProgBar: 1
+  winningSceneTimer: 12
+  logoOnProgBar: {fileID: 21300000, guid: d79de1c466cf74042bc3a49f5ee31d13, type: 3}
+  animator: {fileID: 899052754}
 --- !u!50 &2125746812
 Rigidbody2D:
   serializedVersion: 4

@@ -75,6 +75,8 @@ public class EagleEyeMode : MonoBehaviour
 
     public void Enter()
     {
+        if (buttonFiller == null)
+            return;
         if (rechargeCountdown > 0)
             return;
         inEagleMode = true;

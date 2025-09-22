@@ -83,8 +83,12 @@ public class MenusManager : MonoBehaviour
             diffChangeMessage.SetActive(true);
             PlayerPrefs.SetInt("ConsecutiveDeathsLimit", PlayerPrefs.GetInt("ConsecutiveDeathsLimit", 3) + 3);
         }
+
+        string stageMode = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("menu.stage.interface_info." + stageManager.stageMode);
+        if (stageMode == null)
+            stageMode = stageManager.stageMode;
         
-        stageSpecsInfo.GetComponent<Text>().text = stageManager.currentLvl + "." + stageManager.currentStage + " - " + stageManager.stageMode;
+        stageSpecsInfo.GetComponent<Text>().text = stageManager.currentLvl + "." + stageManager.currentStage + " - " + stageMode;
 
         if (PlayerPrefs.GetInt("ShowButtonHint", 0) == 0)
         {
@@ -153,7 +157,19 @@ public class MenusManager : MonoBehaviour
         auxTrans = pauseMenu.transform.Find("LevelText");
         if (auxTrans == null)
             return;
-        auxTrans.GetComponent<Text>().text = "Level " + stageManager.currentLvl + " - Stage " + stageManager.currentStage + "\n" + stageManager.stageMode;
+
+        string levelLoc = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("menu.stage.pause_menu.level");
+        if (levelLoc == null)
+            levelLoc = "Level";
+
+        string stageLoc = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("menu.stage.pause_menu.stage");
+        if (stageLoc == null)
+            stageLoc = "Stage";
+        
+        string stageMode = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("menu.stage.interface_info." + stageManager.stageMode);
+        if (stageMode == null)
+            stageMode = stageManager.stageMode;
+        auxTrans.GetComponent<Text>().text = levelLoc + " " + stageManager.currentLvl + " - " + stageLoc + " " + stageManager.currentStage + "\n" + stageMode;
     }
 
     public void StageCleared()
@@ -170,7 +186,16 @@ public class MenusManager : MonoBehaviour
         auxTrans = stageClearedMenu.transform.Find("LevelText");
         if (auxTrans == null)
             return;
-        auxTrans.GetComponent<Text>().text = "Level " + stageManager.currentLvl + " - Stage " + stageManager.currentStage;
+
+        string levelLoc = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("menu.stage.pause_menu.level");
+        if (levelLoc == null)
+            levelLoc = "Level";
+
+        string stageLoc = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("menu.stage.pause_menu.stage");
+        if (stageLoc == null)
+            stageLoc = "Stage";
+
+        auxTrans.GetComponent<Text>().text = (levelLoc + " " + stageManager.currentLvl + " - " + stageLoc + " " + stageManager.currentStage).ToUpper();
     }
 
     public void GameOver(String deadCode)
@@ -178,13 +203,20 @@ public class MenusManager : MonoBehaviour
         messageOnScreen = true;
         Time.timeScale = 0f;
         Transform auxTrans = gameOverMenu.transform.Find("GameOverText");
+        string messageLoc;
         switch (deadCode)
         {
             case "health":
-                auxTrans.GetComponent<Text>().text = "Energy exhausted\nOh no, you've evaporated :(";
+                messageLoc = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("message.stage.game_over_health");
+                if (messageLoc == null)
+                    messageLoc = "Energy exhausted\nOh no, you've evaporated :(";
+                auxTrans.GetComponent<Text>().text = messageLoc;
                 break;
             case "heat":
-                auxTrans.GetComponent<Text>().text = "Stage too hot!\nOh no, you've evaporated :(";
+                messageLoc = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("message.stage.game_over_heat");
+                if (messageLoc == null)
+                    messageLoc = "Stage too hot!\nOh no, you've evaporated :(";
+                auxTrans.GetComponent<Text>().text = messageLoc;
                 break;
             case "no_flower":
                 auxTrans.GetComponent<Text>().text = "No more flowers\nOh no, the biome can't be settle :(";
@@ -200,7 +232,16 @@ public class MenusManager : MonoBehaviour
         auxTrans = gameOverMenu.transform.Find("LevelText");
         if (auxTrans == null)
             return;
-        auxTrans.GetComponent<Text>().text = "Level " + stageManager.currentLvl + " - Stage " + stageManager.currentStage;
+        
+        string levelLoc = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("menu.stage.pause_menu.level");
+        if (levelLoc == null)
+            levelLoc = "Level";
+
+        string stageLoc = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("menu.stage.pause_menu.stage");
+        if (stageLoc == null)
+            stageLoc = "Stage";
+
+        auxTrans.GetComponent<Text>().text = (levelLoc + " " + stageManager.currentLvl + " - " + stageLoc + " " + stageManager.currentStage).ToUpper();
     }
 
     public void LevelCleared()
@@ -210,14 +251,78 @@ public class MenusManager : MonoBehaviour
         levelClearedMenu.SetActive(true);
         shader.SetActive(true);
         isPaused = true;
+
         Transform auxTrans = levelClearedMenu.transform.Find("WorldMapButton");
         if (auxTrans == null)
             return;
         auxTrans.GetComponent<Button>().Select();
+
+        // label? Livello xxx ripulito?
         auxTrans = levelClearedMenu.transform.Find("LevelText");
-        if (auxTrans == null)
-            return;
-        auxTrans.GetComponent<Text>().text = "Level " + stageManager.currentLvl + " - Stage " + stageManager.currentStage;
+        string levelLoc = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("menu.stage.pause_menu.level");
+        if (levelLoc == null)
+            levelLoc = "Level";
+        string stageLoc = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("menu.stage.pause_menu.stage");
+        if (stageLoc == null)
+            stageLoc = "Stage";
+        if (auxTrans != null)
+            auxTrans.GetComponent<Text>().text = (levelLoc + " " + stageManager.currentLvl + " - " + stageLoc + " " + stageManager.currentStage).ToUpper();
+
+
+        auxTrans = levelClearedMenu.transform.Find("Title");
+        string nameWarticle = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("content.trophy." + stageManager.trophyName + ".name_w_article");
+        if (nameWarticle == null)
+            nameWarticle = "the XXX";
+        string title1, title2;
+        if (stageManager.bossTransform != null)
+        {
+            title1 = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("message.stage.level_clear.titleBoss");
+            if (title1 == null)
+                title1 = "You released the waters of ";
+            title2 = "";
+        }
+        else
+        {
+            title1 = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("message.stage.level_clear.title1");
+            if (title1 == null)
+                title1 = "You saved ";
+            title2 = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("message.stage.level_clear.title2");
+            if (title2 == null)
+                title2 = " from fire";
+        }
+        if (auxTrans != null)
+            auxTrans.GetComponent<Text>().text = (title1 + nameWarticle + title2).ToUpper();
+
+        auxTrans = levelClearedMenu.transform.Find("ImageBox").Find("ImageNameBox").Find("ImageName");
+        string latinName = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("content.trophy." + stageManager.trophyName + ".latin_name");
+        if (latinName == null)
+            latinName = "XXXum";
+        if (auxTrans != null)
+        {
+            auxTrans.GetComponent<Text>().text = latinName.ToUpper();
+            auxTrans.GetComponent<FitBoxText>().Resize();
+        }
+
+        auxTrans = levelClearedMenu.transform.Find("DescriptionBox").Find("DescriptionText");
+        string description = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("content.trophy." + stageManager.trophyName + ".description");
+        if (description == null)
+            description = "Lorem ipsum ...";
+        if (auxTrans != null)
+        {
+            auxTrans.GetComponent<Text>().text = description;
+            auxTrans.GetComponent<FitBoxText>().Resize();
+        }
+
+        auxTrans = levelClearedMenu.transform.Find("DescriptionBox").Find("DescriptionTitleBox").Find("DescriptionTitle");
+        string prize = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("content.trophy." + stageManager.trophyName + ".prize");
+        if (prize != null)
+        {
+            if (auxTrans != null)
+            {
+                auxTrans.GetComponent<Text>().text = prize;
+                auxTrans.GetComponent<FitBoxText>().Resize();
+            }
+        }
     }
 
     public void Resume()

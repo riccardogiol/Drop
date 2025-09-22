@@ -9,6 +9,8 @@ public class FitBoxText : MonoBehaviour
     public Vector2 padding = new Vector2(40, 20);
 
     public bool textResize = true;
+    public bool vertical = false;
+    int minSize = 10;
 
     void Awake()
     {
@@ -33,7 +35,18 @@ public class FitBoxText : MonoBehaviour
 
         if (textResize)
         {
-            float ratio = (minWidth + padding.x) / boxRectTransf.sizeDelta.x;
+            float ratio;
+            if (vertical)
+            {
+                while (textComp.fontSize > minSize && minHeight > boxRectTransf.sizeDelta.y)
+                {
+                    textComp.fontSize--;
+                    settings.fontSize = textComp.fontSize;
+                    minHeight = gen.GetPreferredHeight(textComp.text, settings) / textComp.pixelsPerUnit;
+                }
+                return;
+            }
+            ratio = (minWidth + padding.x) / boxRectTransf.sizeDelta.x;
             if (ratio < 1)
                 return;
             textComp.fontSize = (int)(textComp.fontSize / ratio);

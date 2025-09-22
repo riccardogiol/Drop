@@ -10,6 +10,7 @@ public class StageManager : MonoBehaviour
     public int currentLvl = 1;
     public int currentStage = 1;
     public string stageMode = "puzzle";
+    public string trophyName = "";
 
     public bool finalStage = false;
     public Transform bossTransform;
