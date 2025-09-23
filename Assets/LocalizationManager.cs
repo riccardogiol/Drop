@@ -33,14 +33,6 @@ public class LocalizationManager : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        foreach (var kvp in dict)
-        {
-            Debug.Log(kvp.Key + ": " + kvp.Value);
-        }
-    }
-
     public string Get(string key)
     {
         if (dict.ContainsKey(key))

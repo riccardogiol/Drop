@@ -1202,6 +1202,7 @@ MonoBehaviour:
   boxRectTransf: {fileID: 0}
   padding: {x: 40, y: 20}
   textResize: 1
+  vertical: 0
 --- !u!114 &2771640751747040359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1328,6 +1329,7 @@ MonoBehaviour:
   boxRectTransf: {fileID: 0}
   padding: {x: 40, y: 20}
   textResize: 1
+  vertical: 0
 --- !u!1 &4976131210292080617
 GameObject:
   m_ObjectHideFlags: 0
@@ -1837,6 +1839,7 @@ MonoBehaviour:
   boxRectTransf: {fileID: 0}
   padding: {x: 40, y: 20}
   textResize: 1
+  vertical: 0
 --- !u!1 &4976131210770012291
 GameObject:
   m_ObjectHideFlags: 0
@@ -5368,6 +5371,24 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4976131209943099109}
     m_Modifications:
+    - target: {fileID: 2144237894003903098, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1211791476, guid: cbf7ba1b7fe1e472f9f8a48a62200b08,
+        type: 3}
+    - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
+      propertyPath: powerSprite
+      value: 
+      objectReference: {fileID: -1642179920, guid: a5f5cff02846d4d2bb107c10703df02a,
+        type: 3}
+    - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
+      propertyPath: upgradeSprite
+      value: 
+      objectReference: {fileID: 1211791476, guid: cbf7ba1b7fe1e472f9f8a48a62200b08,
+        type: 3}
     - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
       propertyPath: upgradeTitleKey
@@ -5502,6 +5523,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6124894807732539106, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
+      propertyPath: buttonKeyCode
+      value: Super4Purchased
+      objectReference: {fileID: 0}
+    - target: {fileID: 6124894807732539106, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
+      propertyPath: unlockingCode
+      value: Lvl20
       objectReference: {fileID: 0}
     - target: {fileID: 6124894807732539106, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
@@ -5955,6 +5986,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4976131211145673690}
     m_Modifications:
+    - target: {fileID: 2144237894003903098, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -449359555, guid: cbf7ba1b7fe1e472f9f8a48a62200b08,
+        type: 3}
+    - target: {fileID: 4753454132115049656, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
+      propertyPath: unlockingCode
+      value: Lvl20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
+      propertyPath: powerSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 040f63dee5c584e8b9360b6881820379,
+        type: 3}
+    - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
+      propertyPath: upgradeSprite
+      value: 
+      objectReference: {fileID: -449359555, guid: cbf7ba1b7fe1e472f9f8a48a62200b08,
+        type: 3}
     - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
       propertyPath: upgradeTitleKey
@@ -6092,6 +6146,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6124894807732539106, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
+      propertyPath: buttonKeyCode
+      value: Hero4Purchased
+      objectReference: {fileID: 0}
+    - target: {fileID: 6124894807732539106, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
+      propertyPath: unlockingCode
+      value: Lvl20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6124894807732539106, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
       propertyPath: previousUpgrade
       value: 
       objectReference: {fileID: 1292880094245407618}
@@ -6120,7 +6184,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1883813071, guid: a5f5cff02846d4d2bb107c10703df02a,
+      objectReference: {fileID: 794653391, guid: cbf7ba1b7fe1e472f9f8a48a62200b08,
         type: 3}
     - target: {fileID: 4753454132115049656, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
@@ -6147,7 +6211,7 @@ PrefabInstance:
         type: 3}
       propertyPath: upgradeSprite
       value: 
-      objectReference: {fileID: 1883813071, guid: a5f5cff02846d4d2bb107c10703df02a,
+      objectReference: {fileID: 794653391, guid: cbf7ba1b7fe1e472f9f8a48a62200b08,
         type: 3}
     - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
@@ -6342,6 +6406,24 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4976131209943099109}
     m_Modifications:
+    - target: {fileID: 2144237894003903098, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -676715921, guid: cbf7ba1b7fe1e472f9f8a48a62200b08,
+        type: 3}
+    - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
+      propertyPath: powerSprite
+      value: 
+      objectReference: {fileID: -1642179920, guid: a5f5cff02846d4d2bb107c10703df02a,
+        type: 3}
+    - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
+      propertyPath: upgradeSprite
+      value: 
+      objectReference: {fileID: -676715921, guid: cbf7ba1b7fe1e472f9f8a48a62200b08,
+        type: 3}
     - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
       propertyPath: upgradeTitleKey
@@ -6464,6 +6546,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6124894807732539106, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
+      propertyPath: buttonKeyCode
+      value: Super3Purchased
+      objectReference: {fileID: 0}
+    - target: {fileID: 6124894807732539106, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
       propertyPath: previousUpgrade
       value: 
       objectReference: {fileID: 1292880095345440706}
@@ -6504,7 +6591,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1969915230, guid: 44cb95de99dd34db8b648d38584357fd,
+      objectReference: {fileID: 1516895724, guid: cbf7ba1b7fe1e472f9f8a48a62200b08,
         type: 3}
     - target: {fileID: 4753454132115049656, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
@@ -6525,7 +6612,7 @@ PrefabInstance:
         type: 3}
       propertyPath: upgradeSprite
       value: 
-      objectReference: {fileID: 1969915230, guid: 44cb95de99dd34db8b648d38584357fd,
+      objectReference: {fileID: 1516895724, guid: cbf7ba1b7fe1e472f9f8a48a62200b08,
         type: 3}
     - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
@@ -6934,7 +7021,7 @@ PrefabInstance:
     - target: {fileID: 3609857410889989769, guid: 0523bb4d062064c4eb935a51509597a0,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3609857410889989770, guid: 0523bb4d062064c4eb935a51509597a0,
         type: 3}
@@ -7203,7 +7290,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -53960899, guid: a5f5cff02846d4d2bb107c10703df02a,
+      objectReference: {fileID: 552754287, guid: cbf7ba1b7fe1e472f9f8a48a62200b08,
         type: 3}
     - target: {fileID: 4753454132115049656, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
@@ -7230,7 +7317,7 @@ PrefabInstance:
         type: 3}
       propertyPath: upgradeSprite
       value: 
-      objectReference: {fileID: -53960899, guid: a5f5cff02846d4d2bb107c10703df02a,
+      objectReference: {fileID: 552754287, guid: cbf7ba1b7fe1e472f9f8a48a62200b08,
         type: 3}
     - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
@@ -7716,6 +7803,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4976131210803801059}
     m_Modifications:
+    - target: {fileID: 2144237894003903098, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1516895724, guid: cbf7ba1b7fe1e472f9f8a48a62200b08,
+        type: 3}
     - target: {fileID: 4753454132115049656, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
       propertyPath: unlockingCode
@@ -7741,7 +7834,7 @@ PrefabInstance:
         type: 3}
       propertyPath: upgradeSprite
       value: 
-      objectReference: {fileID: 853531895, guid: a5f5cff02846d4d2bb107c10703df02a,
+      objectReference: {fileID: 1516895724, guid: cbf7ba1b7fe1e472f9f8a48a62200b08,
         type: 3}
     - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
@@ -7956,6 +8049,24 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4976131211145673690}
     m_Modifications:
+    - target: {fileID: 2144237894003903098, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1883813071, guid: a5f5cff02846d4d2bb107c10703df02a,
+        type: 3}
+    - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
+      propertyPath: powerSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 040f63dee5c584e8b9360b6881820379,
+        type: 3}
+    - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
+      propertyPath: upgradeSprite
+      value: 
+      objectReference: {fileID: 1883813071, guid: a5f5cff02846d4d2bb107c10703df02a,
+        type: 3}
     - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
       propertyPath: upgradeTitleKey
@@ -8075,6 +8186,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6124894807732539106, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
+      propertyPath: buttonKeyCode
+      value: Hero3Purchased
       objectReference: {fileID: 0}
     - target: {fileID: 6124894807732539106, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
@@ -8368,6 +8484,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4976131211240571619}
     m_Modifications:
+    - target: {fileID: 2144237894003903098, guid: de436ba04c1844f32b4ede2a37909ee1,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -413833768, guid: cbf7ba1b7fe1e472f9f8a48a62200b08,
+        type: 3}
     - target: {fileID: 4753454132115049656, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
       propertyPath: unlockingCode
@@ -8387,7 +8509,7 @@ PrefabInstance:
         type: 3}
       propertyPath: upgradeSprite
       value: 
-      objectReference: {fileID: 853531895, guid: a5f5cff02846d4d2bb107c10703df02a,
+      objectReference: {fileID: -413833768, guid: cbf7ba1b7fe1e472f9f8a48a62200b08,
         type: 3}
     - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}

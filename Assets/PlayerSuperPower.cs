@@ -17,6 +17,7 @@ public class PlayerSuperPower : MonoBehaviour
 
     public float currentValue = 0;
     int maxValue = 5;
+    float countdownRatio = 1.0f;
 
     bool superState = false;
     
@@ -57,8 +58,11 @@ public class PlayerSuperPower : MonoBehaviour
             upgradeLvl++;
             currentValue += 2;
         }
-        if(PlayerPrefs.GetInt(unlockingCode4, 0) == 1)
+        if (PlayerPrefs.GetInt(unlockingCode4, 0) == 1)
+        {
             upgradeLvl++;
+            countdownRatio *= 1.5f;
+        }
         if(PlayerPrefs.GetInt(unlockingCode5, 0) == 1)
             upgradeLvl++;
     }
@@ -95,7 +99,7 @@ public class PlayerSuperPower : MonoBehaviour
     {
         if(superState)
         {
-            currentValue -= Time.deltaTime/1.5f;
+            currentValue -= Time.deltaTime/countdownRatio;
             barManager.UpdateSlider(currentValue);
             if(currentValue <= 0)
             {
@@ -126,7 +130,7 @@ public class PlayerSuperPower : MonoBehaviour
         if(PlayerPrefs.GetInt(unlockingCode2, 0) == 1)
             playgroundManager.MakeRain(true, true, true, false, true);
 
-        if (PlayerPrefs.GetInt(unlockingCode4, 0) == 1)
+        if (PlayerPrefs.GetInt(unlockingCode5, 0) == 1)
         {
             Transform spot = playgroundManager.GetRandomFlame();
             if (spot != null)

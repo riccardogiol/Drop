@@ -39,6 +39,7 @@ public class PlaygroundManager : MonoBehaviour
     public bool bossWin = false;
 
     //public bool winByFlower = true;
+    readonly string heroUnlockingCode4 = "Hero2Purchased";
 
     bool reachedWinningCondition;
 
@@ -69,6 +70,9 @@ public class PlaygroundManager : MonoBehaviour
             loseProgressionPerc -= 0.05f;
 
         reachedWinningCondition = false;
+
+        if (PlayerPrefs.GetInt(heroUnlockingCode4, 0) == 1)
+            rainProgressionPerc -= 0.05f;
     }
 
     void Start()

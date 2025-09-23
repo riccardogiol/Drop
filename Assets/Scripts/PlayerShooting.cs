@@ -116,7 +116,7 @@ public class PlayerShooting : MonoBehaviour
         {
             playerShield.DamageShield(2);
             bullet = Instantiate(iceBulletPrefab, shootingPoint.position + (Vector3)(playerDirection.lastDirection * 0.2f), Quaternion.LookRotation(Vector3.forward, playerDirection.lastDirection));
-            bullet.GetComponent<Bullet>().damage = bulletDamage * 2;
+            bullet.GetComponent<Bullet>().damage = bulletDamage + 2;
         }
         else
         {
