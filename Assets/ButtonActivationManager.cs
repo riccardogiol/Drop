@@ -33,7 +33,8 @@ public class ButtonActivationManager : MonoBehaviour
         {
             if (button != null)
                 button.interactable = false;
-            image.sprite = lockedSprite;
+            image.color = new Color(0.2f, 0.2f, 0.2f);
+            //image.sprite = lockedSprite;
             locked = true;
         }
 

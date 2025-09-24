@@ -82,6 +82,7 @@ public class LevelTileManager : MonoBehaviour
 
     public void StartLevel(int stageCode = 1)
     {
-        messageManager.ShowLevelMessage(codeLvl, stageCode);
+        //messageManager.ShowLevelMessage(codeLvl, stageCode);
+        messageManager.ShowStagePanel(codeLvl, stageCode);
     }
 }

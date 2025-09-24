@@ -46,6 +46,9 @@ public class StoreDisplayManager : MonoBehaviour
             description.text = localizedText;
         else
             description.text = upgradeTitleKey;
+        FitBoxText fitBoxText = description.GetComponent<FitBoxText>();
+        if (fitBoxText != null)
+            fitBoxText.Resize();
 
         priceText.text = "" + upgradePrice;
         price = upgradePrice;
