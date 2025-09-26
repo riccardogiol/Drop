@@ -6,6 +6,7 @@ public class MapMessageManager : MonoBehaviour
     public GameObject shader;
     public GameObject storeMessage;
     public StagePanelManager stagePanelManager;
+    public GameObject CollectionOpening;
     public static bool messageOnScreen = false;
 
     void Awake()
@@ -37,7 +38,15 @@ public class MapMessageManager : MonoBehaviour
         shader.SetActive(true);
         messageOnScreen = true;
     }
-    
+
+    public void ShowCollectionPanel()
+    {
+        if (messageOnScreen)
+            return;
+        CollectionOpening.SetActive(true);
+        shader.SetActive(true);
+        messageOnScreen = true;
+    }
 
     public void ExitMessage(GameObject message)
     {

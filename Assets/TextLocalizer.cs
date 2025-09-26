@@ -5,14 +5,20 @@ public class TextLocalizer : MonoBehaviour
 {
     public string key = "point.format";
     FitBoxText fitBoxText;
+    Text textComponent;
 
     public bool upperCase = false;
 
     void Awake()
     {
-        Text textComponent = GetComponent<Text>();
+        textComponent = GetComponent<Text>();
         fitBoxText = GetComponent<FitBoxText>();
 
+        Localize();
+    }
+
+    public void Localize()
+    {
         if (textComponent == null)
             return;
         string localizedText = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get(key);

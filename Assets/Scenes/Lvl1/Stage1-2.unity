@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 21771679}
   - component: {fileID: 21771681}
   - component: {fileID: 21771680}
+  - component: {fileID: 21771682}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -182,11 +183,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 652f7165b7c30ab46af6c4aad90a639b, type: 2}
-    m_FontSize: 40
+    m_Font: {fileID: 12800000, guid: a90c5f665414b42689567ecb6d4abc4e, type: 3}
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 4
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -194,7 +195,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: continue
+  m_Text: CONTINUE
 --- !u!222 &21771681
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -203,6 +204,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 21771678}
   m_CullTransparentMesh: 1
+--- !u!114 &21771682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 21771678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0358f4ffce594fa99c89cb99d26fc64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: menu.general.continue
+  upperCase: 1
 --- !u!1 &60295223
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,6 +229,7 @@ GameObject:
   - component: {fileID: 60295224}
   - component: {fileID: 60295226}
   - component: {fileID: 60295225}
+  - component: {fileID: 60295227}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -262,11 +278,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 585188cdc4600544eb408bee749e4b3a, type: 3}
-    m_FontSize: 40
+    m_Font: {fileID: 12800000, guid: a90c5f665414b42689567ecb6d4abc4e, type: 3}
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 4
+    m_MinSize: 2
     m_MaxSize: 54
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -274,7 +290,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Reservoir
+  m_Text: RESERVOIR
 --- !u!222 &60295226
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -283,6 +299,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 60295223}
   m_CullTransparentMesh: 1
+--- !u!114 &60295227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 60295223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0358f4ffce594fa99c89cb99d26fc64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: message.tutorial.reservoir.title
+  upperCase: 1
 --- !u!1001 &79998392
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6604,6 +6634,7 @@ GameObject:
   - component: {fileID: 220558010}
   - component: {fileID: 220558012}
   - component: {fileID: 220558011}
+  - component: {fileID: 220558013}
   m_Layer: 5
   m_Name: Description
   m_TagString: Untagged
@@ -6652,8 +6683,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 652f7165b7c30ab46af6c4aad90a639b, type: 2}
-    m_FontSize: 28
+    m_Font: {fileID: 12800000, guid: a90c5f665414b42689567ecb6d4abc4e, type: 3}
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -6673,6 +6704,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 220558009}
   m_CullTransparentMesh: 1
+--- !u!114 &220558013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220558009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0358f4ffce594fa99c89cb99d26fc64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: message.tutorial.reservoir.description
+  upperCase: 0
 --- !u!1 &241792110
 GameObject:
   m_ObjectHideFlags: 0
@@ -6707,7 +6752,7 @@ RectTransform:
   - {fileID: 1810170665}
   - {fileID: 1645039364}
   m_Father: {fileID: 573872598}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -6726,6 +6771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9504f594d16146c3b7a38932c3e1e94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  previousMessage: {fileID: 0}
   nextMessage: {fileID: 0}
   turnShaderOff: 0
   shader: {fileID: 0}
@@ -7106,7 +7152,7 @@ PrefabInstance:
     - target: {fileID: 6924485055866696843, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 7474827322298110750, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
@@ -7452,6 +7498,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: tutorial
       objectReference: {fileID: 0}
+    - target: {fileID: 889871386376449291, guid: 4317a480abfeb4491af35141a980d8e0,
+        type: 3}
+      propertyPath: key
+      value: message.tutorial.2.description_title
+      objectReference: {fileID: 0}
     - target: {fileID: 1316667429294487053, guid: 4317a480abfeb4491af35141a980d8e0,
         type: 3}
       propertyPath: m_Name
@@ -7466,6 +7517,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: clear the stage
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439015704083054839, guid: 4317a480abfeb4491af35141a980d8e0,
+        type: 3}
+      propertyPath: key
+      value: message.tutorial.2.image_title
       objectReference: {fileID: 0}
     - target: {fileID: 3988468883263415162, guid: 4317a480abfeb4491af35141a980d8e0,
         type: 3}
@@ -7485,6 +7541,11 @@ PrefabInstance:
 
         Careful! Estinguish
         the flames will cost energy from Drop''s reservoir. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5881879254021947857, guid: 4317a480abfeb4491af35141a980d8e0,
+        type: 3}
+      propertyPath: key
+      value: message.tutorial.2.title
       objectReference: {fileID: 0}
     - target: {fileID: 6492353852897020932, guid: 4317a480abfeb4491af35141a980d8e0,
         type: 3}
@@ -7515,6 +7576,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8054707919760776150, guid: 4317a480abfeb4491af35141a980d8e0,
+        type: 3}
+      propertyPath: key
+      value: message.tutorial.2.description
       objectReference: {fileID: 0}
     - target: {fileID: 8060892999146475439, guid: 4317a480abfeb4491af35141a980d8e0,
         type: 3}
@@ -7661,6 +7727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9504f594d16146c3b7a38932c3e1e94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  previousMessage: {fileID: 0}
   nextMessage: {fileID: 241792110}
   turnShaderOff: 1
   shader: {fileID: 573872599}
@@ -8616,6 +8683,7 @@ MonoBehaviour:
   currentLvl: 1
   currentStage: 2
   stageMode: puzzle
+  trophyName: 
   finalStage: 0
   bossTransform: {fileID: 0}
   menusManager: {fileID: 573872597}

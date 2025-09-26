@@ -174,6 +174,11 @@ PrefabInstance:
         These springs
         create water droplets around them at regular intervals'
       objectReference: {fileID: 0}
+    - target: {fileID: 5881879254021947857, guid: 4317a480abfeb4491af35141a980d8e0,
+        type: 3}
+      propertyPath: key
+      value: message.tutorial.water_spring.title
+      objectReference: {fileID: 0}
     - target: {fileID: 6240186650355223396, guid: 4317a480abfeb4491af35141a980d8e0,
         type: 3}
       propertyPath: m_SizeDelta.y
@@ -218,6 +223,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8054707919760776150, guid: 4317a480abfeb4491af35141a980d8e0,
+        type: 3}
+      propertyPath: key
+      value: message.tutorial.water_spring.description
       objectReference: {fileID: 0}
     - target: {fileID: 8583086801311270259, guid: 4317a480abfeb4491af35141a980d8e0,
         type: 3}
@@ -1394,6 +1404,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 618544435773036372, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 634472582219926895, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_Text
@@ -1403,6 +1418,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 908560418753210320, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1715595830711995674, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
@@ -1628,7 +1648,7 @@ PrefabInstance:
     - target: {fileID: 2396537561442032236, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2476064941540019042, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
@@ -1814,7 +1834,7 @@ PrefabInstance:
     - target: {fileID: 8584349168261066136, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7b202ae4dba84871811aa7c44bc43e3, type: 3}
@@ -1866,6 +1886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9504f594d16146c3b7a38932c3e1e94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  previousMessage: {fileID: 0}
   nextMessage: {fileID: 0}
   turnShaderOff: 0
   shader: {fileID: 0}
@@ -2047,6 +2068,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71606232f6a1f405ab748a75268d3cba, type: 3}
+--- !u!1001 &1392986220
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2167920916196089602, guid: 56baacc0dd4494dab96f265951acc43d,
+        type: 3}
+      propertyPath: m_Name
+      value: LocalizationManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2167920916196089603, guid: 56baacc0dd4494dab96f265951acc43d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2167920916196089603, guid: 56baacc0dd4494dab96f265951acc43d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 16.405766
+      objectReference: {fileID: 0}
+    - target: {fileID: 2167920916196089603, guid: 56baacc0dd4494dab96f265951acc43d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.7167287
+      objectReference: {fileID: 0}
+    - target: {fileID: 2167920916196089603, guid: 56baacc0dd4494dab96f265951acc43d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.12568995
+      objectReference: {fileID: 0}
+    - target: {fileID: 2167920916196089603, guid: 56baacc0dd4494dab96f265951acc43d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2167920916196089603, guid: 56baacc0dd4494dab96f265951acc43d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2167920916196089603, guid: 56baacc0dd4494dab96f265951acc43d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2167920916196089603, guid: 56baacc0dd4494dab96f265951acc43d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2167920916196089603, guid: 56baacc0dd4494dab96f265951acc43d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2167920916196089603, guid: 56baacc0dd4494dab96f265951acc43d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2167920916196089603, guid: 56baacc0dd4494dab96f265951acc43d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 56baacc0dd4494dab96f265951acc43d, type: 3}
 --- !u!224 &1613306966 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2163175346783930883, guid: c7b202ae4dba84871811aa7c44bc43e3,
@@ -13910,6 +14000,7 @@ MonoBehaviour:
   currentLvl: 3
   currentStage: 3
   stageMode: action
+  trophyName: 
   finalStage: 0
   bossTransform: {fileID: 0}
   menusManager: {fileID: 1207991583}

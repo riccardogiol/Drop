@@ -1053,7 +1053,7 @@ PrefabInstance:
     - target: {fileID: 3609857410207415843, guid: 0523bb4d062064c4eb935a51509597a0,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -127
+      value: -175
       objectReference: {fileID: 0}
     - target: {fileID: 3609857410207415843, guid: 0523bb4d062064c4eb935a51509597a0,
         type: 3}
@@ -1129,7 +1129,7 @@ PrefabInstance:
     - target: {fileID: 3609857410889989770, guid: 0523bb4d062064c4eb935a51509597a0,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 330
+      value: 377.83
       objectReference: {fileID: 0}
     - target: {fileID: 3609857410889989770, guid: 0523bb4d062064c4eb935a51509597a0,
         type: 3}
@@ -1314,6 +1314,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Yvalue: -120
   Xvalue: 0
+--- !u!1 &480002871 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3609857409221905820, guid: 0523bb4d062064c4eb935a51509597a0,
+    type: 3}
+  m_PrefabInstance: {fileID: 480002868}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &480002872 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3609857409803512875, guid: 0523bb4d062064c4eb935a51509597a0,
+    type: 3}
+  m_PrefabInstance: {fileID: 480002868}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &480002873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480002871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0358f4ffce594fa99c89cb99d26fc64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: message.tutorial.scout_cloud.description
+  upperCase: 0
+--- !u!114 &480002874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480002872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0358f4ffce594fa99c89cb99d26fc64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: message.tutorial.scout_cloud.title
+  upperCase: 1
 --- !u!1001 &554380413
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1405,6 +1445,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 618544435773036372, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 634472582219926895, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_Text
@@ -1418,7 +1463,7 @@ PrefabInstance:
     - target: {fileID: 908560418753210320, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1715595830711995674, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
@@ -1825,7 +1870,7 @@ PrefabInstance:
     - target: {fileID: 8584349168261066136, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7b202ae4dba84871811aa7c44bc43e3, type: 3}
@@ -1859,6 +1904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9504f594d16146c3b7a38932c3e1e94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  previousMessage: {fileID: 0}
   nextMessage: {fileID: 0}
   turnShaderOff: 0
   shader: {fileID: 0}
@@ -7267,6 +7313,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: tutorial
       objectReference: {fileID: 0}
+    - target: {fileID: 889871386376449291, guid: 4317a480abfeb4491af35141a980d8e0,
+        type: 3}
+      propertyPath: key
+      value: message.tutorial.3.description_title
+      objectReference: {fileID: 0}
     - target: {fileID: 1006309256713261825, guid: 4317a480abfeb4491af35141a980d8e0,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -7302,6 +7353,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: Description
       objectReference: {fileID: 0}
+    - target: {fileID: 3439015704083054839, guid: 4317a480abfeb4491af35141a980d8e0,
+        type: 3}
+      propertyPath: key
+      value: message.tutorial.3.image_title
+      objectReference: {fileID: 0}
     - target: {fileID: 3988468883263415162, guid: 4317a480abfeb4491af35141a980d8e0,
         type: 3}
       propertyPath: m_Sprite
@@ -7318,6 +7374,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: The scout cloud assists Drop identifying the energy from flames and
         waterdrops on the scene
+      objectReference: {fileID: 0}
+    - target: {fileID: 5881879254021947857, guid: 4317a480abfeb4491af35141a980d8e0,
+        type: 3}
+      propertyPath: key
+      value: message.tutorial.3.title
       objectReference: {fileID: 0}
     - target: {fileID: 6492353852897020932, guid: 4317a480abfeb4491af35141a980d8e0,
         type: 3}
@@ -7348,6 +7409,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8054707919760776150, guid: 4317a480abfeb4491af35141a980d8e0,
+        type: 3}
+      propertyPath: key
+      value: message.tutorial.3.description
       objectReference: {fileID: 0}
     - target: {fileID: 8060892999146475439, guid: 4317a480abfeb4491af35141a980d8e0,
         type: 3}
@@ -7765,6 +7831,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1137948137}
   m_CullTransparentMesh: 1
+--- !u!1001 &1165232532
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2167920916196089602, guid: 56baacc0dd4494dab96f265951acc43d,
+        type: 3}
+      propertyPath: m_Name
+      value: LocalizationManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2167920916196089603, guid: 56baacc0dd4494dab96f265951acc43d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2167920916196089603, guid: 56baacc0dd4494dab96f265951acc43d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 16.405766
+      objectReference: {fileID: 0}
+    - target: {fileID: 2167920916196089603, guid: 56baacc0dd4494dab96f265951acc43d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.7167287
+      objectReference: {fileID: 0}
+    - target: {fileID: 2167920916196089603, guid: 56baacc0dd4494dab96f265951acc43d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.12568995
+      objectReference: {fileID: 0}
+    - target: {fileID: 2167920916196089603, guid: 56baacc0dd4494dab96f265951acc43d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2167920916196089603, guid: 56baacc0dd4494dab96f265951acc43d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2167920916196089603, guid: 56baacc0dd4494dab96f265951acc43d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2167920916196089603, guid: 56baacc0dd4494dab96f265951acc43d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2167920916196089603, guid: 56baacc0dd4494dab96f265951acc43d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2167920916196089603, guid: 56baacc0dd4494dab96f265951acc43d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2167920916196089603, guid: 56baacc0dd4494dab96f265951acc43d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 56baacc0dd4494dab96f265951acc43d, type: 3}
 --- !u!1 &1186357756
 GameObject:
   m_ObjectHideFlags: 0
@@ -8074,6 +8209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9504f594d16146c3b7a38932c3e1e94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  previousMessage: {fileID: 0}
   nextMessage: {fileID: 373245685}
   turnShaderOff: 0
   shader: {fileID: 0}
@@ -8744,6 +8880,7 @@ MonoBehaviour:
   currentLvl: 3
   currentStage: 1
   stageMode: puzzle
+  trophyName: 
   finalStage: 0
   bossTransform: {fileID: 0}
   menusManager: {fileID: 1995099241}
@@ -11487,6 +11624,7 @@ MonoBehaviour:
   - {fileID: 8823847308693507972}
   - {fileID: 205035694737381742}
   movementKeys: {fileID: 0}
+  logoRef: {fileID: 0}
 --- !u!224 &1715595832408704157
 RectTransform:
   m_ObjectHideFlags: 0

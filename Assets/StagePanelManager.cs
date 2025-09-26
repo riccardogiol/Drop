@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class StagePanelManager : MonoBehaviour
 {
     public Image stageImage;
+    public Image cloudHiding;
     public Text titleText;
     public Text descriptionText;
 
@@ -12,16 +13,6 @@ public class StagePanelManager : MonoBehaviour
     public int stage;
 
     bool isCompleted;
-
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-
-    }
 
     public void UpdateInfo(int levelCode, int stageCode)
     {
@@ -75,7 +66,7 @@ public class StagePanelManager : MonoBehaviour
         complLine += aux + ": ";
         if (isCompleted)
             aux = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("menu.world.comp_yes");
-        else 
+        else
             aux = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("menu.world.comp_no");
         if (aux == null)
             aux = "no";
@@ -97,17 +88,17 @@ public class StagePanelManager : MonoBehaviour
         descriptionText.text = typeLine + diffLine + complLine + tropLine;
 
         //replaceImage
-        Sprite sprite;
-        if (!isCompleted)
-            sprite = Resources.Load<Sprite>("Sprites/StageOverview/locked");
-        else
-        {
-            sprite = Resources.Load<Sprite>("Sprites/StageOverview/" + levelCode + "-" + stageCode);
-            if (sprite == null)
-                sprite = Resources.Load<Sprite>("Sprites/StageOverview/1-1");
-        }
+        Sprite[] sprites = Resources.LoadAll<Sprite>("Sprites/StageOverview/lvl" + levelCode);
+        Sprite sprite = System.Array.Find(sprites, s => s.name == stageCode.ToString());
+        if (sprite == null)
+            sprite = Resources.Load<Sprite>("Sprites/StageOverview/1-1");
         stageImage.sprite = sprite;
-        // resize? fit?
+        if (!isCompleted)
+        {
+            cloudHiding.enabled = true;
+            stageImage.color = new Color(0.5f, 0.5f, 0.5f);
+        } else
+            cloudHiding.enabled = false;
     }
 
     public void PlayStage()

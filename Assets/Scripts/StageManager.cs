@@ -30,10 +30,9 @@ public class StageManager : MonoBehaviour
     float startTime;
     int stageInstanceCode;
 
-    void Start()
+    void Awake()
     {
-        FindObjectOfType<AudioManager>().Stop("OpeningMusic");
-        FindObjectOfType<AudioManager>().Play("BackgroundMusic");
+
         playerMovementPath = FindObjectOfType<PlayerMovementPath>();
         playerMovementKeys = FindObjectOfType<PlayerMovementKeys>();
         cameraAnimationManager = FindObjectOfType<CameraAnimationManager>();
@@ -42,9 +41,16 @@ public class StageManager : MonoBehaviour
         playerAnimationManager = FindObjectOfType<PlayerAnimationManager>();
 
         playerEventPrams = FindObjectOfType<PlayerEventParamsManager>();
-        
+
         PlayerPrefs.SetInt("LastStagePlayed", currentStage);
         PlayerPrefs.SetInt("LastLevelPlayed", currentLvl);
+
+    }
+
+    void Start()
+    {
+        FindObjectOfType<AudioManager>().Stop("OpeningMusic");
+        FindObjectOfType<AudioManager>().Play("BackgroundMusic");
 
         startTime = Time.time;
         stageInstanceCode = UnityEngine.Random.Range(1, 999999999);

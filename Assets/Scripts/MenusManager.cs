@@ -29,8 +29,13 @@ public class MenusManager : MonoBehaviour
     public GameObject[] buttonHints;
     public GameObject movementKeys;
 
+    public Image logoRef;
+
     void Start()
     {
+        Sprite logoSprite = Resources.Load<Sprite>("Sprites/Elements/" + stageManager.trophyName + "_burnt");
+        logoRef.sprite = logoSprite;
+
         Transform auxTrans = transform.Find("ProgressionBar");
         if (auxTrans == null)
             return;
@@ -323,6 +328,11 @@ public class MenusManager : MonoBehaviour
                 auxTrans.GetComponent<FitBoxText>().Resize();
             }
         }
+
+        auxTrans = levelClearedMenu.transform.Find("ImageBox").Find("Image");
+        Sprite trophySprite = Resources.Load<Sprite>("Sprites/Elements/" + stageManager.trophyName);
+        if (auxTrans != null)
+            auxTrans.GetComponent<Image>().sprite = trophySprite;
     }
 
     public void Resume()

@@ -28,7 +28,15 @@
         "completed": "Completato",
         "trophy": "Trofeo",
         "comp_no": "No",
-        "comp_yes": "Si"
+        "comp_yes": "Si",
+        "collection": "Collezione",
+        "biome_elements": "Elementi del Bioma",
+        "name": "Nome",
+        "description": "Descrizione",
+        "altitude": "Altitudine",
+        "enemies": "Nemici",
+        "common_fires": "fuochi comuni",
+        "wildfires": "incendi"
       },
       "stage": {
         "interface_info" : {
@@ -79,9 +87,102 @@
           "titleBoss" : "Hai liberato le acque ",
           "obtain1" : "+",
           "obtain2" : " punti esperienza"
+        },
+        "difficulty" : {
+          "title" : "Difficoltà",
+          "description" : "Puoi modificare la difficoltà dalla mappa"
         }
       },
-      "tutorial":{}
+      "world": {
+        "camera" : {
+          "title" : "Camera",
+          "description": "Trascina la mappa"
+        },
+        "movement" : {
+          "title" : "",
+          "description": "W,D: prossimo stage\nS,A: stage precedente"
+        },
+        "movement2" : {
+          "title" : "Movimento",
+          "description": "Tocca il bottone dello stage"
+        },
+        "difficulty" : {
+          "title" : "Difficoltà",
+          "description": "Scegli la modalità"
+        },
+        "upgrade" : {
+          "title" : "Potenzia",
+          "description": "Disponibile"
+        },
+        "touch_upgrade" : {
+          "title" : "Potere Onda",
+          "description": "Seleziona per attivare"
+        },
+        "adjust_difficulty" : {
+          "title" : "Puoi modificare la difficoltà:"
+        },
+        "easy_mode" : {
+          "title" : "Facile",
+          "description" : "Goditi una esperienza più rilassata"
+        },
+        "normal_mode" : {
+          "title" : "Normale",
+          "description" : "Affronta un'esperienza più sfidante"
+        },
+        "demo_banner" : {
+          "title" : "Fine Demo"
+        },
+        "wave_banner" : {
+          "title" : "Richiesta Onda"
+        }
+      },
+      "tutorial":{
+        "1" : {
+          "title" : "Salva la foresta",
+          "image_title" : "Erba bruciata",
+          "description_title": "Ripulisci lo stage",
+          "description" : "Drop può bagnare l'erba bruciata camminandoci sopra.\nLo stage é ripulito quando Drop bagna tutta l'erba bruciata"
+        },
+        "progression_bar" : {
+          "title" : "Progressi",
+          "image_title" : "",
+          "description_title": "",
+          "description" : "Indica il livello di progressione della pulizia dello stage"
+        },
+        "movement" : {
+          "title" : "Movimento",
+          "description" : "Usa i tasti WASD o le Frecce",
+          "description_touch" : "Tocca la casella"
+        },
+        "2" : {
+          "title" : "Salva la foresta",
+          "image_title" : "Fiamma",
+          "description_title": "Ripulisci lo stage",
+          "description" : "Drop può estinguere le fiamme toccandole.\nATTENTO! Estinguere le fiamme consuma Energia d'Acqua dalla Riserva di Drop"
+        },
+        "reservoir" : {
+          "title" : "Riserva",
+          "description" : "Riserva di Energia d'Acqua"
+        },
+        "3" : {
+          "title" : "Dettagli dello stage",
+          "image_title" : "Nuvola Scout",
+          "description_title": "Descrizione Potere",
+          "description" : "La Nuvola Scout aiuta Drop mostrando lo stage dall'alto e mostrando l'energia di fuochi e gocce d'acqua"
+        },
+        "scout_cloud" : {
+          "title" : "Nuvola Scout",
+          "description" : "Da informazioni sullo stage"
+        },
+        "water_wasted" : {
+          "title" : "Limiti Riserva",
+          "description" : "Hai sprecato dell'acqua, la tua riserva era quasi piena"
+        },
+        "water_spring" : {
+          "title" : "Sorgente d'acqua",
+          "description" : "D'ora in poi puoi trovare delle Sorgenti d'acqua nei livelli.\nQueste sorgenti creano Gocce d'acqua intorno a loro ad intervalli regolari"
+        }
+      }
     },
     "content":{
       "story": {
@@ -258,6 +359,24 @@
           "latin_name" : "Fonte d'acqua",
           "description" : "I ghiacciai si formano dall’accumulo e dalla compressione della neve nel corso di molti anni. Rilasciando lentamente acqua dolce che alimenta fiumi e laghi, svolgono un ruolo fondamentale nel sostenere flora, fauna e ecosistemi, regolando il flusso idrico e contribuendo all’equilibrio naturale delle montagne.",
           "prize" : "Hai salvato la foresta!"
+        }
+      },
+      "enemy": {
+        "patrol": {
+          "name" : "Pattuglia",
+          "description" : "Il fuoco Pattuglia controlla un'area circoscritta."
+        },
+        "shooter": {
+          "name" : "Tiratore",
+          "description" : "Il fuoco Tiratore spara un colpo di fuoco nella direzione verso cui guarda"
+        },
+        "chaser": {
+          "name" : "Inseguitore",
+          "description" : "Il fuoco Inseguitore si avvicina a Drop per il percorso più corto disponibile"
+        },
+        "boss1": {
+          "name" : "Generatore",
+          "description" : "L'Incendio Generatore crea piccole fiammelle animate ad intervalli regolari intorno a se"
         }
       },
       "upgrade":{

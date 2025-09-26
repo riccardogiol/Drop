@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SwitchMessage : MonoBehaviour
 {
-    public GameObject nextMessage;
+    public GameObject previousMessage, nextMessage;
     public bool turnShaderOff = false;
     public GameObject shader;
 
@@ -12,7 +12,10 @@ public class SwitchMessage : MonoBehaviour
             shader.SetActive(false);
 
         nextMessage.SetActive(true);
-        gameObject.SetActive(false);
+        if (previousMessage == null)
+            gameObject.SetActive(false);
+        else
+            previousMessage.SetActive(false);
         return;
     }
 }
