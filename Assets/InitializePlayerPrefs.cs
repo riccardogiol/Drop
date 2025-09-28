@@ -36,16 +36,16 @@ public class InitializePlayerPrefs : MonoBehaviour
         PlayerPrefs.SetInt("Lvl13", 1);
         PlayerPrefs.SetInt("Lvl14", 1);
         PlayerPrefs.SetInt("Lvl15", 1);
-        PlayerPrefs.SetInt("Lvl16", 0);
-        PlayerPrefs.SetInt("Lvl17", 0);
-        PlayerPrefs.SetInt("Lvl18", 0);
-        PlayerPrefs.SetInt("Lvl19", 0);
-        PlayerPrefs.SetInt("Lvl20", 0);
-        PlayerPrefs.SetInt("Lvl21", 0);
-        PlayerPrefs.SetInt("Lvl22", 0);
-        PlayerPrefs.SetInt("Lvl23", 0);
-        PlayerPrefs.SetInt("Lvl24", 0);
-        PlayerPrefs.SetInt("Lvl25", 0);
+        PlayerPrefs.SetInt("Lvl16", 1);
+        PlayerPrefs.SetInt("Lvl17", 1);
+        PlayerPrefs.SetInt("Lvl18", 1);
+        PlayerPrefs.SetInt("Lvl19", 1);
+        PlayerPrefs.SetInt("Lvl20", 1);
+        PlayerPrefs.SetInt("Lvl21", 1);
+        PlayerPrefs.SetInt("Lvl22", 1);
+        PlayerPrefs.SetInt("Lvl23", 1);
+        PlayerPrefs.SetInt("Lvl24", 1);
+        PlayerPrefs.SetInt("Lvl25", 1);
 
         PlayerPrefs.SetInt("LastStagePlayed", 1);
         PlayerPrefs.SetInt("LastLevelPlayed", 15);

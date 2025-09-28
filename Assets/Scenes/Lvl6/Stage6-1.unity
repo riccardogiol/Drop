@@ -843,7 +843,7 @@ PrefabInstance:
     - target: {fileID: 1057004412570358078, guid: 4317a480abfeb4491af35141a980d8e0,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1316667429294487053, guid: 4317a480abfeb4491af35141a980d8e0,
         type: 3}
@@ -865,6 +865,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: clear the stage
       objectReference: {fileID: 0}
+    - target: {fileID: 3439015704083054839, guid: 4317a480abfeb4491af35141a980d8e0,
+        type: 3}
+      propertyPath: key
+      value: message.tutorial.10.image_title
+      objectReference: {fileID: 0}
     - target: {fileID: 3988468883263415162, guid: 4317a480abfeb4491af35141a980d8e0,
         type: 3}
       propertyPath: m_Sprite
@@ -881,6 +886,21 @@ PrefabInstance:
       propertyPath: m_Text
       value: "In this area of the forest there are red mushrooms. \nThe spores of
         these mushrooms block drop's shooting power."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5881879254021947857, guid: 4317a480abfeb4491af35141a980d8e0,
+        type: 3}
+      propertyPath: key
+      value: message.tutorial.10.title
+      objectReference: {fileID: 0}
+    - target: {fileID: 6240186650355223396, guid: 4317a480abfeb4491af35141a980d8e0,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -80
+      objectReference: {fileID: 0}
+    - target: {fileID: 6240186650355223396, guid: 4317a480abfeb4491af35141a980d8e0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6492353852897020932, guid: 4317a480abfeb4491af35141a980d8e0,
         type: 3}
@@ -911,6 +931,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8054707919760776150, guid: 4317a480abfeb4491af35141a980d8e0,
+        type: 3}
+      propertyPath: key
+      value: message.tutorial.10.description
       objectReference: {fileID: 0}
     - target: {fileID: 8060892999146475439, guid: 4317a480abfeb4491af35141a980d8e0,
         type: 3}
@@ -1704,6 +1729,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd6ffd4e69bf3417dbb0ec2ca2504593, type: 3}
+--- !u!1001 &909265083
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2167920916196089602, guid: 56baacc0dd4494dab96f265951acc43d,
+        type: 3}
+      propertyPath: m_Name
+      value: LocalizationManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2167920916196089603, guid: 56baacc0dd4494dab96f265951acc43d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2167920916196089603, guid: 56baacc0dd4494dab96f265951acc43d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 16.405766
+      objectReference: {fileID: 0}
+    - target: {fileID: 2167920916196089603, guid: 56baacc0dd4494dab96f265951acc43d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.7167287
+      objectReference: {fileID: 0}
+    - target: {fileID: 2167920916196089603, guid: 56baacc0dd4494dab96f265951acc43d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.12568995
+      objectReference: {fileID: 0}
+    - target: {fileID: 2167920916196089603, guid: 56baacc0dd4494dab96f265951acc43d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2167920916196089603, guid: 56baacc0dd4494dab96f265951acc43d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2167920916196089603, guid: 56baacc0dd4494dab96f265951acc43d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2167920916196089603, guid: 56baacc0dd4494dab96f265951acc43d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2167920916196089603, guid: 56baacc0dd4494dab96f265951acc43d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2167920916196089603, guid: 56baacc0dd4494dab96f265951acc43d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2167920916196089603, guid: 56baacc0dd4494dab96f265951acc43d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 56baacc0dd4494dab96f265951acc43d, type: 3}
 --- !u!1001 &928703076
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8350,10 +8444,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 618544435773036372, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 883560211532010066, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 908560418753210320, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1715595830711995674, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
@@ -8598,7 +8702,7 @@ PrefabInstance:
     - target: {fileID: 2396537561442032236, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3250874807881098396, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
@@ -8711,7 +8815,7 @@ PrefabInstance:
     - target: {fileID: 7479097401432682229, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 7493151242473289198, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
@@ -8736,7 +8840,7 @@ PrefabInstance:
     - target: {fileID: 8584349168261066136, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7b202ae4dba84871811aa7c44bc43e3, type: 3}
@@ -9446,6 +9550,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 35
       objectReference: {fileID: 0}
+    - target: {fileID: 1057004412570358078, guid: 4317a480abfeb4491af35141a980d8e0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1316667429294487053, guid: 4317a480abfeb4491af35141a980d8e0,
         type: 3}
       propertyPath: m_Name
@@ -9460,6 +9569,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: clear the stage
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439015704083054839, guid: 4317a480abfeb4491af35141a980d8e0,
+        type: 3}
+      propertyPath: key
+      value: message.tutorial.9.image_title
       objectReference: {fileID: 0}
     - target: {fileID: 3988468883263415162, guid: 4317a480abfeb4491af35141a980d8e0,
         type: 3}
@@ -9479,6 +9593,21 @@ PrefabInstance:
 
         the
         wave take 2 energy points from all flames it touches.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5881879254021947857, guid: 4317a480abfeb4491af35141a980d8e0,
+        type: 3}
+      propertyPath: key
+      value: message.tutorial.9.title
+      objectReference: {fileID: 0}
+    - target: {fileID: 6240186650355223396, guid: 4317a480abfeb4491af35141a980d8e0,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -80
+      objectReference: {fileID: 0}
+    - target: {fileID: 6240186650355223396, guid: 4317a480abfeb4491af35141a980d8e0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6492353852897020932, guid: 4317a480abfeb4491af35141a980d8e0,
         type: 3}
@@ -9509,6 +9638,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8054707919760776150, guid: 4317a480abfeb4491af35141a980d8e0,
+        type: 3}
+      propertyPath: key
+      value: message.tutorial.9.description
       objectReference: {fileID: 0}
     - target: {fileID: 8060892999146475439, guid: 4317a480abfeb4491af35141a980d8e0,
         type: 3}
@@ -9640,6 +9774,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9504f594d16146c3b7a38932c3e1e94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  previousMessage: {fileID: 0}
   nextMessage: {fileID: 496654639}
   turnShaderOff: 0
   shader: {fileID: 0}
@@ -11570,6 +11705,7 @@ MonoBehaviour:
   currentLvl: 6
   currentStage: 1
   stageMode: tutorial
+  trophyName: 
   finalStage: 0
   bossTransform: {fileID: 0}
   menusManager: {fileID: 1207991583}

@@ -5820,10 +5820,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 618544435773036372, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 883560211532010066, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 908560418753210320, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1715595830711995674, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
@@ -6146,7 +6156,7 @@ PrefabInstance:
     - target: {fileID: 8584349168261066136, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7b202ae4dba84871811aa7c44bc43e3, type: 3}
@@ -6579,6 +6589,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3439015704083054839, guid: 4317a480abfeb4491af35141a980d8e0,
+        type: 3}
+      propertyPath: key
+      value: content.enemy.chasing.name
+      objectReference: {fileID: 0}
     - target: {fileID: 3988468883263415162, guid: 4317a480abfeb4491af35141a980d8e0,
         type: 3}
       propertyPath: m_Sprite
@@ -6598,6 +6613,11 @@ PrefabInstance:
 
         So study their movements before taking
         action to extinguish them all!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5881879254021947857, guid: 4317a480abfeb4491af35141a980d8e0,
+        type: 3}
+      propertyPath: key
+      value: message.tutorial.enemy_description.title
       objectReference: {fileID: 0}
     - target: {fileID: 6240186650355223396, guid: 4317a480abfeb4491af35141a980d8e0,
         type: 3}
@@ -6638,6 +6658,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8054707919760776150, guid: 4317a480abfeb4491af35141a980d8e0,
+        type: 3}
+      propertyPath: key
+      value: content.enemy.chasing.name
       objectReference: {fileID: 0}
     - target: {fileID: 8060892999146475439, guid: 4317a480abfeb4491af35141a980d8e0,
         type: 3}
@@ -7088,6 +7113,7 @@ MonoBehaviour:
   currentLvl: 11
   currentStage: 1
   stageMode: puzzle
+  trophyName: 
   finalStage: 0
   bossTransform: {fileID: 0}
   menusManager: {fileID: 1207991583}
