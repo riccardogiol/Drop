@@ -21,7 +21,8 @@ public class ProgressionBarFiller : MonoBehaviour
     {
         logo.GetComponent<Image>().sprite = sprite;
         logo.GetComponent<Image>().SetNativeSize();
-        logo.GetComponent<RectTransform>().anchoredPosition = position;
+        if (position != Vector3.zero)
+            logo.GetComponent<RectTransform>().anchoredPosition = position;
         logo.GetComponent<RectTransform>().localScale = scale;
     }
 

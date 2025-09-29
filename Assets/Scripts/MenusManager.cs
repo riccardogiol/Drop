@@ -353,6 +353,15 @@ public class MenusManager : MonoBehaviour
         messageOnScreen = false;
     }
 
+    public void ShowMessage(GameObject message)
+    {
+        isPaused = true;
+        messageOnScreen = true;
+        Time.timeScale = 0f;
+        shader.SetActive(true);
+        message.SetActive(true);
+    }
+    
     public void ExitMessage(GameObject message)
     {
         Time.timeScale = 1f;
@@ -360,7 +369,7 @@ public class MenusManager : MonoBehaviour
         message.SetActive(false);
         if (overlayMessages.Length > 0)
         {
-            foreach(GameObject om in overlayMessages)
+            foreach (GameObject om in overlayMessages)
                 om.SetActive(true);
         }
         isPaused = false;

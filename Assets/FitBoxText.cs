@@ -38,7 +38,7 @@ public class FitBoxText : MonoBehaviour
             float ratio;
             if (vertical)
             {
-                while (textComp.fontSize > minSize && minHeight > boxRectTransf.sizeDelta.y)
+                while (textComp.fontSize > minSize && minHeight > (boxRectTransf.sizeDelta.y - padding.y*2))
                 {
                     textComp.fontSize--;
                     settings.fontSize = textComp.fontSize;

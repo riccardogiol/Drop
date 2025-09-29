@@ -28,7 +28,7 @@ public class BossLifeManager : MonoBehaviour
     void Start()
     {
         progressionBarFiller.ShowBossLife();
-        progressionBarFiller.SetImage(logoOnProgBar, new Vector3(70, -30, 0), Vector3.one * 1.1f);
+        progressionBarFiller.SetImage(logoOnProgBar, Vector3.zero, Vector3.one * 1.1f);
         progressionBarFiller.SetMaxValue(1);
         progressionBarFiller.SetMinValue(0);
         progressionBarFiller.SetValue(1);
