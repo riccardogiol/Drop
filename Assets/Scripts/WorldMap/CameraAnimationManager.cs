@@ -110,7 +110,9 @@ public class CameraAnimationManager : MonoBehaviour
             {
                 cinemachineVirtualCamera.m_Lens.OrthographicSize = finishZoom;
                 ///if (!EagleEyeMode.inEagleMode)
-                    ///inGameZoom = finishZoom;
+                ///inGameZoom = finishZoom;
+                if (zoomInButton != null)
+                    inGameZoom = finishZoom;
                 stableZoom = true;
             }
         }

@@ -324,7 +324,7 @@ public class MenusManager : MonoBehaviour
         {
             if (auxTrans != null)
             {
-                auxTrans.GetComponent<Text>().text = prize;
+                auxTrans.GetComponent<Text>().text = prize.ToUpper();
                 auxTrans.GetComponent<FitBoxText>().Resize();
             }
         }

@@ -6,7 +6,7 @@ public class PlayerWave : MonoBehaviour
     public GameObject wavePrefab;
     int waveEnergy = 2;
     int waveDamage = 2;
-    float cooldown = 1.5f;
+    float cooldown = 2.0f;
     float timer;
 
     public GameObject takeWaterGFX;
@@ -24,7 +24,7 @@ public class PlayerWave : MonoBehaviour
     readonly string unlockingCode3 = "Wave2Purchased";
     readonly string unlockingCode4 = "Wave3Purchased";
     readonly string unlockingCode5 = "Wave4Purchased";
-    readonly float cooldown2 = 0.8f;
+    readonly float cooldown2 = 1.0f;
 
     public int powerUsage;
 

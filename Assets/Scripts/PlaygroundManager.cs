@@ -581,7 +581,7 @@ public class PlaygroundManager : MonoBehaviour
             if (progressionPerc > (rainProgressionPerc + 0.05))
             {
                 isRaining = true;
-                MakeRain(true, false, true, false);
+                MakeRain(true, false, true, false); // raining manager?
                 tilemapEffectManager.SetFlowerSpreading(0.5f);
                 return;
             }

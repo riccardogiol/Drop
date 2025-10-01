@@ -54,6 +54,7 @@ public class ButtonActivationManager : MonoBehaviour
             if (condition)
             {
                 image.sprite = unlockedSprite;
+                image.color = new Color(1, 1, 1);
                 if (button != null)
                     button.interactable = true;
                 locked = false;

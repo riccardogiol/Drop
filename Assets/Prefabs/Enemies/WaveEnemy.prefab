@@ -248,7 +248,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 2b749524ae6af4843a3fb6c89f3ade03, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -494,14 +494,15 @@ MonoBehaviour:
   maxHealth: 8
   currentHealth: 8
   scaleGFX: 1
-  healthOnProgBar: 0
-  winningSceneTimer: 8
-  logoOnProgBar: {fileID: 0}
-  animator: {fileID: 0}
   enemyGFX: {fileID: 2878689735299882629}
   vaporBurstPrefab: {fileID: 2932825668177330008, guid: 5a0db5a8bb6544822be5283d9c96fc30,
     type: 3}
   flameParent: {fileID: 0}
+  isBoss: 0
+  healthOnProgBar: 0
+  winningSceneTimer: 8
+  logoOnProgBar: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!114 &5184621122123990544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -570,6 +571,8 @@ MonoBehaviour:
   timer: 4
   delay: 0.5
   spawnFlameProb: 0.1
+  countdownTimer: 1.5
+  numerOfFlames: 3
 --- !u!114 &3180399465683098504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -583,8 +586,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flameGFX: {fileID: 79869369363624551}
-  timer: 1
-  numberOfFlames: 0
 --- !u!1 &5848459264359273688
 GameObject:
   m_ObjectHideFlags: 0

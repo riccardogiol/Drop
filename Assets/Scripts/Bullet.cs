@@ -85,6 +85,8 @@ public class Bullet : MonoBehaviour
             case "DecorationNoFire":
                 if (other.GetComponent<RiverWave>() != null)
                     break;
+                if (other.GetComponent<PushTriggerAvalanche>() != null)
+                    break;
                 if (other.GetComponent<SparklerCharge>() != null)
                 {
                     other.GetComponent<SparklerCharge>().FillReservoir(damage);

@@ -203,7 +203,7 @@ PrefabInstance:
     - target: {fileID: 2749142577395328242, guid: 296c80d60ad4642d18495cc7f071187f,
         type: 3}
       propertyPath: spawnDropProb
-      value: 0.1
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 2749142577395328244, guid: 296c80d60ad4642d18495cc7f071187f,
         type: 3}
@@ -489,6 +489,16 @@ PrefabInstance:
       propertyPath: targets.Array.data[7].y
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5216817755464628960, guid: 6bb134c00edf74efd85ea0e64199baf8,
+        type: 3}
+      propertyPath: maxHealth
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 5216817755464628960, guid: 6bb134c00edf74efd85ea0e64199baf8,
+        type: 3}
+      propertyPath: currentHealth
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 5216817755464628962, guid: 6bb134c00edf74efd85ea0e64199baf8,
         type: 3}
       propertyPath: spawnFlameProbability
@@ -760,6 +770,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2811797860454942391, guid: ca1a8f2291ec7488c86157df88f34b14,
+        type: 3}
+      propertyPath: spawnDropProb
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5199020348406506345, guid: ca1a8f2291ec7488c86157df88f34b14,
         type: 3}
       propertyPath: m_Name
@@ -907,6 +922,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: animal Saved
+      objectReference: {fileID: 0}
+    - target: {fileID: 883560211532010066, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1715595830883914204, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}

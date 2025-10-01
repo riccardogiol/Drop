@@ -67,7 +67,8 @@
         "confirm": "Conferma",
         "space_key": "Spazio", 
         "shift_key": "Shift",
-        "play": "Gioca"
+        "play": "Gioca",
+        "unknown": "???"
       }
     },
     "message":{
@@ -203,6 +204,10 @@
         "rotation" : {
           "title" : "Rotazione",
           "description" : "Tocca Drop per ruotarlo"
+        },
+        "rotation2" : {
+          "title" : "Rotazione",
+          "description" : "Premi R per ruotare Drop"
         },
         "shoot" : {
           "title" : "Spara",
@@ -483,7 +488,7 @@
           "latin_name" : "Bryophyta e Lichenes",
           "description" : "Muschi e licheni sono organismi incredibilmente resistenti e versatili, capaci di prosperare su rocce, tronchi e terreni poveri delle Alpi. Contribuiscono a stabilizzare il suolo, trattenere l’umidità e creare microhabitat per insetti e piccoli organismi, arricchendo la biodiversità montana."
         },
-        "steinbeck" : {
+        "steinbock" : {
           "name" : "Stambecco",
           "name_w_article" : "lo stambecco",
           "latin_name" : "Capra ibex",
@@ -501,6 +506,39 @@
           "latin_name" : "Fonte d'acqua",
           "description" : "I ghiacciai si formano dall’accumulo e dalla compressione della neve nel corso di molti anni. Rilasciando lentamente acqua dolce che alimenta fiumi e laghi, svolgono un ruolo fondamentale nel sostenere flora, fauna e ecosistemi, regolando il flusso idrico e contribuendo all’equilibrio naturale delle montagne.",
           "prize" : "Hai salvato la foresta!"
+        },
+        "extra" : {
+          "holly" : {
+            "name" : "Pungitopo",
+            "name_w_article" : "il pungitopo",
+            "latin_name" : "Ruscus",
+            "description" : "Il pungitopo è un arbusto sempreverde con fusti appiattiti che sembrano foglie, terminanti in una punta pungente. In inverno produce bacche rosse ed è diffuso nei boschi mediterranei e sulle basse pendici delle Alpi."
+          },
+          "beech" : {
+            "name" : "Faggio",
+            "name_w_article" : "il faggio",
+            "latin_name" : "Fagus",
+            "description" : "Il faggio (Fagus sylvatica) è un albero caducifoglio tipico delle Prealpi e degli Appennini. Ha foglie ovali, grandi e lucide, che in autunno assumono colori giallo-rossastri. Forma boschi densi e ombrosi fino a 1.800 m"
+          },
+          "juniper" : {
+            "name" : "Ginepro",
+            "name_w_article" : "il ginepro",
+            "latin_name" : "Juniperus",
+            "description" : "Il ginepro comune è un arbusto sempreverde diffuso nelle Alpi fino a 2.500 m di quota. Ha foglie aghiformi pungenti, disposte a verticillo, e produce bacche blu-violacee aromatiche, usate in cucina"
+          },
+          "larch" : {
+            "name" : "Larice",
+            "name_w_article" : "il larice",
+            "latin_name" : "Larix",
+            "description" : "Il larice è una conifera tipica delle Alpi, unica tra le conifere europee ad essere caducifoglia. Ha aghi morbidi riuniti in ciuffi, che in autunno diventano giallo-oro prima di cadere, creando paesaggi spettacolari"
+          },
+          "m_pine" : {
+            "name" : "Pino mugo",
+            "name_w_article" : "il pino mugo",
+            "latin_name" : "Pinus mugo",
+            "description" : "Il pino mugo è una conifera sempreverde tipica delle Alpi. Cresce come arbusto prostrato o contorto, formando estesi tappeti verdi. Ha aghi corti e rigidi a coppie, e produce piccole pigne legnose."
+          }
+
         }
       },
       "enemy": {
@@ -652,26 +690,26 @@
       },
       "stage_info": {
         "level1" : {
-          "trophy": "",
+          "trophy": "bee",
           "stage1": {
-            "type": "",
-            "difficulty": ""
+            "type": "tutorial",
+            "difficulty": "tutorial"
           },
           "stage2": {
-            "type": "",
-            "difficulty": ""
+            "type": "puzzle",
+            "difficulty": "Facile"
           },
           "stage3": {
-            "type": "",
-            "difficulty": ""
+            "type": "azione",
+            "difficulty": "Facile"
           },
           "stage4": {
-            "type": "",
-            "difficulty": ""
+            "type": "puzzle",
+            "difficulty": "Normale"
           }
         },
         "level2" : {
-          "trophy": "bee",
+          "trophy": "oak",
           "stage1": {
             "type": "Puzzle",
             "difficulty": "Facile"
@@ -690,7 +728,7 @@
           }
         },
         "level3" : {
-          "trophy": "bee",
+          "trophy": "squirrel",
           "stage1": {
             "type": "Puzzle",
             "difficulty": "Facile"
@@ -709,7 +747,7 @@
           }
         },
         "level4" : {
-          "trophy": "bee",
+          "trophy": "fern",
           "stage1": {
             "type": "Puzzle",
             "difficulty": "Facile"
@@ -726,26 +764,2027 @@
             "type": "Puzzle",
             "difficulty": "Difficile"
           }
+        },
+        "level5" : {
+          "trophy": "spring",
+          "stage1": {
+            "type": "Boss",
+            "difficulty": "Difficile"
+          }
+        },
+        "level6" : {
+          "trophy": "deer",
+          "stage1": {
+            "type": "Puzzle",
+            "difficulty": "Facile"
+          },
+          "stage2": {
+            "type": "Puzzle",
+            "difficulty": "Normale"
+          },
+          "stage3": {
+            "type": "Azione",
+            "difficulty": "Normale"
+          },
+          "stage4": {
+            "type": "Puzzle",
+            "difficulty": "Difficile"
+          }
+        },
+        "level7" : {
+          "trophy": "birch",
+          "stage1": {
+            "type": "Puzzle",
+            "difficulty": "Facile"
+          },
+          "stage2": {
+            "type": "Puzzle",
+            "difficulty": "Normale"
+          },
+          "stage3": {
+            "type": "Azione",
+            "difficulty": "Normale"
+          },
+          "stage4": {
+            "type": "Puzzle",
+            "difficulty": "Difficile"
+          }
+        },
+        "level8" : {
+          "trophy": "woodpecker",
+          "stage1": {
+            "type": "Puzzle",
+            "difficulty": "Facile"
+          },
+          "stage2": {
+            "type": "Puzzle",
+            "difficulty": "Normale"
+          },
+          "stage3": {
+            "type": "Azione",
+            "difficulty": "Normale"
+          },
+          "stage4": {
+            "type": "Puzzle",
+            "difficulty": "Difficile"
+          }
+        },
+        "level9" : {
+          "trophy": "gentiana",
+          "stage1": {
+            "type": "Puzzle",
+            "difficulty": "Facile"
+          },
+          "stage2": {
+            "type": "Puzzle",
+            "difficulty": "Normale"
+          },
+          "stage3": {
+            "type": "Azione",
+            "difficulty": "Normale"
+          },
+          "stage4": {
+            "type": "Puzzle",
+            "difficulty": "Difficile"
+          }
+        },
+        "level10" : {
+          "trophy": "river",
+          "stage1": {
+            "type": "Boss",
+            "difficulty": "Difficile"
+          }
+        },
+        "level11" : {
+          "trophy": "butterfly",
+          "stage1": {
+            "type": "Puzzle",
+            "difficulty": "Normale"
+          },
+          "stage2": {
+            "type": "puzzle",
+            "difficulty": "Facile"
+          },
+          "stage3": {
+            "type": "azione",
+            "difficulty": "Facile"
+          },
+          "stage4": {
+            "type": "puzzle",
+            "difficulty": "Normale"
+          }
+        },
+        "level12" : {
+          "trophy": "spruce",
+          "stage1": {
+            "type": "Puzzle",
+            "difficulty": "Facile"
+          },
+          "stage2": {
+            "type": "Puzzle",
+            "difficulty": "Normale"
+          },
+          "stage3": {
+            "type": "Azione",
+            "difficulty": "Normale"
+          },
+          "stage4": {
+            "type": "Puzzle",
+            "difficulty": "Difficile"
+          }
+        },
+        "level13" : {
+          "trophy": "wolf",
+          "stage1": {
+            "type": "Puzzle",
+            "difficulty": "Facile"
+          },
+          "stage2": {
+            "type": "Puzzle",
+            "difficulty": "Normale"
+          },
+          "stage3": {
+            "type": "Azione",
+            "difficulty": "Normale"
+          },
+          "stage4": {
+            "type": "Puzzle",
+            "difficulty": "Difficile"
+          }
+        },
+        "level14" : {
+          "trophy": "thistle",
+          "stage1": {
+            "type": "Puzzle",
+            "difficulty": "Facile"
+          },
+          "stage2": {
+            "type": "Puzzle",
+            "difficulty": "Normale"
+          },
+          "stage3": {
+            "type": "Azione",
+            "difficulty": "Normale"
+          },
+          "stage4": {
+            "type": "Puzzle",
+            "difficulty": "Difficile"
+          }
+        },
+        "level15" : {
+          "trophy": "waterfall",
+          "stage1": {
+            "type": "Boss",
+            "difficulty": "Difficile"
+          }
+        },
+        "level16" : {
+          "trophy": "viper",
+          "stage1": {
+            "type": "Puzzle",
+            "difficulty": "Facile"
+          },
+          "stage2": {
+            "type": "Puzzle",
+            "difficulty": "Normale"
+          },
+          "stage3": {
+            "type": "Azione",
+            "difficulty": "Normale"
+          },
+          "stage4": {
+            "type": "Puzzle",
+            "difficulty": "Difficile"
+          }
+        },
+        "level17" : {
+          "trophy": "pine",
+          "stage1": {
+            "type": "Puzzle",
+            "difficulty": "Facile"
+          },
+          "stage2": {
+            "type": "Puzzle",
+            "difficulty": "Normale"
+          },
+          "stage3": {
+            "type": "Azione",
+            "difficulty": "Normale"
+          },
+          "stage4": {
+            "type": "Puzzle",
+            "difficulty": "Difficile"
+          }
+        },
+        "level18" : {
+          "trophy": "marmot",
+          "stage1": {
+            "type": "Puzzle",
+            "difficulty": "Facile"
+          },
+          "stage2": {
+            "type": "Puzzle",
+            "difficulty": "Normale"
+          },
+          "stage3": {
+            "type": "Azione",
+            "difficulty": "Normale"
+          },
+          "stage4": {
+            "type": "Puzzle",
+            "difficulty": "Difficile"
+          }
+        },
+        "level19" : {
+          "trophy": "alpenrose",
+          "stage1": {
+            "type": "Puzzle",
+            "difficulty": "Facile"
+          },
+          "stage2": {
+            "type": "Puzzle",
+            "difficulty": "Normale"
+          },
+          "stage3": {
+            "type": "Azione",
+            "difficulty": "Normale"
+          },
+          "stage4": {
+            "type": "Puzzle",
+            "difficulty": "Difficile"
+          }
+        },
+        "level20" : {
+          "trophy": "lake",
+          "stage1": {
+            "type": "Boss",
+            "difficulty": "Difficile"
+          }
+        },
+        "level21" : {
+          "trophy": "buzzard",
+          "stage1": {
+            "type": "Puzzle",
+            "difficulty": "Difficile"
+          },
+          "stage2": {
+            "type": "Puzzle",
+            "difficulty": "Difficile"
+          },
+          "stage3": {
+            "type": "Azione",
+            "difficulty": "Difficile"
+          },
+          "stage4": {
+            "type": "Puzzle",
+            "difficulty": "Estremo"
+          }
+        },
+        "level22" : {
+          "trophy": "musk",
+          "stage1": {
+            "type": "Puzzle",
+            "difficulty": "Difficile"
+          },
+          "stage2": {
+            "type": "Puzzle",
+            "difficulty": "Difficile"
+          },
+          "stage3": {
+            "type": "Azione",
+            "difficulty": "Difficile"
+          },
+          "stage4": {
+            "type": "Puzzle",
+            "difficulty": "Estremo"
+          }
+        },
+        "level23" : {
+          "trophy": "steinbock",
+          "stage1": {
+            "type": "Puzzle",
+            "difficulty": "Difficile"
+          },
+          "stage2": {
+            "type": "Puzzle",
+            "difficulty": "Difficile"
+          },
+          "stage3": {
+            "type": "Azione",
+            "difficulty": "Difficile"
+          },
+          "stage4": {
+            "type": "Puzzle",
+            "difficulty": "Estremo"
+          }
+        },
+        "level24" : {
+          "trophy": "edelweiss",
+          "stage1": {
+            "type": "Puzzle",
+            "difficulty": "Estremo"
+          },
+          "stage2": {
+            "type": "Puzzle",
+            "difficulty": "Estremo"
+          },
+          "stage3": {
+            "type": "Azione",
+            "difficulty": "Estremo"
+          },
+          "stage4": {
+            "type": "Puzzle",
+            "difficulty": "Estremo"
+          }
+        },
+        "level25" : {
+          "trophy": "glacier",
+          "stage1": {
+            "type": "Boss",
+            "difficulty": "Estremo"
+          }
         }
       }
     }
   },
   "eng": {
     "menu": {
-      "continue": "Continue",
-      "settings": "Settings"
+  "main": {
+    "continue": "Continue",
+    "new_game": "New Game",
+    "lets_start": "Let's Go!",
+    "settings": "Settings",
+    "quit": "Quit",
+    "music": "Music",
+    "sound": "Sound",
+    "hud_show": "Show HUD",
+    "hud_hide": "Hide HUD",
+    "chose_lang": "Choose Language"
+  },
+  "world": {
+    "world_map": "Map",
+    "normal_mode": "Normal Mode",
+    "easy_mode": "Easy Mode",
+    "upgrade": "Upgrade",
+    "reset_exp": "Reset EXP",
+    "active": "Active",
+    "no_exp": "No EXP",
+    "unlock": "Unlock",
+    "stage_selection": "Stage Selection",
+    "type": "Type",
+    "difficulty": "Difficulty",
+    "completed": "Completed",
+    "trophy": "Trophy",
+    "comp_no": "No",
+    "comp_yes": "Yes",
+    "collection": "Collection",
+    "biome_elements": "Biome Elements",
+    "name": "Name",
+    "description": "Description",
+    "altitude": "Altitude",
+    "enemies": "Enemies",
+    "common_fires": "Common Fires",
+    "wildfires": "Wildfires"
+  },
+  "stage": {
+    "interface_info" : {
+      "hp" : "HP",
+      "scout_cloud_info" : "Show ENG",
+      "super" : "Super!",
+      "puzzle" : "Puzzle",
+      "action" : "Action",
+      "boss" : "Boss",
+      "cost" : "CST",
+      "damage" : "DMG"
     },
-    "game": {
-      "pause": "Pause"
+    "pause_menu" : {
+      "pause" : "Pause",
+      "level" : "Level",
+      "stage" : "Stage",
+      "resume" : "Resume",
+      "settings" : "Settings",
+      "restart" : "Restart",
+      "quit" : "Quit",
+      "back_to_wm" : "Back to Map",
+      "to_next_stage" : "Go to Next Stage"
+    }
+  },
+  "general": {
+    "back": "Back",
+    "continue": "Continue",
+    "confirm": "Confirm",
+    "space_key": "Space",
+    "shift_key": "Shift",
+    "play": "Play",
+    "unknown": "???"
+  }
+    },
+    "message": {
+      "info": {
+  "new_game_disc": {
+    "title": "Start a new game?",
+    "description": "If you start a new game, previous saves will be lost"
+  },
+  "demo_end": {
+    "title": "And then?",
+    "description": "The demo ends here!\nDiscover in the full version:\n- new powers\n- new enemies\n- new challenges\n... and much more!",
+    "title2": "Stay Updated!",
+    "description2": "Follow the studio's Instagram page to stay updated on the game's progress!"
+  }
+},
+      "stage": {
+  "game_over_health": "WATER POINTS DEPLETED\nOh no, you've evaporated!",
+  "game_over_heat": "STAGE TOO HOT\nOh no, you've evaporated!",
+  "stage_clear": "GREAT!\nYou cleared the stage",
+  "level_clear": {
+    "title1": "You saved ",
+    "title2": " from the fire",
+    "titleBoss": "You freed the waters of ",
+    "obtain1": "+",
+    "obtain2": " experience points"
+  },
+  "difficulty": {
+    "title": "Difficulty",
+    "description": "You can change the difficulty from the map"
+  }
+},
+      "world": {
+  "camera": {
+    "title": "Camera",
+    "description": "Drag the map"
+  },
+  "movement": {
+    "title": "",
+    "description": "W,D: next stage\nS,A: previous stage"
+  },
+  "movement2": {
+    "title": "Movement",
+    "description": "Tap the stage button"
+  },
+  "difficulty": {
+    "title": "Difficulty",
+    "description": "Choose a mode"
+  },
+  "upgrade": {
+    "title": "Upgrade",
+    "description": "Available"
+  },
+  "touch_upgrade": {
+    "title": "Wave Power",
+    "description": "Select to activate"
+  },
+  "adjust_difficulty": {
+    "title": "You can change the difficulty:"
+  },
+  "easy_mode": {
+    "title": "Easy",
+    "description": "Enjoy a more relaxed experience"
+  },
+  "normal_mode": {
+    "title": "Normal",
+    "description": "Face a more challenging experience"
+  },
+  "demo_banner": {
+    "title": "Demo End"
+  },
+  "wave_banner": {
+    "title": "Wave Request"
+  }
+},
+     "tutorial": {
+  "1": {
+    "title": "Save the Forest",
+    "image_title": "Burnt Grass",
+    "description_title": "Clear the Stage",
+    "description": "Drop can water burnt grass by walking over it.\nThe stage is cleared when Drop water all the burnt grass."
+  },
+  "progression_bar": {
+    "title": "Progress",
+    "image_title": "",
+    "description_title": "",
+    "description": "Shows the stage clearing progress."
+  },
+  "movement": {
+    "title": "Movement",
+    "description": "Use WASD or Arrow keys",
+    "description_touch": "Tap the tile"
+  },
+  "2": {
+    "title": "Save the Forest",
+    "image_title": "Flame",
+    "description_title": "Clear the Stage",
+    "description": "Drop can extinguish flames by touching them.\nCAUTION! Extinguishing flames consumes Water Energy from Drop's Reservoir."
+  },
+  "reservoir": {
+    "title": "Reservoir",
+    "description": "Water Energy Reservoir"
+  },
+  "3": {
+    "title": "Stage Details",
+    "image_title": "Scout Cloud",
+    "description_title": "Power Description",
+    "description": "The Scout Cloud helps Drop by showing the stage from above and displaying the energy of fires and water drops."
+  },
+  "scout_cloud": {
+    "title": "Scout Cloud",
+    "description": "Provides stage information."
+  },
+  "water_wasted": {
+    "title": "Reservoir Limits",
+    "description": "You wasted water; your reservoir was almost full."
+  },
+  "water_spring": {
+    "title": "Water Spring",
+    "description": "You can now find Water Springs in levels.\nThese springs generate Water Drops around them at regular intervals."
+  },
+  "4": {
+    "title": "Save the Forest",
+    "image_title": "Burnt Bush",
+    "description_title": "Clear the Stage",
+    "description": "Drop can water burnt bushes by shooting them.\nThe stage is cleared once Drop waters all burnt grass and bushes."
+  },
+  "5": {
+    "title": "Extinguish Fire",
+    "image_title": "Spray",
+    "description_title": "Clear the Stage",
+    "description": "Drop can now extinguish flames by shooting a water projectile. The spray costs 2 Water Energy points from Drop's reservoir and deals 4 damage to enemies."
+  },
+  "rotation": {
+    "title": "Rotation",
+    "description": "Tap Drop to rotate it."
+  },
+  "rotation2": {
+    "title": "Rotation",
+    "description": "Press R to rotate Drop."
+  },
+  "shoot": {
+    "title": "Shoot",
+    "description": "Use Space to shoot."
+  },
+  "6": {
+    "title": "Save the Squirrel",
+    "description": "Save the animal using the Spray."
+  },
+  "7": {
+    "title": "Rock Step",
+    "image_title": "Right Step",
+    "description_title": "Clear the Stage",
+    "description": "Climbing altitude, you'll now encounter Rock Steps on the path.\nDrop can go down one side but cannot climb back up the other."
+  },
+  "8": {
+    "title": "Fire Boss",
+    "image_title": "Fire",
+    "description_title": "Clear the Stage",
+    "description": "Along the path you'll meet fearsome Fires! These blazes have unique behaviors and are harder to defeat. Extinguish them to free blocked Water Springs."
+  },
+  "9": {
+    "title": "Extinguish Fire",
+    "image_title": "Wave",
+    "description_title": "Clear the Stage",
+    "description": "Drop can now extinguish flames by creating a Wave around itself. The wave costs 2 Water Energy points from Drop's reservoir and deals 2 damage to flames and enemies."
+  },
+  "10": {
+    "title": "No Spray",
+    "image_title": "Amanita",
+    "description_title": "Clear the Stage",
+    "description": "This area of the forest has Amanitas.\nThe spores of this fungus prevent Drop from using the Spray."
+  },
+  "wave": {
+    "title": "Wave",
+    "description": "Use Shift to launch a Wave"
+  },
+  "11": {
+    "title": "A Wildfire Appeared!",
+    "image_title": "Wildfire",
+    "description_title": "Clear the Stage",
+    "description": "Deeper into the forest fire, you can now find wildfires with different behaviors that spread fire everywhere!"
+  },
+  "enemy_description": {
+    "title": "Fire Description",
+    "title_boss": "Wildfire Boss Description"
+  },
+  "12": {
+    "title": "Uncontrolled Flame Spread!",
+    "image_title": "Progression",
+    "description_title": "Clear the Stage",
+    "description": "While fighting wildfires, they spread fire everywhere.\nCAUTION! Don't let the fire spread beyond the point of no return, or the stage will become too hot and Drop will evaporate!"
+  },
+  "13": {
+    "title": "Recharge Water Drops",
+    "image_title": "Wave",
+    "description_title": "Clear the Stage",
+    "description": "Drop can recharge water drops with the Wave.\nThe Wave gives 2 Energy points to all drops it touches."
+  },
+  "14": {
+    "title": "New Element: Water Bomb",
+    "image_title": "Water Bomb",
+    "description_title": "Clear the Stage",
+    "description": "A Bomber Cloud dropped a bomb in the level.\nShoot the bomb to make it explode!"
+  },
+  "waterbomb": {
+    "title": "Make it Explode!",
+    "description": "Shoot the bomb."
+  },
+  "15": {
+    "title": "New Element: Water Bomb",
+    "image_title": "Water Bomb",
+    "description_title": "Clear the Stage",
+    "description": "Push the Water Bomb to move it wherever you want."
+  },
+  "waterbomb2": {
+    "title": "Move!",
+    "description": "Push the bomb."
+  },
+  "16": {
+    "title": "New Element: Water Bomb",
+    "image_title": "Water Bomb",
+    "description_title": "Clear the Stage",
+    "description": "Push the Water Bomb onto an enemy to make it explode and instantly extinguish it!"
+  },
+  "17": {
+    "title": "Make it Rain!",
+    "image_title": "Rain Limit",
+    "description_title": "Clear the Stage",
+    "description": "With the first part of the forest more humid, Storm Clouds can make it rain before you clear the stage.\nUse the rain to your advantage, leveraging the rain drops it generates."
+  },
+  "18": {
+    "title": "New Element: Rock Boulder",
+    "image_title": "Boulder",
+    "description_title": "Clear the Stage",
+    "description": "Climbing higher, you'll now encounter Rock Boulders on the path.\nUse them to your advantage by pushing them to block enemies or extinguish small flames."
+  },
+  "19": {
+    "title": "New Element: Dry Spring",
+    "image_title": "Dry Spring",
+    "description_title": "Clear the Stage",
+    "description": "Some Springs are completely drained. Recharge them to restore water flow."
+  },
+  "20": {
+    "title": "New Element: Perennial Snow",
+    "image_title": "Perennial Snow",
+    "description_title": "Clear the Stage",
+    "description": "Higher on the mountain, you'll find areas covered with Perennial Snow.\nTap an Ice Crystal to activate an Ice Shield that protects Drop for a short time."
+  },
+  "21": {
+    "title": "New Element: Wind",
+    "image_title": "North Wind",
+    "description_title": "Clear the Stage",
+    "description": "On the high slopes, you'll find strong wind points.\nWhen fire touches the wind, a scorching wave spreads in the wind's direction."
+  },
+  "22": {
+    "title": "New Element: Avalanche",
+    "image_title": "Avalanche",
+    "description_title": "Clear the Stage",
+    "description": "On the mountain top, there are many unstable rocks: a single touch can trigger an Avalanche that destroys all lower bushes along the path.\nUse Avalanches to your advantage to create passages and extinguish flames.\nCAUTION: some avalanches may block paths instead."
+  }
+}
+    },
+    "content" : {
+      "story": {
+  "intro1": {
+    "title": "Scene 1",
+    "label": "intro",
+    "description": "Once upon a time, there were happy little clouds that, floating above fields and forests, spread rain and made the land green."
+  },
+  "intro2": {
+    "title": "Scene 2",
+    "label": "intro",
+    "description": "One day, they saw evil smoke rising from a distant mountain: a fire was threatening the forest biome!"
+  },
+  "intro3": {
+    "title": "Scene 3",
+    "label": "intro",
+    "description": "So the clouds gathered and decided to send their little water hero to the ground: Drop, ready to Save the Forest!"
+  }
+},
+      "trophy" : {
+        "bee": {
+  "name": "Bee",
+  "name_w_article": "the bee",
+  "latin_name": "Apis Mellifera",
+  "description": "Bees are essential for biomes as pollinators, facilitating plant reproduction and biodiversity. Their role ensures crop growth, supports ecosystems, and maintains the interconnected web of life."
+},
+"oak": {
+  "name": "Oak",
+  "name_w_article": "the oak",
+  "latin_name": "Quercus pubescens",
+  "description": "The oak is a tall deciduous tree with deeply lobed leaves. A symbol of strength and longevity, it provides vital habitat for a wide variety of wildlife.",
+  "prize": "+2 Max Water Points"
+},
+"squirrel": {
+  "name": "Squirrel",
+  "name_w_article": "the squirrel",
+  "latin_name": "Sciurus vulgaris",
+  "description": "A small, agile rodent with a bushy tail. Skilled climber, feeds on nuts and seeds. Plays a key ecological role as a seed disperser and contributes to ecosystem balance by creating small burrows that provide shelter for insects or microorganisms.",
+  "prize": "Spray Power Unlocked"
+},
+"fern": {
+  "name": "Fern",
+  "name_w_article": "the fern",
+  "latin_name": "Dryopteris filix",
+  "description": "Ferns thrive in shady, humid alpine environments, stabilizing soil and preventing erosion. They provide shelter for insects and small animals, enhancing forest biodiversity. Their resilience helps maintain ecosystem balance in harsh mountain climates."
+},
+"spring": {
+  "name": "Spring",
+  "name_w_article": "the spring",
+  "latin_name": "Water Source",
+  "description": "A spring in the alpine biome provides a steady source of freshwater, supporting flora and fauna. It sustains aquatic ecosystems, prevents drought effects, and helps regulate groundwater levels, playing a crucial role in maintaining biodiversity and ecological balance.",
+  "prize": "Level 1 Upgrades Unlocked"
+},
+"deer": {
+  "name": "Fallow Deer",
+  "name_w_article": "the fallow deer",
+  "latin_name": "Dama dama",
+  "description": "Elegant herbivorous mammal, known for the males' antlers. Adapted to various habitats, it symbolizes gentleness and is vital to ecosystems as a grazer and seed disperser."
+},
+"birch": {
+  "name": "Birch",
+  "name_w_article": "the birch",
+  "latin_name": "Betula pendula",
+  "description": "Deciduous tree with distinctive white bark, thin branches, and serrated leaves. Resilient, symbolizes renewal, and is common in alpine forests."
+},
+"woodpecker": {
+  "name": "Woodpecker",
+  "name_w_article": "the woodpecker",
+  "latin_name": "Dendrocopos major",
+  "description": "Woodpeckers play a crucial role in alpine biomes, controlling insect populations and creating tree cavities used by other species. Their strong beaks help them forage in bark, supporting forest health and adapting to harsh mountain conditions."
+},
+"gentiana": {
+  "name": "Gentian",
+  "name_w_article": "the gentian",
+  "latin_name": "Gentiana lutea",
+  "description": "Gentian is a vibrant yellow alpine flower thriving on meadows and rocky slopes. It attracts pollinators like bees and butterflies and adapts to harsh mountain climates with deep roots and slow growth. Its sensitivity to environmental changes makes it an important climate change bioindicator."
+},
+"river": {
+  "name": "Stream",
+  "name_w_article": "the stream",
+  "latin_name": "Water Source",
+  "description": "An alpine stream flows through mountain valleys, fed by glaciers and precipitation. Provides freshwater, supports diverse flora and fauna, and shapes the landscape. Essential for ecosystems, it sustains amphibians, fish, and plants while regulating temperature and erosion.",
+  "prize": "Level 2 Upgrades Unlocked"
+},
+"butterfly": {
+  "name": "Butterfly",
+  "name_w_article": "the butterfly",
+  "latin_name": "Parnassius apollo",
+  "description": "Butterflies are key pollinators in the alpine biome, aiding plant reproduction and indicating ecosystem health. Their sensitivity to environmental changes makes them important bioindicators of climate change."
+},
+"spruce": {
+  "name": "Spruce",
+  "name_w_article": "the spruce",
+  "latin_name": "Picea abies",
+  "description": "The spruce is a tall, evergreen conifer dominating alpine forests. Its dense foliage shelters wildlife, while its seeds feed birds and mammals. Adapted to cold climates, it stabilizes soil, prevents erosion, and plays a vital role in mountain ecosystems."
+},
+"wolf": {
+  "name": "Wolf",
+  "name_w_article": "the wolf",
+  "latin_name": "Canis Lupus",
+  "description": "The wolf is an apex predator in alpine ecosystems, maintaining balance by controlling herbivore populations. It lives in forests and rocky terrains, hunting in packs. Its presence supports biodiversity, prevents overgrazing, and creates a healthier environment for plants and wildlife."
+},
+"thistle": {
+  "name": "Thistle",
+  "name_w_article": "the thistle",
+  "latin_name": "Carduus",
+  "description": "Thistle is a hardy alpine plant with spiny leaves and vibrant purple flowers. Provides nectar for pollinators like bees and butterflies, while its seeds feed birds. Well adapted to harsh conditions, it helps stabilize soil and enrich mountain biodiversity."
+},
+"waterfall": {
+  "name": "Waterfall",
+  "name_w_article": "the waterfall",
+  "latin_name": "Water Source",
+  "description": "A waterfall in the alpine biome oxygenates streams, supporting fish and aquatic life. Distributes freshwater to downstream ecosystems, nourishes plants, and shapes rocky landscapes. Its mist creates microhabitats for mosses and insects, enriching mountain biodiversity.",
+  "prize": "Level 3 Upgrades Unlocked"
+},
+"viper": {
+  "name": "Adder",
+  "name_w_article": "the adder",
+  "latin_name": "Vipera berus",
+  "description": "The adder is an alpine viper found in meadows, forests, and rocky areas. Predator of small mammals and insects, it maintains ecosystem balance and serves as a bioindicator of fragile mountain environments."
+},
+"pine": {
+  "name": "Swiss Pine",
+  "name_w_article": "the pine",
+  "latin_name": "Pinus cembra",
+  "description": "The pine is an evergreen conifer thriving on alpine rocky terrains. Its long needle-like leaves and seeds in cones provide food and shelter for birds and small mammals, stabilizing soil and supporting alpine biodiversity."
+},
+"marmot": {
+  "name": "Marmot",
+  "name_w_article": "the marmot",
+  "latin_name": "Marmota marmota",
+  "description": "The marmot is an alpine rodent living in burrows dug in meadows and rocky slopes. It feeds on grasses and flowers, controlling vegetation, and plays a key ecosystem role as prey for raptors and carnivores, supporting biodiversity and alpine biome health."
+},
+"alpenrose": {
+  "name": "Rhododendron",
+  "name_w_article": "the rhododendron",
+  "latin_name": "Rhododendron ferrugineum",
+  "description": "The rhododendron is an evergreen alpine shrub with intense pink flowers thriving on rocky slopes and meadows. Attracts pollinators like bees and butterflies, stabilizes soil, and enriches plant biodiversity in fragile mountain ecosystems."
+},
+"lake": {
+  "name": "Alpine Lake",
+  "name_w_article": "the alpine lake",
+  "latin_name": "Water Source",
+  "description": "Mountain lakes often form in glacial depressions or natural valleys, filled by glacier melt and precipitation. These freshwater bodies sustain aquatic plants and animals, regulate river flows, and maintain alpine ecosystem balance, providing vital habitats and resources for mountain biodiversity.",
+  "prize": "Level 4 Upgrades Unlocked"
+},
+"buzzard": {
+  "name": "Buzzard",
+  "name_w_article": "the buzzard",
+  "latin_name": "Buteo buteo",
+  "description": "The buzzard is a common diurnal raptor in the Alps, hunting rodents, insects, and small vertebrates. By controlling prey populations, it maintains ecosystem balance, supports forest health, and contributes to Alpine biodiversity."
+},
+"musk": {
+  "name": "Mosses and Lichens",
+  "name_w_article": "Mosses and Lichens",
+  "latin_name": "Bryophyta and Lichenes",
+  "description": "Mosses and lichens are incredibly resilient and versatile organisms, capable of thriving on rocks, trunks, and poor Alpine soils. They help stabilize the soil, retain moisture, and create microhabitats for insects and small organisms, enriching mountain biodiversity."
+},
+"steinbock": {
+  "name": "Ibex",
+  "name_w_article": "the ibex",
+  "latin_name": "Capra ibex",
+  "description": "The ibex is an Alpine ungulate living on steep, rocky slopes. By feeding on grasses and shrubs, it maintains vegetation balance. Its presence promotes biodiversity and supports mountain ecosystem health, also serving as prey for large predators."
+},
+"edelweiss": {
+  "name": "Edelweiss",
+  "name_w_article": "the edelweiss",
+  "latin_name": "Leontopodium alpinum",
+  "description": "The edelweiss is an iconic Alpine flower, resistant to cold and rocky soils. It attracts pollinators like bees and butterflies, helps stabilize soil, and symbolizes the beauty and fragility of mountain ecosystems."
+},
+"glacier": {
+  "name": "Glacier",
+  "name_w_article": "the glacier",
+  "latin_name": "Water source",
+  "description": "Glaciers form from snow accumulation and compression over many years. By slowly releasing fresh water that feeds rivers and lakes, they play a crucial role in supporting flora, fauna, and ecosystems, regulating water flow, and contributing to the natural balance of mountains.",
+  "prize": "You have saved the forest!"
+},
+"extra": {
+  "holly": {
+    "name": "Holly",
+    "name_w_article": "the holly",
+    "latin_name": "Ruscus",
+    "description": "Holly is an evergreen shrub with flattened stems that resemble leaves, ending in sharp points. In winter it produces red berries and is found in Mediterranean forests and the lower slopes of the Alps."
+  },
+  "beech": {
+    "name": "Beech",
+    "name_w_article": "the beech",
+    "latin_name": "Fagus",
+    "description": "The beech (Fagus sylvatica) is a deciduous tree typical of the Prealps and Apennines. Its oval, large, glossy leaves turn yellow-red in autumn. It forms dense, shady forests up to 1,800 m."
+  },
+  "juniper": {
+    "name": "Juniper",
+    "name_w_article": "the juniper",
+    "latin_name": "Juniperus",
+    "description": "Common juniper is an evergreen shrub found in the Alps up to 2,500 m altitude. It has spiny needle-like leaves arranged in whorls and produces aromatic blue-purple berries, used in cooking."
+  },
+  "larch": {
+    "name": "Larch",
+    "name_w_article": "the larch",
+    "latin_name": "Larix",
+    "description": "The larch is a typical Alpine conifer, unique among European conifers in being deciduous. Its soft needles, grouped in clusters, turn golden-yellow in autumn before falling, creating spectacular landscapes."
+  },
+  "m_pine": {
+    "name": "Dwarf Mountain Pine",
+    "name_w_article": "the dwarf mountain pine",
+    "latin_name": "Pinus mugo",
+    "description": "The mountain pine is an evergreen conifer typical of the Alps. It grows as a creeping or twisted shrub, forming extensive green carpets. It has short, stiff needles in pairs and produces small woody cones."
+  }
+}
+
+
+      },
+      "enemy": {
+  "patrol": {
+    "name": "Patrol",
+    "description": "The Patrol fire controls a limited area."
+  },
+  "shooter": {
+    "name": "Shooter",
+    "description": "The Shooter fire shoots a fire projectile in the direction it is facing."
+  },
+  "chaser": {
+    "name": "Chaser",
+    "description": "The Chaser fire follows Drop along the shortest available path."
+  },
+  "wave": {
+    "name": "Demolitionist",
+    "description": "The Demolitionist fire generates a wave of fire around itself at regular intervals."
+  },
+  "ricochet": {
+    "name": "Tracker",
+    "description": "The Tracker fire launches a projectile that follows Drop."
+  },
+  "mortar": {
+    "name": "Mortar",
+    "description": "The Mortar fire launches a mortar bomb at Drop's current position."
+  },
+  "boss1": {
+    "name": "Corporal of Simple Flames",
+    "description": "The Corporal of Simple Flames fire creates small animated flames at regular intervals around itself."
+  },
+  "boss2": {
+    "name": "Crimson Sergeant",
+    "description": "The Crimson Sergeant fire shoots a wave of three lethal fire projectiles in front of itself."
+  },
+  "boss3": {
+    "name": "Burning Lieutenant",
+    "description": "The Burning Lieutenant fire summons Chasers on the battlefield that pursue Drop."
+  },
+  "boss4": {
+    "name": "Commander Roar",
+    "description": "The Commander Roar fire generates a massive blast of fire around itself at regular intervals."
+  },
+  "boss5": {
+    "name": "General Conflagration",
+    "description": "The General Conflagration fire is the most fearsome fire you have ever faced: with its 4 limbs it strikes on all fronts.\nPerhaps there is a way to extinguish them one by one..."
+  },
+  "boss52": {
+    "name": "Last Hearth",
+    "description": "What remains of General Conflagration has taken refuge behind a blazing trench.\nWeaken the trench by making it rain, and extinguish the Last Hearth."
+  }
+},
+      "upgrade": {
+  "hero": {
+    "title": "Hero",
+    "lvl0": {
+      "title": "Hero Stats",
+      "description": "Drop starts with 6 Health Points (HP) by default."
+    },
+    "lvl1": {
+      "title": "Max HP +2",
+      "description": "Add 2 HP to Drop's reserve."
+    },
+    "lvl2": {
+      "title": "High Humidity",
+      "description": "Drop charges the air with humidity, making it rain earlier."
+    },
+    "lvl3": {
+      "title": "Max HP +2",
+      "description": "Add 2 HP to Drop's reserve."
+    },
+    "lvl4": {
+      "title": "Hero Stats",
+      "description": "Small chance that the Revitalizing Cloud can bring Drop back to life after evaporating."
+    },
+    "lvl0easy": {
+      "description": "Drop starts with 8 Health Points (HP) in Easy Mode."
+    }
+  },
+  "waterbullet": {
+    "title": "Spray",
+    "lvl0": {
+      "title": "Spray Power Stats",
+      "description": "Drop shoots a water projectile forward. The projectile costs 2 HP (CST) and deals 4 damage (DMG)."
+    },
+    "lvl1": {
+      "title": "Piercing Shot",
+      "description": "Small chance for the spray to pass through Flames and Enemies."
+    },
+    "lvl2": {
+      "title": "Quick Recharge",
+      "description": "Reduces the power's cooldown by 50%."
+    },
+    "lvl3": {
+      "title": "Bazooka",
+      "description": "Small chance for the spray to explode on contact."
+    },
+    "lvl4": {
+      "title": "Ice Spear",
+      "description": "With the Ice Shield active, the spray becomes an Ice Spear, dealing 6 damage (DMG)."
+    }
+  },
+  "wave": {
+    "title": "Wave",
+    "lvl0": {
+      "title": "Wave Power Stats",
+      "description": "Drop releases a wave around itself. The projectile costs 2 HP (CST) and deals 2 damage (DMG) in the surrounding area."
+    },
+    "lvl1": {
+      "title": "Quick Recharge",
+      "description": "Reduces the power's cooldown by 50%."
+    },
+    "lvl2": {
+      "title": "Fire Return",
+      "description": "Small chance to recover 1 HP after the wave."
+    },
+    "lvl3": {
+      "title": "Tsunami",
+      "description": "During rain, the wave's area increases in size."
+    },
+    "lvl4": {
+      "title": "Ice Mines",
+      "description": "With the Ice Shield active, the wave drops Ice Mines on the ground that explode on contact with enemies, dealing 2 damage (DMG)."
+    }
+  },
+  "super": {
+    "title": "Super",
+    "lvl0": {
+      "title": "Super Mode Stats",
+      "description": "In Super Mode, the cost of Spray and Wave is reduced to 0 (HP).\nYou can enter Super Mode once the Lightning Reserve is full.\nAnimals will release Lightning Energy (+LE)."
+    },
+    "lvl1": {
+      "title": "Storm",
+      "description": "During Super Mode, Storm Clouds help Drop by making it rain."
+    },
+    "lvl2": {
+      "title": "Electrifying!",
+      "description": "Start stages with 2 Lightning Points (LP)."
+    },
+    "lvl3": {
+      "title": "Energy Saving",
+      "description": "Drop uses Lightning Points more efficiently, making Super Mode last 50% longer."
+    },
+    "lvl4": {
+      "title": "Water Bomb",
+      "description": "Upon activating Super Mode, the Bombardier Cloud drops a Water Bomb on a random Flame or Enemy."
+    }
+  }
+},
+      "stage_info" : {
+        "level1": {
+  "trophy": "bee",
+  "stage1": { "type": "tutorial", "difficulty": "tutorial" },
+  "stage2": { "type": "puzzle", "difficulty": "Easy" },
+  "stage3": { "type": "action", "difficulty": "Easy" },
+  "stage4": { "type": "puzzle", "difficulty": "Normal" }
+},
+"level2": {
+  "trophy": "oak",
+  "stage1": { "type": "puzzle", "difficulty": "Easy" },
+  "stage2": { "type": "puzzle", "difficulty": "Normal" },
+  "stage3": { "type": "action", "difficulty": "Normal" },
+  "stage4": { "type": "puzzle", "difficulty": "Hard" }
+},
+"level3": {
+  "trophy": "squirrel",
+  "stage1": { "type": "puzzle", "difficulty": "Easy" },
+  "stage2": { "type": "puzzle", "difficulty": "Normal" },
+  "stage3": { "type": "action", "difficulty": "Normal" },
+  "stage4": { "type": "puzzle", "difficulty": "Hard" }
+},
+"level4": {
+  "trophy": "fern",
+  "stage1": { "type": "puzzle", "difficulty": "Easy" },
+  "stage2": { "type": "puzzle", "difficulty": "Normal" },
+  "stage3": { "type": "action", "difficulty": "Normal" },
+  "stage4": { "type": "puzzle", "difficulty": "Hard" }
+},
+"level5": { "trophy": "spring", "stage1": { "type": "boss", "difficulty": "Hard" } },
+"level6": {
+  "trophy": "deer",
+  "stage1": { "type": "puzzle", "difficulty": "Easy" },
+  "stage2": { "type": "puzzle", "difficulty": "Normal" },
+  "stage3": { "type": "action", "difficulty": "Normal" },
+  "stage4": { "type": "puzzle", "difficulty": "Hard" }
+},
+"level7": {
+  "trophy": "birch",
+  "stage1": { "type": "puzzle", "difficulty": "Easy" },
+  "stage2": { "type": "puzzle", "difficulty": "Normal" },
+  "stage3": { "type": "action", "difficulty": "Normal" },
+  "stage4": { "type": "puzzle", "difficulty": "Hard" }
+},
+"level8": {
+  "trophy": "woodpecker",
+  "stage1": { "type": "puzzle", "difficulty": "Easy" },
+  "stage2": { "type": "puzzle", "difficulty": "Normal" },
+  "stage3": { "type": "action", "difficulty": "Normal" },
+  "stage4": { "type": "puzzle", "difficulty": "Hard" }
+},
+"level9": {
+  "trophy": "gentiana",
+  "stage1": { "type": "puzzle", "difficulty": "Easy" },
+  "stage2": { "type": "puzzle", "difficulty": "Normal" },
+  "stage3": { "type": "action", "difficulty": "Normal" },
+  "stage4": { "type": "puzzle", "difficulty": "Hard" }
+},
+"level10": { "trophy": "river", "stage1": { "type": "boss", "difficulty": "Hard" } },
+"level11": {
+  "trophy": "butterfly",
+  "stage1": { "type": "action", "difficulty": "Normal" },
+  "stage2": { "type": "puzzle", "difficulty": "Easy" },
+  "stage3": { "type": "action", "difficulty": "Easy" },
+  "stage4": { "type": "puzzle", "difficulty": "Normal" }
+},
+"level12": {
+  "trophy": "spruce",
+  "stage1": { "type": "puzzle", "difficulty": "Easy" },
+  "stage2": { "type": "puzzle", "difficulty": "Normal" },
+  "stage3": { "type": "action", "difficulty": "Normal" },
+  "stage4": { "type": "puzzle", "difficulty": "Hard" }
+},
+"level13": {
+  "trophy": "wolf",
+  "stage1": { "type": "puzzle", "difficulty": "Easy" },
+  "stage2": { "type": "puzzle", "difficulty": "Normal" },
+  "stage3": { "type": "action", "difficulty": "Normal" },
+  "stage4": { "type": "puzzle", "difficulty": "Hard" }
+},
+"level14": {
+  "trophy": "thistle",
+  "stage1": { "type": "puzzle", "difficulty": "Easy" },
+  "stage2": { "type": "puzzle", "difficulty": "Normal" },
+  "stage3": { "type": "action", "difficulty": "Normal" },
+  "stage4": { "type": "puzzle", "difficulty": "Hard" }
+},
+"level15": { "trophy": "waterfall", "stage1": { "type": "boss", "difficulty": "Hard" } },
+"level16": {
+  "trophy": "viper",
+  "stage1": { "type": "puzzle", "difficulty": "Easy" },
+  "stage2": { "type": "puzzle", "difficulty": "Normal" },
+  "stage3": { "type": "action", "difficulty": "Normal" },
+  "stage4": { "type": "puzzle", "difficulty": "Hard" }
+},
+"level17": {
+  "trophy": "pine",
+  "stage1": { "type": "puzzle", "difficulty": "Easy" },
+  "stage2": { "type": "puzzle", "difficulty": "Normal" },
+  "stage3": { "type": "action", "difficulty": "Normal" },
+  "stage4": { "type": "puzzle", "difficulty": "Hard" }
+},
+"level18": {
+  "trophy": "marmot",
+  "stage1": { "type": "puzzle", "difficulty": "Easy" },
+  "stage2": { "type": "puzzle", "difficulty": "Normal" },
+  "stage3": { "type": "action", "difficulty": "Normal" },
+  "stage4": { "type": "puzzle", "difficulty": "Hard" }
+},
+"level19": {
+  "trophy": "alpenrose",
+  "stage1": { "type": "puzzle", "difficulty": "Easy" },
+  "stage2": { "type": "puzzle", "difficulty": "Normal" },
+  "stage3": { "type": "action", "difficulty": "Normal" },
+  "stage4": { "type": "puzzle", "difficulty": "Hard" }
+},
+"level20": { "trophy": "lake", "stage1": { "type": "boss", "difficulty": "Hard" } },
+"level21": {
+  "trophy": "buzzard",
+  "stage1": { "type": "puzzle", "difficulty": "Hard" },
+  "stage2": { "type": "puzzle", "difficulty": "Hard" },
+  "stage3": { "type": "action", "difficulty": "Hard" },
+  "stage4": { "type": "puzzle", "difficulty": "Extreme" }
+},
+"level22": {
+  "trophy": "musk",
+  "stage1": { "type": "puzzle", "difficulty": "Hard" },
+  "stage2": { "type": "puzzle", "difficulty": "Hard" },
+  "stage3": { "type": "action", "difficulty": "Hard" },
+  "stage4": { "type": "puzzle", "difficulty": "Extreme" }
+},
+"level23": {
+  "trophy": "steinbock",
+  "stage1": { "type": "puzzle", "difficulty": "Hard" },
+  "stage2": { "type": "puzzle", "difficulty": "Hard" },
+  "stage3": { "type": "action", "difficulty": "Hard" },
+  "stage4": { "type": "puzzle", "difficulty": "Extreme" }
+},
+"level24": {
+  "trophy": "edelweiss",
+  "stage1": { "type": "puzzle", "difficulty": "Extreme" },
+  "stage2": { "type": "puzzle", "difficulty": "Extreme" },
+  "stage3": { "type": "action", "difficulty": "Extreme" },
+  "stage4": { "type": "puzzle", "difficulty": "Extreme" }
+},
+"level25": { "trophy": "glacier", "stage1": { "type": "boss", "difficulty": "Extreme" } }
+}
     }
   },
   "fra": {
     "menu": {
-      "play": "Joue",
-      "settings": "Preferences"
+  "main": {
+    "continue": "Continuer",
+    "new_game": "Nouvelle partie",
+    "lets_start": "C'est parti !",
+    "settings": "Paramètres",
+    "quit": "Quitter",
+    "music": "Musique",
+    "sound": "Sons",
+    "hud_show": "Afficher HUD",
+    "hud_hide": "Masquer HUD",
+    "chose_lang": "Choisir la langue"
+  },
+  "world": {
+    "world_map": "Carte",
+    "normal_mode": "Mode Normal",
+    "easy_mode": "Mode Facile",
+    "upgrade": "Améliorer",
+    "reset_exp": "Reset EXP",
+    "active": "Actif",
+    "no_exp": "Pas d'EXP",
+    "unlock": "Débloquer",
+    "stage_selection": "Sélection du Niveau",
+    "type": "Type",
+    "difficulty": "Difficulté",
+    "completed": "Terminé",
+    "trophy": "Trophée",
+    "comp_no": "Non",
+    "comp_yes": "Oui",
+    "collection": "Collection",
+    "biome_elements": "Éléments du Biome",
+    "name": "Nom",
+    "description": "Description",
+    "altitude": "Altitude",
+    "enemies": "Ennemis",
+    "common_fires": "Feux Communs",
+    "wildfires": "Incendies"
+  },
+  "stage": {
+    "interface_info" : {
+      "hp" : "PV",
+      "scout_cloud_info" : "Afficher ENG",
+      "super" : "Super !",
+      "puzzle" : "Puzzle",
+      "action" : "Action",
+      "boss" : "Boss",
+      "cost" : "CST",
+      "damage" : "DMG"
     },
-    "game": {
-      "pause": "Pause"
+    "pause_menu" : {
+      "pause" : "Pause",
+      "level" : "Niveau",
+      "stage" : "Stage",
+      "resume" : "Reprendre",
+      "settings" : "Paramètres",
+      "restart" : "Recommencer",
+      "quit" : "Quitter",
+      "back_to_wm" : "Retour à la carte",
+      "to_next_stage" : "Aller au prochain niveau"
+    }
+  },
+  "general": {
+    "back": "Retour",
+    "continue": "Continuer",
+    "confirm": "Confirmer",
+    "space_key": "Espace",
+    "shift_key": "Shift",
+    "play": "Jouer",
+    "unknown": "???"
+  }
+    },
+    "message": {
+      "info": {
+  "new_game_disc": {
+    "title": "Commencer une nouvelle partie ?",
+    "description": "Si vous commencez une nouvelle partie, les sauvegardes précédentes seront perdues"
+  },
+  "demo_end": {
+    "title": "Et ensuite ?",
+    "description": "La démo se termine ici !\nDécouvrez dans la version complète :\n- nouveaux pouvoirs\n- nouveaux ennemis\n- nouveaux défis\n... et bien plus encore !",
+    "title2": "Restez informé !",
+    "description2": "Suivez la page Instagram du studio pour rester au courant des progrès du jeu !"
+  }
+},
+     "stage": {
+  "game_over_health": "POINTS D'EAU ÉPUISÉS\nOh non, tu es évaporé !",
+  "game_over_heat": "NIVEAU TROP CHAUD\nOh non, tu es évaporé !",
+  "stage_clear": "GÉNIAL !\nTu as nettoyé le niveau",
+  "level_clear": {
+    "title1": "Tu as sauvé ",
+    "title2": " du feu",
+    "titleBoss": "Tu as libéré les eaux de ",
+    "obtain1": "+",
+    "obtain2": " points d'expérience"
+  },
+  "difficulty": {
+    "title": "Difficulté",
+    "description": "Vous pouvez changer la difficulté depuis la carte"
+  }
+}
+,
+      "world": {
+  "camera": {
+    "title": "Caméra",
+    "description": "Faites glisser la carte"
+  },
+  "movement": {
+    "title": "",
+    "description": "W,D : niveau suivant\nS,A : niveau précédent"
+  },
+  "movement2": {
+    "title": "Mouvement",
+    "description": "Appuyez sur le bouton du niveau"
+  },
+  "difficulty": {
+    "title": "Difficulté",
+    "description": "Choisissez un mode"
+  },
+  "upgrade": {
+    "title": "Améliorer",
+    "description": "Disponible"
+  },
+  "touch_upgrade": {
+    "title": "Pouvoir Vague",
+    "description": "Sélectionnez pour activer"
+  },
+  "adjust_difficulty": {
+    "title": "Vous pouvez changer la difficulté :"
+  },
+  "easy_mode": {
+    "title": "Facile",
+    "description": "Profitez d'une expérience plus détendue"
+  },
+  "normal_mode": {
+    "title": "Normal",
+    "description": "Affrontez une expérience plus difficile"
+  },
+  "demo_banner": {
+    "title": "Fin de la démo"
+  },
+  "wave_banner": {
+    "title": "Vague Necessaire"
+  }
+},
+      "tutorial": {
+  "1": {
+    "title": "Sauver la Forêt",
+    "image_title": "Herbe Brûlée",
+    "description_title": "Nettoyer le Niveau",
+    "description": "Drop peut arroser l'herbe brûlée en marchant dessus.\nLe niveau est nettoyé lorsque Drop a arrosé toute l'herbe brûlée."
+  },
+  "progression_bar": {
+    "title": "Progression",
+    "image_title": "",
+    "description_title": "",
+    "description": "Indique le niveau de progression du nettoyage du niveau."
+  },
+  "movement": {
+    "title": "Mouvement",
+    "description": "Utilisez les touches WASD ou les Flèches",
+    "description_touch": "Touchez la case"
+  },
+  "2": {
+    "title": "Sauver la Forêt",
+    "image_title": "Flamme",
+    "description_title": "Nettoyer le Niveau",
+    "description": "Drop peut éteindre les flammes en les touchant.\nATTENTION ! Éteindre les flammes consomme de l'Énergie d'Eau dans la Réserve de Drop."
+  },
+  "reservoir": {
+    "title": "Réserve",
+    "description": "Réserve d'Énergie d'Eau"
+  },
+  "3": {
+    "title": "Détails du Niveau",
+    "image_title": "Nuage Scout",
+    "description_title": "Description du Pouvoir",
+    "description": "Le Nuage Scout aide Drop en montrant le niveau vu d'en haut et en affichant l'énergie des feux et des gouttes d'eau."
+  },
+  "scout_cloud": {
+    "title": "Nuage Scout",
+    "description": "Fournit des informations sur le niveau."
+  },
+  "water_wasted": {
+    "title": "Limites de la Réserve",
+    "description": "Vous avez gaspillé de l'eau, votre réserve était presque pleine."
+  },
+  "water_spring": {
+    "title": "Source d'Eau",
+    "description": "Vous pouvez maintenant trouver des Sources d'Eau dans les niveaux.\nCes sources créent des Gouttes d'Eau autour d'elles à intervalles réguliers."
+  },
+  "4": {
+    "title": "Sauver la Forêt",
+    "image_title": "Buisson Brûlé",
+    "description_title": "Nettoyer le Niveau",
+    "description": "Drop peut arroser les buissons brûlés en leur tirant dessus.\nLe niveau est nettoyé lorsque Drop a arrosé toute l'herbe et les buissons brûlés."
+  },
+  "5": {
+    "title": "Éteindre le Feu",
+    "image_title": "Jet",
+    "description_title": "Nettoyer le Niveau",
+    "description": "Drop peut maintenant éteindre les flammes en tirant un projectile d'eau. Le jet coûte 2 points d'Énergie d'Eau dans la réserve de Drop et inflige 4 dégâts aux ennemis."
+  },
+  "rotation": {
+    "title": "Rotation",
+    "description": "Touchez Drop pour le faire tourner."
+  },
+  "rotation2": {
+    "title": "Rotation",
+    "description": "Appuyez sur R pour tourner Drop."
+  },
+  "shoot": {
+    "title": "Tirer",
+    "description": "Utilisez Espace pour tirer."
+  },
+  "6": {
+    "title": "Sauver l'Écureuil",
+    "description": "Sauvez l'animal avec le Jet."
+  },
+  "7": {
+    "title": "Marche de Roche",
+    "image_title": "Marche Droite",
+    "description_title": "Nettoyer le Niveau",
+    "description": "En montant en altitude, vous rencontrerez maintenant des Marches de Roche sur le chemin.\nDrop peut descendre d'un côté, mais ne peut pas remonter de l'autre."
+  },
+  "8": {
+    "title": "Boss Feu",
+    "image_title": "Feu",
+    "description_title": "Nettoyer le Niveau",
+    "description": "Sur le chemin, vous rencontrerez des Feux redoutables ! Ces incendies ont des comportements uniques et sont plus difficiles à vaincre. Éteignez-les pour libérer les Sources d'Eau bloquées."
+  },
+  "9": {
+    "title": "Éteindre le Feu",
+    "image_title": "Vague",
+    "description_title": "Nettoyer le Niveau",
+    "description": "Drop peut maintenant éteindre les flammes en créant une Vague autour de lui. La vague coûte 2 points d'Énergie d'Eau dans la réserve de Drop et inflige 2 dégâts aux flammes et aux ennemis."
+  },
+  "10": {
+    "title": "Pas de Jet",
+    "image_title": "Amanite",
+    "description_title": "Nettoyer le Niveau",
+    "description": "Cette zone de la forêt contient des Amanites.\nLes spores de ce champignon empêchent Drop d'utiliser le Jet."
+  },
+  "wave": {
+    "title": "Vague",
+    "description": "Utilisez Shift pour lancer une Vague"
+  },
+  "11": {
+    "title": "Un Feu Sauvage est Apparue !",
+    "image_title": "Feu Sauvage",
+    "description_title": "Nettoyer le Niveau",
+    "description": "En progressant dans l'incendie de la forêt, vous pouvez maintenant rencontrer des feux sauvages avec différents comportements qui propagent le feu partout !"
+  },
+  "enemy_description": {
+    "title": "Description du Feu Commun",
+    "title_boss": "Description du Boss Incendie"
+  },
+  "12": {
+    "title": "Propagation Incontrôlée des Flammes !",
+    "image_title": "Progression",
+    "description_title": "Nettoyer le Niveau",
+    "description": "En combattant les feux sauvages, ceux-ci propagent le feu partout.\nATTENTION ! Ne laissez pas le feu se propager au-delà du point de non-retour, sinon le niveau deviendra trop chaud et Drop s'évaporera !"
+  },
+  "13": {
+    "title": "Recharger les Gouttes d'Eau",
+    "image_title": "Vague",
+    "description_title": "Nettoyer le Niveau",
+    "description": "Drop peut recharger les gouttes d'eau avec la Vague.\nLa Vague donne 2 points d'Énergie à toutes les gouttes qu'elle touche."
+  },
+  "14": {
+    "title": "Nouvel Élément : Bombe d'Eau",
+    "image_title": "Bombe d'Eau",
+    "description_title": "Nettoyer le Niveau",
+    "description": "Un Nuage Bombardier a largué une bombe dans le niveau.\nTirez sur la bombe pour la faire exploser !"
+  },
+  "waterbomb": {
+    "title": "Faites-la Exploser !",
+    "description": "Tirez sur la bombe."
+  },
+  "15": {
+    "title": "Nouvel Élément : Bombe d'Eau",
+    "image_title": "Bombe d'Eau",
+    "description_title": "Nettoyer le Niveau",
+    "description": "Poussez la Bombe d'Eau pour la déplacer où vous voulez."
+  },
+  "waterbomb2": {
+    "title": "Déplacer !",
+    "description": "Poussez la bombe."
+  },
+  "16": {
+    "title": "Nouvel Élément : Bombe d'Eau",
+    "image_title": "Bombe d'Eau",
+    "description_title": "Nettoyer le Niveau",
+    "description": "Poussez la Bombe d'Eau sur un ennemi pour la faire exploser et l'éteindre instantanément !"
+  },
+  "17": {
+    "title": "Faites Pleuvoir !",
+    "image_title": "Limite de Pluie",
+    "description_title": "Nettoyer le Niveau",
+    "description": "Avec la première partie de la forêt plus humide, les Nuages Orageux peuvent faire pleuvoir avant que vous n'ayez nettoyé tout le niveau.\nUtilisez la pluie à votre avantage, en profitant des gouttes qu'elle génère."
+  },
+  "18": {
+    "title": "Nouvel Élément : Rocher",
+    "image_title": "Rocher",
+    "description_title": "Nettoyer le Niveau",
+    "description": "En montant plus haut, vous rencontrerez maintenant des Rochers sur le chemin.\nUtilisez-les à votre avantage en les poussant pour bloquer les ennemis ou éteindre de petits feux."
+  },
+  "19": {
+    "title": "Nouvel Élément : Source Sèche",
+    "image_title": "Source Sèche",
+    "description_title": "Nettoyer le Niveau",
+    "description": "Certaines Sources sont complètement asséchées. Rechargez-les pour que l'eau recommence à couler."
+  },
+  "20": {
+    "title": "Nouvel Élément : Neige Perpétuelle",
+    "image_title": "Neige Perpétuelle",
+    "description_title": "Nettoyer le Niveau",
+    "description": "En montant sur la montagne, vous trouverez des zones couvertes de Neige Perpétuelle.\nTouchez un Cristal de Glace pour activer un Bouclier de Glace qui protège Drop pendant un court instant."
+  },
+  "21": {
+    "title": "Nouvel Élément : Vent",
+    "image_title": "Vent du Nord",
+    "description_title": "Nettoyer le Niveau",
+    "description": "Sur les pentes élevées, vous trouverez des zones de fort vent.\nLorsque le feu touche le vent, une vague brûlante se propage dans la direction du vent."
+  },
+  "22": {
+    "title": "Nouvel Élément : Avalanche",
+    "image_title": "Avalanche",
+    "description_title": "Nettoyer le Niveau",
+    "description": "Au sommet de la montagne, de nombreuses pierres instables : un seul contact peut déclencher une Avalanche qui détruit tous les buissons plus bas sur le passage.\nUtilisez les Avalanches à votre avantage pour créer des passages et éteindre les flammes.\nATTENTION : certaines avalanches peuvent bloquer des chemins."
+  }
+}
+
+    },
+    "content" : {
+      "story": {
+  "intro1": {
+    "title": "Scène 1",
+    "label": "intro",
+    "description": "Il était une fois de petits nuages heureux qui, flottant au-dessus des champs et des forêts, répandaient la pluie et rendaient la terre verte."
+  },
+  "intro2": {
+    "title": "Scène 2",
+    "label": "intro",
+    "description": "Un jour, ils virent de la fumée maléfique s'élever d'une montagne lointaine : un incendie menaçait le biome de la forêt !"
+  },
+  "intro3": {
+    "title": "Scène 3",
+    "label": "intro",
+    "description": "Alors les nuages se rassemblèrent et décidèrent d'envoyer leur petit héros d'eau sur le sol : Drop, prêt à Sauver la Forêt !"
+  }
+},
+      "trophy" : {
+        "bee": {
+  "name": "Abeille",
+  "name_w_article": "l'abeille",
+  "latin_name": "Apis Mellifera",
+  "description": "Les abeilles sont essentielles pour les biomes en tant que pollinisatrices, facilitant la reproduction des plantes et la biodiversité. Leur rôle garantit la croissance des cultures, soutient les écosystèmes et maintient le réseau interconnecté de la vie."
+},
+"oak": {
+  "name": "Chêne",
+  "name_w_article": "le chêne",
+  "latin_name": "Quercus pubescens",
+  "description": "Le chêne est un arbre à feuilles caduques de grande taille, avec des feuilles profondément lobées. Symbole de force et de longévité, il fournit un habitat vital à une grande variété de faune.",
+  "prize": "+2 Points d'Eau maximum"
+},
+"squirrel": {
+  "name": "Écureuil",
+  "name_w_article": "l'écureuil",
+  "latin_name": "Sciurus vulgaris",
+  "description": "Petit rongeur agile à la queue touffue. Habile grimpeur, il se nourrit de noix et de graines. Joue un rôle clé dans l'écologie forestière comme disperser de graines et contribue à l'équilibre de l'écosystème en créant de petits terriers servant de refuge à d'autres insectes ou micro-organismes.",
+  "prize": "Pouvoir Spray débloqué"
+},
+"fern": {
+  "name": "Fougère",
+  "name_w_article": "la fougère",
+  "latin_name": "Dryopteris filix",
+  "description": "Les fougères prospèrent dans les environnements ombragés et humides des zones alpines, stabilisant le sol et prévenant l'érosion. Elles offrent un abri aux insectes et aux petits animaux, contribuant à la biodiversité de la forêt. Leur résilience aide à maintenir l'équilibre de l'écosystème dans le climat montagneux rigoureux."
+},
+"spring": {
+  "name": "Source",
+  "name_w_article": "de la source",
+  "latin_name": "Source d'eau",
+  "description": "Une source dans le biome alpin fournit une source constante d'eau douce, soutenant la faune et la flore. Elle maintient les écosystèmes aquatiques, prévient les effets de la sécheresse et contribue à réguler les nappes phréatiques, jouant un rôle crucial dans le maintien de la biodiversité et de l'équilibre écologique.",
+  "prize": "Améliorations Niveau 1 débloquées"
+},
+"deer": {
+  "name": "Daim",
+  "name_w_article": "le daim",
+  "latin_name": "Dama dama",
+  "description": "Mammifère herbivore élégant, connu pour les bois des mâles. Adapté à différents habitats, il symbolise la gentillesse et est vital pour les écosystèmes en tant que brouteur et disperseur de graines."
+},
+"birch": {
+  "name": "Bouleau",
+  "name_w_article": "le bouleau",
+  "latin_name": "Betula pendula",
+  "description": "Arbre à feuilles caduques avec une écorce blanche caractéristique, des branches fines et des feuilles dentelées. Résistant, il symbolise le renouveau et est souvent présent dans les forêts alpines."
+},
+"woodpecker": {
+  "name": "Pic",
+  "name_w_article": "le pic",
+  "latin_name": "Dendrocopos major",
+  "description": "Les pics jouent un rôle crucial dans le biome alpin en contrôlant les populations d'insectes et en créant des cavités dans les arbres utilisées par d'autres espèces. Leur bec puissant leur permet de chercher de la nourriture dans l'écorce, contribuant à la santé de la forêt et s'adaptant aux conditions montagneuses difficiles."
+},
+"gentiana": {
+  "name": "Gentiane",
+  "name_w_article": "la gentiane",
+  "latin_name": "Gentiana lutea",
+  "description": "La gentiane est une fleur alpine jaune vif qui prospère dans les prairies et sur les pentes rocheuses. Elle attire les pollinisateurs tels que les abeilles et les papillons et s'adapte aux climats montagneux rigoureux grâce à des racines profondes et une croissance lente. Sa sensibilité aux changements environnementaux en fait un bioindicateur important du changement climatique."
+},
+"river": {
+  "name": "Ruisseau",
+  "name_w_article": "du ruisseau",
+  "latin_name": "Source d'eau",
+  "description": "Un ruisseau alpin traverse les vallées de montagne, alimenté par les glaciers et les précipitations. Fournit de l'eau douce, soutient une flore et une faune diversifiées et façonne le paysage. Essentiel pour les écosystèmes, il assure la survie des amphibiens, des poissons et des plantes tout en régulant la température et l'érosion.",
+  "prize": "Améliorations Niveau 2 débloquées"
+},
+"butterfly": {
+  "name": "Papillon",
+  "name_w_article": "le papillon",
+  "latin_name": "Parnassius apollo",
+  "description": "Les papillons sont des pollinisateurs essentiels dans le biome alpin, favorisant la reproduction des plantes et indiquant la santé de l'écosystème. Leur sensibilité aux changements environnementaux en fait des bioindicateurs importants du changement climatique."
+},
+"spruce": {
+  "name": "Épicéa",
+  "name_w_article": "l'épicéa",
+  "latin_name": "Picea abies",
+  "description": "L'épicéa est une conifère toujours verte et élancée qui domine les forêts alpines. Son feuillage dense offre un abri à la faune, tandis que ses graines nourrissent oiseaux et mammifères. Adapté aux climats froids, il stabilise le sol, prévient l'érosion et joue un rôle vital dans les écosystèmes de montagne."
+},
+"wolf": {
+  "name": "Loup",
+  "name_w_article": "le loup",
+  "latin_name": "Canis Lupus",
+  "description": "Le loup est un prédateur de sommet dans les écosystèmes alpins, maintenant l'équilibre en contrôlant les populations d'herbivores. Il vit dans les forêts et les terrains rocheux, chassant en meute. Sa présence favorise la biodiversité, prévient le surpâturage et crée un environnement plus sain pour les plantes et les autres espèces sauvages."
+},
+"thistle": {
+  "name": "Chardon",
+  "name_w_article": "le chardon",
+  "latin_name": "Carduus",
+  "description": "Le chardon est une plante alpine résistante, avec des feuilles épineuses et des fleurs violettes vives. Il fournit du nectar aux pollinisateurs comme les abeilles et les papillons, tandis que ses graines nourrissent les oiseaux. Bien adapté aux conditions difficiles, il contribue à stabiliser le sol et à enrichir la biodiversité alpine."
+},
+"waterfall": {
+  "name": "Cascade",
+  "name_w_article": "de la cascade",
+  "latin_name": "Source d'eau",
+  "description": "Une cascade dans le biome alpin oxygène les ruisseaux, soutenant les poissons et la vie aquatique. Distribue de l'eau douce aux écosystèmes en aval, nourrit les plantes et façonne les paysages rocheux. Sa brume crée des microhabitats pour les mousses et les insectes, enrichissant la biodiversité des environnements montagnards.",
+  "prize": "Améliorations Niveau 3 débloquées"
+},
+"viper": {
+  "name": "Vipère",
+  "name_w_article": "la vipère",
+  "latin_name": "Vipera berus",
+  "description": "La vipère est présente dans les prairies, forêts et zones rocheuses alpines. Prédateur de petits mammifères et d'insectes, elle maintient l'équilibre de l'écosystème et sert de bioindicateur de la santé des environnements montagnards fragiles."
+},
+"pine": {
+  "name": "Pin Cembro",
+  "name_w_article": "le pin",
+  "latin_name": "Pinus cembra",
+  "description": "Le pin est une conifère toujours verte prospérant sur les terrains montagneux et rocheux des Alpes. Ses longues aiguilles et ses graines contenues dans des cônes fournissent nourriture et abri aux oiseaux et petits mammifères, contribuant à stabiliser le sol et soutenir la biodiversité alpine."
+},
+"marmot": {
+  "name": "Marmotte",
+  "name_w_article": "la marmotte",
+  "latin_name": "Marmota marmota",
+  "description": "La marmotte est un rongeur alpin vivant dans des terriers creusés dans les prairies et les pentes rocheuses. Elle se nourrit d'herbes et de fleurs, contrôlant la végétation, et joue un rôle clé dans l'écosystème en tant que proie pour les rapaces et carnivores, contribuant à la biodiversité et à la santé du biome alpin."
+},
+"alpenrose": {
+  "name": "Rhododendron",
+  "name_w_article": "le rhododendron",
+  "latin_name": "Rhododendron ferrugineum",
+  "description": "Le rhododendron est un arbuste toujours vert des Alpes, avec des fleurs rose vif prospérant sur les pentes rocheuses et les prairies alpines. Il attire les pollinisateurs comme les abeilles et les papillons, contribue à stabiliser le sol et enrichit la biodiversité végétale des écosystèmes montagnards fragiles."
+},
+"lake": {
+  "name": "Lac Alpin",
+  "name_w_article": "du lac alpin",
+  "latin_name": "Source d'eau",
+  "description": "Les lacs de montagne se forment souvent dans des dépressions glaciaires ou des vallons naturels et se remplissent grâce à la fonte des glaciers et aux précipitations. Ces eaux douces soutiennent la faune et la flore aquatiques, régulent le flux des rivières et contribuent à maintenir l'équilibre de l'écosystème alpin, fournissant des habitats vitaux et des ressources hydriques essentielles à la biodiversité montagnarde.",
+  "prize": "Améliorations Niveau 4 débloquées"
+},
+"buzzard": {
+  "name": "Buse",
+  "name_w_article": "la buse",
+  "latin_name": "Buteo buteo",
+  "description": "La buse est un rapace diurne commun dans les Alpes, chassant rongeurs, insectes et petits vertébrés. En contrôlant les populations de proies, elle maintient l'équilibre de l'écosystème, favorise la santé des forêts et contribue à la biodiversité alpine."
+},
+"musk": {
+  "name": "Mousses et Lichens",
+  "name_w_article": "Mousses et Lichens",
+  "latin_name": "Bryophyta et Lichenes",
+  "description": "Les mousses et les lichens sont des organismes incroyablement résistants et polyvalents, capables de prospérer sur les rochers, les troncs et les sols pauvres des Alpes. Ils contribuent à stabiliser le sol, retenir l'humidité et créer des microhabitats pour insectes et petits organismes, enrichissant la biodiversité montagnarde."
+},
+"steinbock": {
+  "name": "Bouquetin",
+  "name_w_article": "le bouquetin",
+  "latin_name": "Capra ibex",
+  "description": "Le bouquetin est un ongulé alpin vivant sur des pentes rocheuses escarpées. En se nourrissant d'herbes et d'arbustes, il maintient l'équilibre de la végétation. Sa présence favorise la biodiversité et contribue à la santé des écosystèmes montagnards, servant également de proie aux grands prédateurs."
+},
+"edelweiss": {
+  "name": "Édelweiss",
+  "name_w_article": "l'édelweiss",
+  "latin_name": "Leontopodium alpinum",
+  "description": "L'édelweiss est une fleur emblématique des Alpes, résistante au froid et aux sols rocheux. Elle attire les pollinisateurs comme les abeilles et les papillons, contribue à stabiliser le sol et symbolise la beauté et la fragilité des écosystèmes montagnards."
+},
+"glacier": {
+  "name": "Glacier",
+  "name_w_article": "le glacier",
+  "latin_name": "Source d'eau",
+  "description": "Les glaciers se forment par l'accumulation et la compression de la neige sur de nombreuses années. En libérant lentement de l'eau douce qui alimente rivières et lacs, ils jouent un rôle fondamental dans le soutien de la flore, de la faune et des écosystèmes, régulant le flux d'eau et contribuant à l'équilibre naturel des montagnes.",
+  "prize": "Vous avez sauvé la forêt !"
+},
+"extra": {
+  "holly": {
+    "name": "Fragon",
+    "name_w_article": "le fragon",
+    "latin_name": "Ruscus",
+    "description": "Le fragon est un arbuste toujours vert avec des tiges aplaties ressemblant à des feuilles, se terminant par une pointe piquante. En hiver, il produit des baies rouges et est répandu dans les forêts méditerranéennes et sur les basses pentes des Alpes."
+  },
+  "beech": {
+    "name": "Hêtre",
+    "name_w_article": "le hêtre",
+    "latin_name": "Fagus",
+    "description": "Le hêtre (Fagus sylvatica) est un arbre caducifolié typique des Préalpes et des Apennins. Ses feuilles ovales, grandes et brillantes, prennent des teintes jaune-rouge à l'automne. Il forme des forêts denses et ombragées jusqu'à 1 800 m."
+  },
+  "juniper": {
+    "name": "Genévrier",
+    "name_w_article": "le genévrier",
+    "latin_name": "Juniperus",
+    "description": "Le genévrier commun est un arbuste toujours vert répandu dans les Alpes jusqu'à 2 500 m d'altitude. Il a des feuilles en aiguilles piquantes disposées en verticilles et produit des baies bleu-violet aromatiques, utilisées en cuisine."
+  },
+  "larch": {
+    "name": "Mélèze",
+    "name_w_article": "le mélèze",
+    "latin_name": "Larix",
+    "description": "Le mélèze est une conifère typique des Alpes, unique parmi les conifères européens car caducifoliée. Ses aiguilles douces, regroupées en bouquets, deviennent doré-jaune à l'automne avant de tomber, créant des paysages spectaculaires."
+  },
+  "m_pine": {
+    "name": "Pin Cembro Nain",
+    "name_w_article": "le pin cembro nain",
+    "latin_name": "Pinus mugo",
+    "description": "Le pin mugo est une conifère toujours verte typique des Alpes. Il pousse comme un arbuste rampant ou tordu, formant de vastes tapis verts. Il a de courtes aiguilles rigides par paires et produit de petits cônes ligneux."
+  }
+}
+
+
+      },
+      "enemy": {
+  "patrol": {
+    "name": "Patrouille",
+    "description": "Le feu Patrouille contrôle une zone limitée."
+  },
+  "shooter": {
+    "name": "Tireur",
+    "description": "Le feu Tireur lance un projectile de feu dans la direction où il regarde."
+  },
+  "chaser": {
+    "name": "Poursuivant",
+    "description": "Le feu Poursuivant suit Drop par le chemin le plus court disponible."
+  },
+  "wave": {
+    "name": "Démolisseur",
+    "description": "Le feu Démolisseur génère une vague de feu autour de lui à intervalles réguliers."
+  },
+  "ricochet": {
+    "name": "Traqueur",
+    "description": "Le feu Traqueur lance un projectile qui poursuit Drop."
+  },
+  "mortar": {
+    "name": "Mortier",
+    "description": "Le feu Mortier lance une bombe de mortier sur la position actuelle de Drop."
+  },
+  "boss1": {
+    "name": "Caporal des Flammes Simples",
+    "description": "Le feu Caporal des Flammes Simples crée de petites flammes animées à intervalles réguliers autour de lui."
+  },
+  "boss2": {
+    "name": "Sergent Cramoisi",
+    "description": "Le feu Sergent Cramoisi tire une vague de trois projectiles de feu mortels devant lui."
+  },
+  "boss3": {
+    "name": "Lieutenant Ardent",
+    "description": "Le feu Lieutenant Ardent recrute des Poursuivants sur le champ de bataille qui poursuivent Drop."
+  },
+  "boss4": {
+    "name": "Commandant Rugissement",
+    "description": "Le feu Commandant Rugissement génère une énorme déflagration de feu autour de lui à intervalles réguliers."
+  },
+  "boss5": {
+    "name": "Général Conflagration",
+    "description": "Le feu Général Conflagration est le plus redoutable que vous ayez jamais affronté : avec ses 4 bras, il frappe sur tous les fronts.\nPeut-être existe-t-il un moyen de les éteindre un par un..."
+  },
+  "boss52": {
+    "name": "Dernier Foyer",
+    "description": "Ce qui reste du Général Conflagration s'est réfugié derrière une tranchée en flammes.\nAffaiblissez la tranchée en faisant pleuvoir, et éteignez le Dernier Foyer."
+  }
+},
+      "upgrade": {
+  "hero": {
+    "title": "Héros",
+    "lvl0": {
+      "title": "Statistiques du héros",
+      "description": "Drop commence avec 6 Points de Vie (PV) par défaut."
+    },
+    "lvl1": {
+      "title": "PV max +2",
+      "description": "Ajoute 2 PV à la réserve de Drop."
+    },
+    "lvl2": {
+      "title": "Haute humidité",
+      "description": "Drop charge l’air en humidité, provoquant la pluie plus tôt."
+    },
+    "lvl3": {
+      "title": "PV max +2",
+      "description": "Ajoute 2 PV à la réserve de Drop."
+    },
+    "lvl4": {
+      "title": "Statistiques du héros",
+      "description": "Petite chance que le Nuage Revitalisant réussisse à ramener Drop à la vie après son évaporation."
+    },
+    "lvl0easy": {
+      "description": "Drop commence avec 8 Points de Vie (PV) en mode Facile."
+    }
+  },
+  "waterbullet": {
+    "title": "Jet",
+    "lvl0": {
+      "title": "Statistiques du pouvoir Jet",
+      "description": "Drop tire un projectile d’eau devant lui. Le projectile coûte 2 PV (CST) et inflige 4 dégâts (DMG)."
+    },
+    "lvl1": {
+      "title": "Tir perforant",
+      "description": "Petite chance que le jet traverse les Flammes et les Ennemis."
+    },
+    "lvl2": {
+      "title": "Recharge rapide",
+      "description": "Réduit de 50 % le temps de recharge du pouvoir."
+    },
+    "lvl3": {
+      "title": "Bazooka",
+      "description": "Petite chance que le jet explose au contact."
+    },
+    "lvl4": {
+      "title": "Lance de glace",
+      "description": "Avec le Bouclier de Glace actif, le jet devient une Lance de Glace, infligeant 6 dégâts (DMG)."
+    }
+  },
+  "wave": {
+    "title": "Vague",
+    "lvl0": {
+      "title": "Statistiques du pouvoir Vague",
+      "description": "Drop libère une vague autour de lui. Le projectile coûte 2 PV (CST) et inflige 2 dégâts (DMG) dans la zone autour."
+    },
+    "lvl1": {
+      "title": "Recharge rapide",
+      "description": "Réduit de 50 % le temps de recharge du pouvoir."
+    },
+    "lvl2": {
+      "title": "Retour de feu",
+      "description": "Petite chance de récupérer 1 PV après la vague."
+    },
+    "lvl3": {
+      "title": "Tsunami",
+      "description": "Pendant la pluie, la zone de la vague augmente."
+    },
+    "lvl4": {
+      "title": "Mines de glace",
+      "description": "Avec le Bouclier de Glace actif, la vague laisse tomber des Mines de Glace sur le sol qui explosent au contact des ennemis, infligeant 2 dégâts (DMG)."
+    }
+  },
+  "super": {
+    "title": "Super",
+    "lvl0": {
+      "title": "Statistiques du mode Super",
+      "description": "En mode Super, le coût du Jet et de la Vague est réduit à 0 (PV).\nVous pouvez entrer en mode Super une fois que la Réserve de Foudre est pleine.\nLes animaux libéreront de l’Énergie Foudre (+PF)."
+    },
+    "lvl1": {
+      "title": "Tempête",
+      "description": "Pendant le mode Super, les Nuages Orageux aident Drop en faisant pleuvoir."
+    },
+    "lvl2": {
+      "title": "Électrisant !",
+      "description": "Commencez les niveaux avec 2 Points de Foudre (PF)."
+    },
+    "lvl3": {
+      "title": "Économie d’énergie",
+      "description": "Drop utilise ses Points de Foudre plus efficacement, prolongeant de 50 % la durée du mode Super."
+    },
+    "lvl4": {
+      "title": "Bombe d’eau",
+      "description": "À l’activation du mode Super, le Nuage Bombardier largue une Bombe d’Eau sur une Flamme ou un Ennemi aléatoire."
+    }
+  }
+},
+      "stage_info" : {
+        "level1": {
+  "trophy": "bee",
+  "stage1": { "type": "tutoriel", "difficulty": "tutoriel" },
+  "stage2": { "type": "puzzle", "difficulty": "Facile" },
+  "stage3": { "type": "action", "difficulty": "Facile" },
+  "stage4": { "type": "puzzle", "difficulty": "Normal" }
+},
+"level2": {
+  "trophy": "oak",
+  "stage1": { "type": "puzzle", "difficulty": "Facile" },
+  "stage2": { "type": "puzzle", "difficulty": "Normal" },
+  "stage3": { "type": "action", "difficulty": "Normal" },
+  "stage4": { "type": "puzzle", "difficulty": "Difficile" }
+},
+"level3": {
+  "trophy": "squirrel",
+  "stage1": { "type": "puzzle", "difficulty": "Facile" },
+  "stage2": { "type": "puzzle", "difficulty": "Normal" },
+  "stage3": { "type": "action", "difficulty": "Normal" },
+  "stage4": { "type": "puzzle", "difficulty": "Difficile" }
+},
+"level4": {
+  "trophy": "fern",
+  "stage1": { "type": "puzzle", "difficulty": "Facile" },
+  "stage2": { "type": "puzzle", "difficulty": "Normal" },
+  "stage3": { "type": "action", "difficulty": "Normal" },
+  "stage4": { "type": "puzzle", "difficulty": "Difficile" }
+},
+"level5": { "trophy": "spring", "stage1": { "type": "boss", "difficulty": "Difficile" } },
+"level6": {
+  "trophy": "deer",
+  "stage1": { "type": "puzzle", "difficulty": "Facile" },
+  "stage2": { "type": "puzzle", "difficulty": "Normal" },
+  "stage3": { "type": "action", "difficulty": "Normal" },
+  "stage4": { "type": "puzzle", "difficulty": "Difficile" }
+},
+"level7": {
+  "trophy": "birch",
+  "stage1": { "type": "puzzle", "difficulty": "Facile" },
+  "stage2": { "type": "puzzle", "difficulty": "Normal" },
+  "stage3": { "type": "action", "difficulty": "Normal" },
+  "stage4": { "type": "puzzle", "difficulty": "Difficile" }
+},
+"level8": {
+  "trophy": "woodpecker",
+  "stage1": { "type": "puzzle", "difficulty": "Facile" },
+  "stage2": { "type": "puzzle", "difficulty": "Normal" },
+  "stage3": { "type": "action", "difficulty": "Normal" },
+  "stage4": { "type": "puzzle", "difficulty": "Difficile" }
+},
+"level9": {
+  "trophy": "gentiana",
+  "stage1": { "type": "puzzle", "difficulty": "Facile" },
+  "stage2": { "type": "puzzle", "difficulty": "Normal" },
+  "stage3": { "type": "action", "difficulty": "Normal" },
+  "stage4": { "type": "puzzle", "difficulty": "Difficile" }
+},
+"level10": { "trophy": "river", "stage1": { "type": "boss", "difficulty": "Difficile" } },
+"level11": {
+  "trophy": "butterfly",
+  "stage1": { "type": "tutoriel", "difficulty": "tutoriel" },
+  "stage2": { "type": "puzzle", "difficulty": "Facile" },
+  "stage3": { "type": "action", "difficulty": "Facile" },
+  "stage4": { "type": "puzzle", "difficulty": "Normal" }
+},
+"level12": {
+  "trophy": "spruce",
+  "stage1": { "type": "puzzle", "difficulty": "Facile" },
+  "stage2": { "type": "puzzle", "difficulty": "Normal" },
+  "stage3": { "type": "action", "difficulty": "Normal" },
+  "stage4": { "type": "puzzle", "difficulty": "Difficile" }
+},
+"level13": {
+  "trophy": "wolf",
+  "stage1": { "type": "puzzle", "difficulty": "Facile" },
+  "stage2": { "type": "puzzle", "difficulty": "Normal" },
+  "stage3": { "type": "action", "difficulty": "Normal" },
+  "stage4": { "type": "puzzle", "difficulty": "Difficile" }
+},
+"level14": {
+  "trophy": "thistle",
+  "stage1": { "type": "puzzle", "difficulty": "Facile" },
+  "stage2": { "type": "puzzle", "difficulty": "Normal" },
+  "stage3": { "type": "action", "difficulty": "Normal" },
+  "stage4": { "type": "puzzle", "difficulty": "Difficile" }
+},
+"level15": { "trophy": "waterfall", "stage1": { "type": "boss", "difficulty": "Difficile" } },
+"level16": {
+  "trophy": "viper",
+  "stage1": { "type": "puzzle", "difficulty": "Facile" },
+  "stage2": { "type": "puzzle", "difficulty": "Normal" },
+  "stage3": { "type": "action", "difficulty": "Normal" },
+  "stage4": { "type": "puzzle", "difficulty": "Difficile" }
+},
+"level17": {
+  "trophy": "pine",
+  "stage1": { "type": "puzzle", "difficulty": "Facile" },
+  "stage2": { "type": "puzzle", "difficulty": "Normal" },
+  "stage3": { "type": "action", "difficulty": "Normal" },
+  "stage4": { "type": "puzzle", "difficulty": "Difficile" }
+},
+"level18": {
+  "trophy": "marmot",
+  "stage1": { "type": "puzzle", "difficulty": "Facile" },
+  "stage2": { "type": "puzzle", "difficulty": "Normal" },
+  "stage3": { "type": "action", "difficulty": "Normal" },
+  "stage4": { "type": "puzzle", "difficulty": "Difficile" }
+},
+"level19": {
+  "trophy": "alpenrose",
+  "stage1": { "type": "puzzle", "difficulty": "Facile" },
+  "stage2": { "type": "puzzle", "difficulty": "Normal" },
+  "stage3": { "type": "action", "difficulty": "Normal" },
+  "stage4": { "type": "puzzle", "difficulty": "Difficile" }
+},
+"level20": { "trophy": "lake", "stage1": { "type": "boss", "difficulty": "Difficile" } },
+"level21": {
+  "trophy": "buzzard",
+  "stage1": { "type": "puzzle", "difficulty": "Difficile" },
+  "stage2": { "type": "puzzle", "difficulty": "Difficile" },
+  "stage3": { "type": "action", "difficulty": "Difficile" },
+  "stage4": { "type": "puzzle", "difficulty": "Extrême" }
+},
+"level22": {
+  "trophy": "musk",
+  "stage1": { "type": "puzzle", "difficulty": "Difficile" },
+  "stage2": { "type": "puzzle", "difficulty": "Difficile" },
+  "stage3": { "type": "action", "difficulty": "Difficile" },
+  "stage4": { "type": "puzzle", "difficulty": "Extrême" }
+},
+"level23": {
+  "trophy": "steinbock",
+  "stage1": { "type": "puzzle", "difficulty": "Difficile" },
+  "stage2": { "type": "puzzle", "difficulty": "Difficile" },
+  "stage3": { "type": "action", "difficulty": "Difficile" },
+  "stage4": { "type": "puzzle", "difficulty": "Extrême" }
+},
+"level24": {
+  "trophy": "edelweiss",
+  "stage1": { "type": "puzzle", "difficulty": "Extrême" },
+  "stage2": { "type": "puzzle", "difficulty": "Extrême" },
+  "stage3": { "type": "action", "difficulty": "Extrême" },
+  "stage4": { "type": "puzzle", "difficulty": "Extrême" }
+},
+"level25": { "trophy": "glacier", "stage1": { "type": "boss", "difficulty": "Extrême" } }
+}
     }
   },
   "struct": {

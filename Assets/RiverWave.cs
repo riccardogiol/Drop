@@ -101,7 +101,7 @@ public class RiverWave : MonoBehaviour
         if (Random.value < spawnDropProb)
         {
             Vector3 randomPos = transform.position + new Vector3(Random.Range(-1, 2), Random.Range(-1, 2));
-            if (!playgroundManager.IsObstacle(randomPos))
+            if (!playgroundManager.IsObstacle(randomPos) && playgroundManager.IsOnPlayground(playgroundManager.GetCellCenter(randomPos)))
             {
                 GameObject goRef = Instantiate(waterdropPrefab, randomPos, Quaternion.identity);
                 goRef.GetComponent<PickWaterdrop>().randomEnergy = false;

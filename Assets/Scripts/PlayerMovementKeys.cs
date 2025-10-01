@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UIElements;
 
 public class PlayerMovementKeys: MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class PlayerMovementKeys: MonoBehaviour
     bool hasTarget;
     float nextWaypointDistance = 0.08f;
     bool movementInterrupted;
+    bool rotate;
 
     void Start()
     {
@@ -35,10 +37,11 @@ public class PlayerMovementKeys: MonoBehaviour
 
     void Update()
     {
-        if(!MenusManager.isPaused && !movementInterrupted)
+        if (!MenusManager.isPaused && !movementInterrupted)
         {
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");
+            rotate = Input.GetKeyDown(KeyCode.R);
         }
     }
 
@@ -62,6 +65,13 @@ public class PlayerMovementKeys: MonoBehaviour
                     player.MovePosition(newPosition);
                 directionController.UpdateDirection(direction);
             }
+        }
+
+        if (!hasTarget && rotate)
+        {
+            directionController.TurnClockwise();
+            rotate = false;
+            return;
         }
 
         if (!hasTarget && movement.magnitude > 0.7)

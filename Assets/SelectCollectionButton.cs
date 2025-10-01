@@ -31,7 +31,11 @@ public class SelectCollectionButton : MonoBehaviour
 
         buttonActivationManager.unlockingCode = unlockingCode;
         buttonActivationManager.buttonKeyCode = unlockingCode;
-        textLocalizer.key = "content." + subFolder + elementKey + ".name";
+
+        if (PlayerPrefs.GetInt(unlockingCode, 0) == 0)
+            textLocalizer.key = "menu.general.unknown";
+        else
+            textLocalizer.key = "content." + subFolder + elementKey + ".name";
         textLocalizer.Localize();
     }
     

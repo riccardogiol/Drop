@@ -52,6 +52,11 @@ public class EnergyIndicator : MonoBehaviour
 
     void SetImage()
     {
+        if (image.sprite != null)
+        {
+            image.enabled = true;
+            return;
+        }
         image.sprite = chasingIcon;
         if (patrolMovement != null)
         {

@@ -20,10 +20,14 @@ public class MainMenuActions : MonoBehaviour
         float musicVolume = PlayerPrefs.GetFloat("MusicVolume", 1);
         float soundVolume = PlayerPrefs.GetFloat("SoundVolume", 1);
         string language = PlayerPrefs.GetString("LanguagePreference", "eng");
+        int fv = PlayerPrefs.GetInt("FullVersion", 0);
+        int dv = PlayerPrefs.GetInt("DemoVersion", 0);
         PlayerPrefs.DeleteAll();
         PlayerPrefs.SetFloat("MusicVolume", musicVolume);
         PlayerPrefs.SetFloat("SoundVolume", soundVolume);
         PlayerPrefs.SetString("LanguagePreference", language);
+        PlayerPrefs.SetInt("DemoVersion", dv);
+        PlayerPrefs.SetInt("FullVersion", fv);
         PlayerPrefs.SetInt("Lvl0", 1);
         PlayerPrefs.SetInt("ShowButtonHint", 1);
         if (casual)

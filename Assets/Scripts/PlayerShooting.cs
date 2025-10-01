@@ -8,7 +8,7 @@ public class PlayerShooting : MonoBehaviour
     float bulletSpeed = 6f;
     int bulletEnergy = 2;
     int bulletDamage = 4;
-    float cooldown = 1.5f;
+    float cooldown = 2.0f;
 
     readonly string unlockingCode1 = "Lvl3";
     
@@ -16,7 +16,7 @@ public class PlayerShooting : MonoBehaviour
     readonly string unlockingCode3 = "Waterbullet2Purchased";
     readonly string unlockingCode4 = "Waterbullet3Purchased";
     readonly string unlockingCode5 = "Waterbullet4Purchased";
-    readonly float cooldown2 = 0.8f;
+    readonly float cooldown2 = 1.0f;
 
     public Transform shootingPoint;
     float timer;
@@ -97,9 +97,6 @@ public class PlayerShooting : MonoBehaviour
                 animator.PlayShooting();
             Shoot();
             timer = cooldown;
-            if(PlayerPrefs.GetInt(unlockingCode3, 0) == 1 && Random.value < 0.20) // decidere s elasciare così o meno
-                StartCoroutine("DelayedEnergyReward");
-
         }
         else
         {
