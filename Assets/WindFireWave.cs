@@ -27,6 +27,7 @@ public class WindFireWave : MonoBehaviour
     public ParticleSystem leavesPS;
 
     List<int> lastTouchedIDs = new List<int>();
+    int triggerdByID;
 
     void Start()
     {
@@ -103,14 +104,25 @@ public class WindFireWave : MonoBehaviour
         waveRef.GetComponent<FireWave>().spawnFlameProb = spawnFlameProb;
         waveRef.GetComponent<FireWave>().touchedIDs = lastTouchedIDs;
         lastTouchedIDs = new List<int>();
+        if (triggerdByID != 0)
+        {
+            waveRef.GetComponent<FireWave>().shootByID = triggerdByID;
+            triggerdByID = 0;
+        }
     }
     
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Enemy") && triggerWithEnemy)
+        {
+            triggerdByID = other.gameObject.GetInstanceID();
             TriggerWave();
+        }
         if (other.CompareTag("Flame"))
+        {
+            triggerdByID = other.gameObject.GetInstanceID();
             TriggerWave();
+        }
         if (other.CompareTag("FireWave"))
         {
             lastTouchedIDs = other.GetComponent<FireWave>().touchedIDs;

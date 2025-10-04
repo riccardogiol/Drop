@@ -27,10 +27,15 @@ public class RainManager : MonoBehaviour
         {
             rainEffect.Play();
             StartCoroutine(FlashPlay());
-            if (win == true) 
+            if (win) 
                 playgroundManager.SetGreenDecorations();
             if (waterTiles)
-                InvokeRepeating("RainingWaterTiles", 0.5f, rainInterval/5f);
+            {
+                if (win)
+                    InvokeRepeating("RainingWaterTiles", 0.5f, rainInterval / 5f);
+                else
+                    InvokeRepeating("RainingWaterTiles", 0.5f, rainInterval/2f);
+            }
             if (spawnWaterdrops)
                 InvokeRepeating("RainingSpawnWaterdrop", 0.5f, rainInterval);
         }

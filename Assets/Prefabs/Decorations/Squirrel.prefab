@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &556528376540612350
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5381898384179224921}
+  m_Layer: 0
+  m_Name: SpawnSpot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5381898384179224921
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556528376540612350}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.367, y: 0.05, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5831071956751903874}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &932945468508291270
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,6 +226,8 @@ MonoBehaviour:
   anim1PercAppearance: 1
   anim2: 1
   anim2PercAppearance: 0.5
+  animBurnt: 0
+  animBurntPercAppearance: 0.3
   idlePercAppearance: 2
   timer: 1
 --- !u!1 &5831071956751903875
@@ -230,6 +263,7 @@ Transform:
   - {fileID: 9083886753433832674}
   - {fileID: 5831071955705032784}
   - {fileID: 8692842919302474258}
+  - {fileID: 5381898384179224921}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -279,7 +313,7 @@ MonoBehaviour:
     type: 3}
   timer: 5
   spawnDropProb: 0.2
-  spawnSpot: {x: 1, y: 0, z: 0}
+  spawnSpot: {fileID: 0}
 --- !u!1001 &5524826282660667013
 PrefabInstance:
   m_ObjectHideFlags: 0

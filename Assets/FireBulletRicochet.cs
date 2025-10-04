@@ -54,13 +54,16 @@ public class FireBulletRicochet : MonoBehaviour
                         playgroundManager.FireOnPosition(other.transform.position);
                         other.GetComponent<ChangeAspect>().SetBurntSprite();
                     }
-                } else if (other.GetComponent<RootTriggerLogic>() != null)
+                }
+                else if (other.GetComponent<RootTriggerLogic>() != null)
                 {
                     if (other.GetComponent<RootTriggerLogic>().reactOnWater)
                     {
                         playgroundManager.FireOnPosition(other.transform.position);
                         other.GetComponent<RootTriggerLogic>().SetBurntSprite();
                     }
+                    if (!other.GetComponent<RootTriggerLogic>().tall)
+                        break;
                 }
                 DestroyBullet();
                 break;

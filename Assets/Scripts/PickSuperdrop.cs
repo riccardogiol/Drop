@@ -4,7 +4,7 @@ using UnityEngine;
 public class PickSuperdrop : MonoBehaviour
 {
     public bool randomEnergy = false;
-    public int energy = 3;
+    public int energy = 1;
 
     readonly int[] energyValues = {1, 2, 3};
     readonly int maxEnergy = 3;

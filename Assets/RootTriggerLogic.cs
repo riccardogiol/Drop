@@ -3,6 +3,7 @@ using UnityEngine;
 public class RootTriggerLogic : MonoBehaviour
 {
     public ChangeAspect changeAspect;
+    public bool tall = false;
     
     [System.NonSerialized]
     public bool reactOnWater;

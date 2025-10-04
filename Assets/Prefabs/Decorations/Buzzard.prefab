@@ -5036,6 +5036,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   changeAspect: {fileID: 7216896222369135527}
+  tall: 1
 --- !u!1 &7216896222369135528
 GameObject:
   m_ObjectHideFlags: 0
@@ -5048,7 +5049,7 @@ GameObject:
   - component: {fileID: 7216896222369135527}
   - component: {fileID: 3272937055777612205}
   m_Layer: 6
-  m_Name: Buzzard 1
+  m_Name: Buzzard
   m_TagString: Decoration
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5069,6 +5070,7 @@ Transform:
   - {fileID: 826372923565302899}
   - {fileID: 9160323427999171469}
   - {fileID: 4946879042143323040}
+  - {fileID: 2560978714418000557}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5120,7 +5122,7 @@ MonoBehaviour:
     type: 3}
   timer: 5
   spawnDropProb: 0.2
-  spawnSpot: {x: 0.5, y: -0.5, z: 0}
+  spawnSpot: {fileID: 0}
 --- !u!1 &7216896223411808125
 GameObject:
   m_ObjectHideFlags: 0
@@ -10386,3 +10388,34 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!1 &9205863976961021603
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2560978714418000557}
+  m_Layer: 0
+  m_Name: SpawnSpot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2560978714418000557
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9205863976961021603}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.49, y: -0.47, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7216896222369135529}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

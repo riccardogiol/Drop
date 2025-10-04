@@ -21,16 +21,13 @@ public class InitializePlayerPrefs : MonoBehaviour
         PlayerPrefs.SetInt("WavePurchased", 0);
         */
 
-        PlayerPrefs.SetInt("Lvl1", 1);
         PlayerPrefs.SetInt("Lvl1Prize", 0);
         PlayerPrefs.SetInt("Lvl2Prize", 0);
-        PlayerPrefs.SetInt("Lvl2", 1);
-        PlayerPrefs.SetInt("Lvl3", 1);
         PlayerPrefs.SetInt("Lvl3Prize", 0);
-        PlayerPrefs.SetInt("Lvl4", 1);
-        PlayerPrefs.SetInt("Lvl5", 1);
-        for (int i = 6; i <= 25; i++)
+        for (int i = 1; i <= 25; i++)
             PlayerPrefs.SetInt("Lvl" + i, 1);
+        //for (int i = 22; i <= 25; i++)
+            //PlayerPrefs.SetInt("Lvl" + i, 0);
 
         PlayerPrefs.SetInt("LastStagePlayed", 1);
         PlayerPrefs.SetInt("LastLevelPlayed", 5);

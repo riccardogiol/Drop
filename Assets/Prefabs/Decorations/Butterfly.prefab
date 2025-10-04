@@ -209,6 +209,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5831071956751903874}
   - component: {fileID: 5831071956751903884}
+  - component: {fileID: -7484672332335916633}
   m_Layer: 0
   m_Name: Butterfly
   m_TagString: Insect
@@ -231,6 +232,7 @@ Transform:
   - {fileID: 358972711879249201}
   - {fileID: 5831071955705032784}
   - {fileID: 8692842919302474258}
+  - {fileID: 6374671930678036515}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -261,6 +263,56 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   colorAdjustmentMaterial: {fileID: 0}
   bloomIntensity: 0
+--- !u!114 &-7484672332335916633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5831071956751903875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 477297663b888458cad4a47028f629cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  superdropPrefab: {fileID: 846535088814142963, guid: 4c02d9cfb759c4b81ad282ad2e86c539,
+    type: 3}
+  lightningBurstPrefab: {fileID: 7261966851134090421, guid: 74436484ca5a445a1882058e8ac9169b,
+    type: 3}
+  timer: 10
+  spawnDropProb: 0.1
+  spawnSpot: {fileID: 0}
+--- !u!1 &8235927250906596351
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6374671930678036515}
+  m_Layer: 0
+  m_Name: SpawnSpot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6374671930678036515
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8235927250906596351}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.884, y: -0.352, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5831071956751903874}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5524826282660667013
 PrefabInstance:
   m_ObjectHideFlags: 0
