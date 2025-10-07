@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2826,6 +2825,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -6802,7 +6802,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9b30d0c7d83d40f8a92817af4fd5a81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDemo: 1
+  isDemo: 0
 --- !u!4 &1649986492
 Transform:
   m_ObjectHideFlags: 0

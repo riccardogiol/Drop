@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -355,7 +354,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 95aa9da8a8db8415bb3b788cd20bcd96,
+      objectReference: {fileID: 21300000, guid: 74bc84e3ef6904dfd991cb9809f5a8c2,
         type: 3}
     - target: {fileID: 4901664829710614618, guid: 4317a480abfeb4491af35141a980d8e0,
         type: 3}
@@ -1913,6 +1912,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Butterfly
+      objectReference: {fileID: 0}
+    - target: {fileID: 5831071956751903884, guid: 53c8076ff9a9a40368eaab2a9d46e7ed,
+        type: 3}
+      propertyPath: isBurnt
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5831071956751903884, guid: 53c8076ff9a9a40368eaab2a9d46e7ed,
+        type: 3}
+      propertyPath: reactOnWater
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53c8076ff9a9a40368eaab2a9d46e7ed, type: 3}

@@ -58,6 +58,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
   m_SortingOrder: 3
@@ -183,7 +184,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &2398140077748986532
@@ -577,17 +578,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca561870e53e5490ba2403768a629806, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
-  currentHealth: 20
+  maxHealth: 12
+  currentHealth: 12
   scaleGFX: 1
-  healthOnProgBar: 0
-  winningSceneTimer: 8
-  logoOnProgBar: {fileID: 0}
-  animator: {fileID: 0}
   enemyGFX: {fileID: 2878689735299882629}
   vaporBurstPrefab: {fileID: 2932825668177330008, guid: 5a0db5a8bb6544822be5283d9c96fc30,
     type: 3}
   flameParent: {fileID: 0}
+  isBoss: 0
+  healthOnProgBar: 0
+  winningSceneTimer: 8
+  logoOnProgBar: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!114 &5216817755464628962
 MonoBehaviour:
   m_ObjectHideFlags: 0

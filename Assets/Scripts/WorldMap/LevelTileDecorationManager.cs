@@ -55,6 +55,14 @@ public class LevelTileDecorationManager : MonoBehaviour
             if (Random.value < decProb)
             {    
                 GameObject goRef = Instantiate(decorationPrefabs[Random.Range(0, decorationPrefabs.Length)], position, Quaternion.identity);
+                foreach (Transform child in goRef.transform)
+                {
+                    if (child.name == "GFX")
+                        if (child.GetComponent<SpriteRenderer>() != null)
+                            if (Random.value < 0.5)
+                                child.GetComponent<SpriteRenderer>().flipX = true;
+                            
+                }
                 goRef.transform.parent = transform;
                 decorations.Add(goRef);
                 ChangeAspect caRef = goRef.GetComponent<ChangeAspect>();

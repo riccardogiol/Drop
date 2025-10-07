@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBurnt: 1
-  reactOnWater: 0
+  reactOnWater: 1
   greenSprite: {fileID: 21300000, guid: 0d1552b8a849c4a1b9975e97dd1636fd, type: 3}
   burntSprite: {fileID: 21300000, guid: 1eeec493297964aabb4e30fa9a0255b7, type: 3}
   decoAnimator: {fileID: 0}
@@ -148,8 +148,10 @@ MonoBehaviour:
     y: 0
   - x: 1
     y: 0
+  spriteRenderer: {fileID: 0}
   colorAdjustmentMaterial: {fileID: 2100000, guid: baab634fdc0a047cf96ca2f7b8f778a4,
     type: 2}
+  bloomIntensity: 0
 --- !u!1 &6773169036798325286
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,6 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   changeAspect: {fileID: 5831071956751903884}
+  tall: 0
 --- !u!1001 &7435745944432443180
 PrefabInstance:
   m_ObjectHideFlags: 0
