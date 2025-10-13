@@ -497,10 +497,8 @@ GameObject:
   - component: {fileID: 5216817755464628960}
   - component: {fileID: 5216817755464628962}
   - component: {fileID: 5216817755464628961}
-  - component: {fileID: 5216817755464628970}
   - component: {fileID: 5216817755464628971}
   - component: {fileID: 2837100105941273716}
-  - component: {fileID: -4595252313968132883}
   - component: {fileID: 5184621122123990544}
   - component: {fileID: 1045431984353554495}
   m_Layer: 0
@@ -632,22 +630,6 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
---- !u!114 &5216817755464628970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5216817755464628964}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ee70b7e2e9bb49a5966866df4a03af9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  jumpInterval: 2
-  jumpSpeed: 0.5
-  waypointGFX: {fileID: 0}
 --- !u!114 &5216817755464628971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -687,19 +669,6 @@ MonoBehaviour:
   jumpSpeed: 0.5
   targetGFX: {fileID: 1249133460442079072, guid: bbb214e717bce4aa59b775525bebd988,
     type: 3}
---- !u!114 &-4595252313968132883
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5216817755464628964}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b510d0d74b0140dc85c2dce1756091a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerHealth: {fileID: 0}
 --- !u!114 &5184621122123990544
 MonoBehaviour:
   m_ObjectHideFlags: 0

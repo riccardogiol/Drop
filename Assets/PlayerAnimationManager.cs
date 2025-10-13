@@ -16,6 +16,11 @@ public class PlayerAnimationManager : MonoBehaviour
     {
         animator.SetTrigger("Triumph");
     }
+    
+    public void PlayThinking()
+    {
+        animator.SetTrigger("Thinking");
+    }
 
     public void PlayEvaporation()
     {
@@ -38,6 +43,11 @@ public class PlayerAnimationManager : MonoBehaviour
     public void PlayCastingWave()
     {
         animator.SetTrigger("Wave");
+    }
+
+    public void PlayStepSound()
+    {
+        FindObjectOfType<AudioManager>().Play("WaterStep");
     }
 
     IEnumerator DelayedVaporBurst()

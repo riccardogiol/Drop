@@ -4,8 +4,8 @@ public class SingletonAudioManager : MonoBehaviour
 {
     public static SingletonAudioManager instance;
 
-    void Awake() {
-
+    void Awake()
+    {
         if (instance == null)
             instance = this;
         else

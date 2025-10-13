@@ -13,13 +13,13 @@ public class SpawnFlames : MonoBehaviour
         playgroundManager = FindFirstObjectByType<PlaygroundManager>();
         
         if (PlayerPrefs.GetInt("EasyMode", 0) == 1)
-            timer *= 1.3f;
+            timer *= 2f;
         countdown = timer;
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        countdown -= Time.deltaTime;
+        countdown -= Time.fixedDeltaTime;
         if (countdown <= 0)
         {
             countdown = timer;

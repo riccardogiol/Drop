@@ -1,13 +1,20 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
 
-    public float volumeFactor = 0.2f;
-    // dividere suoni e musica per gestire volumi separatamente
+    float volumeFactor = 0.5f;
+
     public Sound[] sounds;
     public Sound[] musics;
+
+    public List<String> resetOnStart;
+
+    float musicVolume, soundVolume;
+
+    Transform playerPosition;
 
     void Awake()
     {
@@ -29,12 +36,26 @@ public class AudioManager : MonoBehaviour
             m.source.loop = m.loop;
         }
 
-        SetMusicVolume(PlayerPrefs.GetFloat("MusicVolume", 1));
-        SetSoundVolume(PlayerPrefs.GetFloat("SoundVolume", 1));
+        musicVolume = PlayerPrefs.GetFloat("MusicVolume", 1);
+        soundVolume = PlayerPrefs.GetFloat("SoundVolume", 1);
+        SetMusicVolume(musicVolume);
+        SetSoundVolume(soundVolume);
+
+        playerPosition = FindFirstObjectByType<PlayerHealth>().transform;
     }
 
-    public void Play (string name)
+    public void ResetSounds()
     {
+        foreach (string s in resetOnStart)
+            Stop(s);
+    }
+
+    public void Play(string name, Vector3 sourcePosition = new Vector3())
+    {
+        bool isMusics = false;
+        if (sourcePosition != null && playerPosition == null)
+            playerPosition = FindFirstObjectByType<PlayerHealth>().transform;
+
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)
         {
@@ -44,10 +65,43 @@ public class AudioManager : MonoBehaviour
                 Debug.LogWarning("Sound with name " + name + " not found");
                 return;
             }
+            isMusics = true;
         }
+
         if (s.source.isPlaying && s.source.loop)
+        {
+            if (s.distanceScaleVolume && sourcePosition != null)
+            {
+                float distance = Vector2.Distance(playerPosition.position, sourcePosition);
+                if (isMusics)
+                    s.source.volume = s.volume * volumeFactor * musicVolume * Math.Max(0, 1 - (distance / s.zeroVolumeDistance));
+                else
+                    s.source.volume = s.volume * volumeFactor * soundVolume * Math.Max(0, 1 - (distance / s.zeroVolumeDistance));
+            }
             return;
-        s.source.Play();
+        }
+
+        if (s.pitchVariation)
+            s.source.pitch = s.pitch * UnityEngine.Random.Range(0.7f, 1.3f);
+
+        float volume = s.volume * volumeFactor;
+        if (s.distanceScaleVolume && sourcePosition != null)
+        {
+            float distance = Vector2.Distance(playerPosition.position, sourcePosition);
+            volume *= Math.Max(0, 1 - (distance / s.zeroVolumeDistance));
+            if (volume <= 0)
+                return;
+        }
+
+        if (s.loop)
+        {
+            if (isMusics)
+                s.source.volume = volume * musicVolume;
+            else
+                s.source.volume = volume * soundVolume;
+            s.source.Play();
+        } else
+            s.source.PlayOneShot(s.clip, volume);
     }
 
     public void Stop (string name)

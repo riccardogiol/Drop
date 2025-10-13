@@ -24,7 +24,7 @@ public class Wave : MonoBehaviour
         tileColliderStop = timer - tileColliderStop;
         if (bigWave)
         {
-            transform.localScale = new Vector3(1.6f, 1.6f, 1.6f); 
+            transform.localScale = new Vector3(1.6f, 1.6f, 1.6f);
             GameObject goRef = Instantiate(waveExplosionBig, transform.position, transform.rotation);
             goRef.transform.parent = transform;
         }
@@ -36,6 +36,8 @@ public class Wave : MonoBehaviour
         waveCollider = GetComponent<CircleCollider2D>();
         if (waveCollider == null)
             waveCollider = GetComponent<PolygonCollider2D>();
+
+        FindObjectOfType<AudioManager>().Play("WaterWave", transform.position);
     }
 
     public void SubscribeID(int ID)

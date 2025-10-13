@@ -139,7 +139,7 @@ public class Bullet : MonoBehaviour
 
     public void DestroyBullet(bool playSmokeEffect = false, bool pierce = false)
     {
-        FindObjectOfType<AudioManager>().Play("BulletExplosion");
+        FindObjectOfType<AudioManager>().Play("WaterBulletSplash", transform.position);
         Instantiate(explosionEffect, transform.position, transform.rotation);
         if (playSmokeEffect)
             Instantiate(smokeEffect, transform.position, transform.rotation);

@@ -15,6 +15,7 @@ public class EagleEyeMode : MonoBehaviour
     PlaygroundManager playgroundManager;
     public CinemachineVirtualCamera cinemachine;
     public CameraAnimationManager cameraAnimationManager;
+    PlayerAnimationManager playerAnimationManager;
 
     float rechargeTimer = 10.0f, rechargeCountdown = 0;
     ButtonFiller buttonFiller;
@@ -25,6 +26,7 @@ public class EagleEyeMode : MonoBehaviour
     void Awake()
     {
         playgroundManager = FindFirstObjectByType<PlaygroundManager>();
+        playerAnimationManager = FindFirstObjectByType<PlayerAnimationManager>();
 
         originalTarget = cinemachine.Follow.gameObject;
 
@@ -81,6 +83,7 @@ public class EagleEyeMode : MonoBehaviour
             return;
         inEagleMode = true;
         playgroundManager.ShowEnergy();
+        playerAnimationManager.PlayThinking();
         Time.timeScale = maxSlowDownFactor;
         countdown = timer;
         rechargeCountdown = rechargeTimer;

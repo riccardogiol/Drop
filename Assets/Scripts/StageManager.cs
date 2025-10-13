@@ -49,6 +49,7 @@ public class StageManager : MonoBehaviour
 
     void Start()
     {
+        FindObjectOfType<AudioManager>().ResetSounds();
         FindObjectOfType<AudioManager>().Stop("OpeningMusic");
         FindObjectOfType<AudioManager>().Play("BackgroundMusic");
 

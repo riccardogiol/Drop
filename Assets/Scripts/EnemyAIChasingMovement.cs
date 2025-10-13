@@ -1,50 +1,62 @@
 using UnityEngine;
 using Pathfinding;
-using System.Collections;
 using System;
 using System.Collections.Generic;
 
 public class EnemyAIChasingMovement : MonoBehaviour
 {
     public Transform target;
-    public float jumpInterval = 2f;  
+    public float jumpInterval = 2f;
     public float jumpSpeed = 0.5f;
+    float countdown = 0;
 
     Path path;
     int currentWaypoint = 0;
     float nextWaypointDistance = 0.1f;
-
     Seeker seeker;
+    Vector3 destination = new Vector3();
+    Vector3 nextDirection = new Vector3();
+    Vector3 targetCell = new Vector3();
+    bool retryUpdatePath = false;
+
     LinearMovement lm;
     SpriteFacing spriteFacing;
-
-    bool wasDisabled = false;
+    PlaygroundManager playgroundManager;
 
     public GameObject waypointGFX;
     List<GameObject> waypointsGFXGO = new List<GameObject>();
 
-    void Start()
+    void Awake()
     {
+        playgroundManager = FindFirstObjectByType<PlaygroundManager>();
         if (target == null)
             target = FindFirstObjectByType<PlayerHealth>().transform;
         seeker = GetComponent<Seeker>();
         lm = GetComponent<LinearMovement>();
         spriteFacing = GetComponent<SpriteFacing>();
+    }
 
+    void Start()
+    {
         spriteFacing.changeSide(new Vector3(0, -1, 0));
 
         if (PlayerPrefs.GetInt("EasyMode", 0) == 1)
             jumpInterval *= 1.3f;
-        
-        InvokeRepeating("UpdatePath", 0f, jumpInterval);
-        
-        StartCoroutine(NextStep());
+
+        UpdatePath(transform.position);
+        countdown = jumpInterval;
     }
 
-    void UpdatePath()
+    void UpdatePath(Vector3 startingPosition)
     {
-        if (seeker.IsDone() && this.enabled)
-            seeker.StartPath(transform.position, target.position, OnPathComplete);
+        path = null;
+        if (seeker.IsDone())
+        {
+            targetCell = playgroundManager.GetCellCenter(target.position);
+            seeker.StartPath(startingPosition, targetCell, OnPathComplete);
+        }
+        else
+            retryUpdatePath = true;
     }
 
     void OnPathComplete(Path p)
@@ -56,52 +68,56 @@ public class EnemyAIChasingMovement : MonoBehaviour
         }
     }
 
-    IEnumerator NextStep()
+    void Update()
     {
-        while(true)
+        countdown -= Time.deltaTime;
+        if (countdown <= 0)
         {
-            if (!this.enabled)
+            countdown = jumpInterval;
+            if (retryUpdatePath)
             {
-                wasDisabled = true;
-                yield return new WaitForSeconds(jumpInterval);
+                retryUpdatePath = false;
+                UpdatePath(transform.position);
+                return;
             }
-            else
-            {
-                if (wasDisabled)
-                {
-                    yield return new WaitForSeconds(2f);
-                    wasDisabled = false;
-                }
-                if (path == null)
-                    yield return new WaitForSeconds(0.2f);
-                if (currentWaypoint >= path.vectorPath.Count)
-                    yield return new WaitForSeconds(jumpInterval);
+            if (path == null)
+                return;
 
-                float distance = Vector2.Distance(transform.position, path.vectorPath[currentWaypoint]);
-                if (distance < nextWaypointDistance)
-                    currentWaypoint = Math.Min(currentWaypoint + 1, path.vectorPath.Count - 1);
-                Vector3 nextDirection = (path.vectorPath[currentWaypoint] - transform.position).normalized;
-                if (nextDirection.magnitude != 0)
-                    spriteFacing.changeSide(nextDirection);
+            // se sono sopra il player stai li
+            if (currentWaypoint >= path.vectorPath.Count)
+                return;
+            
+            // se sono sopra la mia prossima destinazione, avanza di uno sulla lista 
+            float distance = Vector2.Distance(transform.position, path.vectorPath[currentWaypoint]);
+            if (distance < nextWaypointDistance)
+                currentWaypoint = Math.Min(currentWaypoint + 1, path.vectorPath.Count - 1);
 
-                lm.MoveTo(path.vectorPath[currentWaypoint], jumpSpeed);
-                
-                yield return new WaitForSeconds(jumpInterval);
-            }
+            destination = path.vectorPath[currentWaypoint];
+
+            nextDirection = (destination - transform.position).normalized;
+            if (nextDirection.magnitude > 0)
+                spriteFacing.changeSide(nextDirection);
+
+            lm.MoveTo(destination, jumpSpeed);
+            if (currentWaypoint < path.vectorPath.Count - 1)
+                currentWaypoint++;
+            
+            UpdatePath(destination);
         }
     }
 
+    // visuals function
     public void ShowPath()
     {
         if (path == null)
             return;
         Vector3 direction = new Vector3(1, 0, 0);
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        for(int i = currentWaypoint; i < path.vectorPath.Count; i++)
+        for (int i = currentWaypoint; i < path.vectorPath.Count; i++)
         {
             if (i < path.vectorPath.Count - 1)
             {
-                Vector3 nextWaypoint = path.vectorPath[i+1];
+                Vector3 nextWaypoint = path.vectorPath[i + 1];
                 direction = (nextWaypoint - path.vectorPath[i]).normalized;
                 angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             }

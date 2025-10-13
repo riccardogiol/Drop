@@ -1,6 +1,5 @@
 using UnityEngine;
 using Pathfinding;
-using System.Collections;
 using System;
 using System.Collections.Generic;
 
@@ -9,19 +8,20 @@ public class EnemyAIPatrolMovement : MonoBehaviour
     public Vector3[] targets;
     public float jumpInterval = 2f;  
     public float jumpSpeed = 0.5f;
+    float countdown = 0; // use jumpspeed as timer for take an action
 
     Vector3 currentTarget;
     int currentTargetIndex = 0;
 
     Path path;
     int currentWaypoint = 0;
-    float nextWaypointDistance = 0.1f;
-
     Seeker seeker;
+    Vector3 destination = new Vector3();
+    Vector3 nextDirection = new Vector3();
+    bool retryUpdatePath = false;
+
     LinearMovement lm;
     SpriteFacing spriteFacing;
-
-    bool wasDisabled = false;
 
     public GameObject targetGFX;
     List<GameObject> targetsGFXGO = new List<GameObject>();
@@ -37,16 +37,20 @@ public class EnemyAIPatrolMovement : MonoBehaviour
         if (PlayerPrefs.GetInt("EasyMode", 0) == 1)
             jumpInterval *= 1.3f;
 
+        jumpSpeed = Math.Min(jumpSpeed, jumpInterval - 0.05f);
         currentTarget = targets[currentTargetIndex];
-        InvokeRepeating("UpdatePath", 0f, jumpInterval);
-        
-        StartCoroutine(NextStep());
+
+        UpdatePath(transform.position);
+        countdown = jumpInterval;
     }
 
-    void UpdatePath()
+    void UpdatePath(Vector3 startingPosition)
     {
-        if (seeker.IsDone() && this.enabled)
-            seeker.StartPath(transform.position, currentTarget, OnPathComplete);
+        path = null;
+        if (seeker.IsDone())
+            seeker.StartPath(startingPosition, currentTarget, OnPathComplete);
+        else
+            retryUpdatePath = true;
     }
 
     void OnPathComplete(Path p)
@@ -58,58 +62,57 @@ public class EnemyAIPatrolMovement : MonoBehaviour
         }
     }
 
-    IEnumerator NextStep()
+    void Update()
     {
-        while(true)
+        countdown -= Time.deltaTime;
+        if (countdown <= 0)
         {
-            if (!this.enabled)
+            countdown = jumpInterval;
+            if (retryUpdatePath)
             {
-                wasDisabled = true;
-                yield return new WaitForSeconds(jumpInterval);
+                retryUpdatePath = false;
+                UpdatePath(transform.position);
+                return;
             }
+            if (path == null)
+                return;
+
+            // when I evaluate the new path the waypoint in 0 is under me. Skip it
+            if (Vector2.Distance(transform.position, path.vectorPath[currentWaypoint]) < 0.1)
+                currentWaypoint = Math.Min(currentWaypoint + 1, path.vectorPath.Count - 1);
+
+            destination = path.vectorPath[currentWaypoint];
+
+            nextDirection = (destination - transform.position).normalized;
+            spriteFacing.changeSide(nextDirection);
+
+            destination = path.vectorPath[currentWaypoint];
+            lm.MoveTo(destination, jumpSpeed);
+
+            if (currentWaypoint < path.vectorPath.Count - 1)
+                currentWaypoint++;
             else
             {
-                if (wasDisabled)
-                {
-                    yield return new WaitForSeconds(2f);
-                    wasDisabled = false;
-                }
-                if (path == null)
-                    yield return new WaitForSeconds(0.2f);
-                if (currentWaypoint >= path.vectorPath.Count)
-                    yield return new WaitForSeconds(jumpInterval);
-
-                float distance = Vector2.Distance(transform.position, path.vectorPath[currentWaypoint]);
-                if (distance < nextWaypointDistance)
-                    currentWaypoint = Math.Min(currentWaypoint + 1, path.vectorPath.Count - 1);
-                
-                Vector3 nextDirection = (path.vectorPath[currentWaypoint] - transform.position).normalized;
-                if(nextDirection.magnitude != 0)
-                    spriteFacing.changeSide(nextDirection);
-                lm.MoveTo(path.vectorPath[currentWaypoint], jumpSpeed);
-
-                if (Vector2.Distance(transform.position, currentTarget) < nextWaypointDistance)
-                    NextTarget();
-                
-                yield return new WaitForSeconds(jumpInterval);
+                NextTarget();
+                UpdatePath(destination);
             }
         }
+        
     }
 
     void NextTarget()
     {
         currentTargetIndex++;
         if (currentTargetIndex >= targets.Length)
-        {
             currentTargetIndex = 0;
-        }
         currentTarget = targets[currentTargetIndex];
     }
 
+    // visuals functions
     public void ShowPath()
     {
         int counter = 1;
-        foreach(Vector3 target in targets)
+        foreach (Vector3 target in targets)
         {
             GameObject goRef = Instantiate(targetGFX, target, Quaternion.identity);
             goRef.GetComponent<SetText>().SetInt(counter);

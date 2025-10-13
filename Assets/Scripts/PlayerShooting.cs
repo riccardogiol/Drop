@@ -109,6 +109,7 @@ public class PlayerShooting : MonoBehaviour
     {
         powerUsage++;
         GameObject bullet;
+        FindObjectOfType<AudioManager>().Play("ShootSound");
         if (PlayerPrefs.GetInt(unlockingCode5, 0) == 1 && playerShield.isActive)
         {
             playerShield.DamageShield(2);
