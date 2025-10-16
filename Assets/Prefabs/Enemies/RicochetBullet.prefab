@@ -5029,6 +5029,7 @@ GameObject:
   - component: {fileID: 4509107269283916412}
   - component: {fileID: 4509107269283916413}
   - component: {fileID: 4509107269283916415}
+  - component: {fileID: 4654950488431875149}
   m_Layer: 0
   m_Name: FireBulletRicochet
   m_TagString: Untagged
@@ -5137,6 +5138,20 @@ MonoBehaviour:
   vaporEffect: {fileID: 2932825668177330008, guid: 5a0db5a8bb6544822be5283d9c96fc30,
     type: 3}
   spriteRenderer: {fileID: 4469799698037037284}
+--- !u!114 &4654950488431875149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4509107269283916399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beb5b062c9b86457c89035262c33abff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: BulletHissing
+  timer: 0.3
 --- !u!1 &4509107269619839866
 GameObject:
   m_ObjectHideFlags: 0

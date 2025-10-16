@@ -140,6 +140,7 @@ public class PlayerSuperPower : MonoBehaviour
 
     void ExitSuperState()
     {
+        FindObjectOfType<AudioManager>().Play("Thunder");
         GameObject goRef = Instantiate(lightningBurstPrefab, transform.position, Quaternion.identity);
         goRef.GetComponent<ParticleSystem>().emission.SetBurst(0, new ParticleSystem.Burst(0, upgradeLvl));
         lightningSparklesPS.Stop();

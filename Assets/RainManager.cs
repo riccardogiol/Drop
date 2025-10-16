@@ -26,6 +26,8 @@ public class RainManager : MonoBehaviour
         if (isRaining)
         {
             rainEffect.Play();
+            FindObjectOfType<AudioManager>().Play("Thunder");
+            FindObjectOfType<AudioManager>().Play("RainSound");
             StartCoroutine(FlashPlay());
             if (win) 
                 playgroundManager.SetGreenDecorations();
@@ -42,6 +44,7 @@ public class RainManager : MonoBehaviour
         else
         {
             rainEffect.Stop();
+            FindObjectOfType<AudioManager>().Stop("RainSound");
             //StartCoroutine(FlashPlay());
             CancelInvoke("RainingWaterTiles");
             CancelInvoke("RainingSpawnWaterdrop");

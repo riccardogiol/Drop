@@ -21,6 +21,8 @@ public class PushTriggerAvalanche : MonoBehaviour
 
     CameraAnimationManager cameraAnimationManager;
 
+    IndependantSoundDistanceRelated isdr;
+
     void Awake()
     {
         playgroundManager = FindFirstObjectByType<PlaygroundManager>();
@@ -28,6 +30,7 @@ public class PushTriggerAvalanche : MonoBehaviour
         oneWayComps = FindObjectsOfType<OneWayObstacleController>();
         oneWayCompsNew = FindObjectsOfType<OneWayObstacleControllerNew>();
         cameraAnimationManager = FindFirstObjectByType<CameraAnimationManager>();
+        isdr = GetComponent<IndependantSoundDistanceRelated>();
 
         foreach (Animator anim in rockAnims)
             anim.transform.rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
@@ -98,8 +101,10 @@ public class PushTriggerAvalanche : MonoBehaviour
             if (!isMoving)
             {
                 isMoving = true;
-                foreach(var rock in rockAnims)
+                foreach (var rock in rockAnims)
                     rock.SetTrigger("StartRolling");
+                if (isdr != null)
+                    isdr.Play();
             }
             linearMovement.MoveTo(destination, movementTime);
             StartCoroutine(ActivateTriggerDelay(movementTime));
@@ -110,6 +115,9 @@ public class PushTriggerAvalanche : MonoBehaviour
             tag = "DecorationNoFire";
             gameObject.layer = 6;
             isMoving = false;
+            if (isdr != null)
+                isdr.Stop();
+            FindObjectOfType<AudioManager>().Play("AvalancheLanding");
 
 
             Collider2D obstacleCollider = GetComponent<Collider2D>();

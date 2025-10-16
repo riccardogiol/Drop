@@ -5,6 +5,7 @@ public class MapMenuManager : MonoBehaviour
 {
     void Awake()
     {
+        FindObjectOfType<AudioManager>().ResetSounds();
         FindObjectOfType<AudioManager>().Play("OpeningMusic");
         FindObjectOfType<AudioManager>().Stop("BackgroundMusic");
     }

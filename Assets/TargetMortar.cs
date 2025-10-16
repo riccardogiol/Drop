@@ -71,6 +71,13 @@ public class TargetMortar : MonoBehaviour
         Shoot(new Vector3(0, -1));
         WaveAttack();
 
+        SoundDistanceRelated sdr = bombShadow.GetComponent<SoundDistanceRelated>();
+        if (sdr != null)
+        {
+            sdr.play = false;
+            sdr.PlaySoundDistanceRelated();
+        }
+
         Destroy(transform.parent.gameObject);
     }
 

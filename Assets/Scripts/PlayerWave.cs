@@ -105,6 +105,7 @@ public class PlayerWave : MonoBehaviour
 
     void WaveAttack()
     {
+        FindObjectOfType<AudioManager>().PlayVoice("Shoot");
         powerUsage++;
         GameObject wave = Instantiate(wavePrefab, transform.position, Quaternion.identity);
         wave.GetComponent<Wave>().damage = waveDamage;

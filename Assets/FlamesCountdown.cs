@@ -11,6 +11,8 @@ public class FlamesCountdown : MonoBehaviour
 
     ParticleSystem.Burst burst;
 
+    public string sound = "";
+
     void Start()
     {
         burst = flameGFX.emission.GetBurst(0);
@@ -23,6 +25,8 @@ public class FlamesCountdown : MonoBehaviour
         burst.count = counter = 1;
         flameGFX.emission.SetBurst(0, burst);
         flameGFX.Play();
+        if (sound != "")
+            FindObjectOfType<AudioManager>().Play(sound, transform.position);
         countdown = timer / numberOfFlames;
     }
 
@@ -37,6 +41,8 @@ public class FlamesCountdown : MonoBehaviour
             burst.count = counter;
             flameGFX.emission.SetBurst(0, burst);
             flameGFX.Play();
+            if (sound != "")
+                FindObjectOfType<AudioManager>().Play(sound, transform.position);
             countdown = timer / numberOfFlames;
         }
     }

@@ -31,7 +31,8 @@ public class PushTrigger : MonoBehaviour
             if(isObstacle)
             {
                 if (!playgroundManager.IsObstacleForRock(destination))
-                {
+                { 
+                    FindObjectOfType<AudioManager>().Play("StoneSound", transform.position);
                     linearMovement.MoveTo(destination, speed);
                     triggerComponent.enabled = false;
                     StartCoroutine(ActivateTriggerDelay(speed));

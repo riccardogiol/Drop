@@ -5334,6 +5334,7 @@ GameObject:
   - component: {fileID: 8451964712967765221}
   - component: {fileID: 7280445788480737706}
   - component: {fileID: 427644232164952277}
+  - component: {fileID: 4801043265054477797}
   m_Layer: 0
   m_Name: SpawnFlameEnemy
   m_TagString: Enemy
@@ -5414,14 +5415,15 @@ MonoBehaviour:
   maxHealth: 22
   currentHealth: 22
   scaleGFX: 0
-  healthOnProgBar: 1
-  winningSceneTimer: 12
-  logoOnProgBar: {fileID: 21300000, guid: d79de1c466cf74042bc3a49f5ee31d13, type: 3}
-  animator: {fileID: 7880061064956766287}
   enemyGFX: {fileID: 6645728612432548447}
   vaporBurstPrefab: {fileID: 2932825668177330008, guid: 5a0db5a8bb6544822be5283d9c96fc30,
     type: 3}
   flameParent: {fileID: 0}
+  isBoss: 0
+  healthOnProgBar: 1
+  winningSceneTimer: 12
+  logoOnProgBar: {fileID: 21300000, guid: d79de1c466cf74042bc3a49f5ee31d13, type: 3}
+  animator: {fileID: 7880061064956766287}
 --- !u!114 &8451964712967765221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5485,6 +5487,21 @@ MonoBehaviour:
   - {x: 5.5, y: 7.5, z: 0}
   - {x: 7.5, y: 9.5, z: 0}
   - {x: 9.5, y: 7.5, z: 0}
+--- !u!114 &4801043265054477797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3723539980266944062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a48a10a9600e441e48a31d8ab430355a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: FireCracks
+  onChangeAspect: 0
+  play: 1
 --- !u!1 &4498176633462424319
 GameObject:
   m_ObjectHideFlags: 0
@@ -29939,6 +29956,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
   m_SortingOrder: 3

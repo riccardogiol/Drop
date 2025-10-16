@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2932825668177330014}
   - component: {fileID: 2932825668177330009}
   - component: {fileID: 5257416634998382853}
+  - component: {fileID: 7843987557918253392}
   m_Layer: 0
   m_Name: VaporBurst
   m_TagString: Untagged
@@ -4887,3 +4888,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 5
+--- !u!114 &7843987557918253392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2932825668177330008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f0117b722964466087245567f170c62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: VaporBurstQuick
+  distanceRelated: 1

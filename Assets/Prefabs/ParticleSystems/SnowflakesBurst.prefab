@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3121220456799775248}
   - component: {fileID: 4165972787933190061}
   - component: {fileID: 4460912164751103373}
+  - component: {fileID: 6477745416280764978}
   m_Layer: 0
   m_Name: SnowflakesBurst
   m_TagString: Untagged
@@ -4888,3 +4889,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 2
+--- !u!114 &6477745416280764978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3270549319409926847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f0117b722964466087245567f170c62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: SnowBurst
+  distanceRelated: 1

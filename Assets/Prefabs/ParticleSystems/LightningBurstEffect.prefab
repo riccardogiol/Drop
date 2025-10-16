@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7261966851134090418}
   - component: {fileID: 7261966851134090419}
   - component: {fileID: 7261966851134090420}
+  - component: {fileID: 6695298745653695367}
   m_Layer: 0
   m_Name: LightningBurstEffect
   m_TagString: Untagged
@@ -36,8 +37,7 @@ Transform:
 --- !u!198 &7261966851134090419
 ParticleSystem:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 3751233161064887446, guid: 4c7614d99dd2742a59a5aa81ec5ef297,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7261966851134090421}
@@ -4872,3 +4872,17 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &6695298745653695367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7261966851134090421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f0117b722964466087245567f170c62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: ElectricSpark
+  distanceRelated: 1

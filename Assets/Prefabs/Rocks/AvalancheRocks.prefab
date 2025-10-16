@@ -57,6 +57,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
   m_SortingOrder: 3
@@ -114,6 +115,7 @@ GameObject:
   - component: {fileID: 1633195611041995852}
   - component: {fileID: 1633195611041995853}
   - component: {fileID: 1633195611041995850}
+  - component: {fileID: 1301096223794144941}
   m_Layer: 0
   m_Name: AvalancheRocks
   m_TagString: Untagged
@@ -229,6 +231,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8, y: 0.8}
   m_EdgeRadius: 0
+--- !u!114 &1301096223794144941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7511312850729427515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beb5b062c9b86457c89035262c33abff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: StoneRolling
+  timer: 0.3
+  playOnStart: 0
 --- !u!1 &7519345815538092679
 GameObject:
   m_ObjectHideFlags: 0

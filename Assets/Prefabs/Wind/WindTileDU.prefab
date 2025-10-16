@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 4920809126066176449}
   - component: {fileID: 677455217169717992}
   - component: {fileID: 6667967751036320720}
+  - component: {fileID: 8225502290476052866}
   m_Layer: 0
   m_Name: WindTileDU
   m_TagString: Wind
@@ -170,16 +171,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7adacc225cbf437db1fbbfcd3d037af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flamePrefab: {fileID: 351608897783991198, guid: 3ebeaf7f56b23485bbeed257861f6e4b,
-    type: 3}
   fireWavePrefab: {fileID: 1746407697583636748, guid: e05684132489f415f8924fd5a97d12e9,
     type: 3}
   delay: 0.3
   spawnFlameProb: 0.1
+  triggerWithEnemy: 1
   windColor: {r: 1, g: 1, b: 1, a: 1}
   fireWindColor: {r: 1, g: 0.653165, b: 0, a: 1}
   windFlowPS: {fileID: 1866623376031683351}
   leavesPS: {fileID: 1995780393669653620}
+--- !u!114 &8225502290476052866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4920809126066176450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f0117b722964466087245567f170c62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: WindSound
+  distanceRelated: 0
 --- !u!1001 &3308064064910862209
 PrefabInstance:
   m_ObjectHideFlags: 0

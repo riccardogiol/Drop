@@ -100,6 +100,9 @@ public class FireBulletRicochet : MonoBehaviour
         Destroy(targetRicochet.target.gameObject);
         targetRicochet.enabled = false;
         FindObjectOfType<AudioManager>().Play("BulletExplosion");
+        IndependantSoundDistanceRelated sdr = GetComponent<IndependantSoundDistanceRelated>();
+        if (sdr != null)
+            sdr.Stop();
         Instantiate(explosionEffect, transform.position, transform.rotation);
         if (playSmokeEffect)
             Instantiate(vaporEffect, transform.position, transform.rotation);

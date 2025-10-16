@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1746407697583636736}
   - component: {fileID: 5593181364555241800}
   - component: {fileID: 1849517928766096667}
+  - component: {fileID: 4413564666963504922}
   m_Layer: 0
   m_Name: FireWave
   m_TagString: FireWave
@@ -104,4 +105,22 @@ MonoBehaviour:
   flamePrefab: {fileID: 351608897783991198, guid: 3ebeaf7f56b23485bbeed257861f6e4b,
     type: 3}
   shootByID: 0
+  timer: 0.9
+  tileColliderStop: 0.1
+  delayForCollider: 0
   spawnFlameProb: 0
+  touchedIDs: 
+--- !u!114 &4413564666963504922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746407697583636748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f0117b722964466087245567f170c62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: FireExplosion
+  distanceRelated: 1

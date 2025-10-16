@@ -69,7 +69,6 @@ public class EnemyHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            FindObjectOfType<AudioManager>().Play("VaporBurstQuick", transform.position);
             if (healthOnProgBar || isBoss)
             {
                 if (flameParent != null)

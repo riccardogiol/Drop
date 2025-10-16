@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3751233161064887446}
   - component: {fileID: 3751233161064887441}
   - component: {fileID: 6073785058070997709}
+  - component: {fileID: 6749324853099611156}
   m_Layer: 0
   m_Name: FireBulletExplosion
   m_TagString: Untagged
@@ -38,8 +39,7 @@ Transform:
 --- !u!198 &3751233161064887446
 ParticleSystem:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 2932825668177330014, guid: 5a0db5a8bb6544822be5283d9c96fc30,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3751233161064887440}
@@ -4898,6 +4898,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 3
+--- !u!114 &6749324853099611156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3751233161064887440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f0117b722964466087245567f170c62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: ShortFireExplosion
+  distanceRelated: 1
 --- !u!1 &4351348171307985355
 GameObject:
   m_ObjectHideFlags: 0

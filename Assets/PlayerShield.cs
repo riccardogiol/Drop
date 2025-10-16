@@ -44,6 +44,7 @@ public class PlayerShield : MonoBehaviour
             if (countdown <= 0)
             {
                 isActive = false;
+                FindObjectOfType<AudioManager>().Play("IceShield", transform.position);
                 shieldGFX.SetBool("isActive", false);
             }
         }
@@ -53,6 +54,7 @@ public class PlayerShield : MonoBehaviour
     {
         countdown = timer;
         isActive = true;
+        FindObjectOfType<AudioManager>().Play("IceShield", transform.position);
         shieldGFX.SetBool("isActive", true);
         graphicalCountdownPlayed = false;
     }
@@ -61,6 +63,7 @@ public class PlayerShield : MonoBehaviour
     {
         damage /= reduceFactor;
         PlayReflex();
+        FindObjectOfType<AudioManager>().Play("IceShield", transform.position);
         int extraDamage = Math.Max(Mathf.FloorToInt(damage - countdown), 0);
         countdown = Math.Max(countdown - damage, 0);
         return extraDamage;

@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -137,7 +136,7 @@ public class PlaygroundManager : MonoBehaviour
             newFlame.transform.parent = flameParent.transform;
             flameParent.GetComponent<FireCounter>().flameCounter++;
             fireValue = flameParent.GetComponent<FireCounter>().FireValue();
-            FindObjectOfType<AudioManager>().Play("FireBurst");
+            FindObjectOfType<AudioManager>().Play("FireBurst", cellCenter);
             BurnCellsAround(cell);
         }
         else
@@ -148,7 +147,7 @@ public class PlaygroundManager : MonoBehaviour
             else
             {
                 pickFlame.RechargeEnergy(2);
-                FindObjectOfType<AudioManager>().Play("FireBurst");
+                FindObjectOfType<AudioManager>().Play("FireBurst", cellCenter);
                 BurnCellsAround(cell);
             }
         }

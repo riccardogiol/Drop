@@ -104,7 +104,6 @@ public class PickFlame : MonoBehaviour
         }
 
         Instantiate(vaporBurstPrefab, transform.position, Quaternion.identity);
-        FindObjectOfType<AudioManager>().Play("VaporBurstQuick", transform.position);
         Destroy(gameObject);
     }
 

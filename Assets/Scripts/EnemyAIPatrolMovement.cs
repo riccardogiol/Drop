@@ -88,6 +88,7 @@ public class EnemyAIPatrolMovement : MonoBehaviour
 
             destination = path.vectorPath[currentWaypoint];
             lm.MoveTo(destination, jumpSpeed);
+            FindObjectOfType<AudioManager>().Play("FireMovement", transform.position);
 
             if (currentWaypoint < path.vectorPath.Count - 1)
                 currentWaypoint++;

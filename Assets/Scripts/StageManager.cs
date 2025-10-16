@@ -49,7 +49,6 @@ public class StageManager : MonoBehaviour
 
     void Start()
     {
-        FindObjectOfType<AudioManager>().ResetSounds();
         FindObjectOfType<AudioManager>().Stop("OpeningMusic");
         FindObjectOfType<AudioManager>().Play("BackgroundMusic");
 
@@ -119,6 +118,8 @@ public class StageManager : MonoBehaviour
             } else {
                 playerMovementPath.InterruptMovement();
                 playerAnimationManager.PlayTriumph();
+                FindObjectOfType<AudioManager>().Play("WinJingle");
+                FindObjectOfType<AudioManager>().PlayVoice("Win");
             }
             bool isBoss = bossTransform != null;
             if (isBoss)
@@ -155,6 +156,8 @@ public class StageManager : MonoBehaviour
             playerMovementPath.InterruptMovement();
             playerMovementKeys.InterruptMovement(0.3f);
             playerAnimationManager.PlayTriumph();
+            FindObjectOfType<AudioManager>().Play("WinJingle");
+            FindObjectOfType<AudioManager>().PlayVoice("Win");
             menusManager.SetIsPause(true);
             yield return new WaitForSeconds(3);
             
@@ -183,6 +186,8 @@ public class StageManager : MonoBehaviour
         cameraAnimationManager.StartEndingAnimation();
         if (deadCode != "no_flower")
             playerAnimationManager.PlayEvaporation();
+        FindObjectOfType<AudioManager>().Play("LoseJingle");
+        FindObjectOfType<AudioManager>().PlayVoice("Die");
 
         yield return new WaitForSeconds(3);
         
@@ -260,6 +265,8 @@ public class StageManager : MonoBehaviour
         Time.timeScale = 1f;
         MenusManager.isPaused = false;
         string nextSceneName = "Stage" + currentLvl + "-" + currentStage;
+
+        FindObjectOfType<AudioManager>().ResetSounds();
         SceneManager.LoadScene(nextSceneName);
     }
 
@@ -268,6 +275,8 @@ public class StageManager : MonoBehaviour
         Time.timeScale = 1f;
         MenusManager.isPaused = false;
         string nextSceneName = "Stage" + currentLvl + "-" + currentStage;
+        
+        FindObjectOfType<AudioManager>().ResetSounds();
         SceneManager.LoadScene(nextSceneName);
     }
 
@@ -276,6 +285,8 @@ public class StageManager : MonoBehaviour
         Time.timeScale = 1f;
         MenusManager.isPaused = false;
         string nextSceneName = "Stage" + currentLvl + "-" + (currentStage + 1);
+        
+        FindObjectOfType<AudioManager>().ResetSounds();
         SceneManager.LoadScene(nextSceneName);
     }
 
@@ -283,6 +294,8 @@ public class StageManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         MenusManager.isPaused = false;
+        
+        FindObjectOfType<AudioManager>().ResetSounds();
         SceneManager.LoadScene("WorldMap");
     }
 
@@ -308,6 +321,8 @@ public class StageManager : MonoBehaviour
         Debug.Log("LeaveStage");
         Time.timeScale = 1f;
         MenusManager.isPaused = false;
+        
+        FindObjectOfType<AudioManager>().ResetSounds();
         SceneManager.LoadScene("WorldMap");
     }
 

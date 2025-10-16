@@ -1332,6 +1332,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6013083850913209873}
+        m_TargetAssemblyTypeName: PlaySoundOnStart, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ClickOut
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1715595830895405072
 GameObject:
   m_ObjectHideFlags: 0
@@ -1459,6 +1471,7 @@ GameObject:
   - component: {fileID: 1715595831200774541}
   - component: {fileID: 1715595831200774529}
   - component: {fileID: 6394141990823680778}
+  - component: {fileID: 6013083850913209873}
   m_Layer: 5
   m_Name: StageCanvas
   m_TagString: Untagged
@@ -1607,6 +1620,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   desktopXReferenceResolution: 2500
+--- !u!114 &6013083850913209873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715595831200774540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f0117b722964466087245567f170c62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: none
+  distanceRelated: 0
 --- !u!1 &1715595831292621611
 GameObject:
   m_ObjectHideFlags: 0
@@ -1819,6 +1846,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6013083850913209873}
+        m_TargetAssemblyTypeName: PlaySoundOnStart, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ClickOut
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &1715595831553309570
@@ -4924,6 +4963,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 6013083850913209873}
+        m_TargetAssemblyTypeName: PlaySoundOnStart, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ClickIn
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &3777349237570987740
 GameObject:
   m_ObjectHideFlags: 0
@@ -5889,6 +5940,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6013083850913209873}
+        m_TargetAssemblyTypeName: PlaySoundOnStart, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ClickIn
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &4456195996310091110
@@ -9237,6 +9300,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6013083850913209873}
+        m_TargetAssemblyTypeName: PlaySoundOnStart, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ClickIn
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8535882654580344661
 GameObject:
   m_ObjectHideFlags: 0
@@ -11270,6 +11345,11 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 3969670543728051462, guid: 1551da49b272347a28429a926a163693,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 6013083850913209873}
     - target: {fileID: 3969670543852258070, guid: 1551da49b272347a28429a926a163693,
         type: 3}
       propertyPath: m_Pivot.x

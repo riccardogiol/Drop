@@ -13,6 +13,7 @@ public class Sound {
 
     public bool pitchVariation = false;
     public bool loop;
+    public bool fading;
     public bool distanceScaleVolume = false;
     public float zeroVolumeDistance = 5f;
 

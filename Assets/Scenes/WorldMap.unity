@@ -28848,6 +28848,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 925993741}
+  - component: {fileID: 925993742}
   m_Layer: 0
   m_Name: WaterRiver
   m_TagString: Untagged
@@ -28878,6 +28879,21 @@ Transform:
   m_Father: {fileID: 1510724320}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &925993742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 925993740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a48a10a9600e441e48a31d8ab430355a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: RiverSound
+  onChangeAspect: 0
+  play: 1
 --- !u!60 &930055373 stripped
 PolygonCollider2D:
   m_CorrespondingSourceObject: {fileID: 1810412306916618755, guid: 92976f1534b464e7c80621c1f41d849c,
@@ -79242,6 +79258,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6553719475120922809, guid: a28b45a62e9f6470da88cc37f1af80c6,
+        type: 3}
+      propertyPath: sounds.Array.data[9].zeroVolumeDistance
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6553719475120922809, guid: a28b45a62e9f6470da88cc37f1af80c6,
+        type: 3}
+      propertyPath: sounds.Array.data[9].distanceScaleVolume
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6553719475120922810, guid: a28b45a62e9f6470da88cc37f1af80c6,
         type: 3}
       propertyPath: m_RootOrder
@@ -82343,6 +82369,7 @@ GameObject:
   - component: {fileID: 4154514874795918560}
   - component: {fileID: 4154514874795918562}
   - component: {fileID: 4154514874795918563}
+  - component: {fileID: 4154514874795918564}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -83230,6 +83257,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelTileParent: {fileID: 378418676}
+--- !u!114 &4154514874795918564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782273171161666060}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca504422e4bf64631bf8ed4984a0734a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 4
+  stageManager: {fileID: 0}
+  healthBar: {fileID: 0}
+  damageIndicator: {fileID: 0}
 --- !u!95 &4186663222572031429
 Animator:
   serializedVersion: 5
@@ -83526,6 +83569,7 @@ GameObject:
   - component: {fileID: 3043644087566447276}
   - component: {fileID: 4186663222572031429}
   - component: {fileID: 8814366826252979346}
+  - component: {fileID: 8814366826252979347}
   m_Layer: 0
   m_Name: PlayerGFX
   m_TagString: Untagged
@@ -99507,6 +99551,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!114 &8814366826252979347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4739776457876834033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c790a4d37d4a4077a8515832d605fa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vaporBurst: {fileID: 2932825668177330008, guid: 5a0db5a8bb6544822be5283d9c96fc30,
+    type: 3}
+  rebornCloud: {fileID: 0}
 --- !u!224 &8923013457479657257 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4528982463353265428, guid: dfd4ac4c5a1214f4b9f0a35a0b78eaa2,

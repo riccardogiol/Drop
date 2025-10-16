@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6216458611507051830}
   - component: {fileID: -8662399044336211618}
   - component: {fileID: 8022042694991979227}
+  - component: {fileID: -5329905158500228723}
   m_Layer: 0
   m_Name: FireBullet
   m_TagString: FireBullet
@@ -156,6 +157,20 @@ MonoBehaviour:
   smokeEffect: {fileID: 2932825668177330008, guid: 5a0db5a8bb6544822be5283d9c96fc30,
     type: 3}
   spawnFlame: 0
+--- !u!114 &-5329905158500228723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6216458611507051821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f0117b722964466087245567f170c62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: ShootSound
+  distanceRelated: 1
 --- !u!1001 &7345589925912268588
 PrefabInstance:
   m_ObjectHideFlags: 0
