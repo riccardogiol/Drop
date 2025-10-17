@@ -196,6 +196,82 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54ff427c81f264f93a4bf584819862b5, type: 3}
+--- !u!1 &47264350
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 47264351}
+  - component: {fileID: 47264353}
+  - component: {fileID: 47264352}
+  m_Layer: 5
+  m_Name: Logo (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &47264351
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 47264350}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.09, y: 1.09, z: 1.09}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1641293284}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -64.190865, y: 5.82}
+  m_SizeDelta: {x: 160, y: 160}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &47264352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 47264350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: a17441d6f9ea34928b7fd43e27fc734c, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &47264353
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 47264350}
+  m_CullTransparentMesh: 1
 --- !u!1001 &119647349
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1955,6 +2031,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: animal Saved
       objectReference: {fileID: 0}
+    - target: {fileID: 883560211532010066, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1715595830883914204, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2392,6 +2473,7 @@ GameObject:
   - component: {fileID: 1383205218}
   - component: {fileID: 1383205216}
   - component: {fileID: 1383205219}
+  - component: {fileID: 1383205220}
   m_Layer: 0
   m_Name: RandomSpawner
   m_TagString: Untagged
@@ -2476,6 +2558,22 @@ PolygonCollider2D:
       - {x: 1.853838, y: -0.33860302}
       - {x: 1.5471792, y: 0.067881584}
       - {x: 1.0639391, y: 0.3717298}
+--- !u!114 &1383205220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383205215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a48a10a9600e441e48a31d8ab430355a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: LakeSound
+  onChangeAspect: 0
+  timer: 0.3
+  play: 1
 --- !u!1001 &1391893614
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2878,6 +2976,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   code: Sprites/Elements/boss4
+--- !u!224 &1641293284 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6945857635845772610, guid: c7b202ae4dba84871811aa7c44bc43e3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1207991581}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1656649222
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9037,6 +9141,7 @@ GameObject:
   - component: {fileID: 7280445788833458865}
   - component: {fileID: 487209758}
   - component: {fileID: 487209765}
+  - component: {fileID: 8451964713454946303}
   m_Layer: 0
   m_Name: BigWaveFlameEnemy
   m_TagString: Enemy
@@ -48357,6 +48462,22 @@ MonoBehaviour:
   chasingMovement: {fileID: 0}
   patrolIcon: {fileID: 21300000, guid: 66a554bb4c2234b06acc2624a7c203ff, type: 3}
   chasingIcon: {fileID: 21300000, guid: 22c08a395142a43368398c091ca6de64, type: 3}
+--- !u!114 &8451964713454946303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3723539980619648293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a48a10a9600e441e48a31d8ab430355a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: FireCracks
+  onChangeAspect: 0
+  timer: 0.3
+  play: 1
 --- !u!198 &8552365211343494002
 ParticleSystem:
   m_ObjectHideFlags: 0

@@ -680,6 +680,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 770922981894922109}
+        m_TargetAssemblyTypeName: PlaySoundOnStart, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ClickIn
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3969670543505861305
 GameObject:
   m_ObjectHideFlags: 0
@@ -812,6 +824,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 770922981894922109}
+        m_TargetAssemblyTypeName: PlaySoundOnStart, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ClickIn
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &3969670543527071309
@@ -1043,7 +1067,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 770922981894922109}
         m_TargetAssemblyTypeName: PlaySoundOnStart, Assembly-CSharp
         m_MethodName: PlaySound
         m_Mode: 5
@@ -1069,6 +1093,7 @@ GameObject:
   - component: {fileID: 3969670543852258073}
   - component: {fileID: 3969670543852258072}
   - component: {fileID: 3969670543852258077}
+  - component: {fileID: 770922981894922109}
   m_Layer: 5
   m_Name: OptionMenu
   m_TagString: Untagged
@@ -1179,6 +1204,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonToSelectOnExit: {fileID: 0}
+--- !u!114 &770922981894922109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3969670543852258071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f0117b722964466087245567f170c62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: 
+  distanceRelated: 0
 --- !u!1 &3969670543903716212
 GameObject:
   m_ObjectHideFlags: 0
@@ -1690,5 +1729,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 770922981894922109}
+        m_TargetAssemblyTypeName: PlaySoundOnStart, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ClickIn
           m_BoolArgument: 0
         m_CallState: 2

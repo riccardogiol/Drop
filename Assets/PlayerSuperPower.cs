@@ -89,7 +89,10 @@ public class PlayerSuperPower : MonoBehaviour
     public void TryActivate()
     {
         if (currentValue < maxValue || superState)
-           return;
+        {
+            FindObjectOfType<AudioManager>().Play("NoAmmo");
+            return;
+        }
         superState = true;
         barManager.SetButtonInteractable(false);
         EnterSuperState();
@@ -122,6 +125,7 @@ public class PlayerSuperPower : MonoBehaviour
         playerGFX.material = new Material(bloomMaterial);
         playerGFX.material.SetColor("_Color", new Color(2.0f, 2.0f, 2.0f));
         lightningSparklesPS.Play();
+        FindObjectOfType<AudioManager>().PlayVoice("Win");
         
         // Power effects
         playerShooting.SetBulletCost(0);

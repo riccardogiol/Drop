@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -13192,6 +13191,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
   m_SortingOrder: 3
@@ -13541,6 +13541,11 @@ PrefabInstance:
         type: 3}
       propertyPath: currentCharge
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2749142577395328245, guid: 296c80d60ad4642d18495cc7f071187f,
+        type: 3}
+      propertyPath: connectedToRiver
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 296c80d60ad4642d18495cc7f071187f, type: 3}
@@ -25692,6 +25697,7 @@ GameObject:
   - component: {fileID: 1933044957}
   - component: {fileID: 1933044956}
   - component: {fileID: 1933044961}
+  - component: {fileID: 1933044962}
   m_Layer: 0
   m_Name: ShootingBoss
   m_TagString: Enemy
@@ -25860,6 +25866,22 @@ MonoBehaviour:
   shootingPoint1: {fileID: 2091392877}
   shootingPoint2: {fileID: 1010006662}
   shootingPoint3: {fileID: 953972368}
+--- !u!114 &1933044962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933044953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a48a10a9600e441e48a31d8ab430355a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: FireCracks
+  onChangeAspect: 0
+  timer: 0.3
+  play: 1
 --- !u!1001 &1985402477
 PrefabInstance:
   m_ObjectHideFlags: 0

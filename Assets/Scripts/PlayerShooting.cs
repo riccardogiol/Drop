@@ -101,8 +101,8 @@ public class PlayerShooting : MonoBehaviour
         else
         {
             buttonFiller.GetComponent<Animator>().SetTrigger("NoAmmo");
+            FindObjectOfType<AudioManager>().Play("NoAmmo");
         }
-        // else sound finished ammos
     }
 
     void Shoot()

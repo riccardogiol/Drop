@@ -9688,6 +9688,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1720486927}
+  - component: {fileID: 1720486928}
   m_Layer: 0
   m_Name: GlacierTrophy
   m_TagString: Untagged
@@ -9714,6 +9715,22 @@ Transform:
   m_Father: {fileID: 7880061064695625679}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1720486928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720486926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a48a10a9600e441e48a31d8ab430355a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: GlacierSound
+  onChangeAspect: 0
+  timer: 0.3
+  play: 0
 --- !u!1 &1736441726
 GameObject:
   m_ObjectHideFlags: 0
@@ -11044,6 +11061,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flameGFX: {fileID: 1173110402}
+  sound: 
 --- !u!114 &1890836387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22220,6 +22238,7 @@ GameObject:
   - component: {fileID: 1890836386}
   - component: {fileID: 1890836387}
   - component: {fileID: 1890836393}
+  - component: {fileID: 8451964712692196219}
   m_Layer: 0
   m_Name: BigWaveFlameEnemy
   m_TagString: Enemy
@@ -68674,6 +68693,22 @@ MonoBehaviour:
   chasingMovement: {fileID: 0}
   patrolIcon: {fileID: 21300000, guid: 66a554bb4c2234b06acc2624a7c203ff, type: 3}
   chasingIcon: {fileID: 21300000, guid: 22c08a395142a43368398c091ca6de64, type: 3}
+--- !u!114 &8451964712692196219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3723539979993180577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a48a10a9600e441e48a31d8ab430355a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: FireCracks
+  onChangeAspect: 0
+  timer: 0.3
+  play: 1
 --- !u!1 &8552365209643155440
 GameObject:
   m_ObjectHideFlags: 0

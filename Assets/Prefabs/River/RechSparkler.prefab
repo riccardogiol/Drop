@@ -181,6 +181,7 @@ GameObject:
   - component: {fileID: 2749142577395328242}
   - component: {fileID: 2749142577395328245}
   - component: {fileID: 8878527354179011598}
+  - component: {fileID: 8236179580675532596}
   m_Layer: 6
   m_Name: RechSparkler
   m_TagString: DecorationNoFire
@@ -254,6 +255,7 @@ MonoBehaviour:
   timer: 5
   delay: 0.2
   spawnDropProb: 0.5
+  bigWave: 0
 --- !u!114 &2749142577395328245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,6 +303,21 @@ MonoBehaviour:
   chasingMovement: {fileID: 0}
   patrolIcon: {fileID: 0}
   chasingIcon: {fileID: 0}
+--- !u!114 &8236179580675532596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2749142577395328244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beb5b062c9b86457c89035262c33abff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: SpringSound
+  timer: 0.3
+  playOnStart: 0
 --- !u!1 &2749142577460998224
 GameObject:
   m_ObjectHideFlags: 0
@@ -5254,6 +5271,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
   m_SortingOrder: 3

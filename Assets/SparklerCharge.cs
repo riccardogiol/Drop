@@ -65,7 +65,14 @@ public class SparklerCharge : MonoBehaviour
             Instantiate(waterBurstPrefab, transform.position, Quaternion.identity);
             sparklerWave.enabled = true;
             waterSparklesParticles.Play();
-            FindObjectOfType<AudioManager>().Play("RiverSound");
+            if (connectedToRiver)
+                FindObjectOfType<AudioManager>().Play("RiverSound");
+            else
+            {
+                IndependantSoundDistanceRelated isdr = GetComponent<IndependantSoundDistanceRelated>();
+                if (isdr != null)
+                    isdr.Play();
+            }
 
         }
     }

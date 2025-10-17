@@ -134,6 +134,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1429429110983196152}
+        m_TargetAssemblyTypeName: PlaySoundOnStart, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ClickOut
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3609857409221905820
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,6 +392,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3609857410889989770}
   - component: {fileID: 7847726353534037600}
+  - component: {fileID: 1429429110983196152}
   m_Layer: 5
   m_Name: OnScreenMessage
   m_TagString: Untagged
@@ -423,6 +436,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonName: ContinueButton
+--- !u!114 &1429429110983196152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3609857410889989769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f0117b722964466087245567f170c62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: 
+  distanceRelated: 0
 --- !u!1 &3609857410935219576
 GameObject:
   m_ObjectHideFlags: 0

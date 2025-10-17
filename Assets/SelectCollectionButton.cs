@@ -41,6 +41,7 @@ public class SelectCollectionButton : MonoBehaviour
     
     public void Select()
     {
+        FindObjectOfType<AudioManager>().Play("ClickIn");
         storeDisplayManager.ShowUpgradeDescription(buttonActivationManager.buttonKeyCode, elementTitleKey, elementDescriptionKey, upgradePrice, elementSprite, behaviourSymbolSprite, buttonActivationManager);
     }
 }

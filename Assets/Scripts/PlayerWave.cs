@@ -100,6 +100,7 @@ public class PlayerWave : MonoBehaviour
         else
         {
             buttonFiller.GetComponent<Animator>().SetTrigger("NoAmmo");
+            FindObjectOfType<AudioManager>().Play("NoAmmo");
         }
     }
 

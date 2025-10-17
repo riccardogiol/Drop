@@ -32,19 +32,16 @@ public class MainMenuActions : MonoBehaviour
         PlayerPrefs.SetInt("ShowButtonHint", 1);
         if (casual)
             PlayerPrefs.SetInt("EasyMode", 1);
-        FindObjectOfType<AudioManager>().Play("SelectSound");
         SceneManager.LoadScene("OpeningScene");
     }
 
     public void ContinueGame()
     {
-        FindObjectOfType<AudioManager>().Play("SelectSound");
         SceneManager.LoadScene("OpeningScene");
     }
 
     public void QuitGame()
     {
-        FindObjectOfType<AudioManager>().Play("SelectSound");
         Application.Quit();
     }
 

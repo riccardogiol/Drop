@@ -144,7 +144,7 @@ MonoBehaviour:
     loop: 1
     fading: 1
     distanceScaleVolume: 0
-    zeroVolumeDistance: 5
+    zeroVolumeDistance: 9
     source: {fileID: 0}
   - name: FireMovement
     clip: {fileID: 8300000, guid: a164c4f025ef0412280ec0d86b0f4f1b, type: 3}
@@ -316,16 +316,6 @@ MonoBehaviour:
     distanceScaleVolume: 1
     zeroVolumeDistance: 7
     source: {fileID: 0}
-  - name: IceShield
-    clip: {fileID: 8300000, guid: fd4ac13b7b4f042549c5d28f43cc7b62, type: 3}
-    volume: 0.7
-    pitch: 1
-    pitchVariation: 1
-    loop: 0
-    fading: 0
-    distanceScaleVolume: 1
-    zeroVolumeDistance: 7
-    source: {fileID: 0}
   - name: WinJingle
     clip: {fileID: 8300000, guid: 59bf7de120f1e44d891f9b45c899e0ed, type: 3}
     volume: 0.7
@@ -345,6 +335,147 @@ MonoBehaviour:
     fading: 0
     distanceScaleVolume: 0
     zeroVolumeDistance: 7
+    source: {fileID: 0}
+  - name: NoAmmo
+    clip: {fileID: 8300000, guid: fc130be2f2ee346e9a33e19c73c864b3, type: 3}
+    volume: 0.7
+    pitch: 1
+    pitchVariation: 1
+    loop: 0
+    fading: 0
+    distanceScaleVolume: 0
+    zeroVolumeDistance: 7
+    source: {fileID: 0}
+  - name: WaterfallSound
+    clip: {fileID: 8300000, guid: c2a1d70a46785431bbf602cb968fede6, type: 3}
+    volume: 0.5
+    pitch: 1
+    pitchVariation: 0
+    loop: 1
+    fading: 1
+    distanceScaleVolume: 1
+    zeroVolumeDistance: 7
+    source: {fileID: 0}
+  - name: WaterfallSound
+    clip: {fileID: 8300000, guid: c2a1d70a46785431bbf602cb968fede6, type: 3}
+    volume: 0.5
+    pitch: 1
+    pitchVariation: 0
+    loop: 1
+    fading: 0
+    distanceScaleVolume: 1
+    zeroVolumeDistance: 7
+    source: {fileID: 0}
+  - name: SpringSound
+    clip: {fileID: 8300000, guid: 9912311830a574eb2b4d3a9221985ea1, type: 3}
+    volume: 0.3
+    pitch: 1
+    pitchVariation: 0
+    loop: 1
+    fading: 0
+    distanceScaleVolume: 1
+    zeroVolumeDistance: 5
+    source: {fileID: 0}
+  - name: LakeSound
+    clip: {fileID: 8300000, guid: 736d5deae31f24927bad2efff1c8ae28, type: 3}
+    volume: 0.5
+    pitch: 1
+    pitchVariation: 0
+    loop: 1
+    fading: 0
+    distanceScaleVolume: 1
+    zeroVolumeDistance: 7
+    source: {fileID: 0}
+  - name: GlacierSound
+    clip: {fileID: 8300000, guid: ff882ee1a392e459b9f93364e1a54922, type: 3}
+    volume: 0.5
+    pitch: 1
+    pitchVariation: 0
+    loop: 1
+    fading: 0
+    distanceScaleVolume: 1
+    zeroVolumeDistance: 7
+    source: {fileID: 0}
+  - name: Yoho
+    clip: {fileID: 8300000, guid: 06731760775bf48ca915cf4901bba2f6, type: 3}
+    volume: 1
+    pitch: 1
+    pitchVariation: 0
+    loop: 0
+    fading: 0
+    distanceScaleVolume: 0
+    zeroVolumeDistance: 7
+    source: {fileID: 0}
+  voices:
+  - name: Win
+    clip: {fileID: 8300000, guid: 06731760775bf48ca915cf4901bba2f6, type: 3}
+    volume: 0.7
+    pitch: 1
+    pitchVariation: 0
+    loop: 0
+    fading: 0
+    distanceScaleVolume: 0
+    zeroVolumeDistance: 0
+    source: {fileID: 0}
+  - name: Win
+    clip: {fileID: 8300000, guid: 39b3ea23b538c466393a53f0eaaa6232, type: 3}
+    volume: 0.7
+    pitch: 1
+    pitchVariation: 0
+    loop: 0
+    fading: 0
+    distanceScaleVolume: 0
+    zeroVolumeDistance: 0
+    source: {fileID: 0}
+  - name: Shoot
+    clip: {fileID: 8300000, guid: 0500a8ac0cd1848b6b896f32056cf528, type: 3}
+    volume: 0.7
+    pitch: 1
+    pitchVariation: 0
+    loop: 0
+    fading: 0
+    distanceScaleVolume: 0
+    zeroVolumeDistance: 0
+    source: {fileID: 0}
+  - name: Shoot
+    clip: {fileID: 8300000, guid: c0701c90496b14b0792072a0d5a7fca2, type: 3}
+    volume: 0.7
+    pitch: 1
+    pitchVariation: 0
+    loop: 0
+    fading: 0
+    distanceScaleVolume: 0
+    zeroVolumeDistance: 0
+    source: {fileID: 0}
+  - name: Shoot
+    clip: {fileID: 8300000, guid: 86fc6a3697ae842f294cbb04127c7959, type: 3}
+    volume: 0.7
+    pitch: 1
+    pitchVariation: 0
+    loop: 0
+    fading: 0
+    distanceScaleVolume: 0
+    zeroVolumeDistance: 0
+    source: {fileID: 0}
+  - name: Die
+    clip: {fileID: 8300000, guid: d99dfba03d9db455abbf7151aa669dee, type: 3}
+    volume: 0.7
+    pitch: 1
+    pitchVariation: 0
+    loop: 0
+    fading: 0
+    distanceScaleVolume: 0
+    zeroVolumeDistance: 0
+    source: {fileID: 0}
+  - name: Die
+    clip: {fileID: 8300000, guid: 5c58d7a83923b45eaa580f83137a8bfa, type: 3}
+    volume: 0.7
+    pitch: 1
+    pitchVariation: 0
+    loop: 0
+    fading: 0
+    distanceScaleVolume: 0
+    zeroVolumeDistance: 0
     source: {fileID: 0}
   musics:
   - name: BackgroundMusic
@@ -371,6 +502,11 @@ MonoBehaviour:
   - RiverSound
   - RainSound
   - WindSound
+  - WaterfallSound
+  - LakeSound
+  - GlacierSound
+  - SpringSound
+  - FireCracks
 --- !u!114 &-3171906683405286314
 MonoBehaviour:
   m_ObjectHideFlags: 0
