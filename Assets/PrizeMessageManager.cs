@@ -7,9 +7,16 @@ public class PrizeMessageManager : MonoBehaviour
     public int coinObtained = 0;
     public Text text;
 
-    void Start()
+    void Awake()
     {
         stageManager = FindFirstObjectByType<StageManager>();
+        int readExp = ExpReader.Get(stageManager.currentLvl, stageManager.currentStage);
+        if (readExp >= 0)
+            coinObtained = readExp;
+    }
+
+    void Start()
+    {
         string lvlCodePrize = "Lvl" + stageManager.currentLvl + "Prize";
         if (PlayerPrefs.GetInt(lvlCodePrize, 0) == 0)
         {

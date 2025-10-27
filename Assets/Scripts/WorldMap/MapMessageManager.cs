@@ -14,6 +14,23 @@ public class MapMessageManager : MonoBehaviour
         messageOnScreen = false;
     }
 
+    void Start()
+    {
+        if (PlayerPrefs.GetInt("ResetExpFlag", 0) == 1)
+            StartCoroutine(StoreOpenAndReset());
+    }
+
+    IEnumerator StoreOpenAndReset()
+    {
+        OpenStore();
+        yield return null;
+        yield return null;
+        storeMessage.transform.Find("RefundButton").GetComponent<StoreRefund>().RefundAll();
+        if (PlayerPrefs.GetInt("LastLevelCompleted", 0) < 5)
+            CloseStore();
+        PlayerPrefs.SetInt("ResetExpFlag", 0);
+    }
+
     public void ShowLevelMessage(int lvlCode, int stageCode = 1)
     {   
         if (messageOnScreen)

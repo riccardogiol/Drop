@@ -406,6 +406,16 @@ MonoBehaviour:
     distanceScaleVolume: 0
     zeroVolumeDistance: 7
     source: {fileID: 0}
+  - name: RiverSoundMap
+    clip: {fileID: 8300000, guid: 4315ac65f070a4909aab4abd5bff04d1, type: 3}
+    volume: 0.3
+    pitch: 1
+    pitchVariation: 0
+    loop: 1
+    fading: 0
+    distanceScaleVolume: 1
+    zeroVolumeDistance: 9
+    source: {fileID: 0}
   voices:
   - name: Win
     clip: {fileID: 8300000, guid: 06731760775bf48ca915cf4901bba2f6, type: 3}
@@ -507,6 +517,8 @@ MonoBehaviour:
   - GlacierSound
   - SpringSound
   - FireCracks
+  - RiverSoundMap
+  - BeeBuzz
 --- !u!114 &-3171906683405286314
 MonoBehaviour:
   m_ObjectHideFlags: 0

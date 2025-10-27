@@ -6,6 +6,12 @@ public class MainMenuActions : MonoBehaviour
 {
     public Button continueButton;
 
+    void Awake()
+    {
+        SaveData saveData = SaveManager.Load();
+        PPInitializer(saveData);
+    }
+
     void Start()
     {
         if ((PlayerPrefs.GetInt("Lvl1", 0) == 1) || PlayerPrefs.GetInt("LastStageCompleted", 0) > 0)
@@ -17,6 +23,7 @@ public class MainMenuActions : MonoBehaviour
 
     public void NewGame(bool casual = false)
     {
+        SaveManager.Restart();
         float musicVolume = PlayerPrefs.GetFloat("MusicVolume", 1);
         float soundVolume = PlayerPrefs.GetFloat("SoundVolume", 1);
         string language = PlayerPrefs.GetString("LanguagePreference", "eng");
@@ -51,5 +58,33 @@ public class MainMenuActions : MonoBehaviour
             disclaimerPanel.SetActive(true);
         else
             NewGame(false);
+    }
+
+    void PPInitializer(SaveData saveData)
+    {
+        int lastStageCode = 0;
+        for (int i = 0; i < saveData.StageCompleteStatus.Length; i++)
+        {
+            if (saveData.StageCompleteStatus[i] > 0)
+                lastStageCode = i;
+        }
+
+        int quotient = lastStageCode / 4;
+        int remainder = lastStageCode % 4;
+
+        PlayerPrefs.SetInt("LastLevelCompleted", quotient);
+        PlayerPrefs.SetInt("LastStageCompleted", remainder);
+
+        for (int i = 1; i <= quotient; i++)
+        {
+            PlayerPrefs.SetInt("Lvl" + i, 1);
+            PlayerPrefs.SetInt("Lvl" + i + "Prize", 1);
+        }
+        for (int i = quotient + 1; i <= saveData.StageCompleteStatus.Length; i++)
+        {
+            PlayerPrefs.SetInt("Lvl" + i, 0);
+            PlayerPrefs.SetInt("Lvl" + i + "Prize", 0);
+        }
+
     }
 }

@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -250,7 +249,7 @@ RectTransform:
   - {fileID: 1066135119}
   - {fileID: 1564239694}
   m_Father: {fileID: 1207991584}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -523,6 +522,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
   m_SortingOrder: 2
@@ -2563,7 +2563,7 @@ PrefabInstance:
     - target: {fileID: 6088715425270165249, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 6633096614707632329, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
@@ -2583,7 +2583,7 @@ PrefabInstance:
     - target: {fileID: 7479097401432682229, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 7692640206896602110, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
@@ -7228,26 +7228,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd6ffd4e69bf3417dbb0ec2ca2504593, type: 3}
---- !u!1 &2014940352 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3432099571426549662, guid: fd6ffd4e69bf3417dbb0ec2ca2504593,
-    type: 3}
-  m_PrefabInstance: {fileID: 2014940351}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2014940353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2014940352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0358f4ffce594fa99c89cb99d26fc64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  key: menu.general.space_key
-  upperCase: 1
 --- !u!1001 &2028219398
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ public class MenusManager : MonoBehaviour
     GameObject shader;
     EagleEyeMode eagleEye;
     GameObject diffChangeMessage;
+    GameObject saveMessage;
 
 
     public int ScoutCloudUsage;
@@ -71,6 +72,11 @@ public class MenusManager : MonoBehaviour
         if (auxTrans == null)
             return;
         diffChangeMessage = auxTrans.gameObject;
+
+        auxTrans = transform.Find("SaveMessage");
+        if (auxTrans == null)
+            return;
+        saveMessage = auxTrans.gameObject;
 
         eagleEye = FindFirstObjectByType<EagleEyeMode>();
         if (eagleEye == null)
@@ -183,6 +189,7 @@ public class MenusManager : MonoBehaviour
         Time.timeScale = 0f;
         stageClearedMenu.SetActive(true);
         shader.SetActive(true);
+        saveMessage.SetActive(true);
         isPaused = true;
         Transform auxTrans = stageClearedMenu.transform.Find("NextStageButton");
         if (auxTrans == null)
@@ -255,6 +262,7 @@ public class MenusManager : MonoBehaviour
         Time.timeScale = 0f;
         levelClearedMenu.SetActive(true);
         shader.SetActive(true);
+        saveMessage.SetActive(true);
         isPaused = true;
 
         Transform auxTrans = levelClearedMenu.transform.Find("WorldMapButton");

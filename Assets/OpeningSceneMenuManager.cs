@@ -12,11 +12,18 @@ public class OpeningSceneMenuManager : MonoBehaviour
 
     public void EndIntroductionSlides()
     {
-        if (PlayerPrefs.GetInt("Lvl1", 0) == 0 && PlayerPrefs.GetInt("LastStageCompleted", 0) == 0 )
+        if (PlayerPrefs.GetInt("Lvl1", 0) == 0 && PlayerPrefs.GetInt("LastStageCompleted", 0) == 0)
         {
             SceneManager.LoadScene("Stage1-1");
-        } else {
+        }
+        else
+        {
             SceneManager.LoadScene("WorldMap");
         }
+    }
+    
+    public void ResetSounds()
+    {
+        FindObjectOfType<AudioManager>().ResetSounds();
     }
 }

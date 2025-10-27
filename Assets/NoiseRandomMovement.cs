@@ -10,6 +10,9 @@ public class NoiseRandomMovement : MonoBehaviour
     Vector3 startPos;
     float offsetX, offsetY;
 
+    public float multOnX = 1;
+    public float multOnY = 1;
+
     void Start()
     {
         startPos = transform.localPosition;
@@ -29,7 +32,7 @@ public class NoiseRandomMovement : MonoBehaviour
         float x = Mathf.PerlinNoise(Time.time * speed + offsetX, 0) * 2f - 1f;
         float y = Mathf.PerlinNoise(0, Time.time * speed + offsetY) * 2f - 1f;
         
-        transform.localPosition = startPos + new Vector3(x, y, 0) * amplitude;
+        transform.localPosition = startPos + new Vector3(x * multOnX, y * multOnY, 0) * amplitude;
     }
 }
 

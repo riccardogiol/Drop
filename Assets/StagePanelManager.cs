@@ -103,6 +103,7 @@ public class StagePanelManager : MonoBehaviour
 
     public void PlayStage()
     {
+        FindObjectOfType<AudioManager>().ResetSounds();
         SceneManager.LoadScene("Stage" + level + "-" + stage);
     }
 

@@ -149,6 +149,13 @@ public class StageManager : MonoBehaviour
             }
 
             PlayerPrefs.SetInt("Lvl" + currentLvl, 1);
+            
+            SaveData saveData = SaveManager.Load();
+            saveData.StageCompleteStatus[(currentLvl - 1) * 4 + currentStage] = 1;
+            if (isBoss)
+                for (int i = 1; i <= 4; i++)
+                    saveData.StageCompleteStatus[(currentLvl - 1) * 4 + i] = 1;
+            SaveManager.Save(saveData);
 
             menusManager.LevelCleared();
         } else
@@ -160,9 +167,13 @@ public class StageManager : MonoBehaviour
             FindObjectOfType<AudioManager>().PlayVoice("Win");
             menusManager.SetIsPause(true);
             yield return new WaitForSeconds(3);
-            
+
             if (PlayerPrefs.GetInt("Lvl" + currentLvl, 0) == 0 && PlayerPrefs.GetInt("LastStageCompleted", 0) < currentStage)
                 PlayerPrefs.SetInt("LastStageCompleted", currentStage);
+            
+            SaveData saveData = SaveManager.Load();
+            saveData.StageCompleteStatus[(currentLvl - 1) * 4 + currentStage] = 1;
+            SaveManager.Save(saveData);
 
             menusManager.StageCleared();
         }

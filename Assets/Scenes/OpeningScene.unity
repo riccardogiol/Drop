@@ -561,6 +561,8 @@ MonoBehaviour:
   amplitude: 0.6
   speed: 0.5
   seed: 0
+  multOnX: 1
+  multOnY: 1
 --- !u!212 &65824637
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1175,6 +1177,8 @@ MonoBehaviour:
   amplitude: 0.8
   speed: 0.1
   seed: 0
+  multOnX: 1
+  multOnY: 1
 --- !u!1001 &392905217
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1885,6 +1889,8 @@ MonoBehaviour:
   amplitude: 0.4
   speed: 0.1
   seed: 0
+  multOnX: 1
+  multOnY: 1
 --- !u!212 &610176476
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2375,7 +2381,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 801588882}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &801588885
 Camera:
   m_ObjectHideFlags: 0
@@ -2482,6 +2488,8 @@ MonoBehaviour:
   amplitude: 0.4
   speed: 0.1
   seed: 0
+  multOnX: 1
+  multOnY: 1
 --- !u!212 &809852375
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2582,6 +2590,8 @@ MonoBehaviour:
   amplitude: 0.4
   speed: 0.1
   seed: 0
+  multOnX: 1
+  multOnY: 1
 --- !u!212 &842509072
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2898,6 +2908,8 @@ MonoBehaviour:
   amplitude: 0.6
   speed: 0.1
   seed: 0
+  multOnX: 1
+  multOnY: 1
 --- !u!212 &915651507
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3410,6 +3422,8 @@ MonoBehaviour:
   amplitude: 0.8
   speed: 0.1
   seed: 0
+  multOnX: 1
+  multOnY: 1
 --- !u!212 &1084764630
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3799,18 +3813,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a28b45a62e9f6470da88cc37f1af80c6, type: 3}
---- !u!114 &1308469595 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6553719475120922809, guid: a28b45a62e9f6470da88cc37f1af80c6,
-    type: 3}
-  m_PrefabInstance: {fileID: 1308469594}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa8b5944fdc534759958702e3a4299ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1313652679
 GameObject:
   m_ObjectHideFlags: 0
@@ -4431,6 +4433,8 @@ MonoBehaviour:
   amplitude: 0.6
   speed: 0.1
   seed: 0
+  multOnX: 1
+  multOnY: 1
 --- !u!212 &1435880126
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4955,6 +4959,8 @@ MonoBehaviour:
   amplitude: 0.6
   speed: 0.1
   seed: 0
+  multOnX: 1
+  multOnY: 1
 --- !u!212 &1701491853
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5507,6 +5513,8 @@ MonoBehaviour:
   amplitude: 0.6
   speed: 0.1
   seed: 0
+  multOnX: 1
+  multOnY: 1
 --- !u!114 &2017736778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8512,8 +8520,8 @@ MonoBehaviour:
           m_StringArgument: ClickIn
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1308469595}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 282879264}
+        m_TargetAssemblyTypeName: OpeningSceneMenuManager, Assembly-CSharp
         m_MethodName: ResetSounds
         m_Mode: 1
         m_Arguments:

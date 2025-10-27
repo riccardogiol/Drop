@@ -5,6 +5,8 @@ public class StoreRefund : MonoBehaviour
 {
     public List<UpgradesManager> upgradesManagers= new List<UpgradesManager>();
     public SelectUpgradeButton defaultButton;
+
+    public int WaveCost = 160;
     
     CoinCounterUpdate coinCounterUpdate;
 
@@ -22,7 +24,13 @@ public class StoreRefund : MonoBehaviour
             totalCoinsRefund += upg.RefundAllUpgrades();
         }
         int currentCoin = PlayerPrefs.GetInt("CoinAmount", 0);
-        PlayerPrefs.SetInt("CoinAmount", currentCoin + totalCoinsRefund);
+        int totalExp = ExpReader.GetTotal();
+        if (PlayerPrefs.GetInt("WavePurchased", 0) == 1)
+            totalExp -= WaveCost;
+
+        if (totalExp != totalCoinsRefund + currentCoin)
+            Debug.Log("Experience difference between memory and save");
+        PlayerPrefs.SetInt("CoinAmount", totalExp);
 
         coinCounterUpdate.Refresh();
 
