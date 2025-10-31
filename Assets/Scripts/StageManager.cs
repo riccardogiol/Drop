@@ -50,7 +50,14 @@ public class StageManager : MonoBehaviour
     void Start()
     {
         FindObjectOfType<AudioManager>().Stop("OpeningMusic");
-        FindObjectOfType<AudioManager>().Play("BackgroundMusic");
+        if (bossTransform != null)
+            FindObjectOfType<AudioManager>().StartBossMusic();
+        else if (currentStage == 1)
+            FindObjectOfType<AudioManager>().StartStageMusic(3);
+        else if (currentStage == 4)
+            FindObjectOfType<AudioManager>().StartStageMusic(2);
+        else
+            FindObjectOfType<AudioManager>().StartStageMusic(1);
 
         startTime = Time.time;
         stageInstanceCode = UnityEngine.Random.Range(1, 999999999);

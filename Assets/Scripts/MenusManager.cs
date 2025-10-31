@@ -88,6 +88,7 @@ public class MenusManager : MonoBehaviour
         stageClearedMenu.SetActive(false);
         levelClearedMenu.SetActive(false);
         messageOnScreen = false;
+        FindObjectOfType<AudioManager>().LowFilerExit();
 
         if ((PlayerPrefs.GetInt("ConsecutiveDeaths", 0) >= PlayerPrefs.GetInt("ConsecutiveDeathsLimit", 3)) && (PlayerPrefs.GetInt("EasyMode", 0) == 0))
         {
@@ -117,6 +118,7 @@ public class MenusManager : MonoBehaviour
             openMessage.SetActive(true);
             shader.SetActive(true);
             isPaused = true;
+            FindObjectOfType<AudioManager>().LowFilerEnter();
             auxTrans = openMessage.transform.Find("ContinueButton");
             if (auxTrans == null)
                 return;
@@ -152,6 +154,7 @@ public class MenusManager : MonoBehaviour
     {
         if (messageOnScreen)
             return;
+        FindObjectOfType<AudioManager>().LowFilerEnter();
         Time.timeScale = 0f;
         pauseMenu.SetActive(true);
         shader.SetActive(true);
@@ -191,6 +194,7 @@ public class MenusManager : MonoBehaviour
         shader.SetActive(true);
         saveMessage.SetActive(true);
         isPaused = true;
+        FindObjectOfType<AudioManager>().LowFilerEnter();
         Transform auxTrans = stageClearedMenu.transform.Find("NextStageButton");
         if (auxTrans == null)
             return;
@@ -214,6 +218,7 @@ public class MenusManager : MonoBehaviour
     {
         messageOnScreen = true;
         Time.timeScale = 0f;
+        FindObjectOfType<AudioManager>().LowFilerEnter();
         Transform auxTrans = gameOverMenu.transform.Find("GameOverText");
         string messageLoc;
         switch (deadCode)
@@ -264,6 +269,7 @@ public class MenusManager : MonoBehaviour
         shader.SetActive(true);
         saveMessage.SetActive(true);
         isPaused = true;
+        FindObjectOfType<AudioManager>().LowFilerEnter();
 
         Transform auxTrans = levelClearedMenu.transform.Find("WorldMapButton");
         if (auxTrans == null)
@@ -345,6 +351,7 @@ public class MenusManager : MonoBehaviour
 
     public void Resume()
     {
+        FindObjectOfType<AudioManager>().LowFilerExit();
         Time.timeScale = 1f;
         pauseMenu.SetActive(false);
         if (PlayerPrefs.GetInt("ShowButtonHint", 0) == 0)
@@ -368,6 +375,7 @@ public class MenusManager : MonoBehaviour
         Time.timeScale = 0f;
         shader.SetActive(true);
         message.SetActive(true);
+        FindObjectOfType<AudioManager>().LowFilerEnter();
     }
     
     public void ExitMessage(GameObject message)
@@ -382,6 +390,7 @@ public class MenusManager : MonoBehaviour
         }
         isPaused = false;
         messageOnScreen = false;
+        FindObjectOfType<AudioManager>().LowFilerExit();
     }
 
     public void GoToWorldMap()

@@ -11,6 +11,7 @@ public class AudioManager : MonoBehaviour
     public Sound[] sounds;
     public Sound[] voices;
     public Sound[] musics;
+    public AudioLowPassFilter lowPassFilter;
 
     public List<string> resetOnStart;
 
@@ -40,7 +41,7 @@ public class AudioManager : MonoBehaviour
 
         foreach (Sound m in musics)
         {
-            m.source = gameObject.AddComponent<AudioSource>();
+            m.source = lowPassFilter.gameObject.AddComponent<AudioSource>();
             m.source.clip = m.clip;
             m.source.volume = m.volume * volumeFactor;
             m.source.pitch = m.pitch;
@@ -213,5 +214,160 @@ public class AudioManager : MonoBehaviour
         {
             s.source.volume = s.volume * value * volumeFactor;
         }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="code">1 Main, 2 Rock, 3 Soft</param>
+    public void StartStageMusic(int code = 1)
+    {
+        string mainMusicName = "StageMusic";
+        string SoftMusicName = "StageMusicSoft";
+        string RockMusicName = "StageMusicRock";
+
+        Sound mainMusic = Array.Find(musics, music => music.name == mainMusicName);
+        if (mainMusic == null)
+            return;
+        Sound softMusic = Array.Find(musics, music => music.name == SoftMusicName);
+        if (softMusic == null)
+            return;
+        Sound rockMusic = Array.Find(musics, music => music.name == RockMusicName);
+        if (rockMusic == null)
+            return;
+
+        float mmvolume = mainMusic.volume * volumeFactor * musicVolume;
+        float rvolume = rockMusic.volume * volumeFactor * musicVolume;
+        float svolume = softMusic.volume * volumeFactor * musicVolume;
+
+        if (code == 1)
+        {
+            mainMusic.source.volume = mmvolume;
+            rockMusic.source.volume = 0;
+            softMusic.source.volume = 0;
+        }
+        else if (code == 2)
+        {
+            mainMusic.source.volume = 0;
+            rockMusic.source.volume = rvolume;
+            softMusic.source.volume = 0;
+        } else
+        {
+            mainMusic.source.volume = 0;
+            rockMusic.source.volume = 0;
+            softMusic.source.volume = svolume;
+        }
+
+        if (mainMusic.source.isPlaying)
+            return;
+        
+        mainMusic.source.Play();
+        rockMusic.source.Play();
+        softMusic.source.Play();
+    }
+
+    public void StartBossMusic()
+    {
+        string musicName = "StageMusicBoss";
+
+        Sound music = Array.Find(musics, music => music.name == musicName);
+        if (music == null)
+            return;
+
+        float volume = music.volume * volumeFactor * musicVolume;
+
+        music.source.volume = volume;
+    
+        if (music.source.isPlaying)
+            return;
+        music.source.Play();
+    }
+    
+    public void StopStageMusic()
+    {
+        string mainMusicName = "StageMusic";
+        string SoftMusicName = "StageMusicSoft";
+        string RockMusicName = "StageMusicRock";
+        string BossMusicName = "StageMusicBoss";
+
+        Sound mainMusic = Array.Find(musics, music => music.name == mainMusicName);
+        if (mainMusic == null)
+            return;
+        Sound softMusic = Array.Find(musics, music => music.name == SoftMusicName);
+        if (softMusic == null)
+            return;
+        Sound rockMusic = Array.Find(musics, music => music.name == RockMusicName);
+        if (rockMusic == null)
+            return;
+        Sound bossMusic = Array.Find(musics, music => music.name == BossMusicName);
+        if (bossMusic == null)
+            return;
+        
+        mainMusic.source.Stop();
+        softMusic.source.Stop();
+        rockMusic.source.Stop();
+        bossMusic.source.Stop();
+    }
+
+    public void LowFilerEnter()
+    {
+        lowPassFilter.cutoffFrequency = 500;
+    }
+
+    public void LowFilerExit()
+    {
+        lowPassFilter.cutoffFrequency = 22000;
+    }
+    
+    public void MusicSpeedDown()
+    {
+        string mainMusicName = "StageMusic";
+        string SoftMusicName = "StageMusicSoft";
+        string RockMusicName = "StageMusicRock";
+        string BossMusicName = "StageMusicBoss";
+
+        Sound mainMusic = Array.Find(musics, music => music.name == mainMusicName);
+        if (mainMusic == null)
+            return;
+        Sound softMusic = Array.Find(musics, music => music.name == SoftMusicName);
+        if (softMusic == null)
+            return;
+        Sound rockMusic = Array.Find(musics, music => music.name == RockMusicName);
+        if (rockMusic == null)
+            return; 
+        Sound bossMusic = Array.Find(musics, music => music.name == BossMusicName);
+        if (bossMusic == null)
+            return;
+
+        mainMusic.source.pitch = 0.9f;
+        rockMusic.source.pitch = 0.9f;
+        softMusic.source.pitch = 0.9f;
+        bossMusic.source.pitch = 0.9f;
+    }
+    
+    public void MusicSpeedRestore()
+    {
+        string mainMusicName = "StageMusic";
+        string SoftMusicName = "StageMusicSoft";
+        string RockMusicName = "StageMusicRock";
+        string BossMusicName = "StageMusicBoss";
+
+        Sound mainMusic = Array.Find(musics, music => music.name == mainMusicName);
+        if (mainMusic == null)
+            return;
+        Sound softMusic = Array.Find(musics, music => music.name == SoftMusicName);
+        if (softMusic == null)
+            return;
+        Sound rockMusic = Array.Find(musics, music => music.name == RockMusicName);
+        if (rockMusic == null)
+            return; 
+        Sound bossMusic = Array.Find(musics, music => music.name == BossMusicName);
+        if (bossMusic == null)
+            return;
+
+        mainMusic.source.pitch = 1f;
+        rockMusic.source.pitch = 1f;
+        softMusic.source.pitch = 1f;
+        bossMusic.source.pitch = 1f;
     }
 }

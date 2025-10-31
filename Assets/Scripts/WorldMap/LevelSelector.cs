@@ -17,7 +17,7 @@ public class LevelSelector : MonoBehaviour
             }
         }
         FindObjectOfType<AudioManager>().Play("OpeningMusic");
-        FindObjectOfType<AudioManager>().Stop("BackgroundMusic");
+        FindObjectOfType<AudioManager>().StopStageMusic();
         if (PlayerPrefs.GetInt("FromMainMenu", 0) == 1)
             StoryDisplay.SetActive(true);
         PlayerPrefs.SetInt("FromMainMenu", 0);

@@ -7,7 +7,7 @@ public class OpeningSceneMenuManager : MonoBehaviour
     void Awake()
     {
         FindObjectOfType<AudioManager>().Play("OpeningMusic");
-        FindObjectOfType<AudioManager>().Stop("BackgroundMusic");
+        FindObjectOfType<AudioManager>().StopStageMusic();
     }
 
     public void EndIntroductionSlides()

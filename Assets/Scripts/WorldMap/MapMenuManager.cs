@@ -7,7 +7,8 @@ public class MapMenuManager : MonoBehaviour
     {
         FindObjectOfType<AudioManager>().ResetSounds();
         FindObjectOfType<AudioManager>().Play("OpeningMusic");
-        FindObjectOfType<AudioManager>().Stop("BackgroundMusic");
+        FindObjectOfType<AudioManager>().StopStageMusic();
+        FindObjectOfType<AudioManager>().LowFilerExit();
     }
     
     public void GoMainMenu()

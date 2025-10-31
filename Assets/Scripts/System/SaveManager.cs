@@ -76,10 +76,10 @@ public static class SaveManager
     static void HandleVersion(SaveData data)
     {
         // 🔹 Qui puoi gestire differenze tra versioni
-        if (data.version != "0.8")
+        if (data.version != "0.90")
         {
-            Debug.Log($"Aggiornamento dati da versione {data.version} a 0.8");
-            data.version = "0.8";
+            Debug.Log($"Update data from {data.version} to 0.90");
+            data.version = "0.90";
             PlayerPrefs.SetInt("ResetExpFlag", 1);
             Save(data);
             // Qui puoi aggiungere eventuali adattamenti
@@ -91,7 +91,7 @@ public static class SaveManager
 [System.Serializable]
 public class SaveData
 {
-    public string version = "0.8"; 
+    public string version = "0.90"; 
     public int[] StageCompleteStatus;
 }
 

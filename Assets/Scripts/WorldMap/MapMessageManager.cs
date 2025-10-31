@@ -44,6 +44,7 @@ public class MapMessageManager : MonoBehaviour
         auxTrans.gameObject.SetActive(true);
         shader.SetActive(true);
         messageOnScreen = true;
+        FindObjectOfType<AudioManager>().LowFilerEnter();
     }
     
     public void ShowStagePanel(int lvlCode, int stageCode = 1)
@@ -54,6 +55,7 @@ public class MapMessageManager : MonoBehaviour
         stagePanelManager.gameObject.SetActive(true);
         shader.SetActive(true);
         messageOnScreen = true;
+        FindObjectOfType<AudioManager>().LowFilerEnter();
     }
 
     public void ShowCollectionPanel()
@@ -63,12 +65,21 @@ public class MapMessageManager : MonoBehaviour
         CollectionOpening.SetActive(true);
         shader.SetActive(true);
         messageOnScreen = true;
+        FindObjectOfType<AudioManager>().LowFilerEnter();
+    }
+
+    public void ShowMessage(GameObject message)
+    {
+        shader.SetActive(true);
+        message.SetActive(true);
+        FindObjectOfType<AudioManager>().LowFilerEnter();
     }
 
     public void ExitMessage(GameObject message)
     {
         shader.SetActive(false);
         message.SetActive(false);
+        FindObjectOfType<AudioManager>().LowFilerExit();
         StartCoroutine(delayMessageOnScreenExit());
     }
 
@@ -77,12 +88,14 @@ public class MapMessageManager : MonoBehaviour
         shader.SetActive(true);
         storeMessage.SetActive(true);
         messageOnScreen = true;
+        FindObjectOfType<AudioManager>().LowFilerEnter();
     }
 
     public void CloseStore()
     {
         shader.SetActive(false);
         storeMessage.SetActive(false);
+        FindObjectOfType<AudioManager>().LowFilerExit();
         StartCoroutine(delayMessageOnScreenExit());
     }
 

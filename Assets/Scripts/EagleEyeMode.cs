@@ -87,6 +87,7 @@ public class EagleEyeMode : MonoBehaviour
         Time.timeScale = maxSlowDownFactor;
         countdown = timer;
         rechargeCountdown = rechargeTimer;
+        FindObjectOfType<AudioManager>().MusicSpeedDown();
 
         Vector3 halfWay = new Vector3((originalTarget.transform.position.x + targetSpot.position.x) / 2.0f, (originalTarget.transform.position.y + targetSpot.position.y) / 2.0f, 0);
         targetRef = Instantiate(targetPrefab, originalTarget.transform.position, Quaternion.identity);
@@ -105,6 +106,7 @@ public class EagleEyeMode : MonoBehaviour
         playgroundManager.HideEnergy();
         Time.timeScale = 1f;
         countdown = 0;
+        FindObjectOfType<AudioManager>().MusicSpeedRestore();
 
         StartCoroutine(DelayedExit());
         cameraAnimationManager.ExitEagleZoomAnimation();
