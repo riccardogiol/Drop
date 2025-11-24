@@ -146,7 +146,7 @@ public class MenusManager : MonoBehaviour
             else
                 Pause();
         }
-        if (Input.GetKeyDown(KeyCode.H))
+        if (Input.GetKeyDown(KeyCode.H)) // joycon
             ToggleEagleEye();
     }
 
@@ -435,7 +435,10 @@ public class MenusManager : MonoBehaviour
         //if (eagleEyeState)
         //{
             ScoutCloudUsage++;
-            eagleEye.Enter();
+            if (EagleEyeMode.inEagleMode)
+                eagleEye.Exit();
+            else
+                eagleEye.Enter();
         //}
     }
 

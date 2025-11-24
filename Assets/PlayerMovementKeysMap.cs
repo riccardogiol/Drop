@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class PlayerMovementKeysMap : MonoBehaviour
@@ -15,6 +16,7 @@ public class PlayerMovementKeysMap : MonoBehaviour
 
     float timer = 0.6f;
     float countdown = 0;
+    string destinationSpot;
 
     void Awake()
     {
@@ -38,6 +40,36 @@ public class PlayerMovementKeysMap : MonoBehaviour
                             i++;
                         }
                 }
+        LevelEnterTrigger lETAux;
+        GameObject currentSpot, previousSpot, nextSpot;
+        int cp, cn = 0;
+        for(int i = 0; i < orderedStageSpots.Length; i++)
+        {
+            currentSpot = orderedStageSpots[i];
+            if (currentSpot == null)
+                continue;
+            lETAux = currentSpot.GetComponent<LevelEnterTrigger>();
+            if (lETAux == null)
+               continue;
+            
+            previousSpot = null;
+            cp = 1;
+            while (previousSpot == null && (i-cp) >= 0)
+            {
+                previousSpot = orderedStageSpots[i-cp];
+                cp ++;
+            }
+
+            nextSpot = null;
+            cn = 1;
+            while (nextSpot == null && (i+cn) < orderedStageSpots.Length)
+            {
+                nextSpot = orderedStageSpots[i+cn];
+                cn ++;
+            }
+
+            lETAux.RegisterSpotOrder(previousSpot, nextSpot);
+        }
     }
 
     void Start()
@@ -72,18 +104,24 @@ public class PlayerMovementKeysMap : MonoBehaviour
         if (movement.magnitude > 0.7)
         {
             countdown = timer;
-            if (Math.Abs(movement.x) > Math.Abs(movement.y))
-            {
-                if (movement.x > 0)
-                    MoveForward();
-                else
-                    MoveBackward();
-            } else {
-                if (movement.y > 0)
-                    MoveForward();
-                else
-                    MoveBackward();
-            }
+            // chiedi al bottone in cui sono dove andare in funzione del movement
+            destinationSpot = orderedStageSpots[selectedStage].GetComponent<LevelEnterTrigger>().GetDestinationSpot(movement);
+            if (destinationSpot == "after")
+                MoveForward();
+            else if (destinationSpot == "before")
+                MoveBackward();
+            // if (Math.Abs(movement.x) > Math.Abs(movement.y))
+            // {
+            //     if (movement.x > 0) // guarda se in questa direzione é assegnato qualcosa, altrimenti passa al prossimo
+            //         MoveForward();
+            //     else
+            //         MoveBackward();
+            // } else {
+            //     if (movement.y > 0)
+            //         MoveForward();
+            //     else
+            //         MoveBackward();
+            // }
         }
     }
 

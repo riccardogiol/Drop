@@ -6,6 +6,7 @@ public class SinLoopScaling : MonoBehaviour
     public float speed = 1;
     public float strenght = 0.5f;
     public float delay = 0f;
+    public float cutoffPoint = -0.5f;
 
     Vector3 startingScale;
 
@@ -16,7 +17,7 @@ public class SinLoopScaling : MonoBehaviour
 
     void FixedUpdate()
     {
-        float value = 1 + Math.Max((float)Math.Sin(Time.time * speed - delay*0.7), -0.5f) * strenght;
+        float value = 1 + Math.Max((float)Math.Sin(Time.time * speed - delay*0.7), cutoffPoint) * strenght;
         transform.localScale = new Vector3(startingScale.x * value, startingScale.y * value, startingScale.z);
     }
 }

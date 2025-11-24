@@ -71,7 +71,7 @@ public class CameraAnimationManager : MonoBehaviour
         stableZoom = false;
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (currentRatio != cam.aspect)
         {
@@ -104,16 +104,15 @@ public class CameraAnimationManager : MonoBehaviour
         if (countdown < timer)
         {
             SetCameraZoomLerp();
-            if (Time.timeScale > 0.01)
-                countdown += Time.deltaTime / Time.timeScale;
+            if (!MenusManager.isPaused)
+                countdown += Time.unscaledDeltaTime;
             if (countdown >= timer)
             {
                 cinemachineVirtualCamera.m_Lens.OrthographicSize = finishZoom;
-                ///if (!EagleEyeMode.inEagleMode)
-                ///inGameZoom = finishZoom;
                 if (zoomInButton != null)
                     inGameZoom = finishZoom;
                 stableZoom = true;
+                timer = 1.4f;
             }
         }
     }
@@ -143,6 +142,7 @@ public class CameraAnimationManager : MonoBehaviour
     public void EnterEagleZoomAnimation(float extraZoomOutValue = 0.0f)
     {
         StartZoomAnimation(eagleZoom + extraZoomOutValue);
+        timer = 0.8f;
     }
 
     public void ZoomValueAnimation(float value)
@@ -168,6 +168,7 @@ public class CameraAnimationManager : MonoBehaviour
     public void ExitEagleZoomAnimation()
     {
         StartZoomAnimation(inGameZoom);
+        timer = 0.8f;
     }
 
     void StartZoomAnimation(float targetZoom)

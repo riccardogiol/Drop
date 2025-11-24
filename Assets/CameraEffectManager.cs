@@ -7,7 +7,7 @@ public class CameraEffectManager : MonoBehaviour
     public VolumeProfile volumeProfile;
 
     float minVignette = 0.15f, maxVignette = 0.4f;
-    float minTemperature = 0, maxtemperature = 40;
+    float minTemperature = 0, maxtemperature = 60;
 
     float minExp = 0, maxExp = 0f;
     float minSat = -15, maxSat = 7;

@@ -1,4 +1,3 @@
-using System.Collections;
 using Cinemachine;
 using UnityEngine;
 
@@ -16,6 +15,7 @@ public class EagleEyeMode : MonoBehaviour
     public CinemachineVirtualCamera cinemachine;
     public CameraAnimationManager cameraAnimationManager;
     PlayerAnimationManager playerAnimationManager;
+    GameObject activeHalo;
 
     float rechargeTimer = 10.0f, rechargeCountdown = 0;
     ButtonFiller buttonFiller;
@@ -45,7 +45,14 @@ public class EagleEyeMode : MonoBehaviour
         foreach (var bf in buttonFillers)
         {
             if (bf.gameObject.name == "EagleEyeButton")
+            {
                 buttonFiller = bf;
+                foreach (Transform child in bf.transform)
+                {
+                    if (child.gameObject.name == "ActiveHalo")
+                       activeHalo = child.gameObject;
+                }
+            }
         }
         if (buttonFiller == null)
             return;
@@ -59,14 +66,14 @@ public class EagleEyeMode : MonoBehaviour
 
     void Update()
     {
-        if (inEagleMode)
-        {
-            countdown -= Time.deltaTime;
-            if (countdown <= timer / 2f)
-                Time.timeScale = maxSlowDownFactor + (1 - (countdown * 2) / timer) * (1 - maxSlowDownFactor);
-            if (countdown <= 0)
-                Exit();
-        }
+        // if (inEagleMode)
+        // {
+        //     countdown -= Time.deltaTime;
+        //     if (countdown <= timer / 2f)
+        //         Time.timeScale = maxSlowDownFactor + (1 - (countdown * 2) / timer) * (1 - maxSlowDownFactor);
+        //     if (countdown <= 0)
+        //         Exit();
+        // }
 
         if (rechargeCountdown > 0)
         {
@@ -82,17 +89,18 @@ public class EagleEyeMode : MonoBehaviour
         if (rechargeCountdown > 0)
             return;
         inEagleMode = true;
+        if (activeHalo != null)
+            activeHalo.SetActive(true);
         playgroundManager.ShowEnergy();
         playerAnimationManager.PlayThinking();
-        Time.timeScale = maxSlowDownFactor;
-        countdown = timer;
-        rechargeCountdown = rechargeTimer;
+        //Time.timeScale = maxSlowDownFactor;
+        Time.timeScale = 0.2f;
+        //countdown = timer;
+        //rechargeCountdown = rechargeTimer;
         FindObjectOfType<AudioManager>().MusicSpeedDown();
 
         Vector3 halfWay = new Vector3((originalTarget.transform.position.x + targetSpot.position.x) / 2.0f, (originalTarget.transform.position.y + targetSpot.position.y) / 2.0f, 0);
-        targetRef = Instantiate(targetPrefab, originalTarget.transform.position, Quaternion.identity);
-        targetRef.GetComponent<LinearMovement>().MoveTo(halfWay, 0.5f);
-        targetRef.GetComponent<LinearMovement>().enabled = true;
+        targetRef = Instantiate(targetPrefab, halfWay, Quaternion.identity);
         cinemachine.LookAt = targetRef.transform;
         cinemachine.Follow = targetRef.transform;
         cameraAnimationManager.EnterEagleZoomAnimation(extraZoomOut);
@@ -103,20 +111,14 @@ public class EagleEyeMode : MonoBehaviour
         if (!inEagleMode)
             return;
         inEagleMode = false;
+        if (activeHalo != null)
+            activeHalo.SetActive(false);
         playgroundManager.HideEnergy();
         Time.timeScale = 1f;
         countdown = 0;
         FindObjectOfType<AudioManager>().MusicSpeedRestore();
 
-        StartCoroutine(DelayedExit());
         cameraAnimationManager.ExitEagleZoomAnimation();
-    }
-
-    IEnumerator DelayedExit()
-    {
-        targetRef.GetComponent<LinearMovement>().MoveTo(originalTarget.transform.position, 1.5f);
-        targetRef.GetComponent<LinearMovement>().enabled = true;
-        yield return new WaitForSeconds(1.4f);
         cinemachine.LookAt = originalTarget.transform;
         cinemachine.Follow = originalTarget.transform;
     }

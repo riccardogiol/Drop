@@ -22,6 +22,8 @@ public class PlayerMovementKeys: MonoBehaviour
     bool movementInterrupted;
     bool rotate;
 
+    bool debugInput;
+
     void Start()
     {
         player = GetComponent<Rigidbody2D>();
@@ -42,11 +44,16 @@ public class PlayerMovementKeys: MonoBehaviour
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");
             rotate = Input.GetKeyDown(KeyCode.R);
+
+            debugInput = Input.GetKeyDown(KeyCode.JoystickButton0);
+
         }
     }
 
     void FixedUpdate()
     {
+        if (debugInput)
+           Debug.Log("Joystick button 0");
         if (hasTarget)
         {
             if (Vector2.Distance(transform.position, target) < nextWaypointDistance)

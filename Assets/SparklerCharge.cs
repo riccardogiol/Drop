@@ -19,6 +19,7 @@ public class SparklerCharge : MonoBehaviour
 
     public GameObject waterBurstPrefab;
     public ParticleSystem waterSparklesParticles;
+    public GameObject heroRechargeArea;
 
     SparklerWave sparklerWave;
 
@@ -30,7 +31,10 @@ public class SparklerCharge : MonoBehaviour
     void Start()
     {
         if (sparklerWave != null && currentCharge < maxCharge)
+        {
             sparklerWave.enabled = false;
+            heroRechargeArea.SetActive(false);
+        }
         if (connectedToRiver)
         {
             borderGFX.gameObject.SetActive(false);
@@ -64,6 +68,7 @@ public class SparklerCharge : MonoBehaviour
         {
             Instantiate(waterBurstPrefab, transform.position, Quaternion.identity);
             sparklerWave.enabled = true;
+            heroRechargeArea.SetActive(true);
             waterSparklesParticles.Play();
             if (connectedToRiver)
                 FindObjectOfType<AudioManager>().Play("RiverSound");
