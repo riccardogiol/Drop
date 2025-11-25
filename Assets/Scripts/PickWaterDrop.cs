@@ -96,6 +96,10 @@ public class PickWaterdrop : MonoBehaviour
             PlayWaterBurst();
             DestroyWaterdrop();
             break;
+        case "Insect":
+            PlayWaterBurst();
+            DestroyWaterdrop();
+            break;
         case "DecorationNoFire":
             if (other.GetComponent<SparklerCharge>() != null)
             {

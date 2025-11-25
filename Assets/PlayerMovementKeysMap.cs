@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Security.Cryptography;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovementKeysMap : MonoBehaviour
 {    
@@ -17,6 +17,9 @@ public class PlayerMovementKeysMap : MonoBehaviour
     float timer = 0.6f;
     float countdown = 0;
     string destinationSpot;
+
+    Vector2 dpadDir;
+    bool gamepadInput = false;
 
     void Awake()
     {
@@ -92,7 +95,10 @@ public class PlayerMovementKeysMap : MonoBehaviour
     {
         if(MapMessageManager.messageOnScreen)
             return;
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
+
+        if (Gamepad.current != null)
+             gamepadInput = Gamepad.current.buttonSouth.wasPressedThisFrame;
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) || gamepadInput)
             orderedStageSpots[selectedStage].GetComponent<CircleCollider2D>().enabled = true;
         if (countdown > 0)
         {
@@ -101,6 +107,13 @@ public class PlayerMovementKeysMap : MonoBehaviour
         }
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
+        if (Gamepad.current != null)
+        {
+            dpadDir = Gamepad.current.dpad.ReadValue();
+                if (dpadDir.magnitude > 0.5)
+                    movement = dpadDir;   
+        }
+
         if (movement.magnitude > 0.7)
         {
             countdown = timer;

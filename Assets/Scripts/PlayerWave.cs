@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerWave : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class PlayerWave : MonoBehaviour
 
     public int powerUsage;
 
+    bool gamepadInput = false;
 
     void Start()
     {
@@ -39,7 +41,7 @@ public class PlayerWave : MonoBehaviour
         playerHealth = GetComponent<PlayerHealth>();
         playerShield = GetComponent<PlayerShield>();
         playerMovementInterruption = GetComponent<PlayerMovementInterruption>();
-        timer = 0;
+        timer = 0.5f;
         ButtonFiller[] buttonFillers = FindObjectsOfType<ButtonFiller>();
 
         if (PlayerPrefs.GetInt(unlockingCode2, 0) == 1)
@@ -71,12 +73,13 @@ public class PlayerWave : MonoBehaviour
         {
             timer -= Time.deltaTime;
             buttonFiller.SetValue(timer);
+            return;
         }
-        //keyboard input
-        else if(Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
-        {
+        if (Gamepad.current != null)
+            gamepadInput =  Gamepad.current.buttonEast.wasPressedThisFrame;
+
+        if(Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) || gamepadInput)
             TryWaveAttack();
-        }
     }
 
     //button input

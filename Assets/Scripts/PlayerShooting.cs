@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerShooting : MonoBehaviour
 {
@@ -32,6 +33,7 @@ public class PlayerShooting : MonoBehaviour
     PlayerShield playerShield;
 
     public int powerUsage;
+    bool gamepadInput = false;
 
     void Start()
     {
@@ -44,7 +46,7 @@ public class PlayerShooting : MonoBehaviour
         playerMovementInterruption = GetComponent<PlayerMovementInterruption>();
         playerHealth = GetComponent<PlayerHealth>();
         playerShield = GetComponent<PlayerShield>();
-        timer = 0;
+        timer = 0.5f;
         
         if (PlayerPrefs.GetInt(unlockingCode3, 0) == 1)
             cooldown = cooldown2;
@@ -76,11 +78,14 @@ public class PlayerShooting : MonoBehaviour
         {
             timer -= Time.deltaTime;
             buttonFiller.SetValue(timer);
+            return;
         }
-        else if(Input.GetKeyDown(KeyCode.Space))
-        {
+
+        if (Gamepad.current != null)
+            gamepadInput = Gamepad.current.buttonSouth.wasPressedThisFrame;
+        
+        if(Input.GetKeyDown(KeyCode.Space) || gamepadInput)
             TryShoot();
-        }
     }
 
     public void TryShoot()

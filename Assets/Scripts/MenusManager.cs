@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
+using System.Collections;
 
 public class MenusManager : MonoBehaviour
 {
@@ -31,6 +33,9 @@ public class MenusManager : MonoBehaviour
     public GameObject movementKeys;
 
     public Image logoRef;
+
+    bool gamepadInputMenu = false;
+    bool gamepadInputEE = false;
 
     void Start()
     {
@@ -139,14 +144,20 @@ public class MenusManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Gamepad.current != null)
+        {
+            gamepadInputMenu = Gamepad.current.startButton.wasPressedThisFrame;
+            gamepadInputEE = Gamepad.current.buttonWest.wasPressedThisFrame;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape) || gamepadInputMenu)
         {
             if (pauseMenu.activeSelf)
                 Resume();
             else
                 Pause();
         }
-        if (Input.GetKeyDown(KeyCode.H)) // joycon
+        if (Input.GetKeyDown(KeyCode.H) || gamepadInputEE)
             ToggleEagleEye();
     }
 
@@ -364,8 +375,7 @@ public class MenusManager : MonoBehaviour
         if (openMessage != null)
             openMessage.SetActive(false);
         shader.SetActive(false);
-        isPaused = false;
-        messageOnScreen = false;
+        StartCoroutine(delayMessageOnScreenExit());
     }
 
     public void ShowMessage(GameObject message)
@@ -388,8 +398,7 @@ public class MenusManager : MonoBehaviour
             foreach (GameObject om in overlayMessages)
                 om.SetActive(true);
         }
-        isPaused = false;
-        messageOnScreen = false;
+        StartCoroutine(delayMessageOnScreenExit());
         FindObjectOfType<AudioManager>().LowFilerExit();
     }
 
@@ -458,5 +467,12 @@ public class MenusManager : MonoBehaviour
         {
             description.enabled = false;
         }
+    }
+
+    IEnumerator delayMessageOnScreenExit()
+    {
+        yield return null;
+        messageOnScreen = false;
+        isPaused = false;
     }
 }

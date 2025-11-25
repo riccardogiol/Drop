@@ -127,8 +127,11 @@ public class Bullet : MonoBehaviour
                 DestroyBullet(false, piercingShoot);
                 break;
             case "Waterdrop":
-                other.GetComponent<PickWaterdrop>().RechargeEnergy(energy);
-                DestroyBullet();
+                if (other.GetComponent<PickWaterdrop>().energy < 6)
+                {
+                    other.GetComponent<PickWaterdrop>().RechargeEnergy(energy);
+                    DestroyBullet();
+                }
                 break;
             case "Waterbomb":
                 other.GetComponent<PickWaterBomb>().TriggerBomb();

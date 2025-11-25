@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using UnityEngine.UIElements;
+using UnityEngine.InputSystem;
 
 public class PlayerMovementKeys: MonoBehaviour
 {
@@ -22,7 +22,8 @@ public class PlayerMovementKeys: MonoBehaviour
     bool movementInterrupted;
     bool rotate;
 
-    bool debugInput;
+    Vector2 dpadDir;
+    bool gamepadInput = false;
 
     void Start()
     {
@@ -43,17 +44,20 @@ public class PlayerMovementKeys: MonoBehaviour
         {
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");
-            rotate = Input.GetKeyDown(KeyCode.R);
-
-            debugInput = Input.GetKeyDown(KeyCode.JoystickButton0);
-
+            
+            if (Gamepad.current != null)
+            {
+                gamepadInput = Gamepad.current.rightShoulder.wasPressedThisFrame;
+                dpadDir = Gamepad.current.dpad.ReadValue();
+                if (dpadDir.magnitude > 0.5)
+                    movement = dpadDir;
+            }
+            rotate = Input.GetKeyDown(KeyCode.R) || gamepadInput;
         }
     }
 
     void FixedUpdate()
     {
-        if (debugInput)
-           Debug.Log("Joystick button 0");
         if (hasTarget)
         {
             if (Vector2.Distance(transform.position, target) < nextWaypointDistance)

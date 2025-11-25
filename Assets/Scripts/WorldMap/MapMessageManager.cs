@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MapMessageManager : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class MapMessageManager : MonoBehaviour
     public GameObject storeMessage;
     public StagePanelManager stagePanelManager;
     public GameObject CollectionOpening;
+    public GameObject difficultySelectionMessage;
     public static bool messageOnScreen = false;
 
     void Awake()
@@ -29,6 +31,28 @@ public class MapMessageManager : MonoBehaviour
         if (PlayerPrefs.GetInt("LastLevelCompleted", 0) < 5)
             CloseStore();
         PlayerPrefs.SetInt("ResetExpFlag", 0);
+    }
+
+    void Update()
+    {
+        if (Gamepad.current != null)
+        {
+            if (Gamepad.current.buttonEast.wasPressedThisFrame)
+            {
+                OpenStore();
+                return;
+            }
+            if (Gamepad.current.buttonNorth.wasPressedThisFrame)
+            {
+                ShowCollectionPanel();
+                return;
+            }
+            if (Gamepad.current.buttonWest.wasPressedThisFrame)
+            {
+                ShowMessage(difficultySelectionMessage);
+                return;
+            }
+        }
     }
 
     public void ShowLevelMessage(int lvlCode, int stageCode = 1)
@@ -72,6 +96,7 @@ public class MapMessageManager : MonoBehaviour
     {
         shader.SetActive(true);
         message.SetActive(true);
+        messageOnScreen = true;
         FindObjectOfType<AudioManager>().LowFilerEnter();
     }
 
@@ -95,6 +120,7 @@ public class MapMessageManager : MonoBehaviour
     {
         shader.SetActive(false);
         storeMessage.SetActive(false);
+        messageOnScreen = false;
         FindObjectOfType<AudioManager>().LowFilerExit();
         StartCoroutine(delayMessageOnScreenExit());
     }

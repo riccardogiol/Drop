@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerSuperPower : MonoBehaviour
 {
@@ -31,6 +32,7 @@ public class PlayerSuperPower : MonoBehaviour
 
     public GameObject waterBombCloudPrefab;
 
+    bool gamepadInput= false;
     void Awake()
     {
         if(PlayerPrefs.GetInt(unlockingCode1, 0) == 0)
@@ -111,10 +113,14 @@ public class PlayerSuperPower : MonoBehaviour
                 currentValue = 0;
                 barManager.UpdateSlider(0);
             }
-        } else if(Input.GetKeyDown(KeyCode.E))
-        {
-            TryActivate();
+            return;
         }
+
+        if (Gamepad.current != null)
+            gamepadInput = Gamepad.current.buttonNorth.wasPressedThisFrame;
+
+        if(Input.GetKeyDown(KeyCode.E)  || gamepadInput)
+            TryActivate();
     }
 
     void EnterSuperState()

@@ -104,8 +104,8 @@ public class CameraAnimationManager : MonoBehaviour
         if (countdown < timer)
         {
             SetCameraZoomLerp();
-            if (!MenusManager.isPaused)
-                countdown += Time.unscaledDeltaTime;
+            //if (!MenusManager.isPaused) CONDITION FOR EAGLE EY INTERFERENCE?
+            countdown += Time.unscaledDeltaTime;
             if (countdown >= timer)
             {
                 cinemachineVirtualCamera.m_Lens.OrthographicSize = finishZoom;
