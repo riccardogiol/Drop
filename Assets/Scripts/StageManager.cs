@@ -281,7 +281,7 @@ public class StageManager : MonoBehaviour
         }
         PlayerPrefs.SetInt("ConsecutiveDeaths", PlayerPrefs.GetInt("ConsecutiveDeaths", 0) + 1);
         Time.timeScale = 1f;
-        MenusManager.isPaused = false;
+        //MenusManager.isPaused = false;
         string nextSceneName = "Stage" + currentLvl + "-" + currentStage;
 
         FindObjectOfType<AudioManager>().ResetSounds();
@@ -291,7 +291,7 @@ public class StageManager : MonoBehaviour
     public void RetryStage()
     {
         Time.timeScale = 1f;
-        MenusManager.isPaused = false;
+        //MenusManager.isPaused = false;
         string nextSceneName = "Stage" + currentLvl + "-" + currentStage;
         
         FindObjectOfType<AudioManager>().ResetSounds();
@@ -301,7 +301,7 @@ public class StageManager : MonoBehaviour
     public void GoNextStage()
     {
         Time.timeScale = 1f;
-        MenusManager.isPaused = false;
+        //MenusManager.isPaused = false;
         string nextSceneName = "Stage" + currentLvl + "-" + (currentStage + 1);
         
         FindObjectOfType<AudioManager>().ResetSounds();
@@ -311,7 +311,7 @@ public class StageManager : MonoBehaviour
     public void GoWorldMap()
     {
         Time.timeScale = 1f;
-        MenusManager.isPaused = false;
+        //MenusManager.isPaused = false;
         
         FindObjectOfType<AudioManager>().ResetSounds();
         SceneManager.LoadScene("WorldMap");
@@ -338,7 +338,7 @@ public class StageManager : MonoBehaviour
         }
         Debug.Log("LeaveStage");
         Time.timeScale = 1f;
-        MenusManager.isPaused = false;
+        //MenusManager.isPaused = false;
         
         FindObjectOfType<AudioManager>().ResetSounds();
         SceneManager.LoadScene("WorldMap");

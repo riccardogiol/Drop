@@ -100,6 +100,11 @@ public class PlayerMovementKeys: MonoBehaviour
                 {
                     Vector2 direction = (target - transform.position).normalized;
                     directionController.UpdateDirection(direction);
+                    if (playgroundManager.CheckSparklerAndTrigger(target))
+                    {
+                        directionController.HitAnimation();
+                        InterruptMovement(0.5f);
+                    }
                     return;
                 }
                 pathMovement.InterruptMovement();

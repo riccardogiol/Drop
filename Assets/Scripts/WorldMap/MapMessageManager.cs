@@ -14,10 +14,13 @@ public class MapMessageManager : MonoBehaviour
     void Awake()
     {
         messageOnScreen = false;
+        MenusManager.isPaused = false;
     }
 
     void Start()
     {
+        messageOnScreen = false;
+        MenusManager.isPaused = false;
         if (PlayerPrefs.GetInt("ResetExpFlag", 0) == 1)
             StartCoroutine(StoreOpenAndReset());
     }
@@ -35,9 +38,11 @@ public class MapMessageManager : MonoBehaviour
 
     void Update()
     {
+        if (messageOnScreen)
+           return;
         if (Gamepad.current != null)
         {
-            if (Gamepad.current.buttonEast.wasPressedThisFrame)
+            if (Gamepad.current.buttonEast.wasPressedThisFrame && PlayerPrefs.GetInt("Lvl5", 0) == 1)
             {
                 OpenStore();
                 return;
@@ -120,7 +125,6 @@ public class MapMessageManager : MonoBehaviour
     {
         shader.SetActive(false);
         storeMessage.SetActive(false);
-        messageOnScreen = false;
         FindObjectOfType<AudioManager>().LowFilerExit();
         StartCoroutine(delayMessageOnScreenExit());
     }
@@ -129,6 +133,12 @@ public class MapMessageManager : MonoBehaviour
     {
         yield return null;
         messageOnScreen = false;
+    }
+
+    public void StartEndingScene()
+    {
+        messageOnScreen = true;
+        gameObject.SetActive(false);
     }
 
 }

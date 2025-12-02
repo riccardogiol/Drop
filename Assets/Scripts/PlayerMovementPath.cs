@@ -1,10 +1,12 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using Pathfinding;
+using System.Collections;
 
 public class PlayerMovementPath : MonoBehaviour
 {
     public float moveSpeed = 3.5f;
+    bool movementInterrupted = false;
     public GameObject touchIndicator;
     public Animator animator;
 
@@ -18,6 +20,8 @@ public class PlayerMovementPath : MonoBehaviour
     Seeker seeker;
     public Tilemap tilemap;
 
+    PlaygroundManager playgroundManager;
+
     void Start()
     {
         seeker = GetComponent<Seeker>();
@@ -25,6 +29,9 @@ public class PlayerMovementPath : MonoBehaviour
             tilemap = FindFirstObjectByType<Tilemap>();
         player = GetComponent<Rigidbody2D>();
         directionController = GetComponent<PlayerDirectionController>();
+        
+        playgroundManager = FindFirstObjectByType<PlaygroundManager>();
+        movementInterrupted = false;
     }
     
     void UpdatePath()
@@ -44,6 +51,8 @@ public class PlayerMovementPath : MonoBehaviour
     
     public void NewTarget(Vector3 newTarget, bool visualTouch = false)
     {
+        if (movementInterrupted)
+            return;
         if (MenusManager.isPaused)
             return;
         if (Vector2.Distance(newTarget, (Vector2)transform.position) < 0.7)
@@ -66,10 +75,21 @@ public class PlayerMovementPath : MonoBehaviour
         }
     }
 
-    public void InterruptMovement()
+    public void InterruptMovement(float delay = 0f)
     {
         path = null;
         GetComponent<PlayerMovementInterruption>().SetIsMoving(false);
+        if (delay >= 0.1f)
+        {
+            movementInterrupted = true;
+            StartCoroutine(InterruptInputDelay(delay));
+        }
+    }
+    
+    IEnumerator InterruptInputDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        movementInterrupted = false;
     }
 
     public void OnVictorySpot()
@@ -96,6 +116,14 @@ public class PlayerMovementPath : MonoBehaviour
         float distance = Vector2.Distance(transform.position, path.vectorPath[currentWaypoint]);
         if (distance < nextWaypointDistance)
             currentWaypoint++;
+
+        if (playgroundManager != null && distance < 1 && currentWaypoint == (path.vectorPath.Count - 1))
+            if (playgroundManager.CheckSparklerAndTrigger(target))
+            {
+                directionController.UpdateDirection(target - transform.position);
+                directionController.HitAnimation();
+                InterruptMovement(0.5f);
+            }
 
     }
 }

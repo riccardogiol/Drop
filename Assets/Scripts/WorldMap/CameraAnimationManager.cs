@@ -24,6 +24,7 @@ public class CameraAnimationManager : MonoBehaviour
     float minZoom = 0;
 
     public Button zoomOutButton, zoomInButton;
+    CinemachineConfiner2D cc2d;
 
     float currentRatio;
 
@@ -58,6 +59,7 @@ public class CameraAnimationManager : MonoBehaviour
         {
             zoomInButton.interactable = false;
             zoomOutButton.interactable = true;
+            cc2d = cinemachineVirtualCamera.gameObject.GetComponent<CinemachineConfiner2D>();
         }
 
         startZoom = exitZoom;
@@ -104,6 +106,8 @@ public class CameraAnimationManager : MonoBehaviour
         if (countdown < timer)
         {
             SetCameraZoomLerp();
+            if (cc2d != null)
+                    cc2d.InvalidateCache();
             //if (!MenusManager.isPaused) CONDITION FOR EAGLE EY INTERFERENCE?
             countdown += Time.unscaledDeltaTime;
             if (countdown >= timer)
@@ -113,6 +117,8 @@ public class CameraAnimationManager : MonoBehaviour
                     inGameZoom = finishZoom;
                 stableZoom = true;
                 timer = 1.4f;
+                if (cc2d != null)
+                    cc2d.InvalidateCache();
             }
         }
     }

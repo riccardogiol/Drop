@@ -3,6 +3,7 @@ using UnityEngine;
 public class ChangeMode : MonoBehaviour
 {
     public SwapTextEasyMode swapTextEasyMode;
+    public MapMessageManager mmm;
 
     public void SetEasyMode()
     {
@@ -10,13 +11,21 @@ public class ChangeMode : MonoBehaviour
         PlayerPrefs.SetInt("ConsecutiveDeathsLimit", 3);
         PlayerPrefs.SetInt("EasyMode", 1);
         swapTextEasyMode.UpdateText();
-        gameObject.SetActive(false);
+        if (mmm != null)
+            mmm.ExitMessage(gameObject);
+        else
+            gameObject.SetActive(false);
+
     }
 
     public void SetNormalMode()
     {
         PlayerPrefs.SetInt("EasyMode", 0);
         swapTextEasyMode.UpdateText();
-        gameObject.SetActive(false);
+        if (mmm != null)
+            mmm.ExitMessage(gameObject);
+        else
+            gameObject.SetActive(false);
+
     }
 }

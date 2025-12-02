@@ -23,6 +23,10 @@ public class SparklerCharge : MonoBehaviour
 
     SparklerWave sparklerWave;
 
+    public EnergyIndicator energyIndicator;
+    float countdownLabel = 0;
+
+
     void Awake()
     {
         sparklerWave = GetComponent<SparklerWave>();
@@ -44,6 +48,19 @@ public class SparklerCharge : MonoBehaviour
             groundGFX.GetComponent<SpriteRenderer>().sortingOrder = -4;
         }
         ScaleOnHealth();
+
+        energyIndicator.ShowEnergy();
+        countdownLabel = 1;
+    }
+
+    void FixedUpdate()
+    {
+        if (countdownLabel > 0)
+        {
+            countdownLabel -= Time.fixedDeltaTime;
+            if (countdownLabel <= 0)
+                energyIndicator.HideEnergy();
+        }
     }
 
     public void ScaleOnHealth()
@@ -71,7 +88,10 @@ public class SparklerCharge : MonoBehaviour
             heroRechargeArea.SetActive(true);
             waterSparklesParticles.Play();
             if (connectedToRiver)
+            {
+                sparklerWave.TriggerWave(true);
                 FindObjectOfType<AudioManager>().Play("RiverSound");
+            }
             else
             {
                 IndependantSoundDistanceRelated isdr = GetComponent<IndependantSoundDistanceRelated>();
@@ -80,6 +100,12 @@ public class SparklerCharge : MonoBehaviour
             }
 
         }
+    }
+
+    public void ShowEnergy()
+    {
+        energyIndicator.ShowEnergy();
+        countdownLabel = 1;
     }
 
 }

@@ -684,6 +684,7 @@ GameObject:
   - component: {fileID: 4186663221613957995}
   - component: {fileID: 8814366828004164156}
   - component: {fileID: 7562679076643431527}
+  - component: {fileID: 8813657506771961515}
   m_Layer: 0
   m_Name: PlayerGFX
   m_TagString: Untagged
@@ -796,6 +797,25 @@ MonoBehaviour:
     type: 3}
   rebornCloud: {fileID: 5419499865603982035, guid: 2290008f72e7a4cf0b5f2d2a481528a2,
     type: 3}
+--- !u!114 &8813657506771961515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4739776456146880607}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2d493437a1584dc6b9af88112de6031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingPosition: {x: 0, y: 0}
+  finalPosition: {x: 0, y: 0}
+  timer: 0.2
+  disableColliderWhileMoving: 0
+  scale: 0
+  startingScale: {x: 0, y: 0, z: 0}
+  finalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &5385680794319630698
 GameObject:
   m_ObjectHideFlags: 0

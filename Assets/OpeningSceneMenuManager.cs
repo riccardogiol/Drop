@@ -8,6 +8,7 @@ public class OpeningSceneMenuManager : MonoBehaviour
     {
         FindObjectOfType<AudioManager>().Play("OpeningMusic");
         FindObjectOfType<AudioManager>().StopStageMusic();
+        FindObjectOfType<AudioManager>().ResetSounds();
     }
 
     public void EndIntroductionSlides()
@@ -25,5 +26,16 @@ public class OpeningSceneMenuManager : MonoBehaviour
     public void ResetSounds()
     {
         FindObjectOfType<AudioManager>().ResetSounds();
+    }
+    
+    public void GoToCredits()
+    {
+        PlayerPrefs.SetInt("TriggerEndingScene", 0);
+        SceneManager.LoadScene("CreditScene");
+    }
+
+     public void GoToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

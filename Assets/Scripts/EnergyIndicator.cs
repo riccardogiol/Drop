@@ -11,6 +11,7 @@ public class EnergyIndicator : MonoBehaviour
     public PickSuperdrop superdrop;
     public EnemyHealth enemyHealth;
     public SparklerCharge sparklerCharge;
+    public SparklerWave sparklerWave;
     public EnemyAIPatrolMovement patrolMovement;
     public EnemyAIChasingMovement chasingMovement;
 
@@ -31,6 +32,10 @@ public class EnergyIndicator : MonoBehaviour
             valueToDisplay = sparklerCharge.maxCharge - sparklerCharge.currentCharge;
         else
             valueToDisplay = 0;
+
+        if (sparklerWave != null && sparklerWave.enabled)
+            valueToDisplay = sparklerWave.ammo;
+
         SetText();
         if (image != null)
             SetImage();
@@ -44,6 +49,16 @@ public class EnergyIndicator : MonoBehaviour
     void SetText()
     {
         text.enabled = true;
+        if (sparklerWave != null && sparklerWave.enabled)
+        {
+            text.text = "" + valueToDisplay;
+            if (valueToDisplay <= -100)
+            {
+                text.text = "8";
+                text.rectTransform.localRotation = Quaternion.Euler(0, 0, 90);
+            }
+            return;
+        }
         if (waterdrop != null || superdrop != null)
             text.text = "+" + valueToDisplay;
         else

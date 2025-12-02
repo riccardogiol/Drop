@@ -283,8 +283,12 @@ public class PlaygroundManager : MonoBehaviour
         foreach (Collider2D item in results)
         {
             if (item.gameObject.layer == 6)
+            {
+                if (item.GetComponent<SparklerWave>() != null)
+                    return false;
                 if (!item.gameObject.CompareTag("MovingRock"))
                     return true;
+            }
         }
         return false;
     }
@@ -334,6 +338,22 @@ public class PlaygroundManager : MonoBehaviour
                 return true;
             //if (item.gameObject.CompareTag("OneWayCollider"))
             //return true;
+        }
+        return false;
+    }
+
+    public bool CheckSparklerAndTrigger(Vector3 target)
+    {
+        Collider2D[] results = Physics2D.OverlapPointAll(target);
+        foreach (Collider2D item in results)
+        {
+            if (item.GetComponent<SparklerCharge>() != null)
+                item.GetComponent<SparklerCharge>().ShowEnergy();
+            if (item.GetComponent<SparklerWave>() != null)
+            {
+                item.GetComponent<SparklerWave>().TriggerWave();
+                return true;
+            }
         }
         return false;
     }
@@ -514,6 +534,11 @@ public class PlaygroundManager : MonoBehaviour
         {
             if (child.gameObject.CompareTag("Waterdrop"))
                 child.GetComponent<EnergyIndicator>().ShowEnergy();
+            if (child.gameObject.CompareTag("DecorationNoFire"))
+            {
+                if (child.gameObject.GetComponent<EnergyIndicator>() != null)
+                    child.GetComponent<EnergyIndicator>().ShowEnergy();
+            }
         }
         foreach (Transform child in decorationManager.transform)
         {
@@ -541,6 +566,11 @@ public class PlaygroundManager : MonoBehaviour
         {
             if (child.gameObject.CompareTag("Waterdrop"))
                 child.GetComponent<EnergyIndicator>().HideEnergy();
+            if (child.gameObject.CompareTag("DecorationNoFire"))
+            {
+                if (child.gameObject.GetComponent<EnergyIndicator>() != null)
+                    child.GetComponent<EnergyIndicator>().HideEnergy();
+            }
         }
         foreach (Transform child in decorationManager.transform)
         {

@@ -89,6 +89,8 @@ public class PlayerMovementKeysMap : MonoBehaviour
         lastAvailableStageSpot = Math.Min(PlayerPrefs.GetInt("LastLevelCompleted", 0) * 4 + PlayerPrefs.GetInt("LastStageCompleted", 0), orderedStageSpots.Length - 1);
 
         pathMovement = GetComponent<PlayerMovementPath>();
+
+        countdown = timer;
     }
 
     void Update()
@@ -96,15 +98,16 @@ public class PlayerMovementKeysMap : MonoBehaviour
         if(MapMessageManager.messageOnScreen)
             return;
 
-        if (Gamepad.current != null)
-             gamepadInput = Gamepad.current.buttonSouth.wasPressedThisFrame;
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) || gamepadInput)
-            orderedStageSpots[selectedStage].GetComponent<CircleCollider2D>().enabled = true;
         if (countdown > 0)
         {
             countdown -= Time.deltaTime;
             return;
         }
+
+        if (Gamepad.current != null)
+             gamepadInput = Gamepad.current.buttonSouth.wasPressedThisFrame;
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) || gamepadInput)
+            orderedStageSpots[selectedStage].GetComponent<CircleCollider2D>().enabled = true;
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         if (Gamepad.current != null)

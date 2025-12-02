@@ -54,6 +54,11 @@ public class ShelfButtonsManager : MonoBehaviour
             nextButton.interactable = true;
         else
             nextButton.interactable = false;
+
+        InitializeButtonSelection ibs = transform.parent.parent.GetComponent<InitializeButtonSelection>();
+        LayoutRebuilder.ForceRebuildLayoutImmediate(rectTransform);
+        if (ibs != null)
+            ibs.Refresh();
     }
 
     public void DisplayNextPage()
@@ -65,6 +70,11 @@ public class ShelfButtonsManager : MonoBehaviour
     public void DisplayPreviousPage()
     {
         currentPage--;
+        DisplayPage();
+    }
+
+    void OnEnable()
+    {
         DisplayPage();
     }
 

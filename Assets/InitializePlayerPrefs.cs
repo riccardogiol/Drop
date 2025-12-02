@@ -19,7 +19,6 @@ public class InitializePlayerPrefs : MonoBehaviour
         PlayerPrefs.SetInt("LastLevelPlayed", 7);
 
         PlayerPrefs.SetInt("WavePurchased", 0);
-        */
 
         PlayerPrefs.SetInt("Lvl1Prize", 0);
         PlayerPrefs.SetInt("Lvl2Prize", 0);
@@ -41,6 +40,9 @@ public class InitializePlayerPrefs : MonoBehaviour
         PlayerPrefs.SetInt("FullVersion", 1);
 
         PlayerPrefs.SetInt("CoinAmount", 2000);
+
+        PlayerPrefs.SetInt("TriggerEndingScene", 1);
+        */
     }
 
 }

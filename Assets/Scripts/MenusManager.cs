@@ -116,6 +116,8 @@ public class MenusManager : MonoBehaviour
 
         HideDescriptions();
 
+        isPaused = false;
+
         if (openMessage != null)
         {
             messageOnScreen = true;

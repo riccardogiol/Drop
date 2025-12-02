@@ -41,7 +41,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1016839615510169143}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1016839615510169143}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 546b9fc3fc0f34bf581d79d814040fa3, type: 3}
   m_Name: 
@@ -5139,9 +5139,12 @@ MonoBehaviour:
   wavePrefab: {fileID: 1746407697583636748, guid: 2b3f941eba6ba498ea8d05bfcbc0f04f,
     type: 3}
   parent: {fileID: 0}
+  waterSparkles: {fileID: 2749142577460998223}
+  energyIndicator: {fileID: 8878527354179011598}
   timer: 5
   delay: 0.2
   spawnDropProb: 0.5
+  ammo: -100
   bigWave: 0
 --- !u!114 &2749142577395328245
 MonoBehaviour:
@@ -5168,6 +5171,7 @@ MonoBehaviour:
     type: 3}
   waterSparklesParticles: {fileID: 2749142577460998223}
   heroRechargeArea: {fileID: 1016839615510169143}
+  energyIndicator: {fileID: 8878527354179011598}
 --- !u!114 &8878527354179011598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5187,6 +5191,7 @@ MonoBehaviour:
   superdrop: {fileID: 0}
   enemyHealth: {fileID: 0}
   sparklerCharge: {fileID: 2749142577395328245}
+  sparklerWave: {fileID: 2749142577395328242}
   patrolMovement: {fileID: 0}
   chasingMovement: {fileID: 0}
   patrolIcon: {fileID: 0}
@@ -10140,7 +10145,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 1}
-  m_SizeDelta: {x: 1, y: 1}
+  m_SizeDelta: {x: 2, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &8816056837049183126
 Canvas:
@@ -10185,7 +10190,7 @@ MonoBehaviour:
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
+  m_DynamicPixelsPerUnit: 90
   m_PresetInfoIsWorld: 1
 --- !u!114 &8450103515387837829
 MonoBehaviour:
@@ -10239,9 +10244,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 10, y: 10}
-  m_Pivot: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0.5}
+  m_SizeDelta: {x: 20, y: 10}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5893568291610106670
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10271,8 +10276,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 652f7165b7c30ab46af6c4aad90a639b, type: 2}
-    m_FontSize: 8
+    m_Font: {fileID: 12800000, guid: a90c5f665414b42689567ecb6d4abc4e, type: 3}
+    m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0

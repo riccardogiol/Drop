@@ -188,7 +188,11 @@
         },
         "water_spring" : {
           "title" : "Sorgente d'acqua",
-          "description" : "D'ora in poi puoi trovare delle Sorgenti d'acqua nei livelli.\nQueste sorgenti creano Gocce d'acqua intorno a loro ad intervalli regolari"
+          "description" : "D'ora in poi puoi trovare delle Sorgenti d'acqua nei livelli.\nToccale per ricaricarti"
+        },
+        "water_spring2" : {
+          "title" : "Sorgente d'acqua limitata",
+          "description" : "Alcune Sorgenti d'acqua hanno un numero di ricariche limitate.\nLa Nuvola Scout può mostrarti quante cariche mancano nella sorgente"
         },
         "4" : {
           "title" : "Salva la foresta",
@@ -329,6 +333,10 @@
           "image_title" : "Slavina",
           "description_title": "Ripulisci lo stage",
           "description" : "Sulla cima della montagna ci sono molte rocce instabili: basta un tocco e rischi di generare una Slavina che distrugge tutti i cespugli più bassi sul passaggio.\nUsa le Slavine a tuo vantaggio per cereare passaggi e estinguere fiamme.\nATTENZIONE: alcune slavine, invece, potrebbero bloccare dei percorsi"
+        },
+        "boss" : {
+          "title" : "Condizione di vittoria",
+          "description" : "Estingui il boss"
         }
       }
     },
@@ -1307,8 +1315,12 @@
   },
   "water_spring": {
     "title": "Water Spring",
-    "description": "You can now find Water Springs in levels.\nThese springs generate Water Drops around them at regular intervals."
+    "description": "You can now find Water Springs in levels.\nTouch them to recharge."
   },
+    "water_spring2" : {
+      "title" : "Limited Water Spring",
+      "description" : "Some water sources have a limited number of charges.\nThe Scout Cloud can show you how many charges are left in the source."
+    },
   "4": {
     "title": "Save the Forest",
     "image_title": "Burnt Bush",
@@ -1448,7 +1460,11 @@
     "image_title": "Avalanche",
     "description_title": "Clear the Stage",
     "description": "On the mountain top, there are many unstable rocks: a single touch can trigger an Avalanche that destroys all lower bushes along the path.\nUse Avalanches to your advantage to create passages and extinguish flames.\nCAUTION: some avalanches may block paths instead."
-  }
+  },
+        "boss" : {
+          "title" : "Win condition",
+          "description" : "Extinguish the boss"
+        }
 }
     },
     "content" : {
@@ -2158,8 +2174,12 @@
   },
   "water_spring": {
     "title": "Source d'Eau",
-    "description": "Vous pouvez maintenant trouver des Sources d'Eau dans les niveaux.\nCes sources créent des Gouttes d'Eau autour d'elles à intervalles réguliers."
+    "description": "Vous pouvez maintenant trouver des Sources d'Eau dans les niveaux.\nTouche-les pour te recharger."
   },
+    "water_spring2" : {
+      "title" : "Source d'Eau Limitée",
+      "description" : "Certaines sources d’eau ont un nombre de recharges limité.\nLe Nuage Éclaireur peut te montrer combien de recharges il reste dans la source."
+    },
   "4": {
     "title": "Sauver la Forêt",
     "image_title": "Buisson Brûlé",
@@ -2299,7 +2319,11 @@
     "image_title": "Avalanche",
     "description_title": "Nettoyer le Niveau",
     "description": "Au sommet de la montagne, de nombreuses pierres instables : un seul contact peut déclencher une Avalanche qui détruit tous les buissons plus bas sur le passage.\nUtilisez les Avalanches à votre avantage pour créer des passages et éteindre les flammes.\nATTENTION : certaines avalanches peuvent bloquer des chemins."
-  }
+  },
+        "boss" : {
+          "title" : "Condition de victoire",
+          "description" : "Éteins le boss"
+        }
 }
 
     },

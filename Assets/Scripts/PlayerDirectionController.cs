@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerDirectionController: MonoBehaviour
@@ -6,6 +7,15 @@ public class PlayerDirectionController: MonoBehaviour
     public Vector2 lastDirection = new(0, -1);
 
     float speed = 0;
+    bool hitAnimation = false;
+
+    LinearMovement playerGFXLM;
+
+    void Awake()
+    {
+        playerGFXLM = playerAnimator.GetComponent<LinearMovement>();
+        hitAnimation = false;
+    }
 
     void Start()
     {
@@ -62,5 +72,22 @@ public class PlayerDirectionController: MonoBehaviour
         playerAnimator.SetFloat("LastVertical", lastDirection.y);
         playerAnimator.SetFloat("Horizontal", lastDirection.x);
         playerAnimator.SetFloat("Vertical", lastDirection.y);
+    }
+
+    public void HitAnimation()
+    {
+        hitAnimation = true;
+        float timer = 0.07f;
+        Vector2 StartingPos = transform.position;
+        playerGFXLM.MoveTo(StartingPos + lastDirection * 0.2f, timer);
+        StartCoroutine(ComesBack(StartingPos, timer));
+    }
+
+    IEnumerator ComesBack(Vector3 finalPosition, float timer)
+    {
+        yield return 0;
+        yield return new WaitForSeconds(timer);
+        playerGFXLM.MoveTo(finalPosition, timer);
+        hitAnimation = false;
     }
 }

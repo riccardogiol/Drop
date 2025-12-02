@@ -96,4 +96,9 @@ public class MapMoveCamera : MonoBehaviour
         cinemachine.Follow = target.transform;
         cinemachine.LookAt = target.transform;
     }
+
+    public void SetInMoveCamera(bool condition)
+    {
+        inMoveCameraMode = condition;
+    }
 }

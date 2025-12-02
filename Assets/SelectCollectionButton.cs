@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SelectCollectionButton : MonoBehaviour
 {
@@ -37,6 +38,12 @@ public class SelectCollectionButton : MonoBehaviour
         else
             textLocalizer.key = "content." + subFolder + elementKey + ".name";
         textLocalizer.Localize();
+        Button button = GetComponent<Button>();
+        if (button != null)
+        {
+            var nav = new Navigation{ mode = Navigation.Mode.Automatic };
+            button.navigation = nav;
+        }
     }
     
     public void Select()

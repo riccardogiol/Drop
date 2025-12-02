@@ -57,6 +57,13 @@ public class ChangeAspect : MonoBehaviour
             if (bloomIntensity > 0f)
                 spriteRenderer.material.SetColor("_Color", new Color(1+bloomIntensity, 1+bloomIntensity, 1+bloomIntensity)*bloomIntensity);
         }
+
+        if (fireBarrier != null)
+        {
+            Material newMat = new Material(spriteRenderer.sharedMaterial);
+            spriteRenderer.material = newMat;
+            spriteRenderer.material.SetColor("_Color", new Color(0.4f, 0.4f, 0.4f));
+        }
     }
 
     void Start()
@@ -91,7 +98,12 @@ public class ChangeAspect : MonoBehaviour
         if (flowerStarter != null && flowerStarterGO != null)
             flowerStarterGO.SetActive(true);
         if (fireBarrier != null)
+        {
             fireBarrier.GetComponent<FireBarrierEffectManager>().Estinguish();
+            Material newMat = new Material(spriteRenderer.sharedMaterial);
+            spriteRenderer.material = newMat;
+            spriteRenderer.material.SetColor("_Color", new Color(1, 1, 1));
+        }
 
         if (decoAnimator != null)
             decoAnimator.SetGreen();

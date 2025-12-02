@@ -44,7 +44,7 @@ public class MainMenuActions : MonoBehaviour
 
     public void ContinueGame()
     {
-        SceneManager.LoadScene("OpeningScene");
+        SceneManager.LoadScene("WorldMap");
     }
 
     public void QuitGame()
