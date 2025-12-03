@@ -36,7 +36,7 @@ public class BlockStage : MonoBehaviour
         if (PlayerPrefs.GetInt(solvingCode, 0) == 1)
         {
             stageButton.interactable = true;
-            playerMovementKeysMap.SetLastAvailableStage(stageBlocked);
+            playerMovementKeysMap.SetLastAvailableStage(stageBlocked, true);
             enabled = false;
         }
     }

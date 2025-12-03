@@ -1126,12 +1126,12 @@ PrefabInstance:
     - target: {fileID: 3609857410207415843, guid: 0523bb4d062064c4eb935a51509597a0,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -175
+      value: -177
       objectReference: {fileID: 0}
     - target: {fileID: 3609857410207415843, guid: 0523bb4d062064c4eb935a51509597a0,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 157
+      value: 202
       objectReference: {fileID: 0}
     - target: {fileID: 3609857410207415843, guid: 0523bb4d062064c4eb935a51509597a0,
         type: 3}
@@ -1202,12 +1202,12 @@ PrefabInstance:
     - target: {fileID: 3609857410889989770, guid: 0523bb4d062064c4eb935a51509597a0,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 377.83
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 3609857410889989770, guid: 0523bb4d062064c4eb935a51509597a0,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 140
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 3609857410889989770, guid: 0523bb4d062064c4eb935a51509597a0,
         type: 3}
@@ -1413,6 +1413,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: message.tutorial.scout_cloud.description
   upperCase: 0
+  multiInput: 1
 --- !u!114 &480002874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1427,6 +1428,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: message.tutorial.scout_cloud.title
   upperCase: 1
+  multiInput: 0
+--- !u!224 &480002875 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3609857410889989770, guid: 0523bb4d062064c4eb935a51509597a0,
+    type: 3}
+  m_PrefabInstance: {fileID: 480002868}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &480002880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480002871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f410a5090dca49099bc375545e44514, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textComp: {fileID: 0}
+  boxRectTransf: {fileID: 480002875}
+  padding: {x: 10, y: 5}
+  textResize: 1
+  vertical: 1
 --- !u!1001 &554380413
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -87,6 +87,8 @@ public class EnemyHealth : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+        if (animator != null)
+            animator.SetTrigger("Hit");
     }
     
 

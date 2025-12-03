@@ -37,6 +37,8 @@ public class MenusManager : MonoBehaviour
     bool gamepadInputMenu = false;
     bool gamepadInputEE = false;
 
+    Vector3 lastMousePos;
+
     void Start()
     {
         Sprite logoSprite = Resources.Load<Sprite>("Sprites/Elements/" + stageManager.trophyName + "_burnt");
@@ -141,11 +143,18 @@ public class MenusManager : MonoBehaviour
         }
 
         ScoutCloudUsage = 0;
-
+        Cursor.visible = true;
+        lastMousePos = Vector3.one;
     }
 
     void Update()
     {
+
+        if (!Cursor.visible && Input.mousePosition != lastMousePos)
+        {
+            Cursor.visible = true;
+            lastMousePos = Input.mousePosition;
+        }
         if (Gamepad.current != null)
         {
             gamepadInputMenu = Gamepad.current.startButton.wasPressedThisFrame;

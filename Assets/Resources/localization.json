@@ -83,6 +83,16 @@
           "description" : "La Demo finisce qui!\nScopri nella versione completa:\n- nuovi poteri\n- nuovi nemici\n- nuove sfide\n... e molto altro!",
           "title2" : "Resta aggiornato!",
           "description2" : "Segui la pagina instagram dello studio per restare aggiornato sui progressi del gioco!"
+        },
+        "thanks" : {
+          "title" : "",
+          "description" : "Grazie per aver giocato!\n<3"
+        },
+        "credits" : {
+          "label" : "Credits",
+          "description1" : "<3\nQuesto gioco é stato fatto con amore da",
+          "description2" : "MUSICA & SFX\nDa risorse con licenza (Pixabay, Mixkit, Suno)",
+          "description3" : "Un ringraziamento speciale a\nLorenzo Giol e Alexandre Depye (e molti altri amici)\nper il loro supporto lungo il percorso\n<3"
         }
       },
       "stage" : {
@@ -104,7 +114,8 @@
       "world": {
         "camera" : {
           "title" : "Camera",
-          "description": "Trascina la mappa"
+          "description": "Trascina la mappa",
+          "description_gamepad": "Muovi levetta Destra"
         },
         "movement" : {
           "title" : "",
@@ -180,7 +191,8 @@
         },
         "scout_cloud" : {
           "title" : "Nuvola Scout",
-          "description" : "Da informazioni sullo stage"
+          "description" : "Da informazioni sullo stage\nAttiva disattiva con H",
+          "description_gamepad" : "Da informazioni sullo stage\nAttiva disattiva con tasto azione sinistro"
         },
         "water_wasted" : {
           "title" : "Limiti Riserva",
@@ -1210,7 +1222,17 @@
     "description": "The demo ends here!\nDiscover in the full version:\n- new powers\n- new enemies\n- new challenges\n... and much more!",
     "title2": "Stay Updated!",
     "description2": "Follow the studio's Instagram page to stay updated on the game's progress!"
-  }
+  },
+        "thanks" : {
+          "title" : "",
+          "description" : "Thanks for playing!\n<3"
+        },
+        "credits" : {
+          "label" : "Credits",
+          "description1" : "<3\nThis game was made with love by",
+          "description2" : "MUSICA & SFX\nfrom licensed assets (Pixabay, Mixkit, Suno)",
+          "description3" : "Special thanks to\nLorenzo Giol and Alexandre Depye (and many other friends)\nfor their support along the way\n<3"
+        }
 },
       "stage": {
   "game_over_health": "WATER POINTS DEPLETED\nOh no, you've evaporated!",
@@ -1231,7 +1253,8 @@
       "world": {
   "camera": {
     "title": "Camera",
-    "description": "Drag the map"
+    "description": "Drag the map",
+          "description_gamepad": "Move right stick"
   },
   "movement": {
     "title": "",
@@ -1307,7 +1330,8 @@
   },
   "scout_cloud": {
     "title": "Scout Cloud",
-    "description": "Provides stage information."
+    "description": "Provides stage information.\nToggle with H",
+          "description_gamepad" : "Provides stage information.\nToggle with left action button"
   },
   "water_wasted": {
     "title": "Reservoir Limits",
@@ -2068,7 +2092,18 @@
     "description": "La démo se termine ici !\nDécouvrez dans la version complète :\n- nouveaux pouvoirs\n- nouveaux ennemis\n- nouveaux défis\n... et bien plus encore !",
     "title2": "Restez informé !",
     "description2": "Suivez la page Instagram du studio pour rester au courant des progrès du jeu !"
+  },
+  "thanks" : {
+    "title" : "",
+    "description" : "Merci d’avoir joué !\n<3"
+  },
+  "credits" : {
+    "label" : "Crédits",
+    "description1" : "<3\nCe jeu a été créé avec amour par",
+    "description2" : "MUSIQUE & SFX\nissus de ressources sous licence (Pixabay, Mixkit, Suno)",
+    "description3" : "Remerciements spéciaux à\nLorenzo Giol et Alexandre Depye (ainsi que de nombreux autres amis)\npour leur soutien tout au long du chemin\n<3"
   }
+
 },
      "stage": {
   "game_over_health": "POINTS D'EAU ÉPUISÉS\nOh non, tu es évaporé !",
@@ -2090,7 +2125,8 @@
       "world": {
   "camera": {
     "title": "Caméra",
-    "description": "Faites glisser la carte"
+    "description": "Faites glisser la carte",
+          "description_gamepad": "Bouge le stick droit"
   },
   "movement": {
     "title": "",
@@ -2166,7 +2202,8 @@
   },
   "scout_cloud": {
     "title": "Nuage Scout",
-    "description": "Fournit des informations sur le niveau."
+    "description": "Fournit des informations sur le niveau.\n Active avec la touche H",
+          "description_gamepad" : "Fournit des informations sur le niveau.\n Active avec le bouton d’action gauche"
   },
   "water_wasted": {
     "title": "Limites de la Réserve",

@@ -25,6 +25,8 @@ public class PlayerMovementKeys: MonoBehaviour
     Vector2 dpadDir;
     bool gamepadInput = false;
 
+    bool azertyLayout = false;
+
     void Start()
     {
         player = GetComponent<Rigidbody2D>();
@@ -36,6 +38,9 @@ public class PlayerMovementKeys: MonoBehaviour
         target = transform.position;
         hasTarget = false;
         movementInterrupted = false;
+
+        if (PlayerPrefs.GetInt("AzertyLayout") == 1)
+            azertyLayout = true;
     }
 
     void Update()
@@ -44,6 +49,12 @@ public class PlayerMovementKeys: MonoBehaviour
         {
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");
+
+            if (azertyLayout)
+            {
+                movement.x = Input.GetAxisRaw("HorizontalAzerty");
+                movement.y = Input.GetAxisRaw("VerticalAzerty");
+            }
             
             if (Gamepad.current != null)
             {
@@ -76,6 +87,7 @@ public class PlayerMovementKeys: MonoBehaviour
                     player.MovePosition(newPosition);
                 directionController.UpdateDirection(direction);
             }
+            Cursor.visible = false;
         }
 
         if (!hasTarget && rotate)

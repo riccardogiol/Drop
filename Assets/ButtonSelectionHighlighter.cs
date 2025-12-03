@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class ButtonSelectionHighlighter : MonoBehaviour
@@ -11,6 +12,8 @@ public class ButtonSelectionHighlighter : MonoBehaviour
     RectTransform selectedRT;
     Vector2 p;
 
+    public bool showOnlyOnGamepad = true;
+
     void Update()
     {
         selectedButton = EventSystem.current.currentSelectedGameObject;
@@ -20,6 +23,12 @@ public class ButtonSelectionHighlighter : MonoBehaviour
             if (ibs != null)
                ibs.Refresh();
             highligther.gameObject.SetActive(false);
+            return;
+        }
+
+        if (showOnlyOnGamepad && Gamepad.current == null)
+        {
+            enabled = false;
             return;
         }
 

@@ -2,6 +2,7 @@ using System;
 using Cinemachine;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MapMoveCamera : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class MapMoveCamera : MonoBehaviour
     Vector3 camStartingPosition;
     Vector3 targetStartingPosition;
 
+    Vector3 rightstickMovement;
+
     void Start()
     {
         originalTarget = cinemachine.Follow.gameObject;
@@ -31,16 +34,28 @@ public class MapMoveCamera : MonoBehaviour
 
     void Update()
     {
+        if (Gamepad.current != null)
+        {
+            rightstickMovement = Gamepad.current.rightStick.ReadValue();
+            if (rightstickMovement.magnitude > 0.3)
+            {
+                if (inMoveCameraMode)
+                    BoundMovingTargetPosition(movingTarget.transform.position + rightstickMovement * 0.3f);
+                else
+                    inMoveCameraMode = true;
+                return;
+            }
+        }
         if (Application.isMobilePlatform)
         {
             if (Input.touchCount > 0)
             {
-                if (Input.GetTouch(0).phase == TouchPhase.Began)
+                if (Input.GetTouch(0).phase == UnityEngine.TouchPhase.Began)
                 {
                     camStartingPosition = cam.ScreenToWorldPoint(Input.GetTouch(0).position);
                     targetStartingPosition = movingTarget.transform.position;
                 }
-                if (Input.GetTouch(0).phase == TouchPhase.Moved)
+                if (Input.GetTouch(0).phase == UnityEngine.TouchPhase.Moved)
                 {
                     Vector3 difference = camStartingPosition - cam.ScreenToWorldPoint(Input.GetTouch(0).position);
                     if (inMoveCameraMode)
@@ -83,6 +98,7 @@ public class MapMoveCamera : MonoBehaviour
 
     public void Exit()
     {
+        PlayerPrefs.SetInt("worldmapcameramessage", 1);
         BoundMovingTargetPosition(originalTarget.transform.position);
         inMoveCameraMode =false;
     }

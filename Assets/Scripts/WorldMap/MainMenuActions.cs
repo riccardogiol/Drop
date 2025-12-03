@@ -27,12 +27,14 @@ public class MainMenuActions : MonoBehaviour
         float musicVolume = PlayerPrefs.GetFloat("MusicVolume", 1);
         float soundVolume = PlayerPrefs.GetFloat("SoundVolume", 1);
         string language = PlayerPrefs.GetString("LanguagePreference", "eng");
+        int layout = PlayerPrefs.GetInt("AzertyLayout", 0);
         int fv = PlayerPrefs.GetInt("FullVersion", 0);
         int dv = PlayerPrefs.GetInt("DemoVersion", 0);
         PlayerPrefs.DeleteAll();
         PlayerPrefs.SetFloat("MusicVolume", musicVolume);
         PlayerPrefs.SetFloat("SoundVolume", soundVolume);
         PlayerPrefs.SetString("LanguagePreference", language);
+        PlayerPrefs.SetInt("AzertyLayout", layout);
         PlayerPrefs.SetInt("DemoVersion", dv);
         PlayerPrefs.SetInt("FullVersion", fv);
         PlayerPrefs.SetInt("Lvl0", 1);
@@ -86,5 +88,10 @@ public class MainMenuActions : MonoBehaviour
             PlayerPrefs.SetInt("Lvl" + i + "Prize", 0);
         }
 
+    }
+    
+    public void Credits()
+    {
+        SceneManager.LoadScene("CreditScene");
     }
 }

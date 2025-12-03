@@ -1,5 +1,6 @@
 using Cinemachine;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class CameraAnimationManager : MonoBehaviour
@@ -120,6 +121,21 @@ public class CameraAnimationManager : MonoBehaviour
                 if (cc2d != null)
                     cc2d.InvalidateCache();
             }
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if (Gamepad.current != null)
+        {
+            if (Gamepad.current.leftShoulder.wasPressedThisFrame)
+                if (zoomOutButton != null)
+                    if (zoomOutButton.interactable == true)
+                        zoomOutButton.onClick.Invoke();
+            if (Gamepad.current.leftTrigger.wasPressedThisFrame)
+                if (zoomInButton != null)
+                    if (zoomInButton.interactable == true)
+                        zoomInButton.onClick.Invoke();
         }
     }
 

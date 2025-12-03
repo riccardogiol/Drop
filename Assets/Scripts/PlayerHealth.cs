@@ -49,7 +49,7 @@ public class PlayerHealth : MonoBehaviour
         healthBar.SetHealth(currentHealth);
         if (currentHealth == 0)
         {
-            if (PlayerPrefs.GetInt(unlockingCode6, 0) == 1 && UnityEngine.Random.value < 99.2) // change
+            if (PlayerPrefs.GetInt(unlockingCode6, 0) == 1 && UnityEngine.Random.value < 0.33)
             {
                 stageManager.Reborn();
                 StartCoroutine(RestoreLife());

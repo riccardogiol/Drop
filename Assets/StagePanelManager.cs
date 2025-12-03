@@ -98,7 +98,10 @@ public class StagePanelManager : MonoBehaviour
             cloudHiding.enabled = true;
             stageImage.color = new Color(0.5f, 0.5f, 0.5f);
         } else
+        {
             cloudHiding.enabled = false;
+            stageImage.color = new Color(1f, 1f, 1f);
+        }
     }
 
     public void PlayStage()

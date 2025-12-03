@@ -21,6 +21,8 @@ public class PlayerMovementKeysMap : MonoBehaviour
     Vector2 dpadDir;
     bool gamepadInput = false;
 
+    bool azertyLayout = false;
+
     void Awake()
     {
         foreach (Transform child in levelTileParent.transform)
@@ -90,6 +92,8 @@ public class PlayerMovementKeysMap : MonoBehaviour
 
         pathMovement = GetComponent<PlayerMovementPath>();
 
+        if (PlayerPrefs.GetInt("AzertyLayout") == 1)
+            azertyLayout = true;
         countdown = timer;
     }
 
@@ -110,6 +114,13 @@ public class PlayerMovementKeysMap : MonoBehaviour
             orderedStageSpots[selectedStage].GetComponent<CircleCollider2D>().enabled = true;
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
+
+        if (azertyLayout)
+        {
+            movement.x = Input.GetAxisRaw("HorizontalAzerty");
+            movement.y = Input.GetAxisRaw("VerticalAzerty");
+        }
+
         if (Gamepad.current != null)
         {
             dpadDir = Gamepad.current.dpad.ReadValue();
@@ -192,8 +203,11 @@ public class PlayerMovementKeysMap : MonoBehaviour
 
     }
 
-    public void SetLastAvailableStage(int absoluteStageCode)
+    public void SetLastAvailableStage(int absoluteStageCode, bool forced = false)
     {
-        lastAvailableStageSpot = Math.Min( absoluteStageCode, lastAvailableStageSpot);
+        if (forced)
+            lastAvailableStageSpot = absoluteStageCode;
+        else
+            lastAvailableStageSpot = Math.Min( absoluteStageCode, lastAvailableStageSpot);
     }
 }

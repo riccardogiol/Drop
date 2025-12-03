@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class TextLocalizer : MonoBehaviour
@@ -8,6 +9,7 @@ public class TextLocalizer : MonoBehaviour
     Text textComponent;
 
     public bool upperCase = false;
+    public bool multiInput = false;
 
     void Awake()
     {
@@ -22,6 +24,16 @@ public class TextLocalizer : MonoBehaviour
         if (textComponent == null)
             return;
         string localizedText = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get(key);
+        if (multiInput)
+        {
+            if (Gamepad.current != null)
+            {
+                string gamepadKey = key + "_gamepad";
+                string localizedTextGamepad = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get(gamepadKey);
+                if (localizedTextGamepad != null)
+                    localizedText = localizedTextGamepad;
+            }
+        }
         if (localizedText == null)
             return;
         textComponent.text = localizedText;
