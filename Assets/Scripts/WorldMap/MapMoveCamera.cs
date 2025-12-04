@@ -40,7 +40,10 @@ public class MapMoveCamera : MonoBehaviour
             if (rightstickMovement.magnitude > 0.3)
             {
                 if (inMoveCameraMode)
+                {
                     BoundMovingTargetPosition(movingTarget.transform.position + rightstickMovement * 0.3f);
+                    PlayerPrefs.SetInt("worldmapcameramessage", 1);
+                }
                 else
                     inMoveCameraMode = true;
                 return;
@@ -59,7 +62,10 @@ public class MapMoveCamera : MonoBehaviour
                 {
                     Vector3 difference = camStartingPosition - cam.ScreenToWorldPoint(Input.GetTouch(0).position);
                     if (inMoveCameraMode)
+                    {
                         BoundMovingTargetPosition(targetStartingPosition + difference);
+                        PlayerPrefs.SetInt("worldmapcameramessage", 1);
+                    }
                     else 
                         if (difference.magnitude > 0.5)
                             inMoveCameraMode = true;
@@ -75,7 +81,10 @@ public class MapMoveCamera : MonoBehaviour
             {
                 Vector3 difference = camStartingPosition - cam.ScreenToWorldPoint(Input.mousePosition);
                 if (inMoveCameraMode)
+                {
                     BoundMovingTargetPosition(targetStartingPosition + difference);
+                    PlayerPrefs.SetInt("worldmapcameramessage", 1);
+                }
                 else 
                     if (difference.magnitude > 0.5)
                         inMoveCameraMode = true;
@@ -98,7 +107,6 @@ public class MapMoveCamera : MonoBehaviour
 
     public void Exit()
     {
-        PlayerPrefs.SetInt("worldmapcameramessage", 1);
         BoundMovingTargetPosition(originalTarget.transform.position);
         inMoveCameraMode =false;
     }

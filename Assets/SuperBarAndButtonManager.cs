@@ -5,6 +5,7 @@ public class SuperBarAndButtonManager : MonoBehaviour
 {
     public Slider slider;
     public Button button;
+    public ParticleSystem psEffect;
 
     public void SetSliderMax(float value)
     {
@@ -19,5 +20,9 @@ public class SuperBarAndButtonManager : MonoBehaviour
     public void SetButtonInteractable(bool state)
     {
         button.interactable = state;
+        if (state)
+            psEffect.Play();
+        else
+            psEffect.Stop();
     }
 }

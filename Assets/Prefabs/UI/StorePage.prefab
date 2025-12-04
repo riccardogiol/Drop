@@ -216,6 +216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: menu.world.reset_exp
   upperCase: 1
+  multiInput: 0
 --- !u!1 &3322676780842544527
 GameObject:
   m_ObjectHideFlags: 0
@@ -1230,6 +1231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: content.upgrade.waterbullet.title
   upperCase: 1
+  multiInput: 0
 --- !u!1 &4976131210210664409
 GameObject:
   m_ObjectHideFlags: 0
@@ -1326,6 +1328,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: content.upgrade.super.title
   upperCase: 1
+  multiInput: 0
 --- !u!114 &8553065950485797902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1673,7 +1676,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: ClickIn
+          m_StringArgument: Upgrade
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &4976131210492976530
@@ -1848,6 +1851,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: content.upgrade.wave.title
   upperCase: 1
+  multiInput: 0
 --- !u!114 &772396870762541396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3837,6 +3841,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: content.upgrade.hero.title
   upperCase: 1
+  multiInput: 0
 --- !u!1 &4976131211965323577
 GameObject:
   m_ObjectHideFlags: 0
@@ -4198,6 +4203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highligther: {fileID: 747003379519297411}
   ibs: {fileID: 1893545457954938971}
+  showOnlyOnGamepad: 1
 --- !u!1 &6695345592839412263
 GameObject:
   m_ObjectHideFlags: 0
@@ -4293,6 +4299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: menu.general.back
   upperCase: 1
+  multiInput: 0
 --- !u!1 &7906098151970940681
 GameObject:
   m_ObjectHideFlags: 0
@@ -4567,6 +4574,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: menu.world.upgrade
   upperCase: 1
+  multiInput: 0
 --- !u!1 &8176166439612469931
 GameObject:
   m_ObjectHideFlags: 0
@@ -5042,7 +5050,7 @@ PrefabInstance:
     - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
       propertyPath: upgradePrice
-      value: 200
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
@@ -5483,7 +5491,7 @@ PrefabInstance:
     - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
       propertyPath: upgradePrice
-      value: 200
+      value: 280
       objectReference: {fileID: 0}
     - target: {fileID: 5005772453541599207, guid: de436ba04c1844f32b4ede2a37909ee1,
         type: 3}
@@ -7446,6 +7454,7 @@ MonoBehaviour:
   speed: 7
   scaleX: 10
   scaleY: 0
+  timeInvariant: 0
 --- !u!224 &8581062394867370752 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3609857410889989770, guid: 0523bb4d062064c4eb935a51509597a0,
@@ -7493,6 +7502,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: message.world.touch_upgrade.description
   upperCase: 0
+  multiInput: 0
 --- !u!1 &8581062395936807329 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3609857409803512875, guid: 0523bb4d062064c4eb935a51509597a0,
@@ -7513,6 +7523,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: message.world.touch_upgrade.title
   upperCase: 1
+  multiInput: 0
 --- !u!1001 &4976131211460419769
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8997,6 +9008,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ButtonHighlighter
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600241408209598073, guid: ea76fb0b11a644b2daf76821aaee4402,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7190461115199923852, guid: ea76fb0b11a644b2daf76821aaee4402,
         type: 3}

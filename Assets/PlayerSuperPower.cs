@@ -19,11 +19,13 @@ public class PlayerSuperPower : MonoBehaviour
     public float currentValue = 0;
     int maxValue = 5;
     float countdownRatio = 1.0f;
+    float countdownThrshld = 1f;
 
     bool superState = false;
     
     public ParticleSystem lightningSparklesPS;
-    public GameObject lightningBurstPrefab;
+    public GameObject lightningStrikePrefab;
+    public GameObject lightningBurstCountdownPrefab;
     public SpriteRenderer playerGFX;
     public DamageIndicator damageIndicator;
 
@@ -106,6 +108,11 @@ public class PlayerSuperPower : MonoBehaviour
         {
             currentValue -= Time.deltaTime/countdownRatio;
             barManager.UpdateSlider(currentValue);
+            if (currentValue <= countdownThrshld)
+            {
+                countdownThrshld -= 0.35f;
+                Instantiate(lightningBurstCountdownPrefab, transform.position, Quaternion.identity);
+            }
             if(currentValue <= 0)
             {
                 superState = false;
@@ -126,12 +133,13 @@ public class PlayerSuperPower : MonoBehaviour
     void EnterSuperState()
     {
         // GFX
-        GameObject goRef = Instantiate(lightningBurstPrefab, transform.position, Quaternion.identity);
+        GameObject goRef = Instantiate(lightningStrikePrefab, transform.position, Quaternion.identity);
         goRef.GetComponent<ParticleSystem>().emission.SetBurst(0, new ParticleSystem.Burst(0, upgradeLvl));
         playerGFX.material = new Material(bloomMaterial);
         playerGFX.material.SetColor("_Color", new Color(2.0f, 2.0f, 2.0f));
         lightningSparklesPS.Play();
         FindObjectOfType<AudioManager>().PlayVoice("Win");
+        countdownThrshld = 1f;
         
         // Power effects
         playerShooting.SetBulletCost(0);
@@ -151,7 +159,7 @@ public class PlayerSuperPower : MonoBehaviour
     void ExitSuperState()
     {
         FindObjectOfType<AudioManager>().Play("Thunder");
-        GameObject goRef = Instantiate(lightningBurstPrefab, transform.position, Quaternion.identity);
+        GameObject goRef = Instantiate(lightningStrikePrefab, transform.position, Quaternion.identity);
         goRef.GetComponent<ParticleSystem>().emission.SetBurst(0, new ParticleSystem.Burst(0, upgradeLvl));
         lightningSparklesPS.Stop();
         playerGFX.material = originaleMaterial;
