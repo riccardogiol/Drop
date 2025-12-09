@@ -7,6 +7,8 @@ public class RuleTileStateManager : MonoBehaviour
     public RuleTile cleanTile;
     public RuleTile riverBorderTile;
     public bool chessStyle = false;
+    public bool randomStyle = false;
+    public float noiseScale = 1.0f;
     public RuleTile cleanDarkTile;
 
     int minXCell = 0;
@@ -34,6 +36,15 @@ public class RuleTileStateManager : MonoBehaviour
         maxXCell = maxX;
         maxYCell = maxY;
         if (chessStyle)
+            for (int y = minYCell; y <= maxYCell; y++)
+                for (int x = minXCell; x <= maxXCell; x++)
+                {
+                    RuleTile currentTile = tilemap.GetTile<RuleTile>(new Vector3Int(x, y, 0));
+                    if (currentTile != null)
+                        if (currentTile != burntTile)
+                            SetCleanTile(new Vector3Int(x, y, 0));
+                }
+        if (randomStyle)
             for (int y = minYCell; y <= maxYCell; y++)
                 for (int x = minXCell; x <= maxXCell; x++)
                 {
@@ -118,15 +129,18 @@ public class RuleTileStateManager : MonoBehaviour
         if (chessStyle)
         {
             if ((cell.x + cell.y) % 2 == 0)
-            {
                 tilemap.SetTile(cell, cleanTile);
-            }
             else
-            {
                 tilemap.SetTile(cell, cleanDarkTile);
-            }
         }
-        else
+        else if (randomStyle)
+        {
+            //if (Random.value < -99.5)
+            if (Mathf.PerlinNoise((maxXCell + cell.x) * noiseScale, (maxYCell + cell.y) * noiseScale) < 0.5f)
+                tilemap.SetTile(cell, cleanTile);
+            else
+                tilemap.SetTile(cell, cleanDarkTile);
+        } else
         {
             tilemap.SetTile(cell, cleanTile);
         }
