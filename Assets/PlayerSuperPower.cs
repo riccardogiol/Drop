@@ -18,7 +18,7 @@ public class PlayerSuperPower : MonoBehaviour
 
     public float currentValue = 0;
     int maxValue = 5;
-    float countdownRatio = 1.0f;
+    float countdownRatio = 1.5f;
     float countdownThrshld = 1f;
 
     bool superState = false;

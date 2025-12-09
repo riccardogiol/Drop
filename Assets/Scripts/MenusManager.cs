@@ -42,7 +42,8 @@ public class MenusManager : MonoBehaviour
     void Start()
     {
         Sprite logoSprite = Resources.Load<Sprite>("Sprites/Elements/" + stageManager.trophyName + "_burnt");
-        logoRef.sprite = logoSprite;
+        if (logoRef != null)
+            logoRef.sprite = logoSprite;
 
         Transform auxTrans = transform.Find("ProgressionBar");
         if (auxTrans == null)
@@ -143,8 +144,9 @@ public class MenusManager : MonoBehaviour
         }
 
         ScoutCloudUsage = 0;
-        Cursor.visible = true;
         lastMousePos = Vector3.one;
+        if (Input.mousePosition != null)
+           lastMousePos = Input.mousePosition;
     }
 
     void Update()

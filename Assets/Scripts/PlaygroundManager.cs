@@ -101,12 +101,22 @@ public class PlaygroundManager : MonoBehaviour
 
         EvaluateCleanSurface();
         StartCoroutine(StartFlowerCounter());
+        StartCoroutine(CheckLevelProgression());
     }
 
     IEnumerator StartFlowerCounter()
     {
         yield return new WaitForSeconds(1);
         tilemapEffectManager.CollectFlowerTiles();
+    }
+
+    IEnumerator CheckLevelProgression()
+    {
+        while(true)
+        {
+            yield return new WaitForSeconds(5);
+            EvaluateCleanSurface();
+        }
     }
 
     public void FlameOnPosition(Vector3 position, int energy = 0, bool randomMovement = false, bool compleatlyRandom = true)
@@ -492,12 +502,19 @@ public class PlaygroundManager : MonoBehaviour
         Debug.Log("Progression perc: " + progressionPerc);
         if (progressionPerc >= winProgressionPerc && !reachedWinningCondition)
         {
-            StopAllCoroutines();
+            //StopAllCoroutines();
             isRaining = true;
-            reachedWinningCondition = true;
+            //reachedWinningCondition = true;
             tilemapEffectManager.SetFlowerSpreading(0.5f);
             if (!bossWin)
-                stageManager.WinGame();
+            {
+                bool winSceneTriggered  = stageManager.WinGame();
+                if (winSceneTriggered)
+                {
+                    reachedWinningCondition = true;
+                    StopAllCoroutines();
+                }
+            }
         }
 
         if (!isRaining && progressionPerc > (rainProgressionPerc + 0.05))

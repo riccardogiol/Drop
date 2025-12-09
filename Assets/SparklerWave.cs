@@ -21,6 +21,8 @@ public class SparklerWave : MonoBehaviour
 
     bool ready = false;
 
+    SparklerCharge sc;
+
     void Start () {
         playgroundManager = FindFirstObjectByType<PlaygroundManager>();
         if (parent == null)
@@ -29,7 +31,7 @@ public class SparklerWave : MonoBehaviour
         ready = false;
 
         //TURNAROUND to not change everything after the interaction update
-        timer = timer / 2f;
+        timer = timer / 3f;
 
         if (PlayerPrefs.GetInt("EasyMode", 0) == 1)
         {
@@ -37,6 +39,10 @@ public class SparklerWave : MonoBehaviour
             ammo = -100;
         }
 
+        sc = GetComponent<SparklerCharge>();
+        if (sc != null)
+           if (sc.currentCharge < sc.maxCharge)
+               return;
         energyIndicator.ShowEnergy();
         countdownLabel = 1;
 	}

@@ -80,11 +80,13 @@ public class StageManager : MonoBehaviour
         }
     }
     
-    public void WinGame(bool waterTiles = false, float waitSeconds = 6f)
+    public bool WinGame(bool waterTiles = false, float waitSeconds = 6f)
     {
         PlayerPrefs.SetInt("ConsecutiveDeaths", 0);
-        if (!MenusManager.isPaused)
-            StartCoroutine(WinningScene(waterTiles, waitSeconds));
+        if (MenusManager.isPaused)
+            return false;
+        StartCoroutine(WinningScene(waterTiles, waitSeconds));
+        return true;
     }
 
     IEnumerator WinningScene(bool waterTiles, float waitSeconds)
@@ -189,9 +191,11 @@ public class StageManager : MonoBehaviour
     public void GameOver(String deadCode)
     {
         PlayerPrefs.SetInt("ConsecutiveDeaths", PlayerPrefs.GetInt("ConsecutiveDeaths", 0) + 1);
-        gameOver = true;
         if (!MenusManager.isPaused)
+        {
+            gameOver = true;
             StartCoroutine(EvaporatingScene(deadCode));
+        }
     }
 
     IEnumerator EvaporatingScene(String deadCode)
@@ -235,13 +239,15 @@ public class StageManager : MonoBehaviour
     public void Reborn()
     {
         if (!MenusManager.isPaused)
+        {
+            menusManager.SetIsPause(true);
             StartCoroutine(RebornEvaporatingScene());
+        }
     }
 
     IEnumerator RebornEvaporatingScene()
     {
         eagleEyeMode.Exit();
-        menusManager.SetIsPause(true);
         if (playerMovementPath != null)
             playerMovementPath.InterruptMovement();
         playerMovementKeys.InterruptMovement(0.3f);
@@ -255,7 +261,6 @@ public class StageManager : MonoBehaviour
         yield return new WaitForSeconds(2);
 
         menusManager.SetIsPause(false);
-        
     }
 
     //Close stage functions

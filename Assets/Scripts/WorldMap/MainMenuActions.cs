@@ -19,6 +19,7 @@ public class MainMenuActions : MonoBehaviour
         else
             continueButton.interactable = false;
         FindObjectOfType<AudioManager>().Play("OpeningMusic");
+        Cursor.visible = true;
     }
 
     public void NewGame(bool casual = false)

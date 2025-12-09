@@ -9,6 +9,7 @@ public class OpeningSceneMenuManager : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("OpeningMusic");
         FindObjectOfType<AudioManager>().StopStageMusic();
         FindObjectOfType<AudioManager>().ResetSounds();
+        Cursor.visible = true;
     }
 
     public void EndIntroductionSlides()

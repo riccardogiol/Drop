@@ -11,6 +11,8 @@ public class MapMenuManager : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("OpeningMusic");
         FindObjectOfType<AudioManager>().StopStageMusic();
         FindObjectOfType<AudioManager>().LowFilerExit();
+        
+        Cursor.visible = true;
     }
 
      void Update()

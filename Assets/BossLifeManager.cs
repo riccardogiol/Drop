@@ -28,7 +28,7 @@ public class BossLifeManager : MonoBehaviour
     void Start()
     {
         progressionBarFiller.ShowBossLife();
-        progressionBarFiller.SetImage(logoOnProgBar, Vector3.zero, Vector3.one * 1.1f);
+        progressionBarFiller.SetImage(logoOnProgBar, Vector3.zero, Vector3.one * 0.31f);
         progressionBarFiller.SetMaxValue(1);
         progressionBarFiller.SetMinValue(0);
         progressionBarFiller.SetValue(1);
@@ -51,7 +51,7 @@ public class BossLifeManager : MonoBehaviour
             animator.SetTrigger("EnterSecondPhase");
             enemyHealth.currentHealth = 1;
 
-            progressionBarFiller.SetImage(logoPhase2, new Vector3(70, -5, 0), Vector3.one * 0.9f);
+            progressionBarFiller.SetImage(logoPhase2, new Vector3(-63, 10, 0), Vector3.one * 0.9f);
 
 
             fireBarrier.SetActive(true);

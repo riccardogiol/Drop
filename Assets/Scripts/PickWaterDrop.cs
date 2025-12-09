@@ -50,7 +50,7 @@ public class PickWaterdrop : MonoBehaviour
         {
         case "Player":
             other.GetComponent<PlayerHealth>().FillReservoir(energy);
-            FindObjectOfType<AudioManager>().Play("PickWater");
+            FindObjectOfType<AudioManager>().Play("PickWater", other.transform.position);
             PlayWaterBurst();
             DestroyWaterdrop();
             break;

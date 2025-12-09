@@ -86,8 +86,7 @@ public class EnemyHealth : MonoBehaviour
                 Instantiate(vaporBurstPrefab, transform.position + new Vector3(0, 0.5f), Quaternion.identity);
                 Destroy(gameObject);
             }
-        }
-        if (animator != null)
+        } else if (animator != null)
             animator.SetTrigger("Hit");
     }
     
