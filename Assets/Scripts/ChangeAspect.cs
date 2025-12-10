@@ -49,7 +49,7 @@ public class ChangeAspect : MonoBehaviour
         playgroundManager = FindFirstObjectByType<PlaygroundManager>();
         touchingCells = new List<Vector3>();
         foreach(int2 point in touchingCellsCoordinates)
-            touchingCells.Add(transform.position + new Vector3(point.x + 0.5f, point.y + 0.5f));
+            touchingCells.Add(transform.position + new Vector3(point.x + 0.4f, point.y + 0.4f));
         
         if (colorAdjustmentMaterial != null)
         {
@@ -113,7 +113,7 @@ public class ChangeAspect : MonoBehaviour
         if (reactOnWater && playgroundManager != null)
         {
             foreach(Vector3 point in touchingCells)
-                playgroundManager.WaterOnPosition(point);
+                playgroundManager.SetWalkCell(point, true);
         }
     }
 
@@ -132,7 +132,7 @@ public class ChangeAspect : MonoBehaviour
         if (reactOnWater && playgroundManager != null)
         {
             foreach(Vector3 point in touchingCells)
-                playgroundManager.FireOnPosition(point);
+                playgroundManager.SetWalkCell(point, false);
         }
     }
 

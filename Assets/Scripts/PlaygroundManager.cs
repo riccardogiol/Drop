@@ -399,23 +399,37 @@ public class PlaygroundManager : MonoBehaviour
         {
             if (item.gameObject.CompareTag("DecorationNoFire"))
                 return;
-            if (item.gameObject.CompareTag("Decoration"))
+            if (item.gameObject.CompareTag("Decoration") || item.gameObject.CompareTag("Insect"))
             {
                 if (item.gameObject.GetComponent<ChangeAspect>() != null)
-                    if (!item.gameObject.GetComponent<ChangeAspect>().reactOnWater)
-                        return;
-
+                {
+                    if (item.gameObject.GetComponent<ChangeAspect>().reactOnWater)
+                        item.gameObject.GetComponent<ChangeAspect>().SetBurntSprite();
+                    return;
+                }
                 if (item.gameObject.GetComponent<RootTriggerLogic>() != null)
-                    if (!item.gameObject.transform.parent.GetComponent<ChangeAspect>().reactOnWater)
-                    {
-                        Debug.Log("GET INTO CONDITION NO BURN");
-                        return;
-                    }
+                {
+                    if (item.gameObject.transform.parent.GetComponent<ChangeAspect>().reactOnWater)
+                        item.gameObject.transform.parent.GetComponent<ChangeAspect>().SetBurntSprite();
+                    return;
+                }
             }
         }
         bool statechange = walkTilemap.GetComponent<RuleTileStateManager>().BurnTile(cell);
         bool statechange2 = wallTilemap.GetComponent<RuleTileStateManager>().BurnTile(cell);
         if (statechange || statechange2)
+            EvaluateCleanSurface();
+    }
+
+    public void SetWalkCell(Vector3 position, bool clean = true)
+    {
+        Vector3Int cell = walkTilemap.WorldToCell(position);
+        bool statechange;
+        if (clean)
+            statechange = walkTilemap.GetComponent<RuleTileStateManager>().WaterTile(cell);
+        else
+            statechange = walkTilemap.GetComponent<RuleTileStateManager>().BurnTile(cell);
+        if (statechange)
             EvaluateCleanSurface();
     }
 
@@ -427,6 +441,27 @@ public class PlaygroundManager : MonoBehaviour
 
     public void WaterCell(Vector3Int cell)
     {
+        Collider2D[] results = Physics2D.OverlapPointAll(walkTilemap.GetCellCenterWorld(cell));
+        foreach (Collider2D item in results)
+        {
+            if (item.gameObject.CompareTag("DecorationNoFire"))
+                return;
+            if (item.gameObject.CompareTag("Decoration") || item.gameObject.CompareTag("Insect"))
+            {
+                if (item.gameObject.GetComponent<ChangeAspect>() != null)
+                {
+                    if (item.gameObject.GetComponent<ChangeAspect>().reactOnWater)
+                        item.gameObject.GetComponent<ChangeAspect>().SetGreenSprite();
+                    return;
+                }
+                if (item.gameObject.GetComponent<RootTriggerLogic>() != null)
+                {
+                    if (item.gameObject.transform.parent.GetComponent<ChangeAspect>().reactOnWater)
+                        item.gameObject.transform.parent.GetComponent<ChangeAspect>().SetGreenSprite();
+                    return;
+                }
+            }
+        }
         bool statechange = walkTilemap.GetComponent<RuleTileStateManager>().WaterTile(cell);
         bool statechange2 = wallTilemap.GetComponent<RuleTileStateManager>().WaterTile(cell);
         if (statechange || statechange2)
