@@ -41,6 +41,10 @@ public class PlaygroundManager : MonoBehaviour
     readonly string heroUnlockingCode4 = "Hero2Purchased";
 
     bool reachedWinningCondition;
+    bool showCellBurntHighlight = false;
+    float lastProgressionPerc = 0;
+    float lastProgressionPercTime = 0;
+
 
     void Awake()
     {
@@ -571,6 +575,24 @@ public class PlaygroundManager : MonoBehaviour
             if (!bossWin)
                 stageManager.GameOver("heat");
         }
+
+        if (progressionPerc >= 0.92 && showCellBurntHighlight == false)
+        {
+            if (progressionPerc != lastProgressionPerc)
+            {
+                lastProgressionPerc = progressionPerc;
+                lastProgressionPercTime = Time.time;
+            } else if (Time.time > lastProgressionPercTime + 5.0f)
+            {
+                showCellBurntHighlight = true;
+                walkTilemap.GetComponent<RuleTileStateManager>().HighlightBurntTile(true);
+            }
+        }
+    }
+
+    public void HideBurntCellHighlighter()
+    {
+         walkTilemap.GetComponent<RuleTileStateManager>().HighlightBurntTile(false);
     }
 
     public void ShowEnergy()

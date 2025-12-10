@@ -97,6 +97,7 @@ public class StageManager : MonoBehaviour
             yield break;
         FindFirstObjectByType<PlaygroundManager>().MakeRain(true, waterTiles);
         FindFirstObjectByType<PlaygroundManager>().EstinguishAllFlames();
+        FindFirstObjectByType<PlaygroundManager>().HideBurntCellHighlighter();
         cameraAnimationManager.StartEndingAnimation();
         
         try {
