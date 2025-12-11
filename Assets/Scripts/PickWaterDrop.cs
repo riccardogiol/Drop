@@ -94,10 +94,22 @@ public class PickWaterdrop : MonoBehaviour
             break;
         case "Decoration":
             PlayWaterBurst();
+            if (other.GetComponent<ChangeAspect>() != null)
+                if (other.GetComponent<ChangeAspect>().reactOnWater)
+                    other.GetComponent<ChangeAspect>().SetGreenSprite();
+            else if (other.GetComponent<RootTriggerLogic>() != null)
+                if (other.GetComponent<RootTriggerLogic>().reactOnWater)
+                    other.GetComponent<RootTriggerLogic>().SetGreenSprite();
             DestroyWaterdrop();
             break;
         case "Insect":
             PlayWaterBurst();
+            if (other.GetComponent<ChangeAspect>() != null)
+                if (other.GetComponent<ChangeAspect>().reactOnWater)
+                    other.GetComponent<ChangeAspect>().SetGreenSprite();
+            else if (other.GetComponent<RootTriggerLogic>() != null)
+                if (other.GetComponent<RootTriggerLogic>().reactOnWater)
+                    other.GetComponent<RootTriggerLogic>().SetGreenSprite();
             DestroyWaterdrop();
             break;
         case "DecorationNoFire":

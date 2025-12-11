@@ -292,7 +292,9 @@ MonoBehaviour:
   flowerStarter: {fileID: 5770852909111897427, guid: b0e409c68b0e6470a85155cf0cdd890c,
     type: 3}
   fireBarrier: {fileID: 0}
-  touchingCellsCoordinates: []
+  touchingCellsCoordinates:
+  - x: 0
+    y: 0
   spriteRenderer: {fileID: 0}
   colorAdjustmentMaterial: {fileID: 0}
   bloomIntensity: 0
@@ -328,6 +330,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundName: BeeBuzz
+  onChangeAspect: 1
+  timer: 0.3
+  play: 0
 --- !u!1001 &5524826282660667013
 PrefabInstance:
   m_ObjectHideFlags: 0

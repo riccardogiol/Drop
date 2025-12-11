@@ -83,6 +83,34 @@ public class RuleTileStateManager : MonoBehaviour
         }
     }
 
+    public void HighlightBurntTile(bool state)
+    {
+        for (int y = minYCell; y <= maxYCell; y++)
+        {
+            for (int x = minXCell; x <= maxXCell; x++)
+            {
+                RuleTile currentTile = tilemap.GetTile<RuleTile>(new Vector3Int(x, y, 0));
+                if (currentTile != null)
+                {
+                    if (currentTile == burntTile)
+                    {
+                        Collider2D[] results = Physics2D.OverlapPointAll(new Vector3(x+0.5f, y+0.5f));
+                        foreach (Collider2D item in results)
+                        {
+                            if (item.gameObject.GetComponent<TileParticlesManager>() != null)
+                            {
+                                if (state)
+                                    item.gameObject.GetComponent<TileParticlesManager>().ActivateHighlighter();
+                                else
+                                    item.gameObject.GetComponent<TileParticlesManager>().DesctivateHighlighter();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     public int numberBurntTiles()
     {
         return burntTileNumber;
