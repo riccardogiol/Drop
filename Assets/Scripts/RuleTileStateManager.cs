@@ -10,6 +10,7 @@ public class RuleTileStateManager : MonoBehaviour
     public bool randomStyle = false;
     public float noiseScale = 1.0f;
     public RuleTile cleanDarkTile;
+    public RuleTile burntDarkTile;
 
     int minXCell = 0;
     int maxXCell = 40;
@@ -41,8 +42,12 @@ public class RuleTileStateManager : MonoBehaviour
                 {
                     RuleTile currentTile = tilemap.GetTile<RuleTile>(new Vector3Int(x, y, 0));
                     if (currentTile != null)
-                        if (currentTile != burntTile)
+                    {
+                        if (!IsTileBurnt(currentTile))
                             SetCleanTile(new Vector3Int(x, y, 0));
+                        else
+                            SetBurntTile(new Vector3Int(x, y, 0));
+                    }
                 }
         if (randomStyle)
             for (int y = minYCell; y <= maxYCell; y++)
@@ -50,8 +55,12 @@ public class RuleTileStateManager : MonoBehaviour
                 {
                     RuleTile currentTile = tilemap.GetTile<RuleTile>(new Vector3Int(x, y, 0));
                     if (currentTile != null)
-                        if (currentTile != burntTile)
+                    {
+                        if (!IsTileBurnt(currentTile))
                             SetCleanTile(new Vector3Int(x, y, 0));
+                        else
+                            SetBurntTile(new Vector3Int(x, y, 0));
+                    }
                 }
     }
 
@@ -67,7 +76,7 @@ public class RuleTileStateManager : MonoBehaviour
                 if (currentTile != null)
                 {
                     tileNumber++;
-                    if (currentTile == burntTile)
+                    if (IsTileBurnt(currentTile))
                         burntTileNumber++;
                 }
             }
@@ -87,9 +96,9 @@ public class RuleTileStateManager : MonoBehaviour
     public bool BurnTile(Vector3Int cell)
     {
         RuleTile currentTile = tilemap.GetTile<RuleTile>(cell);
-        if (currentTile != null && currentTile != burntTile)
+        if (currentTile != null && !IsTileBurnt(currentTile))
         {
-            tilemap.SetTile(cell, burntTile);
+            SetBurntTile(cell);
             burntTileNumber++;
             if (tilemapEffectManager != null)
                 tilemapEffectManager.BurnTile(tilemap.CellToWorld(cell) + new Vector3(0.5f, 0.5f));
@@ -103,7 +112,7 @@ public class RuleTileStateManager : MonoBehaviour
     public bool WaterTile(Vector3Int cell)
     {
         RuleTile currentTile = tilemap.GetTile<RuleTile>(cell);
-        if (currentTile == burntTile)
+        if (IsTileBurnt(currentTile))
         {
             SetCleanTile(cell);
             burntTileNumber--;
@@ -146,6 +155,29 @@ public class RuleTileStateManager : MonoBehaviour
         }
     }
 
+    public void SetBurntTile(Vector3Int cell)
+    {
+        if (tilemap.GetTile<RuleTile>(cell) == riverBorderTile)
+            return;
+        if (chessStyle)
+        {
+            if ((cell.x + cell.y) % 2 == 0)
+                tilemap.SetTile(cell, burntTile);
+            else
+                tilemap.SetTile(cell, burntDarkTile);
+        }
+        else if (randomStyle)
+        {
+            if (Mathf.PerlinNoise((maxXCell + cell.x) * noiseScale, (maxYCell + cell.y) * noiseScale) < 0.5f)
+                tilemap.SetTile(cell, burntTile);
+            else
+                tilemap.SetTile(cell, burntDarkTile);
+        } else
+        {
+            tilemap.SetTile(cell, burntTile);
+        }
+    }
+
     public RuleTile GetTile(Vector3Int cell)
     {
         return tilemap.GetTile<RuleTile>(cell);
@@ -154,13 +186,32 @@ public class RuleTileStateManager : MonoBehaviour
     public bool IsTileBurnt(Vector3 onCellPoint)
     {
         RuleTile currentTile = tilemap.GetTile<RuleTile>(tilemap.WorldToCell(onCellPoint));
-        if (currentTile != null && currentTile == burntTile)
-            return true;
+        if (currentTile != null)
+            return IsTileBurnt(currentTile);
         return false;
     }
 
     public bool IsTileBurnt(RuleTile ruleTile)
     {
+        if (burntDarkTile != null)
+            return ruleTile == burntTile || ruleTile == burntDarkTile;
         return ruleTile == burntTile;
+    }
+
+    public bool IsAlternativeTile(RuleTile ruleTile)
+    {
+        if (IsTileBurnt(ruleTile))
+        {
+            if (burntDarkTile != null && ruleTile == burntDarkTile)
+                return true;
+            else
+                return false;
+        } else
+        {
+            if (cleanDarkTile != null && ruleTile == cleanDarkTile)
+                return true;
+            else
+                return false;
+        }
     }
 }

@@ -3,6 +3,7 @@ using UnityEngine;
 public class TilemapWallEffectManager : MonoBehaviour
 {
     public GameObject wallParticleCollider;
+    public GameObject wallParticleCollider2;
     RuleTileStateManager ruleTileStateManager;
     
     void Awake()
@@ -16,25 +17,32 @@ public class TilemapWallEffectManager : MonoBehaviour
     {
         if (wallParticleCollider == null)
             return;
+        bool alternativeTile = false;
+        RuleTile currentTile;
         for (int y = 0; y <= maxY; y++)
         {
             for (int x = 0; x <= maxX; x++)
             {
-                RuleTile currentTile = ruleTileStateManager.GetTile(new Vector3Int(x, y, 0));
+                currentTile = ruleTileStateManager.GetTile(new Vector3Int(x, y, 0));
                 if (currentTile != null)
                 {
+                    alternativeTile = ruleTileStateManager.IsAlternativeTile(currentTile);
                     if (ruleTileStateManager.IsTileBurnt(currentTile))
-                        SpawnParticleCollider(new Vector3(x + 0.5f, y + 0.5f), true); 
+                        SpawnParticleCollider(new Vector3(x + 0.5f, y + 0.5f), true, alternativeTile);
                     else
-                        SpawnParticleCollider(new Vector3(x + 0.5f, y + 0.5f), false);   
+                        SpawnParticleCollider(new Vector3(x + 0.5f, y + 0.5f), false, alternativeTile);   
                 }
             }
         }
     }
     
-    void SpawnParticleCollider(Vector3 position, bool isBurning)
+    void SpawnParticleCollider(Vector3 position, bool isBurning, bool alternativeTile = false)
     {
-        GameObject goRef = Instantiate(wallParticleCollider, position, Quaternion.identity);
+        GameObject goRef;
+        if (alternativeTile && wallParticleCollider2 != null)
+            goRef = Instantiate(wallParticleCollider2, position, Quaternion.identity);
+        else 
+            goRef = Instantiate(wallParticleCollider, position, Quaternion.identity);
         goRef.transform.parent = transform;
         if (isBurning)
             goRef.GetComponent<LeavesGFXManager>().Uproot();
