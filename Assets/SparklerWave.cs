@@ -31,7 +31,7 @@ public class SparklerWave : MonoBehaviour
         ready = false;
 
         //TURNAROUND to not change everything after the interaction update
-        timer = timer / 3f;
+        timer = timer / 4f;
 
         if (PlayerPrefs.GetInt("EasyMode", 0) == 1)
         {

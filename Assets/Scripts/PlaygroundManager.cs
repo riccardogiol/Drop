@@ -450,7 +450,7 @@ public class PlaygroundManager : MonoBehaviour
         {
             if (item.gameObject.CompareTag("DecorationNoFire"))
             {
-                SetWalkCell(item.gameObject.transform.position, true);
+                SetWalkCell(walkTilemap.GetCellCenterWorld(cell), true);
                 return;
             }
             if (item.gameObject.CompareTag("Decoration") || item.gameObject.CompareTag("Insect"))
