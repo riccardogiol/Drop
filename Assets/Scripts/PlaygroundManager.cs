@@ -449,7 +449,10 @@ public class PlaygroundManager : MonoBehaviour
         foreach (Collider2D item in results)
         {
             if (item.gameObject.CompareTag("DecorationNoFire"))
+            {
+                SetWalkCell(item.gameObject.transform.position, true);
                 return;
+            }
             if (item.gameObject.CompareTag("Decoration") || item.gameObject.CompareTag("Insect"))
             {
                 if (item.gameObject.GetComponent<ChangeAspect>() != null)
@@ -576,7 +579,7 @@ public class PlaygroundManager : MonoBehaviour
                 stageManager.GameOver("heat");
         }
 
-        if (progressionPerc >= 0.92 && showCellBurntHighlight == false)
+        if (progressionPerc >= 0.95 && showCellBurntHighlight == false)
         {
             if (progressionPerc != lastProgressionPerc)
             {
