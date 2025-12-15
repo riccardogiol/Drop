@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 public class MapMenuManager : MonoBehaviour
 {
     bool gamepadInput = false;
+    
+    Vector3 lastMousePos;
     void Awake()
     {
         FindObjectOfType<AudioManager>().ResetSounds();
@@ -13,10 +15,18 @@ public class MapMenuManager : MonoBehaviour
         FindObjectOfType<AudioManager>().LowFilerExit();
         
         Cursor.visible = true;
+        lastMousePos = Vector3.one;
+        if (Input.mousePosition != null)
+           lastMousePos = Input.mousePosition;
     }
 
      void Update()
     {
+        if (!Cursor.visible && Input.mousePosition != lastMousePos)
+        {
+            Cursor.visible = true;
+            lastMousePos = Input.mousePosition;
+        }
         if (Gamepad.current != null)
             gamepadInput = Gamepad.current.startButton.wasPressedThisFrame;
         if (Input.GetKeyDown(KeyCode.Escape) || gamepadInput)

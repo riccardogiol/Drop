@@ -130,6 +130,7 @@ public class PlayerMovementKeysMap : MonoBehaviour
 
         if (movement.magnitude > 0.7)
         {
+            Cursor.visible = false;
             countdown = timer;
             // chiedi al bottone in cui sono dove andare in funzione del movement
             destinationSpot = orderedStageSpots[selectedStage].GetComponent<LevelEnterTrigger>().GetDestinationSpot(movement);

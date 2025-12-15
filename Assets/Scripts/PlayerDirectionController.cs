@@ -78,7 +78,7 @@ public class PlayerDirectionController: MonoBehaviour
     {
         hitAnimation = true;
         float timer = 0.07f;
-        Vector2 StartingPos = transform.position;
+        Vector2 StartingPos = playerGFXLM.transform.localPosition;
         playerGFXLM.MoveTo(StartingPos + lastDirection * 0.2f, timer);
         StartCoroutine(ComesBack(StartingPos, timer));
     }

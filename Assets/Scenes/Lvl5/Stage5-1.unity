@@ -1015,6 +1015,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: message.tutorial.boss.description
   upperCase: 0
+  multiInput: 0
 --- !u!114 &480410152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1029,6 +1030,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: message.tutorial.boss.title
   upperCase: 1
+  multiInput: 0
 --- !u!1001 &552508536
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1387,12 +1389,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4317a480abfeb4491af35141a980d8e0, type: 3}
---- !u!1 &589747407 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2944582687089799639, guid: 4317a480abfeb4491af35141a980d8e0,
-    type: 3}
-  m_PrefabInstance: {fileID: 589747405}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &589747408 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8247193899921522307, guid: 4317a480abfeb4491af35141a980d8e0,
@@ -1418,23 +1414,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   code: Sprites/Elements/boss1
---- !u!114 &589747417
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 589747407}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f410a5090dca49099bc375545e44514, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textComp: {fileID: 0}
-  boxRectTransf: {fileID: 1696656090}
-  padding: {x: 40, y: 20}
-  textResize: 1
-  vertical: 1
 --- !u!1001 &715174502
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2167,6 +2146,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3846902098809215285, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
     - target: {fileID: 3879348273464800413, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_Text
@@ -2374,6 +2358,7 @@ MonoBehaviour:
   speed: 5
   scaleX: 0
   scaleY: 10
+  timeInvariant: 0
 --- !u!1001 &1324666318
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2695,12 +2680,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca1a8f2291ec7488c86157df88f34b14, type: 3}
---- !u!224 &1696656090 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4895152644467393881, guid: 4317a480abfeb4491af35141a980d8e0,
-    type: 3}
-  m_PrefabInstance: {fileID: 589747405}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1736441726
 GameObject:
   m_ObjectHideFlags: 0

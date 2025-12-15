@@ -12,6 +12,7 @@ public class PlayerMovementPath : MonoBehaviour
 
     Rigidbody2D player;
     PlayerDirectionController directionController;
+    PlayerMovementInterruption pmi;
 
     Vector3 target;
     Path path;
@@ -29,6 +30,8 @@ public class PlayerMovementPath : MonoBehaviour
             tilemap = FindFirstObjectByType<Tilemap>();
         player = GetComponent<Rigidbody2D>();
         directionController = GetComponent<PlayerDirectionController>();
+        pmi = GetComponent<PlayerMovementInterruption>();
+
         
         playgroundManager = FindFirstObjectByType<PlaygroundManager>();
         movementInterrupted = false;
@@ -78,7 +81,8 @@ public class PlayerMovementPath : MonoBehaviour
     public void InterruptMovement(float delay = 0f)
     {
         path = null;
-        GetComponent<PlayerMovementInterruption>().SetIsMoving(false);
+        if (pmi != null)
+            pmi.SetIsMoving(false);
         if (delay >= 0.1f)
         {
             movementInterrupted = true;
@@ -114,16 +118,19 @@ public class PlayerMovementPath : MonoBehaviour
         directionController.UpdateDirection(direction);
 
         float distance = Vector2.Distance(transform.position, path.vectorPath[currentWaypoint]);
-        if (distance < nextWaypointDistance)
-            currentWaypoint++;
 
-        if (playgroundManager != null && distance < 1 && currentWaypoint == (path.vectorPath.Count - 1))
+        if (playgroundManager != null && distance < 0.5 && currentWaypoint == (path.vectorPath.Count - 1))
             if (playgroundManager.CheckSparklerAndTrigger(target))
             {
                 directionController.UpdateDirection(target - transform.position);
                 directionController.HitAnimation();
-                InterruptMovement(0.5f);
+                if (pmi != null)
+                    pmi.StopInCenterOfCell();
             }
+        
+        if (distance < nextWaypointDistance)
+            currentWaypoint++;
+
 
     }
 }

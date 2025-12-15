@@ -12127,7 +12127,7 @@ RectTransform:
   - {fileID: 1558426305}
   - {fileID: 1618308370}
   m_Father: {fileID: 5415194983748324352}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -14114,7 +14114,7 @@ RectTransform:
   - {fileID: 462255625}
   - {fileID: 485303969}
   m_Father: {fileID: 5415194983748324352}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -37089,6 +37089,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 351608897783991170, guid: 3ebeaf7f56b23485bbeed257861f6e4b,
         type: 3}
+      propertyPath: isDecoration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 351608897783991170, guid: 3ebeaf7f56b23485bbeed257861f6e4b,
+        type: 3}
       propertyPath: randomEnergy
       value: 0
       objectReference: {fileID: 0}
@@ -37975,6 +37980,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 351608897783991170, guid: 3ebeaf7f56b23485bbeed257861f6e4b,
         type: 3}
+      propertyPath: isDecoration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 351608897783991170, guid: 3ebeaf7f56b23485bbeed257861f6e4b,
+        type: 3}
       propertyPath: randomEnergy
       value: 0
       objectReference: {fileID: 0}
@@ -38388,6 +38398,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 351608897783991170, guid: 3ebeaf7f56b23485bbeed257861f6e4b,
+        type: 3}
+      propertyPath: isDecoration
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 351608897783991170, guid: 3ebeaf7f56b23485bbeed257861f6e4b,
         type: 3}
@@ -53505,7 +53520,10 @@ MonoBehaviour:
   cleanTile: {fileID: 11400000, guid: 0ff3ee3e37f534be58f852565faf5c18, type: 2}
   riverBorderTile: {fileID: 0}
   chessStyle: 0
+  randomStyle: 0
+  noiseScale: 1
   cleanDarkTile: {fileID: 0}
+  burntDarkTile: {fileID: 0}
 --- !u!483693784 &1824681266
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -83957,7 +83975,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5415194983748324352}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -85463,11 +85481,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2865167233240832626}
-  - {fileID: 6155620269249667125}
   - {fileID: 546614248}
   - {fileID: 483466116}
   - {fileID: 744316283013551396}
   - {fileID: 8798803353695695245}
+  - {fileID: 6155620269249667125}
   - {fileID: 213294264}
   m_Father: {fileID: 800289250}
   m_RootOrder: 15
@@ -85506,7 +85524,7 @@ RectTransform:
   m_Children:
   - {fileID: 3891254522541729024}
   m_Father: {fileID: 5415194983748324352}
-  m_RootOrder: 1
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -85644,7 +85662,10 @@ MonoBehaviour:
   cleanTile: {fileID: 11400000, guid: 0ff3ee3e37f534be58f852565faf5c18, type: 2}
   riverBorderTile: {fileID: 0}
   chessStyle: 0
+  randomStyle: 0
+  noiseScale: 1
   cleanDarkTile: {fileID: 0}
+  burntDarkTile: {fileID: 0}
 --- !u!1839735485 &7168873417994881997
 Tilemap:
   m_ObjectHideFlags: 0
@@ -101224,7 +101245,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5415194983748324352}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}

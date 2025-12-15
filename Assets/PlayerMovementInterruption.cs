@@ -72,7 +72,7 @@ public class PlayerMovementInterruption : MonoBehaviour
     public void StopInCenterOfCell()
     {
         playerMovementKeys.InterruptMovement(0.5f);
-        playerMovementPath.InterruptMovement();
+        playerMovementPath.InterruptMovement(0.5f);
         Vector2 respawnPosition = playgroundManager.GetCellCenter((Vector2)transform.position);
         playerRB.MovePosition(respawnPosition);
         lastFramePosition = respawnPosition;

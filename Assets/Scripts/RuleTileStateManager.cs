@@ -172,7 +172,6 @@ public class RuleTileStateManager : MonoBehaviour
         }
         else if (randomStyle)
         {
-            //if (Random.value < -99.5)
             if (Mathf.PerlinNoise((maxXCell + cell.x) * noiseScale, (maxYCell + cell.y) * noiseScale) < 0.5f)
                 tilemap.SetTile(cell, cleanTile);
             else

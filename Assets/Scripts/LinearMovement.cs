@@ -15,6 +15,8 @@ public class LinearMovement : MonoBehaviour
     public Vector3 startingScale;
     public Vector3 finalScale;
 
+    public bool localPos = false;
+
     BoxCollider2D boxCollider;
 
     void Awake()
@@ -27,7 +29,10 @@ public class LinearMovement : MonoBehaviour
     public void MoveTo(Vector3 finalPos, float time)
     {
         this.enabled = true;
-        startingPosition = transform.position;
+        if (localPos)
+            startingPosition = transform.localPosition;
+        else
+            startingPosition = transform.position;
         finalPosition = finalPos;
         timer = time;
         elapsedTime = 0;
@@ -49,15 +54,23 @@ public class LinearMovement : MonoBehaviour
             if (elapsedTime > timer)
             {
                 isMoving = false;
-            if (boxCollider != null)
-                boxCollider.enabled = true;
-                transform.position = finalPosition;
+                if (boxCollider != null)
+                    boxCollider.enabled = true;
+                if (localPos)
+                    transform.localPosition = finalPosition;
+                else
+                    transform.position = finalPosition;
+                
                 if (scale)
                     transform.localScale = finalScale;
                 this.enabled = false;
                 return;
             }
-            transform.position = Vector3.Lerp(startingPosition, finalPosition, elapsedTime/timer);
+            if (localPos)
+                transform.localPosition = Vector3.Lerp(startingPosition, finalPosition, elapsedTime/timer);
+            else
+                transform.position = Vector3.Lerp(startingPosition, finalPosition, elapsedTime/timer);
+            
             if (scale)
                 transform.localScale = Vector3.Lerp(startingScale, finalScale, elapsedTime/timer);
         }
