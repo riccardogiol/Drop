@@ -16,6 +16,9 @@ public class ButtonActivationManager : MonoBehaviour
     public string buttonKeyCode;
     public Sprite activatedSpot;
 
+    public bool personalizedActiveColor = false;
+    public Color activeColor;
+
     void Start()
     {
         button = GetComponent<Button>();
@@ -104,7 +107,10 @@ public class ButtonActivationManager : MonoBehaviour
         {
             if (trail != null)
                 trail.color = new Color(157f/255, 214f/255, 66f/255);
-            image.color = new Color(0.54f, 0.70f, 0.32f);
+            if (personalizedActiveColor)
+                image.color = activeColor;
+            else
+                image.color = new Color(0.54f, 0.70f, 0.32f);
             if (activatedSpot != null)
                 image.sprite = activatedSpot;
         }

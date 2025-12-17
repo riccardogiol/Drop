@@ -126,6 +126,8 @@ public class CameraAnimationManager : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (MapMessageManager.messageOnScreen)
+           return;
         if (Gamepad.current != null)
         {
             if (Gamepad.current.leftShoulder.wasPressedThisFrame)

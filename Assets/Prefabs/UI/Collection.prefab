@@ -600,6 +600,8 @@ MonoBehaviour:
   - {fileID: 1471660190261439746}
   - {fileID: 124325675768688061}
   pageNumber: {fileID: 2896175064739707643}
+  ibs: {fileID: 4618267395729997085}
+  squaredButton: 0
 --- !u!1 &1181652136394223237
 GameObject:
   m_ObjectHideFlags: 0
@@ -3402,7 +3404,7 @@ GameObject:
   - component: {fileID: 4618267395729997085}
   - component: {fileID: 6707195074849197798}
   m_Layer: 5
-  m_Name: CollectionEnemiesPage
+  m_Name: Collection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5001,6 +5003,8 @@ MonoBehaviour:
   - {fileID: 5753531049153186676}
   - {fileID: 6151946814229479689}
   pageNumber: {fileID: 8095871649886387739}
+  ibs: {fileID: 4618267395729997085}
+  squaredButton: 0
 --- !u!1 &6176359335956781675
 GameObject:
   m_ObjectHideFlags: 0
@@ -5866,6 +5870,7 @@ GameObject:
   - component: {fileID: 721779344957071641}
   - component: {fileID: 2298614724449028078}
   - component: {fileID: 509720351024864950}
+  - component: {fileID: 6734064852168531636}
   m_Layer: 5
   m_Name: CloseButton
   m_TagString: Untagged
@@ -6032,6 +6037,44 @@ MonoBehaviour:
   nextMessage: {fileID: 0}
   turnShaderOff: 0
   shader: {fileID: 0}
+--- !u!114 &6734064852168531636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7245058523748654320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b06b8642b86446f5b5b195c0ffe49a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onlyGamepad: 0
+  inputAction:
+    m_Name: Input
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 6a0faad9-d2ab-4dc2-8db4-f5a5eb01771d
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 085563d6-ba30-4793-b9b5-7fea28c22302
+      m_Path: <Gamepad>/buttonEast
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input
+      m_Flags: 0
+    - m_Name: 
+      m_Id: d1046c5a-6a08-41a6-ad6f-c605e3b5e15f
+      m_Path: <Keyboard>/escape
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input
+      m_Flags: 0
+    m_Flags: 0
 --- !u!1 &7373543229365528383
 GameObject:
   m_ObjectHideFlags: 0

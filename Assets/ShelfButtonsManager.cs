@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,10 +8,17 @@ public class ShelfButtonsManager : MonoBehaviour
     RectTransform rectTransform;
     public Button nextButton, previousButton;
     public RectTransform[] elements;
+    List<GameObject> extraElements;
     public Text pageNumber;
 
-    float buttonHeight = 80, buttonsDistance = 10, verticalSpace;
+    float buttonHeight = 80, buttonsDistance = 10, verticalSpace, horizontalSpace;
     int maxElementsToDisplay, currentPage;
+
+    public InitializeButtonSelection ibs;
+    public bool squaredButton = false;
+    bool onePage = false;
+
+    public GameObject emptyElPrefab;
 
     void Awake()
     {
@@ -20,7 +28,17 @@ public class ShelfButtonsManager : MonoBehaviour
     void Start()
     {
         verticalSpace = rectTransform.rect.height;
+        horizontalSpace = rectTransform.rect.width;
         maxElementsToDisplay = (int)Math.Floor(verticalSpace / (buttonHeight + buttonsDistance));
+        if (squaredButton)
+            maxElementsToDisplay = 9;
+        if (elements.Length <= maxElementsToDisplay)
+        {
+            nextButton.gameObject.SetActive(false);
+            previousButton.gameObject.SetActive(false);
+            pageNumber.gameObject.SetActive(false);
+            onePage = true;
+        }
         currentPage = 0;
         DisplayPage();
     }
@@ -31,6 +49,11 @@ public class ShelfButtonsManager : MonoBehaviour
         int lastElement = Mathf.Min(maxElementsToDisplay * (currentPage + 1), elements.Length);
         int firstElement = Math.Max(lastElement - maxElementsToDisplay, 0);
         float lastPosition = 0;
+        float horizontalStep = horizontalSpace/4.0f;
+        float verticalStep = verticalSpace/4.0f;
+        float verticalExtra = 25;
+        Vector2 startingPositionXY = new Vector2(horizontalStep, verticalSpace - verticalStep + verticalExtra);
+        int ed = 0;
         for (int i = 0; i < elements.Length; i++)
         {
             if (i < firstElement)
@@ -39,11 +62,33 @@ public class ShelfButtonsManager : MonoBehaviour
                 elements[i].gameObject.SetActive(false);
             else
             {
-                elements[i].anchoredPosition = new Vector2(0, lastPosition);
-                lastPosition -= buttonHeight + buttonsDistance;
-                elements[i].gameObject.SetActive(true);
+                if (squaredButton)
+                {
+                    elements[i].anchoredPosition = startingPositionXY + new Vector2(horizontalStep * (i%3), - (verticalStep + verticalExtra) * (i/3));
+                    elements[i].gameObject.SetActive(true);
+                    ed ++;
+                }
+                else 
+                {
+                    elements[i].anchoredPosition = new Vector2(0, lastPosition);
+                    lastPosition -= buttonHeight + buttonsDistance;
+                    elements[i].gameObject.SetActive(true);
+                }
             }
         }
+
+        if (emptyElPrefab != null && extraElements == null && squaredButton && ed < maxElementsToDisplay)
+        {
+            extraElements = new List<GameObject>();
+            for (int i = ed; i < maxElementsToDisplay; i++)
+            {
+                GameObject goRef = Instantiate(emptyElPrefab, transform);
+                goRef.transform.parent = transform;
+                extraElements.Add(goRef);
+                goRef.GetComponent<RectTransform>().anchoredPosition = startingPositionXY + new Vector2(horizontalStep * (i%3), - (verticalStep + verticalExtra) * (i/3));
+            }
+        }
+
 
         if (firstElement >= 1)
             previousButton.interactable = true;
@@ -55,7 +100,6 @@ public class ShelfButtonsManager : MonoBehaviour
         else
             nextButton.interactable = false;
 
-        InitializeButtonSelection ibs = transform.parent.parent.GetComponent<InitializeButtonSelection>();
         LayoutRebuilder.ForceRebuildLayoutImmediate(rectTransform);
         if (ibs != null)
             ibs.Refresh();
