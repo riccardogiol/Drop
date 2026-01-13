@@ -85,6 +85,7 @@ public class StageManager : MonoBehaviour
         PlayerPrefs.SetInt("ConsecutiveDeaths", 0);
         if (MenusManager.isPaused)
             return false;
+        // stop Challenge evaluation?
         StartCoroutine(WinningScene(waterTiles, waitSeconds));
         return true;
     }
@@ -166,8 +167,9 @@ public class StageManager : MonoBehaviour
                 for (int i = 1; i <= 4; i++)
                     saveData.StageCompleteStatus[(currentLvl - 1) * 4 + i] = 1;
             SaveManager.Save(saveData);
+            // add info about challenge (add rainPoints?)
 
-            menusManager.LevelCleared();
+            menusManager.LevelCleared(); // send info about challenge to display
         } else
         {
             playerMovementPath.InterruptMovement();
@@ -184,8 +186,9 @@ public class StageManager : MonoBehaviour
             SaveData saveData = SaveManager.Load();
             saveData.StageCompleteStatus[(currentLvl - 1) * 4 + currentStage] = 1;
             SaveManager.Save(saveData);
+            // add info about challenge (add rainPoints?) how mush more wrt last time?
 
-            menusManager.StageCleared();
+            menusManager.StageCleared(); // send info about challenge to display
         }
     }
 
