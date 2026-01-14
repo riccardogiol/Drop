@@ -57,4 +57,6 @@ public static class ExpReader
         }
         return totalExp;
     }
+
+    // TODO aggiungere esperienza delle sfide + extra
 }

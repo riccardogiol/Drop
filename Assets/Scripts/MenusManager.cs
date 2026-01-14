@@ -210,7 +210,7 @@ public class MenusManager : MonoBehaviour
         auxTrans.GetComponent<Text>().text = levelLoc + " " + stageManager.currentLvl + " - " + stageLoc + " " + stageManager.currentStage + "\n" + stageMode;
     }
 
-    public void StageCleared()
+    public void StageCleared(ChallengeWinInfo cwi, ChallengeResults cr)
     {
         messageOnScreen = true;
         Time.timeScale = 0f;
@@ -236,6 +236,11 @@ public class MenusManager : MonoBehaviour
             stageLoc = "Stage";
 
         auxTrans.GetComponent<Text>().text = (levelLoc + " " + stageManager.currentLvl + " - " + stageLoc + " " + stageManager.currentStage).ToUpper();
+
+        auxTrans = stageClearedMenu.transform.Find("ChallengeBox");
+        if (auxTrans == null)
+            return;
+        auxTrans.GetComponent<ChallengeBoxManager>().DisplayEndStageMessage(cr, cwi);
     }
 
     public void GameOver(String deadCode)
