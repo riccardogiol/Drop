@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,6 +6,11 @@ public class ChallengeBoxManager : MonoBehaviour
 {
     public Image medalImage;
     public Text text;
+
+    public Text title;
+    public Text description;
+    public GameObject descriptionPanel;
+    bool showPanel = false;
 
     public void DisplayEndStageMessage(ChallengeResults cr, ChallengeWinInfo cwi)
     {
@@ -37,5 +43,40 @@ public class ChallengeBoxManager : MonoBehaviour
             }
         }
         text.text = textToDisplay;
+    }
+
+    public void DisplayMenuInfoMessage(String titleKey, String descriptionKey, ChallengeResults cRecord)
+    {
+        title.text = titleKey; // sostituire con localization
+
+        string textToDisplay = "";
+        textToDisplay = textToDisplay + descriptionKey; // sostituire con localization
+        if (cRecord.limit > 0)
+        {
+            textToDisplay = textToDisplay + "\n";
+            textToDisplay = textToDisplay + "Limit: "; // sostituire con localization
+            textToDisplay = textToDisplay + cRecord.limit;
+        }
+        if (cRecord.value > 0)
+        {
+            textToDisplay = textToDisplay + "\n";
+            textToDisplay = textToDisplay + "Old record: "; // sostituire con localization
+            textToDisplay = textToDisplay + cRecord.value;
+        }
+        if (cRecord.value == -1)
+        {
+            textToDisplay = textToDisplay + "\n";
+            textToDisplay = textToDisplay + "Old record: --"; // sostituire con localization
+        }
+        description.text = textToDisplay;
+
+        showPanel = false;
+        descriptionPanel.SetActive(showPanel);
+    }
+
+    public void ToggleDescriptionPanel()
+    {
+        showPanel = !showPanel;
+        descriptionPanel.SetActive(showPanel);
     }
 }

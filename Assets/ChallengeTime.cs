@@ -1,19 +1,19 @@
 using UnityEngine;
 using Newtonsoft.Json.Linq;
 
-public class ChallengeTime : MonoBehaviour
+public class ChallengeTime : ChallengeScript
 {
     int timeLimit = 0;
     float timerSinceStart = 0;
     bool stopTimer = false;
-    string challengeTitleKey;
-    string challengeTextKey;
 
     ChallengeInfo challengeInfo;
     StageManager stageManager;
 
     void Awake()
     {
+        challengeTitleKey = "Time Challenge";
+        challengeTextKey = "Clean the level before the time limit.";
         challengeInfo = FindFirstObjectByType<ChallengeInfo>();
         stageManager = GetComponent<StageManager>();
         TextAsset jsonAsset = Resources.Load<TextAsset>("challengeInfo");
@@ -35,36 +35,41 @@ public class ChallengeTime : MonoBehaviour
         challengeInfo.WriteText((int)timerSinceStart + "/" + timeLimit + " sec");
     }
 
-    public ChallengeResults GetResultNow(bool stop = false)
+    public override ChallengeResults GetResultNow(bool stop = false)
     {
         stopTimer = stop;
         return new ChallengeResults(timerSinceStart <= timeLimit, timeLimit, (int)timerSinceStart, "lessThen");
     }
-}
 
-
-public class ChallengeResults
-{
-    public bool win;
-    public int limit;
-    public int value;
-    public string logic;
-
-    public ChallengeResults(bool v1 = false, int l = 0, int v = 0, string v2 = "")
+    public override ChallengeWinInfo EvaluateWinInfo(ChallengeResults challengeResults, ChallengeResults challengeRecord)
     {
-        win = v1;
-        limit = l;
-        value = v;
-        logic = v2;
+        ChallengeWinInfo cwi = new ChallengeWinInfo();
+        if (challengeResults != null)
+        {
+            if (challengeRecord.win)
+            {
+                cwi.chalAlrWon = true;
+                if (challengeResults.win)
+                {
+                    cwi.chalWinNow = true;
+                    if (challengeResults.value < challengeRecord.value)
+                    {
+                        cwi.newRec = true;
+                        cwi.recordValue = challengeResults.value;
+                    } else
+                        cwi.recordValue = challengeRecord.value;
+                } else
+                    cwi.recordValue = challengeRecord.value;
+            } else
+            {
+                if (challengeResults.win)
+                {
+                    cwi.chalWinNow = true;
+                    cwi.newRec = true;
+                    cwi.recordValue = challengeResults.value;
+                }
+            }
+        }
+        return cwi;
     }
-}
-
-public class ChallengeWinInfo
-{
-    public bool chalAlrWon= false, chalWinNow= false, newRec = false;
-    public int recordValue = 0;
-    public int chalWonExp = 0, extraExp = 0;
-
-    public ChallengeWinInfo()
-    {}
 }

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Newtonsoft.Json.Linq;
 
 public class StagePanelManager : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class StagePanelManager : MonoBehaviour
     public Image cloudHiding;
     public Text titleText;
     public Text descriptionText;
+    public ChallengeBoxManager challengeBoxManager;
 
     public int level;
     public int stage;
@@ -102,6 +104,41 @@ public class StagePanelManager : MonoBehaviour
             cloudHiding.enabled = false;
             stageImage.color = new Color(1f, 1f, 1f);
         }
+
+        // fill challenge infos
+        int challengeType = 0;
+        ChallengeResults challengeRecord = new ChallengeResults();
+        string challengeTitleKey = "", challengeDescriptionKey = "";
+        TextAsset jsonAsset = Resources.Load<TextAsset>("challengeInfo");
+        JObject jroot = JObject.Parse(jsonAsset.text);
+        JToken jt = jroot["Lvl"];
+        jt = jt[levelCode + ""];
+        jt = jt["Stage"];
+        jt = jt[stageCode + ""];
+        JToken jtType = jt["type"]; // check if there is?
+        if (jtType is JValue value)
+            challengeType = (int)value;
+        JToken jtLim = jt["limit"]; // check if there is?
+        if (jtLim is JValue value2)
+            challengeRecord.limit = (int)value2;
+        
+        SaveData saveData = SaveManager.Load();
+        if (saveData.StageChallengeRecords != null)
+        {
+            challengeRecord.value = saveData.StageChallengeRecords[(levelCode - 1) * 4 + stageCode];
+            challengeRecord.win = challengeRecord.value >= 0; 
+        }
+
+        jt = jroot["type"];
+        jt = jt[challengeType + ""];
+        JToken jtTitle = jt["title"];
+        if (jtTitle is JValue value3)
+            challengeTitleKey = (string)value3;
+        JToken jtDescription = jt["description"];
+        if (jtDescription is JValue value4)
+            challengeDescriptionKey = (string)value4;
+
+        challengeBoxManager.DisplayMenuInfoMessage(challengeTitleKey, challengeDescriptionKey, challengeRecord);
     }
 
     public void PlayStage()

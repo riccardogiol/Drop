@@ -31,10 +31,13 @@ public class StageManager : MonoBehaviour
     float startTime;
     int stageInstanceCode;
 
-    ChallengeTime challengeTime; // da cambiare ocn generico
+    ChallengeScript challenge;
     ChallengeResults challengeResults;
     ChallengeResults challengeRecord;
+    ChallengeWinInfo cwi;
     int challengeExp;
+
+    int stageSaveIdx;
 
     void Awake()
     {
@@ -45,9 +48,10 @@ public class StageManager : MonoBehaviour
         eagleEyeMode = FindObjectOfType<EagleEyeMode>();
         victoryPositionTrigger = FindObjectOfType<VictoryPositionTrigger>();
         playerAnimationManager = FindObjectOfType<PlayerAnimationManager>();
-        challengeTime = GetComponent<ChallengeTime>();
-        
+       
+        challenge = GetComponent<ChallengeScript>();
         challengeRecord = new ChallengeResults();
+        cwi = new ChallengeWinInfo();
 
         playerEventPrams = FindObjectOfType<PlayerEventParamsManager>();
 
@@ -76,14 +80,19 @@ public class StageManager : MonoBehaviour
         if (cam!= null)
             currentRatio = cam.aspect;
         
+        stageSaveIdx = (currentLvl - 1) * 4 + currentStage;
+
+        if (challenge == null)
+            return;
+        
         SaveData saveData = SaveManager.Load();
         if (saveData.StageChallengeRecords != null)
         {
-            challengeRecord.value = saveData.StageChallengeRecords[(currentLvl - 1) * 4 + currentStage]; // DA CONSIDERARE CASO BOSS, estrai indice e salvalo
+            challengeRecord.value = saveData.StageChallengeRecords[stageSaveIdx];
             challengeRecord.win = challengeRecord.value >= 0; 
         }
 
-        // se é già vinta, posso evitare la lettura exp e chiamo il gestore medaglia per cambiarne la grafica
+        // se é già vinta, posso evitare la lettura exp e chiamo il gestore medaglia per cambiarne la grafica. comunque tengo la challenge attiva
         
         TextAsset jsonAsset = Resources.Load<TextAsset>("challengeInfo");
         JObject jroot = JObject.Parse(jsonAsset.text);
@@ -91,9 +100,14 @@ public class StageManager : MonoBehaviour
         jt = jt[currentLvl + ""];
         jt = jt["Stage"];
         jt = jt[currentStage + ""];
-        jt = jt["exp"]; // check if there is?
-        if (jt is JValue value)
+        JToken jtExp = jt["exp"]; // check if there is?
+        if (jtExp is JValue value)
             challengeExp = (int)value;
+        JToken jtLim = jt["limit"]; // check if there is?
+        if (jtLim is JValue value2)
+            challengeRecord.limit = (int)value2;
+        //ci sarà anche il tipo di sfida per poi scegliere la giusta medaglia
+        menusManager.UpdateChallengeInfo(challenge.challengeTitleKey, challenge.challengeTextKey, challengeRecord);
 
         try {
         AnalyticsService.Instance.RecordEvent(new StageStartEvent{
@@ -113,19 +127,14 @@ public class StageManager : MonoBehaviour
         PlayerPrefs.SetInt("ConsecutiveDeaths", 0);
         if (MenusManager.isPaused)
             return false;
-        if (challengeTime != null) // da sostituire con challenge script
-            challengeResults = challengeTime.GetResultNow(true);
-        /* 
-            - send saved data to the ChallengeScript, asking for what to update
-            - get diff result from ChallengeScript
-        */
+        if (challenge != null)
+            challengeResults = challenge.GetResultNow(true);
         StartCoroutine(WinningScene(waterTiles, waitSeconds));
         return true;
     }
 
     IEnumerator WinningScene(bool waterTiles, float waitSeconds)
     {
-        ChallengeWinInfo cwi = new ChallengeWinInfo();
         eagleEyeMode.Exit();
         yield return new WaitForSeconds(0.5f);
         if (gameOver)
@@ -196,14 +205,15 @@ public class StageManager : MonoBehaviour
             PlayerPrefs.SetInt("Lvl" + currentLvl, 1);
             
             SaveData saveData = SaveManager.Load();
-            saveData.StageCompleteStatus[(currentLvl - 1) * 4 + currentStage] = 1;
+            saveData.StageCompleteStatus[stageSaveIdx] = 1;
             if (isBoss)
                 for (int i = 1; i <= 4; i++)
                     saveData.StageCompleteStatus[(currentLvl - 1) * 4 + i] = 1;
             SaveManager.Save(saveData);
-            // add info about challenge (add rainPoints?) same below
 
-            menusManager.LevelCleared(); // send info about challenge to display same 
+            EvaluateAndSaveChallengeInfo();
+
+            menusManager.LevelCleared(cwi, challengeResults);
         } else
         {
             playerMovementPath.InterruptMovement();
@@ -216,55 +226,36 @@ public class StageManager : MonoBehaviour
 
             if (PlayerPrefs.GetInt("Lvl" + currentLvl, 0) == 0 && PlayerPrefs.GetInt("LastStageCompleted", 0) < currentStage)
                 PlayerPrefs.SetInt("LastStageCompleted", currentStage);
-            
-            SaveData saveData = SaveManager.Load();
-            saveData.StageCompleteStatus[(currentLvl - 1) * 4 + currentStage] = 1;
 
-            if (challengeResults != null) // make it be external function?
-            {
-                if (challengeRecord.win)
-                {
-                    cwi.chalAlrWon = true;
-                    if (challengeResults.win)
-                    {
-                        cwi.chalWinNow = true;
-                        if (challengeResults.value < challengeRecord.value) // chiedere a ChallengeScript? per le diverse logiche... per ora sempre minore meglio
-                        {
-                            cwi.newRec = true;
-                            cwi.recordValue = challengeResults.value;
-                        } else
-                            cwi.recordValue = challengeRecord.value;
-                    } else
-                        cwi.recordValue = challengeRecord.value;
-                } else
-                {
-                    if (challengeResults.win)
-                    {
-                        cwi.chalWinNow = true;
-                        cwi.newRec = true;
-                        cwi.recordValue = challengeResults.value;
-                    }
-                }
-            }
-            
-            if (cwi.newRec && saveData.StageChallengeRecords != null)
-                saveData.StageChallengeRecords[(currentLvl - 1) * 4 + currentStage] = cwi.recordValue;
+            SaveData saveData = SaveManager.Load();
+            saveData.StageCompleteStatus[stageSaveIdx] = 1;
             SaveManager.Save(saveData);
 
-            // calcola quanta exp da aggiungere
-            if (!cwi.chalAlrWon && cwi.chalWinNow)
-                cwi.chalWonExp = challengeExp;
-            if (cwi.newRec)
-            {
-                if (!cwi.chalAlrWon && cwi.chalWinNow)
-                    cwi.extraExp = challengeResults.limit - cwi.recordValue;
-                else if (cwi.chalAlrWon && cwi.chalWinNow)
-                    cwi.extraExp = challengeRecord.value - cwi.recordValue;
-            }
-            PlayerPrefs.SetInt("CoinAmount", PlayerPrefs.GetInt("CoinAmount", 0) + cwi.chalWonExp + cwi.extraExp);
+            EvaluateAndSaveChallengeInfo();
 
             menusManager.StageCleared(cwi, challengeResults);
         }
+    }
+
+    private void EvaluateAndSaveChallengeInfo()
+    {
+        cwi = challenge.EvaluateWinInfo(challengeResults, challengeRecord);
+
+        SaveData saveData = SaveManager.Load();
+        if (cwi.newRec && saveData.StageChallengeRecords != null)
+            saveData.StageChallengeRecords[stageSaveIdx] = cwi.recordValue;
+        SaveManager.Save(saveData);
+        if (!cwi.chalAlrWon && cwi.chalWinNow)
+            cwi.chalWonExp = challengeExp;
+        if (cwi.newRec)
+        {
+            if (!cwi.chalAlrWon && cwi.chalWinNow)
+                cwi.extraExp = challengeResults.limit - cwi.recordValue;
+            else if (cwi.chalAlrWon && cwi.chalWinNow)
+                cwi.extraExp = challengeRecord.value - cwi.recordValue;
+        }
+
+        PlayerPrefs.SetInt("CoinAmount", PlayerPrefs.GetInt("CoinAmount", 0) + cwi.chalWonExp + cwi.extraExp); // total Score vs coin amount
     }
 
     public void GameOver(String deadCode)

@@ -174,6 +174,14 @@ public class MenusManager : MonoBehaviour
             ToggleEagleEye();
     }
 
+    public void UpdateChallengeInfo(string titleKey, string decriptionKey, ChallengeResults cr)
+    {
+        Transform auxTrans = pauseMenu.transform.Find("ChallengeBox");
+        if (auxTrans == null)
+            return;
+        auxTrans.GetComponent<ChallengeBoxManager>().DisplayMenuInfoMessage(titleKey, decriptionKey, cr);
+    }
+
     public void Pause()
     {
         if (messageOnScreen)
@@ -290,7 +298,7 @@ public class MenusManager : MonoBehaviour
         auxTrans.GetComponent<Text>().text = (levelLoc + " " + stageManager.currentLvl + " - " + stageLoc + " " + stageManager.currentStage).ToUpper();
     }
 
-    public void LevelCleared()
+    public void LevelCleared(ChallengeWinInfo cwi, ChallengeResults cr)
     {
         messageOnScreen = true;
         Time.timeScale = 0f;
@@ -305,7 +313,6 @@ public class MenusManager : MonoBehaviour
             return;
         auxTrans.GetComponent<Button>().Select();
 
-        // label? Livello xxx ripulito?
         auxTrans = levelClearedMenu.transform.Find("LevelText");
         string levelLoc = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("menu.stage.pause_menu.level");
         if (levelLoc == null)
@@ -376,6 +383,11 @@ public class MenusManager : MonoBehaviour
         Sprite trophySprite = Resources.Load<Sprite>("Sprites/Elements/" + stageManager.trophyName);
         if (auxTrans != null)
             auxTrans.GetComponent<Image>().sprite = trophySprite;
+
+        auxTrans = levelClearedMenu.transform.Find("ChallengeBox");
+        if (auxTrans == null)
+            return;
+        auxTrans.GetComponent<ChallengeBoxManager>().DisplayEndStageMessage(cr, cwi);
     }
 
     public void Resume()
