@@ -174,12 +174,12 @@ public class MenusManager : MonoBehaviour
             ToggleEagleEye();
     }
 
-    public void UpdateChallengeInfo(string titleKey, string decriptionKey, ChallengeResults cr)
+    public void UpdateChallengeInfo(string titleKey, string decriptionKey, string limitKey, ChallengeResults cr)
     {
         Transform auxTrans = pauseMenu.transform.Find("ChallengeBox");
         if (auxTrans == null)
             return;
-        auxTrans.GetComponent<ChallengeBoxManager>().DisplayMenuInfoMessage(titleKey, decriptionKey, cr);
+        auxTrans.GetComponent<ChallengeBoxManager>().DisplayMenuInfoMessage(titleKey, decriptionKey, limitKey, cr);
     }
 
     public void Pause()

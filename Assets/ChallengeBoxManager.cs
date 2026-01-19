@@ -26,7 +26,21 @@ public class ChallengeBoxManager : MonoBehaviour
         
         if (!cwi.chalAlrWon && !cwi.chalWinNow)
         {
-            textToDisplay = textToDisplay + "--/-- " + "No Record"; // rimpiazzare con localization
+            if (cwi.newRec)
+            {
+                textToDisplay = textToDisplay + cwi.recordValue + "/" + cr.limit + " "; // rimpiazzare con localization
+                textToDisplay = textToDisplay + "New Record!"; // rimpiazzare con localization
+                if (cwi.chalWonExp > 0)
+                    textToDisplay = textToDisplay + " +" + cwi.chalWonExp;
+                if (cwi.extraExp > 0)
+                    textToDisplay = textToDisplay + " +" + cwi.extraExp;
+            } else if (cwi.recordValue > 0)
+            {
+                textToDisplay = textToDisplay + cwi.recordValue + "/" + cr.limit + " "; // rimpiazzare con localization
+                textToDisplay = textToDisplay + "Old Record"; // rimpiazzare con localization
+            } else
+                textToDisplay = textToDisplay + "--/-- " + "No Record"; // rimpiazzare con localization
+            
         } else
         {
             textToDisplay = textToDisplay + cwi.recordValue + "/" + cr.limit + " "; // rimpiazzare con localization
@@ -45,7 +59,7 @@ public class ChallengeBoxManager : MonoBehaviour
         text.text = textToDisplay;
     }
 
-    public void DisplayMenuInfoMessage(String titleKey, String descriptionKey, ChallengeResults cRecord)
+    public void DisplayMenuInfoMessage(String titleKey, String descriptionKey, string limitKey, ChallengeResults cRecord)
     {
         title.text = titleKey; // sostituire con localization
 
@@ -54,7 +68,7 @@ public class ChallengeBoxManager : MonoBehaviour
         if (cRecord.limit > 0)
         {
             textToDisplay = textToDisplay + "\n";
-            textToDisplay = textToDisplay + "Limit: "; // sostituire con localization
+            textToDisplay = textToDisplay + limitKey + ": "; // sostituire con localization
             textToDisplay = textToDisplay + cRecord.limit;
         }
         if (cRecord.value > 0)

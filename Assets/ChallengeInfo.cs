@@ -3,12 +3,9 @@ using UnityEngine.UI;
 
 public class ChallengeInfo : MonoBehaviour
 {
-    Text textComp;
+    public Text textComp;
+    public Image medalGFX;
 
-    void Awake()
-    {
-      textComp = GetComponent<Text>();  
-    }
     public void WriteText(string info)
     {
         textComp.text = info;

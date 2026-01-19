@@ -7,13 +7,11 @@ public class ChallengeTime : ChallengeScript
     float timerSinceStart = 0;
     bool stopTimer = false;
 
-    ChallengeInfo challengeInfo;
-    StageManager stageManager;
-
     void Awake()
     {
         challengeTitleKey = "Time Challenge";
         challengeTextKey = "Clean the level before the time limit.";
+        challengeLimitKey = "Limit";
         challengeInfo = FindFirstObjectByType<ChallengeInfo>();
         stageManager = GetComponent<StageManager>();
         TextAsset jsonAsset = Resources.Load<TextAsset>("challengeInfo");
@@ -38,7 +36,7 @@ public class ChallengeTime : ChallengeScript
     public override ChallengeResults GetResultNow(bool stop = false)
     {
         stopTimer = stop;
-        return new ChallengeResults(timerSinceStart <= timeLimit, timeLimit, (int)timerSinceStart, "lessThen");
+        return new ChallengeResults(timerSinceStart <= timeLimit, timeLimit, (int)timerSinceStart, "lessThan");
     }
 
     public override ChallengeWinInfo EvaluateWinInfo(ChallengeResults challengeResults, ChallengeResults challengeRecord)

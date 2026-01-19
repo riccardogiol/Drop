@@ -26,10 +26,26 @@
         },
         "2" : {
             "Stage" : {
-                "1" : 0,
-                "2" : 0,
-                "3" : 0,
-                "4" : 0
+                "1" : {
+                    "type" : 1,
+                    "limit" : 15,
+                    "exp" : 5
+                },
+                "2" : {
+                    "type" : 1,
+                    "limit" : 15,
+                    "exp" : 5
+                },
+                "3" : {
+                    "type" : 1,
+                    "limit" : 50,
+                    "exp" : 5
+                },
+                "4" : {
+                    "type" : 2,
+                    "limit" : 6,
+                    "exp" : 5
+                }
             }
         },
         "3" : {
@@ -245,7 +261,14 @@
         "1" : {
             "title" : "menu.challenge.time.title",
             "description" : "menu.challenge.time.description",
+            "limit" : "menu.challenge.time.limit",
             "medal_code" : "timeMedal"
+        },
+        "2" : {
+            "title" : "menu.challenge.flameOrder.title",
+            "description" : "menu.challenge.flameOrder.description",
+            "limit" : "menu.challenge.flameOrder.limit",
+            "medal_code" : "flameOrderMedal"
         }
     }
 }

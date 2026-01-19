@@ -89,7 +89,7 @@ public class StageManager : MonoBehaviour
         if (saveData.StageChallengeRecords != null)
         {
             challengeRecord.value = saveData.StageChallengeRecords[stageSaveIdx];
-            challengeRecord.win = challengeRecord.value >= 0; 
+            challengeRecord.win = saveData.StageCompleteStatus[stageSaveIdx] == 2; 
         }
 
         // se é già vinta, posso evitare la lettura exp e chiamo il gestore medaglia per cambiarne la grafica. comunque tengo la challenge attiva
@@ -107,7 +107,7 @@ public class StageManager : MonoBehaviour
         if (jtLim is JValue value2)
             challengeRecord.limit = (int)value2;
         //ci sarà anche il tipo di sfida per poi scegliere la giusta medaglia
-        menusManager.UpdateChallengeInfo(challenge.challengeTitleKey, challenge.challengeTextKey, challengeRecord);
+        menusManager.UpdateChallengeInfo(challenge.challengeTitleKey, challenge.challengeTextKey, challenge.challengeLimitKey, challengeRecord);
 
         try {
         AnalyticsService.Instance.RecordEvent(new StageStartEvent{
@@ -244,15 +244,25 @@ public class StageManager : MonoBehaviour
         SaveData saveData = SaveManager.Load();
         if (cwi.newRec && saveData.StageChallengeRecords != null)
             saveData.StageChallengeRecords[stageSaveIdx] = cwi.recordValue;
+        if (cwi.chalAlrWon || cwi.chalWinNow)
+            saveData.StageCompleteStatus[stageSaveIdx] = 2;
         SaveManager.Save(saveData);
         if (!cwi.chalAlrWon && cwi.chalWinNow)
             cwi.chalWonExp = challengeExp;
+        // probabilmente da togliere e centralizzare da qualche parte
         if (cwi.newRec)
         {
-            if (!cwi.chalAlrWon && cwi.chalWinNow)
-                cwi.extraExp = challengeResults.limit - cwi.recordValue;
-            else if (cwi.chalAlrWon && cwi.chalWinNow)
-                cwi.extraExp = challengeRecord.value - cwi.recordValue;
+            if (challengeResults.logic == "lessThan")
+            {
+                if (!cwi.chalAlrWon && cwi.chalWinNow)
+                    cwi.extraExp = challengeResults.limit - cwi.recordValue;
+                else if (cwi.chalAlrWon && cwi.chalWinNow)
+                    cwi.extraExp = challengeRecord.value - cwi.recordValue;
+            }
+            if (challengeResults.logic == "greaterThan")
+            {
+                cwi.extraExp = cwi.recordValue - Math.Max(challengeRecord.value, 0);
+            }
         }
 
         PlayerPrefs.SetInt("CoinAmount", PlayerPrefs.GetInt("CoinAmount", 0) + cwi.chalWonExp + cwi.extraExp); // total Score vs coin amount

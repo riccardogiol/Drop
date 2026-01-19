@@ -4,9 +4,10 @@ public abstract class ChallengeScript : MonoBehaviour
 {
     public string challengeTitleKey {get; protected set;}
     public string challengeTextKey {get; protected set;}
+    public string challengeLimitKey {get; protected set;}
 
-    ChallengeInfo challengeInfo;
-    StageManager stageManager;
+    protected ChallengeInfo challengeInfo;
+    protected StageManager stageManager;
 
     public abstract ChallengeResults GetResultNow(bool stop = false);
     public abstract ChallengeWinInfo EvaluateWinInfo(ChallengeResults challengeResults, ChallengeResults challengeRecord);
@@ -20,12 +21,12 @@ public class ChallengeResults
     public int value;
     public string logic;
 
-    public ChallengeResults(bool v1 = false, int l = 0, int v = 0, string v2 = "")
+    public ChallengeResults(bool winState = false, int challengeLimit = 0, int currentValue = 0, string conditionExplain = "")
     {
-        win = v1;
-        limit = l;
-        value = v;
-        logic = v2;
+        win = winState;
+        limit = challengeLimit;
+        value = currentValue;
+        logic = conditionExplain;
     }
 }
 

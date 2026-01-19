@@ -108,7 +108,7 @@ public class StagePanelManager : MonoBehaviour
         // fill challenge infos
         int challengeType = 0;
         ChallengeResults challengeRecord = new ChallengeResults();
-        string challengeTitleKey = "", challengeDescriptionKey = "";
+        string challengeTitleKey = "", challengeDescriptionKey = "", challengeLimitKey = "";
         TextAsset jsonAsset = Resources.Load<TextAsset>("challengeInfo");
         JObject jroot = JObject.Parse(jsonAsset.text);
         JToken jt = jroot["Lvl"];
@@ -137,8 +137,11 @@ public class StagePanelManager : MonoBehaviour
         JToken jtDescription = jt["description"];
         if (jtDescription is JValue value4)
             challengeDescriptionKey = (string)value4;
+        JToken jtLimit = jt["limit"];
+        if (jtLimit is JValue value5)
+            challengeLimitKey = (string)value5;
 
-        challengeBoxManager.DisplayMenuInfoMessage(challengeTitleKey, challengeDescriptionKey, challengeRecord);
+        challengeBoxManager.DisplayMenuInfoMessage(challengeTitleKey, challengeDescriptionKey, challengeLimitKey, challengeRecord);
     }
 
     public void PlayStage()
