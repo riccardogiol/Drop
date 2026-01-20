@@ -5,12 +5,17 @@ public abstract class ChallengeScript : MonoBehaviour
     public string challengeTitleKey {get; protected set;}
     public string challengeTextKey {get; protected set;}
     public string challengeLimitKey {get; protected set;}
+    public string challengeMedalKey {get; protected set;}
 
     protected ChallengeInfo challengeInfo;
     protected StageManager stageManager;
 
     public abstract ChallengeResults GetResultNow(bool stop = false);
     public abstract ChallengeWinInfo EvaluateWinInfo(ChallengeResults challengeResults, ChallengeResults challengeRecord);
+    public void UpdateWinCondition(int winState)
+    {
+        challengeInfo.SetMedalState(winState);
+    }
 }
 
 

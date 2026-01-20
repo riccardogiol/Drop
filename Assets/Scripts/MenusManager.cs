@@ -174,12 +174,12 @@ public class MenusManager : MonoBehaviour
             ToggleEagleEye();
     }
 
-    public void UpdateChallengeInfo(string titleKey, string decriptionKey, string limitKey, ChallengeResults cr)
+    public void UpdateChallengeInfo(string titleKey, string decriptionKey, string limitKey, string medalKey, ChallengeResults cr)
     {
         Transform auxTrans = pauseMenu.transform.Find("ChallengeBox");
         if (auxTrans == null)
             return;
-        auxTrans.GetComponent<ChallengeBoxManager>().DisplayMenuInfoMessage(titleKey, decriptionKey, limitKey, cr);
+        auxTrans.GetComponent<ChallengeBoxManager>().DisplayMenuInfoMessage(titleKey, decriptionKey, limitKey, medalKey, cr);
     }
 
     public void Pause()
@@ -218,7 +218,7 @@ public class MenusManager : MonoBehaviour
         auxTrans.GetComponent<Text>().text = levelLoc + " " + stageManager.currentLvl + " - " + stageLoc + " " + stageManager.currentStage + "\n" + stageMode;
     }
 
-    public void StageCleared(ChallengeWinInfo cwi, ChallengeResults cr)
+    public void StageCleared(ChallengeWinInfo cwi, ChallengeResults cr, string medalKey)
     {
         messageOnScreen = true;
         Time.timeScale = 0f;
@@ -245,10 +245,10 @@ public class MenusManager : MonoBehaviour
 
         auxTrans.GetComponent<Text>().text = (levelLoc + " " + stageManager.currentLvl + " - " + stageLoc + " " + stageManager.currentStage).ToUpper();
 
-        auxTrans = stageClearedMenu.transform.Find("ChallengeBox");
+        auxTrans = stageClearedMenu.transform.Find("ChallengePanelEndLevel");
         if (auxTrans == null)
             return;
-        auxTrans.GetComponent<ChallengeBoxManager>().DisplayEndStageMessage(cr, cwi);
+        auxTrans.GetComponent<ChallengeBoxManager>().DisplayEndStageMessage(cr, cwi, medalKey);
     }
 
     public void GameOver(String deadCode)
@@ -298,7 +298,7 @@ public class MenusManager : MonoBehaviour
         auxTrans.GetComponent<Text>().text = (levelLoc + " " + stageManager.currentLvl + " - " + stageLoc + " " + stageManager.currentStage).ToUpper();
     }
 
-    public void LevelCleared(ChallengeWinInfo cwi, ChallengeResults cr)
+    public void LevelCleared(ChallengeWinInfo cwi, ChallengeResults cr, string medalKey)
     {
         messageOnScreen = true;
         Time.timeScale = 0f;
@@ -384,10 +384,10 @@ public class MenusManager : MonoBehaviour
         if (auxTrans != null)
             auxTrans.GetComponent<Image>().sprite = trophySprite;
 
-        auxTrans = levelClearedMenu.transform.Find("ChallengeBox");
+        auxTrans = levelClearedMenu.transform.Find("ChallengePanelEndLevel");
         if (auxTrans == null)
             return;
-        auxTrans.GetComponent<ChallengeBoxManager>().DisplayEndStageMessage(cr, cwi);
+        auxTrans.GetComponent<ChallengeBoxManager>().DisplayEndStageMessage(cr, cwi, medalKey);
     }
 
     public void Resume()

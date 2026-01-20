@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class ChallengeBoxManager : MonoBehaviour
 {
-    public Image medalImage;
+    public Image medalGFX;
     public Text text;
 
     public Text title;
@@ -12,8 +12,15 @@ public class ChallengeBoxManager : MonoBehaviour
     public GameObject descriptionPanel;
     bool showPanel = false;
 
-    public void DisplayEndStageMessage(ChallengeResults cr, ChallengeWinInfo cwi)
+    public Color disabledColor;
+    public Color potentialColor;
+    public Color wonColor;
+
+    public void DisplayEndStageMessage(ChallengeResults cr, ChallengeWinInfo cwi, string medalKey)
     {
+        SetMedalGFX(medalKey);
+        SetMedalState(0);
+
         string textToDisplay = "";
         textToDisplay = textToDisplay + cr.value + "/" +  cr.limit + " ";
         if (cwi.chalWinNow)
@@ -55,11 +62,12 @@ public class ChallengeBoxManager : MonoBehaviour
             {
                 textToDisplay = textToDisplay + "Old Record"; // rimpiazzare con localization
             }
+            SetMedalState(2);
         }
         text.text = textToDisplay;
     }
 
-    public void DisplayMenuInfoMessage(String titleKey, String descriptionKey, string limitKey, ChallengeResults cRecord)
+    public void DisplayMenuInfoMessage(String titleKey, String descriptionKey, string limitKey, string medalKey, ChallengeResults cRecord)
     {
         title.text = titleKey; // sostituire con localization
 
@@ -84,6 +92,12 @@ public class ChallengeBoxManager : MonoBehaviour
         }
         description.text = textToDisplay;
 
+        SetMedalGFX(medalKey);
+        if (cRecord.win)
+            SetMedalState(2);
+        else
+            SetMedalState(0);
+
         showPanel = false;
         descriptionPanel.SetActive(showPanel);
     }
@@ -92,5 +106,28 @@ public class ChallengeBoxManager : MonoBehaviour
     {
         showPanel = !showPanel;
         descriptionPanel.SetActive(showPanel);
+    }
+
+    public void SetMedalState(int state)
+    {
+        switch (state)
+        {
+            case 2:
+                medalGFX.color = wonColor;
+                break;
+            case 1:
+                medalGFX.color = potentialColor;
+                break;
+            default:
+                medalGFX.color = disabledColor;
+                break;
+        }
+    }
+
+    void SetMedalGFX(string medalCode)
+    {
+        Sprite medalSprite = Resources.Load<Sprite>("Sprites/Elements/" + medalCode);
+        if (medalSprite != null)
+            medalGFX.sprite = medalSprite;
     }
 }

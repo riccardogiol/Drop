@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
+using UnityEngine;
 
 public class ChallengeFlameOrder : ChallengeScript
 {
@@ -11,9 +13,6 @@ public class ChallengeFlameOrder : ChallengeScript
     void Awake()
     {
         // initialize local var
-        challengeTitleKey = "Order Challenge";
-        challengeTextKey = "Clean the level estiguish the flames in the right order";
-        challengeTextKey = "Target"; // prendere dal fine di salvataggio
         challengeInfo = FindFirstObjectByType<ChallengeInfo>();
         stageManager = GetComponent<StageManager>();
 
@@ -22,6 +21,25 @@ public class ChallengeFlameOrder : ChallengeScript
         orderLimit = collidersList.Count;
         
         challengeInfo.WriteText(expectedIndex + "/" + orderLimit + " In Order");
+
+        TextAsset jsonAsset = Resources.Load<TextAsset>("challengeInfo"); // da tirare fuori?
+        JObject jroot = JObject.Parse(jsonAsset.text);
+        JToken jt = jroot["type"];
+        jt = jt["2"];
+        JToken jtTitle = jt["title"];
+        if (jtTitle is JValue value3)
+            challengeTitleKey = (string)value3;
+        JToken jtDescription = jt["description"];
+        if (jtDescription is JValue value4)
+            challengeTextKey = (string)value4;
+        JToken jtLimit = jt["limit"];
+        if (jtLimit is JValue value5)
+            challengeLimitKey = (string)value5;
+        JToken jtMedal = jt["medal_code"];
+        if (jtMedal is JValue value6)
+            challengeMedalKey = (string)value6;
+        
+        challengeInfo.SetMedalGFX(challengeMedalKey);
     }
 
     public void ColliderTriggered(int index)

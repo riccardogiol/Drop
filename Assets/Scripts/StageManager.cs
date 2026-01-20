@@ -82,6 +82,7 @@ public class StageManager : MonoBehaviour
         
         stageSaveIdx = (currentLvl - 1) * 4 + currentStage;
 
+        // challenge code from here
         if (challenge == null)
             return;
         
@@ -90,6 +91,11 @@ public class StageManager : MonoBehaviour
         {
             challengeRecord.value = saveData.StageChallengeRecords[stageSaveIdx];
             challengeRecord.win = saveData.StageCompleteStatus[stageSaveIdx] == 2; 
+        }
+        if (challengeRecord.win)
+        {
+            // avverti anche il Callenge
+            challenge.UpdateWinCondition(2);
         }
 
         // se é già vinta, posso evitare la lettura exp e chiamo il gestore medaglia per cambiarne la grafica. comunque tengo la challenge attiva
@@ -107,7 +113,7 @@ public class StageManager : MonoBehaviour
         if (jtLim is JValue value2)
             challengeRecord.limit = (int)value2;
         //ci sarà anche il tipo di sfida per poi scegliere la giusta medaglia
-        menusManager.UpdateChallengeInfo(challenge.challengeTitleKey, challenge.challengeTextKey, challenge.challengeLimitKey, challengeRecord);
+        menusManager.UpdateChallengeInfo(challenge.challengeTitleKey, challenge.challengeTextKey, challenge.challengeLimitKey, challenge.challengeMedalKey, challengeRecord);
 
         try {
         AnalyticsService.Instance.RecordEvent(new StageStartEvent{
@@ -213,7 +219,7 @@ public class StageManager : MonoBehaviour
 
             EvaluateAndSaveChallengeInfo();
 
-            menusManager.LevelCleared(cwi, challengeResults);
+            menusManager.LevelCleared(cwi, challengeResults, challenge.challengeMedalKey);
         } else
         {
             playerMovementPath.InterruptMovement();
@@ -233,7 +239,7 @@ public class StageManager : MonoBehaviour
 
             EvaluateAndSaveChallengeInfo();
 
-            menusManager.StageCleared(cwi, challengeResults);
+            menusManager.StageCleared(cwi, challengeResults, challenge.challengeMedalKey);
         }
     }
 

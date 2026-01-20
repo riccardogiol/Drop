@@ -9,11 +9,10 @@ public class ChallengeTime : ChallengeScript
 
     void Awake()
     {
-        challengeTitleKey = "Time Challenge";
-        challengeTextKey = "Clean the level before the time limit.";
-        challengeLimitKey = "Limit";
         challengeInfo = FindFirstObjectByType<ChallengeInfo>();
+        // if playerPrefs == challenges disabled, challengeInfo.disable
         stageManager = GetComponent<StageManager>();
+        //take values for the stage challenge logic
         TextAsset jsonAsset = Resources.Load<TextAsset>("challengeInfo");
         JObject jroot = JObject.Parse(jsonAsset.text);
         JToken jt = jroot["Lvl"];
@@ -23,6 +22,23 @@ public class ChallengeTime : ChallengeScript
         jt = jt["limit"]; // check if there is?
         if (jt is JValue value)
             timeLimit = (int)value;
+        //take values for the info on the challenge type
+        jt = jroot["type"];
+        jt = jt["1"];
+        JToken jtTitle = jt["title"];
+        if (jtTitle is JValue value3)
+            challengeTitleKey = (string)value3;
+        JToken jtDescription = jt["description"];
+        if (jtDescription is JValue value4)
+            challengeTextKey = (string)value4;
+        JToken jtLimit = jt["limit"];
+        if (jtLimit is JValue value5)
+            challengeLimitKey = (string)value5;
+        JToken jtMedal = jt["medal_code"];
+        if (jtMedal is JValue value6)
+            challengeMedalKey = (string)value6;
+        
+        challengeInfo.SetMedalGFX(challengeMedalKey);
     }
 
     void Update()
