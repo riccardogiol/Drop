@@ -47,13 +47,20 @@ public class StageSpotManager : MonoBehaviour
 
     public void ColorStageSpots(int stagesCompleted)
     {
-        int i = 0;
+        SaveData saveData = SaveManager.Load();
+        bool medalWon = false;
+        int i = 0, stageSaveIdx;
         bool flip;
         foreach(var spot in stageSpots)
         {
             flip = UnityEngine.Random.Range(0, 1.0f) > 0.5f;
             if (i < stagesCompleted)
             {
+                if (saveData.StageChallengeRecords != null)
+                {
+                    stageSaveIdx = (lvlCode - 1) * 4 + (i+1);
+                    medalWon = saveData.StageCompleteStatus[stageSaveIdx] == 2; 
+                }
                 int flowerIndex = UnityEngine.Random.Range(0, petalList.Length);
                 foreach (Transform child in spot.transform)
                 {
@@ -72,6 +79,14 @@ public class StageSpotManager : MonoBehaviour
                     {
                         child.GetComponent<SpriteRenderer>().color = new Color(157f/255, 214f/255, 66f/255);
                         child.GetComponent<SinLoopScaling>().delay = lvlCode*4*delaySin + i*delaySin;
+                        if (medalWon)
+                        {
+                            foreach (Transform grandChild in child.transform)
+                            {
+                                if (grandChild.name == "MedalGFX")
+                                    grandChild.gameObject.SetActive(true);
+                            }
+                        }
                     }
                     if (child.name == "TrailGFX")
                         child.GetComponent<SpriteRenderer>().color = new Color(157f/255, 214f/255, 66f/255);

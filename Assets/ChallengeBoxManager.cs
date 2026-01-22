@@ -16,9 +16,16 @@ public class ChallengeBoxManager : MonoBehaviour
     public Color potentialColor;
     public Color wonColor;
 
-    public void DisplayEndStageMessage(ChallengeResults cr, ChallengeWinInfo cwi, string medalKey)
+    public void DisplayEndStageMessage(ChallengeResults cr, ChallengeWinInfo cwi, ChallengeScript challenge)
     {
-        SetMedalGFX(medalKey);
+        if (challenge == null)
+        {
+            string noChallengeText = "Challenge Disabled"; // rimpiazza con localization stesso di challenge info file in type 0
+            text.text = noChallengeText;
+            return;
+        }
+
+        SetMedalGFX(challenge.challengeMedalKey);
         SetMedalState(0);
 
         string textToDisplay = "";
@@ -36,11 +43,12 @@ public class ChallengeBoxManager : MonoBehaviour
             if (cwi.newRec)
             {
                 textToDisplay = textToDisplay + cwi.recordValue + "/" + cr.limit + " "; // rimpiazzare con localization
-                textToDisplay = textToDisplay + "New Record!"; // rimpiazzare con localization
+                textToDisplay = textToDisplay + "New Record!<color=#E2C72A>"; // rimpiazzare con localization
                 if (cwi.chalWonExp > 0)
                     textToDisplay = textToDisplay + " +" + cwi.chalWonExp;
                 if (cwi.extraExp > 0)
                     textToDisplay = textToDisplay + " +" + cwi.extraExp;
+                textToDisplay = textToDisplay + "exp</color>";
             } else if (cwi.recordValue > 0)
             {
                 textToDisplay = textToDisplay + cwi.recordValue + "/" + cr.limit + " "; // rimpiazzare con localization
@@ -53,11 +61,12 @@ public class ChallengeBoxManager : MonoBehaviour
             textToDisplay = textToDisplay + cwi.recordValue + "/" + cr.limit + " "; // rimpiazzare con localization
             if (cwi.newRec)
             {
-                textToDisplay = textToDisplay + "New Record!"; // rimpiazzare con localization
+                textToDisplay = textToDisplay + "New Record!<color=#E2C72A>"; // rimpiazzare con localization
                 if (cwi.chalWonExp > 0)
                     textToDisplay = textToDisplay + " +" + cwi.chalWonExp;
                 if (cwi.extraExp > 0)
                     textToDisplay = textToDisplay + " +" + cwi.extraExp;
+                textToDisplay = textToDisplay + "exp</color>";
             } else
             {
                 textToDisplay = textToDisplay + "Old Record"; // rimpiazzare con localization
@@ -129,5 +138,10 @@ public class ChallengeBoxManager : MonoBehaviour
         Sprite medalSprite = Resources.Load<Sprite>("Sprites/Elements/" + medalCode);
         if (medalSprite != null)
             medalGFX.sprite = medalSprite;
+    }
+
+    public void DisableMenuInfo()
+    {
+        gameObject.SetActive(false);
     }
 }

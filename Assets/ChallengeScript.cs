@@ -6,6 +6,8 @@ public abstract class ChallengeScript : MonoBehaviour
     public string challengeTextKey {get; protected set;}
     public string challengeLimitKey {get; protected set;}
     public string challengeMedalKey {get; protected set;}
+    public bool recordChallengeWon {get; protected set;}
+    public int currentState {get; protected set;}
 
     protected ChallengeInfo challengeInfo;
     protected StageManager stageManager;
@@ -14,6 +16,8 @@ public abstract class ChallengeScript : MonoBehaviour
     public abstract ChallengeWinInfo EvaluateWinInfo(ChallengeResults challengeResults, ChallengeResults challengeRecord);
     public void UpdateWinCondition(int winState)
     {
+        if (winState == 2)
+            recordChallengeWon = true;
         challengeInfo.SetMedalState(winState);
     }
 }

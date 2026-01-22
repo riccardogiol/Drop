@@ -37,6 +37,8 @@ public class ChallengeTime : ChallengeScript
         JToken jtMedal = jt["medal_code"];
         if (jtMedal is JValue value6)
             challengeMedalKey = (string)value6;
+
+        currentState = -1;
         
         challengeInfo.SetMedalGFX(challengeMedalKey);
     }
@@ -47,6 +49,18 @@ public class ChallengeTime : ChallengeScript
            return;
         timerSinceStart += Time.deltaTime;   
         challengeInfo.WriteText((int)timerSinceStart + "/" + timeLimit + " sec");
+        if (!recordChallengeWon)
+        {
+            if (currentState != 1 && timerSinceStart <= timeLimit)
+            {
+                currentState = 1;
+                challengeInfo.SetMedalState(1);
+            } else if (currentState != 0 && timerSinceStart > timeLimit)
+            {
+                currentState = 0;
+                challengeInfo.SetMedalState(0);
+            }
+        }
     }
 
     public override ChallengeResults GetResultNow(bool stop = false)

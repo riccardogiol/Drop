@@ -31,6 +31,7 @@ public class StageManager : MonoBehaviour
     float startTime;
     int stageInstanceCode;
 
+    bool challengeDisabled = false;
     ChallengeScript challenge;
     ChallengeResults challengeResults;
     ChallengeResults challengeRecord;
@@ -82,39 +83,39 @@ public class StageManager : MonoBehaviour
         
         stageSaveIdx = (currentLvl - 1) * 4 + currentStage;
 
-        // challenge code from here
-        if (challenge == null)
-            return;
-        
-        SaveData saveData = SaveManager.Load();
-        if (saveData.StageChallengeRecords != null)
+        challengeDisabled = (challenge == null) || PlayerPrefs.GetInt("ChallengeDisabled", 0) == 1;
+        if (challengeDisabled) // oppure lettura di challenge disable in playerprefs
         {
-            challengeRecord.value = saveData.StageChallengeRecords[stageSaveIdx];
-            challengeRecord.win = saveData.StageCompleteStatus[stageSaveIdx] == 2; 
-        }
-        if (challengeRecord.win)
+            challenge = null;
+            menusManager.DisableChallengeInfo();
+        } else
         {
-            // avverti anche il Callenge
-            challenge.UpdateWinCondition(2);
+            SaveData saveData = SaveManager.Load();
+            if (saveData.StageChallengeRecords != null)
+            {
+                challengeRecord.value = saveData.StageChallengeRecords[stageSaveIdx];
+                challengeRecord.win = saveData.StageCompleteStatus[stageSaveIdx] == 2; 
+            }
+            if (challengeRecord.win)
+                challenge.UpdateWinCondition(2);
+
+            // se é già vinta, posso evitare la lettura exp e chiamo il gestore medaglia per cambiarne la grafica. comunque tengo la challenge attiva
+            
+            TextAsset jsonAsset = Resources.Load<TextAsset>("challengeInfo");
+            JObject jroot = JObject.Parse(jsonAsset.text);
+            JToken jt = jroot["Lvl"];
+            jt = jt[currentLvl + ""];
+            jt = jt["Stage"];
+            jt = jt[currentStage + ""];
+            JToken jtExp = jt["exp"]; // check if there is?
+            if (jtExp is JValue value)
+                challengeExp = (int)value;
+            JToken jtLim = jt["limit"]; // check if there is?
+            if (jtLim is JValue value2)
+                challengeRecord.limit = (int)value2;
+            menusManager.UpdateChallengeInfo(challenge.challengeTitleKey, challenge.challengeTextKey, challenge.challengeLimitKey, challenge.challengeMedalKey, challengeRecord);
         }
-
-        // se é già vinta, posso evitare la lettura exp e chiamo il gestore medaglia per cambiarne la grafica. comunque tengo la challenge attiva
-        
-        TextAsset jsonAsset = Resources.Load<TextAsset>("challengeInfo");
-        JObject jroot = JObject.Parse(jsonAsset.text);
-        JToken jt = jroot["Lvl"];
-        jt = jt[currentLvl + ""];
-        jt = jt["Stage"];
-        jt = jt[currentStage + ""];
-        JToken jtExp = jt["exp"]; // check if there is?
-        if (jtExp is JValue value)
-            challengeExp = (int)value;
-        JToken jtLim = jt["limit"]; // check if there is?
-        if (jtLim is JValue value2)
-            challengeRecord.limit = (int)value2;
-        //ci sarà anche il tipo di sfida per poi scegliere la giusta medaglia
-        menusManager.UpdateChallengeInfo(challenge.challengeTitleKey, challenge.challengeTextKey, challenge.challengeLimitKey, challenge.challengeMedalKey, challengeRecord);
-
+       
         try {
         AnalyticsService.Instance.RecordEvent(new StageStartEvent{
             StageID = currentStage,
@@ -219,7 +220,7 @@ public class StageManager : MonoBehaviour
 
             EvaluateAndSaveChallengeInfo();
 
-            menusManager.LevelCleared(cwi, challengeResults, challenge.challengeMedalKey);
+            menusManager.LevelCleared(cwi, challengeResults, challenge);
         } else
         {
             playerMovementPath.InterruptMovement();
@@ -239,12 +240,15 @@ public class StageManager : MonoBehaviour
 
             EvaluateAndSaveChallengeInfo();
 
-            menusManager.StageCleared(cwi, challengeResults, challenge.challengeMedalKey);
+            menusManager.StageCleared(cwi, challengeResults, challenge);
         }
     }
 
     private void EvaluateAndSaveChallengeInfo()
     {
+        if (challengeDisabled)
+            return;
+
         cwi = challenge.EvaluateWinInfo(challengeResults, challengeRecord);
 
         SaveData saveData = SaveManager.Load();

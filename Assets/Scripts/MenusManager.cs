@@ -182,6 +182,18 @@ public class MenusManager : MonoBehaviour
         auxTrans.GetComponent<ChallengeBoxManager>().DisplayMenuInfoMessage(titleKey, decriptionKey, limitKey, medalKey, cr);
     }
 
+    public void DisableChallengeInfo()
+    {
+        Transform auxTrans = pauseMenu.transform.Find("ChallengeBox");
+        if (auxTrans == null)
+            return;
+        auxTrans.GetComponent<ChallengeBoxManager>().DisableMenuInfo();
+
+        ChallengeInfo challengeInfo = FindFirstObjectByType<ChallengeInfo>();
+        if (challengeInfo != null)
+             challengeInfo.Disable();
+    }
+
     public void Pause()
     {
         if (messageOnScreen)
@@ -218,7 +230,7 @@ public class MenusManager : MonoBehaviour
         auxTrans.GetComponent<Text>().text = levelLoc + " " + stageManager.currentLvl + " - " + stageLoc + " " + stageManager.currentStage + "\n" + stageMode;
     }
 
-    public void StageCleared(ChallengeWinInfo cwi, ChallengeResults cr, string medalKey)
+    public void StageCleared(ChallengeWinInfo cwi, ChallengeResults cr, ChallengeScript challenge)
     {
         messageOnScreen = true;
         Time.timeScale = 0f;
@@ -248,7 +260,7 @@ public class MenusManager : MonoBehaviour
         auxTrans = stageClearedMenu.transform.Find("ChallengePanelEndLevel");
         if (auxTrans == null)
             return;
-        auxTrans.GetComponent<ChallengeBoxManager>().DisplayEndStageMessage(cr, cwi, medalKey);
+        auxTrans.GetComponent<ChallengeBoxManager>().DisplayEndStageMessage(cr, cwi, challenge);
     }
 
     public void GameOver(String deadCode)
@@ -298,7 +310,7 @@ public class MenusManager : MonoBehaviour
         auxTrans.GetComponent<Text>().text = (levelLoc + " " + stageManager.currentLvl + " - " + stageLoc + " " + stageManager.currentStage).ToUpper();
     }
 
-    public void LevelCleared(ChallengeWinInfo cwi, ChallengeResults cr, string medalKey)
+    public void LevelCleared(ChallengeWinInfo cwi, ChallengeResults cr,  ChallengeScript challenge)
     {
         messageOnScreen = true;
         Time.timeScale = 0f;
@@ -387,7 +399,7 @@ public class MenusManager : MonoBehaviour
         auxTrans = levelClearedMenu.transform.Find("ChallengePanelEndLevel");
         if (auxTrans == null)
             return;
-        auxTrans.GetComponent<ChallengeBoxManager>().DisplayEndStageMessage(cr, cwi, medalKey);
+        auxTrans.GetComponent<ChallengeBoxManager>().DisplayEndStageMessage(cr, cwi, challenge);
     }
 
     public void Resume()
