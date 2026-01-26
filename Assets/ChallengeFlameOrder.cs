@@ -97,6 +97,6 @@ public class ChallengeFlameOrder : ChallengeScript
 
     public override ChallengeResults GetResultNow(bool stop = false)
     {
-        return new ChallengeResults(stillRightOrder, orderLimit, expectedIndex, "greaterThan"); // magari mettere valore come numero di fiamme prese in ordine
+        return new ChallengeResults(stillRightOrder, orderLimit, expectedIndex, "greaterThanZero");
     }
 }

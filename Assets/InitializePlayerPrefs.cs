@@ -45,4 +45,9 @@ public class InitializePlayerPrefs : MonoBehaviour
         */
     }
 
+    void Start()
+    {
+        int totalExp = ExpReader.GetTotal(); // in verità qua é proprio il total score, non vado a chiamare il calcolatore di esperienza
+        Debug.Log("Total Experience calculated:" + totalExp);
+    }
 }

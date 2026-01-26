@@ -32,6 +32,7 @@ public class PrizeMessageManager : MonoBehaviour
                 text.GetComponent<FitBoxText>().Resize();
 
                 PlayerPrefs.SetInt("CoinAmount", PlayerPrefs.GetInt("CoinAmount", 0) + coinObtained);
+                PlayerPrefs.SetInt("TotalScore", PlayerPrefs.GetInt("TotalScore", 0) + coinObtained);
             }
             PlayerPrefs.SetInt(lvlCodePrize, 1);
         } else {

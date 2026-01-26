@@ -7,11 +7,11 @@ public class CoinCounterUpdate : MonoBehaviour
     void Start()
     {
         text = GetComponent<Text>();
-        text.text = "" + PlayerPrefs.GetInt("CoinAmount", 0);
+        Refresh();
     }
 
     public void Refresh()
     {
-        text.text = "" + PlayerPrefs.GetInt("CoinAmount", 0);
+        text.text = PlayerPrefs.GetInt("CoinAmount", 0) + "/\n" + PlayerPrefs.GetInt("TotalScore", 0);
     }
 }

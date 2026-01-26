@@ -278,19 +278,22 @@
             "title" : "menu.challenge.time.title",
             "description" : "menu.challenge.time.description",
             "limit" : "menu.challenge.time.limit",
-            "medal_code" : "medal_time"
+            "medal_code" : "medal_time",
+            "logic" : "lessThan"
         },
         "2" : {
             "title" : "menu.challenge.flameOrder.title",
             "description" : "menu.challenge.flameOrder.description",
             "limit" : "menu.challenge.flameOrder.limit",
-            "medal_code" : "medal_flameOrder"
+            "medal_code" : "medal_flameOrder",
+            "logic" : "greaterThanZero"
         },
         "0" : {
             "title" : "menu.challenge.disabled.title",
             "description" : "menu.challenge.disabled.description",
             "limit" : "menu.challenge.disabled.limit",
-            "medal_code" : "medal_disabled"
+            "medal_code" : "medal_disabled",
+            "logic" : "none"
         }
     }
 }

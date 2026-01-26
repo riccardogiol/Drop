@@ -78,14 +78,28 @@ public static class SaveManager
 
     static void HandleVersion(SaveData data)
     {
-        // Qui puoi gestire differenze tra versioni
+        if (data.StageChallengeRecords == null)
+        {
+            data.StageChallengeRecords = new int[120];
+            for (int i = 0; i < 120; i++)
+                data.StageChallengeRecords[i] = -1;
+            Save(data);
+        }
+        if (data.StageChallengeRecords.Length == 0)
+        {
+            data.StageChallengeRecords = new int[120];
+            for (int i = 0; i < 120; i++)
+                data.StageChallengeRecords[i] = -1;
+            Save(data);
+        }
+
         if (data.version != "1.01")
         {
             Debug.Log($"Update data from {data.version} to 1.01");
             data.version = "1.01";
+            Save(data);
             // creazione di new data e tengo valori di prima per stage complete status
             //PlayerPrefs.SetInt("ResetExpFlag", 1);
-            Save(data);
             // Qui puoi aggiungere eventuali adattamenti
         }
     }

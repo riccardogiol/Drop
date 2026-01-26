@@ -89,6 +89,14 @@ public class MainMenuActions : MonoBehaviour
             PlayerPrefs.SetInt("Lvl" + i + "Prize", 0);
         }
 
+        int totalScoreCalc = ExpReader.GetTotal();
+        if (totalScoreCalc != PlayerPrefs.GetInt("TotalScore", 0))
+        {
+            Debug.Log("Unexpected difference between calculated total score and saved: replaced with calculated.\nCalculated: " + totalScoreCalc + "\tSaved: " + PlayerPrefs.GetInt("TotalScore", 0));
+            PlayerPrefs.SetInt("ResetExpFlag", 1);
+            PlayerPrefs.SetInt("TotalScore", totalScoreCalc);
+        }
+
     }
     
     public void Credits()

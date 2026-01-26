@@ -259,23 +259,12 @@ public class StageManager : MonoBehaviour
         SaveManager.Save(saveData);
         if (!cwi.chalAlrWon && cwi.chalWinNow)
             cwi.chalWonExp = challengeExp;
-        // probabilmente da togliere e centralizzare da qualche parte
+        
         if (cwi.newRec)
-        {
-            if (challengeResults.logic == "lessThan")
-            {
-                if (!cwi.chalAlrWon && cwi.chalWinNow)
-                    cwi.extraExp = challengeResults.limit - cwi.recordValue;
-                else if (cwi.chalAlrWon && cwi.chalWinNow)
-                    cwi.extraExp = challengeRecord.value - cwi.recordValue;
-            }
-            if (challengeResults.logic == "greaterThan")
-            {
-                cwi.extraExp = cwi.recordValue - Math.Max(challengeRecord.value, 0);
-            }
-        }
+            cwi.extraExp = ExpReader.GetNewRecordExtraExp(challengeResults.logic, challengeResults.limit, challengeRecord.value, cwi);
 
-        PlayerPrefs.SetInt("CoinAmount", PlayerPrefs.GetInt("CoinAmount", 0) + cwi.chalWonExp + cwi.extraExp); // total Score vs coin amount
+        PlayerPrefs.SetInt("CoinAmount", PlayerPrefs.GetInt("CoinAmount", 0) + cwi.chalWonExp + cwi.extraExp);
+        PlayerPrefs.SetInt("TotalScore", PlayerPrefs.GetInt("TotalScore", 0) + cwi.chalWonExp + cwi.extraExp);
     }
 
     public void GameOver(String deadCode)
