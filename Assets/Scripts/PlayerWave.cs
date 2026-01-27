@@ -31,6 +31,8 @@ public class PlayerWave : MonoBehaviour
 
     bool gamepadInput = false;
 
+    ChallengeNumberActions challengeNumberActions;
+
     void Start()
     {
         if(PlayerPrefs.GetInt(unlockingCode1, 0) == 0)
@@ -62,6 +64,7 @@ public class PlayerWave : MonoBehaviour
         animator = FindFirstObjectByType<PlayerAnimationManager>();
 
         powerUsage = 0;
+        challengeNumberActions = FindFirstObjectByType<ChallengeNumberActions>();
 
     }
 
@@ -111,6 +114,8 @@ public class PlayerWave : MonoBehaviour
     {
         FindObjectOfType<AudioManager>().PlayVoice("Shoot");
         powerUsage++;
+        if (challengeNumberActions != null)
+            challengeNumberActions.IncreaseActionCounter();
         GameObject wave = Instantiate(wavePrefab, transform.position, Quaternion.identity);
         wave.GetComponent<Wave>().damage = waveDamage;
         wave.GetComponent<Wave>().playgroundManager = playgroundManager;

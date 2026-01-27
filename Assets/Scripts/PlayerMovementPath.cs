@@ -23,6 +23,8 @@ public class PlayerMovementPath : MonoBehaviour
 
     PlaygroundManager playgroundManager;
 
+    ChallengeNumberActions challengeNumberActions;
+
     void Start()
     {
         seeker = GetComponent<Seeker>();
@@ -32,9 +34,10 @@ public class PlayerMovementPath : MonoBehaviour
         directionController = GetComponent<PlayerDirectionController>();
         pmi = GetComponent<PlayerMovementInterruption>();
 
-        
         playgroundManager = FindFirstObjectByType<PlaygroundManager>();
         movementInterrupted = false;
+
+        challengeNumberActions = FindFirstObjectByType<ChallengeNumberActions>();
     }
     
     void UpdatePath()
@@ -129,8 +132,11 @@ public class PlayerMovementPath : MonoBehaviour
             }
         
         if (distance < nextWaypointDistance)
+        {
             currentWaypoint++;
-
+            if (challengeNumberActions != null && (currentWaypoint < path.vectorPath.Count))
+                challengeNumberActions.IncreaseActionCounter();
+        }
 
     }
 }

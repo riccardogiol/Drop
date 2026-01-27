@@ -1799,6 +1799,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 884353088}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &933199074 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4617294188843490431, guid: 7d19396bf7baf4454a1ea3fcd2ae69ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 4617294187859838832}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1129121348
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2090,6 +2096,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: Shoot!
+      objectReference: {fileID: 0}
+    - target: {fileID: 2152558593757141169, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2476064941540019042, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
@@ -3205,6 +3216,7 @@ GameObject:
   - component: {fileID: 2098056894}
   - component: {fileID: 2098056895}
   - component: {fileID: 2098056896}
+  - component: {fileID: 2098056897}
   m_Layer: 0
   m_Name: StageManager
   m_TagString: Untagged
@@ -3260,6 +3272,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageManager: {fileID: 2098056895}
   toWorldMap: 1
+--- !u!114 &2098056897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098056893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d43d5c363fe941e7b6ece34870110e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flameParent: {fileID: 933199074}
 --- !u!1001 &4617294187859838832
 PrefabInstance:
   m_ObjectHideFlags: 0

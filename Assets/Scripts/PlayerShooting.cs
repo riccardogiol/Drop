@@ -35,6 +35,8 @@ public class PlayerShooting : MonoBehaviour
     public int powerUsage;
     bool gamepadInput = false;
 
+    ChallengeNumberActions challengeNumberActions;
+
     void Start()
     {
         if(PlayerPrefs.GetInt(unlockingCode1, 0) == 0)
@@ -68,6 +70,7 @@ public class PlayerShooting : MonoBehaviour
         animator = FindFirstObjectByType<PlayerAnimationManager>();
 
         powerUsage = 0;
+        challengeNumberActions = FindFirstObjectByType<ChallengeNumberActions>();
     }
 
     void Update()
@@ -113,6 +116,8 @@ public class PlayerShooting : MonoBehaviour
     void Shoot()
     {
         powerUsage++;
+        if (challengeNumberActions != null)
+            challengeNumberActions.IncreaseActionCounter();
         GameObject bullet;
         FindObjectOfType<AudioManager>().Play("ShootSound");
         FindObjectOfType<AudioManager>().PlayVoice("Shoot");

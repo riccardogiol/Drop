@@ -77,7 +77,31 @@
                 "1" : {
                     "type" : 0,
                     "limit" : 0,
-                    "exp" : 0
+                    "exp" : 5
+                },
+                "2" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 5
+                },
+                "3" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 5
+                },
+                "4" : {
+                    "type" : 3,
+                    "limit" : 60,
+                    "exp" : 5
+                }
+            }
+        },
+        "5" : {
+            "Stage" : {
+                "1" : {
+                    "type" : 101,
+                    "limit" : 3,
+                    "exp" : 5
                 },
                 "2" : {
                     "type" : 0,
@@ -96,20 +120,28 @@
                 }
             }
         },
-        "5" : {
-            "Stage" : {
-                "1" : 0,
-                "2" : 0,
-                "3" : 0,
-                "4" : 0
-            }
-        },
         "6" : {
             "Stage" : {
-                "1" : 0,
-                "2" : 0,
-                "3" : 0,
-                "4" : 120
+                "1" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 5
+                },
+                "2" : {
+                    "type" : 3,
+                    "limit" : 40,
+                    "exp" : 7
+                },
+                "3" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 5
+                },
+                "4" : {
+                    "type" : 3,
+                    "limit" : 60,
+                    "exp" : 5
+                }
             }
         },
         "7" : {
@@ -287,6 +319,27 @@
             "limit" : "menu.challenge.flameOrder.limit",
             "medal_code" : "medal_flameOrder",
             "logic" : "greaterThanZero"
+        },
+        "3" : {
+            "title" : "menu.challenge.numActions.title",
+            "description" : "menu.challenge.numActions.description",
+            "limit" : "menu.challenge.numActions.limit",
+            "medal_code" : "medal_numActions",
+            "logic" : "lessThan"
+        },
+        "4" : {
+            "title" : "menu.challenge.xxx.title",
+            "description" : "menu.challenge.xxx.description",
+            "limit" : "menu.challenge.xxx.limit",
+            "medal_code" : "medal_xxx",
+            "logic" : "yesOrNo"
+        },
+        "101" : {
+            "title" : "menu.challenge.boss1.title",
+            "description" : "menu.challenge.boss1.description",
+            "limit" : "menu.challenge.boss1.limit",
+            "medal_code" : "medal_boss1",
+            "logic" : "lessThan"
         },
         "0" : {
             "title" : "menu.challenge.disabled.title",

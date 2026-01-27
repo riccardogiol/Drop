@@ -28,6 +28,9 @@ public class StoreRefund : MonoBehaviour
         int totalExp = ExpReader.GetTotal(); // in verità qua é proprio il total score, non vado a chiamare il calcolatore di esperienza
         */
         
+        foreach (UpgradesManager upg in upgradesManagers)
+            upg.RefundAllUpgrades();
+
         int totalCoin = PlayerPrefs.GetInt("TotalScore", 0);
         if (PlayerPrefs.GetInt("WavePurchased", 0) == 1)
             totalCoin -= WaveCost;

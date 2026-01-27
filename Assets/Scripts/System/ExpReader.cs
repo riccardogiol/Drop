@@ -121,7 +121,6 @@ public static class ExpReader
         return extraExp;
     }
 
-    // check logic in StageManager L.264
     public static int GetExtraExp(string logic, int record, int limit)
     {
         int experience = 0;
@@ -135,14 +134,14 @@ public static class ExpReader
                 if (record >= 0)
                     experience = record;
                 break;
-            default:
+            default: // yesOrNo
                 experience = 0;
                 break;
         }
         return experience;
     }
 
-     public static int GetNewRecordExtraExp(string logic, int limit, int oldRecord, ChallengeWinInfo cwi)
+    public static int GetNewRecordExtraExp(string logic, int limit, int oldRecord, ChallengeWinInfo cwi)
     {
         int extraExp = 0;
         switch (logic)

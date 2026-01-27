@@ -27,6 +27,8 @@ public class PlayerMovementKeys: MonoBehaviour
 
     bool azertyLayout = false;
 
+    ChallengeNumberActions challengeNumberActions;
+
     void Start()
     {
         player = GetComponent<Rigidbody2D>();
@@ -41,6 +43,8 @@ public class PlayerMovementKeys: MonoBehaviour
 
         if (PlayerPrefs.GetInt("AzertyLayout") == 1)
             azertyLayout = true;
+        
+        challengeNumberActions = FindFirstObjectByType<ChallengeNumberActions>();
     }
 
     void Update()
@@ -108,6 +112,8 @@ public class PlayerMovementKeys: MonoBehaviour
             {
                 Vector3Int cell = tilemap.WorldToCell(newTarget);
                 target = tilemap.GetCellCenterWorld(cell);
+                if (challengeNumberActions != null)
+                    challengeNumberActions.IncreaseActionCounter();
                 if (playgroundManager.IsObstacleForWalk(target, transform.position) || playgroundManager.IsPushableWithObstacle(target, movement.normalized)) // add onewaycollider on right side
                 {
                     Vector2 direction = (target - transform.position).normalized;
