@@ -84,7 +84,7 @@ public class StageManager : MonoBehaviour
         stageSaveIdx = (currentLvl - 1) * 4 + currentStage;
 
         challengeDisabled = (challenge == null) || PlayerPrefs.GetInt("ChallengeDisabled", 0) == 1;
-        if (challengeDisabled) // oppure lettura di challenge disable in playerprefs
+        if (challengeDisabled)
         {
             challenge = null;
             menusManager.DisableChallengeInfo();

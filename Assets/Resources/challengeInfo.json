@@ -4,22 +4,22 @@
             "Stage" : {
                 "1" : {
                     "type" : 1,
-                    "limit" : 15,
+                    "limit" : 5,
                     "exp" : 5
                 },
                 "2" : {
                     "type" : 1,
-                    "limit" : 15,
+                    "limit" : 3,
                     "exp" : 5
                 },
                 "3" : {
                     "type" : 1,
-                    "limit" : 15,
+                    "limit" : 7,
                     "exp" : 5
                 },
                 "4" : {
                     "type" : 1,
-                    "limit" : 15,
+                    "limit" : 7,
                     "exp" : 5
                 }
             }
@@ -28,17 +28,17 @@
             "Stage" : {
                 "1" : {
                     "type" : 1,
-                    "limit" : 15,
+                    "limit" : 10,
                     "exp" : 5
                 },
                 "2" : {
                     "type" : 1,
-                    "limit" : 15,
+                    "limit" : 4,
                     "exp" : 5
                 },
                 "3" : {
                     "type" : 1,
-                    "limit" : 50,
+                    "limit" : 17,
                     "exp" : 5
                 },
                 "4" : {
@@ -51,23 +51,23 @@
         "3" : {
             "Stage" : {
                 "1" : {
-                    "type" : 1,
-                    "limit" : 15,
+                    "type" : 2,
+                    "limit" : 3,
                     "exp" : 5
                 },
                 "2" : {
                     "type" : 1,
-                    "limit" : 15,
+                    "limit" : 13,
                     "exp" : 5
                 },
                 "3" : {
                     "type" : 1,
-                    "limit" : 50,
+                    "limit" : 20,
                     "exp" : 5
                 },
                 "4" : {
                     "type" : 1,
-                    "limit" : 50,
+                    "limit" : 15,
                     "exp" : 5
                 }
             }
@@ -75,18 +75,18 @@
         "4" : {
             "Stage" : {
                 "1" : {
-                    "type" : 0,
-                    "limit" : 0,
+                    "type" : 1,
+                    "limit" : 17,
                     "exp" : 5
                 },
                 "2" : {
-                    "type" : 0,
-                    "limit" : 0,
+                    "type" : 2,
+                    "limit" : 4,
                     "exp" : 5
                 },
                 "3" : {
-                    "type" : 0,
-                    "limit" : 0,
+                    "type" : 1,
+                    "limit" : 50,
                     "exp" : 5
                 },
                 "4" : {
@@ -125,226 +125,553 @@
                 "1" : {
                     "type" : 0,
                     "limit" : 0,
-                    "exp" : 5
+                    "exp" : 6
                 },
                 "2" : {
-                    "type" : 3,
+                    "type" : 0,
                     "limit" : 40,
-                    "exp" : 7
+                    "exp" : 6
                 },
                 "3" : {
                     "type" : 0,
                     "limit" : 0,
-                    "exp" : 5
+                    "exp" : 6
                 },
                 "4" : {
-                    "type" : 3,
+                    "type" : 0,
                     "limit" : 60,
-                    "exp" : 5
+                    "exp" : 6
                 }
             }
         },
         "7" : {
             "Stage" : {
-                "1" : 0,
-                "2" : 0,
-                "3" : 0,
-                "4" : 120
+                "1" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 6
+                },
+                "2" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 6
+                },
+                "3" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 6
+                },
+                "4" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 6
+                }
             }
         },
         "8" : {
             "Stage" : {
-                "1" : 0,
-                "2" : 0,
-                "3" : 0,
-                "4" : 120
+                "1" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 6
+                },
+                "2" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 6
+                },
+                "3" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 6
+                },
+                "4" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 6
+                }
             }
         },
         "9" : {
             "Stage" : {
-                "1" : 0,
-                "2" : 0,
-                "3" : 0,
-                "4" : 120
+                "1" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 6
+                },
+                "2" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 6
+                },
+                "3" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 6
+                },
+                "4" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 6
+                }
             }
         },
         "10" : {
             "Stage" : {
-                "1" : 0,
-                "2" : 0,
-                "3" : 0,
-                "4" : 0
+                "1" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 6
+                },
+                "2" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 6
+                },
+                "3" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 6
+                },
+                "4" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 6
+                }
             }
         },
         "11" : {
             "Stage" : {
-                "1" : 0,
-                "2" : 0,
-                "3" : 0,
-                "4" : 150
+                "1" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 8
+                },
+                "2" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 8
+                },
+                "3" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 8
+                },
+                "4" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 8
+                }
             }
         },
         "12" : {
             "Stage" : {
-                "1" : 0,
-                "2" : 0,
-                "3" : 0,
-                "4" : 150
+                "1" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 8
+                },
+                "2" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 8
+                },
+                "3" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 8
+                },
+                "4" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 8
+                }
             }
         },
         "13" : {
             "Stage" : {
-                "1" : 0,
-                "2" : 0,
-                "3" : 0,
-                "4" : 150
+                "1" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 8
+                },
+                "2" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 8
+                },
+                "3" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 8
+                },
+                "4" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 8
+                }
             }
         },
         "14" : {
             "Stage" : {
-                "1" : 0,
-                "2" : 0,
-                "3" : 0,
-                "4" : 150
+                "1" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 8
+                },
+                "2" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 8
+                },
+                "3" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 8
+                },
+                "4" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 8
+                }
             }
         },
         "15" : {
             "Stage" : {
-                "1" : 0,
-                "2" : 0,
-                "3" : 0,
-                "4" : 0
+                "1" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 8
+                },
+                "2" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 8
+                },
+                "3" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 8
+                },
+                "4" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 8
+                }
             }
         },
         "16" : {
             "Stage" : {
-                "1" : 0,
-                "2" : 0,
-                "3" : 0,
-                "4" : 200
+                "1" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 11
+                },
+                "2" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 11
+                },
+                "3" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 11
+                },
+                "4" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 11
+                }
             }
         },
         "17" : {
             "Stage" : {
-                "1" : 0,
-                "2" : 0,
-                "3" : 0,
-                "4" : 200
+                "1" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 11
+                },
+                "2" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 11
+                },
+                "3" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 11
+                },
+                "4" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 11
+                }
             }
         },
         "18" : {
             "Stage" : {
-                "1" : 0,
-                "2" : 0,
-                "3" : 0,
-                "4" : 200
+                "1" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 11
+                },
+                "2" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 11
+                },
+                "3" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 11
+                },
+                "4" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 11
+                }
             }
         },
         "19" : {
             "Stage" : {
-                "1" : 0,
-                "2" : 0,
-                "3" : 0,
-                "4" : 200
+                "1" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 11
+                },
+                "2" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 11
+                },
+                "3" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 11
+                },
+                "4" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 11
+                }
             }
         },
         "20" : {
             "Stage" : {
-                "1" : 0,
-                "2" : 0,
-                "3" : 0,
-                "4" : 0
+                "1" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 11
+                },
+                "2" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 11
+                },
+                "3" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 11
+                },
+                "4" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 11
+                }
             }
         },
         "21" : {
             "Stage" : {
-                "1" : 0,
-                "2" : 0,
-                "3" : 0,
-                "4" : 300
+                "1" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 15
+                },
+                "2" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 15
+                },
+                "3" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 15
+                },
+                "4" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 15
+                }
             }
         },
         "22" : {
             "Stage" : {
-                "1" : 0,
-                "2" : 0,
-                "3" : 0,
-                "4" : 300
+                "1" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 15
+                },
+                "2" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 15
+                },
+                "3" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 15
+                },
+                "4" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 15
+                }
             }
         },
         "23" : {
             "Stage" : {
-                "1" : 0,
-                "2" : 0,
-                "3" : 0,
-                "4" : 300
+                "1" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 15
+                },
+                "2" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 15
+                },
+                "3" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 15
+                },
+                "4" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 15
+                }
             }
         },
         "24" : {
             "Stage" : {
-                "1" : 0,
-                "2" : 0,
-                "3" : 0,
-                "4" : 300
+                "1" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 15
+                },
+                "2" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 15
+                },
+                "3" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 15
+                },
+                "4" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 15
+                }
             }
         },
         "25" : {
             "Stage" : {
-                "1" : 0,
-                "2" : 0,
-                "3" : 0,
-                "4" : 0
+                "1" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 15
+                },
+                "2" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 15
+                },
+                "3" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 15
+                },
+                "4" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 15
+                }
             }
         },
         "26" : {
             "Stage" : {
-                "1" : 0,
-                "2" : 0,
-                "3" : 0,
-                "4" : 0
+                "1" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 15
+                },
+                "2" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 15
+                },
+                "3" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 15
+                },
+                "4" : {
+                    "type" : 0,
+                    "limit" : 0,
+                    "exp" : 15
+                }
             }
         }
     },
     "type" : {
         "1" : {
-            "title" : "menu.challenge.time.title",
-            "description" : "menu.challenge.time.description",
-            "limit" : "menu.challenge.time.limit",
+            "title" : "content.challenge.time.title",
+            "description" : "content.challenge.time.description",
+            "limit" : "content.challenge.time.limit",
             "medal_code" : "medal_time",
             "logic" : "lessThan"
         },
         "2" : {
-            "title" : "menu.challenge.flameOrder.title",
-            "description" : "menu.challenge.flameOrder.description",
-            "limit" : "menu.challenge.flameOrder.limit",
+            "title" : "content.challenge.flameOrder.title",
+            "description" : "content.challenge.flameOrder.description",
+            "limit" : "content.challenge.flameOrder.limit",
             "medal_code" : "medal_flameOrder",
             "logic" : "greaterThanZero"
         },
         "3" : {
-            "title" : "menu.challenge.numActions.title",
-            "description" : "menu.challenge.numActions.description",
-            "limit" : "menu.challenge.numActions.limit",
+            "title" : "content.challenge.numActions.title",
+            "description" : "content.challenge.numActions.description",
+            "limit" : "content.challenge.numActions.limit",
             "medal_code" : "medal_numActions",
             "logic" : "lessThan"
         },
         "4" : {
-            "title" : "menu.challenge.xxx.title",
-            "description" : "menu.challenge.xxx.description",
-            "limit" : "menu.challenge.xxx.limit",
+            "title" : "content.challenge.xxx.title",
+            "description" : "content.challenge.xxx.description",
+            "limit" : "content.challenge.xxx.limit",
             "medal_code" : "medal_xxx",
             "logic" : "yesOrNo"
         },
         "101" : {
-            "title" : "menu.challenge.boss1.title",
-            "description" : "menu.challenge.boss1.description",
-            "limit" : "menu.challenge.boss1.limit",
+            "title" : "content.challenge.boss1.title",
+            "description" : "content.challenge.boss1.description",
+            "limit" : "content.challenge.boss1.limit",
             "medal_code" : "medal_boss1",
             "logic" : "lessThan"
         },
+        "105" : {
+            "title" : "content.challenge.boss5.title",
+            "description" : "content.challenge.boss5.description",
+            "limit" : "content.challenge.boss5.limit",
+            "medal_code" : "medal_boss5",
+            "logic" : "yesOrNo"
+        },
         "0" : {
-            "title" : "menu.challenge.disabled.title",
-            "description" : "menu.challenge.disabled.description",
-            "limit" : "menu.challenge.disabled.limit",
+            "title" : "content.challenge.disabled.title",
+            "description" : "content.challenge.disabled.description",
+            "limit" : "content.challenge.disabled.limit",
             "medal_code" : "medal_disabled",
             "logic" : "none"
         }

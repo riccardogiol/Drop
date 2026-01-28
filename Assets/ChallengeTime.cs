@@ -50,11 +50,11 @@ public class ChallengeTime : ChallengeScript
         challengeInfo.WriteText((int)timerSinceStart + "/" + timeLimit + " sec");
         if (!recordChallengeWon)
         {
-            if (currentState != 1 && timerSinceStart <= timeLimit)
+            if (currentState != 1 && (int)timerSinceStart <= timeLimit)
             {
                 currentState = 1;
                 challengeInfo.SetMedalState(1);
-            } else if (currentState != 0 && timerSinceStart > timeLimit)
+            } else if (currentState != 0 && (int)timerSinceStart > timeLimit)
             {
                 currentState = 0;
                 challengeInfo.SetMedalState(0);
@@ -65,7 +65,7 @@ public class ChallengeTime : ChallengeScript
     public override ChallengeResults GetResultNow(bool stop = false)
     {
         stopTimer = stop;
-        return new ChallengeResults(timerSinceStart <= timeLimit, timeLimit, (int)timerSinceStart, "lessThan");
+        return new ChallengeResults((int)timerSinceStart <= timeLimit, timeLimit, (int)timerSinceStart, "lessThan");
     }
 
     public override ChallengeWinInfo EvaluateWinInfo(ChallengeResults challengeResults, ChallengeResults challengeRecord)

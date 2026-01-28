@@ -18,6 +18,8 @@ public class MapMenuManager : MonoBehaviour
         lastMousePos = Vector3.one;
         if (Input.mousePosition != null)
            lastMousePos = Input.mousePosition;
+        if (PlayerPrefs.GetInt("EasyMode", 0) == 1)
+            PlayerPrefs.SetInt("ChallengeDisabled", 1);
     }
 
      void Update()

@@ -249,7 +249,7 @@ RectTransform:
   - {fileID: 1066135119}
   - {fileID: 1564239694}
   m_Father: {fileID: 1207991584}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -357,6 +357,8 @@ MonoBehaviour:
   gamepadButtonCode: R1
   box: {fileID: 0}
   newBoxWide: 0
+  elementToHideGP: {fileID: 0}
+  elementToShowGP: {fileID: 0}
 --- !u!1001 &650867797
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1896,6 +1898,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: message.tutorial.shoot.description
   upperCase: 0
+  multiInput: 0
 --- !u!114 &1066135124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1927,6 +1930,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: message.tutorial.shoot.title
   upperCase: 1
+  multiInput: 0
 --- !u!1001 &1128471343
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2478,7 +2482,7 @@ PrefabInstance:
     - target: {fileID: 4731850025182448036, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5411216365801270622, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
@@ -2508,7 +2512,7 @@ PrefabInstance:
     - target: {fileID: 5724385940035960968, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5766869013694836603, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
@@ -2548,7 +2552,7 @@ PrefabInstance:
     - target: {fileID: 7479097401432682229, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 7692640206896602110, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
@@ -3165,6 +3169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: message.tutorial.rotation2.description
   upperCase: 0
+  multiInput: 0
 --- !u!114 &1564239701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3179,6 +3184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: message.tutorial.rotation2.title
   upperCase: 1
+  multiInput: 0
 --- !u!114 &1564239702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3896,6 +3902,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: message.tutorial.rotation.description
   upperCase: 0
+  multiInput: 0
 --- !u!114 &1659776322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3910,6 +3917,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: message.tutorial.rotation.title
   upperCase: 1
+  multiInput: 0
 --- !u!1 &1715446437 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 205035693797844083, guid: c7b202ae4dba84871811aa7c44bc43e3,
@@ -7145,6 +7153,7 @@ MonoBehaviour:
   speed: 7
   scaleX: 10
   scaleY: 0
+  timeInvariant: 0
 --- !u!1 &1829143153 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3609857409221905820, guid: 0523bb4d062064c4eb935a51509597a0,
@@ -7171,6 +7180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: message.tutorial.6.description
   upperCase: 0
+  multiInput: 0
 --- !u!114 &1829143156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7185,6 +7195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: message.tutorial.6.title
   upperCase: 1
+  multiInput: 0
 --- !u!114 &1829143164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7291,6 +7302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: menu.general.space_key
   upperCase: 1
+  multiInput: 0
 --- !u!114 &2005496713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7306,6 +7318,8 @@ MonoBehaviour:
   gamepadButtonCode: A
   box: {fileID: 934964143}
   newBoxWide: 70
+  elementToHideGP: {fileID: 0}
+  elementToShowGP: {fileID: 0}
 --- !u!1001 &2014940351
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7585,6 +7599,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2098056894}
   - component: {fileID: 2098056895}
+  - component: {fileID: 2098056896}
   m_Layer: 0
   m_Name: StageManager
   m_TagString: Untagged
@@ -7626,3 +7641,15 @@ MonoBehaviour:
   finalStage: 0
   bossTransform: {fileID: 0}
   menusManager: {fileID: 1207991583}
+--- !u!114 &2098056896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098056893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f452a4aa4457c4f908a1f80c37dbadb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

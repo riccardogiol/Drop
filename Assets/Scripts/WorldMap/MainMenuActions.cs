@@ -31,7 +31,9 @@ public class MainMenuActions : MonoBehaviour
         int layout = PlayerPrefs.GetInt("AzertyLayout", 0);
         int fv = PlayerPrefs.GetInt("FullVersion", 0);
         int dv = PlayerPrefs.GetInt("DemoVersion", 0);
+
         PlayerPrefs.DeleteAll();
+
         PlayerPrefs.SetFloat("MusicVolume", musicVolume);
         PlayerPrefs.SetFloat("SoundVolume", soundVolume);
         PlayerPrefs.SetString("LanguagePreference", language);
@@ -42,6 +44,7 @@ public class MainMenuActions : MonoBehaviour
         PlayerPrefs.SetInt("ShowButtonHint", 1);
         if (casual)
             PlayerPrefs.SetInt("EasyMode", 1);
+        PlayerPrefs.SetInt("ChallengeDisabled", 1);
         SceneManager.LoadScene("OpeningScene");
     }
 

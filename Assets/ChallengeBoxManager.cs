@@ -7,7 +7,7 @@ public class ChallengeBoxManager : MonoBehaviour
     public Image medalGFX;
     public Text text;
 
-    public Text title;
+    public TextLocalizer title;
     public Text description;
     public GameObject descriptionPanel;
     bool showPanel = false;
@@ -20,7 +20,10 @@ public class ChallengeBoxManager : MonoBehaviour
     {
         if (challenge == null)
         {
-            string noChallengeText = "Challenge Disabled"; // rimpiazza con localization stesso di challenge info file in type 0
+            
+            string noChallengeText =  SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("content.challenge.disabled.title");
+            if (noChallengeText == null)
+                noChallengeText = "Challenge Disabled";
             text.text = noChallengeText;
             return;
         }
@@ -32,18 +35,29 @@ public class ChallengeBoxManager : MonoBehaviour
         textToDisplay = textToDisplay + cr.value + "/" +  cr.limit + " ";
         if (cwi.chalWinNow)
         {
-            textToDisplay = textToDisplay + "Challenge Complete\n"; // rimpiazzare con localization
+            string localizedText =  SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("content.challenge.general.challenge_won");
+            if (localizedText == null)
+                localizedText = "Challenge Complete";
+            textToDisplay = textToDisplay + localizedText + "\n";
         } else
         {
-            textToDisplay = textToDisplay + "Challenge Missed\n"; // rimpiazzare con localization
+            string localizedText =  SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("content.challenge.general.challenge_missed");
+            if (localizedText == null)
+                localizedText = "Challenge Missed";
+            textToDisplay = textToDisplay + localizedText + "\n";
         }
+
+        string recordText;
         
         if (!cwi.chalAlrWon && !cwi.chalWinNow)
         {
             if (cwi.newRec)
             {
-                textToDisplay = textToDisplay + cwi.recordValue + "/" + cr.limit + " "; // rimpiazzare con localization
-                textToDisplay = textToDisplay + "New Record!<color=#E2C72A>"; // rimpiazzare con localization
+                textToDisplay = textToDisplay + cwi.recordValue + "/" + cr.limit + " ";
+                recordText =  SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("content.challenge.general.new_record");
+                if (recordText == null)
+                    recordText = "New Record";
+                textToDisplay = textToDisplay + recordText + "!<color=#E2C72A>";
                 if (cwi.chalWonExp > 0)
                     textToDisplay = textToDisplay + " +" + cwi.chalWonExp;
                 if (cwi.extraExp > 0)
@@ -51,17 +65,28 @@ public class ChallengeBoxManager : MonoBehaviour
                 textToDisplay = textToDisplay + "exp</color>";
             } else if (cwi.recordValue > 0)
             {
-                textToDisplay = textToDisplay + cwi.recordValue + "/" + cr.limit + " "; // rimpiazzare con localization
-                textToDisplay = textToDisplay + "Old Record"; // rimpiazzare con localization
+                recordText =  SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("content.challenge.general.old_record");
+                if (recordText == null)
+                    recordText = "Old Record";
+                textToDisplay = textToDisplay + cwi.recordValue + "/" + cr.limit + " ";
+                textToDisplay = textToDisplay + recordText;
             } else
-                textToDisplay = textToDisplay + "--/-- " + "No Record"; // rimpiazzare con localization
+            {
+                recordText =  SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("content.challenge.general.no_record");
+                if (recordText == null)
+                    recordText = "No Record";
+                textToDisplay = textToDisplay + "--/-- " + recordText;
+            }
             
         } else
         {
-            textToDisplay = textToDisplay + cwi.recordValue + "/" + cr.limit + " "; // rimpiazzare con localization
+            textToDisplay = textToDisplay + cwi.recordValue + "/" + cr.limit + " ";
             if (cwi.newRec)
             {
-                textToDisplay = textToDisplay + "New Record!<color=#E2C72A>"; // rimpiazzare con localization
+                recordText =  SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("content.challenge.general.new_record");
+                if (recordText == null)
+                    recordText = "New Record";
+                textToDisplay = textToDisplay + recordText + "!<color=#E2C72A>";
                 if (cwi.chalWonExp > 0)
                     textToDisplay = textToDisplay + " +" + cwi.chalWonExp;
                 if (cwi.extraExp > 0)
@@ -69,7 +94,10 @@ public class ChallengeBoxManager : MonoBehaviour
                 textToDisplay = textToDisplay + "exp</color>";
             } else
             {
-                textToDisplay = textToDisplay + "Old Record"; // rimpiazzare con localization
+                recordText =  SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("content.challenge.general.old_record");
+                if (recordText == null)
+                    recordText = "Old Record";
+                textToDisplay = textToDisplay + recordText;
             }
             SetMedalState(2);
         }
@@ -78,28 +106,45 @@ public class ChallengeBoxManager : MonoBehaviour
 
     public void DisplayMenuInfoMessage(String titleKey, String descriptionKey, string limitKey, string medalKey, ChallengeResults cRecord)
     {
-        title.text = titleKey; // sostituire con localization
+        title.key = titleKey;
+        title.Localize();
 
         string textToDisplay = "";
-        textToDisplay = textToDisplay + descriptionKey; // sostituire con localization
+        string descriptionText =  SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get(descriptionKey);
+        if (descriptionText == null)
+            descriptionText = descriptionKey;
+        textToDisplay = textToDisplay + descriptionText; 
         if (cRecord.limit > 0)
         {
             textToDisplay = textToDisplay + "\n";
-            textToDisplay = textToDisplay + limitKey + ": "; // sostituire con localization
+            string limitText =  SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get(limitKey);
+            if (limitText == null)
+                limitText = limitKey;
+            textToDisplay = textToDisplay + limitText + ": ";
             textToDisplay = textToDisplay + cRecord.limit;
         }
         if (cRecord.value > 0)
         {
             textToDisplay = textToDisplay + "\n";
-            textToDisplay = textToDisplay + "Old record: "; // sostituire con localization
+            string oldRecordText =  SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("content.challenge.general.old_record");
+            if (oldRecordText == null)
+                oldRecordText = "Old record";
+            textToDisplay = textToDisplay + oldRecordText + ": ";
             textToDisplay = textToDisplay + cRecord.value;
         }
         if (cRecord.value == -1)
         {
             textToDisplay = textToDisplay + "\n";
-            textToDisplay = textToDisplay + "Old record: --"; // sostituire con localization
+            string noRecordText =  SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("content.challenge.general.no_record");
+            if (noRecordText == null)
+                noRecordText = "No record";
+            textToDisplay = textToDisplay + noRecordText;
         }
         description.text = textToDisplay;
+        /*FitBoxText fitBoxText = description.GetComponent<FitBoxText>();
+        if (fitBoxText != null)
+            fitBoxText.Resize();
+        */
 
         SetMedalGFX(medalKey);
         if (cRecord.win)
