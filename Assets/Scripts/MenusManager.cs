@@ -39,7 +39,7 @@ public class MenusManager : MonoBehaviour
 
     Vector3 lastMousePos;
 
-    void Start()
+    void Awake()
     {
         Sprite logoSprite = Resources.Load<Sprite>("Sprites/Elements/" + stageManager.trophyName + "_burnt");
         if (logoRef != null)
@@ -89,7 +89,10 @@ public class MenusManager : MonoBehaviour
         eagleEye = FindFirstObjectByType<EagleEyeMode>();
         if (eagleEye == null)
             return;
+    }
 
+    void Start()
+    {
         shader.SetActive(false);
         pauseMenu.SetActive(false);
         gameOverMenu.SetActive(false);
@@ -129,7 +132,7 @@ public class MenusManager : MonoBehaviour
             shader.SetActive(true);
             isPaused = true;
             FindObjectOfType<AudioManager>().LowFilerEnter();
-            auxTrans = openMessage.transform.Find("ContinueButton");
+            Transform auxTrans = openMessage.transform.Find("ContinueButton");
             if (auxTrans == null)
                 return;
             auxTrans.GetComponent<Button>().Select();
