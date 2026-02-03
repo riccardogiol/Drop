@@ -15,6 +15,7 @@ public class WindFireWave : MonoBehaviour
     float countdown = 0;
     bool triggered = false;
     bool notTrigger = false;
+    //bool touchFlame = false;
     float stopTimer = 2.0f;
 
     float refreshTimer = 5.0f; 
@@ -29,9 +30,12 @@ public class WindFireWave : MonoBehaviour
     List<int> lastTouchedIDs = new List<int>();
     int triggerdByID;
 
+    //ChallengeWindTrigger challengeWindTrigger;
+
     void Start()
     {
         playgroundManager = FindFirstObjectByType<PlaygroundManager>();
+        //challengeWindTrigger = FindFirstObjectByType<ChallengeWindTrigger>();
         countdown = delay;
     }
 
@@ -57,6 +61,8 @@ public class WindFireWave : MonoBehaviour
                 main1.startColor = fireWindColor;
                 main1 = leavesPS.main;
                 main1.startColor = fireWindColor;
+                //if (challengeWindTrigger != null && touchFlame)
+                //    challengeWindTrigger.IncreaseCounter();
                 SpawnPrefabs();
             }
         }

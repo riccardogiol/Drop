@@ -170,4 +170,9 @@ public class PlayerSuperPower : MonoBehaviour
         if(PlayerPrefs.GetInt(unlockingCode2, 0) == 1)
             playgroundManager.MakeRain(false, true, true, false, true);
     }
+
+    public bool IsInSuperState()
+    {
+        return superState;
+    }
 }

@@ -71,7 +71,7 @@ public class Wave : MonoBehaviour
             }
         }
         if (other.CompareTag("Enemy"))
-            other.GetComponent<EnemyHealth>().TakeDamage(damage);
+            other.GetComponent<EnemyHealth>().TakeDamage(damage, !shootByPlayer);
         if (other.CompareTag("Flame"))
         {
             int otherEnergy = other.GetComponent<PickFlame>().energy;

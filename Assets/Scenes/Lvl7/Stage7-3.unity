@@ -12493,10 +12493,15 @@ PrefabInstance:
       propertyPath: m_Text
       value: Shoot!
       objectReference: {fileID: 0}
+    - target: {fileID: 2152558593757141169, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 2396537561442032236, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 3250874807881098396, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
@@ -13253,6 +13258,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2098056894}
   - component: {fileID: 2098056895}
+  - component: {fileID: 2098056896}
   m_Layer: 0
   m_Name: StageManager
   m_TagString: Untagged
@@ -13294,6 +13300,18 @@ MonoBehaviour:
   finalStage: 0
   bossTransform: {fileID: 0}
   menusManager: {fileID: 1207991583}
+--- !u!114 &2098056896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098056893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee2de44acecac413f8e4605d5660977e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2127507580
 PrefabInstance:
   m_ObjectHideFlags: 0

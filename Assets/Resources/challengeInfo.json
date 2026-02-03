@@ -123,23 +123,23 @@
         "6" : {
             "Stage" : {
                 "1" : {
-                    "type" : 0,
-                    "limit" : 0,
+                    "type" : 1,
+                    "limit" : 30,
                     "exp" : 6
                 },
                 "2" : {
-                    "type" : 0,
+                    "type" : 3,
                     "limit" : 40,
                     "exp" : 6
                 },
                 "3" : {
-                    "type" : 0,
-                    "limit" : 0,
+                    "type" : 1,
+                    "limit" : 75,
                     "exp" : 6
                 },
                 "4" : {
-                    "type" : 0,
-                    "limit" : 60,
+                    "type" : 2,
+                    "limit" : 5,
                     "exp" : 6
                 }
             }
@@ -147,23 +147,23 @@
         "7" : {
             "Stage" : {
                 "1" : {
-                    "type" : 0,
-                    "limit" : 0,
+                    "type" : 1,
+                    "limit" : 40,
                     "exp" : 6
                 },
                 "2" : {
-                    "type" : 0,
-                    "limit" : 0,
+                    "type" : 1,
+                    "limit" : 100,
                     "exp" : 6
                 },
                 "3" : {
-                    "type" : 0,
-                    "limit" : 0,
+                    "type" : 3,
+                    "limit" : 90,
                     "exp" : 6
                 },
                 "4" : {
-                    "type" : 0,
-                    "limit" : 0,
+                    "type" : 1,
+                    "limit" : 110,
                     "exp" : 6
                 }
             }
@@ -171,23 +171,23 @@
         "8" : {
             "Stage" : {
                 "1" : {
-                    "type" : 0,
-                    "limit" : 0,
+                    "type" : 3,
+                    "limit" : 20,
                     "exp" : 6
                 },
                 "2" : {
-                    "type" : 0,
-                    "limit" : 0,
+                    "type" : 3,
+                    "limit" : 22,
                     "exp" : 6
                 },
                 "3" : {
-                    "type" : 0,
-                    "limit" : 0,
+                    "type" : 1,
+                    "limit" : 40,
                     "exp" : 6
                 },
                 "4" : {
-                    "type" : 0,
-                    "limit" : 0,
+                    "type" : 2,
+                    "limit" : 4,
                     "exp" : 6
                 }
             }
@@ -195,23 +195,23 @@
         "9" : {
             "Stage" : {
                 "1" : {
-                    "type" : 0,
-                    "limit" : 0,
+                    "type" : 1,
+                    "limit" : 20,
                     "exp" : 6
                 },
                 "2" : {
-                    "type" : 0,
-                    "limit" : 0,
+                    "type" : 2,
+                    "limit" : 3,
                     "exp" : 6
                 },
                 "3" : {
-                    "type" : 0,
-                    "limit" : 0,
+                    "type" : 1,
+                    "limit" : 120,
                     "exp" : 6
                 },
                 "4" : {
-                    "type" : 0,
-                    "limit" : 0,
+                    "type" : 4,
+                    "limit" : 1,
                     "exp" : 6
                 }
             }
@@ -219,8 +219,8 @@
         "10" : {
             "Stage" : {
                 "1" : {
-                    "type" : 0,
-                    "limit" : 0,
+                    "type" : 102,
+                    "limit" : 1,
                     "exp" : 6
                 },
                 "2" : {
@@ -330,8 +330,8 @@
                     "exp" : 8
                 },
                 "4" : {
-                    "type" : 0,
-                    "limit" : 0,
+                    "type" : 5,
+                    "limit" : 1,
                     "exp" : 8
                 }
             }
@@ -363,8 +363,8 @@
         "16" : {
             "Stage" : {
                 "1" : {
-                    "type" : 0,
-                    "limit" : 0,
+                    "type" : 4,
+                    "limit" : 2,
                     "exp" : 11
                 },
                 "2" : {
@@ -426,8 +426,8 @@
                     "exp" : 11
                 },
                 "4" : {
-                    "type" : 0,
-                    "limit" : 0,
+                    "type" : 6,
+                    "limit" : 15,
                     "exp" : 11
                 }
             }
@@ -648,6 +648,27 @@
             "logic" : "lessThan"
         },
         "4" : {
+            "title" : "content.challenge.noHit.title",
+            "description" : "content.challenge.noHit.description",
+            "limit" : "content.challenge.noHit.limit",
+            "medal_code" : "medal_noHit",
+            "logic" : "lessThan"
+        },
+        "5" : {
+            "title" : "content.challenge.envElements.title",
+            "description" : "content.challenge.envElements.description",
+            "limit" : "content.challenge.envElements.limit",
+            "medal_code" : "medal_envElements",
+            "logic" : "greaterThanZero"
+        },
+        "6" : {
+            "title" : "content.challenge.windTrigger.title",
+            "description" : "content.challenge.windTrigger.description",
+            "limit" : "content.challenge.windTrigger.limit",
+            "medal_code" : "medal_windTrigger",
+            "logic" : "lessThan"
+        },
+        "99" : {
             "title" : "content.challenge.xxx.title",
             "description" : "content.challenge.xxx.description",
             "limit" : "content.challenge.xxx.limit",
@@ -660,6 +681,13 @@
             "limit" : "content.challenge.boss1.limit",
             "medal_code" : "medal_boss1",
             "logic" : "lessThan"
+        },
+        "102" : {
+            "title" : "content.challenge.boss2.title",
+            "description" : "content.challenge.boss2.description",
+            "limit" : "content.challenge.boss2.limit",
+            "medal_code" : "medal_boss2",
+            "logic" : "yesOrNo"
         },
         "105" : {
             "title" : "content.challenge.boss5.title",

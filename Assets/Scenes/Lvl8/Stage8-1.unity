@@ -1395,6 +1395,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: Shoot!
       objectReference: {fileID: 0}
+    - target: {fileID: 2152558593757141169, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 3250874807881098396, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -1503,7 +1508,7 @@ PrefabInstance:
     - target: {fileID: 7479097401432682229, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 7692640206896602110, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
@@ -2101,6 +2106,7 @@ MonoBehaviour:
   speed: 7
   scaleX: 10
   scaleY: 0
+  timeInvariant: 0
 --- !u!1 &1309193105 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3609857409221905820, guid: 0523bb4d062064c4eb935a51509597a0,
@@ -2127,6 +2133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: message.tutorial.waterbomb.description
   upperCase: 0
+  multiInput: 0
 --- !u!114 &1309193108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2158,6 +2165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: message.tutorial.waterbomb.title
   upperCase: 1
+  multiInput: 0
 --- !u!1 &1736441726
 GameObject:
   m_ObjectHideFlags: 0
@@ -2766,6 +2774,7 @@ GameObject:
   - component: {fileID: 2098056894}
   - component: {fileID: 2098056895}
   - component: {fileID: 2098056896}
+  - component: {fileID: 2098056897}
   m_Layer: 0
   m_Name: StageManager
   m_TagString: Untagged
@@ -2821,6 +2830,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageManager: {fileID: 2098056895}
   toWorldMap: 0
+--- !u!114 &2098056897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098056893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee2de44acecac413f8e4605d5660977e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4617294187859838832
 PrefabInstance:
   m_ObjectHideFlags: 0

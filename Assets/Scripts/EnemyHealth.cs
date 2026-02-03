@@ -20,10 +20,14 @@ public class EnemyHealth : MonoBehaviour
     ProgressionBarFiller progressionBarFiller;
     BossLifeManager bossLifeManager;
 
+    ChallengeEnvElements challengeEnvElements; // classe esterna??
+
     void Awake()
     {
         if (isBoss)
             bossLifeManager = GetComponent<BossLifeManager>();
+        
+        challengeEnvElements = FindFirstObjectByType<ChallengeEnvElements>();
     }
 
     void Start()
@@ -55,7 +59,7 @@ public class EnemyHealth : MonoBehaviour
             }
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, bool envDamage = false)
     {
         if (currentHealth <= 0)
             return;
@@ -82,6 +86,8 @@ public class EnemyHealth : MonoBehaviour
                 PlaygroundManager pgRef = FindObjectOfType<PlaygroundManager>();
                 if (pgRef != null)
                     pgRef.WildfireEstinguished();
+                if (challengeEnvElements != null && envDamage)
+                    challengeEnvElements.IncreaseCounter();
                 Instantiate(vaporBurstPrefab, transform.position, Quaternion.identity);
                 Instantiate(vaporBurstPrefab, transform.position + new Vector3(0, 0.5f), Quaternion.identity);
                 Destroy(gameObject);

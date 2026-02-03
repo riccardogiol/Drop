@@ -19,6 +19,8 @@ public class PlayerHealth : MonoBehaviour
     readonly string unlockingCode5 = "Hero3Purchased";
     readonly string unlockingCode6 = "Hero4Purchased";
 
+    ChallengeNoHit challengeNoHit;
+
     void Start()
     {
         if (PlayerPrefs.GetInt(unlockingCode2, 0) == 1)
@@ -37,6 +39,7 @@ public class PlayerHealth : MonoBehaviour
 
         healthBar.SetMaxHealth(maxHealth);
         healthBar.SetHealth(currentHealth);
+        challengeNoHit = FindFirstObjectByType<ChallengeNoHit>();
     }
 
     public void TakeDamage(int damage, bool ignoreShield = false)
@@ -47,6 +50,8 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = Math.Max(currentHealth - damage, 0);
         damageIndicator.ShowDamage(damage);
         healthBar.SetHealth(currentHealth);
+        if (damage > 0 && challengeNoHit != null && !ignoreShield)
+            challengeNoHit.IncreaseHitCounter();
         if (currentHealth == 0)
         {
             if (PlayerPrefs.GetInt(unlockingCode6, 0) == 1 && UnityEngine.Random.value < 0.33)

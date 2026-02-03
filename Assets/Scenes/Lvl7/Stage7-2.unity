@@ -283,6 +283,16 @@ PrefabInstance:
       propertyPath: spawnSpot.x
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 4594434882770033376, guid: 9c62499f7c5e24ec29ded221f704dc26,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 4594434882770033376, guid: 9c62499f7c5e24ec29ded221f704dc26,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.07
+      objectReference: {fileID: 0}
     - target: {fileID: 5831071956751903874, guid: 9c62499f7c5e24ec29ded221f704dc26,
         type: 3}
       propertyPath: m_RootOrder
@@ -844,6 +854,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 221426056}
     m_Modifications:
+    - target: {fileID: 5381898384179224921, guid: 7bcf063f4846448ccaadc318cb1bf5ea,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 5381898384179224921, guid: 7bcf063f4846448ccaadc318cb1bf5ea,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.12
+      objectReference: {fileID: 0}
     - target: {fileID: 5518236711149801051, guid: 7bcf063f4846448ccaadc318cb1bf5ea,
         type: 3}
       propertyPath: spawnSpot.x
@@ -1351,6 +1371,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: Shoot!
+      objectReference: {fileID: 0}
+    - target: {fileID: 2152558593757141169, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3250874807881098396, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
@@ -2578,6 +2603,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2098056894}
   - component: {fileID: 2098056895}
+  - component: {fileID: 2098056896}
   m_Layer: 0
   m_Name: StageManager
   m_TagString: Untagged
@@ -2619,6 +2645,18 @@ MonoBehaviour:
   finalStage: 0
   bossTransform: {fileID: 0}
   menusManager: {fileID: 1207991583}
+--- !u!114 &2098056896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098056893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f452a4aa4457c4f908a1f80c37dbadb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2099571548
 PrefabInstance:
   m_ObjectHideFlags: 0
