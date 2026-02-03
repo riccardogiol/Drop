@@ -20,14 +20,14 @@ public class EnemyHealth : MonoBehaviour
     ProgressionBarFiller progressionBarFiller;
     BossLifeManager bossLifeManager;
 
-    ChallengeEnvElements challengeEnvElements; // classe esterna??
+    ChallengeBoss3 challengeEnvElements;
 
     void Awake()
     {
         if (isBoss)
             bossLifeManager = GetComponent<BossLifeManager>();
         
-        challengeEnvElements = FindFirstObjectByType<ChallengeEnvElements>();
+        challengeEnvElements = FindFirstObjectByType<ChallengeBoss3>();
     }
 
     void Start()

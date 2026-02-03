@@ -1,7 +1,7 @@
 using Newtonsoft.Json.Linq;
 using UnityEngine;
 
-public class ChallengeEnvElements : ChallengeScript //Boss3?
+public class ChallengeBoss3 : ChallengeScript
 {
     int objective = 0;
     int counter = 0;
@@ -41,9 +41,11 @@ public class ChallengeEnvElements : ChallengeScript //Boss3?
         JToken jtMedal = jt["medal_code"];
         if (jtMedal is JValue value6)
             challengeMedalKey = (string)value6;
+        JToken jtLogic = jt["logic"];
+        if (jtLogic is JValue value7)
+            challengeLogic = (string)value7;
 
         currentState = -1;
-        //challengeInfo.SetMedalState(1);
         
         challengeInfo.SetMedalGFX(challengeMedalKey);
         IncreaseCounter(0);
@@ -55,13 +57,21 @@ public class ChallengeEnvElements : ChallengeScript //Boss3?
             return;
         counter += amount;
         challengeInfo.WriteText(counter + "/" + objective + " kills");
+        if (!recordChallengeWon)
+        {
+            if (counter < objective)
+                challengeInfo.SetMedalState(0);
+            else
+                challengeInfo.SetMedalState(1);
+        }
+
     }
 
 
     public override ChallengeResults GetResultNow(bool stop = false)
     {
         stopCounter = stop;
-        return new ChallengeResults(counter >= objective, objective, counter, "greaterThanZero");
+        return new ChallengeResults(counter >= objective, objective, counter, challengeLogic);
     }
 
     public override ChallengeWinInfo EvaluateWinInfo(ChallengeResults challengeResults, ChallengeResults challengeRecord)
@@ -72,17 +82,10 @@ public class ChallengeEnvElements : ChallengeScript //Boss3?
             if (challengeRecord.win)
             {
                 cwi.chalAlrWon = true;
+                cwi.recordValue = challengeRecord.value;
                 if (challengeResults.win)
-                {
                     cwi.chalWinNow = true;
-                    if (challengeResults.value > challengeRecord.value)
-                    {
-                        cwi.newRec = true;
-                        cwi.recordValue = challengeResults.value;
-                    } else
-                        cwi.recordValue = challengeRecord.value;
-                } else
-                    cwi.recordValue = challengeRecord.value;
+
             } else
             {
                 if (challengeResults.win)
@@ -90,14 +93,6 @@ public class ChallengeEnvElements : ChallengeScript //Boss3?
                     cwi.chalWinNow = true;
                     cwi.newRec = true;
                     cwi.recordValue = challengeResults.value;
-                } else
-                {
-                    if (challengeResults.value > 0 && challengeResults.value > challengeRecord.value)
-                    {
-                        cwi.newRec = true;
-                        cwi.recordValue = challengeResults.value;
-                    } else if (challengeRecord.value > 0)
-                        cwi.recordValue = challengeRecord.value;
                 }
             }
         }
