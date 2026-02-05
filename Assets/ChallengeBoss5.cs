@@ -1,16 +1,17 @@
 using UnityEngine;
 using Newtonsoft.Json.Linq;
 
-public class ChallengeTime : ChallengeScript
+public class ChallengeBoss5 : ChallengeScript
 {
-    int timeLimit = 0;
-    float timerSinceStart = 0;
-    bool stopTimer = false;
+    int type = 0;
+
+    bool winCondition = false;
 
     void Awake()
     {
         challengeInfo = FindFirstObjectByType<ChallengeInfo>();
         stageManager = GetComponent<StageManager>();
+
         //take values for the stage challenge logic
         TextAsset jsonAsset = Resources.Load<TextAsset>("challengeInfo");
         JObject jroot = JObject.Parse(jsonAsset.text);
@@ -18,12 +19,12 @@ public class ChallengeTime : ChallengeScript
         jt = jt[stageManager.currentLvl + ""];
         jt = jt["Stage"];
         jt = jt[stageManager.currentStage + ""];
-        jt = jt["limit"]; // check if there is?
-        if (jt is JValue value)
-            timeLimit = (int)value;
+        JToken jtTypeVal = jt["type"];
+        if (jtTypeVal is JValue typeValue)
+            type = (int)typeValue;
         //take values for the info on the challenge type
         jt = jroot["type"];
-        jt = jt["1"];
+        jt = jt[type + ""];
         JToken jtTitle = jt["title"];
         if (jtTitle is JValue value3)
             challengeTitleKey = (string)value3;
@@ -36,36 +37,32 @@ public class ChallengeTime : ChallengeScript
         JToken jtMedal = jt["medal_code"];
         if (jtMedal is JValue value6)
             challengeMedalKey = (string)value6;
-
-        currentState = -1;
+        JToken jtLogic = jt["logic"];
+        if (jtLogic is JValue value7)
+            challengeLogic = (string)value7;
         
         challengeInfo.SetMedalGFX(challengeMedalKey);
-    }
 
-    void Update()
-    {
-        if (stopTimer)
-           return;
-        timerSinceStart += Time.deltaTime;   
-        challengeInfo.WriteText(timerSinceStart.ToString("0.0") + "/" + timeLimit.ToString("0.0") + " sec");
-        if (!recordChallengeWon)
+        if (PlayerPrefs.GetInt("Hero1Purchased", 0) == 0 && 
+            PlayerPrefs.GetInt("Waterbullet1Purchased", 0) == 0 && 
+            PlayerPrefs.GetInt("Wave1Purchased", 0) == 0 && 
+            PlayerPrefs.GetInt("SuperPurchased", 0) == 0)
+            winCondition = true;
+        
+        if (winCondition)
         {
-            if (currentState != 1 && timerSinceStart < timeLimit)
-            {
-                currentState = 1;
-                challengeInfo.SetMedalState(1);
-            } else if (currentState != 0 && timerSinceStart > timeLimit)
-            {
-                currentState = 0;
-                challengeInfo.SetMedalState(0);
-            }
+            challengeInfo.SetMedalState(1);
+            challengeInfo.WriteText("condition fulfilled");
+        } else
+        {
+            challengeInfo.SetMedalState(0);
+            challengeInfo.WriteText("condition wrong");
         }
     }
 
     public override ChallengeResults GetResultNow(bool stop = false)
     {
-        stopTimer = stop;
-        return new ChallengeResults((int)timerSinceStart < timeLimit, timeLimit, (int)timerSinceStart, "lessThanNotEqual");
+        return new ChallengeResults(winCondition, 1, 1, challengeLogic);
     }
 
     public override ChallengeWinInfo EvaluateWinInfo(ChallengeResults challengeResults, ChallengeResults challengeRecord)
@@ -76,17 +73,10 @@ public class ChallengeTime : ChallengeScript
             if (challengeRecord.win)
             {
                 cwi.chalAlrWon = true;
+                cwi.recordValue = challengeRecord.value;
                 if (challengeResults.win)
-                {
                     cwi.chalWinNow = true;
-                    if (challengeResults.value < challengeRecord.value)
-                    {
-                        cwi.newRec = true;
-                        cwi.recordValue = challengeResults.value;
-                    } else
-                        cwi.recordValue = challengeRecord.value;
-                } else
-                    cwi.recordValue = challengeRecord.value;
+
             } else
             {
                 if (challengeResults.win)

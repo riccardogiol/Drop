@@ -17,6 +17,8 @@ public class Bullet : MonoBehaviour
 
     public bool castWave = false;
     public GameObject waveGO;
+    
+    public bool iceBullet = false;
 
     Rigidbody2D rigidbody2D;
     Collider2D collider2D;
@@ -47,7 +49,7 @@ public class Bullet : MonoBehaviour
                     otherPosition = other.transform.position;
                     delayedEffect = true;
                 }
-                other.GetComponent<EnemyHealth>().TakeDamage(damage);
+                other.GetComponent<EnemyHealth>().TakeDamage(damage, false, iceBullet);
                 DestroyBullet(false, piercingShoot);
                 break;
             case "Grass":

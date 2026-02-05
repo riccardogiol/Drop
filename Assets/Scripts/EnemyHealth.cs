@@ -21,6 +21,7 @@ public class EnemyHealth : MonoBehaviour
     BossLifeManager bossLifeManager;
 
     ChallengeBoss3 challengeEnvElements;
+    ChallengeBoss4 challengeIceBullet;
 
     void Awake()
     {
@@ -28,6 +29,7 @@ public class EnemyHealth : MonoBehaviour
             bossLifeManager = GetComponent<BossLifeManager>();
         
         challengeEnvElements = FindFirstObjectByType<ChallengeBoss3>();
+        challengeIceBullet = FindFirstObjectByType<ChallengeBoss4>();
     }
 
     void Start()
@@ -59,7 +61,7 @@ public class EnemyHealth : MonoBehaviour
             }
     }
 
-    public void TakeDamage(int damage, bool envDamage = false)
+    public void TakeDamage(int damage, bool envDamage = false, bool isIceBullet = false)
     {
         if (currentHealth <= 0)
             return;
@@ -75,6 +77,8 @@ public class EnemyHealth : MonoBehaviour
         {
             if (healthOnProgBar || isBoss)
             {
+                if (challengeIceBullet != null && isIceBullet)
+                    challengeIceBullet.IncreaseCounter();
                 if (flameParent != null)
                     flameParent.DestroyAllFires();
                 if (animator != null)
@@ -88,6 +92,8 @@ public class EnemyHealth : MonoBehaviour
                     pgRef.WildfireEstinguished();
                 if (challengeEnvElements != null && envDamage)
                     challengeEnvElements.IncreaseCounter();
+                if (challengeIceBullet != null && isIceBullet)
+                    challengeIceBullet.IncreaseCounter();
                 Instantiate(vaporBurstPrefab, transform.position, Quaternion.identity);
                 Instantiate(vaporBurstPrefab, transform.position + new Vector3(0, 0.5f), Quaternion.identity);
                 Destroy(gameObject);

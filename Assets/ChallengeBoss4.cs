@@ -1,29 +1,34 @@
-using UnityEngine;
 using Newtonsoft.Json.Linq;
+using UnityEngine;
 
-public class ChallengeTime : ChallengeScript
+public class ChallengeBoss4 : ChallengeScript
 {
-    int timeLimit = 0;
-    float timerSinceStart = 0;
-    bool stopTimer = false;
+    int objective = 0;
+    int counter = 0;
+    int type;
+
+    bool stopCounter = false;
 
     void Awake()
     {
         challengeInfo = FindFirstObjectByType<ChallengeInfo>();
         stageManager = GetComponent<StageManager>();
-        //take values for the stage challenge logic
+
         TextAsset jsonAsset = Resources.Load<TextAsset>("challengeInfo");
         JObject jroot = JObject.Parse(jsonAsset.text);
         JToken jt = jroot["Lvl"];
         jt = jt[stageManager.currentLvl + ""];
         jt = jt["Stage"];
         jt = jt[stageManager.currentStage + ""];
-        jt = jt["limit"]; // check if there is?
-        if (jt is JValue value)
-            timeLimit = (int)value;
-        //take values for the info on the challenge type
+        JToken jtLimitVal = jt["limit"];
+        if (jtLimitVal is JValue limitValue)
+            objective = (int)limitValue;
+        JToken jtTypeVal = jt["type"];
+        if (jtTypeVal is JValue typeValue)
+            type = (int)typeValue;
+        
         jt = jroot["type"];
-        jt = jt["1"];
+        jt = jt[type + ""];
         JToken jtTitle = jt["title"];
         if (jtTitle is JValue value3)
             challengeTitleKey = (string)value3;
@@ -36,36 +41,37 @@ public class ChallengeTime : ChallengeScript
         JToken jtMedal = jt["medal_code"];
         if (jtMedal is JValue value6)
             challengeMedalKey = (string)value6;
+        JToken jtLogic = jt["logic"];
+        if (jtLogic is JValue value7)
+            challengeLogic = (string)value7;
 
         currentState = -1;
         
         challengeInfo.SetMedalGFX(challengeMedalKey);
+        IncreaseCounter(0);
     }
 
-    void Update()
+    public void IncreaseCounter(int amount = 1)
     {
-        if (stopTimer)
-           return;
-        timerSinceStart += Time.deltaTime;   
-        challengeInfo.WriteText(timerSinceStart.ToString("0.0") + "/" + timeLimit.ToString("0.0") + " sec");
+        if (stopCounter)
+            return;
+        counter += amount;
+        challengeInfo.WriteText(counter + "/" + objective + " kills");
         if (!recordChallengeWon)
         {
-            if (currentState != 1 && timerSinceStart < timeLimit)
-            {
-                currentState = 1;
-                challengeInfo.SetMedalState(1);
-            } else if (currentState != 0 && timerSinceStart > timeLimit)
-            {
-                currentState = 0;
+            if (counter < objective)
                 challengeInfo.SetMedalState(0);
-            }
+            else
+                challengeInfo.SetMedalState(1);
         }
+
     }
+
 
     public override ChallengeResults GetResultNow(bool stop = false)
     {
-        stopTimer = stop;
-        return new ChallengeResults((int)timerSinceStart < timeLimit, timeLimit, (int)timerSinceStart, "lessThanNotEqual");
+        stopCounter = stop;
+        return new ChallengeResults(counter >= objective, objective, counter, challengeLogic);
     }
 
     public override ChallengeWinInfo EvaluateWinInfo(ChallengeResults challengeResults, ChallengeResults challengeRecord)
@@ -76,17 +82,10 @@ public class ChallengeTime : ChallengeScript
             if (challengeRecord.win)
             {
                 cwi.chalAlrWon = true;
+                cwi.recordValue = challengeRecord.value;
                 if (challengeResults.win)
-                {
                     cwi.chalWinNow = true;
-                    if (challengeResults.value < challengeRecord.value)
-                    {
-                        cwi.newRec = true;
-                        cwi.recordValue = challengeResults.value;
-                    } else
-                        cwi.recordValue = challengeRecord.value;
-                } else
-                    cwi.recordValue = challengeRecord.value;
+
             } else
             {
                 if (challengeResults.win)

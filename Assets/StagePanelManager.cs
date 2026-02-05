@@ -61,6 +61,7 @@ public class StagePanelManager : MonoBehaviour
             aux = "xxx";
         diffLine += aux + "\n";
 
+        // cambia con medaglia e in altro box, stesso testo?
         string complLine = "- ";
         aux = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("menu.world.completed");
         if (aux == null)

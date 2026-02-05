@@ -130,6 +130,10 @@ public static class ExpReader
                 if (record <= limit)
                     experience = limit - record;
                 break;
+            case "lessThanNotEqual":
+                if (record < limit)
+                    experience = limit - record;
+                break;
             case "greaterThanZero":
                 if (record >= 0)
                     experience = record;
@@ -147,6 +151,12 @@ public static class ExpReader
         switch (logic)
         {
             case "lessThan":
+                if (!cwi.chalAlrWon && cwi.chalWinNow)
+                    extraExp = limit - cwi.recordValue;
+                else if (cwi.chalAlrWon && cwi.chalWinNow)
+                    extraExp = oldRecord - cwi.recordValue;
+                break;
+            case "lessThanNotEqual":
                 if (!cwi.chalAlrWon && cwi.chalWinNow)
                     extraExp = limit - cwi.recordValue;
                 else if (cwi.chalAlrWon && cwi.chalWinNow)

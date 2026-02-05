@@ -31,13 +31,14 @@ public class SparklerWave : MonoBehaviour
         ready = false;
 
         //TURNAROUND to not change everything after the interaction update
-        timer = timer / 4f;
-
+        timer = 0.2f;
+        
         if (PlayerPrefs.GetInt("EasyMode", 0) == 1)
         {
-            timer = timer * 0.7f;
+            //timer = timer * 0.7f;
             ammo = -100;
         }
+
 
         sc = GetComponent<SparklerCharge>();
         if (sc != null)
