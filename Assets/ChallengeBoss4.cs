@@ -9,10 +9,17 @@ public class ChallengeBoss4 : ChallengeScript
 
     bool stopCounter = false;
 
+    string enemiesText;
+
     void Awake()
     {
         challengeInfo = FindFirstObjectByType<ChallengeInfo>();
         stageManager = GetComponent<StageManager>();
+
+
+        enemiesText = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("content.challenge.boss4.enemies");
+        if (enemiesText == null)
+            enemiesText = "fires";
 
         TextAsset jsonAsset = Resources.Load<TextAsset>("challengeInfo");
         JObject jroot = JObject.Parse(jsonAsset.text);
@@ -56,7 +63,7 @@ public class ChallengeBoss4 : ChallengeScript
         if (stopCounter)
             return;
         counter += amount;
-        challengeInfo.WriteText(counter + "/" + objective + " kills");
+        challengeInfo.WriteText(counter + "/" + objective + " " + enemiesText);
         if (!recordChallengeWon)
         {
             if (counter < objective)

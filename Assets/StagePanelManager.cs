@@ -9,6 +9,9 @@ public class StagePanelManager : MonoBehaviour
     public Image cloudHiding;
     public Text titleText;
     public Text descriptionText;
+    public Text stageCompleteText;
+    public Image medalImage;
+
     public ChallengeBoxManager challengeBoxManager;
 
     public int level;
@@ -61,20 +64,6 @@ public class StagePanelManager : MonoBehaviour
             aux = "xxx";
         diffLine += aux + "\n";
 
-        // cambia con medaglia e in altro box, stesso testo?
-        string complLine = "- ";
-        aux = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("menu.world.completed");
-        if (aux == null)
-            aux = "Completed";
-        complLine += aux + ": ";
-        if (isCompleted)
-            aux = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("menu.world.comp_yes");
-        else
-            aux = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("menu.world.comp_no");
-        if (aux == null)
-            aux = "no";
-        complLine += aux + "\n";
-
         string tropLine = "- ";
         aux = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("menu.world.trophy");
         if (aux == null)
@@ -88,7 +77,23 @@ public class StagePanelManager : MonoBehaviour
             aux = "bee";
         tropLine += aux;
 
-        descriptionText.text = typeLine + diffLine + complLine + tropLine;
+        descriptionText.text = typeLine + diffLine + tropLine;
+
+        if (isCompleted)
+        {
+            medalImage.color = new Color(0.72f, 0.93f, 0.4f);
+            aux = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("message.stage.stage_complete");
+        }
+        else
+        {
+            medalImage.color = new Color(0.8f, 0.8f, 0.8f);
+            aux = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("message.stage.stage_not_complete");
+        }
+        if (aux == null)
+            aux = "stage complete";
+        stageCompleteText.text = aux.ToUpper();
+
+
 
         //replaceImage
         Sprite[] sprites = Resources.LoadAll<Sprite>("Sprites/StageOverview/lvl" + levelCode);

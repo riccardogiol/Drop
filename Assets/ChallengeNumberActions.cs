@@ -8,10 +8,16 @@ public class ChallengeNumberActions : ChallengeScript
     int actionsSinceStart = 0;
     bool stopCounter = false;
 
+    string actionsText;
+
     void Awake()
     {
         challengeInfo = FindFirstObjectByType<ChallengeInfo>();
         stageManager = GetComponent<StageManager>();
+
+        actionsText = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("content.challenge.numActions.num_acts");
+        if (actionsText == null)
+            actionsText = "acts";
 
         //take values for the stage challenge logic
         TextAsset jsonAsset = Resources.Load<TextAsset>("challengeInfo");
@@ -53,7 +59,7 @@ public class ChallengeNumberActions : ChallengeScript
         if (stopCounter)
             return;
         actionsSinceStart += amount;
-        challengeInfo.WriteText(actionsSinceStart + "/" + actionsLimit + " acts");
+        challengeInfo.WriteText(actionsSinceStart + "/" + actionsLimit + " " + actionsText);
         if (!recordChallengeWon)
         {
             if (currentState != 1 && actionsSinceStart <= actionsLimit)

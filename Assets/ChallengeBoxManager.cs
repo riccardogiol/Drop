@@ -10,6 +10,9 @@ public class ChallengeBoxManager : MonoBehaviour
     public TextLocalizer title;
     public Text description;
     public GameObject descriptionPanel;
+
+    public Text stageComplete;
+
     bool showPanel = false;
 
     public Color disabledColor;
@@ -18,6 +21,11 @@ public class ChallengeBoxManager : MonoBehaviour
 
     public void DisplayEndStageMessage(ChallengeResults cr, ChallengeWinInfo cwi, ChallengeScript challenge)
     {
+        
+        string stageCompleteLocText =  SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("message.stage.stage_complete");
+        if (stageCompleteLocText != null)
+            stageComplete.text = stageCompleteLocText.ToUpper();
+
         if (challenge == null)
         {
             
@@ -114,7 +122,7 @@ public class ChallengeBoxManager : MonoBehaviour
         if (descriptionText == null)
             descriptionText = descriptionKey;
         textToDisplay = textToDisplay + descriptionText; 
-        if (cRecord.limit > 0)
+        if (cRecord.limit >= 0)
         {
             textToDisplay = textToDisplay + "\n";
             string limitText =  SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get(limitKey);
@@ -123,7 +131,7 @@ public class ChallengeBoxManager : MonoBehaviour
             textToDisplay = textToDisplay + limitText + ": ";
             textToDisplay = textToDisplay + cRecord.limit;
         }
-        if (cRecord.value > 0)
+        if (cRecord.value >= 0)
         {
             textToDisplay = textToDisplay + "\n";
             string oldRecordText =  SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("content.challenge.general.old_record");

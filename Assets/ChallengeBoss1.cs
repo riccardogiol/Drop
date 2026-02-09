@@ -9,10 +9,16 @@ public class ChallengeBoss1 : ChallengeScript
     int currentNumFlames = 0;
     bool stopChecking = false;
 
+    string flamesText;
+
     void Awake()
     {
         challengeInfo = FindFirstObjectByType<ChallengeInfo>();
         stageManager = GetComponent<StageManager>();
+
+        flamesText = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("content.challenge.boss1.num_flames");
+        if (flamesText == null)
+            flamesText = "acts";
 
         //take values for the stage challenge logic
         TextAsset jsonAsset = Resources.Load<TextAsset>("challengeInfo");
@@ -69,7 +75,7 @@ public class ChallengeBoss1 : ChallengeScript
             if (child.GetComponent<PickFlame>() != null)
                 currentNumFlames++;
         }
-        challengeInfo.WriteText(currentNumFlames + "/" + flameLimit + " flames");
+        challengeInfo.WriteText(currentNumFlames + "/" + flameLimit + " " + flamesText);
     }
 
     public override ChallengeResults GetResultNow(bool stop = false)

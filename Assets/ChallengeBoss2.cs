@@ -8,10 +8,21 @@ public class ChallengeBoss2 :  ChallengeScript
     int limit;
     bool stopChecking = false;
 
+    string inSuper, notInSuper;
+
     void Awake()
     {
         challengeInfo = FindFirstObjectByType<ChallengeInfo>();
         stageManager = GetComponent<StageManager>();
+
+
+        inSuper = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("content.challenge.boss2.in_super");
+        if (inSuper == null)
+            inSuper = "In Super";
+
+        notInSuper = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("content.challenge.boss2.not_in_super");
+        if (notInSuper == null)
+            notInSuper = "Not in Super";
 
         //take values for the stage challenge logic
         TextAsset jsonAsset = Resources.Load<TextAsset>("challengeInfo");
@@ -48,7 +59,7 @@ public class ChallengeBoss2 :  ChallengeScript
         currentState = -1;
         
         challengeInfo.SetMedalGFX(challengeMedalKey);
-        challengeInfo.WriteText("Not in SuperState");
+        challengeInfo.WriteText(notInSuper);
     }
 
     void Start()
@@ -70,12 +81,12 @@ public class ChallengeBoss2 :  ChallengeScript
             return;
         if (psp.IsInSuperState())
         {
-            challengeInfo.WriteText("In Super State");
+            challengeInfo.WriteText(inSuper);
             if (!recordChallengeWon)
                 challengeInfo.SetMedalState(1);
         } else 
         {
-            challengeInfo.WriteText("Not in Super State");
+            challengeInfo.WriteText(notInSuper);
             if (!recordChallengeWon)
                 challengeInfo.SetMedalState(0);
         }

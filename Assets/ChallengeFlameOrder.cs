@@ -8,6 +8,8 @@ public class ChallengeFlameOrder : ChallengeScript
     int expectedIndex = 0;
     int orderLimit;
 
+    string inOrder, outOfOrder;
+
     public List<ChallengeFlameOrderColliderManager> collidersList; //lista ordinata dei collider a cui assegno il numero progressivo in Awake, dopo che gli ho passato mestesso come reference (così che quando toccati possano avvertirmi)
 
     void Awake()
@@ -16,13 +18,22 @@ public class ChallengeFlameOrder : ChallengeScript
         challengeInfo = FindFirstObjectByType<ChallengeInfo>();
         stageManager = GetComponent<StageManager>();
 
-        for(int i = 0; i < collidersList.Count; i++)
+
+        inOrder = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("content.challenge.flameOrder.in_order");
+        if (inOrder == null)
+            inOrder = "In Order";
+
+        outOfOrder = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("content.challenge.flameOrder.out_of_order");
+        if (outOfOrder == null)
+            outOfOrder = "Out of Order";
+
+        for (int i = 0; i < collidersList.Count; i++)
             collidersList[i].InitializeValue(this, i);
         orderLimit = collidersList.Count;
         
-        challengeInfo.WriteText(expectedIndex + "/" + orderLimit + " In Order");
+        challengeInfo.WriteText(expectedIndex + "/" + orderLimit + " " + inOrder);
 
-        TextAsset jsonAsset = Resources.Load<TextAsset>("challengeInfo"); // da tirare fuori?
+        TextAsset jsonAsset = Resources.Load<TextAsset>("challengeInfo");
         JObject jroot = JObject.Parse(jsonAsset.text);
         JToken jt = jroot["type"];
         jt = jt["2"];
@@ -47,11 +58,11 @@ public class ChallengeFlameOrder : ChallengeScript
         if (stillRightOrder && index == expectedIndex)
         {
             expectedIndex ++;
-            challengeInfo.WriteText(expectedIndex + "/" + orderLimit + " In Order");
+            challengeInfo.WriteText(expectedIndex + "/" + orderLimit + " " + inOrder);
         } else
         {
             stillRightOrder = false;
-            challengeInfo.WriteText("Out of Order");
+            challengeInfo.WriteText(outOfOrder);
         }
     }
 

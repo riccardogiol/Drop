@@ -7,10 +7,17 @@ public class ChallengeNoHit : ChallengeScript
     int type = 0;
     int hitsSinceStart = 0;
     bool stopCounter = false;
+
+    string hitsText;
     void Awake()
     {
         challengeInfo = FindFirstObjectByType<ChallengeInfo>();
         stageManager = GetComponent<StageManager>();
+
+
+        hitsText = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("content.challenge.noHit.num_hits");
+        if (hitsText == null)
+            hitsText = "hits";
 
         //take values for the stage challenge logic
         TextAsset jsonAsset = Resources.Load<TextAsset>("challengeInfo");
@@ -52,7 +59,7 @@ public class ChallengeNoHit : ChallengeScript
         if (stopCounter)
             return;
         hitsSinceStart += amount;
-        challengeInfo.WriteText(hitsSinceStart + "/" + hitsLimit + " hits"); // localizza? sempre dove definisco le chiavi per obbiettivo/limite
+        challengeInfo.WriteText(hitsSinceStart + "/" + hitsLimit + " " + hitsText);
         if (!recordChallengeWon)
         {
             if (currentState != 1 && hitsSinceStart <= hitsLimit)

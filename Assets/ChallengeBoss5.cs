@@ -7,10 +7,21 @@ public class ChallengeBoss5 : ChallengeScript
 
     bool winCondition = false;
 
+    string noUpdates, withUpdates;
+
     void Awake()
     {
         challengeInfo = FindFirstObjectByType<ChallengeInfo>();
         stageManager = GetComponent<StageManager>();
+
+
+        noUpdates = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("content.challenge.boss5.no_upgrades");
+        if (noUpdates == null)
+            noUpdates = "no upgrades";
+
+        withUpdates = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("content.challenge.boss5.with_upgrades");
+        if (withUpdates == null)
+            withUpdates = "with upgrades";
 
         //take values for the stage challenge logic
         TextAsset jsonAsset = Resources.Load<TextAsset>("challengeInfo");
@@ -52,11 +63,11 @@ public class ChallengeBoss5 : ChallengeScript
         if (winCondition)
         {
             challengeInfo.SetMedalState(1);
-            challengeInfo.WriteText("condition fulfilled");
+            challengeInfo.WriteText(noUpdates);
         } else
         {
             challengeInfo.SetMedalState(0);
-            challengeInfo.WriteText("condition wrong");
+            challengeInfo.WriteText(withUpdates);
         }
     }
 

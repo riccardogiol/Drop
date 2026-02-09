@@ -101,6 +101,8 @@
         "game_over_health" : "PUNTI ACQUA ESAURITI\nOh no, sei evaporato!",
         "game_over_heat" : "STAGE TROPPO CALDO\nOh no, sei evaporato!",
         "stage_clear" : "GRANDE!\nHai ripulito lo stage",
+        "stage_complete" : "Stage completato",
+        "stage_not_complete" : "Stage non completato",
         "level_clear":{
           "title1" : "Hai salvato ",
           "title2" : " dal fuoco",
@@ -678,7 +680,7 @@
           },
           "lvl4" : {
             "title" : "Lancia di Ghiaccio",
-            "description": "Con lo Scudo di Ghiaccio attivo, lo spruzzo diventa una Lancia di Ghiaccio, infliggendo 6 danni (DMG)"
+            "description": "Con lo Scudo di Ghiaccio attivo, lo spruzzo diventa una Lancia di Ghiaccio, infliggendo 8 danni (DMG)"
           }
         },
         "wave" : {
@@ -1156,23 +1158,59 @@
         },
         "time": {
           "title" : "Sfida a Tempo",
-          "description" : "Termina lo stage entro il limite di tempo",
+          "description" : "Termina lo stage entro il tempo limite",
           "limit" : "Limite"
         },
         "flameOrder": {
           "title" : "Sfida Percorso",
-          "description" : "Spegni le fiamme nel giusto ordine",
-          "limit" : "Obiettivo"
+          "description" : "Trova il giusto ordine in cui spegnere le fiamme",
+            "limit": "Obiettivo",
+            "in_order": "In Ordine",
+            "out_of_order":  "Non in Ordine"
         },
         "numActions": {
           "title" : "Sfida ad azioni limitate",
           "description" : "Termina lo stage in un numero limitato di azioni",
-          "limit" : "limite"
+            "limit": "limite",
+            "num_acts":  "azioni"
+        },
+        "noHit": {
+          "title" : "Sfida a danni limitati",
+          "description" : "Termina lo stage subendo un numero limitato di colpi",
+          "limit" : "limite", 
+          "num_hits": "colpi"
         },
         "boss1": {
           "title" : "Sfida no Fiamme",
           "description" : "Sconfiggi il boss quando ci sono poche fiamme libere",
-          "limit" : "Obiettivo"
+          "limit" : "Obiettivo",
+          "num_flames" : "fiamme"
+        },
+        "boss2": {
+          "title" : "Sfida Super colpo",
+          "description" : "Sconfiggi il boss mentre sei in modialità Super",
+          "limit" : "Obiettivo",
+          "in_super" : "In Super",
+          "not_in_super" : "Non in Super"
+        },
+        "boss3": {
+          "title" : "Sfida fiume spegni fiamme",
+          "description" : "Sconfiggi almeno 3 fuochi sfruttando l'ondata del fiume",
+          "limit" : "Obiettivo", 
+          "fires" : "fuochi"
+        },
+        "boss4": {
+          "title" : "Sfida Lancia di Ghiaccio",
+          "description" : "Sconfiggi 5 nemici con la Lancia di Ghiaccio",
+          "limit" : "Obiettivo",
+          "enemies" : "nemici"
+        },
+        "boss5": {
+          "title" : "Sfida no Potenziamenti",
+          "description" : "Sconfiggi il boss senza alcun potenziamento attivo",
+          "limit" : "Obiettivo",
+          "no_upgrades" : "senza potenziamenti",
+          "with_upgrades" : "con potenziamenti"
         },
         "disabled": {
           "title" : "Sfida disattiva",
@@ -1284,6 +1322,8 @@
   "game_over_health": "WATER POINTS DEPLETED\nOh no, you've evaporated!",
   "game_over_heat": "STAGE TOO HOT\nOh no, you've evaporated!",
   "stage_clear": "GREAT!\nYou cleared the stage",
+        "stage_complete" : "Stage completed",
+        "stage_not_complete" : "Stage not completed",
   "level_clear": {
     "title1": "You saved ",
     "title2": " from the fire",
@@ -1862,7 +1902,7 @@
     },
     "lvl4": {
       "title": "Ice Spear",
-      "description": "With the Ice Shield active, the spray becomes an Ice Spear, dealing 6 damage (DMG)."
+      "description": "With the Ice Shield active, the spray becomes an Ice Spear, dealing 8 damage (DMG)."
     }
   },
   "wave": {
@@ -2073,21 +2113,57 @@
       "description": "Finish the stage within the time limit",
       "limit": "Limit"
     },
-    "flameOrder": {
-      "title": "Path Challenge",
-      "description": "Extinguish the flames in the correct order",
-      "limit": "Objective"
-    },
-    "numActions": {
-      "title": "Limited Actions Challenge",
-      "description": "Finish the stage using a limited number of actions",
-      "limit": "Limit"
-    },
-    "boss1": {
-      "title": "No-Flames Challenge",
-      "description": "Defeat the boss when there are few free flames",
-      "limit": "Objective"
-    },
+        "flameOrder": {
+            "title": "Path Challenge",
+            "description": "Extinguish the flames finding the correct order",
+            "limit": "Objective",
+            "in_order": "In Order",
+            "out_of_order": "Out of Order"
+        },
+        "numActions": {
+            "title": "Limited Actions Challenge",
+            "description": "Finish the stage using a limited number of actions",
+            "limit": "Limit",
+            "num_acts": "Actions"
+        },
+        "noHit": {
+            "title": "Limited Damage Challenge",
+            "description": "Finish the stage while taking a limited amount of damage",
+            "limit": "Limit",
+            "num_hits": "Hits"
+        },
+        "boss1": {
+            "title": "No-Flames Challenge",
+            "description": "Defeat the boss when there are few free flames",
+            "limit": "Objective",
+            "num_flames": "Flames"
+        },
+        "boss2": {
+            "title": "Super Hit Challenge",
+            "description": "Defeat the boss while in Super mode",
+            "limit": "Objective",
+            "in_super": "In Super Mode",
+            "not_in_super": "Not in Super Mode"
+        },
+        "boss3": {
+            "title": "River Flame Challenge",
+            "description": "Extinguish at least 3 fires using the river wave",
+            "limit": "Objective",
+            "fires": "Fires"
+        },
+        "boss4": {
+            "title": "Ice Spear Challenge",
+            "description": "Defeat 5 enemies using the Ice Spear",
+            "limit": "Objective",
+            "enemies": "Enemies"
+        },
+        "boss5": {
+            "title": "No-Powerups Challenge",
+            "description": "Defeat the boss without any active power-ups",
+            "limit": "Objective",
+            "no_upgrades": "No Power-ups",
+            "with_upgrades": "With Power-ups"
+        },
     "disabled": {
       "title": "Challenge Disabled",
       "description": "The challenge is disabled",
@@ -2199,6 +2275,8 @@
   "game_over_health": "POINTS D'EAU ÉPUISÉS\nOh non, tu es évaporé !",
   "game_over_heat": "NIVEAU TROP CHAUD\nOh non, tu es évaporé !",
   "stage_clear": "GÉNIAL !\nTu as nettoyé le niveau",
+    "stage_complete": "Niveau terminé",
+    "stage_not_complete": "Niveau non terminé",
   "level_clear": {
     "title1": "Tu as sauvé ",
     "title2": " du feu",
@@ -2779,7 +2857,7 @@
     },
     "lvl4": {
       "title": "Lance de glace",
-      "description": "Avec le Bouclier de Glace actif, le jet devient une Lance de Glace, infligeant 6 dégâts (DMG)."
+      "description": "Avec le Bouclier de Glace actif, le jet devient une Lance de Glace, infligeant 8 dégâts (DMG)."
     }
   },
   "wave": {
@@ -2990,21 +3068,57 @@
       "description": "Termine le niveau dans le temps imparti",
       "limit": "Limite"
     },
-    "flameOrder": {
-      "title": "Défi de parcours",
-      "description": "Éteins les flammes dans le bon ordre",
-      "limit": "Objectif"
-    },
-    "numActions": {
-      "title": "Défi à actions limitées",
-      "description": "Termine le niveau avec un nombre limité d’actions",
-      "limit": "Limite"
-    },
-    "boss1": {
-      "title": "Défi sans flammes",
-      "description": "Bats le boss lorsqu’il reste peu de flammes libres",
-      "limit": "Objectif"
-    },
+        "flameOrder": {
+            "title": "Défi de parcours",
+            "description": "Trouve le bon ordre pour éteindre les flammes",
+            "limit": "Objectif",
+            "in_order": "Dans l’ordre",
+            "out_of_order": "Hors de l’ordre"
+        },
+        "numActions": {
+            "title": "Défi à actions limitées",
+            "description": "Termine le niveau avec un nombre limité d’actions",
+            "limit": "Limite",
+            "num_acts": "Actions"
+        },
+        "noHit": {
+            "title": "Défi à dégâts limités",
+            "description": "Termine le niveau en subissant un nombre limité de dégâts",
+            "limit": "Limite",
+            "num_hits": "Coups"
+        },
+        "boss1": {
+            "title": "Défi sans flammes",
+            "description": "Bats le boss lorsqu’il reste peu de flammes libres",
+            "limit": "Objectif",
+            "num_flames": "Flammes"
+        },
+        "boss2": {
+            "title": "Défi Super coup",
+            "description": "Bats le boss en mode Super",
+            "limit": "Objectif",
+            "in_super": "En mode Super",
+            "not_in_super": "Hors du mode Super"
+        },
+        "boss3": {
+            "title": "Défi flammes du fleuve",
+            "description": "Éteins au moins 3 feux en utilisant la vague du fleuve",
+            "limit": "Objectif",
+            "fires": "Feux"
+        },
+        "boss4": {
+            "title": "Défi Lance de glace",
+            "description": "Bats 5 ennemis avec la Lance de glace",
+            "limit": "Objectif",
+            "enemies": "Ennemis"
+        },
+        "boss5": {
+            "title": "Défi sans améliorations",
+            "description": "Bats le boss sans aucune amélioration active",
+            "limit": "Objectif",
+            "no_upgrades": "Sans améliorations",
+            "with_upgrades": "Avec améliorations"
+        },
     "disabled": {
       "title": "Défi désactivé",
       "description": "Le défi est désactivé",
@@ -3115,6 +3229,8 @@
       "game_over_health": "PUNTOS DE AGUA AGOTADOS\n¡Oh no, te has evaporado!",
       "game_over_heat": "ESCENARIO DEMASIADO CALIENTE\n¡Oh no, te has evaporado!",
       "stage_clear": "¡GENIAL!\nHas limpiado el stage",
+    "stage_complete": "Nivel completado",
+    "stage_not_complete": "Nivel no completado",
       "level_clear": {
         "title1": "Has salvado ",
         "title2": " del fuego",
@@ -3690,7 +3806,7 @@
       },
       "lvl4": {
         "title": "Lanza de Hielo",
-        "description": "Con el Escudo de Hielo activo, el chorro se convierte en una Lanza de Hielo, infligiendo 6 daños (DMG)"
+        "description": "Con el Escudo de Hielo activo, el chorro se convierte en una Lanza de Hielo, infligiendo 8 daños (DMG)"
       }
     },
     "wave": {
@@ -4171,21 +4287,57 @@
       "description": "Completa el nivel dentro del límite de tiempo",
       "limit": "Límite"
     },
-    "flameOrder": {
-      "title": "Desafío de recorrido",
-      "description": "Apaga las llamas en el orden correcto",
-      "limit": "Objetivo"
-    },
-    "numActions": {
-      "title": "Desafío de acciones limitadas",
-      "description": "Completa el nivel con un número limitado de acciones",
-      "limit": "Límite"
-    },
-    "boss1": {
-      "title": "Desafío sin llamas",
-      "description": "Derrota al jefe cuando hay pocas llamas libres",
-      "limit": "Objetivo"
-    },
+        "flameOrder": {
+            "title": "Desafío de recorrido",
+            "description": "Apaga las llamas en el orden correcto",
+            "limit": "Objetivo",
+            "in_order": "En orden",
+            "out_of_order": "Fuera de orden"
+        },
+        "numActions": {
+            "title": "Desafío de acciones limitadas",
+            "description": "Completa el nivel con un número limitado de acciones",
+            "limit": "Límite",
+            "num_acts": "Acciones"
+        },
+        "noHit": {
+            "title": "Desafío de daño limitado",
+            "description": "Completa el nivel recibiendo una cantidad limitada de daño",
+            "limit": "Límite",
+            "num_hits": "Golpes"
+        },
+        "boss1": {
+            "title": "Desafío sin llamas",
+            "description": "Derrota al jefe cuando hay pocas llamas libres",
+            "limit": "Objetivo",
+            "num_flames": "Llamas"
+        },
+        "boss2": {
+            "title": "Desafío Super golpe",
+            "description": "Derrota al jefe mientras estás en modo Súper",
+            "limit": "Objetivo",
+            "in_super": "En modo Súper",
+            "not_in_super": "Fuera del modo Súper"
+        },
+        "boss3": {
+            "title": "Desafío llamas del río",
+            "description": "Apaga al menos 3 fuegos usando la ola del río",
+            "limit": "Objetivo",
+            "fires": "Fuegos"
+        },
+        "boss4": {
+            "title": "Desafío Lanza de hielo",
+            "description": "Derrota a 5 enemigos usando la Lanza de hielo",
+            "limit": "Objetivo",
+            "enemies": "Enemigos"
+        },
+        "boss5": {
+            "title": "Desafío sin potenciadores",
+            "description": "Derrota al jefe sin ningún potenciador activo",
+            "limit": "Objetivo",
+            "no_upgrades": "Sin potenciadores",
+            "with_upgrades": "Con potenciadores"
+        },
     "disabled": {
       "title": "Desafío desactivado",
       "description": "El desafío está desactivado",
@@ -4296,6 +4448,8 @@
       "game_over_health": "WASSERPUNKTE AUFGEBRAUCHT\nOh nein, du bist verdampft!",
       "game_over_heat": "STAGE ZU HEISS\nOh nein, du bist verdampft!",
       "stage_clear": "SUPER!\nDu hast den Stage gereinigt",
+    "stage_complete": "Stufe abgeschlossen",
+    "stage_not_complete": "Stufe nicht abgeschlossen",
       "level_clear": {
         "title1": "Du hast ",
         "title2": " vor dem Feuer gerettet",
@@ -4871,7 +5025,7 @@
       },
       "lvl4": {
         "title": "Eislanze",
-        "description": "Mit aktivem Eisschild wird der Sprühstrahl zur Eislanze und verursacht 6 Schaden (DMG)"
+        "description": "Mit aktivem Eisschild wird der Sprühstrahl zur Eislanze und verursacht 8 Schaden (DMG)"
       }
     },
     "wave": {
@@ -5352,21 +5506,57 @@
       "description": "Beende die Stufe innerhalb des Zeitlimits",
       "limit": "Limit"
     },
-    "flameOrder": {
-      "title": "Pfad-Herausforderung",
-      "description": "Lösche die Flammen in der richtigen Reihenfolge",
-      "limit": "Ziel"
-    },
-    "numActions": {
-      "title": "Herausforderung mit begrenzten Aktionen",
-      "description": "Beende die Stufe mit einer begrenzten Anzahl an Aktionen",
-      "limit": "Limit"
-    },
-    "boss1": {
-      "title": "Keine-Flammen-Herausforderung",
-      "description": "Besiege den Boss, wenn nur wenige freie Flammen vorhanden sind",
-      "limit": "Ziel"
-    },
+        "flameOrder": {
+            "title": "Pfad-Herausforderung",
+            "description": "Lösche die Flammen in der richtigen Reihenfolge",
+            "limit": "Ziel",
+            "in_order": "In Reihenfolge",
+            "out_of_order": "Nicht in Reihenfolge"
+        },
+        "numActions": {
+            "title": "Herausforderung mit begrenzten Aktionen",
+            "description": "Beende die Stufe mit einer begrenzten Anzahl an Aktionen",
+            "limit": "Limit",
+            "num_acts": "Aktionen"
+        },
+        "noHit": {
+            "title": "Herausforderung mit begrenztem Schaden",
+            "description": "Beende die Stufe mit einer begrenzten Menge an erlittenem Schaden",
+            "limit": "Limit",
+            "num_hits": "Treffer"
+        },
+        "boss1": {
+            "title": "Keine-Flammen-Herausforderung",
+            "description": "Besiege den Boss, wenn nur wenige freie Flammen vorhanden sind",
+            "limit": "Ziel",
+            "num_flames": "Flammen"
+        },
+        "boss2": {
+            "title": "Super-Treffer-Herausforderung",
+            "description": "Besiege den Boss im Super-Modus",
+            "limit": "Ziel",
+            "in_super": "Im Super-Modus",
+            "not_in_super": "Nicht im Super-Modus"
+        },
+        "boss3": {
+            "title": "Flussflammen-Herausforderung",
+            "description": "Lösche mindestens 3 Feuer mithilfe der Flusswelle",
+            "limit": "Ziel",
+            "fires": "Feuer"
+        },
+        "boss4": {
+            "title": "Eisspeer-Herausforderung",
+            "description": "Besiege 5 Gegner mit dem Eisspeer",
+            "limit": "Ziel",
+            "enemies": "Gegner"
+        },
+        "boss5": {
+            "title": "Keine-Power-ups-Herausforderung",
+            "description": "Besiege den Boss ohne aktive Power-ups",
+            "limit": "Ziel",
+            "no_upgrades": "Ohne Power-ups",
+            "with_upgrades": "Mit Power-ups"
+        },
     "disabled": {
       "title": "Herausforderung deaktiviert",
       "description": "Die Herausforderung ist deaktiviert",
