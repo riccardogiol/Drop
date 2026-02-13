@@ -19,21 +19,24 @@ public class LocalScoreboardManager : MonoBehaviour
         Load();
     }
 
-    // get the saveData object
+    // get the saveData object con USERID!!!!!!
     public void AddScore(string userID, int score)
     {
-        // elaborate total score
-        //I have user and entry
-        // check if user already there !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        //if new user ->            //if not?? TODO
-        ScoreEntry entry = new ScoreEntry
+        // elaborate total score [later]
+        // extract user and so the entry
+        ScoreEntry oldScoreEntry = GetEntryByID(userID);
+        if (oldScoreEntry != null)
         {
-            userID = userID,
-            score = score
-        };
-
-
-        scoreboard.entries.Add(entry);
+            scoreboard.entries[oldScoreEntry.position - 1].score = score; // or create a function that udate the value for an ID?
+        } else
+        {
+            ScoreEntry entry = new ScoreEntry
+            {
+                userID = userID,
+                score = score
+            };
+            scoreboard.entries.Add(entry);
+        }
 
         SortScores();
         Save();
@@ -46,6 +49,7 @@ public class LocalScoreboardManager : MonoBehaviour
         return scoreboard.entries[pos - 1];
     }
 
+    // can be used to see if the name it's already in
     public ScoreEntry GetEntryByID(string id)
     {
         for (int i = 0; i < scoreboard.entries.Count; i++)

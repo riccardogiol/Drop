@@ -9,6 +9,7 @@ public class MapMessageManager : MonoBehaviour
     public StagePanelManager stagePanelManager;
     public GameObject CollectionOpening;
     public GameObject difficultySelectionMessage;
+    public GameObject chooseIDMessage;
     public static bool messageOnScreen = false;
 
     void Awake()
@@ -55,6 +56,11 @@ public class MapMessageManager : MonoBehaviour
             if (Gamepad.current.buttonWest.wasPressedThisFrame)
             {
                 ShowMessage(difficultySelectionMessage);
+                return;
+            }
+            if (Gamepad.current.selectButton.wasPressedThisFrame)
+            {
+                ShowMessage(chooseIDMessage);
                 return;
             }
         }

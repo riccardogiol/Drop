@@ -12,6 +12,6 @@ public class ScoreboardTeter : MonoBehaviour
     {
         lsm.AddScore(userID, score);
         ScoreEntry thisEntry = lsm.GetEntryByID(userID);
-        sd.Display5Entries(thisEntry.position);
+        sd.Display5Entries(thisEntry.position, userID);
     }
 }
