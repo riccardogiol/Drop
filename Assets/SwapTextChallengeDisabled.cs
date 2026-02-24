@@ -22,14 +22,14 @@ public class SwapTextChallengeDisabled : MonoBehaviour
             string localizedText = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get(DisabledKey);
             if (localizedText == null)
                 return;
-            text.text = localizedText;
+            text.text = localizedText.ToUpper();
         }
         else
         {
             string localizedText = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get(EnabledKey);
             if (localizedText == null)
                 return;
-            text.text = localizedText + " (LVL1-5)";
+            text.text = localizedText.ToUpper();
         }
     }
 }

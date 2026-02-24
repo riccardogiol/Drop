@@ -291,6 +291,7 @@ MonoBehaviour:
   scale: 1
   startingScale: {x: 0, y: 0, z: 0}
   finalScale: {x: 0, y: 0, z: 0}
+  localPos: 0
 --- !u!114 &2681350409924758832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,6 +366,7 @@ MonoBehaviour:
   superdrop: {fileID: 0}
   enemyHealth: {fileID: 0}
   sparklerCharge: {fileID: 0}
+  sparklerWave: {fileID: 0}
   patrolMovement: {fileID: 0}
   chasingMovement: {fileID: 0}
   patrolIcon: {fileID: 0}
@@ -426,6 +428,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
   m_SortingOrder: 3
@@ -561,6 +564,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 846535088814142927}
     m_Modifications:
+    - target: {fileID: 3433592081188558209, guid: 92f9d1223b28d409994fab933707a86f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7261966851134090418, guid: 92f9d1223b28d409994fab933707a86f,
         type: 3}
       propertyPath: m_RootOrder

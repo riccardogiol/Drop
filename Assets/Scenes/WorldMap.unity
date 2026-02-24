@@ -13628,6 +13628,7 @@ GameObject:
   - component: {fileID: 435919858}
   - component: {fileID: 435919861}
   - component: {fileID: 435919862}
+  - component: {fileID: 435919863}
   m_Layer: 0
   m_Name: Lvl6BlockPanel
   m_TagString: Untagged
@@ -13750,6 +13751,21 @@ MonoBehaviour:
   stageBlocked: 20
   stageButton: {fileID: 2036346420}
   solvingCode: WavePurchased
+--- !u!114 &435919863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 435919856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1f71597a4aaf4e68b1641ca1a8d6656, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPrefsKey: DemoVersion
+  triggerValue: 1
+  disableObj: 1
 --- !u!1001 &437236024
 PrefabInstance:
   m_ObjectHideFlags: 0
