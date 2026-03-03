@@ -7,6 +7,6 @@ public class UnlockAchievementOnEnable : MonoBehaviour
     void OnEnable()
     {
         if (SteamAchivementManager.instance != null)
-            SteamAchivementManager.instance.UnlockAchievement(achievementID);    
+            SteamAchivementManager.instance.UnlockAchievement(achievementID);
     }
 }

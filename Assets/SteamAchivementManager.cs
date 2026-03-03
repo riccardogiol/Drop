@@ -40,6 +40,8 @@ public class SteamAchivementManager : MonoBehaviour
     {
         if (!initialized) return;
 
+        if (PlayerPrefs.GetInt("DemoVersion", 0) == 1) return;
+
         SteamUserStats.SetAchievement(id);
         SteamUserStats.StoreStats();
     }
