@@ -77,7 +77,17 @@ public class ChallengeNoHit : ChallengeScript
     public override ChallengeResults GetResultNow(bool stop = false)
     {
         stopCounter = stop;
-        return new ChallengeResults(hitsSinceStart <= hitsLimit, hitsLimit, hitsSinceStart, "lessThan");
+        bool winCondition = hitsSinceStart <= hitsLimit;
+        if (winCondition && SteamAchivementManager.instance != null)
+        {
+            PlayerPrefs.SetInt("ChallengeHitWon", 1);
+            if (PlayerPrefs.GetInt("ChallengeTimeWon", 0) == 1 &&
+                PlayerPrefs.GetInt("ChallengeOrderWon", 0) == 1 &&
+                PlayerPrefs.GetInt("ChallengeHitWon", 0) == 1 &&
+                PlayerPrefs.GetInt("ChallengeActionWon", 0) == 1 )
+                SteamAchivementManager.instance.UnlockAchievement("ACH_ALL_CHG");
+        }
+        return new ChallengeResults(winCondition, hitsLimit, hitsSinceStart, "lessThan");
     }
 
     public override ChallengeWinInfo EvaluateWinInfo(ChallengeResults challengeResults, ChallengeResults challengeRecord)

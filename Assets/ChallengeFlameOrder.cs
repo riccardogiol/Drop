@@ -108,6 +108,15 @@ public class ChallengeFlameOrder : ChallengeScript
 
     public override ChallengeResults GetResultNow(bool stop = false)
     {
+        if (stillRightOrder && SteamAchivementManager.instance != null)
+        {
+            PlayerPrefs.SetInt("ChallengeOrderWon", 1);
+            if (PlayerPrefs.GetInt("ChallengeTimeWon", 0) == 1 &&
+                PlayerPrefs.GetInt("ChallengeOrderWon", 0) == 1 &&
+                PlayerPrefs.GetInt("ChallengeHitWon", 0) == 1 &&
+                PlayerPrefs.GetInt("ChallengeActionWon", 0) == 1 )
+                SteamAchivementManager.instance.UnlockAchievement("ACH_ALL_CHG");
+        }
         return new ChallengeResults(stillRightOrder, orderLimit, expectedIndex, "greaterThanZero");
     }
 }

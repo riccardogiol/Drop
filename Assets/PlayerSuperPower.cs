@@ -140,6 +140,8 @@ public class PlayerSuperPower : MonoBehaviour
         lightningSparklesPS.Play();
         FindObjectOfType<AudioManager>().PlayVoice("Win");
         countdownThrshld = 1f;
+        if (upgradeLvl >= 5 && SteamAchivementManager.instance != null)
+            SteamAchivementManager.instance.UnlockAchievement("ACH_UNL_PWR");
         
         // Power effects
         playerShooting.SetBulletCost(0);
