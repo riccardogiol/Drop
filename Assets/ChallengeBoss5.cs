@@ -73,6 +73,8 @@ public class ChallengeBoss5 : ChallengeScript
 
     public override ChallengeResults GetResultNow(bool stop = false)
     {
+        if (winCondition && SteamAchivementManager.instance != null)
+            SteamAchivementManager.instance.UnlockAchievement("ACH_B5_NPU");
         return new ChallengeResults(winCondition, 1, 1, challengeLogic);
     }
 

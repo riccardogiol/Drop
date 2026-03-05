@@ -13,9 +13,11 @@ public class PlayerShield : MonoBehaviour
     public Animator shieldGFX;
     public FlamesCountdown flamesCountdown;
     public HealthBar healthBar;
+    public PlayerSuperPower psp;
 
 
     bool graphicalCountdownPlayed = false;
+    bool avatarAchRequested = false;
 
     // TODO add some code to make it last loger
     readonly string unlockingCode1 = "ExtraTimeShieldUnlocked";
@@ -23,6 +25,7 @@ public class PlayerShield : MonoBehaviour
     void Awake()
     {
         healthBar = FindFirstObjectByType<HealthBar>();
+        psp = GetComponent<PlayerSuperPower>();
         if (PlayerPrefs.GetInt(unlockingCode1, 0) == 1)
             timer += 5;
         if (PlayerPrefs.GetInt("EasyMode", 0) == 1)
@@ -46,6 +49,13 @@ public class PlayerShield : MonoBehaviour
                 isActive = false;
                 FindObjectOfType<AudioManager>().Play("IceShield", transform.position);
                 shieldGFX.SetBool("isActive", false);
+            }
+
+            if (psp.IsInSuperState() && !avatarAchRequested)
+            {
+                if (SteamAchivementManager.instance != null)
+                    SteamAchivementManager.instance.UnlockAchievement("ACH_AVT_ELE");
+                avatarAchRequested = true;
             }
         }
     }

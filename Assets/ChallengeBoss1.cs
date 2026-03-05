@@ -82,6 +82,8 @@ public class ChallengeBoss1 : ChallengeScript
     {
         CheckCondition();
         stopChecking = stop;
+        if (currentNumFlames == 0 && SteamAchivementManager.instance != null)
+            SteamAchivementManager.instance.UnlockAchievement("ACH_B1_NFA");
         return new ChallengeResults(currentNumFlames <= flameLimit, flameLimit, currentNumFlames, challengeLogic);
     }
 

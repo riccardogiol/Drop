@@ -22,7 +22,13 @@ public class MapMenuManager : MonoBehaviour
             PlayerPrefs.SetInt("ChallengeDisabled", 1);
     }
 
-     void Update()
+    void Start()
+    {
+        if (PlayerPrefs.GetInt("TotalScore", 0) >= 4000 && SteamAchivementManager.instance != null)
+            SteamAchivementManager.instance.UnlockAchievement("ACH_ITS_OVR");
+    }
+
+    void Update()
     {
         if (!Cursor.visible && Input.mousePosition != lastMousePos)
         {

@@ -96,6 +96,8 @@ public class ChallengeBoss2 :  ChallengeScript
     {
         CheckCondition();
         stopChecking = stop;
+        if (SteamAchivementManager.instance != null)
+            SteamAchivementManager.instance.UnlockAchievement("ACH_RLS_RVR");
         return new ChallengeResults(psp.IsInSuperState(), limit, 1, challengeLogic);
     }
 

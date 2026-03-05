@@ -18,6 +18,7 @@ public class PlayerHealth : MonoBehaviour
     // il 2 e per la pioggia in PlaygroundManager
     readonly string unlockingCode5 = "Hero3Purchased";
     readonly string unlockingCode6 = "Hero4Purchased";
+    public bool rebornThisStage = false;
 
     ChallengeNoHit challengeNoHit;
 
@@ -57,6 +58,7 @@ public class PlayerHealth : MonoBehaviour
             if (PlayerPrefs.GetInt(unlockingCode6, 0) == 1 && UnityEngine.Random.value < 0.33)
             {
                 stageManager.Reborn();
+                rebornThisStage = true;
                 StartCoroutine(RestoreLife());
             }
             else
