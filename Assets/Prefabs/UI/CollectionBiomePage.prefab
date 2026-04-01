@@ -544,6 +544,8 @@ MonoBehaviour:
   trail: {fileID: 0}
   buttonKeyCode: Lvl1
   activatedSpot: {fileID: 0}
+  personalizedActiveColor: 0
+  activeColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &2655703466754237564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -715,6 +717,8 @@ MonoBehaviour:
   trail: {fileID: 0}
   buttonKeyCode: Lvl1
   activatedSpot: {fileID: 0}
+  personalizedActiveColor: 0
+  activeColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &8837088252753301000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1019,6 +1023,8 @@ MonoBehaviour:
   trail: {fileID: 0}
   buttonKeyCode: Lvl1
   activatedSpot: {fileID: 0}
+  personalizedActiveColor: 0
+  activeColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &813203412965250618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1266,6 +1272,8 @@ MonoBehaviour:
   trail: {fileID: 0}
   buttonKeyCode: Lvl1
   activatedSpot: {fileID: 0}
+  personalizedActiveColor: 0
+  activeColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &8657497941271511468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1469,8 +1477,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e4fbd4b0d72c4fcda5e03dcbdf2cc95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Yvalue: -500
-  Xvalue: -240
+  Yvalue: -430
+  Xvalue: 295
 --- !u!114 &8261121614628289121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1643,6 +1651,8 @@ MonoBehaviour:
   trail: {fileID: 0}
   buttonKeyCode: Lvl1
   activatedSpot: {fileID: 0}
+  personalizedActiveColor: 0
+  activeColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &549618454126358155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2272,6 +2282,8 @@ MonoBehaviour:
   trail: {fileID: 0}
   buttonKeyCode: Lvl1
   activatedSpot: {fileID: 0}
+  personalizedActiveColor: 0
+  activeColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &5792697942179720847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3533,6 +3545,9 @@ MonoBehaviour:
   - {fileID: 1980762715157315306}
   - {fileID: 5120983552679482174}
   pageNumber: {fileID: 5369479078330418249}
+  ibs: {fileID: 0}
+  squaredButton: 0
+  emptyElPrefab: {fileID: 0}
 --- !u!1 &3214008330866239915
 GameObject:
   m_ObjectHideFlags: 0
@@ -3688,6 +3703,8 @@ MonoBehaviour:
   trail: {fileID: 0}
   buttonKeyCode: Lvl1
   activatedSpot: {fileID: 0}
+  personalizedActiveColor: 0
+  activeColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &5039472038237443096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4072,6 +4089,8 @@ MonoBehaviour:
   trail: {fileID: 0}
   buttonKeyCode: Lvl1
   activatedSpot: {fileID: 0}
+  personalizedActiveColor: 0
+  activeColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &3824096226071340512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4597,6 +4616,9 @@ MonoBehaviour:
   - {fileID: 2635392813250533278}
   - {fileID: 3550834742977926945}
   pageNumber: {fileID: 1787910402761343079}
+  ibs: {fileID: 0}
+  squaredButton: 0
+  emptyElPrefab: {fileID: 0}
 --- !u!1 &4462052241901406189
 GameObject:
   m_ObjectHideFlags: 0
@@ -5071,8 +5093,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e4fbd4b0d72c4fcda5e03dcbdf2cc95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Yvalue: -500
-  Xvalue: -240
+  Yvalue: -430
+  Xvalue: 295
 --- !u!114 &76839538621910994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5180,7 +5202,6 @@ GameObject:
   - component: {fileID: 1662208353687903171}
   - component: {fileID: 1662208353687903168}
   - component: {fileID: 1662208353687903169}
-  - component: {fileID: 1662208353687903174}
   m_Layer: 5
   m_Name: DescriptionBox
   m_TagString: Untagged
@@ -5278,13 +5299,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5240704326552785870}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e4fbd4b0d72c4fcda5e03dcbdf2cc95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Yvalue: 420
-  Xvalue: 166
+  Yvalue: 370
+  Xvalue: -295
 --- !u!114 &1662208353687903169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5297,24 +5318,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19862d39fdac047e98668a04badd3a16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleXP: 1.2
-  scaleYP: 1.2
---- !u!114 &1662208353687903174
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5240704326552785870}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 769d4f3416494499c964d0e29e76c691, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Left: 150
-  Right: 150
-  Top: 250
-  Bottom: 1000
+  scaleXP: 1.3
+  scaleYP: 1.3
 --- !u!1 &5435623018473233923
 GameObject:
   m_ObjectHideFlags: 0
@@ -5326,10 +5331,10 @@ GameObject:
   - component: {fileID: 8592079122859556769}
   - component: {fileID: 6638937665471306981}
   - component: {fileID: 2596976619414150891}
-  - component: {fileID: 2596976619414150888}
   - component: {fileID: 5762338565411290550}
   - component: {fileID: 9076332129655610373}
   - component: {fileID: 8566597221275605151}
+  - component: {fileID: 720160011219076275}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -5399,20 +5404,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: BIOME ELEMENTS
---- !u!114 &2596976619414150888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5435623018473233923}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19862d39fdac047e98668a04badd3a16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scaleXP: 1.5
-  scaleYP: 1.5
 --- !u!114 &5762338565411290550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5426,7 +5417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Yvalue: 0
-  Xvalue: -200
+  Xvalue: -120
 --- !u!114 &9076332129655610373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5459,6 +5450,20 @@ MonoBehaviour:
   padding: {x: 40, y: 5}
   textResize: 1
   vertical: 0
+--- !u!114 &720160011219076275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5435623018473233923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19862d39fdac047e98668a04badd3a16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleXP: 0.7
+  scaleYP: 0.9
 --- !u!1 &5461927973500062799
 GameObject:
   m_ObjectHideFlags: 0
@@ -5518,6 +5523,9 @@ MonoBehaviour:
   - {fileID: 1407178449881839966}
   - {fileID: 8080937009794544355}
   pageNumber: {fileID: 7720365328664406744}
+  ibs: {fileID: 0}
+  squaredButton: 0
+  emptyElPrefab: {fileID: 0}
 --- !u!1 &5589813143642675909
 GameObject:
   m_ObjectHideFlags: 0
@@ -5890,6 +5898,8 @@ MonoBehaviour:
   trail: {fileID: 0}
   buttonKeyCode: Lvl1
   activatedSpot: {fileID: 0}
+  personalizedActiveColor: 0
+  activeColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &824509808363395969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6389,8 +6399,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e4fbd4b0d72c4fcda5e03dcbdf2cc95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Yvalue: -500
-  Xvalue: -240
+  Yvalue: -430
+  Xvalue: 295
 --- !u!114 &8541527996662264305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6563,6 +6573,9 @@ MonoBehaviour:
   - {fileID: 2016932345394122587}
   - {fileID: 1035389336360146231}
   pageNumber: {fileID: 8378289116673406088}
+  ibs: {fileID: 0}
+  squaredButton: 0
+  emptyElPrefab: {fileID: 0}
 --- !u!1 &6738948145194980698
 GameObject:
   m_ObjectHideFlags: 0
@@ -7231,6 +7244,7 @@ GameObject:
   - component: {fileID: 6921019190741472137}
   - component: {fileID: 6921019190741472142}
   - component: {fileID: 8427761322852939393}
+  - component: {fileID: 2375978754676765496}
   m_Layer: 5
   m_Name: BiomeShelf1
   m_TagString: Untagged
@@ -7274,8 +7288,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e4fbd4b0d72c4fcda5e03dcbdf2cc95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Yvalue: -500
-  Xvalue: -240
+  Yvalue: -430
+  Xvalue: 295
 --- !u!114 &8427761322852939393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7293,6 +7307,20 @@ MonoBehaviour:
   meters: 0-500m
   previousBiomePage: {fileID: 0}
   nextBiomePage: {fileID: 5057388836233320971}
+--- !u!114 &2375978754676765496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6921019190741472136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19862d39fdac047e98668a04badd3a16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleXP: 1.2
+  scaleYP: 1.2
 --- !u!1 &6921019190775926313
 GameObject:
   m_ObjectHideFlags: 0
@@ -7950,6 +7978,8 @@ MonoBehaviour:
   trail: {fileID: 0}
   buttonKeyCode: Lvl1
   activatedSpot: {fileID: 0}
+  personalizedActiveColor: 0
+  activeColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &4988118156950107289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8025,6 +8055,9 @@ MonoBehaviour:
   - {fileID: 9162026885268599272}
   - {fileID: 7322487826602867605}
   pageNumber: {fileID: 4658121377412646023}
+  ibs: {fileID: 0}
+  squaredButton: 0
+  emptyElPrefab: {fileID: 0}
 --- !u!1 &7348048631792582876
 GameObject:
   m_ObjectHideFlags: 0
@@ -8079,8 +8112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e4fbd4b0d72c4fcda5e03dcbdf2cc95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Yvalue: -500
-  Xvalue: -240
+  Yvalue: -430
+  Xvalue: 295
 --- !u!114 &6443813420380546145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8501,6 +8534,8 @@ MonoBehaviour:
   trail: {fileID: 0}
   buttonKeyCode: Lvl1
   activatedSpot: {fileID: 0}
+  personalizedActiveColor: 0
+  activeColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1247453563943263864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8921,6 +8956,8 @@ MonoBehaviour:
   trail: {fileID: 0}
   buttonKeyCode: Lvl1
   activatedSpot: {fileID: 0}
+  personalizedActiveColor: 0
+  activeColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &8255168611563560484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9084,6 +9121,7 @@ GameObject:
   - component: {fileID: 7718172139089445537}
   - component: {fileID: 1717073405130319492}
   - component: {fileID: 5244345791427343159}
+  - component: {fileID: 2088397397640498038}
   m_Layer: 5
   m_Name: CollectionBiomePage
   m_TagString: Untagged
@@ -9204,6 +9242,22 @@ MonoBehaviour:
   highligther: {fileID: 4329304605509621122}
   ibs: {fileID: 0}
   showOnlyOnGamepad: 1
+--- !u!114 &2088397397640498038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8235351187015936188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 769d4f3416494499c964d0e29e76c691, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Left: 50
+  Right: 50
+  Top: 120
+  Bottom: 240
 --- !u!1 &8483384924087535059
 GameObject:
   m_ObjectHideFlags: 0

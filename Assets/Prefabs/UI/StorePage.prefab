@@ -727,7 +727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e4fbd4b0d72c4fcda5e03dcbdf2cc95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Yvalue: 0
+  Yvalue: 40
   Xvalue: -100
 --- !u!1 &4542030692185875420
 GameObject:
@@ -1502,6 +1502,8 @@ MonoBehaviour:
   trail: {fileID: 0}
   buttonKeyCode: Lvl5
   activatedSpot: {fileID: 0}
+  personalizedActiveColor: 0
+  activeColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &4976131210292080619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2064,6 +2066,8 @@ MonoBehaviour:
   trail: {fileID: 0}
   buttonKeyCode: SuperPurchased
   activatedSpot: {fileID: 0}
+  personalizedActiveColor: 0
+  activeColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &4976131210770012413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2927,6 +2931,8 @@ MonoBehaviour:
   trail: {fileID: 0}
   buttonKeyCode: 
   activatedSpot: {fileID: 0}
+  personalizedActiveColor: 0
+  activeColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &4976131211416416781
 GameObject:
   m_ObjectHideFlags: 0
@@ -3082,6 +3088,8 @@ MonoBehaviour:
   trail: {fileID: 0}
   buttonKeyCode: WavePurchased
   activatedSpot: {fileID: 0}
+  personalizedActiveColor: 0
+  activeColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &4976131211416416783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3769,6 +3777,8 @@ MonoBehaviour:
   trail: {fileID: 0}
   buttonKeyCode: Lvl5
   activatedSpot: {fileID: 0}
+  personalizedActiveColor: 0
+  activeColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &4976131211795372793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4352,7 +4362,6 @@ GameObject:
   - component: {fileID: 3961025037754111401}
   - component: {fileID: 5281472835776972797}
   - component: {fileID: 3608503707879124740}
-  - component: {fileID: 3608503707879124743}
   - component: {fileID: 3608503707879124742}
   - component: {fileID: 3608503707879124737}
   m_Layer: 5
@@ -4445,20 +4454,6 @@ MonoBehaviour:
   purchaseButton: {fileID: 4976131210463967616}
   purchaseButtonText: {fileID: 4976131210023073625}
   priceText: {fileID: 4976131211260018317}
---- !u!114 &3608503707879124743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7906098151970940681}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e4fbd4b0d72c4fcda5e03dcbdf2cc95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Yvalue: 420
-  Xvalue: 166
 --- !u!114 &3608503707879124742
 MonoBehaviour:
   m_ObjectHideFlags: 0

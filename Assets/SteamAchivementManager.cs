@@ -27,7 +27,8 @@ public class SteamAchivementManager : MonoBehaviour
     }
     void Start()
     {
-        Debug.Log("Steam App ID: " + SteamUtils.GetAppID());
+        if (initialized)
+            Debug.Log("Steam App ID: " + SteamUtils.GetAppID());
     }
 
     void Update()

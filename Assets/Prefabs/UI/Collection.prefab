@@ -251,6 +251,8 @@ MonoBehaviour:
   trail: {fileID: 0}
   buttonKeyCode: Lvl1
   activatedSpot: {fileID: 0}
+  personalizedActiveColor: 0
+  activeColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &427634878961639292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -602,6 +604,7 @@ MonoBehaviour:
   pageNumber: {fileID: 2896175064739707643}
   ibs: {fileID: 4618267395729997085}
   squaredButton: 0
+  emptyElPrefab: {fileID: 0}
 --- !u!1 &1181652136394223237
 GameObject:
   m_ObjectHideFlags: 0
@@ -1215,6 +1218,8 @@ MonoBehaviour:
   trail: {fileID: 0}
   buttonKeyCode: Lvl1
   activatedSpot: {fileID: 0}
+  personalizedActiveColor: 0
+  activeColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &8435635692823883396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1386,6 +1391,8 @@ MonoBehaviour:
   trail: {fileID: 0}
   buttonKeyCode: Lvl1
   activatedSpot: {fileID: 0}
+  personalizedActiveColor: 0
+  activeColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &3836128468393204840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1557,6 +1564,8 @@ MonoBehaviour:
   trail: {fileID: 0}
   buttonKeyCode: Lvl1
   activatedSpot: {fileID: 0}
+  personalizedActiveColor: 0
+  activeColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &6961831649478022163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2263,6 +2272,8 @@ MonoBehaviour:
   trail: {fileID: 0}
   buttonKeyCode: Lvl1
   activatedSpot: {fileID: 0}
+  personalizedActiveColor: 0
+  activeColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &2912991653908688555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2727,6 +2738,8 @@ MonoBehaviour:
   trail: {fileID: 0}
   buttonKeyCode: Lvl1
   activatedSpot: {fileID: 0}
+  personalizedActiveColor: 0
+  activeColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1451387037727809248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3164,6 +3177,8 @@ MonoBehaviour:
   trail: {fileID: 0}
   buttonKeyCode: Lvl1
   activatedSpot: {fileID: 0}
+  personalizedActiveColor: 0
+  activeColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &5249847427797465904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3403,6 +3418,7 @@ GameObject:
   - component: {fileID: 6773502889887726167}
   - component: {fileID: 4618267395729997085}
   - component: {fileID: 6707195074849197798}
+  - component: {fileID: 5203328435766372124}
   m_Layer: 5
   m_Name: Collection
   m_TagString: Untagged
@@ -3520,6 +3536,22 @@ MonoBehaviour:
   highligther: {fileID: 6674629257214772514}
   ibs: {fileID: 4618267395729997085}
   showOnlyOnGamepad: 1
+--- !u!114 &5203328435766372124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4807435012307325472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 769d4f3416494499c964d0e29e76c691, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Left: 50
+  Right: 50
+  Top: 120
+  Bottom: 240
 --- !u!1 &4991573116625092431
 GameObject:
   m_ObjectHideFlags: 0
@@ -3771,6 +3803,8 @@ MonoBehaviour:
   trail: {fileID: 0}
   buttonKeyCode: Lvl1
   activatedSpot: {fileID: 0}
+  personalizedActiveColor: 0
+  activeColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &4569281478884031809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4227,8 +4261,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e4fbd4b0d72c4fcda5e03dcbdf2cc95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Yvalue: -500
-  Xvalue: -240
+  Yvalue: -430
+  Xvalue: 295
 --- !u!114 &4903228866490485789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4924,6 +4958,8 @@ MonoBehaviour:
   trail: {fileID: 0}
   buttonKeyCode: Lvl1
   activatedSpot: {fileID: 0}
+  personalizedActiveColor: 0
+  activeColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &8045802074716211500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5005,6 +5041,7 @@ MonoBehaviour:
   pageNumber: {fileID: 8095871649886387739}
   ibs: {fileID: 4618267395729997085}
   squaredButton: 0
+  emptyElPrefab: {fileID: 0}
 --- !u!1 &6176359335956781675
 GameObject:
   m_ObjectHideFlags: 0
@@ -5160,6 +5197,8 @@ MonoBehaviour:
   trail: {fileID: 0}
   buttonKeyCode: Lvl1
   activatedSpot: {fileID: 0}
+  personalizedActiveColor: 0
+  activeColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &8487020169176567301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5331,6 +5370,8 @@ MonoBehaviour:
   trail: {fileID: 0}
   buttonKeyCode: Lvl1
   activatedSpot: {fileID: 0}
+  personalizedActiveColor: 0
+  activeColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &4755280393480589445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5839,6 +5880,8 @@ MonoBehaviour:
   trail: {fileID: 0}
   buttonKeyCode: Lvl1
   activatedSpot: {fileID: 0}
+  personalizedActiveColor: 0
+  activeColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &4352174976574590951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6645,8 +6688,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e4fbd4b0d72c4fcda5e03dcbdf2cc95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Yvalue: -500
-  Xvalue: -240
+  Yvalue: -430
+  Xvalue: 295
 --- !u!114 &3597907498112398670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6678,7 +6721,6 @@ GameObject:
   - component: {fileID: 2877784052737679711}
   - component: {fileID: 2877784052737679708}
   - component: {fileID: 2877784052737679709}
-  - component: {fileID: 2877784052737679706}
   m_Layer: 5
   m_Name: DescriptionBox
   m_TagString: Untagged
@@ -6776,13 +6818,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8666069416326179154}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e4fbd4b0d72c4fcda5e03dcbdf2cc95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Yvalue: 420
-  Xvalue: 166
+  Yvalue: 370
+  Xvalue: -295
 --- !u!114 &2877784052737679709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6795,24 +6837,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19862d39fdac047e98668a04badd3a16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleXP: 1.2
-  scaleYP: 1.2
---- !u!114 &2877784052737679706
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8666069416326179154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 769d4f3416494499c964d0e29e76c691, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Left: 150
-  Right: 150
-  Top: 250
-  Bottom: 1000
+  scaleXP: 1.3
+  scaleYP: 1.3
 --- !u!1 &8904072484265862303
 GameObject:
   m_ObjectHideFlags: 0

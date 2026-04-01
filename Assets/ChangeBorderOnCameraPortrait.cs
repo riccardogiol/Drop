@@ -3,6 +3,7 @@ using UnityEngine;
 public class ChangeBorderOnCameraPortrait : MonoBehaviour
 {
     Camera cam;
+    RectTransform rectTransform;
     public float Left, Right, Top, Bottom;
     float currentRatio = -1;
 
@@ -11,12 +12,26 @@ public class ChangeBorderOnCameraPortrait : MonoBehaviour
     void Awake()
     {
         cam = FindFirstObjectByType<Camera>();
+        rectTransform = GetComponent<RectTransform>();
         if (cam!= null)
         {
-            offsetMinLandscape = GetComponent<RectTransform>().offsetMin;
-            offsetMaxLandscape = GetComponent<RectTransform>().offsetMax;
+            offsetMinLandscape = rectTransform.offsetMin;
+            offsetMaxLandscape = rectTransform.offsetMax;
             offsetMinPortrait = new Vector2(Left, Bottom);
             offsetMaxPortrait = new Vector2(-Right, -Top);
+            if (cam.aspect != currentRatio)
+            {
+                if (cam.aspect < 1)
+                {
+                    rectTransform.offsetMin = offsetMinPortrait; 
+                    rectTransform.offsetMax = offsetMaxPortrait; 
+                    currentRatio = cam.aspect;
+                } else {
+                    rectTransform.offsetMin = offsetMinLandscape; 
+                    rectTransform.offsetMax = offsetMaxLandscape; 
+                    currentRatio = cam.aspect;
+                }
+            }
         }
     }
 
@@ -26,12 +41,12 @@ public class ChangeBorderOnCameraPortrait : MonoBehaviour
         {
             if (cam.aspect < 1)
             {
-                GetComponent<RectTransform>().offsetMin = offsetMinPortrait; 
-                GetComponent<RectTransform>().offsetMax = offsetMaxPortrait; 
+                rectTransform.offsetMin = offsetMinPortrait; 
+                rectTransform.offsetMax = offsetMaxPortrait; 
                 currentRatio = cam.aspect;
             } else {
-                GetComponent<RectTransform>().offsetMin = offsetMinLandscape; 
-                GetComponent<RectTransform>().offsetMax = offsetMaxLandscape; 
+                rectTransform.offsetMin = offsetMinLandscape; 
+                rectTransform.offsetMax = offsetMaxLandscape; 
                 currentRatio = cam.aspect;
             }
         }

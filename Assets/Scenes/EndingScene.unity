@@ -4962,7 +4962,6 @@ GameObject:
   - component: {fileID: 1451130073}
   - component: {fileID: 1451130077}
   - component: {fileID: 1451130076}
-  - component: {fileID: 1451130075}
   - component: {fileID: 1451130074}
   m_Layer: 5
   m_Name: DescriptionBox
@@ -5008,20 +5007,6 @@ MonoBehaviour:
   canvasRT: {fileID: 526195416}
   HPadding: 100
   VPadding: 180
---- !u!114 &1451130075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1451130072}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e4fbd4b0d72c4fcda5e03dcbdf2cc95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Yvalue: -260
-  Xvalue: -350
 --- !u!114 &1451130076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5389,6 +5374,7 @@ GameObject:
   - component: {fileID: 1758118837}
   - component: {fileID: 1758118836}
   - component: {fileID: 1758118835}
+  - component: {fileID: 1758118840}
   m_Layer: 5
   m_Name: ThanksPanel
   m_TagString: Untagged
@@ -5501,6 +5487,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1758118833}
   m_CullTransparentMesh: 1
+--- !u!114 &1758118840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1758118833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19862d39fdac047e98668a04badd3a16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleXP: 0.8
+  scaleYP: 0.8
 --- !u!1 &1774161156
 GameObject:
   m_ObjectHideFlags: 0
