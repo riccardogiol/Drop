@@ -11,7 +11,9 @@ public class ChangeBorderOnCameraPortrait : MonoBehaviour
 
     void Awake()
     {
-        cam = FindFirstObjectByType<Camera>();
+        cam = Camera.main;
+        if (cam == null)
+            cam = FindFirstObjectByType<Camera>();
         rectTransform = GetComponent<RectTransform>();
         if (cam!= null)
         {

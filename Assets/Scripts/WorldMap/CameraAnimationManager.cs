@@ -36,7 +36,9 @@ public class CameraAnimationManager : MonoBehaviour
     void Awake()
     {
         playerMapTargeting = GetComponent<PlayerMapTargeting>();
-        cam = FindFirstObjectByType<Camera>();
+        cam = Camera.main;
+        if (cam == null)
+            cam = FindFirstObjectByType<Camera>();
         currentRatio = cam.aspect;
         if (currentRatio < 1)
         {

@@ -20,6 +20,7 @@ public class PlayerMovementKeys: MonoBehaviour
     bool hasTarget;
     float nextWaypointDistance = 0.08f;
     bool movementInterrupted;
+    bool movementFromMobile = false;
     bool rotate;
 
     Vector2 dpadDir;
@@ -49,7 +50,7 @@ public class PlayerMovementKeys: MonoBehaviour
 
     void Update()
     {
-        if (!MenusManager.isPaused && !movementInterrupted)
+        if (!MenusManager.isPaused && !movementInterrupted && !movementFromMobile)
         {
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");
@@ -68,6 +69,16 @@ public class PlayerMovementKeys: MonoBehaviour
                     movement = dpadDir;
             }
             rotate = Input.GetKeyDown(KeyCode.R) || gamepadInput;
+        }
+        movementFromMobile = false;
+    }
+
+    public void ReadInputMobile(Vector3 inputMovement)
+    {
+        if (!MenusManager.isPaused && !movementInterrupted)
+        {
+            movement = inputMovement;
+            movementFromMobile = true;
         }
     }
 

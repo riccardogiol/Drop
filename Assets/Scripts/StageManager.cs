@@ -77,7 +77,9 @@ public class StageManager : MonoBehaviour
         stageInstanceCode = UnityEngine.Random.Range(1, 999999999);
 
         float currentRatio = 0;
-        Camera cam = FindFirstObjectByType<Camera>();
+        Camera cam = Camera.main;
+        if (cam == null)
+            cam = FindFirstObjectByType<Camera>();
         if (cam!= null)
             currentRatio = cam.aspect;
         

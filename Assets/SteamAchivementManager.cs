@@ -1,5 +1,8 @@
 using UnityEngine;
+
+#if STEAMWORKS_NET
 using Steamworks;
+#endif
 
 public class SteamAchivementManager : MonoBehaviour
 {
@@ -17,8 +20,10 @@ public class SteamAchivementManager : MonoBehaviour
 
         instance = this;
         DontDestroyOnLoad(gameObject);
-
+        
+        #if STEAMWORKS_NET
         initialized = SteamAPI.Init();
+        #endif
 
         if (!initialized)
         {
@@ -27,14 +32,20 @@ public class SteamAchivementManager : MonoBehaviour
     }
     void Start()
     {
+        
+        #if STEAMWORKS_NET
         if (initialized)
             Debug.Log("Steam App ID: " + SteamUtils.GetAppID());
+        #endif
     }
 
     void Update()
     {
+        
+        #if STEAMWORKS_NET
         if (initialized)
             SteamAPI.RunCallbacks();
+        #endif
     }
 
     public void UnlockAchievement(string id)
@@ -43,15 +54,19 @@ public class SteamAchivementManager : MonoBehaviour
 
         if (PlayerPrefs.GetInt("DemoVersion", 0) == 1) return;
 
+        #if STEAMWORKS_NET
         SteamUserStats.SetAchievement(id);
         SteamUserStats.StoreStats();
+        #endif
     }
 
     void OnApplicationQuit()
     {
         if (initialized)
         {
+            #if STEAMWORKS_NET
             SteamAPI.Shutdown();
+            #endif
         }
     }
 }

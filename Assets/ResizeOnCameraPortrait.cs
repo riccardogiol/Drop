@@ -9,7 +9,9 @@ public class ResizeOnCameraPortrait : MonoBehaviour
 
     void Awake()
     {
-        cam = FindFirstObjectByType<Camera>();
+        cam = Camera.main;
+        if (cam == null)
+            cam = FindFirstObjectByType<Camera>();
         if (cam!= null)
         {
             currentRatio = cam.aspect;
