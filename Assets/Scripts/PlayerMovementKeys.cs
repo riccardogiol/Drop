@@ -73,11 +73,14 @@ public class PlayerMovementKeys: MonoBehaviour
         movementFromMobile = false;
     }
 
-    public void ReadInputMobile(Vector3 inputMovement)
+    public void ReadInputMobile(Vector3 inputMovement, bool inputRotate = false)
     {
         if (!MenusManager.isPaused && !movementInterrupted)
         {
-            movement = inputMovement;
+            if (inputRotate)
+                rotate = true;
+            else
+                movement = inputMovement;
             movementFromMobile = true;
         }
     }

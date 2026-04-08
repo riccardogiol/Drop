@@ -17,6 +17,11 @@ public class MobileInputMovementCaller : MonoBehaviour
         }
     }
 
+    public void RotatePlayer()
+    {
+        pvk.ReadInputMobile(direction, true);
+    }
+
     void Update()
     {
         if (isPressed)

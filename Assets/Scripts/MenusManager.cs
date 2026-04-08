@@ -30,6 +30,7 @@ public class MenusManager : MonoBehaviour
     public Text[] descriptions;
 
     public GameObject[] buttonHints;
+    public GameObject movementKeysMobile;
     public GameObject movementKeys;
 
     public Image logoRef;
@@ -116,7 +117,8 @@ public class MenusManager : MonoBehaviour
         if (PlayerPrefs.GetInt("ShowButtonHint", 0) == 0)
         {
             foreach (GameObject bh in buttonHints)
-                    bh.SetActive(false);
+                bh.SetActive(false);
+            movementKeysMobile.SetActive(false);
         }
         movementKeys.SetActive(false);
 
@@ -207,6 +209,7 @@ public class MenusManager : MonoBehaviour
         shader.SetActive(true);
         foreach(GameObject bh in buttonHints)
             bh.SetActive(true);
+        movementKeysMobile.SetActive(false);
         movementKeys.SetActive(true);
         ShowDescriptions();
         isPaused = true;
@@ -414,6 +417,9 @@ public class MenusManager : MonoBehaviour
         {
             foreach (GameObject bh in buttonHints)
                     bh.SetActive(false);
+        } else if (Application.isMobilePlatform)
+        {
+            movementKeysMobile.SetActive(true);
         }
         movementKeys.SetActive(false);
         HideDescriptions();
