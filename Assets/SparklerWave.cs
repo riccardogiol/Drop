@@ -23,8 +23,13 @@ public class SparklerWave : MonoBehaviour
 
     SparklerCharge sc;
 
-    void Start () {
+    void Awake()
+    {
         playgroundManager = FindFirstObjectByType<PlaygroundManager>();
+    }
+
+    void Start ()
+    {
         if (parent == null)
             parent = gameObject;
         countdown = delay;

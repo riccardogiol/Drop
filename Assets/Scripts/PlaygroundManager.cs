@@ -542,6 +542,11 @@ public class PlaygroundManager : MonoBehaviour
         Debug.Log("Burnt tiles: " + burntTiles);
         Debug.Log("Fire value: " + fireValue);
         Debug.Log("Progression perc: " + progressionPerc);
+        if (progressionPerc <= -1000 || progressionPerc >= 1000)
+        {
+            Debug.Log("ProgressionPerc out of range: " + progressionPerc);
+            return;
+        }
         if (progressionPerc >= winProgressionPerc && !reachedWinningCondition)
         {
             //StopAllCoroutines();
@@ -588,7 +593,7 @@ public class PlaygroundManager : MonoBehaviour
             } else if (Time.time > lastProgressionPercTime + 5.0f)
             {
                 showCellBurntHighlight = true;
-                walkTilemap.GetComponent<RuleTileStateManager>().HighlightBurntTile(true);
+                walkTilemap.GetComponent<RuleTileStateManager>().HighlightBurntTile(true); // check if stage is complete and win
             }
         }
     }
