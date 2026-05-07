@@ -7,6 +7,9 @@ public class ScaleOnCameraPortrait : MonoBehaviour
     float scaleXL, scaleYL;
     float currentRatio;
 
+    public bool scaleOnLandscapeMobile = false;
+    public float scaleXLM = 1, scaleYLM = 1;
+
     void Awake()
     {
         cam = Camera.main;
@@ -20,6 +23,9 @@ public class ScaleOnCameraPortrait : MonoBehaviour
             if (currentRatio < 1)
             {
                 GetComponent<RectTransform>().localScale = new Vector3(scaleXP, scaleYP, 1); 
+            } else if (scaleOnLandscapeMobile && Application.isMobilePlatform)
+            {
+                GetComponent<RectTransform>().localScale = new Vector3(scaleXLM, scaleYLM, 1);
             }
         }
     }
@@ -33,7 +39,10 @@ public class ScaleOnCameraPortrait : MonoBehaviour
                 GetComponent<RectTransform>().localScale = new Vector3(scaleXP, scaleYP, 1); 
                 currentRatio = cam.aspect;
             } else {
-                GetComponent<RectTransform>().localScale = new Vector3(scaleXL, scaleYL, 1); 
+                if (scaleOnLandscapeMobile && Application.isMobilePlatform)
+                    GetComponent<RectTransform>().localScale = new Vector3(scaleXLM, scaleYLM, 1);
+                else
+                    GetComponent<RectTransform>().localScale = new Vector3(scaleXL, scaleYL, 1); 
                 currentRatio = cam.aspect;
             }
         }

@@ -137,6 +137,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scaleXP: 0.7
   scaleYP: 0.9
+  scaleOnLandscapeMobile: 0
+  scaleXLM: 1
+  scaleYLM: 1
 --- !u!114 &9082420253227063730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4202,6 +4205,7 @@ GameObject:
   - component: {fileID: 7516613119855084398}
   - component: {fileID: 3843353219667505852}
   - component: {fileID: 2538104257524968758}
+  - component: {fileID: 1941696121727693884}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -4331,6 +4335,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Yvalue: 260
   Xvalue: 0
+--- !u!114 &1941696121727693884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715595832583040290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19862d39fdac047e98668a04badd3a16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleXP: 1.2
+  scaleYP: 1.2
+  scaleOnLandscapeMobile: 0
+  scaleXLM: 1
+  scaleYLM: 1
 --- !u!1 &1791630668947243621
 GameObject:
   m_ObjectHideFlags: 0
@@ -4516,6 +4537,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scaleXP: 1.3
   scaleYP: 1.3
+  scaleOnLandscapeMobile: 0
+  scaleXLM: 1
+  scaleYLM: 1
 --- !u!1 &2004893395412852926
 GameObject:
   m_ObjectHideFlags: 0
@@ -4528,7 +4552,6 @@ GameObject:
   - component: {fileID: 3970420678128227757}
   - component: {fileID: 8456941795728235862}
   - component: {fileID: 8481094432099046503}
-  - component: {fileID: 2033476398123520258}
   m_Layer: 5
   m_Name: WorldMapButton
   m_TagString: Untagged
@@ -4663,20 +4686,6 @@ MonoBehaviour:
           m_StringArgument: ClickIn
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2033476398123520258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2004893395412852926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19862d39fdac047e98668a04badd3a16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scaleXP: 1.3
-  scaleYP: 1.3
 --- !u!1 &2021927390445423411
 GameObject:
   m_ObjectHideFlags: 0
@@ -8691,7 +8700,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3062524820865076585}
   - component: {fileID: 5095799223352721254}
-  - component: {fileID: 2475833904409340851}
   m_Layer: 5
   m_Name: SuperButton
   m_TagString: Untagged
@@ -8734,20 +8742,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4672252028897851397}
   m_CullTransparentMesh: 1
---- !u!114 &2475833904409340851
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4672252028897851397}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e4fbd4b0d72c4fcda5e03dcbdf2cc95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Yvalue: 0
-  Xvalue: 0
 --- !u!1 &4829938475077792632
 GameObject:
   m_ObjectHideFlags: 0
@@ -10969,6 +10963,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scaleXP: 0.9
   scaleYP: 1
+  scaleOnLandscapeMobile: 0
+  scaleXLM: 1
+  scaleYLM: 1
 --- !u!1 &6604265134747617938
 GameObject:
   m_ObjectHideFlags: 0
@@ -11464,6 +11461,7 @@ GameObject:
   - component: {fileID: 517492534777663766}
   - component: {fileID: 8639853085932602390}
   - component: {fileID: 7046820372894115461}
+  - component: {fileID: 6034428928148553490}
   m_Layer: 5
   m_Name: MobileSuperPlacement
   m_TagString: Untagged
@@ -11488,7 +11486,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -113, y: 628}
+  m_AnchoredPosition: {x: -268, y: 480}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8639853085932602390
@@ -11515,7 +11513,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90078e65b4fa74828a8184a7663f3901, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasObject: {fileID: 5015789588202577635}
+  canvasObject: {fileID: 4672252028897851397}
+--- !u!114 &6034428928148553490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6862255711895064263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e4fbd4b0d72c4fcda5e03dcbdf2cc95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Yvalue: 148
+  Xvalue: 148
 --- !u!1 &7039771910540185672
 GameObject:
   m_ObjectHideFlags: 0
@@ -12759,7 +12771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e4fbd4b0d72c4fcda5e03dcbdf2cc95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Yvalue: -66
+  Yvalue: -74
   Xvalue: 38
 --- !u!1 &7725263255029978852
 GameObject:
@@ -14210,7 +14222,7 @@ RectTransform:
   m_GameObject: {fileID: 9139134389994795410}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 1.8, y: 1.8, z: 1.8}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5937633469970409999}
@@ -16223,6 +16235,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Yvalue: 220
   Xvalue: 0
+--- !u!114 &3097004763346594515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618544435773036373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19862d39fdac047e98668a04badd3a16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleXP: 1.2
+  scaleYP: 1.2
+  scaleOnLandscapeMobile: 0
+  scaleXLM: 1
+  scaleYLM: 1
 --- !u!1001 &5401956208293418474
 PrefabInstance:
   m_ObjectHideFlags: 0

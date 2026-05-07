@@ -14,6 +14,7 @@ public class SetButtonActionSuper : MonoBehaviour
     {
         if(PlayerPrefs.GetInt(unlockingCode1, 0) == 0)
         {
+            button.transform.parent.gameObject.SetActive(false);
             gameObject.SetActive(false);
             return;
         }

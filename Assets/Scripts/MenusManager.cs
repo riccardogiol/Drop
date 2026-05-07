@@ -132,6 +132,7 @@ public class MenusManager : MonoBehaviour
             Time.timeScale = 0f;
             openMessage.SetActive(true);
             shader.SetActive(true);
+            movementKeysMobile.SetActive(false);
             isPaused = true;
             FindObjectOfType<AudioManager>().LowFilerEnter();
             Transform auxTrans = openMessage.transform.Find("ContinueButton");
@@ -207,8 +208,11 @@ public class MenusManager : MonoBehaviour
         Time.timeScale = 0f;
         pauseMenu.SetActive(true);
         shader.SetActive(true);
-        foreach(GameObject bh in buttonHints)
-            bh.SetActive(true);
+        if (!Application.isMobilePlatform)
+        {
+            foreach(GameObject bh in buttonHints)
+                bh.SetActive(true);
+        }
         movementKeysMobile.SetActive(false);
         movementKeys.SetActive(true);
         ShowDescriptions();
@@ -244,7 +248,9 @@ public class MenusManager : MonoBehaviour
         shader.SetActive(true);
         saveMessage.SetActive(true);
         isPaused = true;
+        movementKeysMobile.SetActive(false);
         FindObjectOfType<AudioManager>().LowFilerEnter();
+
         Transform auxTrans = stageClearedMenu.transform.Find("NextStageButton");
         if (auxTrans == null)
             return;
@@ -297,6 +303,8 @@ public class MenusManager : MonoBehaviour
         gameOverMenu.SetActive(true);
         shader.SetActive(true);
         isPaused = true;
+        movementKeysMobile.SetActive(false);
+
         auxTrans = gameOverMenu.transform.Find("RetryButton");
         if (auxTrans == null)
             return;
@@ -325,6 +333,7 @@ public class MenusManager : MonoBehaviour
         saveMessage.SetActive(true);
         isPaused = true;
         FindObjectOfType<AudioManager>().LowFilerEnter();
+        movementKeysMobile.SetActive(false);
 
         Transform auxTrans = levelClearedMenu.transform.Find("WorldMapButton");
         if (auxTrans == null)
@@ -448,6 +457,10 @@ public class MenusManager : MonoBehaviour
         {
             foreach (GameObject om in overlayMessages)
                 om.SetActive(true);
+        }
+        if (PlayerPrefs.GetInt("ShowButtonHint", 0) == 1 && Application.isMobilePlatform)
+        {
+            movementKeysMobile.SetActive(true);
         }
         StartCoroutine(delayMessageOnScreenExit());
         FindObjectOfType<AudioManager>().LowFilerExit();

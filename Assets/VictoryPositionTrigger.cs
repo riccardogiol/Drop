@@ -5,7 +5,7 @@ public class VictoryPositionTrigger : MonoBehaviour
 
     Collider2D boxCollider;
 
-    void Start()
+    void Awake()
     {
         boxCollider = GetComponent<BoxCollider2D>();
         boxCollider.enabled = false;
