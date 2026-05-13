@@ -6,6 +6,11 @@ public class DemoVersionInitialization : MonoBehaviour
     
     void Awake()
     {
+        UpdateDemoAndFullVersionFlags();
+    }
+
+    public void UpdateDemoAndFullVersionFlags()
+    {
         if (isDemo)
         {
             PlayerPrefs.SetInt("DemoVersion", 1);
