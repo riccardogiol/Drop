@@ -6,7 +6,10 @@ public class DemoVersionInitialization : MonoBehaviour
     
     void Awake()
     {
-        UpdateDemoAndFullVersionFlags();
+        if (Application.platform != RuntimePlatform.Android && Application.platform != RuntimePlatform.IPhonePlayer)
+        {
+            UpdateDemoAndFullVersionFlags();
+        }
     }
 
     public void UpdateDemoAndFullVersionFlags()

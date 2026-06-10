@@ -401,6 +401,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Yvalue: 0
   Xvalue: 0
+  evaluateSafeAreaTop: 0
+  extraTopDiffWithSafeArea: 0
 --- !u!114 &4442431071162738670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3635,6 +3637,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Yvalue: 0
   Xvalue: 0
+  evaluateSafeAreaTop: 0
+  extraTopDiffWithSafeArea: 0
 --- !u!1 &1715595832385751206
 GameObject:
   m_ObjectHideFlags: 0
@@ -3838,6 +3842,7 @@ GameObject:
   - component: {fileID: 1715595832529047433}
   - component: {fileID: 1715595832529047434}
   - component: {fileID: 6158591202159465906}
+  - component: {fileID: 403609561281109699}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -3964,6 +3969,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &403609561281109699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715595832529047479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e4fbd4b0d72c4fcda5e03dcbdf2cc95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Yvalue: 0
+  Xvalue: 0
+  evaluateSafeAreaTop: 1
+  extraTopDiffWithSafeArea: 60
 --- !u!1 &1715595832534139839
 GameObject:
   m_ObjectHideFlags: 0
@@ -4335,6 +4356,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Yvalue: 260
   Xvalue: 0
+  evaluateSafeAreaTop: 0
+  extraTopDiffWithSafeArea: 0
 --- !u!114 &1941696121727693884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4523,6 +4546,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Yvalue: 190
   Xvalue: 300
+  evaluateSafeAreaTop: 0
+  extraTopDiffWithSafeArea: 0
 --- !u!114 &4095339820245646195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5140,6 +5165,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Yvalue: 155
   Xvalue: -294
+  evaluateSafeAreaTop: 0
+  extraTopDiffWithSafeArea: 0
 --- !u!1 &2523560577000900888
 GameObject:
   m_ObjectHideFlags: 0
@@ -9765,6 +9792,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Yvalue: -250
   Xvalue: -363
+  evaluateSafeAreaTop: 0
+  extraTopDiffWithSafeArea: 0
 --- !u!1 &5549952816802255127
 GameObject:
   m_ObjectHideFlags: 0
@@ -10949,6 +10978,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Yvalue: -320
   Xvalue: -133
+  evaluateSafeAreaTop: 0
+  extraTopDiffWithSafeArea: 0
 --- !u!114 &616736222199909791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11450,6 +11481,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Yvalue: -45
   Xvalue: 0
+  evaluateSafeAreaTop: 0
+  extraTopDiffWithSafeArea: 0
 --- !u!1 &6862255711895064263
 GameObject:
   m_ObjectHideFlags: 0
@@ -11528,6 +11561,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Yvalue: 148
   Xvalue: 148
+  evaluateSafeAreaTop: 0
+  extraTopDiffWithSafeArea: 0
 --- !u!1 &7039771910540185672
 GameObject:
   m_ObjectHideFlags: 0
@@ -12773,6 +12808,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Yvalue: -74
   Xvalue: 38
+  evaluateSafeAreaTop: 1
+  extraTopDiffWithSafeArea: 60
 --- !u!1 &7725263255029978852
 GameObject:
   m_ObjectHideFlags: 0
@@ -13845,6 +13882,7 @@ GameObject:
   - component: {fileID: 332328182569804302}
   - component: {fileID: 6689951877274021862}
   - component: {fileID: 8667352411447738061}
+  - component: {fileID: 7579940673946645014}
   m_Layer: 5
   m_Name: MenuButton
   m_TagString: Untagged
@@ -13966,6 +14004,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7579940673946645014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8401541617752023807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e4fbd4b0d72c4fcda5e03dcbdf2cc95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Yvalue: 0
+  Xvalue: 0
+  evaluateSafeAreaTop: 1
+  extraTopDiffWithSafeArea: 60
 --- !u!1 &8535882654580344661
 GameObject:
   m_ObjectHideFlags: 0
@@ -16235,6 +16289,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Yvalue: 220
   Xvalue: 0
+  evaluateSafeAreaTop: 0
+  extraTopDiffWithSafeArea: 0
 --- !u!114 &3097004763346594515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17265,6 +17321,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Yvalue: -620
   Xvalue: -360
+  evaluateSafeAreaTop: 0
+  extraTopDiffWithSafeArea: 0
 --- !u!224 &6769425361013933469 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 125821601729113864, guid: 3359f8579caca4ad3b215107871448ad,

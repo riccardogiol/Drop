@@ -8,6 +8,8 @@ public class StoreButtonPurchaseManager : MonoBehaviour
     public Text text;
 
     public Sprite demoSprite, fullVersionSprite;
+
+    public string price;
     
     public void UpdateButtonGFX()
     {
@@ -16,11 +18,15 @@ public class StoreButtonPurchaseManager : MonoBehaviour
         if (PlayerPrefs.GetInt("FullVersion", 0) == 1)
         {
             buttonImage.sprite = fullVersionSprite;
-            text.text = "Full Version"; // localizza?
+            text.text = "FULL\nVERSION"; // localizza controlla in messaggio scelta difficoltà per farlo embedded
+            text.color = Color.black;
+            button.enabled = false;
         } else
         {
             buttonImage.sprite = demoSprite;
-            text.text = "BUY FULL VERSION"; // localizza?
+            text.text = "BUY FULL VERSION\n" + price; // localizza
+            text.color = Color.white;
+            button.enabled = true;
         }
     }
 

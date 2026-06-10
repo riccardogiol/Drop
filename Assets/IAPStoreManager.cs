@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Purchasing;
 using UnityEngine.SceneManagement;
@@ -12,6 +13,7 @@ public class IAPStoreManager : MonoBehaviour
 
     public DemoVersionInitialization dvi;
     public StoreButtonPurchaseManager sbpm;
+    public GameObject purchaseFailedMessage;
 
     void Start()
     {
@@ -78,19 +80,24 @@ public class IAPStoreManager : MonoBehaviour
     {
         Debug.Log("OnProductsFetched");
         foreach (Product product in products)
-           Debug.Log("Product: " + product.definition);
+        {
+            Debug.Log("Product: " + product.definition);
+            if (product.definition.id == FULL_GAME_CODE)
+            {
+                sbpm.price = product.metadata.localizedPriceString;
+                sbpm.UpdateButtonGFX();
+            }
+        }
 
         storeController.FetchPurchases();
     }
 
-    // Invoked when an attempt to fetch products has failed or when a subset of products failed to be fetched.
     private void OnProductsFetchFailed(ProductFetchFailed failure)
     {
         Debug.Log("OnProductsFetchFailed");
         sbpm.UpdateButtonGFX(); 
     }
 
-    /// Invoked when previous purchases are fetched. // this at te beginning to check of the FULL_GAME was purchased
     private void OnPurchasesFetched(Orders orders)
     {
         bool isDemo = true;
@@ -117,25 +124,12 @@ public class IAPStoreManager : MonoBehaviour
         sbpm.UpdateButtonGFX(); 
     }
 
-    /// Invoked when an attempt to fetch previous purchases has failed.
     private void OnPurchasesFetchFailed(PurchasesFetchFailureDescription failure)
     {
         Debug.Log("OnPurchasesFetchFailed");
         sbpm.UpdateButtonGFX(); 
     }
 
-
-/*
-    void CheckPurchase()
-    {
-        var product = storeController.products.WithID(FULL_GAME_CODE);
-
-        if (product != null && product.hasReceipt)
-        {
-            //UnlockFullGame();
-        }
-    }
-*/
 
     public void BuyFullGame()
     {
@@ -151,8 +145,7 @@ public class IAPStoreManager : MonoBehaviour
     async void OnPurchasePending(PendingOrder order)
     {
         Debug.Log("OnPurchasePending");
-        // actually there are some check to do just copy from 6:58
-        // confirm the purchase with:
+        // here I skip the checking on the store to see if the product is there, since when the game boots check for the product with the full game id
         storeController.ConfirmPurchase(order);
     }
 
@@ -160,21 +153,21 @@ public class IAPStoreManager : MonoBehaviour
     {
         Debug.Log("OnPurchaseConfirmed");
         isPurchasePending = false;
-        if (order is FailedOrder failedOrder) // double ceck?
+        if (order is FailedOrder failedOrder)
         {
-            // write something about why the order failed in failedOrder.FailedReason
+            purchaseFailedMessage.SetActive(true);
+            Debug.Log("Faild order: " + failedOrder.FailureReason.ToString());
             return;
         }
 
-        // some messagge on the product you managed to pourchase? 7:56
+        Debug.Log("Purchase Confirmed: " + order.CartOrdered.Items().FirstOrDefault().ToString());
         UnlockFullGame();
     }
 
     void OnPurchaseFailed(FailedOrder failed)
     {
-        Debug.Log("OnPurchaseFailed");
+        Debug.Log("OnPurchaseFailed: " + failed.FailureReason.ToString());
         isPurchasePending = false;
-        // say something, it's the same as when I close the store, so it's quite normal
     }
 
     void OnPurchaseDeferred(DeferredOrder deferredOrder)

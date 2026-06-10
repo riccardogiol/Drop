@@ -6731,6 +6731,7 @@ GameObject:
   - component: {fileID: 241792111}
   - component: {fileID: 241792112}
   - component: {fileID: 241792113}
+  - component: {fileID: 241792114}
   m_Layer: 5
   m_Name: OnScreenMessage
   m_TagString: Untagged
@@ -6754,7 +6755,7 @@ RectTransform:
   - {fileID: 1810170665}
   - {fileID: 1645039364}
   m_Father: {fileID: 573872598}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -6790,6 +6791,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonName: ContinueButton
+--- !u!114 &241792114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241792110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e4fbd4b0d72c4fcda5e03dcbdf2cc95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Yvalue: 0
+  Xvalue: 0
+  evaluateSafeAreaTop: 1
+  extraTopDiffWithSafeArea: 60
 --- !u!1001 &558421437
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6956,6 +6973,11 @@ PrefabInstance:
       value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 883560211532010066, guid: c7b202ae4dba84871811aa7c44bc43e3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 908560418753210323, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -7183,7 +7205,7 @@ PrefabInstance:
     - target: {fileID: 3846902098809215285, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 21
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4021558084152352761, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
@@ -8375,6 +8397,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Yvalue: 0
   Xvalue: 0
+  evaluateSafeAreaTop: 0
+  extraTopDiffWithSafeArea: 0
 --- !u!1 &1662532895
 GameObject:
   m_ObjectHideFlags: 0
@@ -8664,6 +8688,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Yvalue: 0
   Xvalue: 0
+  evaluateSafeAreaTop: 0
+  extraTopDiffWithSafeArea: 0
 --- !u!1001 &1843101833
 PrefabInstance:
   m_ObjectHideFlags: 0

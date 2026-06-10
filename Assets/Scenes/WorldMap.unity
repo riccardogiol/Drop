@@ -2566,6 +2566,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Yvalue: 90
   Xvalue: 0
+  evaluateSafeAreaTop: 0
+  extraTopDiffWithSafeArea: 0
 --- !u!1 &87773171
 GameObject:
   m_ObjectHideFlags: 0
@@ -5277,6 +5279,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Yvalue: 450
   Xvalue: 300
+  evaluateSafeAreaTop: 0
+  extraTopDiffWithSafeArea: 0
 --- !u!4 &141247236 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6165337443358378160, guid: 92976f1534b464e7c80621c1f41d849c,
@@ -5618,9 +5622,9 @@ RectTransform:
   m_Father: {fileID: 2088108346}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -33}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 107}
   m_SizeDelta: {x: 407.2397, y: 60}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &154487616
@@ -6612,6 +6616,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Yvalue: 20
   Xvalue: -186
+  evaluateSafeAreaTop: 0
+  extraTopDiffWithSafeArea: 0
 --- !u!1001 &201866447
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9948,6 +9954,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Yvalue: 235
   Xvalue: 300
+  evaluateSafeAreaTop: 0
+  extraTopDiffWithSafeArea: 0
 --- !u!114 &297980876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15214,6 +15222,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Yvalue: -220
   Xvalue: -240
+  evaluateSafeAreaTop: 0
+  extraTopDiffWithSafeArea: 0
 --- !u!1001 &484334860
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17782,6 +17792,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Yvalue: 220
   Xvalue: 240
+  evaluateSafeAreaTop: 0
+  extraTopDiffWithSafeArea: 0
 --- !u!1001 &546775731
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18289,6 +18301,22 @@ MonoBehaviour:
   showDefault: 0
   showOnTrue: Lvl2
   hideOnTrue: OpenDifficultyPanel
+--- !u!114 &546775737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546775734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e4fbd4b0d72c4fcda5e03dcbdf2cc95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Yvalue: 0
+  Xvalue: 0
+  evaluateSafeAreaTop: 1
+  extraTopDiffWithSafeArea: 0
 --- !u!1 &549614155 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5832951659360758036, guid: 6a50dc61a0efe410eb576c9be5f6aa0d,
@@ -19003,6 +19031,7 @@ GameObject:
   - component: {fileID: 607923328}
   - component: {fileID: 607923327}
   - component: {fileID: 607923331}
+  - component: {fileID: 607923332}
   m_Layer: 5
   m_Name: MenuButton
   m_TagString: Untagged
@@ -19154,6 +19183,22 @@ MonoBehaviour:
   scaleOnLandscapeMobile: 0
   scaleXLM: 0
   scaleYLM: 0
+--- !u!114 &607923332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 607923326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e4fbd4b0d72c4fcda5e03dcbdf2cc95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Yvalue: 0
+  Xvalue: 0
+  evaluateSafeAreaTop: 1
+  extraTopDiffWithSafeArea: 20
 --- !u!1001 &611500752
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26305,6 +26350,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Yvalue: -60
   Xvalue: 0
+  evaluateSafeAreaTop: 1
+  extraTopDiffWithSafeArea: 0
 --- !u!1001 &818280250
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27224,6 +27271,7 @@ GameObject:
   - component: {fileID: 833337892}
   - component: {fileID: 833337891}
   - component: {fileID: 833337890}
+  - component: {fileID: 833337893}
   m_Layer: 5
   m_Name: CollectionButton
   m_TagString: Untagged
@@ -27287,6 +27335,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Yvalue: -40
   Xvalue: 0
+  evaluateSafeAreaTop: 0
+  extraTopDiffWithSafeArea: 0
 --- !u!222 &833337892
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -27295,6 +27345,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 833337888}
   m_CullTransparentMesh: 1
+--- !u!114 &833337893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833337888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e4fbd4b0d72c4fcda5e03dcbdf2cc95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Yvalue: 0
+  Xvalue: 0
+  evaluateSafeAreaTop: 1
+  extraTopDiffWithSafeArea: 20
 --- !u!1001 &833679974
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42082,6 +42148,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Yvalue: -150
   Xvalue: 0
+  evaluateSafeAreaTop: 1
+  extraTopDiffWithSafeArea: 0
 --- !u!1 &1166086518
 GameObject:
   m_ObjectHideFlags: 0
@@ -48976,6 +49044,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Yvalue: -190
   Xvalue: -157
+  evaluateSafeAreaTop: 0
+  extraTopDiffWithSafeArea: 0
 --- !u!114 &1454584090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62474,7 +62544,7 @@ PrefabInstance:
     - target: {fileID: 2474903548583666796, guid: 6a50dc61a0efe410eb576c9be5f6aa0d,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -115.599976
+      value: -115.6001
       objectReference: {fileID: 0}
     - target: {fileID: 2474903548583666796, guid: 6a50dc61a0efe410eb576c9be5f6aa0d,
         type: 3}
@@ -87199,6 +87269,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Yvalue: -200
   Xvalue: 0
+  evaluateSafeAreaTop: 1
+  extraTopDiffWithSafeArea: 0
 --- !u!1001 &1851142671
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -93518,8 +93590,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 10, y: 30.000244}
-  m_SizeDelta: {x: 345, y: 140}
+  m_AnchoredPosition: {x: 10, y: 230.00024}
+  m_SizeDelta: {x: 345, y: 340}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2088108347
 MonoBehaviour:
@@ -93590,6 +93662,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Yvalue: 20
   Xvalue: 0
+  evaluateSafeAreaTop: 1
+  extraTopDiffWithSafeArea: 120
 --- !u!1001 &2092762475
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -97356,7 +97430,7 @@ PrefabInstance:
     - target: {fileID: 2474903548583666796, guid: 6a50dc61a0efe410eb576c9be5f6aa0d,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -115.599976
+      value: -115.6001
       objectReference: {fileID: 0}
     - target: {fileID: 2474903548583666796, guid: 6a50dc61a0efe410eb576c9be5f6aa0d,
         type: 3}
@@ -114428,6 +114502,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Yvalue: 0
   Xvalue: -80
+  evaluateSafeAreaTop: 0
+  extraTopDiffWithSafeArea: 0
 --- !u!1 &8427984333407219446
 GameObject:
   m_ObjectHideFlags: 0
