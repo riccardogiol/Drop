@@ -10,6 +10,8 @@ public class StoreButtonPurchaseManager : MonoBehaviour
     public Sprite demoSprite, fullVersionSprite;
 
     public string price;
+
+    string localizedText = "";
     
     public void UpdateButtonGFX()
     {
@@ -18,13 +20,19 @@ public class StoreButtonPurchaseManager : MonoBehaviour
         if (PlayerPrefs.GetInt("FullVersion", 0) == 1)
         {
             buttonImage.sprite = fullVersionSprite;
-            text.text = "FULL\nVERSION"; // localizza controlla in messaggio scelta difficoltà per farlo embedded
+            localizedText = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("menu.main.fv");
+            if (localizedText == null)
+                localizedText = "FULL\nVERSION";
+            text.text = localizedText.ToUpper();
             text.color = Color.black;
             button.enabled = false;
         } else
         {
             buttonImage.sprite = demoSprite;
-            text.text = "BUY FULL VERSION\n" + price; // localizza
+            localizedText = SingletonLocalizationManager.instance.GetComponent<LocalizationManager>().Get("menu.main.buy_fv");
+            if (localizedText == null)
+                localizedText = "BUY FULL VERSION";
+            text.text = localizedText.ToUpper() + "\n" + price;
             text.color = Color.white;
             button.enabled = true;
         }

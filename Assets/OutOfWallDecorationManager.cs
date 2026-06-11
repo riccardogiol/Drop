@@ -91,13 +91,13 @@ public class OutOfWallDecorationManager : MonoBehaviour
 
     public void SpawnDecorations(int maxX, int maxY)
     {
-        availableTiles = new bool[maxX + 24, maxY + 16];
-        availableTilesTall = new bool[maxX + 24, maxY + 16];
+        availableTiles = new bool[maxX + 26, maxY + 20];
+        availableTilesTall = new bool[maxX + 26, maxY + 20];
         this.maxX = maxX;
         this.maxY = maxY;
-        for (int y = -5; y <= maxY + 5; y++)
+        for (int y = -9; y <= maxY + 9; y++)
         {
-            for (int x = -10; x <= maxX + 7; x ++)
+            for (int x = -12; x <= maxX + 12; x ++)
             {
                 RuleTile currentTile = walkTileStateManager.GetTile(new Vector3Int(x, y, 0));
                 if (currentTile == null)
@@ -128,9 +128,9 @@ public class OutOfWallDecorationManager : MonoBehaviour
             }
         }
 
-        for (int y = -5; y <= maxY + 5; y++)
+        for (int y = -9; y <= maxY + 7; y++)
         {
-            for (int x = -10; x <= maxX + 5; x ++)
+            for (int x = -12; x <= maxX + 10; x ++)
             {
                 if (GetAvailableTile(x, y))
                 {
@@ -203,25 +203,25 @@ public class OutOfWallDecorationManager : MonoBehaviour
 
     void SetAvailableTile(int x, int y, bool state)
     {
-        availableTiles[x +10, y+5] = state;
-        availableTilesTall[x +10, y+5] = state;
+        availableTiles[x + 12, y + 9] = state;
+        availableTilesTall[x + 12, y + 9] = state;
     }
 
     void SetAvailableTileTall(int x, int y, bool state)
     {
         if (y < -5)
             return;
-        availableTilesTall[x +10, y+5] = state;
+        availableTilesTall[x + 12, y + 9] = state;
     }
 
     bool GetAvailableTile(int x, int y)
     {
-        return availableTiles[x +10, y+5];
+        return availableTiles[x + 12, y + 9];
     }
 
     bool GetAvailableTileTall(int x, int y)
     {
-        return availableTilesTall[x +10, y+5];
+        return availableTilesTall[x + 12, y + 9];
     }
 
     void Update()

@@ -17,6 +17,7 @@ public class IAPStoreManager : MonoBehaviour
 
     void Start()
     {
+        /*
         if (Application.platform != RuntimePlatform.Android && Application.platform != RuntimePlatform.IPhonePlayer)
         {
             Debug.Log("No Android NOR iPhone");
@@ -24,6 +25,7 @@ public class IAPStoreManager : MonoBehaviour
             gameObject.SetActive(false);
             return;
         }
+        */
 
         InitialiseStore();
     }

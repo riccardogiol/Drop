@@ -12,6 +12,9 @@ public class MoveOnCameraPortrait : MonoBehaviour
     float topDifference = -999;
     public float extraTopDiffWithSafeArea = 0;
 
+    public bool evaluateSafeAreaLeft = false;
+    float leftDifference = -999;
+    public float extraLeftDiffWithSafeArea = 0;
     void Awake()
     {
         cam = Camera.main;
@@ -31,6 +34,17 @@ public class MoveOnCameraPortrait : MonoBehaviour
                         portraitPosition = portraitPosition - new Vector2(0, topDifference - extraTopDiffWithSafeArea);
                 }
                 GetComponent<RectTransform>().anchoredPosition = portraitPosition; 
+            } else
+            {
+                if (evaluateSafeAreaLeft && leftDifference == -999 && Application.isMobilePlatform)
+                {
+                    leftDifference = Screen.safeArea.x;
+                    if (leftDifference > 0)
+                    {
+                        landscapePosition += new Vector2(leftDifference + extraLeftDiffWithSafeArea, 0);
+                        GetComponent<RectTransform>().anchoredPosition = landscapePosition;
+                    }
+                }
             }
         }
     }
@@ -50,6 +64,12 @@ public class MoveOnCameraPortrait : MonoBehaviour
                 GetComponent<RectTransform>().anchoredPosition = portraitPosition; 
                 currentRatio = cam.aspect;
             } else {
+                if (evaluateSafeAreaLeft && leftDifference == -999 && Application.isMobilePlatform)
+                {
+                    leftDifference = Screen.safeArea.x;
+                    if (leftDifference > 0)
+                        landscapePosition += new Vector2(leftDifference + extraLeftDiffWithSafeArea, 0);
+                }
                 GetComponent<RectTransform>().anchoredPosition = landscapePosition; 
                 currentRatio = cam.aspect;
             }
