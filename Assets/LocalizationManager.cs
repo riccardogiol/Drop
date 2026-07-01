@@ -11,7 +11,38 @@ public class LocalizationManager : MonoBehaviour
         TextAsset jsonAsset = Resources.Load<TextAsset>("localization");
         JObject jroot = JObject.Parse(jsonAsset.text);
 
-        string langPref = PlayerPrefs.GetString("LanguagePreference", "eng");
+        string langPref;
+        if (PlayerPrefs.HasKey("LanguagePreference"))
+            langPref = PlayerPrefs.GetString("LanguagePreference", "eng");
+        else
+        {
+            SystemLanguage sysLang = Application.systemLanguage;
+            switch (sysLang)
+            {
+                
+                case SystemLanguage.English:
+                    langPref = "eng";
+                    break;
+                case SystemLanguage.Italian:
+                    langPref = "ita";
+                    break;
+                case SystemLanguage.French:
+                    langPref = "fra";
+                    break;
+                case SystemLanguage.Spanish:
+                    langPref = "esp";
+                    break;
+                case SystemLanguage.German:
+                    langPref = "deu";
+                    break;
+                default:
+                    langPref = "eng";
+                    break;
+            }
+            Debug.Log("Language autoselected from system language: " + langPref);
+            PlayerPrefs.SetString("LanguagePreference", langPref);
+        }
+
         JToken jTokenLangRoot = jroot[langPref];
 
         GoDeeper(jTokenLangRoot, "");

@@ -7,7 +7,7 @@ public class ConfirmLanguageButton : MonoBehaviour
 
     public void Confirm()
     {
-        PlayerPrefs.SetString("LanguagePreference", selectedLangCode);
+        PlayerPrefs.SetString("LanguagePreference", selectedLangCode); // aggiorna anche la flag di selezione
         Destroy(SingletonLocalizationManager.instance);
         SceneManager.LoadScene("MainMenu");
     }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -17,7 +18,6 @@ public class IAPStoreManager : MonoBehaviour
 
     void Start()
     {
-        /*
         if (Application.platform != RuntimePlatform.Android && Application.platform != RuntimePlatform.IPhonePlayer)
         {
             Debug.Log("No Android NOR iPhone");
@@ -25,7 +25,6 @@ public class IAPStoreManager : MonoBehaviour
             gameObject.SetActive(false);
             return;
         }
-        */
 
         InitialiseStore();
     }
@@ -124,6 +123,16 @@ public class IAPStoreManager : MonoBehaviour
         dvi.isDemo = isDemo;
         dvi.UpdateDemoAndFullVersionFlags();
         sbpm.UpdateButtonGFX(); 
+        if (isDemo)
+        {
+            StartCoroutine(FetchPurchasesWithDelay());
+        }
+    }
+
+    IEnumerator FetchPurchasesWithDelay()
+    {
+        yield return new WaitForSeconds(1);
+        storeController.FetchPurchases();
     }
 
     private void OnPurchasesFetchFailed(PurchasesFetchFailureDescription failure)
