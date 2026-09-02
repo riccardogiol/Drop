@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -353,6 +352,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Yvalue: 230
   Xvalue: 312
+  evaluateSafeAreaTop: 0
+  extraTopDiffWithSafeArea: 0
+  evaluateSafeAreaLeft: 0
+  extraLeftDiffWithSafeArea: 0
 --- !u!1 &283618069
 GameObject:
   m_ObjectHideFlags: 0
@@ -625,6 +628,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Yvalue: 95
   Xvalue: -95
+  evaluateSafeAreaTop: 0
+  extraTopDiffWithSafeArea: 0
+  evaluateSafeAreaLeft: 0
+  extraLeftDiffWithSafeArea: 0
 --- !u!1 &526195412
 GameObject:
   m_ObjectHideFlags: 0
@@ -701,6 +708,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -882,6 +890,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Yvalue: 0
   Xvalue: 95
+  evaluateSafeAreaTop: 0
+  extraTopDiffWithSafeArea: 0
+  evaluateSafeAreaLeft: 0
+  extraLeftDiffWithSafeArea: 0
 --- !u!1 &649173231
 GameObject:
   m_ObjectHideFlags: 0
@@ -1822,6 +1834,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Yvalue: 265
   Xvalue: 0
+  evaluateSafeAreaTop: 0
+  extraTopDiffWithSafeArea: 0
+  evaluateSafeAreaLeft: 0
+  extraLeftDiffWithSafeArea: 0
 --- !u!1 &1137951308
 GameObject:
   m_ObjectHideFlags: 0
@@ -2137,7 +2153,7 @@ Animator:
   m_GameObject: {fileID: 1278403566}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 88e2ecc3d16ac428186dac59815e765b, type: 2}
+  m_Controller: {fileID: 9100000, guid: bfb7393cf81294203a4f934402668c09, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2163,6 +2179,7 @@ MonoBehaviour:
   speed: 1
   scaleX: 0
   scaleY: 10
+  timeInvariant: 0
 --- !u!114 &1278403570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2448,6 +2465,7 @@ MonoBehaviour:
   speed: 1
   scaleX: 0
   scaleY: 10
+  timeInvariant: 0
 --- !u!95 &1372702320
 Animator:
   serializedVersion: 5
@@ -2569,6 +2587,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Yvalue: -30
   Xvalue: -115
+  evaluateSafeAreaTop: 0
+  extraTopDiffWithSafeArea: 0
+  evaluateSafeAreaLeft: 0
+  extraLeftDiffWithSafeArea: 0
 --- !u!114 &1613585696
 MonoBehaviour:
   m_ObjectHideFlags: 0
