@@ -5,9 +5,12 @@ using UnityEngine.SceneManagement;
 using Unity.Services.Analytics;
 using Cinemachine;
 using Newtonsoft.Json.Linq;
+using OVR;
+using OVR.Data;
 
 public class StageManager : MonoBehaviour
 {
+    public OdorAsset odorAssetTest;
     public int currentLvl = 1;
     public int currentStage = 1;
     public string stageMode = "puzzle";
@@ -144,6 +147,8 @@ public class StageManager : MonoBehaviour
 
     IEnumerator WinningScene(bool waterTiles, float waitSeconds)
     {
+        bool dispatched = ConnectionManager.instance.PlayOdorNormalized(odorAssetTest, 1.0f);
+        Debug.Log("Odor dispatched: " + dispatched);
         eagleEyeMode.Exit();
         yield return new WaitForSeconds(0.5f);
         if (gameOver)
