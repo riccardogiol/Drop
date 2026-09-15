@@ -9901,6 +9901,7 @@ GameObject:
   - component: {fileID: 2811797860454942391}
   - component: {fileID: 6148008851724625910}
   - component: {fileID: 1750702751571139860}
+  - component: {fileID: 4418138480093349030}
   m_Layer: 6
   m_Name: Sparkler
   m_TagString: DecorationNoFire
@@ -10067,6 +10068,47 @@ MonoBehaviour:
   chasingMovement: {fileID: 0}
   patrolIcon: {fileID: 0}
   chasingIcon: {fileID: 0}
+--- !u!114 &4418138480093349030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5199020348406506345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bb5d6e25514c1a489a64e3afcf139b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  odorAsset: {fileID: 11400000, guid: 1b803fb9dc3c9aa4db611d00c13c4289, type: 2}
+  _intensity: 0.8
+  Offset: {x: 0, y: 0, z: 0}
+  _innerRadius: 1
+  _radialScalar:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: -1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _outerRadius: 2
 --- !u!1 &6124713988048170627
 GameObject:
   m_ObjectHideFlags: 0

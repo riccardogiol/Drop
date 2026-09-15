@@ -5144,6 +5144,7 @@ GameObject:
   - component: {fileID: 2749142577395328245}
   - component: {fileID: 8878527354179011598}
   - component: {fileID: 8236179580675532596}
+  - component: {fileID: 1518645133570771986}
   m_Layer: 6
   m_Name: RechSparkler
   m_TagString: DecorationNoFire
@@ -5248,6 +5249,7 @@ MonoBehaviour:
   waterSparklesParticles: {fileID: 2749142577460998223}
   heroRechargeArea: {fileID: 1016839615510169143}
   energyIndicator: {fileID: 8878527354179011598}
+  odorantEmitter: {fileID: 1518645133570771986}
 --- !u!114 &8878527354179011598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5287,6 +5289,47 @@ MonoBehaviour:
   soundName: SpringSound
   timer: 0.3
   playOnStart: 0
+--- !u!114 &1518645133570771986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2749142577395328244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bb5d6e25514c1a489a64e3afcf139b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  odorAsset: {fileID: 11400000, guid: 1b803fb9dc3c9aa4db611d00c13c4289, type: 2}
+  _intensity: 0.8
+  Offset: {x: 0, y: 0, z: 0}
+  _innerRadius: 1
+  _radialScalar:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: -1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _outerRadius: 2
 --- !u!1 &2749142577460998224
 GameObject:
   m_ObjectHideFlags: 0

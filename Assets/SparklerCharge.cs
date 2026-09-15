@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using OVR.Components;
 
 public class SparklerCharge : MonoBehaviour
 {
@@ -26,6 +27,8 @@ public class SparklerCharge : MonoBehaviour
     public EnergyIndicator energyIndicator;
     float countdownLabel = 0;
 
+    public Odorant odorantEmitter;
+
 
     void Awake()
     {
@@ -38,6 +41,8 @@ public class SparklerCharge : MonoBehaviour
         {
             sparklerWave.enabled = false;
             heroRechargeArea.SetActive(false);
+            if (odorantEmitter != null)
+                odorantEmitter.enabled = false;
         }
         if (connectedToRiver)
         {
@@ -87,6 +92,8 @@ public class SparklerCharge : MonoBehaviour
             sparklerWave.enabled = true;
             heroRechargeArea.SetActive(true);
             waterSparklesParticles.Play();
+            if (odorantEmitter != null)
+                odorantEmitter.enabled = true;
             if (connectedToRiver)
             {
                 sparklerWave.TriggerWave(true);

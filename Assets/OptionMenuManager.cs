@@ -1,3 +1,4 @@
+using OVR;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,6 +6,10 @@ public class OptionMenuManager : MonoBehaviour
 {
     public Slider musicSlider;
     public Slider soundSlider;
+
+    public Text omaraConnectedText;
+
+    bool omaraConnected = false;
 
     void Start()
     {
@@ -63,5 +68,36 @@ public class OptionMenuManager : MonoBehaviour
             auxTrans.GetComponent<Text>().text = localizedText;
         }
         auxTrans.GetComponent<FitBoxText>().Resize();
+    }
+
+    public void TryConnectOmara()
+    {
+        if(ConnectionManager.instance == null)
+        {
+            Debug.Log("No Omara Connection Manager on the scene");
+            return;
+        }
+        OmaraBLEConnection obc = ConnectionManager.instance.gameObject.GetComponent<OmaraBLEConnection>();
+        if (obc != null)
+        {
+            obc.TryConnect();
+        }
+    }
+
+    void Update()
+    {
+        if (ConnectionManager.instance != null)
+        {
+            if (ConnectionManager.instance.isConnected && !omaraConnected)
+            {
+                omaraConnected = true;
+                omaraConnectedText.text = "OMARA CONNECTED";
+            } else if(!ConnectionManager.instance.isConnected && omaraConnected)
+            {
+                omaraConnected = false;
+                omaraConnectedText.text = "OMARA NOT CONNECTED";
+            }
+            
+        }
     }
 }

@@ -1,6 +1,9 @@
 using System.Collections;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
+using OVR;
+using OVR.Data;
 
 public class RainManager : MonoBehaviour
 {
@@ -29,6 +32,19 @@ public class RainManager : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("Thunder");
             FindObjectOfType<AudioManager>().Play("RainSound");
             StartCoroutine(FlashPlay());
+            try
+            {
+                OdorAsset odorA = Resources.Load<OdorAsset>("Odors/Petrichor");
+                if (odorA != null && ConnectionManager.instance.isConnected)
+                {
+                    bool dispatched = ConnectionManager.instance.PlayOdorNormalized(odorA, 1.0f);
+                    Debug.Log("Odor dispatched: " + dispatched);
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.LogWarning("Exception for Odorant Feature: " + e);
+            }
             if (win) 
                 playgroundManager.SetGreenDecorations();
             if (waterTiles)
@@ -57,7 +73,7 @@ public class RainManager : MonoBehaviour
         bool isOnPlayground;
         do
         {
-            raindropPos = new Vector3Int(Random.Range(0, maxX), Random.Range(0, maxY), 0);
+            raindropPos = new Vector3Int(UnityEngine.Random.Range(0, maxX), UnityEngine.Random.Range(0, maxY), 0);
             Vector3 cellCenter = playgroundManager.GetCellCenter(raindropPos);
             isOnPlayground = playgroundManager.IsOnPlayground(cellCenter);
         }while(!isOnPlayground);
@@ -68,7 +84,7 @@ public class RainManager : MonoBehaviour
     {
         for (int j = 0; j < maxY; j ++)
             for (int i = 0; i < maxX; i ++)
-                if(Random.value < 0.15)
+                if(UnityEngine.Random.value < 0.15)
                     playgroundManager.WaterCell(new Vector3Int(i, j));
     }
 

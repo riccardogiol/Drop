@@ -10,7 +10,6 @@ using OVR.Data;
 
 public class StageManager : MonoBehaviour
 {
-    public OdorAsset odorAssetTest;
     public int currentLvl = 1;
     public int currentStage = 1;
     public string stageMode = "puzzle";
@@ -147,8 +146,23 @@ public class StageManager : MonoBehaviour
 
     IEnumerator WinningScene(bool waterTiles, float waitSeconds)
     {
-        bool dispatched = ConnectionManager.instance.PlayOdorNormalized(odorAssetTest, 1.0f);
-        Debug.Log("Odor dispatched: " + dispatched);
+        try
+        {
+            OdorAsset odorA;
+            if (UnityEngine.Random.value > 0.5f)
+                odorA = Resources.Load<OdorAsset>("Odors/Evergreen");
+            else
+                odorA = Resources.Load<OdorAsset>("Odors/Timber");
+            if (odorA != null && ConnectionManager.instance.isConnected)
+            {
+                bool dispatched = ConnectionManager.instance.PlayOdorNormalized(odorA, 1.0f);
+                Debug.Log("Odor dispatched: " + dispatched);
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogWarning("Exception for Odorant Feature: " + e);
+        }
         eagleEyeMode.Exit();
         yield return new WaitForSeconds(0.5f);
         if (gameOver)
@@ -286,6 +300,19 @@ public class StageManager : MonoBehaviour
 
     IEnumerator EvaporatingScene(String deadCode)
     {
+        try
+        {
+            OdorAsset odorA = Resources.Load<OdorAsset>("Odors/Smoky");
+            if (odorA != null && ConnectionManager.instance.isConnected)
+            {
+                bool dispatched = ConnectionManager.instance.PlayOdorNormalized(odorA, 1.0f);
+                Debug.Log("Odor dispatched: " + dispatched);
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogWarning("Exception for Odorant Feature: " + e);
+        }
         eagleEyeMode.Exit();
         menusManager.SetIsPause(true);
         if (playerMovementPath != null)

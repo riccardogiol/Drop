@@ -154,6 +154,156 @@ AudioLowPassFilter:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &5509525010549625611
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1192643892009521373}
+  - component: {fileID: 7263611825349814113}
+  - component: {fileID: 8413417699549676079}
+  m_Layer: 0
+  m_Name: OmaraConnectionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1192643892009521373
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5509525010549625611}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6553719475120922810}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7263611825349814113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5509525010549625611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f650040ae18f4f4bbeb713cdfebe154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DontDestroyOnLoad: 1
+  OnBLEConnected:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBLEDisconnected:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBLEInitError:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBLECompanionPairingFailed:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBLEConnectionAttemptFailed:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBLEAvailabilityUnavailable:
+    m_PersistentCalls:
+      m_Calls: []
+  OnSerialAutoConnectFailed:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBLEInit:
+    m_PersistentCalls:
+      m_Calls: []
+  ONBLEStartScan:
+    m_PersistentCalls:
+      m_Calls: []
+  OnNewDeviceFound:
+    m_PersistentCalls:
+      m_Calls: []
+  HandleBLEOnGlobalConnect:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeviceReadyStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBatteryPercentChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  AutoPreferCompanionBridge: 1
+  EnableCompanionBridgeReconnect: 1
+  CompanionBridgeUrl: ws://127.0.0.1:8080
+  CompanionBridgePairingToken: 
+  CompanionBridgeConnectTimeoutSeconds: 1.5
+  CompanionBridgeReconnectInitialDelaySeconds: 0.5
+  CompanionBridgeReconnectMaxDelaySeconds: 8
+  CompanionBridgeMaxReconnectAttempts: 3
+  activeTransportMode: 0
+  OnCompanionBridgeConnected:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCompanionBridgeDisconnected:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCompanionBridgeUnavailable:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCompanionBridgeFallbackToNative:
+    m_PersistentCalls:
+      m_Calls: []
+  OnActiveTransportChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  PluginLogLevel: 2
+  PluginLogCategories: 63
+  connectedScreen: {fileID: 0}
+  connectionUI: {fileID: 0}
+  connectionType: 
+  deviceState: 0
+  bleStyle: 0
+  bIsDeviceReady: 1
+  bIsDeviceReadyLocal: 1
+  bIsSubbedToReadyState: 0
+  isConnected: 0
+  activeDeviceName: 
+  OdorAssetsToUpload: []
+  deviceHolder: {fileID: 0}
+  EnableSerial: 0
+  SerialAutoConnect: 0
+  SerialProbeAllPortsOnAutoConnect: 0
+  SerialDebugLogging: 0
+  SerialRawBufferLogging: 0
+  SerialRawFileLogging: 0
+  SerialLivenessEnabled: 1
+  SerialNoDataGraceMs: 3000
+  SerialProbeOnSilence: 1
+  SerialProbeTimeoutMs: 3000
+  SerialMaxConsecutiveProbeFailures: 2
+  SerialAllowNeverTimeout: 0
+  SerialRevalidateAfterStall: 1
+  SerialStallThresholdMs: 1000
+  ION_Sub_ReadyStateCharacteristic: 6e400005-b5a3-f393-e0a9-e50e24dcca9e
+--- !u!114 &8413417699549676079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5509525010549625611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffc566aebf84246bc846e2d776d6213e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6553719475120922808
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,6 +335,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8380935809409965932}
+  - {fileID: 1192643892009521373}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

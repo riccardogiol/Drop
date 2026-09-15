@@ -212,6 +212,7 @@ GameObject:
   - component: {fileID: 5831071956751903884}
   - component: {fileID: -7484672332335916633}
   - component: {fileID: 6607746460200817703}
+  - component: {fileID: 4428701292278067979}
   m_Layer: 0
   m_Name: Butterfly
   m_TagString: Insect
@@ -267,6 +268,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   colorAdjustmentMaterial: {fileID: 0}
   bloomIntensity: 0
+  odorantEmitter: {fileID: 4428701292278067979}
 --- !u!114 &-7484672332335916633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,6 +304,47 @@ MonoBehaviour:
   onChangeAspect: 1
   timer: 0.3
   play: 0
+--- !u!114 &4428701292278067979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5831071956751903875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bb5d6e25514c1a489a64e3afcf139b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  odorAsset: {fileID: 11400000, guid: dad2b47df7d1d3c44ab900bc36554fb9, type: 2}
+  _intensity: 0.8
+  Offset: {x: 0, y: 0, z: 0}
+  _innerRadius: 1
+  _radialScalar:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: -1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _outerRadius: 2
 --- !u!1 &8235927250906596351
 GameObject:
   m_ObjectHideFlags: 0

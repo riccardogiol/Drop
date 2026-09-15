@@ -627,54 +627,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a28b45a62e9f6470da88cc37f1af80c6, type: 3}
---- !u!1 &776805828 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 351608897783991198, guid: 3ebeaf7f56b23485bbeed257861f6e4b,
-    type: 3}
-  m_PrefabInstance: {fileID: 279915753}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &776805839
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 776805828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d101ee478fce93c4690aede61f9732a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  odorAsset: {fileID: 11400000, guid: 182f4e098346d3348957f1ab525aa452, type: 2}
-  _intensity: 1
-  Offset: {x: 0, y: 0, z: 0}
-  _boxSize: {x: 3, y: 3, z: 2}
-  _useTransformRotation: 0
-  _innerSizeRatio: 1
-  _falloffCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: -1
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: -1
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!114 &816872895 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4617294187047221967, guid: 7d19396bf7baf4454a1ea3fcd2ae69ab,
@@ -827,7 +779,7 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1207991585}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -984,8 +936,7 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4035631993216704086, guid: 3f422914225544c0481e1f2cbf09cc96, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f422914225544c0481e1f2cbf09cc96, type: 3}
 --- !u!4 &884353090 stripped
 Transform:
@@ -1162,6 +1113,16 @@ PrefabInstance:
         type: 3}
       propertyPath: spawnSpot.y
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4594434882770033376, guid: 9c62499f7c5e24ec29ded221f704dc26,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4594434882770033376, guid: 9c62499f7c5e24ec29ded221f704dc26,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.95
       objectReference: {fileID: 0}
     - target: {fileID: 4965221438719353359, guid: 9c62499f7c5e24ec29ded221f704dc26,
         type: 3}
@@ -1513,7 +1474,7 @@ PrefabInstance:
     - target: {fileID: 4731850025182448036, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5177676949283198564, guid: c7b202ae4dba84871811aa7c44bc43e3,
         type: 3}
@@ -1684,101 +1645,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1207991581}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1295657465 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 351608897783991198, guid: 3ebeaf7f56b23485bbeed257861f6e4b,
-    type: 3}
-  m_PrefabInstance: {fileID: 973179440}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1295657476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1295657465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bb5d6e25514c1a489a64e3afcf139b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  odorAsset: {fileID: 11400000, guid: 182f4e098346d3348957f1ab525aa452, type: 2}
-  _intensity: 1
-  Offset: {x: 0, y: 0, z: 0}
-  _innerRadius: 1
-  _radialScalar:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: -1
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: -1
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  _outerRadius: 2
---- !u!1 &1343859883 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5831071956751903875, guid: 9c62499f7c5e24ec29ded221f704dc26,
-    type: 3}
-  m_PrefabInstance: {fileID: 1107224323}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1343859888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1343859883}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d101ee478fce93c4690aede61f9732a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  odorAsset: {fileID: 11400000, guid: dad2b47df7d1d3c44ab900bc36554fb9, type: 2}
-  _intensity: 1
-  Offset: {x: 0, y: 0, z: 0}
-  _boxSize: {x: 3, y: 3, z: 2}
-  _useTransformRotation: 0
-  _innerSizeRatio: 1
-  _falloffCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: -1
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: -1
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1001 &1655637056
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2046,190 +1912,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1896498978
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1896498979}
-  - component: {fileID: 1896498983}
-  - component: {fileID: 1896498982}
-  - component: {fileID: 1896498981}
-  - component: {fileID: 1896498980}
-  m_Layer: 0
-  m_Name: OdorCollector
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1896498979
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1896498978}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 884353090}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1896498980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1896498978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cbda2bb4a67547899d1ebba0120d191, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1896498981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1896498978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa2ff57b563ef42438ae4a03f5a390c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1896498982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1896498978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f650040ae18f4f4bbeb713cdfebe154, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DontDestroyOnLoad: 0
-  OnBLEConnected:
-    m_PersistentCalls:
-      m_Calls: []
-  OnBLEDisconnected:
-    m_PersistentCalls:
-      m_Calls: []
-  OnBLEInitError:
-    m_PersistentCalls:
-      m_Calls: []
-  OnBLECompanionPairingFailed:
-    m_PersistentCalls:
-      m_Calls: []
-  OnBLEConnectionAttemptFailed:
-    m_PersistentCalls:
-      m_Calls: []
-  OnBLEAvailabilityUnavailable:
-    m_PersistentCalls:
-      m_Calls: []
-  OnSerialAutoConnectFailed:
-    m_PersistentCalls:
-      m_Calls: []
-  OnBLEInit:
-    m_PersistentCalls:
-      m_Calls: []
-  ONBLEStartScan:
-    m_PersistentCalls:
-      m_Calls: []
-  OnNewDeviceFound:
-    m_PersistentCalls:
-      m_Calls: []
-  HandleBLEOnGlobalConnect:
-    m_PersistentCalls:
-      m_Calls: []
-  OnDeviceReadyStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  OnBatteryPercentChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  AutoPreferCompanionBridge: 1
-  EnableCompanionBridgeReconnect: 1
-  CompanionBridgeUrl: ws://127.0.0.1:8080
-  CompanionBridgePairingToken: 
-  CompanionBridgeConnectTimeoutSeconds: 1.5
-  CompanionBridgeReconnectInitialDelaySeconds: 0.5
-  CompanionBridgeReconnectMaxDelaySeconds: 8
-  CompanionBridgeMaxReconnectAttempts: 3
-  activeTransportMode: 0
-  OnCompanionBridgeConnected:
-    m_PersistentCalls:
-      m_Calls: []
-  OnCompanionBridgeDisconnected:
-    m_PersistentCalls:
-      m_Calls: []
-  OnCompanionBridgeUnavailable:
-    m_PersistentCalls:
-      m_Calls: []
-  OnCompanionBridgeFallbackToNative:
-    m_PersistentCalls:
-      m_Calls: []
-  OnActiveTransportChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  PluginLogLevel: 2
-  PluginLogCategories: 63
-  connectedScreen: {fileID: 0}
-  connectionUI: {fileID: 0}
-  connectionType: 
-  deviceState: 0
-  bleStyle: 0
-  bIsDeviceReady: 1
-  bIsDeviceReadyLocal: 1
-  bIsSubbedToReadyState: 0
-  isConnected: 0
-  activeDeviceName: 
-  OdorAssetsToUpload: []
-  deviceHolder: {fileID: 0}
-  EnableSerial: 0
-  SerialAutoConnect: 0
-  SerialProbeAllPortsOnAutoConnect: 0
-  SerialDebugLogging: 0
-  SerialRawBufferLogging: 0
-  SerialRawFileLogging: 0
-  SerialLivenessEnabled: 1
-  SerialNoDataGraceMs: 3000
-  SerialProbeOnSilence: 1
-  SerialProbeTimeoutMs: 3000
-  SerialMaxConsecutiveProbeFailures: 2
-  SerialAllowNeverTimeout: 0
-  SerialRevalidateAfterStall: 1
-  SerialStallThresholdMs: 1000
-  ION_Sub_ReadyStateCharacteristic: 6e400005-b5a3-f393-e0a9-e50e24dcca9e
---- !u!114 &1896498983
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1896498978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 490338b239e2820428180c13cc3496fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnPlayOdorWhenDeviceNotReady:
-    m_PersistentCalls:
-      m_Calls: []
-  OvrDeviceHostname: OVRv0_2_0
-  OdorantLogPrefab: {fileID: 1538533668946840, guid: bd4cfb2d55532b240970cfa79c8f16b4,
-    type: 3}
-  _offset: {x: 0, y: 0.5, z: 0}
-  isInDebugMode: 0
 --- !u!1 &2098056893
 GameObject:
   m_ObjectHideFlags: 0
@@ -2275,7 +1957,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d66b788dec5d410684f6008a48b2fb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  odorAssetTest: {fileID: 11400000, guid: 30d8fb1c44133194e8138d51550bdc83, type: 2}
   currentLvl: 2
   currentStage: 1
   stageMode: puzzle

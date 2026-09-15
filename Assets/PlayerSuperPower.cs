@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using OVR;
+using OVR.Data;
 
 public class PlayerSuperPower : MonoBehaviour
 {
@@ -35,6 +37,8 @@ public class PlayerSuperPower : MonoBehaviour
     public GameObject waterBombCloudPrefab;
 
     bool gamepadInput= false;
+
+    float lastValue;
     void Awake()
     {
         if(PlayerPrefs.GetInt(unlockingCode1, 0) == 0)
@@ -98,6 +102,7 @@ public class PlayerSuperPower : MonoBehaviour
             return;
         }
         superState = true;
+        lastValue = currentValue;
         barManager.SetButtonInteractable(false);
         EnterSuperState();
     }
@@ -108,6 +113,23 @@ public class PlayerSuperPower : MonoBehaviour
         {
             currentValue -= Time.deltaTime/countdownRatio;
             barManager.UpdateSlider(currentValue);
+            if (currentValue <= lastValue - 1.0f)
+            {
+                lastValue = currentValue;
+                try
+                {
+                    OdorAsset odorA = Resources.Load<OdorAsset>("Odors/Petrichor");
+                    if (odorA != null && ConnectionManager.instance.isConnected)
+                    {
+                        bool dispatched = ConnectionManager.instance.PlayOdorNormalized(odorA, 1.0f);
+                        Debug.Log("Odor dispatched: " + dispatched);
+                    }
+                }
+                catch (Exception e)
+                {
+                    Debug.LogWarning("Exception for Odorant Feature: " + e);
+                }
+            }
             if (currentValue <= countdownThrshld)
             {
                 countdownThrshld -= 0.35f;

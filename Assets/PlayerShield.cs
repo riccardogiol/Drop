@@ -1,5 +1,7 @@
 using System;
 using UnityEngine;
+using OVR;
+using OVR.Data;
 
 public class PlayerShield : MonoBehaviour
 {
@@ -22,6 +24,8 @@ public class PlayerShield : MonoBehaviour
     // TODO add some code to make it last loger
     readonly string unlockingCode1 = "ExtraTimeShieldUnlocked";
 
+    float lastValue;
+
     void Awake()
     {
         healthBar = FindFirstObjectByType<HealthBar>();
@@ -39,6 +43,23 @@ public class PlayerShield : MonoBehaviour
             countdown -= Time.deltaTime;
             healthBar.SetShield(countdown / timer);
             // togliere? modificare? iun ogni caso mettere condizione se é minore di 1 ma maggiore di zero nel caso prenda danni e scatti da +2 a zero
+            if (countdown <= lastValue - 1.0f)
+            {
+                lastValue = countdown;
+                try
+                {
+                    OdorAsset odorA = Resources.Load<OdorAsset>("Odors/Petrichor");
+                    if (odorA != null && ConnectionManager.instance.isConnected)
+                    {
+                        bool dispatched = ConnectionManager.instance.PlayOdorNormalized(odorA, 1.0f);
+                        Debug.Log("Odor dispatched: " + dispatched);
+                    }
+                }
+                catch (Exception e)
+                {
+                    Debug.LogWarning("Exception for Odorant Feature: " + e);
+                }
+            }
             if (countdown <= 1 && !graphicalCountdownPlayed)
             {
                 flamesCountdown.PlayCountdown(1.0f, 3);
@@ -64,6 +85,7 @@ public class PlayerShield : MonoBehaviour
     {
         countdown = timer;
         isActive = true;
+        lastValue = timer;
         FindObjectOfType<AudioManager>().Play("IceShield", transform.position);
         shieldGFX.SetBool("isActive", true);
         graphicalCountdownPlayed = false;

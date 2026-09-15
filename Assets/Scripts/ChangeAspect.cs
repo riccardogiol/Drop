@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using OVR.Components;
 
 public class ChangeAspect : MonoBehaviour
 {
@@ -29,6 +30,8 @@ public class ChangeAspect : MonoBehaviour
 
     public float bloomIntensity = 0f;
 
+    public Odorant odorantEmitter;
+
     void Awake()
     {
         if (spriteRenderer == null)
@@ -44,6 +47,14 @@ public class ChangeAspect : MonoBehaviour
                 spriteRenderer.sprite = burntSprite;
             else
                 spriteRenderer.sprite = greenSprite;
+        }
+
+        if (odorantEmitter != null)
+        {
+            if (isBurnt)
+                odorantEmitter.enabled = false;
+            else
+                odorantEmitter.enabled = true;
         }
 
         playgroundManager = FindFirstObjectByType<PlaygroundManager>();
@@ -115,6 +126,9 @@ public class ChangeAspect : MonoBehaviour
             foreach(Vector3 point in touchingCells)
                 playgroundManager.SetWalkCell(point, true);
         }
+
+        if (odorantEmitter != null)
+            odorantEmitter.enabled = true;
     }
 
     public void SetBurntSprite(bool playLeaves = true)
@@ -134,6 +148,9 @@ public class ChangeAspect : MonoBehaviour
             foreach(Vector3 point in touchingCells)
                 playgroundManager.SetWalkCell(point, false);
         }
+        
+        if (odorantEmitter != null)
+            odorantEmitter.enabled = false;
     }
 
     public void FlipX()
